@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 48" role="img" aria-label="Chile flag">
+  <defs><clipPath id="r"><rect width="64" height="48" rx="8"/></clipPath></defs>
+  <g clip-path="url(#r)">
+    <rect width="64" height="48" fill="#fff"/>
+    <rect y="24" width="64" height="24" fill="#d52b1e"/>
+    <rect width="24" height="24" fill="#0039a6"/>
+    <path d="M12 5.6l2.12 6.52h6.86l-5.55 4.03 2.12 6.52L12 18.64l-5.55 4.03 2.12-6.52-5.55-4.03h6.86L12 5.6z" fill="#fff"/>
+  </g>
+</svg>
