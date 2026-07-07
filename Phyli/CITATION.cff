@@ -1,0 +1,13 @@
+cff-version: 1.2.0
+message: "If you use Phyli, please cite this software release and acknowledge the original 2006 work by Mardones Aguilar and Villalobos Cid."
+title: "Phyli: web application for phylogenetic tree interaction and visualisation"
+authors:
+  - family-names: "Mardones Aguilar"
+    given-names: "Rodrigo I. N."
+  - family-names: "Villalobos Cid"
+    given-names: "Manuel J."
+  - family-names: "Kessi-Pérez"
+    given-names: "Eduardo"
+year: 2026
+url: "https://mvillalobosc.diinf.usach.cl/Phyli/"
+license: "CC-BY-SA-4.0"
