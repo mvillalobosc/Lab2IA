@@ -714,13 +714,14 @@ Phyli recognises the original and continuing work of:
 
 | Author | Email |
 |---|---|
-| Rodrigo Mardones Aguilar | [rodrigo.mardones.a@usach.cl](mailto:rodrigo.mardones.a@usach.cl) |
+| Rodrigo Mardones-Aguilar | [rodrigo.mardones.a@usach.cl](mailto:rodrigo.mardones.a@usach.cl) |
 | Eduardo Kessi-Pérez | [eduardo.kessi@usach.cl](mailto:eduardo.kessi@usach.cl]) |
-| Manuel Villalobos Cid | [manuel.villalobos.c@usach.cl](mailto:manuel.villalobos.c@usach.cl) |
+| Manuel Villalobos-Cid | [manuel.villalobos.c@usach.cl](mailto:manuel.villalobos.c@usach.cl) |
 
 Institutional context: Universidad de Santiago de Chile, Facultad de Ingeniería, Departamento de Ingeniería Informática.
 
 Development note: this repository was built with AI-assisted support using ChatGPT. ChatGPT was used to help organise the documentation, improve the technical explanations, refine the multilingual interface, and prepare the repository structure for GitHub. All final decisions, authorship, validation, and content review were carried out by the authors.
+
 ---
 
 # Español
@@ -1406,9 +1407,9 @@ Phyli reconoce el trabajo original y la continuidad de:
 
 | Autor | Email |
 |---|---|
-| Rodrigo Mardones Aguilar | [rodrigo.mardones.a@usach.cl](mailto:rodrigo.mardones.a@usach.cl) |
+| Rodrigo Mardones-Aguilar | [rodrigo.mardones.a@usach.cl](mailto:rodrigo.mardones.a@usach.cl) |
 | Eduardo Kessi-Pérez | [eduardo.kessi@usach.cl](mailto:eduardo.kessi@usach.cl]) |
-| Manuel Villalobos Cid | [manuel.villalobos.c@usach.cl](mailto:manuel.villalobos.c@usach.cl) |
+| Manuel Villalobos-Cid | [manuel.villalobos.c@usach.cl](mailto:manuel.villalobos.c@usach.cl) |
 
 Contexto institucional: Universidad de Santiago de Chile, Facultad de Ingeniería, Departamento de Ingeniería Informática.
 
