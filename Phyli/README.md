@@ -1,6 +1,6 @@
-# Phily
+# Phyli
 
-**Phily** is a static, browser-based phylogenetic tree viewer for Newick files. It parses tree data directly in the browser, renders the result as SVG, supports rectangular and radial layouts, and exports publication-ready graphics without requiring a backend server.
+**Phyli** is a static, browser-based phylogenetic tree viewer for Newick files. It parses tree data directly in the browser, renders the result as SVG, supports rectangular and radial layouts, and exports publication-ready graphics without requiring a backend server.
 
 The current implementation is a self-contained `index.html` application with embedded CSS and JavaScript. It can be published as a GitHub Pages site, hosted on any static web server, or deployed under an Apache subdirectory with optional rewrite support.
 
@@ -13,7 +13,7 @@ The current implementation is a self-contained `index.html` application with emb
 
 > Interactive browser-based phylogenetic tree viewer for Newick files, with SVG rendering, radial and rectangular layouts, clade styling, export tools, and shareable URLs.
 
-Suggested repository name: `phily`  
+Suggested repository name: `Phyli`  
 Suggested topics: `phylogenetics`, `newick`, `bioinformatics`, `svg`, `javascript`, `github-pages`, `tree-viewer`
 
 ## Demo
@@ -24,10 +24,10 @@ After enabling GitHub Pages, the app will be available at:
 https://<github-user>.github.io/<repository-name>/
 ```
 
-For a repository named `phily`, the URL would usually be:
+For a repository named `Phyli`, the URL would usually be:
 
 ```text
-https://<github-user>.github.io/phily/
+https://<github-user>.github.io/Phyli/
 ```
 
 ## Main features
@@ -61,7 +61,7 @@ assets/screenshot-export.png
 Suggested Markdown once screenshots are available:
 
 ```md
-![Phily home screen](assets/screenshot-home.png)
+![Phyli home screen](assets/screenshot-home.png)
 ![Radial tree layout](assets/screenshot-radial.png)
 ```
 
@@ -70,8 +70,8 @@ Suggested Markdown once screenshots are available:
 Clone or download the repository and open `index.html` in a modern browser:
 
 ```bash
-git clone https://github.com/<github-user>/phily.git
-cd phily
+git clone https://github.com/<github-user>/Phyli.git
+cd Phyli
 ```
 
 Then open:
@@ -85,7 +85,7 @@ No package installation, build step, database, or server-side runtime is require
 ## Repository structure
 
 ```text
-phily/
+Phyli/
 ├── index.html              # Complete static application
 ├── 404.html                # Optional GitHub Pages fallback for path-like shared URLs
 ├── .htaccess               # Optional Apache rewrite rules for /Phyli/ deployments
@@ -97,13 +97,13 @@ phily/
     └── vertebrates.nwk     # Example vertebrate tree with branch lengths and support values
 ```
 
-The ZIP originally used the folder name `Phyli`, while the application interface and page title use `Phily`. For public release, use one spelling consistently. This documentation uses **Phily** because that is the name shown in the application.
+The ZIP originally used the folder name `Phyli`, while the application interface and page title use `Phyli`. For public release, use one spelling consistently. This documentation uses **Phyli** because that is the name shown in the application.
 
 ## Input formats
 
 ### Newick
 
-Phily reads standard Newick-like strings such as:
+Phyli reads standard Newick-like strings such as:
 
 ```newick
 (Cat:0.3,(Mouse:0.2,Human:0.2)[95]:0.1);
@@ -127,7 +127,7 @@ The app can reopen exported JSON projects. The internal project format stores th
 
 ```json
 {
-  "format": "phily-project",
+  "format": "Phyli-project",
   "version": 1,
   "name": "example.nwk",
   "view": {
@@ -159,18 +159,18 @@ The app also includes a compatibility path for older JSON objects that store a n
 
 ## URL interface
 
-Phily can load trees from the browser URL. This is useful for teaching, reproducible examples, and sharing figures.
+Phyli can load trees from the browser URL. This is useful for teaching, reproducible examples, and sharing figures.
 
 ### Plain Newick in the hash
 
 ```text
-https://<github-user>.github.io/phily/#nwk=(A:1,B:1);
+https://<github-user>.github.io/Phyli/#nwk=(A:1,B:1);
 ```
 
 ### Remote file
 
 ```text
-https://<github-user>.github.io/phily/#src=https://example.org/tree.nwk
+https://<github-user>.github.io/Phyli/#src=https://example.org/tree.nwk
 ```
 
 Remote files must be served through HTTP(S) and must allow browser access through CORS. When using GitHub-hosted tree files, use the raw file URL.
@@ -180,7 +180,7 @@ Remote files must be served through HTTP(S) and must allow browser access throug
 When the tree or visual configuration is too large for a readable URL, the app uses an LZ-based compressed payload:
 
 ```text
-https://<github-user>.github.io/phily/#z=<compressed-payload>
+https://<github-user>.github.io/Phyli/#z=<compressed-payload>
 ```
 
 Users normally do not need to build this URL manually. The **Share link** button creates it automatically.
@@ -208,7 +208,7 @@ GitHub Pages does not use `.htaccess`, so hash-based URLs are the safest option 
 
 ## Technical architecture
 
-Phily is organised around a simple client-side pipeline:
+Phyli is organised around a simple client-side pipeline:
 
 ```text
 Input file / URL / pasted text
@@ -290,7 +290,7 @@ The SVG is also used as the basis for SVG and PNG export.
 
 ### Interaction model
 
-Phily uses browser pointer and wheel events for pan, zoom, hover tooltips, and node selection. Internal nodes have invisible hit targets when visible node markers are disabled, so clades remain clickable.
+Phyli uses browser pointer and wheel events for pan, zoom, hover tooltips, and node selection. Internal nodes have invisible hit targets when visible node markers are disabled, so clades remain clickable.
 
 Keyboard shortcuts:
 
@@ -308,13 +308,13 @@ Keyboard shortcuts:
 | SVG | Publication figures, editing in vector tools | Preserves vector paths and text |
 | PNG | Slides, quick sharing, image-based documents | Exported at 2× resolution |
 | Newick | Reuse in phylogenetic software | Serialises the current tree |
-| JSON | Reopen the project in Phily | Stores Newick plus visual configuration |
+| JSON | Reopen the project in Phyli | Stores Newick plus visual configuration |
 
 ## Deployment
 
 ### Option A: GitHub Pages
 
-1. Create a repository, for example `phily`.
+1. Create a repository, for example `Phyli`.
 2. Upload the contents of this package to the repository root.
 3. Commit the files to the default branch, usually `main`.
 4. Go to **Settings → Pages**.
@@ -342,10 +342,10 @@ If you deploy under a different path, update:
 RewriteBase /Phyli/
 ```
 
-For example, if the app is deployed under `/phily/`, use:
+For example, if the app is deployed under `/Phyli/`, use:
 
 ```apache
-RewriteBase /phily/
+RewriteBase /Phyli/
 ```
 
 ### Option C: Any static server
@@ -364,7 +364,7 @@ http://localhost:8000/
 
 ## Browser compatibility
 
-Phily uses standard browser APIs:
+Phyli uses standard browser APIs:
 
 - SVG;
 - FileReader;
@@ -379,7 +379,7 @@ A current desktop browser is recommended for large trees.
 
 ## Privacy and data handling
 
-Phily runs in the browser. Local files selected by the user are read by the browser and are not uploaded to a server by this application. Remote URLs are fetched directly by the browser. Share links may encode the tree and visual configuration inside the URL, so do not share those links publicly if the tree data are private.
+Phyli runs in the browser. Local files selected by the user are read by the browser and are not uploaded to a server by this application. Remote URLs are fetched directly by the browser. Share links may encode the tree and visual configuration inside the URL, so do not share those links publicly if the tree data are private.
 
 ## Known limitations
 
