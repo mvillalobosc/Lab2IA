@@ -17,8 +17,10 @@
   --paper:#F4F5F7; --paper-2:#E9EBEF; --paper-edge:#D8DCE3;
   --ink:#2A2F36; --ink-soft:#4A515B; --ink-faint:#8A929C;
   --pine:#394049; --pine-2:#2f353d81; --pine-deep:#23272E; --pine-line:rgba(233,238,244,.12);
-  --moss:#00A499; --sap:#498BCA; --sap-dim:#3E79B4;
-  --oxide:#EA7600; --oxide-2:#F08C2A; --oxide-soft:#F4C79A;
+  --moss:#00A499; --moss-2:#39BFB6; --moss-soft:#9DD4D3;
+  --sap:#498BCA; --sap-dim:#3E79B4;
+  /* Interaction accent: USACH teal, used instead of orange for highlights and active controls. */
+  --oxide:#00A499; --oxide-2:#39BFB6; --oxide-soft:#9DD4D3;
   --signal:#498BCA; --signal-2:#5E9CD6;
   --sup-hi:#00A499; --sup-mid:#EAAA00; --sup-lo:#C8102E;
   --paper-shadow:0 1px 2px rgba(42,47,54,.06),0 10px 30px -12px rgba(42,47,54,.18);
@@ -64,7 +66,7 @@ input,select{font-family:inherit}
 .lang-btn{width:26px;height:26px;border-radius:999px;padding:3px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.10);background:rgba(255,255,255,.035);transition:transform .16s var(--fx),background .16s var(--fx),border-color .16s var(--fx),box-shadow .16s var(--fx);overflow:visible;position:relative;line-height:0}
 .lang-btn:hover{background:rgba(255,255,255,.11);border-color:rgba(255,255,255,.26);transform:translateY(-1px)}
 .lang-btn.on{background:rgba(73,139,202,.25);border-color:rgba(94,156,214,.85);box-shadow:0 0 0 3px rgba(94,156,214,.16),0 8px 18px -12px rgba(0,0,0,.65)}
-.lang-btn.on::after{content:"";position:absolute;left:50%;bottom:-5px;width:5px;height:5px;border-radius:50%;background:var(--oxide);transform:translateX(-50%);box-shadow:0 0 0 2px rgba(234,118,0,.18)}
+.lang-btn.on::after{content:"";position:absolute;left:50%;bottom:-5px;width:5px;height:5px;border-radius:50%;background:var(--oxide);transform:translateX(-50%);box-shadow:0 0 0 2px rgba(0,164,153,.18)}
 .flag-icon{width:19px;height:19px;display:block;border-radius:50%;overflow:hidden;box-shadow:0 0 0 1px rgba(255,255,255,.55),0 3px 8px -4px rgba(0,0,0,.85);background:#fff;flex:none}
 .lang-btn.on .flag-icon{box-shadow:0 0 0 2px #5E9CD6,0 0 0 4px rgba(94,156,214,.18),0 5px 12px -5px rgba(0,0,0,.85)}
 .sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
@@ -161,6 +163,23 @@ input,select{font-family:inherit}
 .root-row button:disabled,.root-midpoint:disabled{opacity:.45;cursor:not-allowed;filter:none}
 .root-midpoint{width:100%;margin-top:7px;display:flex;align-items:center;justify-content:center;gap:7px;background:#2F6F9F;border-color:#498BCA}
 .root-midpoint svg{width:15px;height:15px}
+.measure-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:10px;align-items:stretch}
+.measure-actions .root-midpoint,.measure-run,.measure-clear{margin-top:0;height:40px;width:100%;min-width:0;display:flex;align-items:center;justify-content:center;gap:7px;line-height:1;text-align:center}
+.measure-actions svg{flex:none;width:14px;height:14px}
+.measure-run{padding:0 9px;font-size:11.6px}
+.measure-clear{border-radius:9px;border:1px solid var(--pine-line);background:rgba(255,255,255,.05);color:#D9E1E9;font-weight:700;font-size:11.6px;padding:0 9px;white-space:nowrap;transition:.16s var(--fx)}
+@media (max-width:380px){.measure-actions{grid-template-columns:1fr}}
+.measure-clear:hover{background:rgba(255,255,255,.1);color:#fff}
+.measure-clear:disabled{opacity:.45;cursor:not-allowed;filter:none}
+.measure-result{margin-top:10px;padding:11px 12px;border-radius:10px;border:1px solid var(--pine-line);background:rgba(0,0,0,.18)}
+.measure-result[hidden]{display:none!important}
+.measure-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px 12px}
+.measure-grid small,.measure-distance span{display:block;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:#8EA0AE;font-weight:700;margin-bottom:3px}
+.measure-grid b{display:block;font-size:12.5px;color:#EDF1F5;word-break:break-word;line-height:1.35}
+.measure-distance{margin-top:10px;padding-top:10px;border-top:1px solid var(--pine-line)}
+.measure-distance b{font-family:var(--mono);font-size:16px;color:var(--oxide-2);margin-right:8px}
+.measure-distance small{font-size:11px;color:#9FB0BE}
+.measure-tog{margin-top:10px;padding-top:10px;border-top:1px solid rgba(255,255,255,.05)}
 .field>label .mini-q,.tog .lb .mini-q{display:inline-grid;vertical-align:middle;margin-left:6px;width:15px;height:15px;font-size:10px;line-height:1}
 .tog .lb .mini-q{position:relative;top:-1px}
 
@@ -178,6 +197,10 @@ input,select{font-family:inherit}
 
 .field{margin:11px 0}
 .field>label{display:block;font-size:11.5px;color:#AEBAC6;margin-bottom:6px;font-weight:500}
+.field>input[type=text]{width:100%;height:38px;border-radius:9px;border:1px solid var(--pine-line);background:rgba(0,0,0,.2);color:#EDF1F5;padding:0 11px;font-size:12.5px;transition:.16s var(--fx)}
+.field>input[type=text]::placeholder{color:#8492A0}
+.field>input[type=text]:focus{background:rgba(0,0,0,.32);border-color:var(--sap-dim)}
+.field>input[type=text]:disabled{opacity:.55;cursor:not-allowed}
 .seg{display:flex;gap:6px;flex-wrap:wrap}
 .seg.grid2{display:grid;grid-template-columns:1fr 1fr;gap:6px}
 .seg.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px}
@@ -297,7 +320,7 @@ input[type=range]:disabled{opacity:.4}
 .tool-group .tbtn:last-child{border-bottom:none;border-right:none}
 .tbtn:hover{background:var(--paper-2);color:var(--ink)}
 .tbtn:active{background:var(--paper-edge)}
-.tbtn.on{color:var(--oxide);background:rgba(181,101,29,.1)}
+.tbtn.on{color:var(--oxide);background:rgba(0,164,153,.12)}
 .tbtn svg{width:19px;height:19px}
 .tbtn[data-tip]::after{content:attr(data-tip);position:absolute;right:calc(100% + 9px);top:50%;transform:translateY(-50%);background:var(--ink);color:#F1F7F1;font-size:11px;font-weight:500;padding:5px 9px;border-radius:6px;white-space:nowrap;opacity:0;pointer-events:none;transition:.15s;font-family:var(--ui)}
 .tbtn:hover[data-tip]::after{opacity:1}
@@ -536,7 +559,7 @@ input[type=range]:disabled{opacity:.4}
     <div class="brand">
       <svg class="mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
         <path d="M24 44V26M24 26L11 15M24 26l13-11M11 15V7m0 8L4 9m7 6 7-5m19 5v-8m0 8 7-6m-7 6-7-5" stroke="#5E9CD6" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-        <circle cx="24" cy="45" r="2.6" fill="#EA7600"/><circle cx="11" cy="6" r="2.3" fill="#F7F9FB"/><circle cx="37" cy="6" r="2.3" fill="#F7F9FB"/>
+        <circle cx="24" cy="45" r="2.6" fill="#00A499"/><circle cx="11" cy="6" r="2.3" fill="#F7F9FB"/><circle cx="37" cy="6" r="2.3" fill="#F7F9FB"/>
         <circle cx="4" cy="8.5" r="1.8" fill="#00A499"/><circle cx="18" cy="9.5" r="1.8" fill="#00A499"/><circle cx="30" cy="9.5" r="1.8" fill="#00A499"/><circle cx="44" cy="8.5" r="1.8" fill="#00A499"/>
       </svg>
       <div>
@@ -679,6 +702,46 @@ input[type=range]:disabled{opacity:.4}
           </button>
           <div class="hint">La raíz se puede mover usando una punta como grupo externo o el punto medio entre las dos puntas más distantes.</div>
         </div>
+        </div></div>
+      </div>
+
+
+      <!-- DISTANCE -->
+      <div class="acc compact-acc" id="accDistance" data-locked="1">
+        <button class="acc-head" data-acc="accDistance" aria-expanded="false">
+          <svg class="bg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 7h2M17 17h2"/><circle cx="9" cy="7" r="2.5"/><circle cx="15" cy="17" r="2.5"/><path d="M11.3 8.9l2.4 6.2"/></svg>
+          <span class="acc-text"><span class="acc-title">Distancia entre taxones</span><small class="acc-summary">Dos puntas y su camino</small></span>
+          <span class="help-hint" data-help="distance" role="button" tabindex="0" aria-label="Ayuda: distancia entre taxones">?</span>
+          <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m9 6 6 6-6 6"/></svg>
+        </button>
+        <div class="acc-body"><div class="acc-inner">
+          <div class="field" style="margin-top:7px">
+            <label>Taxón A</label>
+            <input type="text" id="measureTipA" list="taxonList" placeholder="Primera punta…" autocomplete="off" disabled />
+          </div>
+          <div class="field">
+            <label>Taxón B</label>
+            <input type="text" id="measureTipB" list="taxonList" placeholder="Segunda punta…" autocomplete="off" disabled />
+          </div>
+          <div class="measure-actions">
+            <button type="button" class="root-midpoint measure-run" id="measureRun" disabled>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h4M16 12h4"/><circle cx="10" cy="12" r="2.5"/><circle cx="14" cy="12" r="2.5"/></svg>
+              Calcular distancia
+            </button>
+            <button type="button" class="measure-clear" id="measureClear" disabled><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg><span>Quitar marca</span></button>
+          </div>
+          <div class="tog measure-tog">
+            <div class="lb">Atenuar el resto del árbol <button type="button" class="help-hint mini-q" data-help="distanceDim" aria-label="Ayuda: atenuar árbol">?</button><small>Deja visibles el camino y los dos taxones seleccionados</small></div>
+            <label class="switch"><input type="checkbox" id="measureDim" checked disabled><span class="tr"></span></label>
+          </div>
+          <div class="measure-result" id="measureResult" hidden>
+            <div class="measure-grid">
+              <div><small>Taxón A</small><b id="measureTaxaA">—</b></div>
+              <div><small>Taxón B</small><b id="measureTaxaB">—</b></div>
+            </div>
+            <div class="measure-distance"><span>Distancia</span><b id="measureDistance">—</b><small id="measureUnit">—</small></div>
+          </div>
+          <div class="hint">Selecciona dos puntas para calcular la distancia sobre el árbol actual. Puedes resaltar el camino y luego limpiar la marca.</div>
         </div></div>
       </div>
 
@@ -847,9 +910,9 @@ input[type=range]:disabled{opacity:.4}
           <path class="hb" d="M290 158 V172 H360"/>
         </g>
         <g id="heroTips">
-          <circle cx="360" cy="32" r="4" fill="#EA7600"/><circle cx="360" cy="60" r="4" fill="#00A499"/>
+          <circle cx="360" cy="32" r="4" fill="#00A499"/><circle cx="360" cy="60" r="4" fill="#00A499"/>
           <circle cx="360" cy="88" r="4" fill="#498BCA"/><circle cx="360" cy="114" r="4" fill="#00A499"/>
-          <circle cx="360" cy="146" r="4" fill="#EA7600"/><circle cx="360" cy="172" r="4" fill="#498BCA"/>
+          <circle cx="360" cy="146" r="4" fill="#00A499"/><circle cx="360" cy="172" r="4" fill="#498BCA"/>
           <circle cx="290" cy="212" r="4" fill="#8C4799"/>
         </g>
       </svg>
@@ -902,7 +965,7 @@ input[type=range]:disabled{opacity:.4}
     <div class="legend">
       <div class="lg"><svg width="30" height="24" viewBox="0 0 30 24" fill="none" stroke="#394049" stroke-width="2"><path d="M3 5h6v14h18M9 5v7h10"/></svg><div class="lt"><b>Escalón / Curvo / Recto</b><small>Estilo de los codos entre ramas.</small></div></div>
       <div class="lg"><svg width="30" height="24" viewBox="0 0 30 24" fill="none" stroke="#394049" stroke-width="1.8"><circle cx="15" cy="12" r="3"/><path d="M15 9V3M15 21v-6M18 12h6M6 12h6"/></svg><div class="lt"><b>Radial</b><small>Distribuye el árbol en abanico; ajusta el ángulo.</small></div></div>
-      <div class="lg"><svg width="30" height="24" viewBox="0 0 30 24" fill="none" stroke="#EA7600" stroke-width="2"><path d="M3 6h5m-5 6h11m-11 6h7"/><path d="M26 4v16" stroke-dasharray="2 2"/></svg><div class="lt"><b>Filograma</b><small>Ramas proporcionales a la distancia (con barra de escala).</small></div></div>
+      <div class="lg"><svg width="30" height="24" viewBox="0 0 30 24" fill="none" stroke="#00A499" stroke-width="2"><path d="M3 6h5m-5 6h11m-11 6h7"/><path d="M26 4v16" stroke-dasharray="2 2"/></svg><div class="lt"><b>Filograma</b><small>Ramas proporcionales a la distancia (con barra de escala).</small></div></div>
       <div class="lg"><svg width="30" height="24" viewBox="0 0 30 24" fill="none" stroke="#498BCA" stroke-width="2"><path d="M3 6h24M3 12h24M3 18h24"/></svg><div class="lt"><b>Cladograma</b><small>Ignora los largos; solo muestra la topología.</small></div></div>
     </div>
     <p>Activa <b>Alinear las puntas</b> para llevar todas las hojas al mismo nivel (dendrograma clásico), ideal para leer nombres en columna.</p>
@@ -1024,6 +1087,7 @@ const S = {
   view: { k:1, x:0, y:0 },
   collapsed: new Set(), cladeColors: new Map(),
   highlight: null, selected: null,
+  measure: { active:false, aId:null, bId:null, aName:'', bName:'', distance:null, unit:'', dim:true, edgeKeys:new Set(), nodeIds:new Set() },
   stats: null, layoutInfo: null,
 };
 const DEFAULT_STYLE = JSON.parse(JSON.stringify(S.style));
@@ -1036,6 +1100,7 @@ const dom = {
   statStrip: $('#statStrip'), stLeaves: $('#stLeaves'), stNodes: $('#stNodes'), stDepth: $('#stDepth'),
   searchInput: $('#searchInput'), searchHits: $('#searchHits'),
   rootBlock: $('#rootBlock'), rootTaxonInput: $('#rootTaxonInput'), taxonList: $('#taxonList'), rootByTaxon: $('#rootByTaxon'), rootMidpoint: $('#rootMidpoint'),
+  accDistance: $('#accDistance'), measureTipA: $('#measureTipA'), measureTipB: $('#measureTipB'), measureDim: $('#measureDim'), measureRun: $('#measureRun'), measureClear: $('#measureClear'), measureResult: $('#measureResult'), measureTaxaA: $('#measureTaxaA'), measureTaxaB: $('#measureTaxaB'), measureDistance: $('#measureDistance'), measureUnit: $('#measureUnit'),
   tooltip: $('#tooltip'), popover: $('#popover'), toast: $('#toast'),
   scrim: $('#scrim'), sideScrim: $('#sideScrim'),
   cartouche: $('#cartouche'), ctTitle: $('#ctTitle'), ctDesc: $('#ctDesc'), ctMeta: $('#ctMeta'),
@@ -1154,6 +1219,15 @@ function findById(root, id){ let f=null; forEachNode(root, n=>{ if(n.id===id) f=
 
 function escAttr(s){ return String(s ?? '').replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch])); }
 function normaliseTaxonName(s){ return prettyName(String(s||'')).trim().toLowerCase().replace(/\s+/g, ' '); }
+function resetTaxonDependentControls(){
+  // A new tree has a new set of leaf identifiers. Clear inputs that refer to the previous tree
+  // so distance/rooting cannot be calculated using stale taxon names.
+  if (dom.rootTaxonInput) dom.rootTaxonInput.value = '';
+  if (dom.measureTipA) dom.measureTipA.value = '';
+  if (dom.measureTipB) dom.measureTipB.value = '';
+  if (dom.searchInput) dom.searchInput.value = '';
+  if (dom.searchHits) dom.searchHits.innerHTML = '';
+}
 function updateRootTaxaList(){
   if (!dom.rootTaxonInput || !dom.taxonList) return;
   const ready = !!S.root;
@@ -1161,9 +1235,121 @@ function updateRootTaxaList(){
   dom.rootTaxonInput.disabled = !ready;
   dom.rootByTaxon.disabled = !ready;
   dom.rootMidpoint.disabled = !ready;
-  if (!ready){ dom.rootTaxonInput.value=''; dom.taxonList.innerHTML=''; return; }
+  if (!ready){ dom.rootTaxonInput.value=''; dom.taxonList.innerHTML=''; syncMeasurePanel(); return; }
   const leaves = collectLeaves(S.root).sort((a,b)=>prettyName(a.name).localeCompare(prettyName(b.name)));
   dom.taxonList.innerHTML = leaves.map(l => `<option value="${escAttr(prettyName(l.name))}"></option>`).join('');
+  syncMeasurePanel();
+}
+
+function syncMeasurePanel(){
+  const ready = !!S.root;
+  if (dom.accDistance) dom.accDistance.setAttribute('data-locked', ready ? '0' : '1');
+  if (dom.measureTipA) dom.measureTipA.disabled = !ready;
+  if (dom.measureTipB) dom.measureTipB.disabled = !ready;
+  if (dom.measureRun) dom.measureRun.disabled = !ready;
+  if (dom.measureDim) dom.measureDim.disabled = !ready;
+  if (!ready){
+    if (dom.measureTipA) dom.measureTipA.value = '';
+    if (dom.measureTipB) dom.measureTipB.value = '';
+    clearMeasurement(false);
+  } else {
+    if (dom.measureDim) dom.measureDim.checked = S.measure.dim !== false;
+    updateMeasureResultUI();
+  }
+}
+function edgeKey(a, b){
+  const id1 = String(a && a.id ? a.id : a);
+  const id2 = String(b && b.id ? b.id : b);
+  return id1 < id2 ? id1 + '|' + id2 : id2 + '|' + id1;
+}
+function ensureVisibleTip(leaf){
+  let a = leaf ? leaf._parent : null;
+  while (a){ if (S.collapsed.has(a.id)) S.collapsed.delete(a.id); a = a._parent; }
+}
+function clearMeasurement(renderNow=true){
+  S.measure = { active:false, aId:null, bId:null, aName:'', bName:'', distance:null, unit:'', dim:(dom.measureDim ? !!dom.measureDim.checked : true), edgeKeys:new Set(), nodeIds:new Set() };
+  updateMeasureResultUI();
+  if (dom.measureClear) dom.measureClear.disabled = true;
+  if (renderNow && S.root) render();
+}
+function updateMeasureResultUI(){
+  if (!dom.measureResult) return;
+  const active = !!(S.measure && S.measure.active);
+  dom.measureResult.hidden = !active;
+  if (dom.measureClear) dom.measureClear.disabled = !active;
+  dom.measureTaxaA.textContent = active ? S.measure.aName : '—';
+  dom.measureTaxaB.textContent = active ? S.measure.bName : '—';
+  dom.measureDistance.textContent = active ? fmt(S.measure.distance, (S.stats && S.stats.hasLen) ? 4 : 0) : '—';
+  dom.measureUnit.textContent = active ? S.measure.unit : '—';
+}
+function measureEdgeActive(parent, node){
+  return !!(S.measure && S.measure.active && S.measure.edgeKeys && S.measure.edgeKeys.has(edgeKey(parent, node)));
+}
+function measureNodeActive(node){
+  return !!(S.measure && S.measure.active && S.measure.nodeIds && S.measure.nodeIds.has(node.id));
+}
+function measureOpacity(kind, parent, node){
+  if (!(S.measure && S.measure.active) || !S.measure.dim) return 1;
+  if (kind === 'edge') return measureEdgeActive(parent, node) ? 1 : 0.12;
+  if (kind === 'guide') return measureNodeActive(node) ? 0.72 : 0.06;
+  if (kind === 'label') return measureNodeActive(node) ? 1 : 0.2;
+  return measureNodeActive(node) ? 1 : 0.16;
+}
+function measureDistanceBetweenTips(){
+  if (!S.root){ toastError('Carga un árbol primero.'); return; }
+  const foundA = findLeafForRooting(dom.measureTipA.value);
+  if (foundA.error){ toastError(foundA.error); return; }
+  const foundB = findLeafForRooting(dom.measureTipB.value);
+  if (foundB.error){ toastError(foundB.error); return; }
+  const a = foundA.leaf, b = foundB.leaf;
+  if (!a || !b || a.id === b.id){ toastError('Selecciona dos taxones distintos.'); return; }
+  ensureVisibleTip(a); ensureVisibleTip(b);
+  const graph = buildTreeGraph(S.root);
+  const info = dfsTreeInfo(a, graph);
+  const dist = info.dist.get(b);
+  if (dist == null){ toastError('No se pudo calcular la distancia entre esos taxones.'); return; }
+  const nodeIds = new Set([a.id]);
+  const edgeKeys = new Set();
+  let cur = b;
+  nodeIds.add(b.id);
+  while (cur && cur !== a){
+    const p = info.parent.get(cur);
+    if (!p) break;
+    edgeKeys.add(edgeKey(cur, p));
+    nodeIds.add(p.id);
+    cur = p;
+  }
+  S.measure = {
+    active:true,
+    aId:a.id, bId:b.id,
+    aName:prettyName(a.name), bName:prettyName(b.name),
+    distance:dist,
+    unit:(S.stats && S.stats.hasLen) ? 'sust./sitio' : 'pasos topológicos',
+    dim:(dom.measureDim ? !!dom.measureDim.checked : true),
+    edgeKeys, nodeIds,
+  };
+  updateMeasureResultUI();
+  render();
+}
+function drawMeasureOverlay(group, st){
+  if (!(S.measure && S.measure.active)) return;
+  forEachNode(S.root, (n, parent) => {
+    if (parent && measureEdgeActive(parent, n)){
+      group.appendChild(el('path', {
+        d: linkPath(parent, n), fill:'none', stroke:'#00A499', 'stroke-width': st.pathW + 2.8,
+        'stroke-opacity':0.96, 'pointer-events':'none', 'stroke-linecap':'round', 'stroke-linejoin':'round'
+      }));
+    }
+    if (measureNodeActive(n)){
+      const p = nodePos(n);
+      const strong = n.id === S.measure.aId || n.id === S.measure.bId;
+      group.appendChild(el('circle', {
+        cx:p.x, cy:p.y, r: strong ? Math.max(4.3, st.pathW + 2.8) : Math.max(3, st.pathW + 1.4),
+        fill: strong ? '#F4F5F7' : '#9DD4D3', stroke:'#00A499', 'stroke-width': strong ? 2.3 : 1.5,
+        'pointer-events':'none'
+      }));
+    }
+  });
 }
 function buildTreeGraph(root){
   const graph = new Map();
@@ -1198,8 +1384,10 @@ function rerootBetween(a, b, lenA, lenB, graph, message){
   root.children.push(cloneRootedFromGraph(a, b, lenA, graph));
   root.children.push(cloneRootedFromGraph(b, a, lenB, graph));
   S.collapsed.clear(); S.cladeColors.clear(); S.highlight=null; S.selected=null;
+  clearMeasurement(false);
   S.root = prepare(root);
   updateRootTaxaList();
+  syncMeasurePanel();
   syncAllInputs();
   render(); fit(true);
   toast(message);
@@ -1401,6 +1589,7 @@ function render(){
   const gWedge  = el('g');
   const gSup    = el('g');
   const gNodes  = el('g');
+  const gMeasure = el('g');
   const gLabels = el('g');
 
   const st = S.style;
@@ -1413,6 +1602,7 @@ function render(){
         class:'branch hit', d: linkPath(parent, n),
         stroke: cladeStroke(n) || st.pathC,
         'stroke-width': st.pathW,
+        opacity: measureOpacity('edge', parent, n),
         'data-id': n.id, 'data-kind':'link',
       });
       gLinks.appendChild(path);
@@ -1421,14 +1611,15 @@ function render(){
 
     // --- collapsed clade wedge ---
     if (S.collapsed.has(n.id)){
-      gWedge.appendChild(wedge(n));
+      const poly = wedge(n); poly.setAttribute('opacity', measureOpacity('node', null, n));
+      gWedge.appendChild(poly);
     }
 
     // --- support dot (internal, not collapsed) ---
     if (S.show.support && !n.isLeaf && !S.collapsed.has(n.id) && n.support!=null && n !== S.root){
       const c = supportPos(n);
       gSup.appendChild(el('circle', { cx:c.x, cy:c.y, r:Math.max(2.6, st.pathW+1.6),
-        fill: supportColorRaw(n.support), stroke:'#fff', 'stroke-width':0.8,
+        fill: supportColorRaw(n.support), stroke:'#fff', 'stroke-width':0.8, opacity: measureOpacity('node', null, n),
         class:'hit', 'data-id':n.id, 'data-kind':'node' }));
     }
 
@@ -1437,11 +1628,11 @@ function render(){
       const p = nodePos(n);
       const r = st.nodeR;
       if (r > 0){
-        gNodes.appendChild(el('circle', { cx:p.x, cy:p.y, r, fill: cladeStroke(n)||st.nodeC,
+        gNodes.appendChild(el('circle', { cx:p.x, cy:p.y, r, fill: cladeStroke(n)||st.nodeC, opacity: measureOpacity('node', null, n),
           class:'hit', 'data-id':n.id, 'data-kind':'node' }));
       } else {
         // invisible hit target so internal nodes are clickable
-        gNodes.appendChild(el('circle', { cx:p.x, cy:p.y, r:7, fill:'transparent',
+        gNodes.appendChild(el('circle', { cx:p.x, cy:p.y, r:7, fill:'transparent', opacity: measureOpacity('node', null, n),
           class:'hit', 'data-id':n.id, 'data-kind':'node' }));
       }
     }
@@ -1451,23 +1642,25 @@ function render(){
       const p = nodePos(n);
       // node dot at tip
       gNodes.appendChild(el('circle', Object.assign(tipDot(n), {
-        fill: cladeStroke(n) || (n.isLeaf ? st.pathC : (cladeStroke(n)||st.nodeC)),
+        fill: cladeStroke(n) || (n.isLeaf ? st.pathC : (cladeStroke(n)||st.nodeC)), opacity: measureOpacity('node', null, n),
         class:'hit', 'data-id':n.id, 'data-kind':'node'
       })));
       // guide
-      if (S.show.guides) gGuides.appendChild(guideLine(n));
+      if (S.show.guides){ const gl = guideLine(n); gl.setAttribute('opacity', measureOpacity('guide', null, n)); gGuides.appendChild(gl); }
       // label
-      gLabels.appendChild(label(n, terminal));
+      { const lb = label(n, terminal); lb.setAttribute('opacity', measureOpacity('label', null, n)); gLabels.appendChild(lb); }
     } else if (S.show.internal && n.name){
-      gLabels.appendChild(label(n, false));
+      { const lb = label(n, false); lb.setAttribute('opacity', measureOpacity('label', null, n)); gLabels.appendChild(lb); }
     }
   });
 
+  drawMeasureOverlay(gMeasure, st);
   inner.appendChild(gGuides);
   inner.appendChild(gLinks);
   inner.appendChild(gWedge);
   inner.appendChild(gSup);
   inner.appendChild(gNodes);
+  inner.appendChild(gMeasure);
   inner.appendChild(gLabels);
   vp.appendChild(inner);
   S._inner = inner;
@@ -1713,7 +1906,7 @@ function updateHighlight(){
   const p = nodePos(n);
   const ring = el('g', { id:'hl-ring' });
   const r0 = 9/ S.view.k;
-  const c = el('circle', { cx:p.x, cy:p.y, r:r0, fill:'none', stroke:'#EA7600', 'stroke-width':2.4/S.view.k });
+  const c = el('circle', { cx:p.x, cy:p.y, r:r0, fill:'none', stroke:'#00A499', 'stroke-width':2.4/S.view.k });
   const anim = el('animate', { attributeName:'r', values:`${r0*0.7};${r0*1.5}`, dur:'1.1s', repeatCount:'indefinite' });
   const anim2 = el('animate', { attributeName:'opacity', values:'1;0.15', dur:'1.1s', repeatCount:'indefinite' });
   c.appendChild(anim); c.appendChild(anim2); ring.appendChild(c);
@@ -1760,7 +1953,7 @@ dom.vp.addEventListener('mousemove', e=>{
 dom.vp.addEventListener('mouseleave', hideTooltip);
 
 /* ======================= POPOVER (node actions) ======================= */
-const CLADE_SWATCHES = ['#498BCA','#00A499','#EA7600','#C8102E','#EAAA00','#8C4799','#394049','#5E9CD6'];
+const CLADE_SWATCHES = ['#00A499','#498BCA','#9DD4D3','#333F48','#5E9CD6','#8C4799','#EAAA00','#C8102E'];
 function hidePopover(){ dom.popover.classList.remove('on'); }
 function showPopover(n, x, y){
   const isClade = !n.isLeaf;
@@ -1857,6 +2050,7 @@ function setTree(root, meta){
   S.title = meta.title || meta.name || 'Árbol';
   S.desc = meta.desc || '';
   S.collapsed.clear(); S.cladeColors.clear(); S.highlight=null; S.selected=null;
+  resetTaxonDependentControls();
   // default mode: phylogram if it has branch lengths
   if (meta.forceMode) S.mode = meta.forceMode;
   else S.mode = S.stats.hasLen ? 'phylo' : 'clado';
@@ -1869,6 +2063,8 @@ function setTree(root, meta){
   ['accSearch'].forEach(id => { const a = $('#'+id); if (a){ a.classList.add('open'); a.querySelector('.acc-head')?.setAttribute('aria-expanded','true'); } });
   dom.searchInput.disabled = false;
   updateRootTaxaList();
+  clearMeasurement(false);
+  syncMeasurePanel();
   // file chip / stats
   dom.fileChip.classList.add('on'); dom.drop.style.display='none';
   dom.fileName.textContent = S.name;
@@ -1903,7 +2099,7 @@ function loadExample(key, silent){
   if (!silent) toast('Ejemplo «'+ex.title+'» cargado');
 }
 function toastError(msg){
-  dom.toast.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="#F08C2A" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4"/><circle cx="12" cy="16" r=".8" fill="#F08C2A"/></svg>' + msg;
+  dom.toast.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="#C8102E" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4"/><circle cx="12" cy="16" r=".8" fill="#C8102E"/></svg>' + msg;
   dom.toast.classList.add('on');
   clearTimeout(toast._t); toast._t = setTimeout(()=>dom.toast.classList.remove('on'), 3600);
 }
@@ -2028,6 +2224,11 @@ function wireControls(){
   if (dom.rootByTaxon) dom.rootByTaxon.onclick = rootBySelectedTaxon;
   if (dom.rootMidpoint) dom.rootMidpoint.onclick = rootByMidpoint;
   if (dom.rootTaxonInput) dom.rootTaxonInput.addEventListener('keydown', e => { if (e.key === 'Enter'){ e.preventDefault(); rootBySelectedTaxon(); } });
+  if (dom.measureRun) dom.measureRun.onclick = measureDistanceBetweenTips;
+  if (dom.measureClear) dom.measureClear.onclick = () => clearMeasurement(true);
+  if (dom.measureDim) dom.measureDim.onchange = e => { S.measure.dim = e.target.checked; if (S.measure.active) render(); };
+  if (dom.measureTipA) dom.measureTipA.addEventListener('keydown', e => { if (e.key === 'Enter'){ e.preventDefault(); measureDistanceBetweenTips(); } });
+  if (dom.measureTipB) dom.measureTipB.addEventListener('keydown', e => { if (e.key === 'Enter'){ e.preventDefault(); measureDistanceBetweenTips(); } });
   // file
   dom.fileInput.onchange = e => { if (e.target.files[0]) readFile(e.target.files[0]); e.target.value=''; };
   dom.fileClear.onclick = (e) => { e.preventDefault(); e.stopPropagation(); resetToEmpty(); };
@@ -2048,6 +2249,7 @@ function resetToEmpty(){
   dom.fileChip.classList.remove('on'); dom.drop.style.display='block';
   dom.statStrip.classList.remove('on'); dom.searchInput.disabled=true; dom.searchInput.value='';
   updateRootTaxaList();
+  clearMeasurement(false); syncMeasurePanel();
   dom.cartouche.classList.add('dim'); dom.scalebar.classList.remove('on');
   $$('.acc').forEach(a=>{ a.setAttribute('data-locked','1'); a.classList.remove('open'); a.querySelector('.acc-head')?.setAttribute('aria-expanded','false'); });
   const dataAcc = $('#accData');
@@ -2355,6 +2557,8 @@ const HELP = {
       <li>El enraizamiento cambia la topología mostrada y también el Newick exportado.</li>
     </ul>`,
   rootSpecies: `<h4>Enraizar por especie</h4>Escribe o elige una punta del árbol. Sirve cuando conoces un grupo externo y quieres orientar el árbol respecto de ese taxón.`,
+  distance: `<h4>Distancia entre taxones</h4><ul class="hp-list"><li>Selecciona dos <b>puntas</b> para calcular la distancia en el árbol actual.</li><li>Si el árbol tiene largos de rama, la distancia usa esos valores. Si no, Phyli cuenta pasos topológicos.</li><li>La opción <b>Atenuar el resto del árbol</b> deja visibles solo el camino y los dos taxones elegidos.</li></ul>`,
+  distanceDim: `<h4>Atenuar el resto del árbol</h4>Reduce la opacidad del árbol completo y deja resaltados el <b>camino</b> entre las dos puntas y los <b>taxones</b> seleccionados. Usa <b>Quitar marca</b> para volver a la vista normal.`,
   shapeHelp: `<h4>Diseño de trazado</h4>Controla la forma de las ramas. Escalón es el dibujo clásico; curvo suaviza las conexiones; recto usa segmentos diagonales; radial abre el árbol en círculo o abanico.`,
   scaleHelp: `<h4>Escala de ramas</h4><b>Filograma</b> respeta los largos de rama del Newick. <b>Cladograma</b> ignora esos largos y muestra solo la relación entre clados.`,
   alignHelp: `<h4>Alinear puntas</h4>Lleva todas las hojas al mismo nivel. Es útil para leer nombres en columna, pero no representa distancias evolutivas.`,
@@ -2534,6 +2738,13 @@ Object.entries({
   'Archivo, enlace, ejemplos y resumen':'Arquivo, link, exemplos e resumo','Encontrar y centrar una punta':'Encontrar e centralizar uma ponta','Por especie o por midpoint':'Por espécie ou por midpoint','Trazado, escala, alineación y separación':'Traçado, escala, alinhamento e separação','Colores, etiquetas, nodos y soporte':'Cores, etiquetas, nós e suporte','SVG, PNG, Newick, JSON y enlace':'SVG, PNG, Newick, JSON e link','Ayuda: datos del árbol':'Ajuda: dados da árvore','Ayuda: buscar taxón':'Ajuda: buscar táxon'
 }).forEach(([k,v]) => { TEXT_TR.pt.set(k,v); PHRASE_TR.pt.set(k,v); ATTR_TR.pt.set(k,v); });
 REGEX_TR.en.push([/^Árbol enraizado por especie: (.+)$/, 'Tree rooted by species: $1'], [/^Hay (\d+) coincidencias\. Escribe el nombre completo del taxón\.$/, 'There are $1 matches. Type the full taxon name.']);
+
+Object.entries({
+  'Distancia entre taxones':'Distance between taxa','Dos puntas y su camino':'Two tips and their path','Taxón A':'Taxon A','Taxón B':'Taxon B','Primera punta…':'First tip…','Segunda punta…':'Second tip…','Calcular distancia':'Calculate distance','Quitar marca':'Clear highlight','Atenuar el resto del árbol':'Dim the rest of the tree','Deja visibles el camino y los dos taxones seleccionados':'Keeps the path and the two selected taxa visible','Distancia':'Distance','Selecciona dos puntas para calcular la distancia sobre el árbol actual. Puedes resaltar el camino y luego limpiar la marca.':'Select two tips to calculate the distance on the current tree. You can highlight the path and then clear the highlight.','Selecciona dos taxones distintos.':'Select two different taxa.','No se pudo calcular la distancia entre esos taxones.':'Could not calculate the distance between those taxa.','sust./sitio':'subst./site','pasos topológicos':'topological steps','Ayuda: distancia entre taxones':'Help: distance between taxa','Ayuda: atenuar árbol':'Help: dim tree','Entre dos puntas y su camino':'Between two tips and their path'
+}).forEach(([k,v]) => { TEXT_TR.en.set(k,v); PHRASE_TR.en.set(k,v); ATTR_TR.en.set(k,v); });
+Object.entries({
+  'Distancia entre taxones':'Distância entre táxons','Dos puntas y su camino':'Duas pontas e seu caminho','Taxón A':'Táxon A','Taxón B':'Táxon B','Primera punta…':'Primeira ponta…','Segunda punta…':'Segunda ponta…','Calcular distancia':'Calcular distância','Quitar marca':'Remover marca','Atenuar el resto del árbol':'Atenuar o restante da árvore','Deja visibles el camino y los dos taxones seleccionados':'Mantém visíveis o caminho e os dois táxons selecionados','Distancia':'Distância','Selecciona dos puntas para calcular la distancia sobre el árbol actual. Puedes resaltar el camino y luego limpiar la marca.':'Selecione duas pontas para calcular a distância na árvore atual. Você pode destacar o caminho e depois remover a marca.','Selecciona dos taxones distintos.':'Selecione dois táxons diferentes.','No se pudo calcular la distancia entre esos taxones.':'Não foi possível calcular a distância entre esses táxons.','sust./sitio':'subst./sítio','pasos topológicos':'passos topológicos','Ayuda: distancia entre taxones':'Ajuda: distância entre táxons','Ayuda: atenuar árbol':'Ajuda: atenuar árvore','Entre dos puntas y su camino':'Entre duas pontas e seu caminho'
+}).forEach(([k,v]) => { TEXT_TR.pt.set(k,v); PHRASE_TR.pt.set(k,v); ATTR_TR.pt.set(k,v); });
 REGEX_TR.pt.push([/^Árbol enraizado por especie: (.+)$/, 'Árvore enraizada por espécie: $1'], [/^Hay (\d+) coincidencias\. Escribe el nombre completo del taxón\.$/, 'Há $1 correspondências. Digite o nome completo do táxon.']);
 
 let currentLang = localStorage.getItem('phyli-lang') || 'es';

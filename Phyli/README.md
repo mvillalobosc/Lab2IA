@@ -49,6 +49,7 @@ Phyli runs entirely in the browser. The tree file is processed locally by JavaSc
 - Switch the interface between Spanish, English, and Portuguese.
 - Search tips/taxa by complete or partial name.
 - Reroot the tree by a selected reference taxon or by midpoint.
+- Measure the distance between two selected tips, highlight the connecting path, and clear stale selections when a new tree is loaded.
 - Render the tree as step, curved, straight, radial, or radial-step layouts.
 - Switch between **phylogram** and **cladogram** interpretation.
 - Align tips, ladderise clades, change radial angle, and modify tip spacing.
@@ -90,6 +91,19 @@ Recommended structure for a GitHub repository or GitHub Pages deployment:
 | `.nojekyll` | Optional | Prevents GitHub Pages from processing the site with Jekyll. Useful for static apps. |
 | `.htaccess` | Only for Apache | Useful on Apache servers, but ignored by GitHub Pages. |
 | `404.html` | Optional | Custom 404 page for GitHub Pages or static hosting. |
+
+
+## 3.1 Visual identity and colour system
+
+The interface uses the USACH institutional palette as its visual base. The main application background uses the institutional dark grey, while interactive highlights, distance paths, active switches, and selected markers use the institutional teal. This avoids the previous orange-dominant appearance while keeping the interface aligned with the university colour system.
+
+| Role | Hex value | Use in Phyli |
+|---|---|---|
+| USACH dark grey | `#333F48` / `#394049` | Sidebar, panels, structural background. |
+| USACH teal | `#00A499` | Active controls, path distance highlight, selected markers. |
+| USACH teal 40% | `#9DD4D3` | Soft secondary highlight for intermediate nodes in a measured path. |
+| USACH blue | `#498BCA` | Secondary interface actions and links. |
+
 
 ## 4. User manual
 
@@ -144,7 +158,21 @@ Phyli provides two rooting strategies.
 
 Rooting updates the internal tree topology and is reflected in the exported Newick file.
 
-### 4.5 Layout and scale
+### 4.5 Distance between two taxa
+
+Phyli can measure the distance between any two selected tips in the current rooted tree.
+
+| Component | Behaviour |
+|---|---|
+| Taxon A / Taxon B | Accept complete or partial tip names using the current tree tip list. The fields are cleared when a new tree is loaded, avoiding stale taxa from a previous file. |
+| Calculate distance | Computes the path distance between the two selected tips. |
+| Distance unit | Uses branch-length units when present in the Newick file. If branch lengths are absent, it reports the number of topological steps. |
+| Dim the rest of the tree | Keeps the two selected taxa and the connecting path highlighted in the USACH teal accent while reducing the opacity of the remaining tree. |
+| Clear highlight | Removes the path mark and restores the normal view. |
+
+This is useful after rerooting, because it lets the user inspect how far apart two terminal taxa are in the currently displayed topology.
+
+### 4.6 Layout and scale
 
 | Option | Description |
 |---|---|
@@ -156,7 +184,7 @@ Rooting updates the internal tree topology and is reflected in the exported Newi
 | Phylogram | Branch lengths are proportional to evolutionary distance. A scale bar is displayed. |
 | Cladogram | Branch lengths are ignored; only topology is shown. |
 
-### 4.6 Interaction model
+### 4.7 Interaction model
 
 | Action | Result |
 |---|---|
@@ -168,7 +196,7 @@ Rooting updates the internal tree topology and is reflected in the exported Newi
 | Focus clade | Centres the selected clade in the viewport. |
 | Reset view | Fits the complete tree to the current viewport. |
 
-### 4.7 Exporting
+### 4.8 Exporting
 
 | Export | Output | Notes |
 |---|---|---|
@@ -243,6 +271,15 @@ const S = {
   cladeColors: new Map(),
   highlight: null,
   selected: null,
+  measure: {
+    active: false,
+    aId: null,
+    bId: null,
+    distance: null,
+    edgeKeys: new Set(),
+    nodeIds: new Set(),
+    dim: true
+  },
   stats: null,
   layoutInfo: null
 };
@@ -744,6 +781,7 @@ Phyli se ejecuta por completo en el navegador. El archivo del árbol se procesa 
 - Cambio de interfaz entre español, inglés y portugués.
 - Búsqueda de puntas/taxones por nombre completo o parcial.
 - Enraizamiento del árbol mediante un taxón de referencia o mediante el método de punto medio.
+- Medición de distancia entre dos puntas, con resaltado del camino y limpieza automática de selecciones antiguas al cargar un nuevo árbol.
 - Visualización en trazado escalonado, curvo, recto, radial o radial escalonado.
 - Cambio entre la interpretación de un **filograma** y de un **cladograma**.
 - Alineación de puntas, ordenamiento de clados, ajuste de ángulo radial y separación entre taxones.
@@ -785,6 +823,19 @@ Estructura recomendada para GitHub o GitHub Pages:
 | `.nojekyll` | Opcional | Evita que GitHub Pages procese el sitio con Jekyll. Útil para apps estáticas. |
 | `.htaccess` | Solo para Apache | Sirve en servidores Apache, pero GitHub Pages lo ignora. |
 | `404.html` | Opcional | Página de error personalizada para hosting estático. |
+
+
+## 3.1 Identidad visual y sistema de colores
+
+La interfaz usa la paleta institucional USACH como base visual. El fondo principal de la aplicación usa el gris oscuro institucional, mientras que los resaltados interactivos, el camino de distancia, los interruptores activos y los marcadores seleccionados usan el verde-azulado institucional. Con esto se evita una apariencia dominada por el naranjo y se mantiene la interfaz alineada con el sistema cromático de la universidad.
+
+| Rol | Valor hexadecimal | Uso en Phyli |
+|---|---|---|
+| Gris oscuro USACH | `#333F48` / `#394049` | Barra lateral, paneles y fondo estructural. |
+| Verde-azulado USACH | `#00A499` | Controles activos, camino de distancia y marcadores seleccionados. |
+| Verde-azulado USACH 40% | `#9DD4D3` | Resaltado suave para nodos intermedios en un camino medido. |
+| Azul USACH | `#498BCA` | Acciones secundarias y enlaces de interfaz. |
+
 
 ## 4. Manual de uso
 
@@ -839,7 +890,21 @@ Phyli ofrece dos estrategias de enraizamiento.
 
 El enraizamiento actualiza la topología interna del árbol y se refleja en el archivo Newick exportado.
 
-### 4.5 Diseño y escala
+### 4.5 Distancia entre dos taxones
+
+Phyli puede calcular la distancia entre dos puntas seleccionadas del árbol actual.
+
+| Componente | Comportamiento |
+|---|---|
+| Taxón A / Taxón B | Aceptan nombres completos o parciales usando la lista de puntas del árbol actual. Los campos se limpian al cargar un nuevo árbol para evitar taxones antiguos de otro archivo. |
+| Calcular distancia | Calcula el camino entre las dos puntas seleccionadas. |
+| Unidad de distancia | Usa las longitudes de rama cuando el Newick las incluye. Si el árbol no tiene longitudes de rama, informa pasos topológicos. |
+| Atenuar el resto del árbol | Mantiene visibles los dos taxones y el camino que los conecta con el acento verde-azulado institucional USACH, reduciendo la opacidad del resto del árbol. |
+| Quitar marca | Elimina el camino resaltado y recupera la vista normal. |
+
+Esta función es útil después de enraizar, porque permite revisar qué tan lejos están dos taxones terminales dentro de la topología mostrada.
+
+### 4.6 Diseño y escala
 
 | Opción | Descripción |
 |---|---|
@@ -851,7 +916,7 @@ El enraizamiento actualiza la topología interna del árbol y se refleja en el a
 | Filograma | Los largos de rama son proporcionales a distancia evolutiva. Se muestra la barra de escala. |
 | Cladograma | Ignora las longitudes de rama; muestra solo la topología. |
 
-### 4.6 Modelo de interacción
+### 4.7 Modelo de interacción
 
 | Acción | Resultado |
 |---|---|
@@ -863,7 +928,7 @@ El enraizamiento actualiza la topología interna del árbol y se refleja en el a
 | Enfocar clado | Centra el clado seleccionado en la vista. |
 | Restablecer vista | Ajusta el árbol completo al tamaño actual del visor. |
 
-### 4.7 Exportación
+### 4.8 Exportación
 
 | Exportación | Salida | Notas |
 |---|---|---|
@@ -938,6 +1003,15 @@ const S = {
   cladeColors: new Map(),
   highlight: null,
   selected: null,
+  measure: {
+    active: false,
+    aId: null,
+    bId: null,
+    distance: null,
+    edgeKeys: new Set(),
+    nodeIds: new Set(),
+    dim: true
+  },
   stats: null,
   layoutInfo: null
 };
