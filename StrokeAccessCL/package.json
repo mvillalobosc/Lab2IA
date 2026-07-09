@@ -1,0 +1,12 @@
+{
+  "name": "strokeaccesscl",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static web viewer for hospital coverage and stroke-care accessibility in Chile.",
+  "scripts": {
+    "serve": "python3 -m http.server 8000",
+    "check": "node --check js/app.js && node --check js/i18n.js && node --check generar_isocronas.mjs"
+  },
+  "keywords": ["stroke", "accessibility", "isochrones", "leaflet", "chile"],
+  "license": "SEE LICENSE.md"
+}
