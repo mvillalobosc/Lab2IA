@@ -1,0 +1,13 @@
+cff-version: 1.2.0
+message: "If you use StrokeAccessCL, please cite this work."
+title: "StrokeAccessCL: visualisation system for stroke-care accessibility in Chile"
+authors:
+  - family-names: "Guajardo Arias"
+    given-names: "Iván Alejandro"
+  - family-names: "Villalobos Cid"
+    given-names: "Manuel José"
+  - family-names: "Giglio Gutiérrez"
+    given-names: "Juan"
+year: 2025
+institution: "Universidad de Santiago de Chile, Facultad de Ingeniería, Departamento de Ingeniería Informática"
+url: "https://mvillalobosc.diinf.usach.cl/StrokeAccessCL/"

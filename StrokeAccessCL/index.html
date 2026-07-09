@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-i18n="doc.title">Accesibilidad ACV Chile · ¿A cuánto tiempo queda un hospital?</title>
+<meta name="description" content="Mapa interactivo de cobertura y accesibilidad de los servicios de atención del ataque cerebrovascular (ACV) en Chile, por tiempo de traslado en auto.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230E4C63'/%3E%3Cpath d='M16 5C10.5 5 6 9.2 6 14.4 6 21 16 27 16 27s10-6 10-12.6C26 9.2 21.5 5 16 5Z' fill='%23D8434E'/%3E%3Ccircle cx='16' cy='14' r='5.6' fill='%23fff'/%3E%3Cpath d='M16 10.6v6.8M12.6 14h6.8' stroke='%23D8434E' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="vendor/leaflet.css">
+<link rel="stylesheet" href="vendor/MarkerCluster.css">
+<link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+<div id="app">
+
+<header>
+  <div class="logo">
+    <span class="logo-diinf"><img src="https://informatica.usach.cl/wp-content/uploads/elementor/thumbs/cropped-DIINF-opc.1-color-1-r2bm3rfvgp8kt4gopipu0tyfd72btfnwvuyohfq8e8.png" alt="Departamento de Ingeniería Informática · USACH" onerror="this.parentElement.style.display='none'"></span>
+    <svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 4C10.2 4 5.5 8.4 5.5 13.9 5.5 21 16 28 16 28s10.5-7 10.5-14.1C26.5 8.4 21.8 4 16 4Z" fill="#fff"/><path d="M16 8.8v9.6M11.2 13.6h9.6" stroke="#C8102E" stroke-width="2.8" stroke-linecap="round"/></svg>
+    <div><b data-i18n="header.title">Accesibilidad ACV · Chile</b><span data-i18n="header.subtitle">¿A cuánto tiempo de un hospital estás?</span></div>
+  </div>
+  <div class="sep"></div>
+
+  <div class="lang" role="group" aria-label="Idioma / Language / Idioma">
+    <button class="lang-btn" data-lang="es" data-i18n-title="lang.es" title="Español" aria-label="Español">
+      <svg viewBox="0 0 30 20" aria-hidden="true">
+        <rect width="30" height="10" fill="#fff"/>
+        <rect y="10" width="30" height="10" fill="#D52B1E"/>
+        <rect width="10" height="10" fill="#0039A6"/>
+        <path d="M5 2.2 5.79 4.6 8.2 4.6 6.25 6.1 7 8.5 5 7 3 8.5 3.75 6.1 1.8 4.6 4.21 4.6Z" fill="#fff"/>
+      </svg>
+    </button>
+    <button class="lang-btn" data-lang="en" data-i18n-title="lang.en" title="English" aria-label="English">
+      <svg viewBox="0 0 30 20" aria-hidden="true">
+        <clipPath id="ukc"><rect width="30" height="20"/></clipPath>
+        <g clip-path="url(#ukc)">
+          <rect width="30" height="20" fill="#012169"/>
+          <path d="M0 0 30 20M30 0 0 20" stroke="#fff" stroke-width="4"/>
+          <path d="M0 0 30 20M30 0 0 20" stroke="#C8102E" stroke-width="2"/>
+          <path d="M15 0V20M0 10H30" stroke="#fff" stroke-width="6"/>
+          <path d="M15 0V20M0 10H30" stroke="#C8102E" stroke-width="3.5"/>
+        </g>
+      </svg>
+    </button>
+    <button class="lang-btn" data-lang="pt" data-i18n-title="lang.pt" title="Português" aria-label="Português">
+      <svg viewBox="0 0 30 20" aria-hidden="true">
+        <rect width="30" height="20" fill="#009B3A"/>
+        <path d="M15 2 28 10 15 18 2 10Z" fill="#FEDF00"/>
+        <circle cx="15" cy="10" r="4.2" fill="#002776"/>
+      </svg>
+    </button>
+  </div>
+
+  <button class="hbtn" id="btnGuia">↺ <span data-i18n="header.guide">Ver guía</span></button>
+  <button class="hbtn solid" id="btnAyuda">? <span data-i18n="header.help">Ayuda y metodología</span></button>
+</header>
+
+<aside>
+  <!-- PASO 1 -->
+  <section class="paso">
+    <div class="paso-h"><span class="paso-n">1</span><h2 data-i18n="p1.title">Elige el territorio</h2>
+      <button class="q" data-qk="p1.q" aria-label="?">?</button></div>
+    <div class="seg" role="group" aria-label="Modo de búsqueda">
+      <button class="segbtn on" id="modoTerr" aria-pressed="true"
+        data-i18n="p1.modeTerr" data-i18n-title="p1.modeTerr.title">Por región / comuna</button>
+      <button class="segbtn" id="modoHosp" aria-pressed="false"
+        data-i18n="p1.modeHosp" data-i18n-title="p1.modeHosp.title">Por establecimiento</button>
+    </div>
+
+    <div id="modoTerrBox">
+      <label class="lbl" for="selRegion" data-i18n="p1.region">Región</label>
+      <select id="selRegion" data-i18n-title="p1.region.title"><option value="" data-i18n="p1.regionAll">Todo Chile (93 establecimientos)</option></select>
+      <label class="lbl" for="selComuna" data-i18n="p1.comuna">Comuna con establecimiento</label>
+      <select id="selComuna" disabled><option value="" data-i18n="p1.comunaFirst">Primero elige una región</option></select>
+    </div>
+
+    <div id="modoHospBox" hidden>
+      <label class="lbl" for="inpHosp" data-i18n="p1.hospLabel">Busca y marca uno o más</label>
+      <div class="hosp-box">
+        <input type="text" id="inpHosp" data-i18n-ph="p1.hospPlaceholder" placeholder="Nombre del establecimiento o comuna…" autocomplete="off"
+               data-i18n-title="p1.hosp.title">
+        <div class="dir-sug" id="hospSug" hidden></div>
+      </div>
+      <div class="chips" id="hospChips"></div>
+      <p class="hint" id="hospHint" hidden></p>
+    </div>
+
+    <button class="link-reset" id="btnReset" data-i18n="p1.reset">← Volver a todo Chile</button>
+  </section>
+
+  <!-- PASO 2 -->
+  <section class="paso">
+    <div class="paso-h"><span class="paso-n">2</span><h2 data-i18n="p2.title">Tiempo de traslado</h2>
+      <button class="q" data-qk="p2.q" aria-label="?">?</button></div>
+    <div class="tiempos" role="group" aria-label="Tiempos de traslado">
+      <button class="tchip" id="t30" style="--c:var(--t30)" aria-pressed="false" data-i18n-title="p2.t30.title"><span class="dot" style="background:var(--t30)"></span><b>30</b><span data-i18n="p2.min">min</span></button>
+      <button class="tchip" id="t45" style="--c:var(--t45)" aria-pressed="false" data-i18n-title="p2.t45.title"><span class="dot" style="background:var(--t45)"></span><b>45</b><span data-i18n="p2.min">min</span></button>
+      <button class="tchip" id="t60" style="--c:var(--t60)" aria-pressed="false" data-i18n-title="p2.t60.title"><span class="dot" style="background:var(--t60)"></span><b>60</b><span data-i18n="p2.min">min</span></button>
+    </div>
+    <p class="hint" id="hintTiempos" data-i18n="p2.hint">Activa o desactiva cada tiempo para ver su cobertura en el mapa.</p>
+  </section>
+
+  <!-- PASO 3 -->
+  <section class="paso">
+    <div class="paso-h"><span class="paso-n">3</span><h2 data-i18n="p3.title">Cobertura del área</h2>
+      <button class="q" data-qk="p3.q" aria-label="?">?</button></div>
+    <div class="cob-card" id="cobCard">
+      <div class="cob-empty" data-i18n="p3.empty">Elige una región para ver su cobertura poblacional y territorial.</div>
+    </div>
+  </section>
+
+  <!-- PASO 4 -->
+  <section class="paso">
+    <div class="paso-h"><span class="paso-n">4</span><h2 data-i18n="p4.title">Consulta un punto</h2>
+      <button class="q" data-qk="p4.q" aria-label="?">?</button></div>
+    <p class="hint" data-i18n="p4.hint">Escribe tu dirección y te decimos el hospital más cercano y si quedas dentro de la cobertura.</p>
+    <label class="lbl" for="inpDir" data-i18n="p4.dirLabel">Tu dirección</label>
+    <div class="dir-box">
+      <input type="text" id="inpDir" data-i18n-ph="p4.dirPlaceholder" placeholder="Ej: Av. Víctor Jara 3659, Estación Central" autocomplete="off" data-i18n-title="p4.dir.title">
+      <div class="dir-sug" id="dirSug" hidden></div>
+    </div>
+    <div class="punto-btns" style="margin-top:9px">
+      <button class="pbtn" id="btnPunto" data-i18n="p4.btnPunto" data-i18n-title="p4.btnPunto.title">✛ Marcar en el mapa</button>
+      <button class="pbtn rojo" id="btnGPS" data-i18n="p4.btnGPS" data-i18n-title="p4.btnGPS.title">➤ Mi ubicación</button>
+    </div>
+    <div class="punto-res" id="puntoRes"></div>
+  </section>
+
+  <details class="avanzado" id="avanzado">
+    <summary data-i18n="adv.summary">⚙ Funciones avanzadas</summary>
+    <div class="av-body">
+      <b data-i18n="adv.simTitle">Simular un establecimiento nuevo</b>
+      <p class="hint" data-i18n="adv.simHint">Ubica un punto como si ahí existiera un hospital con atención de ACV y mira qué área cubriría en 30, 45 y 60 minutos. Es una simulación temporal: no se guarda ni se agrega a los datos reales, y la puedes quitar cuando quieras.</p>
+      <button class="pbtn" id="btnSim" style="width:100%"
+        data-i18n="adv.simBtn" data-i18n-title="adv.simBtn.title">◈ Ubicar en el mapa</button>
+      <div class="punto-res" id="simRes"></div>
+    </div>
+  </details>
+
+  <div class="foot-panel">
+    <span data-i18n-html="foot.based">Basado en la memoria de título de <b>Iván Guajardo Arias</b> (DIINF · USACH, 2025).</span>
+    <a href="#" id="linkAyudaFoot" data-i18n="foot.link">Metodología, datos y cita</a>.
+  </div>
+</aside>
+
+<main id="mainMap">
+  <div id="map" role="application" aria-label="Mapa de accesibilidad"></div>
+
+  <div class="aviso" id="aviso" role="status" aria-live="polite">
+    <span id="avisoTxt"></span>
+  </div>
+
+  <div class="prep" id="prep" role="status" data-i18n-title="prep.title"
+       title="Se están generando por única vez las áreas de cobertura.">
+    <span id="prepTxt"></span>
+    <span class="mini-bar" id="prepBar"><i></i></span>
+    <button id="prepCancel" data-i18n="prep.cancel">Detener</button>
+  </div>
+
+  <div class="leyenda" id="leyenda">
+    <h4 data-i18n="legend.title" data-i18n-title="legend.title.title">Leyenda · tiempo en auto</h4>
+    <div class="ley-item"><span class="sw" style="background:var(--t30)"></span> <span data-i18n="legend.t30">30 minutos o menos</span></div>
+    <div class="ley-item"><span class="sw" style="background:var(--t45)"></span> <span data-i18n="legend.t45">45 minutos o menos</span></div>
+    <div class="ley-item"><span class="sw" style="background:var(--t60)"></span> <span data-i18n="legend.t60">60 minutos o menos</span></div>
+    <div class="ley-item" id="leySim" hidden><span class="sw" style="background:transparent;border:2px dashed #8C4799"></span> <span data-i18n="legend.sim">Simulado (línea punteada, colores por tiempo)</span></div>
+    <div class="ley-item"><svg class="pinmini" width="15" height="15" viewBox="0 0 26 26"><path d="M13 0C6.4 0 1 5.2 1 11.6 1 20 13 26 13 26s12-6 12-14.4C25 5.2 19.6 0 13 0Z" fill="#C8102E"/><circle cx="13" cy="11.3" r="7" fill="#fff"/><path d="M13 7v8.6M8.7 11.3h8.6" stroke="#C8102E" stroke-width="2" stroke-linecap="round"/></svg> <span data-i18n="legend.est">Establecimiento con atención ACV</span></div>
+  </div>
+</main>
+</div>
+
+<!-- bienvenida -->
+<div class="velo" id="veloBienv" role="dialog" aria-modal="true" aria-label="Bienvenida">
+  <div class="tarjeta"><div class="tarjeta-pad bienv">
+    <h1 data-i18n-html="bienv.h1">¿A cuánto tiempo de un hospital<br>queda cada rincón de Chile?</h1>
+    <p class="sub" data-i18n-html="bienv.sub">Este mapa muestra qué zonas del país alcanzan un establecimiento con atención de <b>ataque cerebrovascular (ACV)</b> en 30, 45 o 60 minutos en auto. En un ACV, cada minuto cuenta.</p>
+    <div class="bienv-pasos">
+      <div class="bp"><div class="ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div><b data-i18n="bienv.s1t">1 · Elige la región</b><span data-i18n="bienv.s1d">El mapa se centra y calcula la cobertura de sus hospitales.</span></div>
+      <div class="bp"><div class="ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></div><b data-i18n="bienv.s2t">2 · Mira los tiempos</b><span data-i18n="bienv.s2d">Verde: 30 min. Ámbar: 45. Naranja: 60. Lo que queda fuera, no alcanza.</span></div>
+      <div class="bp"><div class="ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"><path d="M12 21s-7-5.2-7-11a7 7 0 0 1 14 0c0 5.8-7 11-7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg></div><b data-i18n="bienv.s3t">3 · Consulta tu punto</b><span data-i18n="bienv.s3d">Marca un lugar y te decimos sus hospitales más cercanos.</span></div>
+    </div>
+    <button class="cta" id="btnEmpezar" data-i18n="bienv.cta">Explorar el mapa</button>
+    <div class="no-mostrar"><label><input type="checkbox" id="chkNoMostrar"> <span data-i18n="bienv.noShow">No volver a mostrar esta introducción</span></label></div>
+  </div></div>
+</div>
+
+<!-- ayuda -->
+<div class="velo" id="veloAyuda" role="dialog" aria-modal="true" aria-label="Ayuda y metodología">
+  <div class="tarjeta">
+    <div class="ayuda-head"><h1 data-i18n="ayuda.h1">Ayuda y metodología</h1><button id="ayudaCerrar" data-i18n-aria="ayuda.close" aria-label="Cerrar">✕</button></div>
+    <div class="ayuda-body">
+      <h3 data-i18n="ayuda.h.que">¿Qué muestra este mapa?</h3>
+      <p data-i18n-html="ayuda.p.que">La cobertura y accesibilidad de los servicios de atención del <b>ataque cerebrovascular (ACV)</b> en Chile: 93 hospitales y clínicas habilitados y las áreas del país desde las cuales se llega a alguno en 30, 45 o 60 minutos <b>en auto</b>.</p>
+
+      <h3 data-i18n="ayuda.h.iso">¿Qué es una isócrona?</h3>
+      <p data-i18n-html="ayuda.p.iso">Es el área alcanzable desde un punto en un tiempo fijo de viaje. Aquí cada mancha de color delimita el territorio que queda a 30, 45 o 60 minutos en auto de un establecimiento, considerando la red vial real.</p>
+
+      <h3 data-i18n="ayuda.h.calc">¿Cómo se calculan?</h3>
+      <p data-i18n-html="ayuda.p.calc">Con la API de <a href="https://openrouteservice.org" target="_blank" rel="noopener">OpenRouteService</a> (perfil <code>driving-car</code>, rangos de 1800, 2700 y 3600 segundos), el mismo método del sistema original de la tesis. Se calculan la primera vez que abres una región y quedan guardadas en tu navegador, por eso la primera carga tarda unos segundos.</p>
+      <div class="cajita"><span data-i18n-html="ayuda.box.iso"><b>¿Las isócronas no aparecen?</b>
+      El cálculo necesita conexión a internet y una clave de OpenRouteService. Para recalcular coberturas o simular establecimientos necesitas una clave de OpenRouteService; crea una gratis en openrouteservice.org y pégala aquí:</span>
+      <input type="text" id="inpKey" data-i18n-ph="ayuda.keyPlaceholder" placeholder="Clave de OpenRouteService" autocomplete="off">
+      <span class="mini" data-i18n="ayuda.box.mini">Se guarda solo en este navegador.</span></div>
+
+      <h3 data-i18n="ayuda.h.cob">Cobertura poblacional y territorial</h3>
+      <p data-i18n-html="ayuda.p.cob">Los porcentajes regionales del paso 3 son los <b>resultados de la tesis</b> (Tabla 5.1): intersección espacial entre las isócronas de 45 minutos y las unidades administrativas, con población estimada por intersección proporcional de manzanas censales (Censo 2017). Para comunas, la app calcula en línea una <b>estimación territorial</b> por muestreo de puntos, señalada como tal.</p>
+
+      <h3 data-i18n="ayuda.h.dir">Buscar por dirección y ubicación</h3>
+      <p data-i18n-html="ayuda.p.dir">El buscador de direcciones usa <b>Nominatim (OpenStreetMap)</b>, gratuito y sin clave. El botón «Mi ubicación» usa el GPS del navegador: Chrome solo lo permite en sitios <code>https</code> o <code>localhost</code>; si abres el archivo directo desde el disco, usa el buscador de dirección o marca el punto en el mapa, que hacen lo mismo.</p>
+
+      <h3 data-i18n="ayuda.h.salud">Indicadores de salud</h3>
+      <p data-i18n-html="ayuda.p.salud">Los valores de hipertensión, diabetes y población de 60 años o más por región provienen de la Encuesta <b>CASEN 2022</b>, según la Tabla A.6 de la tesis. La versión comunal de estos indicadores requiere la base CASEN completa y no está incluida.</p>
+
+      <h3 data-i18n="ayuda.h.sim">Establecimiento simulado (funciones avanzadas)</h3>
+      <p data-i18n-html="ayuda.p.sim">Permite ubicar un punto hipotético y calcular qué cubriría un establecimiento nuevo ahí, con el mismo método (OpenRouteService). La simulación se dibuja con <b>línea punteada</b> y los mismos colores por tiempo (30/45/60), con un marcador morado en el punto; muestra el área en km² por tiempo, <b>no se guarda</b> y se quita con un clic. Sirve para explorar dónde convendría reforzar la red.</p>
+
+      <h3 data-i18n="ayuda.h.datos">Datos</h3>
+      <p data-i18n-html="ayuda.p.datos">Establecimientos: planillas georreferenciadas del proyecto (93 con coordenadas depuradas). Límites administrativos: cartografía oficial de comunas y regiones (códigos CUT). Mapa base: © OpenStreetMap / CARTO.</p>
+      <a class="desc-csv" href="#" id="btnCSV" data-i18n="ayuda.csv">⭳ Descargar establecimientos (CSV)</a>
+      <a class="desc-csv" href="#" id="btnExpIso" style="margin-left:8px" data-i18n="ayuda.expIso">⭳ Descargar coberturas (isocronas.js)</a>
+      <p class="mini" style="margin-top:6px" data-i18n-html="ayuda.p.iso2">Si guardas <code>isocronas.js</code> dentro de la carpeta <code>data/</code> de la app, las coberturas viajan con ella: abre al instante en cualquier equipo, sin el paso de «Preparando coberturas» y sin depender de OpenRouteService.</p>
+
+      <h3 data-i18n="ayuda.h.cita">Cita del trabajo original</h3>
+      <div class="cita">Guajardo Arias, I. A. (2025). <i>Implementación de un sistema de visualización para el análisis espacio-temporal de la cobertura hospitalaria y la accesibilidad de los servicios de atención para el ataque cerebrovascular a nivel nacional en Chile.</i> Memoria de título, Departamento de Ingeniería Informática, Universidad de Santiago de Chile. Profesor guía: M. Villalobos Cid.</div>
+    </div>
+  </div>
+</div>
+
+<div class="pop-q" id="popQ" role="tooltip"></div>
+
+<script src="vendor/leaflet.js"></script>
+<script src="vendor/leaflet.markercluster.js"></script>
+<script src="data/establecimientos.js"></script>
+<script src="data/regiones.js"></script>
+<script src="data/comunas.js"></script>
+<script src="data/isocronas.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
