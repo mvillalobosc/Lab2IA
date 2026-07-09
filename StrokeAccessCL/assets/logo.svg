@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="220" viewBox="0 0 900 220" role="img" aria-label="StrokeAccessCL logo">
-<rect width="900" height="220" rx="28" fill="#f7fbfb"/>
-<circle cx="105" cy="110" r="62" fill="#00A499" opacity="0.18"/>
-<path d="M80 110h22l12-28 20 62 15-34h28" fill="none" stroke="#00A499" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M214 70h54v80h-54z" fill="#C8102E" opacity="0.92"/>
-<path d="M241 88v44M219 110h44" stroke="#fff" stroke-width="12" stroke-linecap="round"/>
-<text x="300" y="96" font-family="Arial, Helvetica, sans-serif" font-size="46" font-weight="700" fill="#263238">StrokeAccessCL</text>
-<text x="302" y="142" font-family="Arial, Helvetica, sans-serif" font-size="23" fill="#43515a">Cobertura hospitalaria y accesibilidad para ACV en Chile</text>
-</svg>
