@@ -29,23 +29,23 @@
 
 ### 1. ¿Qué es StrokeAccessCL?
 
-**StrokeAccessCL** es una aplicación web estática para visualizar la accesibilidad geográfica a establecimientos con atención de ataque cerebrovascular (ACV) en Chile. La interfaz permite explorar establecimientos, regiones, comunas, coberturas por tiempo de traslado e información contextual desde un mapa interactivo.
+**StrokeAccessCL** es una aplicación web estática para visualizar la accesibilidad geográfica a los establecimientos que atienden el ataque cerebrovascular (ACV) en Chile. La interfaz permite explorar establecimientos, regiones, comunas, coberturas según el tiempo de traslado e información contextual a través de un mapa interactivo.
 
-La aplicación está implementada como un sitio web del lado del cliente. No requiere backend propio para visualizar los datos ya incluidos en el repositorio. El navegador carga archivos JavaScript locales con establecimientos, límites administrativos e isócronas precalculadas, y usa Leaflet para dibujar el mapa.
+La aplicación está implementada como un sitio web del lado del cliente. No requiere un backend propio para visualizar los datos ya incluidos en el repositorio. El navegador carga archivos JavaScript locales con establecimientos, límites administrativos e isócronas precalculadas, y usa Leaflet para dibujar el mapa.
 
-Despliegue público actual: `https://mvillalobosc.diinf.usach.cl/StrokeAccessCL/`
+Despliegue público actual: [https://mvillalobosc.diinf.usach.cl/StrokeAccessCL/](https://mvillalobosc.diinf.usach.cl/StrokeAccessCL/)
 
 ### 2. Funcionalidades principales
 
 - Visualiza **93 establecimientos** con atención ACV georreferenciados en Chile.
 - Permite filtrar por **región**, **comuna con establecimiento** o **establecimiento específico**.
 - Muestra coberturas de viaje en auto para **30, 45 y 60 minutos**.
-- Usa isócronas precalculadas desde `data/isocronas.js` cuando el archivo está disponible.
-- Permite consultar un punto mediante clic en el mapa, búsqueda de dirección o geolocalización del navegador.
-- Informa hospitales cercanos al punto consultado y entrega enlaces de ruta en Google Maps.
-- Incluye una función avanzada para simular un establecimiento nuevo usando OpenRouteService.
-- Permite descargar los establecimientos como CSV y las coberturas como `isocronas.js`.
-- Soporta interfaz en **español**, **inglés** y **portugués** mediante `js/i18n.js`.
+- Usa isócronas precalculadas desde `data/isocronas.js` cuando estén disponibles.
+- Permite consultar un punto mediante clic en el mapa, la búsqueda de direcciones o la geolocalización del navegador.
+- Informa de hospitales cercanos al punto consultado y entrega enlaces de ruta en Google Maps.
+- Incluye una función avanzada para simular un nuevo establecimiento con OpenRouteService.
+- Permite descargar los establecimientos en formato CSV y las coberturas en formato `isocronas.js`.
+- Soporta las interfaces en **español**, **inglés** y **portugués** mediante `js/i18n.js`.
 
 ### 3. Estructura del repositorio
 
