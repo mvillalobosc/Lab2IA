@@ -39,6 +39,8 @@ BACP-Planner integra tres herramientas que trabajan sobre un mismo plan de estud
 
 La aplicación funciona como una única página web. `index.html` contiene la interfaz, estilos, modelos de datos, algoritmos, visualizaciones y lógica de interacción. SheetJS se distribuye localmente en `vendor/` para leer y escribir archivos Excel sin depender de una CDN.
 
+**Despligue público actual:** <https://mvillalobosc.diinf.usach.cl/BACPPlanner/>
+
 ## 2. Funcionalidades principales
 
 ### Planificador Curricular
@@ -464,6 +466,8 @@ BACP-Planner combines three tools that work with the same curriculum dataset:
 3. **Student Simulator:** receives the courses already passed by a student and proposes a plan for the remaining terms.
 
 The application is a single-page website. `index.html` contains the interface, styles, data models, algorithms, visualisations, and interaction logic. SheetJS is distributed locally in `vendor/`, allowing the application to read and write Excel files without relying on a CDN.
+
+**Live deployment:** <https://mvillalobosc.diinf.usach.cl/BACPPlanner/>
 
 ## 2. Main capabilities
 
