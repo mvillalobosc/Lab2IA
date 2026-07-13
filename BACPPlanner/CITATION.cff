@@ -1,0 +1,33 @@
+cff-version: 1.2.0
+message: "If you use BACP-Planner, please cite this software and the thesis on which it is based."
+title: "BACP-Planner"
+type: software
+authors:
+  - family-names: "Correa Chávez"
+    given-names: "V. A."
+  - family-names: "Villalobos Cid"
+    given-names: "Manuel J."
+version: "1.0.0"
+date-released: "2026-07-13"
+license: MIT
+abstract: >-
+  Static browser-based application for balanced academic curriculum planning
+  with NSGA-II, cohort progression simulation, and individual student planning.
+keywords:
+  - curriculum planning
+  - BACP
+  - NSGA-II
+  - multi-objective optimisation
+  - cohort simulation
+  - academic analytics
+preferred-citation:
+  type: thesis
+  title: "Desarrollo de una aplicación para abordar el problema de planificación curricular balanceada mediante optimización multiobjetivo con NSGA-II"
+  authors:
+    - family-names: "Correa Chávez"
+      given-names: "V. A."
+    - family-names: "Villalobos Cid"
+      given-names: "Manuel J."
+  year: 2025
+  institution:
+    name: "Universidad de Santiago de Chile"
