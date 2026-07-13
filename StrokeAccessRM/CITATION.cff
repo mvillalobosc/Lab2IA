@@ -1,0 +1,42 @@
+cff-version: 1.2.0
+message: "If you use StrokeAccessRM, please cite the software and the associated paper."
+title: "StrokeAccessRM: Stroke risk and hospital accessibility in the Santiago Metropolitan Region"
+type: software
+version: 1.0.0
+date-released: 2026-07-13
+url: "https://mvillalobosc.diinf.usach.cl/StrokeAccessRM/"
+license: MIT
+keywords:
+  - stroke
+  - healthcare accessibility
+  - spatial microsimulation
+  - isochrones
+  - clustering
+  - GIS
+  - Chile
+authors:
+  - family-names: Garrido Delgado
+    given-names: Diego Andrés
+  - family-names: Villalobos Cid
+    given-names: Manuel
+    email: manuel.villalobos.c@usach.cl
+preferred-citation:
+  type: conference-paper
+  title: "Spatiotemporal characterisation of stroke care accessibility and hospital coverage in the Santiago Metropolitan Region"
+  year: 2025
+  authors:
+    - family-names: Garrido-Delgado
+      given-names: Diego
+    - family-names: Lillo-Vidal
+      given-names: José
+    - family-names: Escudero-Bell
+      given-names: Matías
+    - family-names: Hurtado-Meneses
+      given-names: Victoria
+    - family-names: Villalobos-Cid
+      given-names: Manuel
+  conference:
+    name: "2025 21st International Symposium on Biomedical Image Processing and Analysis (SIPAIM)"
+  start: 1
+  end: 5
+  doi: "10.1109/SIPAIM67325.2025.11283388"
