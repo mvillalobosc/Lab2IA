@@ -3,7 +3,7 @@
 **Planificación curricular balanceada, simulación de cohortes y planificación del avance estudiantil en el navegador.**  
 **Balanced curriculum planning, cohort simulation, and student progression planning in the browser.**
 
-[Español](#español) · [English](#english) · [Capturas / Screenshots](#capturas--screenshots) · [Formato Excel / Excel format](#formato-excel--excel-format) · [Arquitectura / Architecture](#arquitectura--architecture)
+[Español](#español) · [English](#english) · [Capturas / Screenshots](#capturas--screenshots) · [Formato Excel](#6-formato-excel) · [Excel format](#6-excel-format) · [Arquitectura](#10-arquitectura) · [Architecture](#10-architecture)
 
 BACP-Planner es una aplicación web estática desarrollada para el Departamento de Ingeniería Informática de la Universidad de Santiago de Chile. Ejecuta toda la carga de datos, optimización, simulación, edición y exportación directamente en el navegador, sin backend ni base de datos.
 
@@ -39,7 +39,7 @@ BACP-Planner integra tres herramientas que trabajan sobre un mismo plan de estud
 
 La aplicación funciona como una única página web. `index.html` contiene la interfaz, estilos, modelos de datos, algoritmos, visualizaciones y lógica de interacción. SheetJS se distribuye localmente en `vendor/` para leer y escribir archivos Excel sin depender de una CDN.
 
-**Despligue público actual:** <https://mvillalobosc.diinf.usach.cl/BACPPlanner/>
+**Despliegue público actual:** <https://mvillalobosc.diinf.usach.cl/BACPPlanner/>
 
 ## 2. Funcionalidades principales
 
@@ -218,8 +218,8 @@ prerrequisito → curso
 
 ### Archivos incluidos
 
-- `examples/plantilla_plan_estudios.xlsx`: plantilla mínima editable.
-- `examples/ejemplo_ing_civil_informatica.xlsx`: ejemplo completo con 58 asignaturas, 330 SCT, 11 semestres y 86 prerrequisitos.
+- [Descargar plantilla del plan de estudios](examples/plantilla_plan_estudios.xlsx): plantilla mínima editable.
+- [Descargar ejemplo de Ingeniería Civil en Informática](examples/ejemplo_ing_civil_informatica.xlsx): ejemplo completo con 58 asignaturas, 330 SCT, 11 semestres y 86 prerrequisitos.
 
 ## 7. Modelo de optimización
 
@@ -441,7 +441,9 @@ La aplicación usa APIs estándar del navegador: DOM, SVG, Canvas, FileReader, B
 
 BACP-Planner se basa en la memoria de título:
 
-> Correa Chávez, V. A., Villalobos Cid, M. J., & Universidad de Santiago de Chile, Facultad de Ingeniería, Departamento de Ingeniería Informática. (2025). *Desarrollo de una aplicación para abordar el problema de planificación curricular balanceada mediante optimización multiobjetivo con NSGA-II*. Universidad de Santiago de Chile.
+> Correa Chávez, V. A. (2025). *Desarrollo de una aplicación para abordar el problema de planificación curricular balanceada mediante optimización multiobjetivo con NSGA-II* [Memoria de título, Universidad de Santiago de Chile].
+
+**Profesor guía:** Manuel Villalobos Cid.
 
 El archivo `CITATION.cff` permite usar el botón **Cite this repository** de GitHub.
 
@@ -646,8 +648,8 @@ prerequisite → course
 
 ### Included workbooks
 
-- `examples/plantilla_plan_estudios.xlsx`: small editable template.
-- `examples/ejemplo_ing_civil_informatica.xlsx`: complete example with 58 courses, 330 SCT credits, 11 terms, and 86 prerequisite relationships.
+- [Download the curriculum template](examples/plantilla_plan_estudios.xlsx): small editable template.
+- [Download the Civil Engineering in Computer Science example](examples/ejemplo_ing_civil_informatica.xlsx): complete example with 58 courses, 330 SCT credits, 11 terms, and 86 prerequisite relationships.
 
 ## 7. Optimisation model
 
@@ -869,7 +871,9 @@ The application uses standard browser APIs: DOM, SVG, Canvas, FileReader, Blob, 
 
 BACP-Planner is based on the undergraduate thesis:
 
-> Correa Chávez, V. A., Villalobos Cid, M. J., & Universidad de Santiago de Chile, Facultad de Ingeniería, Departamento de Ingeniería Informática. (2025). *Desarrollo de una aplicación para abordar el problema de planificación curricular balanceada mediante optimización multiobjetivo con NSGA-II*. Universidad de Santiago de Chile.
+> Correa Chávez, V. A. (2025). *Desarrollo de una aplicación para abordar el problema de planificación curricular balanceada mediante optimización multiobjetivo con NSGA-II* [Undergraduate thesis, Universidad de Santiago de Chile].
+
+**Supervisor:** Manuel Villalobos Cid.
 
 `CITATION.cff` enables GitHub's **Cite this repository** button.
 
