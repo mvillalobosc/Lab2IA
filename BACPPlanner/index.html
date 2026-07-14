@@ -3,8 +3,6 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<meta name="description" content="BACP-Planner: planificación curricular balanceada, simulación de cohortes y planificación de avance estudiantil en el navegador."/>
-<meta name="theme-color" content="#00A499"/>
 <title>BACP-Planner · Gestión curricular · DIINF-USACH</title>
 <script src="./vendor/xlsx.full.min.js"></script>
 <style>
@@ -61,6 +59,9 @@ a{color:var(--teal-d)}
 .tb-btn{display:inline-flex;align-items:center;gap:7px;padding:8px 13px;border-radius:10px;border:1px solid var(--line);background:#fff;color:var(--graphite-2);font-weight:600;font-size:13px;transition:.15s}
 .tb-btn:hover{border-color:var(--teal);color:var(--teal-d);background:var(--teal-l)}
 .tb-btn svg{width:15px;height:15px}
+.tb-back{padding:8px 12px;flex:none}
+.tb-back:disabled{opacity:.42;cursor:not-allowed;border-color:var(--line);color:var(--muted);background:#fff}
+.tb-back:disabled:hover{border-color:var(--line);color:var(--muted);background:#fff}
 .data-pill{display:flex;align-items:center;gap:8px;padding:6px 8px 6px 12px;border-radius:999px;background:var(--teal-l);border:1px solid var(--teal-l2);color:var(--teal-dd);font-size:12.5px;font-weight:600;max-width:min(34vw,420px)}
 .data-pill.empty{background:var(--paper);border-color:var(--line);color:var(--muted)}
 .data-pill b{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
@@ -527,6 +528,7 @@ table.gloss td:last-child{color:var(--graphite-2)}
   .intro .steps{grid-template-columns:1fr}
   .kpi-row{grid-template-columns:1fr 1fr}
   .tb-tabs .lbl{display:none}
+  .tb-back .lbl{display:none}
 }
 @media print{
   .topbar,.sidebar,.help,.overlay,.toasts,.malla-toolbar,.malla-nav,.gallery-card,.pareto-card,.legend-card,.edit-banner{display:none!important}
@@ -544,6 +546,10 @@ table.gloss td:last-child{color:var(--graphite-2)}
     <div class="app-name"><b>BACP-Planner</b><span>DIINF · USACH</span></div>
   </div>
   <div class="spacer"></div>
+  <button class="tb-btn tb-back" id="navBack" disabled title="Volver a la pestaña anterior">
+    <svg viewBox="0 0 24 24" fill="none"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span class="lbl" data-i18n="nav_back">Volver</span>
+  </button>
   <nav class="tb-tabs" id="navTabs">
     <button data-view="home" class="on"><svg viewBox="0 0 24 24" fill="none"><path d="M3 11l9-8 9 8M5 9v11h14V9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="lbl" data-i18n="tab_home">Inicio</span></button>
     <button data-view="planner"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="7" height="7" rx="1.5" fill="currentColor"/><rect x="14" y="3" width="7" height="4" rx="1.5" fill="currentColor" opacity=".55"/><rect x="14" y="10" width="7" height="11" rx="1.5" fill="currentColor"/><rect x="3" y="13" width="7" height="8" rx="1.5" fill="currentColor" opacity=".55"/></svg><span class="lbl" data-i18n="tab_planner">Planificador</span></button>
@@ -879,7 +885,7 @@ table.gloss td:last-child{color:var(--graphite-2)}
     </div>
     <div class="foot-text">
       <p class="foot-lead" data-i18n="foot_based">Esta herramienta se basa en la memoria de título:</p>
-      <p class="foot-cite">Correa Chávez, V. A., Villalobos Cid, M. J., &amp; Universidad de Santiago de Chile, Facultad de Ingeniería, Departamento de Ingeniería Informática. (2025). <i>Desarrollo de una aplicación para abordar el problema de planificación curricular balanceada mediante optimización multiobjetivo con NSGA-II</i>. Universidad de Santiago de Chile.</p>
+      <p class="foot-cite">Correa Chávez, V. A., Villalobos Cid, M. J., &amp; Universidad de Santiago de Chile, Facultad de Ingeniería, Departamento de Ingeniería Informática. (712). <i>Desarrollo de una aplicación para abordar el problema de planificación curricular balanceada mediante optimización multiobjetivo con NSGA-II</i>. Universidad de Santiago de Chile.</p>
     </div>
   </div>
 </footer>
@@ -1540,7 +1546,7 @@ let LANG = 'es';
 const I18N = {
   es:{
     tab_home:"Inicio", tab_planner:"Planificador", tab_cohort:"Progreso", tab_student:"Estudiantes",
-    nav_help:"Ayuda", pill_empty:"Sin plan cargado", pill_sem:"sem.",
+    nav_help:"Ayuda", nav_back:"Volver", pill_empty:"Sin plan cargado", pill_sem:"sem.",
     hero_kicker:"Departamento de Ingeniería Informática · USACH",
     hero_title:"BACP-Planner", hero_sub:"Diseña mallas balanceadas, simula el avance de una cohorte con tasas de reprobación y planifica los ramos que le faltan a un estudiante. Todo en tu navegador, sin instalar nada.",
     hero_b1:"Optimización NSGA-II", hero_b2:"Búsqueda por tiempo (5–20 s)", hero_b3:"Mallas editables",
@@ -1590,7 +1596,7 @@ const I18N = {
   },
   en:{
     tab_home:"Home", tab_planner:"Planner", tab_cohort:"Progress", tab_student:"Students",
-    nav_help:"Help", pill_empty:"No plan loaded", pill_sem:"sem.",
+    nav_help:"Help", nav_back:"Back", pill_empty:"No plan loaded", pill_sem:"sem.",
     hero_kicker:"Department of Computer Engineering · USACH",
     hero_title:"BACP-Planner", hero_sub:"Design balanced curricula, simulate a cohort's progress with failure rates, and plan the courses a student has left. All in your browser, nothing to install.",
     hero_b1:"NSGA-II optimization", hero_b2:"Time-budget search (5–20 s)", hero_b3:"Editable curricula",
@@ -1640,7 +1646,7 @@ const I18N = {
   },
   pt:{
     tab_home:"Início", tab_planner:"Planejador", tab_cohort:"Progresso", tab_student:"Estudantes",
-    nav_help:"Ajuda", pill_empty:"Nenhum plano carregado", pill_sem:"sem.",
+    nav_help:"Ajuda", nav_back:"Voltar", pill_empty:"Nenhum plano carregado", pill_sem:"sem.",
     hero_kicker:"Departamento de Engenharia Informática · USACH",
     hero_title:"BACP-Planner", hero_sub:"Projete grades equilibradas, simule o avanço de uma coorte com taxas de reprovação e planeje as disciplinas que faltam a um estudante. Tudo no seu navegador, sem instalar nada.",
     hero_b1:"Otimização NSGA-II", hero_b2:"Busca por tempo (5–20 s)", hero_b3:"Grades editáveis",
@@ -1703,6 +1709,7 @@ function applyI18n(){
   if($("#helpPanel").classList.contains("on")) setHelpTab(currentHelpTab);
   syncPresetLabels();
   translateStatic();
+  updateNavBack();
 }
 function setLang(l){ LANG=l; $$("#langSw .flag").forEach(f=>f.classList.toggle("on",f.dataset.lang===l)); applyI18n(); }
 function syncPresetLabels(){
@@ -1863,7 +1870,7 @@ function loadPlan(plan){
   state.baseMalla=null; state.baseMallaLabel=null; state.showPicker=false;
   // top pill
   const pill=$("#dataPill"); pill.classList.remove("empty");
-  const pillName=$("#dataPillName"); pillName.removeAttribute("data-i18n"); pillName.textContent=plan.nombre;
+  $("#dataPillName").textContent=plan.nombre;
   $("#dataPillPer").classList.remove("hidden"); $("#dataPillPer").textContent=plan.periodos+" sem.";
   $("#dataPillClear").classList.remove("hidden");
   refreshDataPanels();
@@ -1878,7 +1885,7 @@ function loadPlan(plan){
 }
 function clearPlan(){
   state.plan=null; state.result=null; state.cohort=null; state.stResult=null; state.baseMalla=null; state.baseMallaLabel=null;
-  const pill=$("#dataPill"); pill.classList.add("empty"); const pillName=$("#dataPillName"); pillName.setAttribute("data-i18n","pill_empty"); pillName.textContent=t('pill_empty');
+  const pill=$("#dataPill"); pill.classList.add("empty"); $("#dataPillName").textContent=t('pill_empty');
   $("#dataPillPer").classList.add("hidden"); $("#dataPillClear").classList.add("hidden");
   refreshDataPanels(); populateBaseSelectors();
   $("#runBtn").disabled=true; $("#coRun").disabled=true; $("#stRun").disabled=true;
@@ -2750,10 +2757,30 @@ function syncParams(){
   $("#vSecs").textContent=$("#pSecs").value; $("#vPop").textContent=$("#pPop").value; $("#vPc").textContent=(+$("#pPc").value).toFixed(2); $("#vPm").textContent=(+$("#pPm").value).toFixed(2); $("#vLs").textContent=$("#pLs").value; $("#vImm").textContent=$("#pImm").value;
   $("#ptime").textContent="0.0 / "+$("#pSecs").value+" s";
 }
-function showView(name){
+let currentView="home";
+const viewHistory=[];
+function showView(name, isBack){
+  if(!isBack && name!==currentView) viewHistory.push(currentView);
+  currentView=name;
   ["home","planner","cohort","student"].forEach(v=>$("#view-"+v).classList.toggle("hidden",v!==name));
   $("#navTabs").querySelectorAll("button").forEach(b=>b.classList.toggle("on",b.dataset.view===name));
+  updateNavBack();
   window.scrollTo({top:0,behavior:"smooth"});
+}
+function goBack(){
+  if(!viewHistory.length) return;
+  showView(viewHistory.pop(), true);
+}
+function updateNavBack(){
+  const btn=$("#navBack"); if(!btn) return;
+  const has=viewHistory.length>0;
+  btn.disabled=!has;
+  if(has){
+    const prev=viewHistory[viewHistory.length-1];
+    btn.title=t('nav_back')+" · "+t('tab_'+prev);
+  } else {
+    btn.title=t('nav_back');
+  }
 }
 
 document.addEventListener("DOMContentLoaded",()=>{
@@ -2764,6 +2791,8 @@ document.addEventListener("DOMContentLoaded",()=>{
   applyI18n();
   // nav
   $("#navTabs").querySelectorAll("button").forEach(b=>b.onclick=()=>showView(b.dataset.view));
+  $("#navBack").onclick=goBack;
+  updateNavBack();
   $$(".tool-card").forEach(c=>c.onclick=()=>showView(c.dataset.goto));
   $("#homeLogo").onclick=()=>showView("home");
   $("#dataPillClear").onclick=clearPlan;
