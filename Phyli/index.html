@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
-<title>Phyli · Visualizador de árboles filogenéticos</title>
-<meta name="description" content="Phyli: herramienta en línea para interactuar y visualizar árboles filogenéticos (formato Newick). USACH · Departamento de Ingeniería Informática." />
+<title>Phyli · Visualizador de árboles y redes filogenéticas</title>
+<meta name="description" content="Phyli: herramienta en línea para interactuar y visualizar árboles y redes filogenéticas (Newick y Newick extendido). USACH · Departamento de Ingeniería Informática." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
@@ -95,7 +95,9 @@ input,select{font-family:inherit}
 .drop small{display:block;color:#98A4B0;margin-top:3px;font-size:11.5px}
 .drop .fmt{font-family:var(--mono);color:var(--oxide-2)}
 
-.filechip{display:none;align-items:center;gap:10px;background:rgba(0,0,0,.2);border:1px solid var(--pine-line);border-radius:var(--r);padding:9px 11px;margin-top:2px}
+.filechip{display:none;align-items:center;gap:10px;background:rgba(0,0,0,.2);border:1px solid var(--pine-line);border-radius:var(--r);padding:9px 11px;margin-top:2px;cursor:pointer;transition:.15s var(--fx)}
+.filechip:hover{border-color:var(--sap-dim);background:rgba(73,139,202,.08)}
+.filechip.drag{border-color:var(--sap);background:rgba(73,139,202,.16)}
 .filechip.on{display:flex}
 .filechip .fi{flex:none;width:30px;height:30px;border-radius:8px;background:rgba(73,139,202,.16);display:grid;place-items:center;color:var(--sap)}
 .filechip .fi svg{width:16px;height:16px}
@@ -105,8 +107,19 @@ input,select{font-family:inherit}
 .filechip .x{flex:none;width:28px;height:28px;border-radius:7px;color:#AEBAC6;display:grid;place-items:center;transition:.15s}
 .filechip .x:hover{background:rgba(177,74,44,.22);color:#fff}
 
-.ex-line{display:flex;align-items:center;flex-wrap:wrap;gap:2px 7px;margin:12px 0 2px}
-.ex-tag{font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:#96A3AF;font-weight:700;margin-right:3px}
+.ex-line{margin:13px 0 2px}
+.ex-tag{display:block;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:#96A3AF;font-weight:700;margin-bottom:7px}
+.ex-tag.sub{margin-top:9px;color:#8492A0;font-weight:600}
+.ex-chips{display:flex;flex-wrap:wrap;gap:6px}
+.ex-chip{display:inline-flex;align-items:center;gap:6px;height:31px;padding:0 11px;border-radius:999px;cursor:pointer;
+  border:1px solid var(--sap-dim);background:rgba(73,139,202,.1);color:#D6E3EF;
+  font-size:12px;font-weight:600;white-space:nowrap;transition:.15s var(--fx)}
+.ex-chip svg{width:13px;height:13px;flex:none;color:var(--sap)}
+.ex-chip:hover{background:rgba(73,139,202,.24);border-color:var(--sap);color:#fff}
+.ex-chip.net{border-color:rgba(140,71,153,.6);background:rgba(140,71,153,.13)}
+.ex-chip.net svg{color:#B983C4}
+.ex-chip.net:hover{background:rgba(140,71,153,.28);border-color:#A356B2}
+.ex-chip.remote{border-style:dashed}
 /* contextual help "?" */
 .help-hint{width:17px;height:17px;border-radius:50%;font-size:11px;font-weight:700;line-height:1;font-family:var(--ui);
   display:inline-grid;place-items:center;color:#9FB0BE;border:1px solid var(--pine-line);background:rgba(255,255,255,.05);
@@ -114,14 +127,9 @@ input,select{font-family:inherit}
 .help-hint:hover,.help-hint.on{background:var(--sap);color:#fff;border-color:var(--sap)}
 .eyebrow-hint{margin-left:auto}
 .acc-head .help-hint{margin-right:8px}
-.ex-link{font-size:12.5px;font-weight:600;color:var(--sap);padding:2px 1px;transition:.14s var(--fx)}
-.ex-link:hover{color:#7FB2E0;text-decoration:underline}
-.ex-sep{color:#59636F;font-size:12px}
 .url-block{margin-top:12px}
 .mini-help{font-size:11px;color:#8492A0;line-height:1.55;margin-top:7px}
 .mini-help code{font-family:var(--mono);font-size:10.5px;background:rgba(255,255,255,.08);border-radius:4px;padding:1px 5px;color:#B7C4D0}
-.ex-inline{display:inline;font-size:11px;font-weight:600;color:var(--sap);text-decoration:underline;text-underline-offset:2px;padding:0;background:none;border:none;cursor:pointer}
-.ex-inline:hover{color:#7FB2E0}
 .url-row{display:flex;gap:7px}
 .url-row input{
   flex:1;min-width:0;height:40px;border-radius:10px;border:1px solid var(--pine-line);
@@ -133,7 +141,8 @@ input,select{font-family:inherit}
   flex:none;padding:0 15px;height:40px;border-radius:10px;font-size:12.5px;font-weight:600;color:#fff;
   background:var(--sap);border:1px solid var(--sap-dim);transition:.16s var(--fx)
 }
-.url-row button:hover{filter:brightness(1.08)}
+.url-row button:hover:not(:disabled){filter:brightness(1.08)}
+.url-row button:disabled{opacity:.4;cursor:not-allowed}
 .url-row button:active{transform:translateY(1px)}
 
 /* Search */
@@ -573,6 +582,27 @@ input[type=range]:disabled{opacity:.4}
   .brand .flag-icon{width:15px;height:15px}
 }
 
+/* ---------- Redes filogenéticas (Newick extendido) ---------- */
+.net-only{display:none!important}
+body.is-net .hint.net-only{display:block!important}
+body.is-net .tog.net-only{display:flex!important}
+body.is-net .st.net-only{display:block!important}
+body.is-net .lg.net-only{display:flex!important}
+body.is-net .callout.net-only{display:flex!important}
+body.is-net li.net-only{display:list-item!important}
+body.is-net .tree-only{display:none!important}
+body.is-net .stat-strip.on{grid-template-columns:repeat(4,minmax(0,1fr))}
+body.is-net .stat-strip .st b{font-size:21px}
+body.is-net .stat-strip .st small{font-size:9px;letter-spacing:.06em}
+.cartouche .ct-net{display:none;flex-direction:column;gap:4px;margin-top:7px;padding-top:7px;border-top:1px solid var(--paper-edge)}
+body.is-net .cartouche .ct-net{display:flex}
+.cartouche .ct-net .row{display:flex;align-items:center;gap:7px;color:var(--ink-soft);font-size:9.5px;line-height:1.2}
+.cartouche .ct-net .row svg{flex:none}
+.retic-gamma{pointer-events:none}
+.retic{fill:none;stroke-linecap:round;cursor:pointer}
+#tooltip .tt-name.retic{font-family:var(--ui);font-style:normal;color:#D9A7E3}
+#tooltip .tt-tag{display:inline-block;margin-top:6px;padding:2px 7px;border-radius:5px;background:rgba(140,71,153,.3);
+  border:1px solid rgba(200,150,215,.45);color:#E6CFEC;font-family:var(--mono);font-size:10px}
 </style>
 </head>
 <body>
@@ -591,7 +621,7 @@ input[type=range]:disabled{opacity:.4}
       </svg>
       <div>
         <h1>phyli</h1>
-        <div class="sub">Árboles filogenéticos</div>
+        <div class="sub">Árboles y redes</div>
       </div>
       <div class="top-actions">
 
@@ -648,7 +678,7 @@ input[type=range]:disabled{opacity:.4}
       <div class="acc compact-acc open" id="accData" data-locked="0">
         <button class="acc-head" data-acc="accData" aria-expanded="true">
           <svg class="bg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 4v16M6 10h6M6 15h9"/></svg>
-          <span class="acc-text"><span class="acc-title">Datos del árbol</span><small class="acc-summary">Archivo, enlace, ejemplos y resumen</small></span>
+          <span class="acc-text"><span class="acc-title">Datos del árbol o red</span><small class="acc-summary">Archivo, enlace, ejemplos y resumen</small></span>
           <span class="help-hint" data-help="datos" role="button" tabindex="0" aria-label="Ayuda: datos del árbol">?</span>
           <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m9 6 6 6-6 6"/></svg>
         </button>
@@ -656,34 +686,39 @@ input[type=range]:disabled{opacity:.4}
 <label class="drop" id="drop">
           <svg class="di" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V4m0 0L8 8m4-4 4 4"/><path d="M4 15v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/></svg>
           <b>Arrastra o elige un archivo</b>
-          <small>Formatos <span class="fmt">.nwk</span> · <span class="fmt">.tree</span> · <span class="fmt">.json</span></small>
-          <input type="file" id="fileInput" accept=".nwk,.tree,.txt,.json" hidden />
+          <small>Formatos <span class="fmt">.nwk</span> · <span class="fmt">.enwk</span> · <span class="fmt">.net</span> · <span class="fmt">.json</span></small>
+          <input type="file" id="fileInput" accept=".nwk,.enwk,.enw,.net,.new,.tre,.tree,.txt,.json" hidden />
         </label>
-        <div class="filechip" id="fileChip">
+        <div class="filechip" id="fileChip" title="Elige o arrastra otro archivo">
           <div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 4v16M6 10h6M6 15h9"/></svg></div>
           <div class="meta"><b id="fileName">—</b><small id="fileMeta">—</small></div>
           <button class="x" id="fileClear" aria-label="Quitar archivo"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
         </div>
         <div class="ex-line">
           <span class="ex-tag">Ejemplos</span>
-          <button class="ex-link" data-ex="vertebrates" title="Filogenia de 12 vertebrados, con largos de rama y soporte bootstrap">Vertebrados</button>
-          <span class="ex-sep">·</span>
-          <button class="ex-link" data-ex="animals" title="Árbol mínimo de 6 taxones, ideal para empezar">Simple</button>
-          <span class="ex-sep">·</span>
-          <button class="ex-link" data-ex="treeOfLife" title="191 organismos de los tres dominios de la vida">Árbol de la vida</button>
+          <div class="ex-chips">
+            <button class="ex-chip" data-ex="treeOfLife" title="191 organismos de los tres dominios de la vida"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M6 4v16M6 10h6M6 15h9"/></svg> Árbol de la vida</button>
+            <button class="ex-chip net" data-ex="saccharomycesNet" title="Red de hibridación en Saccharomyces, en Newick extendido con probabilidades γ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="m12 10.5 2.75 2.75L12 16l-2.75-2.75z"/><path d="M5 4.5 9.4 11M19 4.5 14.6 11M12 16v3.5"/></svg> Red filogenética</button>
+          </div>
+          <span class="ex-tag sub">Desde una URL externa</span>
+          <div class="ex-chips">
+            <button class="ex-chip remote" data-url="tree" title="Árbol Newick alojado en GitHub: pone su URL en el campo y lo carga"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7 0l2-2a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-2 2a5 5 0 0 0 7 7l1-1"/></svg> Árbol remoto</button>
+            <button class="ex-chip remote net" data-url="net" title="Red en Newick extendido alojada en GitHub: pone su URL en el campo y la carga"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7 0l2-2a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-2 2a5 5 0 0 0 7 7l1-1"/></svg> Red remota</button>
+          </div>
         </div>
 
         <div class="url-block">
           <div class="url-row">
-            <input type="url" id="urlInput" placeholder="Pega un enlace o el árbol (Newick/JSON)" autocomplete="off" spellcheck="false" title="Pega la URL de un archivo .nwk/.json, o el árbol en texto Newick/JSON, y pulsa Cargar" />
+            <input type="url" id="urlInput" placeholder="Pega un enlace o un Newick" autocomplete="off" spellcheck="false" title="Pega la URL de un archivo .nwk/.enwk/.json, o el texto del árbol o de la red en Newick/Newick extendido/JSON, y pulsa Cargar" />
             <button id="urlLoad" type="button" title="Cargar el enlace o el árbol pegado">Cargar</button>
           </div>
-          <div class="mini-help"><button class="ex-inline" id="urlExample" type="button">Probar un enlace de ejemplo →</button></div>
+          <div class="mini-help">Los ejemplos remotos escriben su URL aquí y la cargan: así se abre cualquier archivo publicado en la web.</div>
         </div>
         <div class="stat-strip" id="statStrip">
           <div class="st"><b id="stLeaves">0</b><small>Taxones</small></div>
           <div class="st"><b id="stNodes">0</b><small>Nodos</small></div>
           <div class="st"><b id="stDepth">0</b><small>Profund.</small></div>
+          <div class="st net-only"><b id="stRetic">0</b><small>Retic.</small></div>
         </div>
         </div></div>
       </div>
@@ -730,7 +765,8 @@ input[type=range]:disabled{opacity:.4}
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16"/><circle cx="8" cy="12" r="2.5"/><circle cx="16" cy="12" r="2.5"/><path d="M12 7v10"/></svg>
             Enraizar por midpoint
           </button>
-          <div class="hint">La raíz se puede mover usando una punta como grupo externo o el punto medio entre las dos puntas más distantes.</div>
+          <div class="hint tree-only">La raíz se puede mover usando una punta como grupo externo o el punto medio entre las dos puntas más distantes.</div>
+          <div class="hint net-only">En una red filogenética la raíz queda determinada por las aristas reticuladas: el enraizamiento se desactiva para no romper los nodos híbridos.</div>
         </div>
         </div></div>
       </div>
@@ -778,6 +814,7 @@ input[type=range]:disabled{opacity:.4}
             <div class="measure-distance"><span>Distancia</span><b id="measureDistance">—</b><small id="measureUnit">—</small></div>
           </div>
           <div class="hint">Selecciona dos puntas para calcular la distancia sobre el árbol actual. Puedes resaltar el camino y luego limpiar la marca.</div>
+          <div class="hint net-only">En una red la distancia se mide sobre el árbol de base: las aristas reticuladas no forman parte del camino.</div>
         </div></div>
       </div>
 
@@ -871,6 +908,14 @@ input[type=range]:disabled{opacity:.4}
             <div class="lb">Nombres de clado<small>Etiquetas de nodos internos</small></div>
             <label class="switch"><input type="checkbox" id="togInternal"><span class="tr"></span></label>
           </div>
+          <div class="tog net-only">
+            <div class="lb">Aristas reticuladas <button type="button" class="help-hint mini-q" data-help="reticHelp" aria-label="Ayuda: aristas reticuladas">?</button><small>Flechas de los eventos híbridos</small></div>
+            <label class="switch"><input type="checkbox" id="togRetic" checked><span class="tr"></span></label>
+          </div>
+          <div class="tog net-only">
+            <div class="lb">Probabilidad de herencia γ<small>Aporte de cada progenitor en la arista</small></div>
+            <label class="switch"><input type="checkbox" id="togGamma" checked><span class="tr"></span></label>
+          </div>
         </div></div>
       </div>
 
@@ -925,6 +970,10 @@ input[type=range]:disabled{opacity:.4}
       <div class="ct-t"><svg class="seal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2" stroke-linecap="round"/></svg><span id="ctTitle">Ejemplo</span></div>
       <div id="ctDesc">Cargue un árbol para comenzar.</div>
       <div class="ct-meta" id="ctMeta"></div>
+      <div class="ct-net">
+        <div class="row"><svg width="30" height="11" viewBox="0 0 30 11" aria-hidden="true"><path d="M1 9 Q 11 -1 22 5" fill="none" stroke="#8C4799" stroke-width="1.6" stroke-dasharray="3 2.4" stroke-linecap="round"/><polygon points="29,6.5 21.5,2.6 22.3,8.4" fill="#8C4799"/></svg><span>Arista reticulada</span></div>
+        <div class="row"><svg width="30" height="11" viewBox="0 0 30 11" aria-hidden="true"><polygon points="15,1.5 20,6 15,10.5 10,6" fill="#ffffff" stroke="#8C4799" stroke-width="1.6" stroke-linejoin="round"/></svg><span>Nodo híbrido</span></div>
+      </div>
     </div>
 
     <!-- Empty state hero -->
@@ -953,7 +1002,7 @@ input[type=range]:disabled{opacity:.4}
         </g>
       </svg>
       <h2>Lee la historia de la <em>vida</em></h2>
-      <p>Phyli dibuja árboles filogenéticos a partir de archivos Newick: interactúa con los nodos, cambia el trazado y exporta figuras listas para publicar.</p>
+      <p>Phyli dibuja árboles y redes filogenéticas a partir de Newick y Newick extendido: interactúa con los nodos, cambia el trazado y exporta figuras listas para publicar.</p>
       <div class="cta">
         <button class="btn-primary" id="emptyLoad"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v11m6-6-6 6-6-6"/><path d="M5 20h14"/></svg>Ver un ejemplo</button>
         <button class="btn-secondary" id="emptyHelp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.2 9.2a2.8 2.8 0 1 1 3.9 2.6c-.8.4-1.1 1-1.1 1.9"/><circle cx="12" cy="17" r=".8" fill="currentColor"/></svg>¿Cómo funciona?</button>
@@ -978,16 +1027,16 @@ input[type=range]:disabled{opacity:.4}
 <aside class="sheet" id="helpSheet" aria-label="Guía de uso">
   <div class="sheet-head">
     <div class="sh-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M6 4v16M6 9h7M6 15h5"/><circle cx="18" cy="9" r="1.4" fill="currentColor" stroke="none"/></svg></div>
-    <div><h2>Guía rápida</h2><p>Qué es un árbol filogenético y cómo usar phyli</p></div>
+    <div><h2>Guía rápida</h2><p>Qué es un árbol o una red filogenética y cómo usar phyli</p></div>
     <button class="close-x" data-close><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
   </div>
   <div class="sheet-body doc">
-    <p class="lead">Un <b>árbol filogenético</b> es un diagrama que representa las relaciones evolutivas entre un grupo de organismos, genes o secuencias. Las <b>puntas</b> (hojas) son los taxones observados; los <b>nodos internos</b> son ancestros comunes hipotéticos, y el <b>largo de las ramas</b> puede representar tiempo o cantidad de cambio evolutivo.</p>
+    <p class="lead">Un <b>árbol filogenético</b> es un diagrama que representa las relaciones evolutivas entre un grupo de organismos, genes o secuencias. Las <b>puntas</b> (hojas) son los taxones observados; los <b>nodos internos</b> son ancestros comunes hipotéticos, y el <b>largo de las ramas</b> puede representar tiempo o cantidad de cambio evolutivo. Cuando la historia incluye hibridación, transferencia horizontal o recombinación, el árbol se convierte en una red filogenética, y Phyli también las lee y las dibuja.</p>
 
-    <div class="callout"><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v11m6-6-6 6-6-6" stroke-linecap="round"/><path d="M5 20h14" stroke-linecap="round"/></svg></span><p><b>¿Sin datos a la mano?</b> Pulsa <b>Ver un ejemplo</b>, o en el panel pulsa uno en <b>Ejemplos para probar</b> (Vertebrados, Simple, Árbol de la vida) y explora las opciones con un árbol real.</p></div>
+    <div class="callout"><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v11m6-6-6 6-6-6" stroke-linecap="round"/><path d="M5 20h14" stroke-linecap="round"/></svg></span><p><b>¿Sin datos a la mano?</b> Pulsa <b>Ver un ejemplo</b>, o pulsa uno de los cuatro ejemplos del panel: el Árbol de la vida (191 organismos de los tres dominios), la Red filogenética (dos hibridaciones en Saccharomyces, en Newick extendido) o sus dos versiones remotas, que llegan por URL.</p></div>
 
     <h3><span class="n">1</span> El formato Newick</h3>
-    <p>Phyli lee árboles en formato <b>Newick</b>, un texto que anida los grupos con paréntesis. Las comas separan hermanos; dos puntos indican el largo de la rama; el punto y coma cierra el árbol.</p>
+    <p>Phyli lee árboles en formato Newick: un texto que anida los grupos con paréntesis. Las comas separan hermanos; dos puntos indican el largo de la rama; el punto y coma cierra el árbol.</p>
     <div class="codeblock"><span class="cb-tag">newick</span><pre><span class="tk-punc">(</span><span class="tk-name">Gato</span><span class="tk-punc">:</span><span class="tk-len">0.3</span><span class="tk-punc">,(</span><span class="tk-name">Ratón</span><span class="tk-punc">:</span><span class="tk-len">0.2</span><span class="tk-punc">,</span><span class="tk-name">Humano</span><span class="tk-punc">:</span><span class="tk-len">0.2</span><span class="tk-punc">)</span><span class="tk-sup">[95]</span><span class="tk-punc">:</span><span class="tk-len">0.1</span><span class="tk-punc">);</span></pre></div>
     <ul>
       <li><span class="lm">›</span> <code>( )</code> agrupan un <b>clado</b> (un ancestro y sus descendientes).</li>
@@ -996,7 +1045,18 @@ input[type=range]:disabled{opacity:.4}
       <li><span class="lm">›</span> El texto tras un <code>)</code> nombra al clado ancestral.</li>
     </ul>
 
-    <h3><span class="n">2</span> Elegir el trazado</h3>
+    <h3><span class="n">2</span> Redes filogenéticas y Newick extendido</h3>
+    <p>No toda la evolución es divergencia: la hibridación, la transferencia horizontal de genes y la recombinación vuelven a unir linajes que ya se habían separado, y eso no cabe en un árbol. Phyli lee esos casos en <b>Newick extendido</b> (eNewick), donde un mismo nodo híbrido se escribe varias veces —una por cada progenitor— con una etiqueta que empieza por <code>#</code>.</p>
+    <div class="codeblock"><span class="cb-tag">newick extendido</span><pre><span class="tk-punc">((</span><span class="tk-name">Gato</span><span class="tk-punc">:</span><span class="tk-len">0.3</span><span class="tk-punc">,(</span><span class="tk-name">Hibrido</span><span class="tk-punc">:</span><span class="tk-len">0.1</span><span class="tk-punc">)</span><span class="tk-sup">#H1</span><span class="tk-punc">:</span><span class="tk-len">0.2</span><span class="tk-punc">::</span><span class="tk-len">0.6</span><span class="tk-punc">)</span><span class="tk-name">A</span><span class="tk-punc">,(</span><span class="tk-sup">#H1</span><span class="tk-punc">:</span><span class="tk-len">0.2</span><span class="tk-punc">::</span><span class="tk-len">0.4</span><span class="tk-punc">,</span><span class="tk-name">Raton</span><span class="tk-punc">:</span><span class="tk-len">0.3</span><span class="tk-punc">)</span><span class="tk-name">B</span><span class="tk-punc">);</span></pre></div>
+    <ul>
+      <li><span class="lm">›</span> <code>#H1</code> identifica el nodo híbrido. El tipo puede ser H (hibridación), LGT (transferencia horizontal) o R (recombinación).</li>
+      <li><span class="lm">›</span> La aparición que lleva descendientes define el subárbol colgado del híbrido; las demás son punteros al mismo nodo desde cada progenitor.</li>
+      <li><span class="lm">›</span> <code>:largo:soporte:γ</code> — el tercer campo es la probabilidad de herencia γ: la fracción del genoma que aportó ese progenitor. Los campos vacíos se omiten, como en <code>#H1:::0.4</code>.</li>
+      <li><span class="lm">›</span> Phyli dibuja el árbol de base colgando cada híbrido de su progenitor mayoritario (el de mayor γ) y añade las demás aristas como reticulaciones: flechas moradas punteadas hacia un nodo con forma de rombo.</li>
+    </ul>
+    <div class="callout"><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4" stroke-linecap="round"/><circle cx="12" cy="16" r=".9" fill="currentColor"/></svg></span><p><b>Qué cambia en una red.</b> Las aristas reticuladas no se dibujan a escala: su largo y su γ se leen al pasar el cursor. El enraizamiento se desactiva, porque la raíz ya viene fijada por las reticulaciones, y la distancia entre taxones se calcula sobre el árbol de base. Todo lo demás —colapsar, colorear, buscar, exportar— funciona igual.</p></div>
+
+    <h3><span class="n">3</span> Elegir el trazado</h3>
     <p>El <b>diseño</b> cambia la geometría de las ramas y el <b>tipo de escala</b> cambia su significado:</p>
     <div class="legend">
       <div class="lg"><svg width="30" height="24" viewBox="0 0 30 24" fill="none" stroke="#394049" stroke-width="2"><path d="M3 5h6v14h18M9 5v7h10"/></svg><div class="lt"><b>Escalón / Curvo / Recto</b><small>Estilo de los codos entre ramas.</small></div></div>
@@ -1006,10 +1066,10 @@ input[type=range]:disabled{opacity:.4}
     </div>
     <p>Activa <b>Alinear las puntas</b> para llevar todas las hojas al mismo nivel (dendrograma clásico), ideal para leer nombres en columna.</p>
 
-    <h3><span class="n">3</span> Enraizar el árbol</h3>
-    <p>Phyli puede mover la raíz de dos maneras: usando una especie o taxón como grupo externo, o calculando el <b>midpoint</b> entre las dos puntas más distantes del árbol. Después de enraizar, el cambio queda reflejado en la vista y en la exportación Newick.</p>
+    <h3><span class="n">4</span> Enraizar el árbol</h3>
+    <p>Phyli puede mover la raíz de dos maneras: usando una especie o taxón como grupo externo, o calculando el <b>midpoint</b> entre las dos puntas más distantes del árbol. Después de enraizar, el cambio queda reflejado en la vista y en la exportación Newick. En una red el enraizamiento queda desactivado.</p>
 
-    <h3><span class="n">4</span> Interactuar</h3>
+    <h3><span class="n">5</span> Interactuar</h3>
     <div class="keys">
       <kbd>Hover</kbd><span>Muestra nombre, largo de rama, soporte y nº de descendientes.</span>
       <kbd>Clic en nodo</kbd><span>Abre acciones: colorear el clado, colapsarlo o enfocarlo.</span>
@@ -1019,7 +1079,7 @@ input[type=range]:disabled{opacity:.4}
     </div>
     <div class="callout"><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4" stroke-linecap="round"/><circle cx="12" cy="16" r=".9" fill="currentColor"/></svg></span><p><b>Colapsar</b> un clado lo reduce a un triángulo cuyo ancho refleja cuántos taxones contiene: útil para simplificar árboles grandes sin perder el contexto.</p></div>
 
-    <h3><span class="n">5</span> Soporte de ramas</h3>
+    <h3><span class="n">6</span> Soporte de ramas</h3>
     <p>Los puntos de color en los nodos internos codifican el valor de soporte, una medida de confianza en ese agrupamiento:</p>
     <div class="legend">
       <div class="lg"><svg width="18" height="18"><circle cx="9" cy="9" r="6" fill="#00A499"/></svg><div class="lt"><b>Alto — ≥ 95</b><small>Agrupamiento muy respaldado.</small></div></div>
@@ -1027,15 +1087,15 @@ input[type=range]:disabled{opacity:.4}
       <div class="lg"><svg width="18" height="18"><circle cx="9" cy="9" r="6" fill="#C8102E"/></svg><div class="lt"><b>Bajo — &lt; 70</b><small>Agrupamiento incierto.</small></div></div>
     </div>
 
-    <h3><span class="n">6</span> Exportar y compartir</h3>
+    <h3><span class="n">7</span> Exportar y compartir</h3>
     <ul>
       <li><span class="lm">›</span> <b>SVG</b> — vectorial, perfecto para editar en Illustrator/Inkscape o publicar.</li>
       <li><span class="lm">›</span> <b>PNG</b> — imagen en alta resolución (2×) para presentaciones.</li>
-      <li><span class="lm">›</span> <b>Newick</b> — el árbol como texto <code>.nwk</code> (incluye tus cambios de topología).</li>
-      <li><span class="lm">›</span> <b>JSON</b> — proyecto completo (árbol + estilos) para reabrir en phyli.</li>
+      <li><span class="lm">›</span> <b>Newick</b> — el árbol como texto <code>.nwk</code>, con tus cambios de topología. Si lo cargado es una red, sale en Newick extendido, con sus etiquetas #H y sus γ.</li>
+      <li><span class="lm">›</span> <b>JSON</b> — el proyecto completo (árbol o red, más estilos) para reabrir en phyli.</li>
       <li><span class="lm">›</span> <b>Compartir enlace</b> — copia una URL que lleva el árbol y la vista comprimidos adentro.</li>
     </ul>
-    <div class="callout"><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 10.5 6.8-4M8.6 13.5l6.8 4"/></svg></span><p><b>Cargar un árbol por URL.</b> Escribe el árbol en la propia dirección (tras el <code>#</code>) y Phyli lo abre al entrar — sin servidor ni base de datos:<br>• <code>…/phyli.html#(A:1,(B:1,C:1));</code> — Newick tal cual<br>• <code>…/phyli.html#nwk=(A:1,(B:1,C:1));</code> — equivalente<br>• <code>…/phyli.html#z=…</code> — versión comprimida que da <b>Compartir enlace</b> (conserva colores y estilo)<br>• <code>…/phyli.html#src=https://…/arbol.nwk</code> — descarga un archivo remoto (el servidor debe permitir CORS; los enlaces «raw» de GitHub sirven)<br>Si alojas Phyli con reescritura tipo SPA, también vale en la ruta: <code>tudominio.cl/(A:1,B:1);</code>.</p></div>
+    <div class="callout"><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 10.5 6.8-4M8.6 13.5l6.8 4"/></svg></span><p><b>Cargar un árbol o una red por URL.</b> Escribe el árbol o la red en la propia dirección (tras el <code>#</code>) y Phyli lo abre al entrar — sin servidor ni base de datos:<br>• <code>…/phyli.html#(A:1,(B:1,C:1));</code> — Newick tal cual<br>• <code>…/phyli.html#((A:1,(B:1)#H1::0.6),(#H1::0.4,C:1));</code> — una red en Newick extendido<br>• <code>…/phyli.html#nwk=(A:1,(B:1,C:1));</code> — equivalente<br>• <code>…/phyli.html#z=…</code> — versión comprimida que da <b>Compartir enlace</b> (conserva colores y estilo)<br>• <code>…/phyli.html#src=https://…/red.enwk</code> — descarga un archivo remoto (el servidor debe permitir CORS; los enlaces «raw» de GitHub sirven)<br>Si alojas Phyli con reescritura tipo SPA, también vale en la ruta: <code>tudominio.cl/(A:1,B:1);</code> — ahí las almohadillas de una red deben ir escritas como <code>%23</code>.</p></div>
   </div>
 </aside>
 
@@ -1047,7 +1107,7 @@ input[type=range]:disabled{opacity:.4}
     <button class="close-x" data-close><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
   </div>
   <div class="sheet-body doc">
-    <p class="lead">Phyli es una herramienta en línea para la <b>interacción y visualización de árboles filogenéticos</b>. Esta versión reconstruye la aplicación como una página HTML/JavaScript autónoma, con un trazado rediseñado, modo filograma con barra de escala y ayuda didáctica integrada.</p>
+    <p class="lead">Phyli es una herramienta en línea para la <b>interacción y visualización de árboles filogenéticos</b>. Esta versión reconstruye la aplicación como una página HTML/JavaScript autónoma, con un trazado rediseñado, modo filograma con barra de escala, lectura de redes filogenéticas en Newick extendido y ayuda didáctica integrada.</p>
 
     <div class="cite-card">
       <div class="cc-k">Trabajo original — cita</div>
@@ -1094,23 +1154,25 @@ const SVGNS = 'http://www.w3.org/2000/svg';
 const $ = (s, r=document) => r.querySelector(s);
 const $$ = (s, r=document) => [...r.querySelectorAll(s)];
 
-/* ---- Embedded example trees ---- */
+/* ---- Embedded examples: one tree, one network ---- */
 const EXAMPLES = {
-  vertebrates: {
-    title: 'Vertebrados',
-    desc: 'Filogenia de 12 vertebrados con largos de rama y soporte bootstrap. Un clásico para leer la escala evolutiva.',
-    nwk: "(Carcharodon_carcharias:0.42,(Latimeria_chalumnae:0.33,((Danio_rerio:0.19,Takifugu_rubripes:0.17)Actinopterygii:0.12[100],(Xenopus_tropicalis:0.24,((Anolis_carolinensis:0.16,(Gallus_gallus:0.09,Taeniopygia_guttata:0.10)Aves:0.11[100])Sauropsida:0.05[92],(Ornithorhynchus_anatinus:0.14,(Monodelphis_domestica:0.12,(Mus_musculus:0.08,Homo_sapiens:0.07)Placentalia:0.04[99])Theria:0.03[95])Mammalia:0.06[100])Amniota:0.04[88])Tetrapoda:0.05[100])Euteleostomi:0.07[100])Sarcopterygii:0.10[100])Vertebrata;"
-  },
-  animals: {
-    title: 'Ejemplo simple',
-    desc: 'Árbol mínimo (seis taxones) para entender el formato Newick y las opciones básicas de trazado.',
-    nwk: "(ant:17,(bat:31,cow:22):7,dog:22,(elk:33,fox:12):40);"
-  },
   treeOfLife: {
     title: 'Árbol de la vida',
+    ext: 'nwk',
     desc: '191 organismos de los tres dominios (Archaea, Bacteria, Eukarya). Ideal para el trazado radial y para colapsar clados.',
     nwk: null // loaded lazily below (large string)
+  },
+  saccharomycesNet: {
+    title: 'Red filogenética',
+    ext: 'enwk',
+    desc: 'Hibridaciones en Saccharomyces sensu stricto: S. pastorianus (cerevisiae × eubayanus) y S. bayanus (uvarum × eubayanus), escritas en Newick extendido con probabilidades de herencia γ.',
+    nwk: "((((Saccharomyces_cerevisiae:0.028,(Saccharomyces_pastorianus:0.014)#H1:0.048::0.52):0.030[100],Saccharomyces_paradoxus:0.058):0.041[100],Saccharomyces_mikatae:0.096)Clade_A:0.062[98],(Saccharomyces_kudriavzevii:0.118,(Saccharomyces_arboricola:0.101,((Saccharomyces_uvarum:0.024,(Saccharomyces_bayanus:0.010)#H2:0.014::0.63):0.034[92],((Saccharomyces_eubayanus:0.017,#H2:0.003::0.37):0.015,#H1:0.014::0.48):0.030)Eubayanus_uvarum:0.043[99]):0.032[95])Clade_B:0.062[97])Saccharomyces;"
   }
+};
+/* Example files served from a remote host (they must allow CORS: GitHub "raw" links do). */
+const URL_EXAMPLES = {
+  tree: 'https://raw.githubusercontent.com/veg/phylotree.js/master/test/data/CD2.new',
+  net:  'https://raw.githubusercontent.com/JuliaPhylo/PhyloNetworks.jl/master/examples/net1.networks'
 };
 
 /* Application state */
@@ -1119,7 +1181,8 @@ const S = {
   shape: 'step', mode: 'phylo', aligned: false, ladder: true,
   angle: 360, leafGap: 24,
   style: { pathW:1.6, pathC:'#394049', nodeR:0, nodeC:'#498BCA', labelS:13, labelC:'#2C3138' },
-  show: { guides:true, support:true, internal:false },
+  show: { guides:true, support:true, internal:false, retic:true, gamma:true },
+  net: null,   // { active, retics:[{from,to,tag,type,len,gamma,support}], hybrids:[node] }
   view: { k:1, x:0, y:0 },
   collapsed: new Set(), cladeColors: new Map(),
   highlight: null, selected: null,
@@ -1133,7 +1196,7 @@ const dom = {
   side: $('#side'), stage: $('#stage'), vp: $('#viewport'), empty: $('#empty'),
   fileInput: $('#fileInput'), drop: $('#drop'), fileChip: $('#fileChip'),
   fileName: $('#fileName'), fileMeta: $('#fileMeta'), fileClear: $('#fileClear'),
-  statStrip: $('#statStrip'), stLeaves: $('#stLeaves'), stNodes: $('#stNodes'), stDepth: $('#stDepth'),
+  statStrip: $('#statStrip'), stLeaves: $('#stLeaves'), stNodes: $('#stNodes'), stDepth: $('#stDepth'), stRetic: $('#stRetic'),
   searchInput: $('#searchInput'), searchHits: $('#searchHits'),
   rootBlock: $('#rootBlock'), rootTaxonInput: $('#rootTaxonInput'), taxonList: $('#taxonList'), rootByTaxon: $('#rootByTaxon'), rootMidpoint: $('#rootMidpoint'),
   accDistance: $('#accDistance'), measureTipA: $('#measureTipA'), measureTipB: $('#measureTipB'), measureDim: $('#measureDim'), measureRun: $('#measureRun'), measureClear: $('#measureClear'), measureResult: $('#measureResult'), measureTaxaA: $('#measureTaxaA'), measureTaxaB: $('#measureTaxaB'), measureDistance: $('#measureDistance'), measureUnit: $('#measureUnit'),
@@ -1174,56 +1237,178 @@ function toast(msg){
 }
 function prettyName(name){ return (name||'').replace(/_/g,' '); }
 
-/* ======================= NEWICK PARSER ======================= */
-function parseNewick(str){
-  const s = String(str).trim().replace(/;\s*$/, '');
-  if (!s) throw new Error('El archivo está vacío.');
-  const ancestors = [];
-  let tree = { name:'', raw:'', id:uid(), children:[] };
-  const tokens = s.split(/\s*([;(),:])\s*/).filter(t => t !== '' && t !== undefined);
-  let sub;
-  for (let i=0; i<tokens.length; i++){
-    const tk = tokens[i];
-    switch (tk){
-      case '(':
-        sub = { name:'', raw:'', id:uid(), children:[] };
-        tree.children.push(sub); ancestors.push(tree); tree = sub; break;
-      case ',':
-        if (!ancestors.length) throw new Error('Newick inválido: coma inesperada.');
-        sub = { name:'', raw:'', id:uid(), children:[] };
-        ancestors[ancestors.length-1].children.push(sub); tree = sub; break;
-      case ')':
-        if (!ancestors.length) throw new Error('Newick inválido: paréntesis de cierre sin apertura.');
-        tree = ancestors.pop(); break;
-      case ':': break;
-      default: {
-        const prev = tokens[i-1];
-        if (prev===')' || prev==='(' || prev===',' || prev===undefined) tree.name = tk;
-        else if (prev===':') tree.raw = tk;
+/* ======================= NEWICK / eNEWICK PARSER =======================
+   Reads classic Newick and the extended Newick (eNewick) used for phylogenetic
+   networks (Cardona, Rosselló & Valiente, 2008): a hybrid node is written
+   label#TYPEtag — with TYPE in {H, LGT, R} — and appears once per parent inside
+   the same string. Branch annotations follow  :length:support:probability(γ) ,
+   and empty fields are allowed ( #H1:::0.4 ). Quoted labels and [comments] are
+   consumed atomically so their punctuation never reaches the grammar.        */
+const ESC_MAP = { ':':'\u0001', '#':'\u0002', '[':'\u0003', ']':'\u0004', '(':'\u0005', ')':'\u0006', ',':'\u0007', ';':'\u0008' };
+const UNESC_MAP = {}; Object.keys(ESC_MAP).forEach(k => { UNESC_MAP[ESC_MAP[k]] = k; });
+function escLiteral(s){ return String(s).replace(/[:#\[\](),;]/g, c => ESC_MAP[c]); }
+function unescLiteral(s){ return String(s).replace(/[\u0001-\u0008]/g, c => UNESC_MAP[c] || c); }
+const HYBRID_RE = /^(.*?)#(H|LGT|R)?(\d+)$/i;
+
+function newNode(){ return { name:'', id:uid(), children:[], len:0, support:null, gamma:null, hybrid:null }; }
+
+function tokenizeNewick(str){
+  const toks = []; let buf = '';
+  const flush = () => { const v = buf.trim(); buf = ''; if (v) toks.push({ t:'chunk', v }); };
+  for (let i = 0; i < str.length; i++){
+    const ch = str[i];
+    if (ch === "'" || ch === '"'){                       // quoted label
+      const q = ch; let v = ''; i++;
+      while (i < str.length){
+        if (str[i] === q){ if (q === "'" && str[i+1] === "'"){ v += "'"; i += 2; continue; } break; }
+        v += str[i++];
       }
+      buf += escLiteral(v); continue;
     }
+    if (ch === '['){                                     // [comment] / [support] / [&&NHX…]
+      let depth = 1, v = '['; i++;
+      while (i < str.length && depth > 0){
+        if (str[i] === '[') depth++; else if (str[i] === ']') depth--;
+        v += str[i]; i++;
+      }
+      i--; buf += v.replace(/:/g, ESC_MAP[':']); continue;
+    }
+    if (ch === '(' || ch === ')' || ch === ','){ flush(); toks.push({ t:ch }); continue; }
+    if (ch === ';'){ flush(); return toks; }             // ignore anything past the first tree
+    if (ch === '\n' || ch === '\r' || ch === '\t'){ buf += ' '; continue; }
+    buf += ch;
+  }
+  flush(); return toks;
+}
+function applyChunk(node, chunk){
+  const parts = String(chunk).split(':');
+  let label = (parts.shift() || '').trim();
+  let note = null;
+  const cm = label.match(/\[([^\]]*)\]\s*$/);
+  if (cm){ note = cm[1]; label = label.slice(0, cm.index).trim(); }
+  const hy = label.match(HYBRID_RE);
+  if (hy){
+    const type = (hy[2] || 'H').toUpperCase();
+    node.hybrid = { type, tag: type + hy[3] };
+    label = hy[1].trim();
+  }
+  node.name = unescLiteral(label);
+  node._fields = parts;
+  node._note = note;
+}
+function parseNewick(str){
+  const toks = tokenizeNewick(String(str));
+  if (!toks.length) throw new Error('El archivo está vacío.');
+  const ancestors = [];
+  let tree = newNode();
+  for (const tk of toks){
+    if (tk.t === '('){
+      const sub = newNode(); tree.children.push(sub); ancestors.push(tree); tree = sub;
+    } else if (tk.t === ','){
+      if (!ancestors.length) throw new Error('Newick inválido: coma inesperada.');
+      const sub = newNode(); ancestors[ancestors.length-1].children.push(sub); tree = sub;
+    } else if (tk.t === ')'){
+      if (!ancestors.length) throw new Error('Newick inválido: paréntesis de cierre sin apertura.');
+      tree = ancestors.pop();
+    } else applyChunk(tree, tk.v);
   }
   if (ancestors.length) throw new Error('Newick inválido: falta cerrar un paréntesis.');
   return tree;
 }
 
-/* extract branch length + support out of the raw ":" token and internal name */
+/* branch length, support and inheritance probability out of the ":" fields */
+function numOf(txt){
+  if (txt == null) return null;
+  const t = String(txt).replace(/\[[^\]]*\]/g, '').trim();
+  if (!t) return null;
+  const m = t.match(/-?\d*\.?\d+(?:[eE][-+]?\d+)?/);
+  return m ? parseFloat(m[0]) : null;
+}
+function bracketNum(txt){
+  const m = String(txt == null ? '' : txt).match(/\[\s*(-?\d*\.?\d+(?:[eE][-+]?\d+)?)\s*\]/);
+  return m ? parseFloat(m[1]) : null;
+}
 function enrich(node){
-  let len = 0, support = null;
-  if (node.raw){
-    const br = node.raw.match(/\[(\d+(?:\.\d+)?)\]/);
-    if (br) support = parseFloat(br[1]);
-    const num = node.raw.replace(/\[.*?\]/, '').match(/-?\d*\.?\d+(?:[eE][-+]?\d+)?/);
-    if (num) len = parseFloat(num[0]);
+  const f = node._fields || [];
+  let support = node._note != null ? bracketNum('[' + node._note + ']') : null;  // Name[95]:0.1
+  if (support == null) support = bracketNum(f[0]);                               // Name:0.1[95]
+  if (support == null && f.length >= 2) support = numOf(f[1]);                   // Name:0.1:95  (eNewick)
+  if (support == null && node.children.length && node.name && /^\d+(\.\d+)?$/.test(node.name)){
+    support = parseFloat(node.name); node.name = '';                             // (A,B)95:0.1
   }
-  if (support==null && node.children.length && node.name && /^\d+(\.\d+)?$/.test(node.name)){
-    support = parseFloat(node.name); node.name = '';
-  }
-  node.len = isFinite(len) ? len : 0;
-  node.support = support;
+  const len = numOf(f[0]);
+  const gamma = f.length >= 3 ? numOf(f[2]) : null;
+  node.len = (len != null && isFinite(len)) ? len : 0;
+  node.support = (support != null && isFinite(support)) ? support : null;
+  node.gamma = (gamma != null && isFinite(gamma)) ? gamma : null;
+  delete node._fields; delete node._note;
   node.children.forEach(enrich);
   return node;
 }
+
+/* ======================= NETWORK EXTRACTION =======================
+   Folds the repeated eNewick occurrences of every hybrid tag into a single
+   node with several parents. What is drawn is a *backbone tree*: each hybrid
+   hangs from its majority parent (largest γ, or the occurrence that carries
+   the subtree when no γ is given) and every other parent becomes a
+   reticulation edge painted over the tree. Returns null for a plain tree.  */
+function extractNetwork(root){
+  const occ = new Map();
+  (function walk(n, p){
+    n._wasInternal = n.children.length > 0;
+    if (n.hybrid && p){
+      if (!occ.has(n.hybrid.tag)) occ.set(n.hybrid.tag, []);
+      occ.get(n.hybrid.tag).push({ node:n, parent:p });
+    }
+    n.children.slice().forEach(c => walk(c, n));
+  })(root, null);
+  const done = (v) => { forEachNode(root, x => { delete x._wasInternal; }); return v; };
+  if (!occ.size) return done(null);
+
+  const retics = [], hybrids = [];
+  occ.forEach((list, tag) => {
+    if (list.length < 2) return;      // a lone #tag is just a label, not a reticulation
+    const defining = list.find(o => o.node.children.length) || list[0];
+    const withGamma = list.filter(o => o.node.gamma != null);
+    let primary = defining;
+    if (withGamma.length > 1) primary = withGamma.reduce((a,b) => (b.node.gamma > a.node.gamma ? b : a));
+    else if (withGamma.length === 1 && !defining.node.children.length) primary = withGamma[0];
+    const H = defining.node;
+    const slot = primary.parent.children.indexOf(primary.node);
+    list.forEach(o => { const i = o.parent.children.indexOf(o.node); if (i >= 0) o.parent.children.splice(i, 1); });
+    primary.parent.children.splice(clamp(slot, 0, primary.parent.children.length), 0, H);
+    H.len = primary.node.len;
+    H.gamma = primary.node.gamma;
+    if (H.support == null) H.support = primary.node.support;
+    H.isHybrid = true; H.hybridTag = tag; H.hybridType = H.hybrid.type;
+    if (!H.name) H.name = tag;
+    hybrids.push(H);
+    list.forEach(o => {
+      if (o === primary) return;
+      retics.push({ from:o.parent, to:H, tag, type:H.hybridType, len:o.node.len, gamma:o.node.gamma, support:o.node.support });
+    });
+  });
+  if (!retics.length) return done(null);
+
+  // an inner node whose only children were reticulation pointers is now a dead end
+  const tails = new Set(retics.map(r => r.from));
+  let changed = true;
+  while (changed){
+    changed = false;
+    (function walk(n){
+      n.children.slice().forEach(c => {
+        walk(c);
+        if (c._wasInternal && !c.children.length && !c.isHybrid && !tails.has(c)){
+          const i = n.children.indexOf(c);
+          if (i >= 0){ n.children.splice(i, 1); changed = true; }
+        }
+      });
+    })(root);
+  }
+  return done({ active:true, retics, hybrids });
+}
+function isNet(){ return !!(S.net && S.net.active); }
+function reticsInto(node){ return isNet() ? S.net.retics.filter(r => r.to === node) : []; }
 
 /* depth, cumulative distance, leaf counts, stats */
 function annotate(root){
@@ -1268,10 +1453,14 @@ function resetTaxonDependentControls(){
 function updateRootTaxaList(){
   if (!dom.rootTaxonInput || !dom.taxonList) return;
   const ready = !!S.root;
+  // Re-rooting rebuilds the tree from scratch, which would orphan the reticulation
+  // edges — and a network is already rooted anyway. The panel stays readable but
+  // its controls are switched off, with a note explaining why.
+  const usable = ready && !isNet();
   dom.rootBlock?.setAttribute('data-locked', ready ? '0' : '1');
-  dom.rootTaxonInput.disabled = !ready;
-  dom.rootByTaxon.disabled = !ready;
-  dom.rootMidpoint.disabled = !ready;
+  dom.rootTaxonInput.disabled = !usable;
+  dom.rootByTaxon.disabled = !usable;
+  dom.rootMidpoint.disabled = !usable;
   if (!ready){ dom.rootTaxonInput.value=''; dom.taxonList.innerHTML=''; syncMeasurePanel(); return; }
   const leaves = collectLeaves(S.root).sort((a,b)=>prettyName(a.name).localeCompare(prettyName(b.name)));
   dom.taxonList.innerHTML = leaves.map(l => `<option value="${escAttr(prettyName(l.name))}"></option>`).join('');
@@ -1361,7 +1550,7 @@ function measureDistanceBetweenTips(){
     aId:a.id, bId:b.id,
     aName:prettyName(a.name), bName:prettyName(b.name),
     distance:dist,
-    unit:(S.stats && S.stats.hasLen) ? 'sust./sitio' : 'pasos topológicos',
+    unit:((S.stats && S.stats.hasLen) ? 'sust./sitio' : 'pasos topológicos') + (isNet() ? ' (árbol de base)' : ''),
     dim:(dom.measureDim ? !!dom.measureDim.checked : true),
     edgeKeys, nodeIds,
   };
@@ -1509,23 +1698,36 @@ function rootByMidpoint(){
 
 
 /* serialize back to Newick (reflects current topology / collapses kept as clades) */
+/* Serialise back to Newick — extended Newick when the current data is a network.
+   Every reticulation edge is written as an extra #tag child of its source. */
 function toNewick(root){
+  const bySource = new Map();
+  if (isNet()) S.net.retics.forEach(r => {
+    if (!bySource.has(r.from)) bySource.set(r.from, []);
+    bySource.get(r.from).push(r);
+  });
+  const quote = (s) => /[\s(),:;\[\]'"#]/.test(String(s)) ? "'" + String(s).replace(/'/g, "''") + "'" : String(s);
+  const num = (v) => { const x = +v; return isFinite(x) ? String(Math.round(x * 1e9) / 1e9) : '0'; };
+  const edge = (len, sup, gamma) => ':' + num(len == null ? 0 : len)
+    + (sup != null ? '[' + sup + ']' : '')
+    + (gamma != null ? '::' + num(gamma) : '');
   function rec(n){
-    let s = '';
-    if (n.children.length){
-      s += '(' + n.children.map(rec).join(',') + ')';
-      if (n.name) s += n.name;
-      if (n.support!=null) s += '[' + n.support + ']';
-    } else {
-      s += n.name || '';
-    }
-    if (n !== root && (n.len!=null)) s += ':' + n.len;
+    const kids = n.children.map(rec);
+    if (bySource.has(n)) bySource.get(n).forEach(r => kids.push('#' + r.tag + edge(r.len, r.support, r.gamma)));
+    let s = kids.length ? '(' + kids.join(',') + ')' : '';
+    let lab = n.name || '';
+    if (n.isHybrid){ lab = (lab === n.hybridTag) ? '' : lab; lab = (lab ? quote(lab) : '') + '#' + n.hybridTag; }
+    else if (lab) lab = quote(lab);
+    s += lab;
+    const sup = (kids.length && n.support != null) ? n.support : null;
+    if (n !== root) s += edge(n.len, sup, n.isHybrid ? n.gamma : null);
+    else if (sup != null) s += '[' + sup + ']';
     return s;
   }
   return rec(root) + ';';
 }
 
-/* Tree-of-life Newick (Ciccarelli et al. 2006 style, 191 taxa) */
+/* Tree-of-life Newick (Ciccarelli et al. 2006 style, 191 taxa) — the only embedded tree */
 EXAMPLES.treeOfLife.nwk = "((((Nanoarchaeum_equitans:0.81078,(Pyrobaculum_aerophilum:0.55514,(Aeropyrum_pernix:0.43380,(Sulfolobus_solfataricus:0.18962,Sulfolobus_tokodaii:0.17389)Sulfolobus:0.33720[100])Thermoprotei:0.09462[94])Thermoprotei:0.12018[100])Archaea:0.15444[100],((Thermoplasma_volcanium:0.10412,Thermoplasma_acidophilum:0.09785)Thermoplasma:0.66151[100],((Archaeoglobus_fulgidus:0.34660,(Halobacterium_sp._NRC-1:0.61597,(Methanosarcina_acetivorans:0.02602,Methanosarcina_mazei:0.03087)Methanosarcina:0.30588[100])Euryarchaeota:0.12801[100])Euryarchaeota:0.10395[100],((Pyrococcus_furiosus:0.02366,(Pyrococcus_horikoshii:0.02786,Pyrococcus_abyssi:0.02179)Pyrococcus:0.02239[100])Pyrococcus:0.36220[100],((Methanococcus_maripaludis:0.28592,Methanococcus_jannaschii:0.13226)Methanococcales:0.23828[100],(Methanopyrus_kandleri:0.35331,Methanobacterium_thermautotrophicum:0.36583)Euryarchaeota:0.07446[99])Euryarchaeota:0.06284[100])Euryarchaeota:0.04469[51])Euryarchaeota:0.06815[62])Euryarchaeota:0.11833[99])Archaea:0.43325[100],(Giardia_lamblia:0.55482,(Leishmania_major:0.45664,((Thalassiosira_pseudonana:0.33483,(Plasmodium_falciparum:0.28267,Cryptosporidium_hominis:0.25048)Apicomplexa:0.14359[100])Eukaryota:0.03495[42],((Cyanidioschyzon_merolae:0.38319,(Oryza_sativa:0.07623,Arabidopsis_thaliana:0.09366)Streptophyta:0.15770[100])Eukaryota:0.08133[96],(Dictyostelium_discoideum:0.34685,((Schizosaccharomyces_pombe:0.24665,(Saccharomyces_cerevisiae:0.07619,Eremothecium_gossypii:0.07298)Saccharomycetaceae:0.21170[100])Ascomycota:0.15370[100],((Caenorhabditis_elegans:0.01843,Caenorhabditis_briggsae:0.01896)Caenorhabditis:0.24324[100],((Drosophila_melanogaster:0.10233,Anopheles_gambiae:0.10724)Diptera:0.09870[100],((Danio_rerio:0.05230,Takifugu_rubripes:0.03142)Actinopterygii:0.04335[100],(Gallus_gallus:0.04596,((Homo_sapiens:0.00957,Pan_troglodytes:0.03864)Hominidae:0.01549[100],(Rattus_norvegicus:0.03107,Mus_musculus:0.01651)Murinae:0.00398[91])Euarchontoglires:0.01629[99])Gnathostomata:0.01859[100])Gnathostomata:0.09688[100])Metazoa:0.03693[95])Metazoa:0.09911[100])Eukaryota:0.04004[85])Eukaryota:0.02708[41])Eukaryota:0.02636[44])Eukaryota:0.06455[87])Eukaryota:0.10129[100])Eukaryota:0.57543[100]):0.88776,(((Thermoanaerobacter_tengcongensis:0.17512,(Clostridium_acetobutylicum:0.11396,(Clostridium_tetani:0.10918,Clostridium_perfringens:0.11535)Clostridium:0.03238[78])Clostridium:0.15056[100])Clostridia:0.11788[100],((Phytoplasma_Onion_yellows:0.47843,(Mycoplasma_mycoides:0.37680,((Mycoplasma_mobile:0.27702,Mycoplasma_pulmonis:0.28761)Mycoplasma:0.28466[100],(Ureaplasma_parvum:0.33874,(Mycoplasma_penetrans:0.34890,(Mycoplasma_gallisepticum:0.24373,(Mycoplasma_pneumoniae:0.10966,Mycoplasma_genitalium:0.11268)Mycoplasma:0.31768[100])Mycoplasma:0.14180[100])Mycoplasma:0.06674[94])Mycoplasmataceae:0.19177[100])Mycoplasmataceae:0.07341[100])Mycoplasmataceae:0.12541[100])Mollicutes:0.09099[100],(((Lactobacillus_johnsonii:0.20999,Lactobacillus_plantarum:0.14371)Lactobacillus:0.06763[100],(Enterococcus_faecalis:0.07946,(Lactococcus_lactis:0.11214,((Streptococcus_pneumoniae_R6:0.00119,Streptococcus_pneumoniae_TIGR4:0.00124)Streptococcus:0.03607[100],(Streptococcus_mutans:0.04319,((Streptococcus_agalactiae_III:0.00110,Streptococcus_agalactiae_V:0.00155)Streptococcus:0.01637[100],(Streptococcus_pyogenes_M1:0.00134,(Streptococcus_pyogenes_MGAS8232:0.00045,(Streptococcus_pyogenes_MGAS315:0.00000,Streptococcus_pyogenes_SSI-1:0.00022)Streptococcus:0.00110[100])Streptococcus:0.00066[87])Streptococcus:0.02250[100])Streptococcus:0.01360[100])Streptococcus:0.01920[99])Streptococcus:0.04983[100])Streptococcaceae:0.08901[100])Lactobacillales:0.03958[100])Lactobacillales:0.08989[100],((Staphylococcus_epidermidis:0.03246,(Staphylococcus_aureus_MW2:0.00000,(Staphylococcus_aureus_N315:0.00022,Staphylococcus_aureus_Mu50:0.00022)Staphylococcus:0.00022[61])Staphylococcus:0.02479[100])Staphylococcus:0.17366[100],((Listeria_innocua:0.00248,(Listeria_monocytogenes_F2365:0.00063,Listeria_monocytogenes_EGD:0.00144)Listeria:0.00235[90])Listeria:0.13517[100],((Bacillus_halodurans:0.09280,Oceanobacillus_iheyensis:0.13838)Bacillaceae:0.02676[91],(Bacillus_subtilis:0.07876,(Bacillus_anthracis:0.00331,(Bacillus_cereus_ATCC_14579:0.00342,Bacillus_cereus_ATCC_10987:0.00123)Bacillus:0.00573[100])Bacillus:0.08924[100])Bacillus:0.01984[96])Bacillaceae:0.03907[100])Bacillales:0.02816[69])Bacillales:0.02828[64])Bacilli:0.08905[100])Firmicutes:0.09540[92])Firmicutes:0.04315[54],((((Fibrobacter_succinogenes:0.51984,(Chlorobium_tepidum:0.37204,(Porphyromonas_gingivalis:0.11304,Bacteroides_thetaiotaomicron:0.13145)Bacteroidales:0.34694[100])Bacteroidetes/Chlorobi_group:0.09237[100])Bacteria:0.04841[62],((Chlamydia_muridarum:0.01938,Chlamydia_trachomatis:0.02643)Chlamydia:0.06809[100],(Chlamydophila_caviae:0.05903,(Chlamydophila_pneumoniae_TW183:0.00000,(Chlamydia_pneumoniae_J138:0.00000,(Chlamydia_pneumoniae_CWL029:0.00000,Chlamydia_pneumoniae_AR39:0.00000)Chlamydophila:0.00000[37])Chlamydophila:0.00000[44])Chlamydophila:0.10482[100])Chlamydophila:0.04170[98])Chlamydiaceae:0.60169[100])Bacteria:0.04443[32],(((Gemmata_obscuriglobus:0.36751,Rhodopirellula_baltica:0.38017)Planctomycetaceae:0.24062[100],((Leptospira_interrogans_L1-130:0.00000,Leptospira_interrogans_56601:0.00027)Leptospira:0.47573[100],(Borrelia_burgdorferi:0.42323,(Treponema_pallidum:0.25544,Treponema_denticola:0.16072)Treponema:0.19057[100])Spirochaetaceae:0.20278[100])Spirochaetales:0.07248[95])Bacteria:0.04615[42],((Bifidobacterium_longum:0.29283,(Tropheryma_whipplei_TW08/27:0.00009,Tropheryma_whipplei_Twist:0.00081)Tropheryma:0.44723[100])Actinobacteridae:0.14429[100],((Streptomyces_avermitilis:0.02680,Streptomyces_coelicolor:0.02678)Streptomyces:0.16707[100],((Corynebacterium_diphtheriae:0.06479,(Corynebacterium_efficiens:0.02559,(Corynebacterium_glutamicum_13032:0.00022,Corynebacterium_glutamicum:0.00000)Corynebacterium:0.03415[100])Corynebacterium:0.03682[100])Corynebacterium:0.13907[100],(Mycobacterium_paratuberculosis:0.02091,(Mycobacterium_leprae:0.05135,(Mycobacterium_bovis:0.00067,(Mycobacterium_tuberculosis_H37Rv:0.00000,Mycobacterium_tuberculosis_CDC1551:0.00000)Mycobacterium:0.00022[98])Mycobacterium:0.03027[100])Mycobacterium:0.01514[97])Mycobacterium:0.11523[100])Corynebacterineae:0.09883[100])Actinomycetales:0.06110[91])Actinobacteridae:0.26800[100])Bacteria:0.03480[23])Bacteria:0.04284[67],(((Fusobacterium_nucleatum:0.45615,(Aquifex_aeolicus:0.40986,Thermotoga_maritima:0.34182)Bacteria:0.07696[100])Bacteria:0.03606[35],((Dehalococcoides_ethenogenes:0.53988,(Thermus_thermophilus:0.26583,Deinococcus_radiodurans:0.29763)Deinococci:0.24776[100])Bacteria:0.04370[35],(Gloeobacter_violaceus:0.23764,((Synechococcus_elongatus:0.13147,(Synechocystis_sp._PCC6803:0.15652,Nostoc_sp._PCC_7120:0.12014)Cyanobacteria:0.04331[98])Cyanobacteria:0.05040[100],(Prochlorococcus_marinus_CCMP1378:0.16170,(Prochlorococcus_marinus_SS120:0.10211,(Synechococcus_sp._WH8102:0.06780,Prochlorococcus_marinus_MIT9313:0.05434)Cyanobacteria:0.04879[100])Cyanobacteria:0.04238[74])Cyanobacteria:0.20442[100])Cyanobacteria:0.07646[100])Cyanobacteria:0.24501[100])Bacteria:0.04332[39])Bacteria:0.02720[51],(((Acidobacterium_capsulatum:0.24572,Solibacter_usitatus:0.29086)Acidobacteria:0.20514[100],(Desulfovibrio_vulgaris:0.38320,(Bdellovibrio_bacteriovorus:0.45934,Geobacter_sulfurreducens:0.22491)Deltaproteobacteria:0.04870[43])Deltaproteobacteria:0.04100[69])Bacteria:0.04214[64],((Campylobacter_jejuni:0.20399,(Wolinella_succinogenes:0.11644,(Helicobacter_hepaticus:0.12643,(Helicobacter_pylori_J99:0.00897,Helicobacter_pylori_26695:0.00637)Helicobacter:0.19055[100])Helicobacter:0.05330[100])Helicobacteraceae:0.09105[100])Campylobacterales:0.41390[100],(((Wolbachia_sp._wMel:0.51596,(Rickettsia_prowazekii:0.04245,Rickettsia_conorii:0.02487)Rickettsia:0.38019[100])Rickettsiaceae:0.12058[100],(Caulobacter_crescentus:0.23943,((Bradyrhizobium_japonicum:0.06346,Rhodopseudomonas_palustris:0.04182)Bradyrhizobiaceae:0.14122[100],((Rhizobium_loti:0.09308,(Brucella_suis:0.00102,Brucella_melitensis:0.00184)Brucella:0.08660[100])Rhizobiales:0.02384[51],(Rhizobium_meliloti:0.05114,(Agrobacterium_tumefaciens_Cereon:0.00000,Agrobacterium_tumefaciens_WashU:0.00000):0.05735[100])Sinorhizobium:0.05575[100])Rhizobiales:0.08637[100])Rhizobiales:0.05767[100])Alphaproteobacteria:0.11257[100])Alphaproteobacteria:0.12365[100],((Nitrosomonas_europaea:0.22059,((Chromobacterium_violaceum:0.09623,(Neisseria_meningitidis_A:0.00400,Neisseria_meningitidis_B:0.00134)Neisseria:0.12615[100])Neisseriaceae:0.07131[100],(Ralstonia_solanacearum:0.11464,(Bordetella_pertussis:0.00127,(Bordetella_parapertussis:0.00199,Bordetella_bronchiseptica:0.00022)Bordetella:0.00006[67])Bordetella:0.14218[100])Burkholderiales:0.08478[100])Betaproteobacteria:0.03840[75])Betaproteobacteria:0.08761[100],(Coxiella_burnetii:0.33185,(((Xanthomonas_axonopodis:0.01069,Xanthomonas_campestris:0.00934)Xanthomonas:0.05037[100],(Xylella_fastidiosa_9a5c:0.00802,Xylella_fastidiosa_700964:0.01324)Xylella:0.10192[100])Xanthomonadaceae:0.24151[100],((Pseudomonas_aeruginosa:0.03202,(Pseudomonas_syringae:0.03162,Pseudomonas_putida:0.02741)Pseudomonas:0.02904[100])Pseudomonas:0.14456[100],(Shewanella_oneidensis:0.10577,((Photobacterium_profundum:0.06131,(Vibrio_cholerae:0.02995,(Vibrio_parahaemolyticus:0.01985,(Vibrio_vulnificus_CMCP6:0.00291,Vibrio_vulnificus_YJ016:0.00021)Vibrio:0.01212[100])Vibrio:0.01536[100])Vibrio:0.02661[100])Vibrionaceae:0.05597[100],((Haemophilus_ducreyi:0.05333,(Pasteurella_multocida:0.03441,Haemophilus_influenzae:0.03754)Pasteurellaceae:0.01571[94])Pasteurellaceae:0.07365[100],(((Wigglesworthia_brevipalpis:0.35452,Blochmannia_floridanus:0.32481)Enterobacteriaceae:0.08332[100],(Buchnera_aphidicola_Bp:0.27492,(Buchnera_aphidicola_Sg:0.10235,Buchnera_aphidicola_APS:0.09535)Buchnera:0.10140[100])Buchnera:0.06497[100])Enterobacteriaceae:0.15030[100],((Photorhabdus_luminescens:0.05076,(Yersinia_pestis_Medievalis:0.00000,(Yersinia_pestis_CO92:0.00000,Yersinia_pestis_KIM:0.00000)Yersinia:0.00000[31])Yersinia:0.03398[100])Enterobacteriaceae:0.01182[61],((Salmonella_typhimurium:0.00075,(Salmonella_typhi:0.00000,Salmonella_enterica:0.00000)Salmonella:0.00146[100])Salmonella:0.00702[100],((Escherichia_coli_O157_H7:0.00000,Escherichia_coli_EDL933:0.00000)Escherichia:0.00044[96],((Shigella_flexneri_2a_301:0.00000,Shigella_flexneri_2a_2457T:0.00000)Shigella:0.00266[100],(Escherichia_coli_K12:0.00022,Escherichia_coli_O6:0.00000)Escherichia:0.00022[76])Enterobacteriaceae:0.00000[75])Enterobacteriaceae:0.00813[100])Enterobacteriaceae:0.03131[100])Enterobacteriaceae:0.02183[98])Enterobacteriaceae:0.02808[100])Gammaproteobacteria:0.03759[100])Gammaproteobacteria:0.03492[81])Gammaproteobacteria:0.12234[100])Gammaproteobacteria:0.04492[98])Gammaproteobacteria:0.02475[49])Gammaproteobacteria:0.03328[54])Proteobacteria:0.16913[100])Proteobacteria:0.06301[100])Proteobacteria:0.04428[82])Bacteria:0.05551[98])Bacteria:0.03471[74])Bacteria:0.02646[66])Bacteria:1.34959);";
 
 /* ======================= LAYOUT ======================= */
@@ -1611,6 +1813,62 @@ function toPolar(){
 /* ======================= RENDER ======================= */
 function isRadial(){ return S.shape === 'circular' || S.shape === 'circular-step'; }
 
+/* ---- reticulation edges (networks) ---- */
+const RETIC_COLOR = '#8C4799';   // USACH purple
+function reticShown(){ return isNet() && S.show.retic; }
+/* a node inside a collapsed clade is drawn at the collapsed ancestor instead */
+function visibleAnchor(n){
+  let anchor = n, a = n._parent;
+  while (a){ if (S.collapsed.has(a.id)) anchor = a; a = a._parent; }
+  return anchor;
+}
+function reticGeom(r){
+  const a = visibleAnchor(r.from), b = visibleAnchor(r.to);
+  if (a === b) return null;
+  const p1 = nodePos(a), p2 = nodePos(b);
+  const dx = p2.x - p1.x, dy = p2.y - p1.y;
+  const L = Math.hypot(dx, dy) || 1;
+  const bow = clamp(L * 0.2, 12, 90);
+  const cx = (p1.x + p2.x) / 2 + (-dy / L) * bow;
+  const cy = (p1.y + p2.y) / 2 + ( dx / L) * bow;
+  return { p1, p2, cx, cy, d:`M${p1.x},${p1.y}Q${cx},${cy} ${p2.x},${p2.y}` };
+}
+function drawRetics(group, defs){
+  if (!reticShown()) return;
+  const st = S.style;
+  const aw = clamp(7 + st.pathW * 1.6, 8, 16);
+  const mk = el('marker', { id:'phyliReticArrow', viewBox:'0 0 12 10', refX:'11', refY:'5',
+    markerWidth:aw, markerHeight:aw, orient:'auto', markerUnits:'userSpaceOnUse' });
+  mk.appendChild(el('path', { d:'M0,0.6 L11,5 L0,9.4 L2.4,5 Z', fill:RETIC_COLOR }));
+  defs.appendChild(mk);
+  const dim = (S.measure && S.measure.active && S.measure.dim) ? 0.1 : 1;
+  S.net.retics.forEach((r, i) => {
+    const g = reticGeom(r); if (!g) return;
+    group.appendChild(el('path', {
+      d:g.d, class:'retic hit', stroke:RETIC_COLOR,
+      'stroke-width':Math.max(1.1, st.pathW * 0.95),
+      'stroke-dasharray':`${Math.max(3.2, st.pathW*2.4)} ${Math.max(2.6, st.pathW*1.8)}`,
+      'marker-end':'url(#phyliReticArrow)', opacity:0.95 * dim,
+      'data-id':r.to.id, 'data-kind':'retic', 'data-retic':i
+    }));
+    if (S.show.gamma && r.gamma != null){
+      const mx = 0.25*g.p1.x + 0.5*g.cx + 0.25*g.p2.x;
+      const my = 0.25*g.p1.y + 0.5*g.cy + 0.25*g.p2.y;
+      const t = document.createElementNS(SVGNS, 'text');
+      t.setAttribute('class','retic-gamma');
+      t.setAttribute('x', mx); t.setAttribute('y', my); t.setAttribute('dy','-3');
+      t.setAttribute('text-anchor','middle');
+      t.setAttribute('font-family', "'SF Mono',Menlo,Consolas,monospace");
+      t.setAttribute('font-size', Math.max(8, st.labelS - 3));
+      t.setAttribute('fill', RETIC_COLOR);
+      t.setAttribute('stroke', '#FFFFFF'); t.setAttribute('stroke-width', '2.8'); t.setAttribute('paint-order','stroke');
+      t.setAttribute('opacity', 0.95 * dim);
+      t.textContent = 'γ ' + fmt(r.gamma, 2);
+      group.appendChild(t);
+    }
+  });
+}
+
 function render(){
   if (!S.root) return;
   computeLayout();
@@ -1620,9 +1878,11 @@ function render(){
   vp.textContent = '';
   const inner = el('g', { id:'tree-root' });
 
-  // group order: guides, links, wedges, support, nodes, labels
+  // group order: guides, links, reticulations, wedges, support, nodes, labels
+  const gDefs   = el('defs');
   const gGuides = el('g', { 'stroke-linecap':'round' });
   const gLinks  = el('g');
+  const gRetic  = el('g');
   const gWedge  = el('g');
   const gSup    = el('g');
   const gNodes  = el('g');
@@ -1674,6 +1934,17 @@ function render(){
       }
     }
 
+    // --- hybrid node marker (diamond) ---
+    if (isNet() && n.isHybrid){
+      const p = nodePos(n);
+      const s = Math.max(3.6, st.pathW * 1.7 + 1.8);
+      gNodes.appendChild(el('polygon', {
+        points:`${p.x},${p.y-s} ${p.x+s},${p.y} ${p.x},${p.y+s} ${p.x-s},${p.y}`,
+        fill:'#FFFFFF', stroke:RETIC_COLOR, 'stroke-width':Math.max(1.3, st.pathW*0.95), 'stroke-linejoin':'round',
+        opacity: measureOpacity('node', null, n), class:'hit', 'data-id':n.id, 'data-kind':'node'
+      }));
+    }
+
     // --- terminal: guide line + label ---
     if (terminal){
       const p = nodePos(n);
@@ -1691,9 +1962,12 @@ function render(){
     }
   });
 
+  drawRetics(gRetic, gDefs);
   drawMeasureOverlay(gMeasure, st);
+  inner.appendChild(gDefs);
   inner.appendChild(gGuides);
   inner.appendChild(gLinks);
+  inner.appendChild(gRetic);
   inner.appendChild(gWedge);
   inner.appendChild(gSup);
   inner.appendChild(gNodes);
@@ -1825,6 +2099,7 @@ function contentBBox(){
   const li = S.layoutInfo, st = S.style;
   let minX=Infinity,minY=Infinity,maxX=-Infinity,maxY=-Infinity;
   const push=(x,y)=>{ if(x<minX)minX=x; if(y<minY)minY=y; if(x>maxX)maxX=x; if(y>maxY)maxY=y; };
+  if (reticShown()) S.net.retics.forEach(r => { const g = reticGeom(r); if (g) push(g.cx, g.cy); });
   const est = (n)=>{
     const name = n.isLeaf ? n.name : (n.name || (n.leafCount+' taxones'));
     return (prettyName(name).length) * st.labelS * 0.56 + 8;
@@ -1951,19 +2226,42 @@ function updateHighlight(){
 }
 
 /* ======================= TOOLTIP ======================= */
+const RETIC_KIND = { H:'Hibridación', LGT:'Transferencia horizontal', R:'Recombinación' };
 function showTooltip(n, ev){
   const tt = dom.tooltip;
   const isClade = !n.isLeaf;
-  let html = `<div class="tt-name${isClade?' clade':''}">${isClade ? (n.name?prettyName(n.name):'Clado interno') : prettyName(n.name)}</div>`;
+  const hy = isNet() && n.isHybrid;
+  const head = hy ? ('Nodo híbrido ' + n.hybridTag)
+                  : (isClade ? (n.name ? prettyName(n.name) : 'Clado interno') : prettyName(n.name));
+  let html = `<div class="tt-name${(isClade||hy)?' clade':''}">${escAttr(head)}</div>`;
   const rows = [];
   if (n.len!=null) rows.push(['Largo de rama', fmt(n.len,4)]);
   if (isClade){ rows.push(['Descendientes', n.leafCount]); rows.push(['Profundidad', n.depth]); }
   else rows.push(['Profundidad', n.depth]);
+  if (hy){
+    rows.push(['Progenitores', 1 + reticsInto(n).length]);
+    if (n.gamma!=null) rows.push(['Probabilidad γ', fmt(n.gamma,3)]);
+  }
   html += rows.map(([k,v])=>`<div class="tt-row"><span>${k}</span><b>${v}</b></div>`).join('');
   if (n.support!=null){
     html += `<div class="tt-sup"><span class="tt-dot" style="background:${supportColorRaw(n.support)}"></span><span>Soporte ${n.support}</span></div>`;
   }
-  if (isClade) html += `<div class="tt-hint">Clic para colorear, colapsar o enfocar</div>`;
+  if (hy) html += `<div class="tt-hint">${RETIC_KIND[n.hybridType] || 'Reticulación'} — llegan ${1 + reticsInto(n).length} aristas</div>`;
+  else if (isClade) html += `<div class="tt-hint">Clic para colorear, colapsar o enfocar</div>`;
+  tt.innerHTML = html;
+  tt.classList.add('on');
+  positionFloat(tt, ev.clientX+14, ev.clientY+14);
+}
+function showReticTooltip(r, ev){
+  const tt = dom.tooltip;
+  const from = prettyName(r.from.name) || 'Clado interno';
+  let html = `<div class="tt-name retic">${RETIC_KIND[r.type] || 'Reticulación'}</div>`;
+  const rows = [['Desde', escAttr(from)], ['Hacia', escAttr(prettyName(r.to.name))]];
+  if (r.len!=null) rows.push(['Largo de rama', fmt(r.len,4)]);
+  if (r.gamma!=null) rows.push(['Probabilidad γ', fmt(r.gamma,3)]);
+  html += rows.map(([k,v])=>`<div class="tt-row"><span>${k}</span><b>${v}</b></div>`).join('');
+  html += `<div class="tt-tag">${escAttr(r.tag)}</div>`;
+  html += `<div class="tt-hint">Arista reticulada: no se dibuja a escala</div>`;
   tt.innerHTML = html;
   tt.classList.add('on');
   positionFloat(tt, ev.clientX+14, ev.clientY+14);
@@ -1984,6 +2282,10 @@ dom.vp.addEventListener('mousemove', e=>{
   if (drag && drag.moved) return;
   const hit = e.target.closest && e.target.closest('[data-id]');
   if (!hit){ hideTooltip(); return; }
+  if (hit.getAttribute('data-kind') === 'retic'){
+    const r = isNet() ? S.net.retics[+hit.getAttribute('data-retic')] : null;
+    if (r){ showReticTooltip(r, e); return; }
+  }
   const n = findById(S.root, hit.getAttribute('data-id'));
   if (n) showTooltip(n, e);
 });
@@ -1994,10 +2296,13 @@ const CLADE_SWATCHES = ['#00A499','#498BCA','#9DD4D3','#333F48','#5E9CD6','#8C47
 function hidePopover(){ dom.popover.classList.remove('on'); }
 function showPopover(n, x, y){
   const isClade = !n.isLeaf;
+  const hy = isNet() && n.isHybrid;
   const collapsed = S.collapsed.has(n.id);
-  const nm = isClade ? (n.name ? prettyName(n.name) : 'Clado interno') : prettyName(n.name);
-  let h = `<div class="pop-head"><b class="${n.isLeaf?'sci':''}">${nm}</b>`;
-  h += `<small>${isClade ? n.leafCount+' taxones · prof. '+n.depth : 'largo '+fmt(n.len,3)}</small></div>`;
+  const nm = hy ? ('Nodo híbrido ' + n.hybridTag)
+                : (isClade ? (n.name ? prettyName(n.name) : 'Clado interno') : prettyName(n.name));
+  let h = `<div class="pop-head"><b class="${(n.isLeaf && !hy)?'sci':''}">${escAttr(nm)}</b>`;
+  h += `<small>${hy ? (1 + reticsInto(n).length)+' progenitores · γ '+(n.gamma!=null?fmt(n.gamma,2):'—')
+                    : (isClade ? n.leafCount+' taxones · prof. '+n.depth : 'largo '+fmt(n.len,3))}</small></div>`;
   h += `<div class="pop-body">`;
   if (isClade){
     h += `<button class="pop-act" data-act="collapse"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">${collapsed
@@ -2218,10 +2523,14 @@ function applyOrdering(){
   if (S.ladder) ladderize(S.root, 1);
   else (function un(n){ n.children.sort((a,b)=>a._ord-b._ord); n.children.forEach(un); })(S.root);
 }
-function setTree(root, meta){
+function setTree(root, meta, net){
+  S.net = (net && net.retics && net.retics.length) ? net : null;
+  document.body.classList.toggle('is-net', isNet());
   S.root = prepare(root);
-  S.name = meta.name || 'árbol';
-  S.title = meta.title || meta.name || 'Árbol';
+  S.stats.retics = isNet() ? S.net.retics.length : 0;
+  S.stats.hybrids = isNet() ? S.net.hybrids.length : 0;
+  S.name = meta.name || (isNet() ? 'red' : 'árbol');
+  S.title = meta.title || meta.name || (isNet() ? 'Red' : 'Árbol');
   S.desc = meta.desc || '';
   S.collapsed.clear(); S.cladeColors.clear(); S.highlight=null; S.selected=null;
   resetTaxonDependentControls();
@@ -2232,7 +2541,11 @@ function setTree(root, meta){
   // unlock UI
   dom.empty.classList.add('gone');
   dom.vp.classList.remove('hidden');
-  $$('.acc').forEach(a => { a.setAttribute('data-locked','0'); a.classList.remove('open'); a.querySelector('.acc-head')?.setAttribute('aria-expanded','false'); });
+  $$('.acc').forEach(a => {
+    a.setAttribute('data-locked','0');
+    if (a.id === 'accData') return;   // the section the user just clicked in stays exactly as they left it
+    a.classList.remove('open'); a.querySelector('.acc-head')?.setAttribute('aria-expanded','false');
+  });
   // Keep the sidebar tidy after loading; users can expand each section as needed.
   ['accSearch'].forEach(id => { const a = $('#'+id); if (a){ a.classList.add('open'); a.querySelector('.acc-head')?.setAttribute('aria-expanded','true'); } });
   dom.searchInput.disabled = false;
@@ -2242,34 +2555,45 @@ function setTree(root, meta){
   // file chip / stats
   dom.fileChip.classList.add('on'); dom.drop.style.display='none';
   dom.fileName.textContent = S.name;
-  dom.fileMeta.textContent = `${S.stats.leaves} taxones · ${S.stats.nodes} nodos`;
+  dom.fileMeta.textContent = fileMetaText();
   dom.statStrip.classList.add('on');
   dom.stLeaves.textContent = S.stats.leaves;
   dom.stNodes.textContent = S.stats.nodes;
   dom.stDepth.textContent = S.stats.maxDepth;
+  if (dom.stRetic) dom.stRetic.textContent = S.stats.retics || 0;
   // cartouche
   dom.ctTitle.textContent = S.title;
   dom.ctDesc.textContent = S.desc || `${S.stats.leaves} taxones observados.`;
-  dom.ctMeta.innerHTML = `<span>${S.stats.leaves} taxones</span><span>prof. máx ${S.stats.maxDepth}</span>` +
-    (S.stats.hasLen ? `<span>dist. máx ${fmt(S.stats.maxDist,3)}</span>` : '');
+  dom.ctMeta.innerHTML = cartoucheMetaHTML();
   dom.cartouche.classList.remove('dim');
   render();
   requestAnimationFrame(()=>fit(false));
   closeSide();
 }
 
+function fileMetaText(){
+  return `${S.stats.leaves} taxones · ${S.stats.nodes} nodos` + (isNet() ? ` · ${S.stats.retics} retic.` : '');
+}
+function cartoucheMetaHTML(){
+  let h = `<span>${S.stats.leaves} taxones</span><span>prof. máx ${S.stats.maxDepth}</span>`;
+  if (S.stats.hasLen) h += `<span>dist. máx ${fmt(S.stats.maxDist,3)}</span>`;
+  if (isNet()) h += `<span>${S.stats.retics} reticulaciones</span>`;
+  return h;
+}
 function loadNewick(str, meta){
   try {
     __id = 0;
     const root = enrich(parseNewick(str));
     if (!root.children.length && !root.name) throw new Error('No se encontró ningún árbol válido.');
-    setTree(root, meta||{});
-  } catch (err){ toastError(err.message); }
+    const net = extractNetwork(root);     // folds any #H / #LGT / #R tags into reticulation edges
+    setTree(root, meta||{}, net);
+    return true;
+  } catch (err){ toastError(err.message); return false; }
 }
 function loadExample(key, silent){
   const ex = EXAMPLES[key];
   if (!ex || !ex.nwk){ toastError('Ejemplo no disponible.'); return; }
-  loadNewick(ex.nwk, { name: key+'.nwk', title: ex.title, desc: ex.desc });
+  loadNewick(ex.nwk, { name: key + '.' + (ex.ext || 'nwk'), title: ex.title, desc: ex.desc });
   if (!silent) toast('Ejemplo «'+ex.title+'» cargado');
 }
 function toastError(msg){
@@ -2314,7 +2638,7 @@ function readFile(file){
   reader.onload = e => {
     const txt = e.target.result;
     if (ext==='json'){ try { loadJSON(JSON.parse(txt), name); } catch(err){ toastError('JSON inválido.'); } }
-    else loadNewick(txt, { name, title:name.replace(/\.[^.]+$/,''), desc:'Árbol cargado desde archivo' });
+    else loadNewick(txt, { name, title:name.replace(/\.[^.]+$/,''), desc:'Cargado desde archivo' });
   };
   reader.onerror = () => toastError('No se pudo leer el archivo.');
   reader.readAsText(file);
@@ -2346,6 +2670,9 @@ function syncAllInputs(){
   $('#nodeR').value = S.style.nodeR; $('#nodeC').value = S.style.nodeC; $('#nodeCHex').textContent = S.style.nodeC.toUpperCase();
   $('#labelS').value = S.style.labelS; $('#labelC').value = S.style.labelC; $('#labelCHex').textContent = S.style.labelC.toUpperCase();
   $('#togGuides').checked = S.show.guides; $('#togSupport').checked = S.show.support; $('#togInternal').checked = S.show.internal;
+  const tR = $('#togRetic'), tG = $('#togGamma');
+  if (tR) tR.checked = S.show.retic !== false;
+  if (tG) tG.checked = S.show.gamma !== false;
 }
 
 /* ======================= CONTROL WIRING ======================= */
@@ -2387,6 +2714,9 @@ function wireControls(){
   $('#togGuides').onchange = e => { S.show.guides = e.target.checked; render(); };
   $('#togSupport').onchange = e => { S.show.support = e.target.checked; render(); };
   $('#togInternal').onchange = e => { S.show.internal = e.target.checked; render(); };
+  const tR = $('#togRetic'), tG = $('#togGamma');
+  if (tR) tR.onchange = e => { S.show.retic = e.target.checked; render(); };
+  if (tG) tG.onchange = e => { S.show.gamma = e.target.checked; render(); };
   // zoom tools
   $('#zoomIn').onclick = () => { const r=stageRect(); zoomAt(1.2, r.left+r.w/2, r.top+r.h/2); };
   $('#zoomOut').onclick = () => { const r=stageRect(); zoomAt(1/1.2, r.left+r.w/2, r.top+r.h/2); };
@@ -2419,17 +2749,24 @@ function wireControls(){
   ['dragover','dragenter'].forEach(ev => dom.drop.addEventListener(ev, e=>{ e.preventDefault(); dom.drop.classList.add('drag'); }));
   ['dragleave','drop'].forEach(ev => dom.drop.addEventListener(ev, e=>{ e.preventDefault(); dom.drop.classList.remove('drag'); }));
   dom.drop.addEventListener('drop', e => { const f = e.dataTransfer.files[0]; if (f) readFile(f); });
-  $$('.ex-link[data-ex]').forEach(b => b.onclick = () => loadExample(b.dataset.ex));
+  // the chip replaces the drop zone once something is loaded, so it takes over the same job
+  dom.fileChip.addEventListener('click', e => { if (!e.target.closest('#fileClear')) $('#fileInput').click(); });
+  ['dragover','dragenter'].forEach(ev => dom.fileChip.addEventListener(ev, e=>{ e.preventDefault(); dom.fileChip.classList.add('drag'); }));
+  ['dragleave','drop'].forEach(ev => dom.fileChip.addEventListener(ev, e=>{ e.preventDefault(); dom.fileChip.classList.remove('drag'); }));
+  dom.fileChip.addEventListener('drop', e => { const f = e.dataTransfer.files[0]; if (f) readFile(f); });
+  $$('.ex-chip[data-ex]').forEach(b => b.onclick = () => loadExample(b.dataset.ex));
   $('#urlLoad').onclick = () => loadFromField($('#urlInput').value);
   $('#urlInput').addEventListener('keydown', e => { if (e.key === 'Enter'){ e.preventDefault(); loadFromField(e.target.value); } });
-  $('#urlExample').onclick = () => {
-    const demo = 'https://raw.githubusercontent.com/veg/phylotree.js/master/test/data/CD2.new';
-    $('#urlInput').value = demo; loadFromField(demo);
-  };
-  $('#emptyLoad').onclick = () => loadExample('vertebrates');
+  $('#urlInput').addEventListener('input', syncUrlLoad);
+  // a remote example types its URL into the field, so the mechanism is visible
+  const tryURL = (u) => { $('#urlInput').value = u; syncUrlLoad(); loadFromField(u); };
+  $$('.ex-chip[data-url]').forEach(b => b.onclick = () => tryURL(URL_EXAMPLES[b.dataset.url]));
+  $('#emptyLoad').onclick = () => loadExample('treeOfLife');
+  syncUrlLoad();
 }
 function resetToEmpty(){
-  S.root=null; dom.vp.classList.add('hidden'); dom.empty.classList.remove('gone');
+  S.root=null; S.net=null; document.body.classList.remove('is-net');
+  dom.vp.classList.add('hidden'); dom.empty.classList.remove('gone');
   dom.fileChip.classList.remove('on'); dom.drop.style.display='block';
   dom.statStrip.classList.remove('on'); dom.searchInput.disabled=true; dom.searchInput.value='';
   updateRootTaxaList();
@@ -2554,6 +2891,7 @@ function exportJSON(){
 function stylesAreDefault(){
   return JSON.stringify(S.style) === JSON.stringify(DEFAULT_STYLE)
     && S.show.guides && S.show.support && !S.show.internal
+    && S.show.retic !== false && S.show.gamma !== false
     && S.collapsed.size === 0 && S.cladeColors.size === 0;
 }
 function buildShareURL(){
@@ -2622,7 +2960,7 @@ function fetchTreeFromURL(url){
       const name = (url.split('/').pop() || 'árbol.nwk').split('?')[0] || 'árbol.nwk';
       const t = txt.trim();
       if (t.startsWith('{') || t.startsWith('[')){ try { loadJSON(JSON.parse(t), name); return; } catch(e){} }
-      loadNewick(txt, { name, title:'Árbol desde enlace', desc:'Descargado desde '+url });
+      loadNewick(txt, { name, title:'Desde un enlace externo', desc:'Descargado desde '+url });
     })
     .catch(err => toastError('No se pudo descargar (' + err.message + '). El servidor debe permitir CORS — prueba un enlace “raw” de GitHub.'));
 }
@@ -2636,7 +2974,7 @@ function applyURLTree(t, p){
     if (p.get('ang')) S.angle = clamp(+p.get('ang'), 30, 360);
     syncAllInputs();
   }
-  loadNewick(t, { name:'árbol-compartido.nwk', title:'Árbol compartido', desc:'Cargado desde el enlace', forceMode: (p && p.get('m')) || undefined });
+  loadNewick(t, { name:'compartido.nwk', title:'Desde la URL', desc:'Cargado desde el enlace', forceMode: (p && p.get('m')) || undefined });
 }
 function handleURLCandidate(raw){
   if (!raw) return false;
@@ -2664,13 +3002,17 @@ function handleURLCandidate(raw){
   } catch(e){}
   return false;
 }
+function syncUrlLoad(){
+  const inp = $('#urlInput'), btn = $('#urlLoad');
+  if (inp && btn) btn.disabled = !inp.value.trim();
+}
 function loadFromField(val){
   val = (val || '').trim();
   if (!val){ toastError('Pega un enlace (https…) o un árbol en Newick/JSON.'); return; }
-  // a tree pasted directly
+  // a tree or network pasted directly
   if (val.startsWith('(') || val.startsWith('{')){
     if (val.startsWith('{')){ try { loadJSON(JSON.parse(val), 'pegado.json'); return; } catch(e){} }
-    loadNewick(val, { name:'pegado.nwk', title:'Árbol pegado', desc:'Cargado desde el panel' });
+    loadNewick(val, { name:'pegado.nwk', title:'Pegado en el panel', desc:'Cargado desde el panel' });
     return;
   }
   if (/^https?:\/\//i.test(val)){ fetchTreeFromURL(val); return; }        // full URL
@@ -2688,7 +3030,10 @@ function loadFromURL(){
   const segs = (location.pathname || '').split('/').filter(Boolean);
   let path = segs.length ? segs[segs.length - 1] : '';
   if (/\.html?$/i.test(path)) path = '';
-  for (const raw of [hash, query, path]){
+  // A network written raw into the path carries '#' characters, and the browser
+  // reads the first one as the start of the fragment: glue the two halves back.
+  const pathHash = (path && location.hash) ? path + location.hash : '';
+  for (const raw of [hash, query, pathHash, path]){
     if (raw && handleURLCandidate(raw)) return true;
   }
   return false;
@@ -2711,13 +3056,21 @@ const CITATION = 'Mardones Aguilar, R. I. N., Villalobos Cid, M. J., & Universid
 
 /* ======================= CONTEXTUAL HELP ("?" popovers) ======================= */
 const HELP = {
-  datos: `<h4>Cargar un árbol</h4>
+  datos: `<h4>Cargar un árbol o una red</h4>
     <ul class="hp-list">
-      <li>Arrastra o elige un archivo <code>.nwk</code> / <code>.json</code>.</li>
-      <li>Pulsa un <b>ejemplo</b> para verlo al instante.</li>
-      <li>Pega un <b>enlace</b> a un archivo (en GitHub, usa el botón «Raw») o el árbol en Newick/JSON, y pulsa <b>Cargar</b>.</li>
+      <li><b>Archivo:</b> arrastra o elige un .nwk, .enwk, .net o .json.</li>
+      <li><b>Ejemplo:</b> los dos primeros están dentro de la página; los dos remotos escriben su URL en el campo y la descargan.</li>
+      <li><b>URL externa:</b> pega el enlace a un archivo remoto (en GitHub, usa el botón «Raw») y pulsa Cargar.</li>
+      <li><b>Texto pegado:</b> pega el propio Newick o Newick extendido en el mismo campo.</li>
+      <li><b>URL de arriba:</b> escribe el árbol o la red en la barra de direcciones y Phyli lo abre al entrar.</li>
     </ul>
-    <div class="hp-tip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7 0l2-2a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-2 2a5 5 0 0 0 7 7l1-1"/></svg><span><b>Desde otra app:</b> manda un enlace con el árbol en la URL y Phyli lo abre solo — usa <b>Compartir enlace</b>, o escríbelo como <code>…/Phyli/#(A:1,B:1);</code></span></div>`,
+    <div class="hp-tip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7 0l2-2a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-2 2a5 5 0 0 0 7 7l1-1"/></svg><span><b>En la barra de direcciones:</b> <code>…/Phyli/#(A:1,B:1);</code> abre un árbol; <code>…/Phyli/#src=https://…/red.enwk</code> descarga un archivo remoto; <code>…/Phyli/#z=…</code> es el enlace comprimido que da Compartir.</span></div>`,
+  reticHelp: `<h4>Aristas reticuladas</h4>Las flechas moradas punteadas son los eventos reticulados de la red: van desde el progenitor minoritario hasta el nodo híbrido, el rombo. El número γ es la probabilidad de herencia: cuánto aportó ese progenitor.
+    <ul class="hp-list">
+      <li>Se dibujan sobre el árbol de base, así que su largo en pantalla no está a escala.</li>
+      <li>Pasa el cursor por una arista para ver su tipo, su largo y su γ.</li>
+      <li>Si colapsas un clado, la arista se ancla al triángulo del clado.</li>
+    </ul>`,
   buscar: `<h4>Buscar taxón</h4>Escribe el nombre de una punta para <b>resaltarla</b> y centrar la vista en ella. Acepta nombres parciales; si está dentro de un clado colapsado, se expande solo.`,
   visual: `<h4>Visualización</h4>
     <ul class="hp-list">
@@ -2727,21 +3080,23 @@ const HELP = {
       <li><b>Alinear puntas</b>: lleva las hojas al mismo nivel (dendrograma).</li>
       <li><b>Ángulo</b>: abre o cierra el abanico en los diseños radiales.</li>
     </ul>`,
-  diseno: `<h4>Diseño</h4>Ajusta color y grosor de las <b>ramas</b>, y el tamaño y color de <b>nodos</b> y <b>etiquetas</b>. Activa <b>líneas guía</b>, <b>soporte</b> (puntos de color según el bootstrap) y <b>nombres de clado</b>.
+  diseno: `<h4>Diseño</h4>Ajusta color y grosor de las ramas, y el tamaño y color de nodos y etiquetas. Activa las líneas guía, el soporte (puntos de color según el bootstrap) y los nombres de clado.
     <div class="hp-tip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="12" cy="12" r="9"/><path d="M12 8v4" stroke-linecap="round"/><circle cx="12" cy="16" r=".9" fill="currentColor"/></svg><span>Clic en un nodo del árbol para <b>colorear</b> o <b>colapsar</b> ese clado.</span></div>`,
   export: `<h4>Exportar y compartir</h4>
     <ul class="hp-list">
       <li><b>SVG</b> vectorial · <b>PNG</b> en 2× · <b>Newick</b> (.nwk) · <b>JSON</b> (proyecto reabrible).</li>
-      <li><b>Compartir enlace</b>: crea una URL con el árbol dentro (comprimida si hace falta) y la muestra para copiar.</li>
+      <li>Si lo cargado es una red, el Newick sale en formato extendido, con sus etiquetas #H y sus γ.</li>
+      <li><b>Compartir enlace</b>: crea una URL con el árbol o la red dentro (comprimida si hace falta) y la muestra para copiar.</li>
     </ul>`,
   rooting: `<h4>Enraizamiento</h4>
     <ul class="hp-list">
       <li><b>Por especie</b>: elige una punta para usarla como grupo externo. Phyli mueve la raíz a la rama que conecta esa especie con el resto del árbol.</li>
       <li><b>Por midpoint</b>: calcula las dos puntas más distantes y coloca la raíz en el punto medio de ese camino.</li>
       <li>El enraizamiento cambia la topología mostrada y también el Newick exportado.</li>
+      <li>En una red el enraizamiento queda desactivado: la raíz ya viene fijada por las aristas reticuladas.</li>
     </ul>`,
   rootSpecies: `<h4>Enraizar por especie</h4>Escribe o elige una punta del árbol. Sirve cuando conoces un grupo externo y quieres orientar el árbol respecto de ese taxón.`,
-  distance: `<h4>Distancia entre taxones</h4><ul class="hp-list"><li>Selecciona dos <b>puntas</b> para calcular la distancia en el árbol actual.</li><li>Si el árbol tiene largos de rama, la distancia usa esos valores. Si no, Phyli cuenta pasos topológicos.</li><li>La opción <b>Atenuar el resto del árbol</b> deja visibles solo el camino y los dos taxones elegidos.</li></ul>`,
+  distance: `<h4>Distancia entre taxones</h4><ul class="hp-list"><li>Selecciona dos <b>puntas</b> para calcular la distancia en el árbol actual.</li><li>Si el árbol tiene largos de rama, la distancia usa esos valores. Si no, Phyli cuenta pasos topológicos.</li><li>La opción <b>Atenuar el resto del árbol</b> deja visibles solo el camino y los dos taxones elegidos.</li><li>En una red el camino recorre solo el árbol de base, sin pasar por las aristas reticuladas.</li></ul>`,
   distanceDim: `<h4>Atenuar el resto del árbol</h4>Reduce la opacidad del árbol completo y deja resaltados el <b>camino</b> entre las dos puntas y los <b>taxones</b> seleccionados. Usa <b>Quitar marca</b> para volver a la vista normal.`,
   shapeHelp: `<h4>Diseño de trazado</h4>Controla la forma de las ramas. Escalón es el dibujo clásico; curvo suaviza las conexiones; recto usa segmentos diagonales; radial abre el árbol en círculo o abanico.`,
   scaleHelp: `<h4>Escala de ramas</h4><b>Filograma</b> respeta los largos de rama del Newick. <b>Cladograma</b> ignora esos largos y muestra solo la relación entre clados.`,
@@ -2822,16 +3177,16 @@ function wireChrome(){
 /* ======================= MULTILINGUAL UI ======================= */
 const I18N = {
   es: {
-    langLabel:'Español', title:'Phyli · Visualizador de árboles filogenéticos',
-    description:'Phyli: herramienta en línea para interactuar y visualizar árboles filogenéticos (formato Newick). USACH · Departamento de Ingeniería Informática.'
+    langLabel:'Español', title:'Phyli · Visualizador de árboles y redes filogenéticas',
+    description:'Phyli: herramienta en línea para interactuar y visualizar árboles y redes filogenéticas (Newick y Newick extendido). USACH · Departamento de Ingeniería Informática.'
   },
   en: {
-    langLabel:'English', title:'Phyli · Phylogenetic tree viewer',
-    description:'Phyli: online tool to interact with and visualise phylogenetic trees in Newick format. USACH · Department of Computer Engineering.'
+    langLabel:'English', title:'Phyli · Phylogenetic tree and network viewer',
+    description:'Phyli: online tool to interact with and visualise phylogenetic trees and networks (Newick and extended Newick). USACH · Department of Computer Engineering.'
   },
   pt: {
-    langLabel:'Português', title:'Phyli · Visualizador de árvores filogenéticas',
-    description:'Phyli: ferramenta online para interagir com e visualizar árvores filogenéticas em formato Newick. USACH · Departamento de Engenharia Informática.'
+    langLabel:'Português', title:'Phyli · Visualizador de árvores e redes filogenéticas',
+    description:'Phyli: ferramenta online para interagir com e visualizar árvores e redes filogenéticas (Newick e Newick estendido). USACH · Departamento de Engenharia Informática.'
   }
 };
 const TEXT_TR = {
@@ -2931,6 +3286,239 @@ Object.entries({
 }).forEach(([k,v]) => { TEXT_TR.pt.set(k,v); PHRASE_TR.pt.set(k,v); ATTR_TR.pt.set(k,v); });
 REGEX_TR.pt.push([/^Árbol enraizado por especie: (.+)$/, 'Árvore enraizada por espécie: $1'], [/^Hay (\d+) coincidencias\. Escribe el nombre completo del taxón\.$/, 'Há $1 correspondências. Digite o nome completo do táxon.']);
 
+/* ---------- Phylogenetic networks / extended Newick ----------
+   Registered in TEXT_TR + ATTR_TR only, never in PHRASE_TR: PHRASE_TR doubles as a blind
+   substring-substitution fallback, so a short key there would corrupt unrelated sentences.
+   Exact text-node / attribute lookups are what these strings actually need. */
+Object.entries({
+  /* chrome, panel, stat strip, cartouche */
+  'Árboles y redes':'Trees and networks','Datos del árbol o red':'Tree or network data','Red filogenética':'Phylogenetic network','Red':'Network',
+  'Enlace externo de ejemplo: árbol →':'External example link: tree →','Enlace externo de ejemplo: red →':'External example link: network →',
+  'Desde un enlace externo':'From an external link','Desde la URL':'From the URL','Pegado en el panel':'Pasted in the panel',
+  'En una red filogenética la raíz queda determinada por las aristas reticuladas: el enraizamiento se desactiva para no romper los nodos híbridos.':'In a phylogenetic network the root is fixed by the reticulation edges: rooting is disabled so that hybrid nodes are not broken.',
+  'En una red la distancia se mide sobre el árbol de base: las aristas reticuladas no forman parte del camino.':'In a network the distance is measured on the backbone tree: reticulation edges are not part of the path.',
+  'Aristas reticuladas':'Reticulation edges','Flechas de los eventos híbridos':'Arrows for hybrid events','Probabilidad de herencia γ':'Inheritance probability γ','Aporte de cada progenitor en la arista':'Contribution of each parent on the edge',
+  'Arista reticulada':'Reticulation edge','Nodo híbrido':'Hybrid node',
+  'sust./sitio (árbol de base)':'subst./site (backbone tree)','pasos topológicos (árbol de base)':'topological steps (backbone tree)',
+  'Hibridaciones en Saccharomyces sensu stricto: S. pastorianus (cerevisiae × eubayanus) y S. bayanus (uvarum × eubayanus), escritas en Newick extendido con probabilidades de herencia γ.':'Hybridisations in Saccharomyces sensu stricto: S. pastorianus (cerevisiae × eubayanus) and S. bayanus (uvarum × eubayanus), written in extended Newick with γ inheritance probabilities.',
+  'Phyli dibuja árboles y redes filogenéticas a partir de Newick y Newick extendido: interactúa con los nodos, cambia el trazado y exporta figuras listas para publicar.':'Phyli draws phylogenetic trees and networks from Newick and extended Newick: interact with the nodes, change the layout, and export publication-ready figures.',
+  /* tooltip / popover built at runtime */
+  'Hibridación':'Hybridisation','Transferencia horizontal':'Horizontal transfer','Recombinación':'Recombination','Reticulación':'Reticulation',
+  'Progenitores':'Parents','Probabilidad γ':'Probability γ','Desde':'From','Hacia':'To','Arista reticulada: no se dibuja a escala':'Reticulation edge: not drawn to scale',
+  /* attributes */
+  'Ayuda: aristas reticuladas':'Help: reticulation edges',
+  'Red de hibridación en Saccharomyces, en Newick extendido con probabilidades γ':'Hybridisation network in Saccharomyces, in extended Newick with γ probabilities',
+  'Pega la URL de un archivo .nwk/.enwk/.json, o el texto del árbol o de la red en Newick/Newick extendido/JSON, y pulsa Cargar':'Paste the URL of a .nwk/.enwk/.json file, or the tree or network as Newick/extended Newick/JSON text, and click Load',
+  'Pega un enlace, o el árbol o la red':'Paste a link, or the tree or the network',
+  /* help sheet — lead, Newick section, network section */
+  'Qué es un árbol o una red filogenética y cómo usar phyli':'What a phylogenetic tree or network is and how to use Phyli',
+  'puede representar tiempo o cantidad de cambio evolutivo. Cuando la historia incluye hibridación, transferencia horizontal o recombinación, el árbol se convierte en una red filogenética, y Phyli también las lee y las dibuja.':'may represent time or amount of evolutionary change. When the history includes hybridisation, horizontal transfer, or recombination, the tree becomes a phylogenetic network, and Phyli reads and draws those too.',
+  ', o elige en el panel el Árbol de la vida (191 organismos de los tres dominios) o la Red filogenética (dos hibridaciones en Saccharomyces, escritas en Newick extendido).':', or pick in the panel either the Tree of life (191 organisms from the three domains) or the Phylogenetic network (two hybridisations in Saccharomyces, written in extended Newick).',
+  'Phyli lee árboles en formato Newick: un texto que anida los grupos con paréntesis. Las comas separan hermanos; dos puntos indican el largo de la rama; el punto y coma cierra el árbol.':'Phyli reads trees in Newick format: a text that nests groups with parentheses. Commas separate siblings; colons indicate branch length; the semicolon closes the tree.',
+  'Redes filogenéticas y Newick extendido':'Phylogenetic networks and extended Newick','Newick extendido':'extended Newick','newick extendido':'extended newick',
+  'No toda la evolución es divergencia: la hibridación, la transferencia horizontal de genes y la recombinación vuelven a unir linajes que ya se habían separado, y eso no cabe en un árbol. Phyli lee esos casos en':'Not all evolution is divergence: hybridisation, horizontal gene transfer, and recombination rejoin lineages that had already separated, and that does not fit in a tree. Phyli reads those cases in',
+  '(eNewick), donde un mismo nodo híbrido se escribe varias veces —una por cada progenitor— con una etiqueta que empieza por':'(eNewick), where the same hybrid node is written several times —once per parent— with a label starting with',
+  'identifica el nodo híbrido. El tipo puede ser H (hibridación), LGT (transferencia horizontal) o R (recombinación).':'identifies the hybrid node. The type can be H (hybridisation), LGT (horizontal transfer), or R (recombination).',
+  'La aparición que lleva descendientes define el subárbol colgado del híbrido; las demás son punteros al mismo nodo desde cada progenitor.':'The occurrence carrying descendants defines the subtree hanging from the hybrid; the others are pointers to the same node from each parent.',
+  '— el tercer campo es la probabilidad de herencia γ: la fracción del genoma que aportó ese progenitor. Los campos vacíos se omiten, como en':'— the third field is the inheritance probability γ: the fraction of the genome contributed by that parent. Empty fields are omitted, as in',
+  'Phyli dibuja el árbol de base colgando cada híbrido de su progenitor mayoritario (el de mayor γ) y añade las demás aristas como reticulaciones: flechas moradas punteadas hacia un nodo con forma de rombo.':'Phyli draws the backbone tree by hanging each hybrid from its majority parent (the one with the largest γ) and adds the remaining edges as reticulations: dashed purple arrows towards a diamond-shaped node.',
+  'Qué cambia en una red.':'What changes in a network.',
+  'Las aristas reticuladas no se dibujan a escala: su largo y su γ se leen al pasar el cursor. El enraizamiento se desactiva, porque la raíz ya viene fijada por las reticulaciones, y la distancia entre taxones se calcula sobre el árbol de base. Todo lo demás —colapsar, colorear, buscar, exportar— funciona igual.':'Reticulation edges are not drawn to scale: their length and γ are read by hovering. Rooting is disabled, because the root is already fixed by the reticulations, and the distance between taxa is measured on the backbone tree. Everything else —collapsing, colouring, searching, exporting— works the same.',
+  /* help sheet — rooting, export, URL, about */
+  'entre las dos puntas más distantes del árbol. Después de enraizar, el cambio queda reflejado en la vista y en la exportación Newick. En una red el enraizamiento queda desactivado.':'between the two most distant tips of the tree. After rooting, the change is reflected in the view and in the Newick export. In a network, rooting is disabled.',
+  ', con tus cambios de topología. Si lo cargado es una red, sale en Newick extendido, con sus etiquetas #H y sus γ.':', including your topology changes. If what you loaded is a network, it comes out in extended Newick, with its #H labels and its γ values.',
+  '— el proyecto completo (árbol o red, más estilos) para reabrir en phyli.':'— the complete project (tree or network, plus styles) to reopen in Phyli.',
+  'Cargar un árbol o una red por URL.':'Load a tree or a network by URL.',
+  'Escribe el árbol o la red en la propia dirección (tras el':'Write the tree or the network in the address itself (after the',
+  '— una red en Newick extendido':'— a network in extended Newick',
+  '— ahí las almohadillas de una red deben ir escritas como':'— there the hashes of a network must be written as',
+  '. Esta versión reconstruye la aplicación como una página HTML/JavaScript autónoma, con un trazado rediseñado, modo filograma con barra de escala, lectura de redes filogenéticas en Newick extendido y ayuda didáctica integrada.':'. This version rebuilds the application as a standalone HTML/JavaScript page, with a redesigned layout, a phylogram mode with scale bar, reading of phylogenetic networks in extended Newick, and built-in teaching help.',
+  /* HELP popover: datos */
+  'Cargar un árbol o una red':'Load a tree or a network','Archivo:':'File:','arrastra o elige un .nwk, .enwk, .net o .json.':'drag or choose a .nwk, .enwk, .net, or .json file.',
+  'Ejemplo:':'Example:','pulsa uno de los dos para verlo al instante.':'click either one to view it instantly.',
+  'URL externa:':'External URL:','pega el enlace a un archivo remoto (en GitHub, usa el botón «Raw») y pulsa Cargar.':'paste the link to a remote file (on GitHub, use the “Raw” button) and click Load.',
+  'Texto pegado:':'Pasted text:','pega el propio Newick o Newick extendido en el mismo campo.':'paste the Newick or extended Newick itself in the same field.',
+  'URL de arriba:':'Address bar:','escribe el árbol o la red en la barra de direcciones y Phyli lo abre al entrar.':'write the tree or the network in the address bar and Phyli opens it on entry.',
+  'En la barra de direcciones:':'In the address bar:','abre un árbol;':'opens a tree;','descarga un archivo remoto;':'downloads a remote file;','es el enlace comprimido que da Compartir.':'is the compressed link produced by Share.',
+  /* HELP popover: reticulaciones */
+  'Las flechas moradas punteadas son los eventos reticulados de la red: van desde el progenitor minoritario hasta el nodo híbrido, el rombo. El número γ es la probabilidad de herencia: cuánto aportó ese progenitor.':'The dashed purple arrows are the reticulation events of the network: they run from the minority parent to the hybrid node, the diamond. The γ number is the inheritance probability: how much that parent contributed.',
+  'Se dibujan sobre el árbol de base, así que su largo en pantalla no está a escala.':'They are drawn on the backbone tree, so their on-screen length is not to scale.',
+  'Pasa el cursor por una arista para ver su tipo, su largo y su γ.':'Hover over an edge to see its type, its length, and its γ.',
+  'Si colapsas un clado, la arista se ancla al triángulo del clado.':'If you collapse a clade, the edge anchors to the clade triangle.',
+  /* HELP popovers: diseño, export, rooting, distance */
+  'Ajusta color y grosor de las ramas, y el tamaño y color de nodos y etiquetas. Activa las líneas guía, el soporte (puntos de color según el bootstrap) y los nombres de clado.':'Adjust the colour and width of the branches, and the size and colour of nodes and labels. Turn on guide lines, support (coloured dots based on the bootstrap), and clade names.',
+  'Si lo cargado es una red, el Newick sale en formato extendido, con sus etiquetas #H y sus γ.':'If what you loaded is a network, the Newick comes out in extended format, with its #H labels and its γ values.',
+  ': crea una URL con el árbol o la red dentro (comprimida si hace falta) y la muestra para copiar.':': creates a URL with the tree or the network inside it (compressed when needed) and shows it for copying.',
+  'En una red el enraizamiento queda desactivado: la raíz ya viene fijada por las aristas reticuladas.':'In a network, rooting is disabled: the root is already fixed by the reticulation edges.',
+  'En una red el camino recorre solo el árbol de base, sin pasar por las aristas reticuladas.':'In a network, the path runs only over the backbone tree, without passing through the reticulation edges.'
+}).forEach(([k,v]) => { TEXT_TR.en.set(k,v); ATTR_TR.en.set(k,v); });
+Object.entries({
+  /* chrome, panel, stat strip, cartouche */
+  'Árboles y redes':'Árvores e redes','Datos del árbol o red':'Dados da árvore ou rede','Red filogenética':'Rede filogenética','Red':'Rede',
+  'Enlace externo de ejemplo: árbol →':'Link externo de exemplo: árvore →','Enlace externo de ejemplo: red →':'Link externo de exemplo: rede →',
+  'Desde un enlace externo':'A partir de um link externo','Desde la URL':'A partir da URL','Pegado en el panel':'Colado no painel',
+  'En una red filogenética la raíz queda determinada por las aristas reticuladas: el enraizamiento se desactiva para no romper los nodos híbridos.':'Em uma rede filogenética a raiz é determinada pelas arestas reticuladas: o enraizamento é desativado para não quebrar os nós híbridos.',
+  'En una red la distancia se mide sobre el árbol de base: las aristas reticuladas no forman parte del camino.':'Em uma rede a distância é medida sobre a árvore de base: as arestas reticuladas não fazem parte do caminho.',
+  'Aristas reticuladas':'Arestas reticuladas','Flechas de los eventos híbridos':'Setas dos eventos híbridos','Probabilidad de herencia γ':'Probabilidade de herança γ','Aporte de cada progenitor en la arista':'Contribuição de cada progenitor na aresta',
+  'Arista reticulada':'Aresta reticulada','Nodo híbrido':'Nó híbrido',
+  'sust./sitio (árbol de base)':'subst./sítio (árvore de base)','pasos topológicos (árbol de base)':'passos topológicos (árvore de base)',
+  'Hibridaciones en Saccharomyces sensu stricto: S. pastorianus (cerevisiae × eubayanus) y S. bayanus (uvarum × eubayanus), escritas en Newick extendido con probabilidades de herencia γ.':'Hibridações em Saccharomyces sensu stricto: S. pastorianus (cerevisiae × eubayanus) e S. bayanus (uvarum × eubayanus), escritas em Newick estendido com probabilidades de herança γ.',
+  'Phyli dibuja árboles y redes filogenéticas a partir de Newick y Newick extendido: interactúa con los nodos, cambia el trazado y exporta figuras listas para publicar.':'O Phyli desenha árvores e redes filogenéticas a partir de Newick e Newick estendido: interaja com os nós, mude o traçado e exporte figuras prontas para publicar.',
+  /* tooltip / popover built at runtime */
+  'Hibridación':'Hibridação','Transferencia horizontal':'Transferência horizontal','Recombinación':'Recombinação','Reticulación':'Reticulação',
+  'Progenitores':'Progenitores','Probabilidad γ':'Probabilidade γ','Desde':'De','Hacia':'Para','Arista reticulada: no se dibuja a escala':'Aresta reticulada: não é desenhada em escala',
+  /* attributes */
+  'Ayuda: aristas reticuladas':'Ajuda: arestas reticuladas',
+  'Red de hibridación en Saccharomyces, en Newick extendido con probabilidades γ':'Rede de hibridação em Saccharomyces, em Newick estendido com probabilidades γ',
+  'Pega la URL de un archivo .nwk/.enwk/.json, o el texto del árbol o de la red en Newick/Newick extendido/JSON, y pulsa Cargar':'Cole a URL de um arquivo .nwk/.enwk/.json, ou o texto da árvore ou da rede em Newick/Newick estendido/JSON, e clique em Carregar',
+  'Pega un enlace, o el árbol o la red':'Cole um link, ou a árvore ou a rede',
+  /* help sheet — lead, Newick section, network section */
+  'Qué es un árbol o una red filogenética y cómo usar phyli':'O que é uma árvore ou uma rede filogenética e como usar o Phyli',
+  'puede representar tiempo o cantidad de cambio evolutivo. Cuando la historia incluye hibridación, transferencia horizontal o recombinación, el árbol se convierte en una red filogenética, y Phyli también las lee y las dibuja.':'pode representar tempo ou quantidade de mudança evolutiva. Quando a história inclui hibridação, transferência horizontal ou recombinação, a árvore se torna uma rede filogenética, e o Phyli também as lê e as desenha.',
+  ', o elige en el panel el Árbol de la vida (191 organismos de los tres dominios) o la Red filogenética (dos hibridaciones en Saccharomyces, escritas en Newick extendido).':', ou escolha no painel a Árvore da vida (191 organismos dos três domínios) ou a Rede filogenética (duas hibridações em Saccharomyces, escritas em Newick estendido).',
+  'Phyli lee árboles en formato Newick: un texto que anida los grupos con paréntesis. Las comas separan hermanos; dos puntos indican el largo de la rama; el punto y coma cierra el árbol.':'O Phyli lê árvores em formato Newick: um texto que aninha grupos com parênteses. As vírgulas separam irmãos; dois-pontos indicam o comprimento do ramo; o ponto e vírgula fecha a árvore.',
+  'Redes filogenéticas y Newick extendido':'Redes filogenéticas e Newick estendido','Newick extendido':'Newick estendido','newick extendido':'newick estendido',
+  'No toda la evolución es divergencia: la hibridación, la transferencia horizontal de genes y la recombinación vuelven a unir linajes que ya se habían separado, y eso no cabe en un árbol. Phyli lee esos casos en':'Nem toda evolução é divergência: a hibridação, a transferência horizontal de genes e a recombinação voltam a unir linhagens que já haviam se separado, e isso não cabe em uma árvore. O Phyli lê esses casos em',
+  '(eNewick), donde un mismo nodo híbrido se escribe varias veces —una por cada progenitor— con una etiqueta que empieza por':'(eNewick), onde um mesmo nó híbrido é escrito várias vezes —uma por progenitor— com um rótulo que começa por',
+  'identifica el nodo híbrido. El tipo puede ser H (hibridación), LGT (transferencia horizontal) o R (recombinación).':'identifica o nó híbrido. O tipo pode ser H (hibridação), LGT (transferência horizontal) ou R (recombinação).',
+  'La aparición que lleva descendientes define el subárbol colgado del híbrido; las demás son punteros al mismo nodo desde cada progenitor.':'A ocorrência que carrega descendentes define a subárvore pendurada no híbrido; as demais são ponteiros para o mesmo nó a partir de cada progenitor.',
+  '— el tercer campo es la probabilidad de herencia γ: la fracción del genoma que aportó ese progenitor. Los campos vacíos se omiten, como en':'— o terceiro campo é a probabilidade de herança γ: a fração do genoma que esse progenitor aportou. Os campos vazios são omitidos, como em',
+  'Phyli dibuja el árbol de base colgando cada híbrido de su progenitor mayoritario (el de mayor γ) y añade las demás aristas como reticulaciones: flechas moradas punteadas hacia un nodo con forma de rombo.':'O Phyli desenha a árvore de base pendurando cada híbrido em seu progenitor majoritário (o de maior γ) e adiciona as demais arestas como reticulações: setas roxas pontilhadas até um nó em forma de losango.',
+  'Qué cambia en una red.':'O que muda em uma rede.',
+  'Las aristas reticuladas no se dibujan a escala: su largo y su γ se leen al pasar el cursor. El enraizamiento se desactiva, porque la raíz ya viene fijada por las reticulaciones, y la distancia entre taxones se calcula sobre el árbol de base. Todo lo demás —colapsar, colorear, buscar, exportar— funciona igual.':'As arestas reticuladas não são desenhadas em escala: seu comprimento e seu γ são lidos ao passar o cursor. O enraizamento é desativado, porque a raiz já vem fixada pelas reticulações, e a distância entre táxons é medida sobre a árvore de base. Todo o resto —colapsar, colorir, buscar, exportar— funciona igual.',
+  /* help sheet — rooting, export, URL, about */
+  'entre las dos puntas más distantes del árbol. Después de enraizar, el cambio queda reflejado en la vista y en la exportación Newick. En una red el enraizamiento queda desactivado.':'entre as duas pontas mais distantes da árvore. Depois de enraizar, a mudança fica refletida na visualização e na exportação Newick. Em uma rede, o enraizamento fica desativado.',
+  ', con tus cambios de topología. Si lo cargado es una red, sale en Newick extendido, con sus etiquetas #H y sus γ.':', com suas mudanças de topologia. Se o que você carregou é uma rede, ela sai em Newick estendido, com seus rótulos #H e seus γ.',
+  '— el proyecto completo (árbol o red, más estilos) para reabrir en phyli.':'— o projeto completo (árvore ou rede, mais estilos) para reabrir no Phyli.',
+  'Cargar un árbol o una red por URL.':'Carregar uma árvore ou uma rede por URL.',
+  'Escribe el árbol o la red en la propia dirección (tras el':'Escreva a árvore ou a rede no próprio endereço (depois do',
+  '— una red en Newick extendido':'— uma rede em Newick estendido',
+  '— ahí las almohadillas de una red deben ir escritas como':'— ali as cerquilhas de uma rede devem ser escritas como',
+  '. Esta versión reconstruye la aplicación como una página HTML/JavaScript autónoma, con un trazado rediseñado, modo filograma con barra de escala, lectura de redes filogenéticas en Newick extendido y ayuda didáctica integrada.':'. Esta versão reconstrói a aplicação como uma página HTML/JavaScript autônoma, com traçado redesenhado, modo filograma com barra de escala, leitura de redes filogenéticas em Newick estendido e ajuda didática integrada.',
+  /* HELP popover: datos */
+  'Cargar un árbol o una red':'Carregar uma árvore ou uma rede','Archivo:':'Arquivo:','arrastra o elige un .nwk, .enwk, .net o .json.':'arraste ou escolha um .nwk, .enwk, .net ou .json.',
+  'Ejemplo:':'Exemplo:','pulsa uno de los dos para verlo al instante.':'clique em um dos dois para vê-lo na hora.',
+  'URL externa:':'URL externa:','pega el enlace a un archivo remoto (en GitHub, usa el botón «Raw») y pulsa Cargar.':'cole o link para um arquivo remoto (no GitHub, use o botão “Raw”) e clique em Carregar.',
+  'Texto pegado:':'Texto colado:','pega el propio Newick o Newick extendido en el mismo campo.':'cole o próprio Newick ou Newick estendido no mesmo campo.',
+  'URL de arriba:':'Barra de endereços:','escribe el árbol o la red en la barra de direcciones y Phyli lo abre al entrar.':'escreva a árvore ou a rede na barra de endereços e o Phyli a abre ao entrar.',
+  'En la barra de direcciones:':'Na barra de endereços:','abre un árbol;':'abre uma árvore;','descarga un archivo remoto;':'baixa um arquivo remoto;','es el enlace comprimido que da Compartir.':'é o link comprimido que o Compartilhar gera.',
+  /* HELP popover: reticulaciones */
+  'Las flechas moradas punteadas son los eventos reticulados de la red: van desde el progenitor minoritario hasta el nodo híbrido, el rombo. El número γ es la probabilidad de herencia: cuánto aportó ese progenitor.':'As setas roxas pontilhadas são os eventos reticulados da rede: vão do progenitor minoritário até o nó híbrido, o losango. O número γ é a probabilidade de herança: quanto esse progenitor aportou.',
+  'Se dibujan sobre el árbol de base, así que su largo en pantalla no está a escala.':'Elas são desenhadas sobre a árvore de base, portanto seu comprimento na tela não está em escala.',
+  'Pasa el cursor por una arista para ver su tipo, su largo y su γ.':'Passe o cursor sobre uma aresta para ver seu tipo, seu comprimento e seu γ.',
+  'Si colapsas un clado, la arista se ancla al triángulo del clado.':'Se você colapsar um clado, a aresta se ancora no triângulo do clado.',
+  /* HELP popovers: diseño, export, rooting, distance */
+  'Ajusta color y grosor de las ramas, y el tamaño y color de nodos y etiquetas. Activa las líneas guía, el soporte (puntos de color según el bootstrap) y los nombres de clado.':'Ajuste a cor e a espessura dos ramos, e o tamanho e a cor dos nós e dos rótulos. Ative as linhas-guia, o suporte (pontos coloridos conforme o bootstrap) e os nomes de clado.',
+  'Si lo cargado es una red, el Newick sale en formato extendido, con sus etiquetas #H y sus γ.':'Se o que você carregou é uma rede, o Newick sai em formato estendido, com seus rótulos #H e seus γ.',
+  ': crea una URL con el árbol o la red dentro (comprimida si hace falta) y la muestra para copiar.':': cria uma URL com a árvore ou a rede dentro (comprimida se necessário) e a mostra para copiar.',
+  'En una red el enraizamiento queda desactivado: la raíz ya viene fijada por las aristas reticuladas.':'Em uma rede, o enraizamento fica desativado: a raiz já vem fixada pelas arestas reticuladas.',
+  'En una red el camino recorre solo el árbol de base, sin pasar por las aristas reticuladas.':'Em uma rede, o caminho percorre apenas a árvore de base, sem passar pelas arestas reticuladas.'
+}).forEach(([k,v]) => { TEXT_TR.pt.set(k,v); ATTR_TR.pt.set(k,v); });
+
+/* help sheet + help popovers: fragments split by <b>/<code>, matched whole and exactly */
+Object.entries({
+  'Enraizar el árbol':'Root the tree',
+  'Phyli puede mover la raíz de dos maneras: usando una especie o taxón como grupo externo, o calculando el':'Phyli can move the root in two ways: using a species or taxon as an outgroup, or computing the',
+  'Escala de ramas':'Branch scale',
+  'Alinear puntas':'Align tips',
+  'o':'or',
+  'taxones':'taxa',
+  'La opción':'The option',
+  'Selecciona dos':'Select two',
+  ': forma de las ramas — escalón, curvo, recto o radial.':': branch shape — step, curved, straight, or radial.',
+  ': ramas proporcionales a la distancia evolutiva (muestra barra de escala).':': branches proportional to evolutionary distance (shows the scale bar).',
+  ': solo la topología (quién es pariente de quién).':': topology only (who is related to whom).',
+  ': lleva las hojas al mismo nivel (dendrograma).':': brings the leaves to the same level (dendrogram).',
+  ': abre o cierra el abanico en los diseños radiales.':': opens or closes the fan in the radial layouts.',
+  ': elige una punta para usarla como grupo externo. Phyli mueve la raíz a la rama que conecta esa especie con el resto del árbol.':': pick a tip to use as the outgroup. Phyli moves the root to the branch joining that species to the rest of the tree.',
+  ': calcula las dos puntas más distantes y coloca la raíz en el punto medio de ese camino.':': finds the two most distant tips and places the root at the midpoint of that path.',
+  'El enraizamiento cambia la topología mostrada y también el Newick exportado.':'Rooting changes both the topology on screen and the exported Newick.',
+  'para calcular la distancia en el árbol actual.':'to compute the distance on the current tree.',
+  'Si el árbol tiene largos de rama, la distancia usa esos valores. Si no, Phyli cuenta pasos topológicos.':'If the tree has branch lengths, the distance uses those values. If not, Phyli counts topological steps.',
+  'deja visibles solo el camino y los dos taxones elegidos.':'keeps only the path and the two chosen taxa visible.',
+  'Reduce la opacidad del árbol completo y deja resaltados el':'Dims the whole tree and highlights the',
+  'entre las dos puntas y los':'between the two tips and the',
+  'seleccionados. Usa':'selected. Use',
+  'para volver a la vista normal.':'to go back to the normal view.'
+}).forEach(([k,v]) => { TEXT_TR.en.set(k,v); ATTR_TR.en.set(k,v); });
+Object.entries({
+  'Enraizar el árbol':'Enraizar a árvore',
+  'Phyli puede mover la raíz de dos maneras: usando una especie o taxón como grupo externo, o calculando el':'O Phyli pode mover a raiz de duas maneiras: usando uma espécie ou táxon como grupo externo, ou calculando o',
+  'Escala de ramas':'Escala dos ramos',
+  'Alinear puntas':'Alinhar pontas',
+  'Ángulo radial':'Ângulo radial',
+  'o':'ou',
+  'taxones':'táxons',
+  'La opción':'A opção',
+  'Selecciona dos':'Selecione duas',
+  '(proyecto reabrible).':'(projeto reabrível).',
+  ': forma de las ramas — escalón, curvo, recto o radial.':': forma dos ramos — degrau, curvo, reto ou radial.',
+  ': ramas proporcionales a la distancia evolutiva (muestra barra de escala).':': ramos proporcionais à distância evolutiva (mostra a barra de escala).',
+  ': solo la topología (quién es pariente de quién).':': apenas a topologia (quem é parente de quem).',
+  ': lleva las hojas al mismo nivel (dendrograma).':': leva as folhas ao mesmo nível (dendrograma).',
+  ': abre o cierra el abanico en los diseños radiales.':': abre ou fecha o leque nos traçados radiais.',
+  ': elige una punta para usarla como grupo externo. Phyli mueve la raíz a la rama que conecta esa especie con el resto del árbol.':': escolha uma ponta para usá-la como grupo externo. O Phyli move a raiz para o ramo que liga essa espécie ao resto da árvore.',
+  ': calcula las dos puntas más distantes y coloca la raíz en el punto medio de ese camino.':': encontra as duas pontas mais distantes e coloca a raiz no ponto médio desse caminho.',
+  'El enraizamiento cambia la topología mostrada y también el Newick exportado.':'O enraizamento muda tanto a topologia na tela quanto o Newick exportado.',
+  'para calcular la distancia en el árbol actual.':'para calcular a distância na árvore atual.',
+  'Si el árbol tiene largos de rama, la distancia usa esos valores. Si no, Phyli cuenta pasos topológicos.':'Se a árvore tem comprimentos de ramo, a distância usa esses valores. Se não, o Phyli conta passos topológicos.',
+  'deja visibles solo el camino y los dos taxones elegidos.':'mantém visíveis apenas o caminho e os dois táxons escolhidos.',
+  'Reduce la opacidad del árbol completo y deja resaltados el':'Atenua a árvore inteira e destaca o',
+  'entre las dos puntas y los':'entre as duas pontas e os',
+  'seleccionados. Usa':'selecionados. Use',
+  'para volver a la vista normal.':'para voltar à visualização normal.'
+}).forEach(([k,v]) => { TEXT_TR.pt.set(k,v); ATTR_TR.pt.set(k,v); });
+
+/* data panel: example chips */
+Object.entries({
+  'Árbol remoto':'Remote tree',
+  'Red remota':'Remote network',
+  'Árbol Newick alojado en GitHub: pone su URL en el campo y lo carga':'A Newick tree hosted on GitHub: it puts its URL in the field and loads it',
+  'Red en Newick extendido alojada en GitHub: pone su URL en el campo y la carga':'An extended Newick network hosted on GitHub: it puts its URL in the field and loads it',
+  'Los ejemplos remotos escriben su URL aquí y la cargan: así se abre cualquier archivo publicado en la web.':'The remote examples write their URL here and load it: that is how you open any file published on the web.',
+  'Desde una URL externa':'From an external URL',
+  'Pega un enlace o un Newick':'Paste a link or a Newick',
+  'Elige o arrastra otro archivo':'Choose or drag another file',
+  'los dos primeros están dentro de la página; los dos remotos escriben su URL en el campo y la descargan.':'the first two live inside the page; the two remote ones write their URL into the field and download it.',
+  ', o pulsa uno de los cuatro ejemplos del panel: el Árbol de la vida (191 organismos de los tres dominios), la Red filogenética (dos hibridaciones en Saccharomyces, en Newick extendido) o sus dos versiones remotas, que llegan por URL.':', or click one of the four examples in the panel: the Tree of life (191 organisms from the three domains), the Phylogenetic network (two hybridisations in Saccharomyces, in extended Newick), or their two remote versions, which arrive over a URL.'
+}).forEach(([k,v]) => { TEXT_TR.en.set(k,v); ATTR_TR.en.set(k,v); });
+Object.entries({
+  'Árbol remoto':'Árvore remota',
+  'Red remota':'Rede remota',
+  'Árbol Newick alojado en GitHub: pone su URL en el campo y lo carga':'Uma árvore Newick hospedada no GitHub: coloca a URL dela no campo e a carrega',
+  'Red en Newick extendido alojada en GitHub: pone su URL en el campo y la carga':'Uma rede em Newick estendido hospedada no GitHub: coloca a URL dela no campo e a carrega',
+  'Los ejemplos remotos escriben su URL aquí y la cargan: así se abre cualquier archivo publicado en la web.':'Os exemplos remotos escrevem a URL deles aqui e a carregam: é assim que se abre qualquer arquivo publicado na web.',
+  'Desde una URL externa':'De uma URL externa',
+  'Pega un enlace o un Newick':'Cole um link ou um Newick',
+  'Elige o arrastra otro archivo':'Escolha ou arraste outro arquivo',
+  'los dos primeros están dentro de la página; los dos remotos escriben su URL en el campo y la descargan.':'os dois primeiros estão dentro da página; os dois remotos escrevem a URL deles no campo e a baixam.',
+  ', o pulsa uno de los cuatro ejemplos del panel: el Árbol de la vida (191 organismos de los tres dominios), la Red filogenética (dos hibridaciones en Saccharomyces, en Newick extendido) o sus dos versiones remotas, que llegan por URL.':', ou clique em um dos quatro exemplos do painel: a Árvore da vida (191 organismos dos três domínios), a Rede filogenética (duas hibridações em Saccharomyces, em Newick estendido) ou as duas versões remotas delas, que chegam por URL.'
+}).forEach(([k,v]) => { TEXT_TR.pt.set(k,v); ATTR_TR.pt.set(k,v); });
+
+/* strings assembled at runtime: stat strip, cartouche, tooltip, popover header */
+REGEX_TR.en.push(
+  [/^(\d+) taxones · (\d+) nodos · (\d+) retic\.$/, '$1 taxa · $2 nodes · $3 retic.'],
+  [/^(\d+) reticulaciones$/, '$1 reticulations'],
+  [/^1 reticulación$/, '1 reticulation'],
+  [/^Nodo híbrido (.+)$/, 'Hybrid node $1'],
+  [/^(\d+) progenitores · γ (.+)$/, '$1 parents · γ $2'],
+  [/^Hibridación — llegan (\d+) aristas$/, 'Hybridisation — $1 incoming edges'],
+  [/^Transferencia horizontal — llegan (\d+) aristas$/, 'Horizontal transfer — $1 incoming edges'],
+  [/^Recombinación — llegan (\d+) aristas$/, 'Recombination — $1 incoming edges'],
+  [/^Reticulación — llegan (\d+) aristas$/, 'Reticulation — $1 incoming edges']
+);
+REGEX_TR.pt.push(
+  [/^(\d+) taxones · (\d+) nodos · (\d+) retic\.$/, '$1 táxons · $2 nós · $3 retic.'],
+  [/^(\d+) reticulaciones$/, '$1 reticulações'],
+  [/^1 reticulación$/, '1 reticulação'],
+  [/^Nodo híbrido (.+)$/, 'Nó híbrido $1'],
+  [/^(\d+) progenitores · γ (.+)$/, '$1 progenitores · γ $2'],
+  [/^Hibridación — llegan (\d+) aristas$/, 'Hibridação — $1 arestas de entrada'],
+  [/^Transferencia horizontal — llegan (\d+) aristas$/, 'Transferência horizontal — $1 arestas de entrada'],
+  [/^Recombinación — llegan (\d+) aristas$/, 'Recombinação — $1 arestas de entrada'],
+  [/^Reticulación — llegan (\d+) aristas$/, 'Reticulação — $1 arestas de entrada']
+);
+
 let currentLang = localStorage.getItem('phyli-lang') || 'es';
 if (!['es','en','pt'].includes(currentLang)) currentLang = 'es';
 const textOrigins = new WeakMap();
@@ -2998,9 +3586,9 @@ function applyLanguage(lang){
   document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('on', b.dataset.lang === lang));
   translateTree(document.body);
   if (S && S.root){
-    dom.fileMeta.textContent = `${S.stats.leaves} taxones · ${S.stats.nodes} nodos`;
+    dom.fileMeta.textContent = fileMetaText();
     dom.ctDesc.textContent = S.desc || `${S.stats.leaves} taxones observados.`;
-    dom.ctMeta.innerHTML = `<span>${S.stats.leaves} taxones</span><span>prof. máx ${S.stats.maxDepth}</span>` + (S.stats.hasLen ? `<span>dist. máx ${fmt(S.stats.maxDist,3)}</span>` : '');
+    dom.ctMeta.innerHTML = cartoucheMetaHTML();
     updateScaleBar(); translateTree(document.body);
   }
   setTimeout(()=>{ i18nBusy = false; }, 0);
@@ -3046,8 +3634,8 @@ function init(){
   wireHelp();
   syncAllInputs();
   animateHero();
-  // if a tree is encoded in the URL, open that; otherwise show a real example
-  if (!loadFromURL()) loadExample('vertebrates', true);
+  // if a tree or network is encoded in the URL, open that; otherwise show a real example
+  if (!loadFromURL()) loadExample('treeOfLife', true);
   applyLanguage(currentLang);
 }
 init();
