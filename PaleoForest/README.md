@@ -11,7 +11,7 @@
 </p>
 
 <p align="center">
-  <a href="https://mvillalobosc.diinf.usach.cl/PaleoForest/">Live application / Aplicación en línea</a>
+  <a href="https://mvillalobosc.diinf.usach.cl/PaleoForest/">Live application / Aplicación en línea</a> ·
   <a href="#español">Español</a> ·
   <a href="#english">English</a> ·
   <a href="#português">Português</a>
