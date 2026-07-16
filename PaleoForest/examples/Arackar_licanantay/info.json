@@ -1,0 +1,13 @@
+{
+  "species": "Arackar licanantay",
+  "nTrees": 97,
+  "nTaxa": 88,
+  "nAges": 88,
+  "note": "Titanosaurio del Cretacico Superior de Atacama, Chile (Rubilar-Rogers et al. 2021).",
+  "files": [
+    "ages.csv",
+    "matrix.tnt",
+    "trees.nwk",
+    "trees.tre"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "species": "Chilesaurus diegosuarezi",
+  "nTrees": 100,
+  "nTaxa": 62,
+  "nAges": 0,
+  "note": "Teropodo enigmatico del Jurasico Superior de Aysen, Chile.",
+  "files": [
+    "matrix.tnt",
+    "trees.nwk",
+    "trees.tre"
+  ]
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PaleoForest · Paisajes topológicos filogenéticos — DIINF USACH</title>
+<meta name="description" content="Agrupamiento de topologías y selección de medoides en filogenia morfológica. Reimplementación web del pipeline de Concha-Toro et al. (2026). DIINF, Universidad de Santiago de Chile.">
+<link rel="stylesheet" href="assets/styles.css">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-in">
+    <div class="brand" id="brand"></div>
+    <div class="spacer"></div>
+    <div class="langs" id="langs"></div>
+  </div>
+</div>
+
+<div class="steps"><div class="steps-in" id="steps"></div></div>
+
+<main id="main"></main>
+
+<footer class="foot" id="foot"></footer>
+
+<div class="tip" id="tip"></div>
+
+<!-- 1. Escala de tiempo geológico (ICS/IUGS) -->
+<script src="js/geoscale.js"></script>
+<!-- 2. Textos trilingües, banderas, logo, autoría -->
+<script src="js/i18n.js"></script>
+<!-- 2b. Referencias (Arackar) + pie compartido -->
+<script src="js/i18n-inf.js"></script>
+<script src="js/cite.js"></script>
+<script src="js/tour.js"></script>
+<!-- 3. Pipeline: RF -> MDS -> clustering -> hipervolumen -> medoides -> soporte -->
+<script src="js/pipeline.js"></script>
+<!-- 4. Cliente Paleobiology Database (único componente que usa la red) -->
+<script src="js/paleodb.js"></script>
+<!-- 4b. Macrostrat: edades por unidad estratigráfica -->
+<script src="js/macrostrat.js"></script>
+<!-- 5. Único conjunto de ejemplo de la app: Arackar licanantay.
+     Los demás casos de la memoria están en examples/, para cargar a mano. -->
+<script src="data/arackar/dataset.js"></script>
+<!-- 6. Aplicación -->
+<script src="js/app.js"></script>
+
+</body>
+</html>
