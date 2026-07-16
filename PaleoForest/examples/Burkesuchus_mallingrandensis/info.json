@@ -1,0 +1,13 @@
+{
+  "species": "Burkesuchus mallingrandensis",
+  "nTrees": 100,
+  "nTaxa": 111,
+  "nAges": 111,
+  "note": "Crocodiliforme del Jurasico Superior de Aysen, Chile.",
+  "files": [
+    "ages.csv",
+    "matrix.tnt",
+    "trees.nwk",
+    "trees.tre"
+  ]
+}

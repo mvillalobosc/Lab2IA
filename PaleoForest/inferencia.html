@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inferencia filogenética · PaleoForest — DIINF USACH</title>
+<meta name="description" content="Construcción de matrices de caracteres y búsqueda de árboles más parsimoniosos (Wagner, NNI/SPR/TBR, ratchet) con consensos. DIINF, Universidad de Santiago de Chile.">
+<link rel="stylesheet" href="assets/styles.css">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-in">
+    <a class="brand" id="brand" href="index.html"></a>
+    <div class="spacer"></div>
+    <div class="langs" id="langs"></div>
+  </div>
+</div>
+
+<div class="steps"><div class="steps-in" id="steps"></div></div>
+
+<main id="main"></main>
+<footer class="foot" id="foot"></footer>
+<div class="tip" id="tip"></div>
+
+<!-- textos -->
+<script src="js/i18n.js"></script>
+<script src="js/i18n-inf.js"></script>
+<script src="js/cite.js"></script>
+<script src="js/tour.js"></script>
+<!-- lectores compartidos: tntTokens, parseCcode, charStates, parseCharList -->
+<script src="js/pipeline.js"></script>
+<!-- motor de búsqueda (aquí sólo para consensos ad hoc; la corrida va en Worker) -->
+<script src="js/search.js"></script>
+<script src="js/search-pool.js"></script>
+<script src="js/mk.js"></script>
+<!-- conjunto de ejemplo -->
+<script src="data/arackar/dataset.js"></script>
+<!-- módulo 1 -->
+<script src="js/inferencia.js"></script>
+
+</body>
+</html>
