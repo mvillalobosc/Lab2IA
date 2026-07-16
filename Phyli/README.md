@@ -1,587 +1,82 @@
 # Phyli
 
 <p align="center">
-  <img src="assets/screenshot-home.png" alt="Phyli home screen" width="92%">
+  <img src="assets/screenshot-main.png" alt="Phyli displaying the embedded tree of life" width="96%">
 </p>
 
 <p align="center">
-  <strong>Interactive phylogenetic tree visualisation in the browser</strong><br>
-  <strong>Visualización interactiva de árboles filogenéticos en el navegador</strong>
+  <strong>Interactive visualisation of phylogenetic trees and networks in the browser</strong><br>
+  <strong>Visualización interactiva de árboles y redes filogenéticas en el navegador</strong>
 </p>
 
 <p align="center">
-  <a href="#english">English</a> ·
-  <a href="#espanol">Español</a> ·
-  <a href="#screenshots--capturas">Screenshots / Capturas</a> ·
-  <a href="#software-architecture">Software architecture</a> ·
-  <a href="#arquitectura-del-software">Arquitectura del software</a>
+  <a href="https://mvillalobosc.diinf.usach.cl/Phyli/">Live application / Aplicación en línea</a>
+  ·
+  <a href="#english">English</a>
+  ·
+  <a href="#español">Español</a>
+  ·
+  <a href="#screenshots--capturas">Screenshots / Capturas</a>
 </p>
 
 ---
 
 ## Screenshots / Capturas
 
-| Main interface / Interfaz principal | Radial layout / Trazado radial |
+| Rectangular phylogram / Filograma rectangular | Radial tree / Árbol radial |
 |---|---|
-| ![Phyli home screen](assets/screenshot-home.png) | ![Radial tree layout](assets/screenshot-radial.png) |
+| ![Phyli main interface](assets/screenshot-main.png) | ![Phyli radial tree](assets/screenshot-radial.png) |
 
-| Export tools / Herramientas de exportación |
+| Extended-Newick network / Red en Newick extendido | Taxon distance / Distancia entre taxones |
+|---|---|
+| ![Phyli phylogenetic network](assets/screenshot-network.png) | ![Phyli distance measurement](assets/screenshot-distance.png) |
+
+| Export panel / Panel de exportación |
 |---|
-| ![Phyli export options](assets/screenshot-export.png) |
+| ![Phyli export tools](assets/screenshot-export.png) |
 
 ---
+
+<a id="english"></a>
 
 # English
 
-## 1. What is Phyli?
+## 1. About Phyli
 
-**Phyli** is a client-side web application for loading, visualising, rooting, exploring, annotating, and exporting phylogenetic trees. It is intended for teaching, exploratory analysis, research support, and rapid figure preparation from trees in **Newick** format.
+**Phyli** is a static, client-side web application for loading, exploring, editing, and exporting **phylogenetic trees and phylogenetic networks**. It supports classic **Newick**, **extended Newick**, and Phyli **JSON projects**.
 
-Phyli runs entirely in the browser. The tree file is processed locally by JavaScript, so the application does not require a backend, a database, a login system, or server-side computation. A static web server is enough to publish it.
+The application runs almost entirely from a single `index.html` file. Parsing, layout, interaction, rerooting, distance calculation, network reconstruction, and export are performed in the browser. No application backend, database, account, or server-side computation is required.
 
-**Live deployment:** <https://mvillalobosc.diinf.usach.cl/Phyli/>
+When the application opens without an encoded tree in the URL, it automatically loads the embedded **Tree of Life** example containing 191 taxa.
 
-## 2. Main capabilities
+**Public deployment:** <https://mvillalobosc.diinf.usach.cl/Phyli/>
 
-- Load trees from local files, pasted text, remote URLs, URL hashes, or built-in examples.
-- Parse **Newick** trees with branch lengths, internal clade names, and support values.
-- Reopen complete **JSON project** files exported from Phyli.
-- Switch the interface between Spanish, English, and Portuguese.
-- Search tips/taxa by complete or partial name.
-- Reroot the tree by a selected reference taxon or by midpoint.
-- Measure the distance between two selected tips, highlight the connecting path, and clear stale selections when a new tree is loaded.
-- Render the tree as step, curved, straight, radial, or radial-step layouts.
-- Switch between **phylogram** and **cladogram** interpretation.
-- Align tips, ladderise clades, change radial angle, and modify tip spacing.
-- Collapse, focus, and colour clades interactively.
-- Display internal support values using colour-coded node markers.
-- Export the current view as **SVG**, **PNG**, **Newick**, **JSON**, or a shareable compressed link.
+## 2. Current capabilities
 
-## 3. Repository structure
-
-Recommended structure for a GitHub repository or GitHub Pages deployment:
-
-```text
-.
-├── index.html
-├── README.md
-├── LICENSE.md
-├── CITATION.cff
-├── .nojekyll
-├── assets/
-│   ├── screenshot-home.png
-│   ├── screenshot-radial.png
-│   └── screenshot-export.png
-└── examples/
-    ├── simple.nwk
-    ├── vertebrates.nwk
-    └── tree-of-life.nwk
-```
-
-### File roles
-
-| File or folder | Required? | Role |
-|---|---:|---|
-| `index.html` | Yes | Main single-page application. It contains the HTML structure, CSS, and JavaScript logic. |
-| `README.md` | Strongly recommended | Project documentation shown by GitHub. |
-| `assets/` | Recommended | Screenshots and visual resources used by the README or the interface. |
-| `examples/` | Recommended | Example trees loaded by the application. |
-| `LICENSE.md` | Recommended | Usage, attribution, redistribution, and modification terms. |
-| `CITATION.cff` | Recommended for academic software | Enables GitHub's **Cite this repository** button. |
-| `.nojekyll` | Optional | Prevents GitHub Pages from processing the site with Jekyll. Useful for static apps. |
-| `.htaccess` | Only for Apache | Useful on Apache servers, but ignored by GitHub Pages. |
-| `404.html` | Optional | Custom 404 page for GitHub Pages or static hosting. |
-
-
-## 3.1 Visual identity and colour system
-
-The interface uses the USACH institutional palette as its visual base. The main application background uses the institutional dark grey, while interactive highlights, distance paths, active switches, and selected markers use the institutional teal. This avoids the previous orange-dominant appearance while keeping the interface aligned with the university colour system.
-
-| Role | Hex value | Use in Phyli |
-|---|---|---|
-| USACH dark grey | `#333F48` / `#394049` | Sidebar, panels, structural background. |
-| USACH teal | `#00A499` | Active controls, path distance highlight, selected markers. |
-| USACH teal 40% | `#9DD4D3` | Soft secondary highlight for intermediate nodes in a measured path. |
-| USACH blue | `#498BCA` | Secondary interface actions and links. |
-
-
-## 4. User manual
-
-### 4.1 Loading a tree
-
-Phyli supports several entry points:
-
-| Method | Description |
+| Area | Implemented behaviour |
 |---|---|
-| Local file | Drag a `.nwk`, `.tree`, or `.json` file into the upload area, or use the file picker. |
-| Built-in examples | Load a predefined tree, such as vertebrates, simple, or tree-of-life. |
-| Text input | Paste a Newick string or Phyli JSON project. |
-| URL input | Load a remote `.nwk`, `.tree`, or `.json` file. The remote server must allow browser access through CORS. |
-| URL hash | Open a tree directly from the address, for example `#(A:1,(B:1,C:1));`. |
-
-After loading, the sidebar reports the number of taxa, total nodes, and tree depth.
-
-### 4.2 Input formats
-
-#### Newick
-
-Newick represents nested groups using parentheses. Branch lengths follow colons, and the tree ends with a semicolon.
-
-```newick
-(Cat:0.3,(Mouse:0.2,Human:0.2)[95]:0.1);
-```
-
-| Element | Meaning |
-|---|---|
-| `(Mouse:0.2,Human:0.2)` | Internal clade containing two tips. |
-| `:0.2` | Branch length. |
-| `[95]` | Support value, usually bootstrap support. |
-| Text after `)` | Internal clade name. |
-| `;` | End of tree. |
-
-#### JSON project
-
-The JSON project format is generated by Phyli. It stores the tree plus visual state: layout, scale mode, colours, collapsed clades, clade colours, selected taxon, and viewport settings. Use it when you need to continue editing the same visualisation later.
-
-### 4.3 Searching taxa
-
-Use **Search taxon** to locate a tip by name. Partial matches are accepted. When a result is selected, Phyli highlights the taxon and recentres the viewport. If the taxon is inside a collapsed clade, the application expands the required path so the selected tip becomes visible.
-
-### 4.4 Rooting
-
-Phyli provides two rooting strategies.
-
-| Strategy | Technical behaviour | Recommended use |
-|---|---|---|
-| Root by species/taxon | Converts the tree into an undirected graph and places a new root on the edge connected to the selected tip. If branch lengths exist, the edge is split into two proportional segments. | Use when a reference species or outgroup is known. |
-| Root by midpoint | Finds the two most distant tips and places the root at half of the path distance between them. | Use as an exploratory method when no outgroup is available. |
-
-Rooting updates the internal tree topology and is reflected in the exported Newick file.
-
-### 4.5 Distance between two taxa
-
-Phyli can measure the distance between any two selected tips in the current rooted tree.
-
-| Component | Behaviour |
-|---|---|
-| Taxon A / Taxon B | Accept complete or partial tip names using the current tree tip list. The fields are cleared when a new tree is loaded, avoiding stale taxa from a previous file. |
-| Calculate distance | Computes the path distance between the two selected tips. |
-| Distance unit | Uses branch-length units when present in the Newick file. If branch lengths are absent, it reports the number of topological steps. |
-| Dim the rest of the tree | Keeps the two selected taxa and the connecting path highlighted in the USACH teal accent while reducing the opacity of the remaining tree. |
-| Clear highlight | Removes the path mark and restores the normal view. |
-
-This is useful after rerooting, because it lets the user inspect how far apart two terminal taxa are in the currently displayed topology.
-
-### 4.6 Layout and scale
-
-| Option | Description |
-|---|---|
-| Step | Rectangular tree with right-angle branches. Useful for standard figures. |
-| Curved | Smooth transitions between parent and child branches. Useful for presentations. |
-| Straight | Direct diagonal segments between nodes. |
-| Radial | Circular or fan-like projection. Useful for compact exploration. |
-| Radial step | Radial projection with stepped branches. |
-| Phylogram | Branch lengths are proportional to evolutionary distance. A scale bar is displayed. |
-| Cladogram | Branch lengths are ignored; only topology is shown. |
-
-### 4.7 Interaction model
-
-| Action | Result |
-|---|---|
-| Mouse wheel | Zooms the tree around the cursor position. |
-| Drag canvas | Pans the tree. |
-| Hover branch or node | Shows taxon, branch length, support, or descendant information. |
-| Click internal node | Opens node actions: focus, collapse, colour clade, or reset colour. |
-| Collapse clade | Replaces a subtree with a compact wedge while keeping its descendant count. |
-| Focus clade | Centres the selected clade in the viewport. |
-| Reset view | Fits the complete tree to the current viewport. |
-
-### 4.8 Exporting
-
-| Export | Output | Notes |
-|---|---|---|
-| SVG | `.svg` vector image | Best for manuscripts and later editing in Inkscape, Illustrator, or Figma. |
-| PNG | `.png` raster image | Exported at high resolution for slides, reports, and teaching. |
-| Newick | `.nwk` tree file | Reflects the current rooted topology. |
-| JSON | `.json` project file | Stores the tree and visual configuration for reopening in Phyli. |
-| Share link | URL | Encodes tree and visual state in the address. Long trees may produce long URLs. |
-
----
-
-## 5. Software architecture
-
-Phyli is implemented as a **static single-page application**. The current version is intentionally simple to deploy: the whole application can live in `index.html`.
-
-```text
-Browser
-  │
-  ├── HTML interface
-  │     ├── sidebar controls
-  │     ├── accordion panels
-  │     ├── help popovers
-  │     └── SVG viewport
-  │
-  ├── CSS layer
-  │     ├── USACH visual palette
-  │     ├── responsive sidebar/canvas layout
-  │     ├── tree styling
-  │     └── language and help controls
-  │
-  └── JavaScript layer
-        ├── input loading
-        ├── Newick parser
-        ├── tree preparation/statistics
-        ├── rooting engine
-        ├── layout engine
-        ├── SVG renderer
-        ├── interaction controller
-        ├── export pipeline
-        └── multilingual interface
-```
-
-## 6. Core runtime state
-
-The application keeps its active state in a central JavaScript object. Conceptually, the state follows this structure:
-
-```js
-const S = {
-  root: null,
-  name: '',
-  shape: 'step',
-  mode: 'phylo',
-  aligned: false,
-  ladder: true,
-  angle: 360,
-  leafGap: 24,
-  style: {
-    pathW: 1.6,
-    pathC: '#394049',
-    nodeR: 0,
-    nodeC: '#498BCA',
-    labelS: 13,
-    labelC: '#2C3138'
-  },
-  show: {
-    guides: true,
-    support: true,
-    internal: false
-  },
-  view: { k: 1, x: 0, y: 0 },
-  collapsed: new Set(),
-  cladeColors: new Map(),
-  highlight: null,
-  selected: null,
-  measure: {
-    active: false,
-    aId: null,
-    bId: null,
-    distance: null,
-    edgeKeys: new Set(),
-    nodeIds: new Set(),
-    dim: true
-  },
-  stats: null,
-  layoutInfo: null
-};
-```
-
-This state object separates:
-
-- **Data state:** tree root, tree name, statistics.
-- **Visual state:** layout type, scale mode, radial angle, spacing, style.
-- **Interaction state:** selected node, highlighted taxon, collapsed clades, viewport transform.
-- **Export state:** the current topology and visual settings used by SVG, PNG, Newick, JSON, and share links.
-
-## 7. Internal tree data model
-
-After parsing, each node is normalised into a JavaScript object. The effective data model is:
-
-```js
-{
-  id: 'n17',              // internal unique identifier
-  name: 'Homo_sapiens',   // tip or internal clade name
-  raw: 'Homo_sapiens',    // original label when available
-  len: 0.012,             // branch length from parent
-  support: 95,            // optional support value
-  children: [],           // child nodes
-
-  // computed fields
-  parent: null,
-  depth: 0,
-  dist: 0,
-  leafCount: 1,
-  maxDescDepth: 0,
-  maxDescDist: 0,
-  isLeaf: true
-}
-```
-
-Computed fields are regenerated when the tree is loaded or rerooted. They support layout, statistics, collapsed clades, support display, and export.
-
-## 8. Processing pipeline
-
-The application follows this pipeline when a tree is loaded or changed:
-
-```text
-Input
-  ↓
-Detect input type
-  ↓
-Parse Newick or JSON project
-  ↓
-Normalise node structure
-  ↓
-Compute statistics and derived fields
-  ↓
-Synchronise UI controls
-  ↓
-Compute layout coordinates
-  ↓
-Render SVG
-  ↓
-Attach interactions and export state
-```
-
-### 8.1 Newick parser
-
-The parser tokenises the input using Newick delimiters:
-
-```text
-(  )  ,  :  ;
-```
-
-It then builds a nested node structure using an ancestor stack. The parser handles:
-
-- tip names;
-- internal clade names;
-- branch lengths;
-- support values expressed in brackets, such as `[95]`;
-- support-like internal labels when they are numeric;
-- final semicolon trimming.
-
-Invalid structures, such as unexpected commas or unmatched parentheses, are reported as user-facing errors.
-
-### 8.2 Preparation and statistics
-
-After parsing, Phyli traverses the tree to compute:
-
-| Field | Purpose |
-|---|---|
-| `depth` | Topological depth from the current root. |
-| `dist` | Accumulated branch-length distance from the current root. |
-| `leafCount` | Number of descendant tips. |
-| `maxDescDepth` | Deepest descendant depth under a node. |
-| `maxDescDist` | Greatest descendant branch-length distance under a node. |
-| `stats.hasLen` | Whether the tree has usable branch lengths. |
-| `stats.maxDist` | Maximum root-to-tip branch-length distance. |
-| `stats.maxDepth` | Maximum topological depth. |
-
-These values are used by the phylogram/cladogram modes, the scale bar, the radial projection, the collapsed clade wedges, and the midpoint rooting.
-
-## 9. Rooting engine
-
-Rooting uses a temporary undirected graph representation of the current tree.
-
-### 9.1 Graph conversion
-
-Each parent-child relationship becomes an undirected weighted edge:
-
-```text
-parent ── len ── child
-```
-
-The graph allows the algorithm to traverse the tree from any node, independent of the original root direction.
-
-### 9.2 Root by taxon
-
-The selected taxon is matched against the visible leaf list. Phyli accepts exact matches and partial matches when they are unambiguous. After the target leaf is found:
-
-1. The tree is converted into an undirected graph.
-2. The edge connected to the selected leaf is identified.
-3. A new artificial root is inserted on that edge.
-4. The tree is cloned outward from both sides of the new root.
-5. Computed fields, collapsed clades, selections, and highlights are refreshed.
-6. The viewer is rendered again.
-
-If branch lengths are present, the selected edge is split to preserve distance information.
-
-### 9.3 Midpoint rooting
-
-Midpoint rooting estimates a root without requiring a known outgroup:
-
-1. Collect all leaves.
-2. Run a depth-first traversal from an arbitrary leaf.
-3. Identify the farthest leaf `A`.
-4. Run a second traversal from `A`.
-5. Identify the farthest leaf `B`.
-6. Reconstruct the path between `A` and `B`.
-7. Place the root at half of the total path distance.
-8. Split the edge where the midpoint falls.
-9. Rebuild and render the rooted tree.
-
-This procedure is linear in the number of nodes for tree-shaped input.
-
-## 10. Layout engine
-
-The layout engine separates two axes:
-
-- **Across axis:** order and spacing of terminal elements.
-- **Depth axis:** topological depth or branch-length distance.
-
-### 10.1 Across-axis assignment
-
-Terminal nodes are assigned sequential positions using the configured tip spacing. Internal nodes are placed at the midpoint between their first and last child. Collapsed clades receive a wider terminal span based on descendant count.
-
-### 10.2 Depth-axis assignment
-
-Phyli supports two depth interpretations:
-
-| Mode | Coordinate rule |
-|---|---|
-| Phylogram | `x = accumulated branch length × scale factor`. |
-| Cladogram | `x = topological depth × fixed level width`. |
-
-When **Align tips** is enabled, terminal nodes are projected to a common outer coordinate, producing a dendrogram-like view.
-
-### 10.3 Radial projection
-
-For radial views, rectangular coordinates are converted into polar coordinates:
-
-```text
-angle = terminal position / total terminal span × selected fan angle
-radius = depth coordinate
-x = cos(angle) × radius
-y = sin(angle) × radius
-```
-
-The radial angle can be reduced below 360° to create fan-shaped trees.
-
-## 11. SVG rendering pipeline
-
-The renderer clears the viewport and rebuilds the tree as grouped SVG elements:
-
-```text
-<g id="tree-root">
-  <g> guide lines </g>
-  <g> branches </g>
-  <g> collapsed clade wedges </g>
-  <g> support markers </g>
-  <g> internal node hit targets </g>
-  <g> labels </g>
-</g>
-```
-
-This ordering keeps labels readable, branches behind nodes, and interactive hit targets available even when node markers are hidden.
-
-### 11.1 Branch drawing
-
-Branch paths are generated according to the active layout:
-
-| Layout | Path behaviour |
-|---|---|
-| Step | Horizontal and vertical segments. |
-| Curved | Bezier-like transition between parent and child. |
-| Straight | Direct segment. |
-| Radial | Polar projection with radial positioning. |
-| Radial step | Radial projection with stepped branch geometry. |
-
-### 11.2 Collapsed clades
-
-When a clade is collapsed, the full subtree is not drawn. Instead, Phyli renders a wedge marker. The wedge indicates that hidden descendants remain under that node, while reducing visual clutter in large trees.
-
-### 11.3 Support markers
-
-Support values are displayed as internal node markers using three support classes:
-
-| Support | Colour category | Interpretation |
-|---|---|---|
-| `≥ 95` | High | Strongly supported grouping. |
-| `70–94` | Medium | Moderate support. |
-| `< 70` | Low | Weak or uncertain support. |
-
-## 12. Interaction controller
-
-Phyli uses direct DOM and SVG events. The main interaction logic includes:
-
-- wheel-based zooming;
-- pointer-based panning;
-- node and branch hover tooltips;
-- node action popovers;
-- search result highlighting;
-- automatic expansion of collapsed paths when a selected taxon is hidden;
-- accordion-based sidebar organisation;
-- help popovers attached to `?` controls.
-
-The viewport transform is stored as:
-
-```js
-view: { k: zoomScale, x: translateX, y: translateY }
-```
-
-This transform is applied to the SVG group rather than recalculating all node positions during pan/zoom operations.
-
-## 13. Export system
-
-### 13.1 SVG export
-
-SVG export serialises the current tree drawing into a standalone vector file. This preserves labels, branches, support markers, colours, and collapsed clade indicators.
-
-Recommended use: manuscripts, diagrams, and later editing in vector design software.
-
-### 13.2 PNG export
-
-PNG export follows this process:
-
-```text
-build export SVG
-  ↓
-serialise SVG to string
-  ↓
-create Blob URL
-  ↓
-load into Image
-  ↓
-draw into Canvas at high resolution
-  ↓
-download PNG
-```
-
-The raster export is suitable for slides, reports, and quick sharing.
-
-### 13.3 Newick export
-
-Newick export walks through the current rooted topology and serialises the tree recursively. If the user rerooted the tree, the exported `.nwk` reflects that topology.
-
-### 13.4 JSON export
-
-JSON export stores the full project state. It is the best option when the user wants to reopen the same Phyli session later.
-
-### 13.5 Share links
-
-Share links encode the tree and relevant visual state inside the URL. This enables reproducible interactive views without storing data on a server. Very large trees can generate long URLs, so JSON export is safer for large projects.
-
-## 14. Multilingual interface
-
-Phyli has an internal language layer for UI text. The interface currently supports:
-
-- Spanish;
-- English;
-- Portuguese.
-
-The user chooses a language through the flag buttons. The language system updates titles, labels, tooltips, help messages, dynamic messages, and metadata where applicable.
-
-A practical extension pattern is:
-
-1. Add a new language code to the language dictionary.
-2. Add translated UI strings.
-3. Add or update the flag button.
-4. Test static labels, dynamic messages, popovers, export messages, and help panels.
-
-## 15. Development guide
-
-### 15.1 Local execution
-
-Because Phyli is static, it can be opened directly in a browser. For development, a local server is recommended:
+| Trees | Classic Newick parsing with tip names, internal clade names, branch lengths, bracketed support, and numeric internal support labels. |
+| Networks | Extended-Newick parsing with repeated hybrid tags, reticulation edges, hybrid nodes, support values, and inheritance probabilities `γ`. |
+| Data input | Local files, pasted Newick/eNewick/JSON, remote URLs, URL fragments, path-based input on Apache, compressed share links, and embedded examples. |
+| Search | Searchable tip selector using complete or partial taxon names, with viewport recentring and expansion of hidden collapsed paths. |
+| Rooting | Reroot by a selected terminal taxon or by midpoint. Rooting is disabled for networks to preserve hybrid relationships. |
+| Distance | Path distance between two terminal taxa using branch lengths when available, otherwise topological steps. The selected path can remain highlighted while the rest of the tree is dimmed. |
+| Layout | Step, curved, straight, radial, and radial-step layouts. |
+| Scale | Phylogram and cladogram modes, optional aligned tips, branch ordering, radial fan angle, and adjustable taxon spacing. |
+| Editing | Collapse or expand clades, focus a clade, assign a clade colour, remove a clade colour, and reset the viewport or styles. |
+| Styling | Branch width and colour, internal-node radius and colour, label size and colour, guide lines, support markers, internal labels, reticulation edges, and `γ` labels. |
+| Export | SVG, high-resolution PNG at 2×, Newick/extended Newick, JSON project, and compressed share URL. |
+| Interface | Spanish, English, and Portuguese interface translation, contextual help, tooltips, responsive sidebar, zoom, pan, and fit-to-view controls. |
+
+## 3. Quick start
+
+### 3.1 Open directly
+
+Open `index.html` in a modern browser. Most functions work directly because the application code is embedded in the page.
+
+### 3.2 Run with a local server
+
+A local server is preferable during development and when testing remote or relative resources.
 
 ```bash
 python -m http.server 8000
@@ -593,898 +88,857 @@ Then open:
 http://localhost:8000/
 ```
 
-A local server avoids browser restrictions that can affect file loading and relative paths.
+### 3.3 Repository contents
 
-### 15.2 Editing the application
-
-The current implementation is concentrated in `index.html`.
-
-Recommended editing order:
-
-1. Update HTML controls or sidebar structure.
-2. Update CSS classes and responsive rules.
-3. Update JavaScript state or event bindings.
-4. Test with all built-in examples.
-5. Test SVG, PNG, Newick, JSON, and share-link export.
-6. Test language switching after loading a tree and after opening popovers.
-
-### 15.3 Adding a new example tree
-
-1. Add a `.nwk` file to `examples/`.
-2. Add a button or option in the examples section.
-3. Register the path in the loading logic.
-4. Test the example in GitHub Pages or the final static server.
-
-Recommended file naming:
+The supplied application is intentionally compact:
 
 ```text
-examples/my-example.nwk
+Phyli/
+├── index.html
+├── htaccess
+├── README.md
+└── assets/
+    ├── screenshot-main.png
+    ├── screenshot-radial.png
+    ├── screenshot-network.png
+    ├── screenshot-distance.png
+    └── screenshot-export.png
 ```
 
-### 15.4 Adding a new visual control
-
-A new control should update the central state and then call the render pipeline.
-
-```text
-control event
-  ↓
-update S
-  ↓
-computeLayout()
-  ↓
-render()
-  ↓
-fit() only when geometry changes enough to require refitting
-```
-
-Use `fit()` carefully. Calling it after every small style change can annoy users because it resets their current viewport.
-
-### 15.5 Adding a new export format
-
-A new export format should use the current state instead of reading from the DOM when possible. For visual exports, reuse the export-specific SVG builder so the output matches what the user sees.
-
-## 16. Testing checklist
-
-Use this checklist before publishing a release.
-
-### Input and parsing
-
-- [ ] Load `examples/simple.nwk`.
-- [ ] Load `examples/vertebrates.nwk`.
-- [ ] Load `examples/tree-of-life.nwk`.
-- [ ] Load a local `.nwk` file.
-- [ ] Load a local `.json` project.
-- [ ] Paste a Newick tree manually.
-- [ ] Load a tree through URL hash.
-- [ ] Confirm that invalid Newick produces a readable error.
-
-### Visualisation
-
-- [ ] Test step, curved, straight, radial, and radial-step layouts.
-- [ ] Test phylogram and cladogram modes.
-- [ ] Test aligned tips.
-- [ ] Test ladderisation.
-- [ ] Test radial angle changes.
-- [ ] Test tip spacing changes.
-- [ ] Test branch colour, branch width, label size, and label colour.
-
-### Rooting
-
-- [ ] Root by a known taxon.
-- [ ] Root by midpoint.
-- [ ] Export Newick after rooting and reopen it.
-- [ ] Test ambiguous taxon names.
-- [ ] Test midpoint with a tree that has branch lengths.
-
-### Interaction
-
-- [ ] Search a visible taxon.
-- [ ] Search a taxon inside a collapsed clade.
-- [ ] Collapse and expand clades.
-- [ ] Colour and reset clade colours.
-- [ ] Focus on a clade.
-- [ ] Zoom and pan on desktop.
-- [ ] Test on a narrow screen.
-
-### Export
-
-- [ ] Export SVG and open it.
-- [ ] Export PNG and verify resolution.
-- [ ] Export Newick and reopen it.
-- [ ] Export JSON and reopen it.
-- [ ] Copy the share link and open it in a new tab.
-
-### Internationalisation
-
-- [ ] Switch to Spanish before loading a tree.
-- [ ] Switch to English after loading a tree.
-- [ ] Switch to Portuguese after opening a help popover.
-- [ ] Check button labels, toast messages, help panels, and export messages.
-
-## 17. Performance notes
-
-The layout and rendering pipeline is linear for most tree operations. For a tree with `n` nodes:
-
-| Operation | Expected cost |
+| Item | Purpose |
 |---|---|
-| Tree traversal/statistics | `O(n)` |
+| `index.html` | Complete application: HTML interface, CSS, parser, rendering, interaction, internationalisation, and export logic. |
+| `htaccess` | Apache rewrite configuration supplied without the leading dot. Rename it to `.htaccess` when deploying it as an Apache configuration file. |
+| `README.md` | Project documentation for GitHub or another repository browser. |
+| `assets/` | Real screenshots generated from the supplied application. |
+
+## 4. Input formats
+
+### 4.1 Supported local file extensions
+
+| Extension | Intended content |
+|---|---|
+| `.nwk`, `.new`, `.tre`, `.tree`, `.txt` | Classic Newick trees. |
+| `.enwk`, `.enw`, `.net` | Extended-Newick phylogenetic networks. |
+| `.json` | Phyli project files or compatible legacy project structures. |
+
+The parser determines whether the input is a tree or a network from its content rather than relying only on the extension.
+
+### 4.2 Classic Newick
+
+```newick
+((Homo_sapiens:0.10,Pan_troglodytes:0.10)95:0.20,
+ (Mus_musculus:0.25,Rattus_norvegicus:0.25)88:0.15,
+ Canis_lupus:0.30);
+```
+
+Phyli recognises:
+
+| Syntax | Meaning |
+|---|---|
+| `(A,B)` | Internal grouping or clade. |
+| `Taxon_name` | Terminal or internal label. Underscores are displayed as spaces. |
+| `:0.25` | Branch length. |
+| `[95]` | Support value stored as a bracket annotation. |
+| `)95:0.1` | Numeric internal label interpreted as support. |
+| `;` | End of the Newick expression. |
+
+### 4.3 Extended Newick
+
+A hybrid node is represented by repeating the same hybrid identifier. The current parser recognises tags such as `#H`, `#LGT`, and `#R`.
+
+```newick
+((A:1,(B:1)#H1:0.5::0.7)x:1,
+ (#H1:0.5::0.3,C:1)y:1)root;
+```
+
+The branch annotation model is:
+
+```text
+:length:support:gamma
+```
+
+Empty intermediate values are allowed. Therefore, `:0.5::0.7` represents a branch length of `0.5`, no support value, and an inheritance probability `γ = 0.7`.
+
+When repeated hybrid tags are found, Phyli folds the repeated occurrences into:
+
+1. A base rooted tree.
+2. One or more reticulation edges.
+3. Diamond-shaped hybrid nodes.
+4. Optional support and inheritance-probability labels.
+
+### 4.4 JSON projects
+
+The current JSON export stores the original Newick or extended-Newick representation together with visual state. This includes layout, scale mode, alignment, ordering, radial angle, taxon spacing, style properties, visibility toggles, and project metadata.
+
+Phyli also recognises an earlier JSON structure containing a nested `tree` object and converts it back to Newick during import.
+
+## 5. Loading data
+
+| Method | Procedure and behaviour |
+|---|---|
+| Local file | Drag a supported file into the upload area or use the file picker. Processing remains in the browser. |
+| Embedded example | Select **Tree of Life** or **Phylogenetic network**. |
+| Pasted content | Paste Newick, extended Newick, or JSON into the URL/input field and select **Load**. |
+| Remote file | Paste an `http://` or `https://` address. The remote server must permit browser access through CORS. Raw GitHub URLs normally work. |
+| URL fragment | Put the tree after `#`, use `#nwk=...`, or open a compressed `#z=...` link generated by Phyli. |
+| Remote source parameter | Use `#src=https://.../tree.nwk` or the equivalent extended-Newick file. |
+| Apache path | With the supplied rewrite rule enabled, place Newick directly in the route. Hybrid `#` characters must be encoded as `%23`. |
+
+Examples:
+
+```text
+https://example.org/Phyli/#(A:1,(B:1,C:1));
+https://example.org/Phyli/#nwk=(A:1,(B:1,C:1));
+https://example.org/Phyli/#src=https://example.org/data/network.enwk
+https://example.org/Phyli/(A:1,(B:1,C:1));
+```
+
+The compressed `#z=` form is produced by **Share link** and can preserve the tree or network together with relevant view settings.
+
+## 6. Working with trees
+
+### 6.1 Search and navigation
+
+The taxon search field uses the current tip list. It accepts exact and partial names. Selecting a result highlights the taxon, recentres the viewport, and expands any collapsed ancestors required to make the result visible.
+
+The stage supports:
+
+| Action | Result |
+|---|---|
+| Mouse wheel or zoom buttons | Zoom around the current view. |
+| Drag on the stage | Pan the tree or network. |
+| Fit button | Fit the complete visualisation into the viewport. |
+| Reset button | Restore the default styles and visual settings. |
+| Hover | Show taxon, branch length, support, descendant count, or reticulation information. |
+| Click an internal node | Open actions for collapse/expand, focus, clade colour, and colour removal. |
+
+### 6.2 Rooting by taxon
+
+Phyli converts the current tree to an undirected weighted graph, finds the edge connected to the selected terminal taxon, inserts a new artificial root on that edge, and reconstructs the directed tree from the new root.
+
+When branch lengths exist, the selected edge is divided into two parts so that its total length is preserved.
+
+### 6.3 Midpoint rooting
+
+Midpoint rooting follows the weighted diameter of the tree:
+
+1. Start from an arbitrary leaf and find the farthest leaf `A`.
+2. Traverse again from `A` and find the farthest leaf `B`.
+3. Reconstruct the path between `A` and `B`.
+4. Place the root at half of the total path distance.
+5. Split the edge containing that midpoint and rebuild the rooted tree.
+
+For a tree-shaped input, the traversal and reconstruction are linear in the number of nodes.
+
+### 6.4 Distance between two taxa
+
+The distance tool finds the path between two terminal nodes in the current rooted base tree.
+
+| Input state | Reported unit |
+|---|---|
+| Branch lengths available | Sum of branch lengths, displayed as substitutions per site. |
+| No usable branch lengths | Number of topological steps. |
+
+The tool stores the selected node identifiers, the path edge set, and the path node set. When **Dim the rest of the tree** is enabled, the path and both selected taxa remain emphasised while unrelated elements are faded.
+
+## 7. Working with phylogenetic networks
+
+Network mode is activated automatically when repeated extended-Newick hybrid tags are detected.
+
+### 7.1 Visual encoding
+
+| Element | Rendering |
+|---|---|
+| Base-tree branch | Standard solid branch. |
+| Reticulation edge | Curved, dashed purple arrow. |
+| Hybrid node | Diamond marker. |
+| Inheritance probability | `γ` label placed near the reticulation edge. |
+| Network summary | Taxa, nodes, maximum depth, number of reticulations, and maximum distance. |
+
+### 7.2 Network-specific rules
+
+| Function | Behaviour in network mode |
+|---|---|
+| Root by taxon | Disabled. |
+| Midpoint rooting | Disabled. |
+| Taxon distance | Calculated on the base tree; reticulation edges are not included in the path. |
+| Reticulation visibility | Can be switched on or off from the Design panel. |
+| `γ` visibility | Can be switched on or off independently. |
+| Newick export | Serialises the current network back to extended Newick with repeated hybrid tags and edge annotations. |
+
+Rooting is deliberately disabled because rebuilding a network as a simple rooted tree would orphan or invalidate its reticulation edges.
+
+## 8. Layout and visual design
+
+### 8.1 Layouts
+
+| Layout | Description |
+|---|---|
+| Step | Rectangular phylogeny with horizontal and vertical segments. |
+| Curved | Smooth parent-child transitions. |
+| Straight | Direct diagonal segments. |
+| Radial | Polar projection suitable for large trees. |
+| Radial step | Polar projection with stepped branch geometry. |
+
+### 8.2 Scale modes
+
+| Mode | Coordinate rule |
+|---|---|
+| Phylogram | Horizontal or radial depth is proportional to accumulated branch length. A scale bar is shown. |
+| Cladogram | Branch lengths are ignored and depth is determined by topological level. |
+
+**Align tips** projects terminal nodes to a common outer coordinate. **Order branches** places smaller clades first to create a ladderised view. Radial layouts also provide a configurable fan angle from 30° to 360°.
+
+### 8.3 Styling controls
+
+The Design panel controls:
+
+1. Branch width and colour.
+2. Internal-node radius and colour.
+3. Label size and colour.
+4. Tip guide lines.
+5. Bootstrap/support markers.
+6. Internal clade labels.
+7. Reticulation edges in network mode.
+8. Inheritance-probability labels in network mode.
+
+Support markers use qualitative colour classes for high, medium, and low support. The exact support value remains available through interaction.
+
+## 9. Export and reproducibility
+
+| Export | Result |
+|---|---|
+| SVG | Standalone vector figure preserving branches, labels, support markers, colours, reticulations, and collapsed-clade symbols. |
+| PNG | Raster export rendered from SVG through Canvas at 2× resolution. |
+| Newick | Current rooted tree topology or current extended-Newick network. |
+| JSON | Reopenable Phyli project containing data and visual settings. |
+| Share link | Compressed URL containing the tree/network and relevant view state. |
+
+SVG is the preferred format for manuscripts and later editing in Inkscape, Illustrator, or Figma. PNG is suitable for slides and reports. JSON is safer than a share URL for very large or sensitive projects.
+
+## 10. Software architecture
+
+Phyli is a framework-free single-page application.
+
+```mermaid
+flowchart LR
+    A[Local file, pasted text, URL, hash, example] --> B[Input detection]
+    B --> C[Newick or JSON parser]
+    C --> D[Tree normalisation and annotation]
+    D --> E{Repeated hybrid tags?}
+    E -- No --> F[Tree state]
+    E -- Yes --> G[Base tree + reticulation graph]
+    F --> H[Layout engine]
+    G --> H
+    H --> I[SVG renderer]
+    I --> J[Search, pan, zoom, node actions]
+    I --> K[SVG, PNG, Newick, JSON, share URL]
+```
+
+### 10.1 Main internal modules
+
+| Module | Responsibility |
+|---|---|
+| Input layer | FileReader, pasted content, remote fetch, URL decoding, compressed URL decoding, and example loading. |
+| Parser | Tokenisation of Newick delimiters, labels, bracket annotations, branch fields, and hybrid tags. |
+| Network extraction | Merges repeated hybrid occurrences and constructs reticulation edges. |
+| Annotation | Parent references, depth, accumulated distance, leaf count, descendant maxima, and summary statistics. |
+| Rooting | Graph conversion, selected-edge rerooting, weighted midpoint rooting, and reconstruction. |
+| Distance | Base-tree path discovery, edge/node highlighting, and distance accumulation. |
+| Layout | Rectangular across/depth assignment and polar conversion for radial views. |
+| Rendering | Layered SVG groups for guides, branches, reticulations, wedges, support, nodes, and labels. |
+| Interaction | Tooltips, node menus, search, collapsed-path expansion, zoom, pan, and viewport fitting. |
+| Export | SVG serialisation, PNG Canvas conversion, recursive Newick/eNewick serialisation, JSON state, and LZString URL compression. |
+| Internationalisation | Runtime translation of text nodes and attributes into Spanish, English, or Portuguese. |
+
+### 10.2 Runtime dependencies
+
+The application does not require a JavaScript framework or package manager. LZString is embedded in `index.html` for compressed URLs. The display font is requested from Google Fonts when an internet connection is available; application logic and the remaining interface are embedded locally.
+
+## 11. Deployment
+
+### 11.1 Generic static hosting
+
+Upload `index.html` and any documentation assets to a static web directory. Hash-based Newick and `#z=` share links work without server rewrite rules.
+
+### 11.2 GitHub Pages
+
+GitHub Pages can serve the application directly. Keep links hash-based because GitHub Pages does not apply the supplied Apache rewrite file.
+
+Recommended repository root:
+
+```text
+index.html
+README.md
+.nojekyll
+assets/
+```
+
+### 11.3 Apache under `/Phyli/`
+
+The supplied `htaccess` file contains rules for direct path input. Before deployment:
+
+1. Rename `htaccess` to `.htaccess`.
+2. Confirm that `mod_rewrite` is enabled.
+3. Keep `RewriteBase /Phyli/` only when the application is actually installed under `/Phyli/`.
+4. Change `RewriteBase` when using another subdirectory.
+5. Ensure the server permits the `AllowEncodedSlashes NoDecode` directive where required.
+
+The rewrite sends non-existent paths to `index.html`, allowing routes such as:
+
+```text
+https://example.org/Phyli/(A:1,(B:1,C:1));
+```
+
+In extended Newick placed in the path, encode hybrid markers as `%23`.
+
+## 12. Privacy and data handling
+
+Local files are read with `FileReader` and are not uploaded to a Phyli backend because no such backend exists. Remote loading sends a request only to the URL supplied by the user. Share links place compressed project data in the URL, so they should not be used for private or sensitive trees unless exposure through the address is acceptable.
+
+## 13. Performance
+
+Most core operations are linear for a tree with `n` nodes.
+
+| Operation | Expected complexity |
+|---|---|
+| Parse and annotation | `O(n)` |
 | Rectangular layout | `O(n)` |
 | Radial projection | `O(n)` |
-| SVG render | `O(n)` DOM/SVG elements |
-| Midpoint rooting | `O(n)` for tree traversal |
-| Search | `O(number of leaves)` |
+| SVG construction | `O(n)` visible elements |
+| Midpoint rooting | `O(n)` for a tree |
+| Taxon search | `O(number of leaves)` |
 
-Very large trees may become slow because every visible branch, label, marker, and hit target is represented as an SVG/DOM element. For very large datasets, future versions could use virtualised labels, Canvas/WebGL rendering, or progressive clade expansion.
+Very large trees may become slow because every visible branch, label, support marker, interaction target, and reticulation is represented by an SVG/DOM element.
 
-## 18. Browser compatibility
+## 14. Browser compatibility
 
-Phyli targets current desktop and laptop browsers:
+Phyli uses standard browser APIs: SVG, Canvas, Blob URLs, FileReader, Fetch, DOM events, Clipboard where available, and localStorage for the selected language.
 
-- Chrome / Chromium;
-- Microsoft Edge;
-- Firefox;
-- Safari.
+The target environment is a current desktop version of:
 
-The app uses standard web APIs: SVG, Canvas, Blob URLs, FileReader, DOM events, and local in-memory JavaScript objects. No external JavaScript framework is required.
+1. Chrome or Chromium.
+2. Microsoft Edge.
+3. Firefox.
+4. Safari.
 
-## 19. Privacy and data handling
+## 15. Known limitations
 
-Phyli processes tree data in the browser. Local files are not uploaded to a Phyli backend because there is no backend. Remote URL loading only requests the file from the URL provided by the user. Share links can include compressed tree data in the URL, so avoid using them for private or sensitive datasets.
+1. Newick and extended-Newick dialects vary; uncommon annotations may require preprocessing.
+2. Very large trees can produce dense labels and expensive SVG output.
+3. Remote loading depends on the source server's CORS policy.
+4. Share URLs are subject to practical browser and server URL-length limits.
+5. Network distance currently follows only the base tree and excludes reticulation edges.
+6. Rooting is intentionally unavailable for networks.
+7. Path-based Newick requires server-side rewrite support; hash-based input does not.
 
-## 20. Known limitations
+## 16. Validation checklist
 
-- Newick dialects vary; unusual annotations may need preprocessing.
-- Very large trees can produce dense labels and heavy SVG output.
-- Share links are limited by practical browser URL length limits.
-- Remote file loading depends on the target server's CORS configuration.
-- The midpoint method assumes meaningful branch lengths when branch lengths are available.
+### Data and parsing
 
-## 21. Citation
+- [ ] Open the embedded Tree of Life example.
+- [ ] Open the embedded Saccharomyces network.
+- [ ] Load local `.nwk`, `.enwk`, and `.json` files.
+- [ ] Paste classic Newick, extended Newick, and JSON.
+- [ ] Test a remote raw URL with CORS enabled.
+- [ ] Confirm that invalid Newick produces a readable error.
 
-If you use Phyli in teaching, research, or software demonstrations, cite the project and acknowledge the original work.
+### Tree operations
 
-Suggested citation metadata is provided in `CITATION.cff` when the repository is included.
+- [ ] Search for a visible taxon.
+- [ ] Search for a taxon inside a collapsed clade.
+- [ ] Root by a terminal taxon.
+- [ ] Root by midpoint.
+- [ ] Calculate a distance with branch lengths.
+- [ ] Calculate a distance without branch lengths.
 
-## 22. Credits
+### Network operations
 
-Phyli recognises the original and continuing work of:
+- [ ] Confirm reticulation count and hybrid markers.
+- [ ] Toggle reticulation edges.
+- [ ] Toggle `γ` labels.
+- [ ] Export and reopen extended Newick.
+- [ ] Confirm rooting controls remain disabled.
 
-| Author | Email |
+### Visualisation and export
+
+- [ ] Test all five layouts.
+- [ ] Test phylogram and cladogram modes.
+- [ ] Test aligned tips, branch ordering, radial angle, and spacing.
+- [ ] Collapse, expand, focus, colour, and reset a clade.
+- [ ] Export SVG, PNG, Newick, and JSON.
+- [ ] Open a generated share link in another tab.
+- [ ] Switch between Spanish, English, and Portuguese after loading data.
+
+## 17. Citation, licence, and credits
+
+The application includes the following original-work citation:
+
+> Mardones Aguilar, R. I. N., Villalobos Cid, M. J., & Universidad de Santiago de Chile, Facultad de Ingeniería, Departamento de Ingeniería Informática. (2006). *Desarrollo de aplicación en línea para la interacción y visualización de árboles filogenéticos*. Universidad de Santiago de Chile.
+
+The About panel states that the base project is distributed under **Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)**. A repository release should also include an explicit `LICENSE` file so that the terms are visible outside the application.
+
+Current continuity, documentation, and web-development credits:
+
+| Contributor | Contact |
 |---|---|
-| Rodrigo Mardones-Aguilar | [rodrigo.mardones.a@usach.cl](mailto:rodrigo.mardones.a@usach.cl) |
-| Eduardo Kessi-Pérez | [eduardo.kessi@usach.cl](mailto:eduardo.kessi@usach.cl]) |
-| Manuel Villalobos-Cid | [manuel.villalobos.c@usach.cl](mailto:manuel.villalobos.c@usach.cl) |
+| Manuel Villalobos Cid | [manuel.villalobos@usach.cl](mailto:manuel.villalobos@usach.cl) |
+| Rodrigo Mardones Aguilar | [rodrigo.mardones.a@usach.cl](mailto:rodrigo.mardones.a@usach.cl) |
+| Eduardo Kessi-Pérez | Universidad de Santiago de Chile |
 
 Institutional context: Universidad de Santiago de Chile, Facultad de Ingeniería, Departamento de Ingeniería Informática.
 
-Development note: this repository was built with AI-assisted support using ChatGPT. ChatGPT was used to help organise the documentation, improve the technical explanations, refine the multilingual interface, and prepare the repository structure for GitHub. All final decisions, authorship, validation, and content review were carried out by the authors.
-
 ---
+
+<a id="español"></a>
 
 # Español
 
-<a id="espanol"></a>
+## 1. Acerca de Phyli
 
-## 1. ¿Qué es Phyli?
+**Phyli** es una aplicación web estática del lado del cliente para cargar, explorar, editar y exportar **árboles filogenéticos y redes filogenéticas**. Admite **Newick** clásico, **Newick extendido** y proyectos **JSON** de Phyli.
 
-**Phyli** es una aplicación web del lado del cliente para cargar, visualizar, enraizar, explorar, anotar y exportar árboles filogenéticos. Está pensada para docencia, análisis exploratorio, apoyo a la investigación y preparación rápida de figuras a partir de árboles en formato **Newick**.
+La aplicación funciona casi por completo desde un único archivo `index.html`. El parseo, el trazado, las interacciones, el enraizamiento, el cálculo de distancias, la reconstrucción de redes y las exportaciones se ejecutan en el navegador. No requiere backend de aplicación, base de datos, cuenta de usuario ni procesamiento en el servidor.
 
-Phyli se ejecuta por completo en el navegador. El archivo del árbol se procesa localmente con JavaScript, por lo que la aplicación no requiere backend, base de datos, sistema de usuarios ni procesamiento en el servidor. Basta con un servidor estático para publicarla.
+Cuando la aplicación se abre sin un árbol codificado en la URL, carga automáticamente el ejemplo integrado **Árbol de la vida**, que contiene 191 taxones.
 
 **Despliegue público:** <https://mvillalobosc.diinf.usach.cl/Phyli/>
 
-## 2. Funcionalidades principales
+## 2. Funcionalidades actuales
 
-- Carga de árboles a partir de archivos locales, texto pegado, URLs remotas, hashes de URL o ejemplos integrados.
-- Lectura de árboles **Newick** con longitudes de rama, nombres de clados internos y valores de soporte.
-- Reapertura de proyectos completos en formato **JSON** exportados desde Phyli.
-- Cambio de interfaz entre español, inglés y portugués.
-- Búsqueda de puntas/taxones por nombre completo o parcial.
-- Enraizamiento del árbol mediante un taxón de referencia o mediante el método de punto medio.
-- Medición de distancia entre dos puntas, con resaltado del camino y limpieza automática de selecciones antiguas al cargar un nuevo árbol.
-- Visualización en trazado escalonado, curvo, recto, radial o radial escalonado.
-- Cambio entre la interpretación de un **filograma** y de un **cladograma**.
-- Alineación de puntas, ordenamiento de clados, ajuste de ángulo radial y separación entre taxones.
-- Colapso, enfoque y coloreado interactivo de clados.
-- Visualización de valores de soporte interno mediante marcadores de color.
-- Exportación de la vista actual en **SVG**, **PNG**, **Newick**, **JSON** o como enlace compartido comprimido.
-
-## 3. Estructura del repositorio
-
-Estructura recomendada para GitHub o GitHub Pages:
-
-```text
-.
-├── index.html
-├── README.md
-├── LICENSE.md
-├── CITATION.cff
-├── .nojekyll
-├── assets/
-│   ├── screenshot-home.png
-│   ├── screenshot-radial.png
-│   └── screenshot-export.png
-└── examples/
-    ├── simple.nwk
-    ├── vertebrates.nwk
-    └── tree-of-life.nwk
-```
-
-### Rol de cada archivo
-
-| Archivo o carpeta | ¿Necesario? | Rol |
-|---|---:|---|
-| `index.html` | Sí | Aplicación principal. Contiene estructura HTML, estilos CSS y lógica JavaScript. |
-| `README.md` | Muy recomendado | Documentación del proyecto disponible en GitHub. |
-| `assets/` | Recomendado | Capturas de pantalla y recursos visuales utilizados en el README o en la interfaz. |
-| `examples/` | Recomendado | Árboles de ejemplo cargados por la aplicación. |
-| `LICENSE.md` | Recomendado | Condiciones de uso, atribución, redistribución y modificación. |
-| `CITATION.cff` | Recomendado para software académico | Activa el botón **Cite this repository** en GitHub. |
-| `.nojekyll` | Opcional | Evita que GitHub Pages procese el sitio con Jekyll. Útil para apps estáticas. |
-| `.htaccess` | Solo para Apache | Sirve en servidores Apache, pero GitHub Pages lo ignora. |
-| `404.html` | Opcional | Página de error personalizada para hosting estático. |
-
-
-## 3.1 Identidad visual y sistema de colores
-
-La interfaz usa la paleta institucional USACH como base visual. El fondo principal de la aplicación usa el gris oscuro institucional, mientras que los resaltados interactivos, el camino de distancia, los interruptores activos y los marcadores seleccionados usan el verde-azulado institucional. Con esto se evita una apariencia dominada por el naranjo y se mantiene la interfaz alineada con el sistema cromático de la universidad.
-
-| Rol | Valor hexadecimal | Uso en Phyli |
-|---|---|---|
-| Gris oscuro USACH | `#333F48` / `#394049` | Barra lateral, paneles y fondo estructural. |
-| Verde-azulado USACH | `#00A499` | Controles activos, camino de distancia y marcadores seleccionados. |
-| Verde-azulado USACH 40% | `#9DD4D3` | Resaltado suave para nodos intermedios en un camino medido. |
-| Azul USACH | `#498BCA` | Acciones secundarias y enlaces de interfaz. |
-
-
-## 4. Manual de uso
-
-### 4.1 Cargar un árbol
-
-Phyli permite iniciar de varias formas:
-
-| Método | Descripción |
+| Área | Comportamiento implementado |
 |---|---|
-| Archivo local | Arrastra un archivo `.nwk`, `.tree` o `.json`, o usa el selector de archivo. |
-| Ejemplos integrados | Carga un árbol predefinido, como el de los vertebrados, un árbol simple o el árbol de la vida. |
-| Texto pegado | Pega una cadena Newick o un proyecto JSON de Phyli. |
-| URL remota | Carga un archivo `.nwk`, `.tree` o `.json` desde una URL remota. El servidor remoto debe permitir el acceso desde el navegador mediante CORS. |
-| Hash de URL | Abre un árbol directamente desde la dirección, por ejemplo `#(A:1,(B:1,C:1));`. |
-
-Tras cargar el árbol, la barra lateral muestra el número de taxones, de nodos y la profundidad.
-
-### 4.2 Formatos de entrada
-
-#### Newick
-
-Newick representa los grupos anidados entre paréntesis. Los largos de rama van después de dos puntos y el árbol termina con punto y coma.
-
-```newick
-(Gato:0.3,(Raton:0.2,Humano:0.2)[95]:0.1);
-```
-
-| Elemento | Significado |
-|---|---|
-| `(Raton:0.2,Humano:0.2)` | Clado interno con dos puntas. |
-| `:0.2` | Largo de rama. |
-| `[95]` | Valor de soporte, usualmente bootstrap. |
-| Texto después de `)` | Nombre de clado interno. |
-| `;` | Fin del árbol. |
-
-#### Proyecto JSON
-
-El formato JSON del proyecto es generado por Phyli. Guarda el árbol y el estado visual: diseño, modo de escala, colores, clados colapsados, colores de clado, taxón seleccionado y estado de la vista. Úsalo cuando quieras continuar editando la misma visualización más adelante.
-
-### 4.3 Buscar taxones
-
-Usa **Buscar taxón** para localizar una punta por su nombre. Se aceptan coincidencias parciales. Cuando se elige un resultado, Phyli resalta el taxón y recentra la vista. Si el taxón está dentro de un clado colapsado, la aplicación expande la ruta necesaria para que sea visible.
-
-### 4.4 Enraizamiento
-
-Phyli ofrece dos estrategias de enraizamiento.
-
-| Estrategia | Comportamiento técnico | Uso recomendado |
-|---|---|---|
-| Enraizar por especie/taxón | Convierte el árbol en un grafo no dirigido y ubica una nueva raíz en la arista que conecta al taxón seleccionado. Si existen largos de rama, la arista se divide en dos segmentos proporcionales. | Útil cuando se conoce una especie de referencia o grupo externo. |
-| Enraizar por midpoint | Encuentra las dos puntas más distantes y ubica la raíz a mitad de la distancia entre ellas. | Útil como método exploratorio cuando no hay grupo externo. |
-
-El enraizamiento actualiza la topología interna del árbol y se refleja en el archivo Newick exportado.
-
-### 4.5 Distancia entre dos taxones
-
-Phyli puede calcular la distancia entre dos puntas seleccionadas del árbol actual.
-
-| Componente | Comportamiento |
-|---|---|
-| Taxón A / Taxón B | Aceptan nombres completos o parciales usando la lista de puntas del árbol actual. Los campos se limpian al cargar un nuevo árbol para evitar taxones antiguos de otro archivo. |
-| Calcular distancia | Calcula el camino entre las dos puntas seleccionadas. |
-| Unidad de distancia | Usa las longitudes de rama cuando el Newick las incluye. Si el árbol no tiene longitudes de rama, informa pasos topológicos. |
-| Atenuar el resto del árbol | Mantiene visibles los dos taxones y el camino que los conecta con el acento verde-azulado institucional USACH, reduciendo la opacidad del resto del árbol. |
-| Quitar marca | Elimina el camino resaltado y recupera la vista normal. |
-
-Esta función es útil después de enraizar, porque permite revisar qué tan lejos están dos taxones terminales dentro de la topología mostrada.
-
-### 4.6 Diseño y escala
-
-| Opción | Descripción |
-|---|---|
-| Escalón | Árbol rectangular con ramas en ángulo recto. Útil para figuras estándar. |
-| Curvo | Transiciones suaves entre ramas padre e hijo. Útil para presentaciones. |
-| Recto | Segmentos diagonales directos entre nodos. |
-| Radial | Proyección circular o en abanico. Útil para exploración compacta. |
-| Radial escalonado | Proyección radial con geometría escalonada. |
-| Filograma | Los largos de rama son proporcionales a distancia evolutiva. Se muestra la barra de escala. |
-| Cladograma | Ignora las longitudes de rama; muestra solo la topología. |
-
-### 4.7 Modelo de interacción
-
-| Acción | Resultado |
-|---|---|
-| Rueda del mouse | Acerca o aleja el árbol en torno al cursor. |
-| Arrastrar el lienzo | Desplaza la vista del árbol. |
-| Pasar sobre una rama o un nodo | Muestra la información del taxón, la longitud de la rama, el soporte o los descendientes. |
-| Clic en el nodo interno | Abre las acciones: enfocar, colapsar, colorear el clado o restablecer el color. |
-| Colapsar clado | Reemplaza un subárbol por una cuña compacta conservando su número de descendientes. |
-| Enfocar clado | Centra el clado seleccionado en la vista. |
-| Restablecer vista | Ajusta el árbol completo al tamaño actual del visor. |
-
-### 4.8 Exportación
-
-| Exportación | Salida | Notas |
-|---|---|---|
-| SVG | Imagen vectorial `.svg` | Ideal para manuscritos y edición posterior en Inkscape, Illustrator o Figma. |
-| PNG | Imagen ráster `.png` | Exportación en alta resolución para diapositivas, informes y docencia. |
-| Newick | Archivo `.nwk` | Refleja la topología enraizada actual. |
-| JSON | Proyecto `.json` | Guarda el árbol y la configuración visual para reabrirlo en Phyli. |
-| Enlace compartible | URL | Codifica el árbol y el estado visual en la URL. En árboles grandes puede generar URL largas. |
-
----
-
-## 5. Arquitectura del software
-
-Phyli está implementado como una **aplicación estática de una sola página**. La versión actual se diseñó para despliegue simple: toda la aplicación puede vivir en `index.html`.
-
-```text
-Navegador
-  │
-  ├── Interfaz HTML
-  │     ├── controles laterales
-  │     ├── paneles desplegables
-  │     ├── ayudas emergentes
-  │     └── visor SVG
-  │
-  ├── Capa CSS
-  │     ├── paleta visual USACH
-  │     ├── diseño responsive sidebar/lienzo
-  │     ├── estilos del árbol
-  │     └── controles de idioma y ayuda
-  │
-  └── Capa JavaScript
-        ├── carga de entrada
-        ├── parser Newick
-        ├── preparación y estadísticas del árbol
-        ├── motor de enraizamiento
-        ├── motor de layout
-        ├── renderizador SVG
-        ├── controlador de interacción
-        ├── pipeline de exportación
-        └── interfaz multilingüe
-```
-
-## 6. Estado central de ejecución
-
-La aplicación mantiene su estado activo en un objeto JavaScript central. Conceptualmente, sigue esta estructura:
-
-```js
-const S = {
-  root: null,
-  name: '',
-  shape: 'step',
-  mode: 'phylo',
-  aligned: false,
-  ladder: true,
-  angle: 360,
-  leafGap: 24,
-  style: {
-    pathW: 1.6,
-    pathC: '#394049',
-    nodeR: 0,
-    nodeC: '#498BCA',
-    labelS: 13,
-    labelC: '#2C3138'
-  },
-  show: {
-    guides: true,
-    support: true,
-    internal: false
-  },
-  view: { k: 1, x: 0, y: 0 },
-  collapsed: new Set(),
-  cladeColors: new Map(),
-  highlight: null,
-  selected: null,
-  measure: {
-    active: false,
-    aId: null,
-    bId: null,
-    distance: null,
-    edgeKeys: new Set(),
-    nodeIds: new Set(),
-    dim: true
-  },
-  stats: null,
-  layoutInfo: null
-};
-```
-
-Este objeto separa:
-
-- **Estado de datos:** raíz del árbol, nombre del archivo, estadísticas.
-- **Estado visual:** tipo de trazado, modo de escala, ángulo radial, separación, estilo.
-- **Estado de interacción:** nodo seleccionado, taxón resaltado, clados colapsados, transformación de la vista.
-- **Estado de exportación:** topología y configuración visuales compatibles con SVG, PNG, Newick, JSON y enlaces compartibles.
-
-## 7. Modelo interno de árbol
-
-Después del parseo, cada nodo se convierte en un objeto JavaScript. El modelo efectivo es:
-
-```js
-{
-  id: 'n17',              // identificador interno único
-  name: 'Homo_sapiens',   // nombre de punta o clado interno
-  raw: 'Homo_sapiens',    // etiqueta original cuando existe
-  len: 0.012,             // largo de rama desde el padre
-  support: 95,            // valor opcional de soporte
-  children: [],           // nodos hijos
-
-  // campos calculados
-  parent: null,
-  depth: 0,
-  dist: 0,
-  leafCount: 1,
-  maxDescDepth: 0,
-  maxDescDist: 0,
-  isLeaf: true
-}
-```
-
-Los campos calculados se regeneran al cargar o al enraizar el árbol. Estos campos soportan layout, estadísticas, clados colapsados, visualización de soporte y exportación.
-
-## 8. Pipeline de procesamiento
-
-Cuando se carga o modifica un árbol, la aplicación sigue este flujo:
-
-```text
-Entrada
-  ↓
-Detección del tipo de entrada
-  ↓
-Parseo de Newick o proyecto JSON
-  ↓
-Normalización de nodos
-  ↓
-Cálculo de estadísticas y campos derivados
-  ↓
-Sincronización de controles de interfaz
-  ↓
-Cálculo de coordenadas de layout
-  ↓
-Render SVG
-  ↓
-Activación de interacciones y estado de exportación
-```
-
-### 8.1 Parser Newick
-
-El parser tokeniza la entrada usando los delimitadores Newick:
-
-```text
-(  )  ,  :  ;
-```
-
-Luego construye una estructura anidada usando una pila de ancestros. El parser maneja:
-
-- nombres de puntas;
-- nombres de clados internos;
-- largos de rama;
-- valores de soporte en corchetes, como `[95]`;
-- etiquetas internas numéricas interpretables como soporte;
-- limpieza del punto y coma final.
-
-Las estructuras inválidas, como comas inesperadas o paréntesis no balanceados, se informan al usuario como errores legibles.
-
-### 8.2 Preparación y estadísticas
-
-Después del parseo, Phyli recorre el árbol para calcular:
-
-| Campo | Propósito |
-|---|---|
-| `depth` | Profundidad topológica desde la raíz actual. |
-| `dist` | Distancia acumulada por largos de rama desde la raíz. |
-| `leafCount` | Número de puntas descendientes. |
-| `maxDescDepth` | Mayor profundidad descendente desde un nodo. |
-| `maxDescDist` | Mayor distancia descendente desde un nodo. |
-| `stats.hasLen` | Indica si el árbol tiene largos de rama utilizables. |
-| `stats.maxDist` | Mayor distancia raíz-punta. |
-| `stats.maxDepth` | Mayor profundidad topológica. |
-
-Estos valores se usan en filogramas/cladogramas, barras de escala, proyecciones radiales, cuñas de clados colapsados y enraizamiento por midpoint.
-
-## 9. Motor de enraizamiento
-
-El enraizamiento utiliza una representación temporal en forma de grafo no dirigido del árbol actual.
-
-### 9.1 Conversión a grafo
-
-Cada relación padre-hijo se transforma en una arista no dirigida ponderada:
-
-```text
-padre ── len ── hijo
-```
-
-El grafo permite recorrer el árbol desde cualquier nodo, independientemente de la dirección de la raíz original.
-
-### 9.2 Enraizamiento por taxón
-
-Se busca el taxón seleccionado en la lista de hojas visibles. Phyli acepta coincidencias exactas y parciales no ambiguas. Cuando encuentra la hoja objetivo:
-
-1. Convierte el árbol en un grafo no dirigido.
-2. Identifica la arista conectada a la hoja seleccionada.
-3. Inserta una nueva raíz artificial en esa arista.
-4. Clona el árbol hacia ambos lados a partir de la nueva raíz.
-5. Refresca campos calculados, clados colapsados, selección y resaltado.
-6. Vuelve a renderizar la vista.
-
-Si existen largos de rama, la arista seleccionada se divide para preservar la información de distancia.
-
-### 9.3 Enraizamiento por midpoint
-
-El midpoint estima una raíz sin requerir un grupo externo conocido:
-
-1. Recolecta todas las hojas.
-2. Ejecuta un recorrido a partir de una hoja arbitraria.
-3. Identifica la hoja más lejana `A`.
-4. Ejecuta un segundo recorrido desde `A`.
-5. Identifica la hoja más lejana: `B`.
-6. Reconstruye el camino entre `A` y `B`.
-7. Ubica la raíz a mitad de la distancia total del camino.
-8. Divide la arista en su punto medio.
-9. Reconstruye y renderiza el árbol enraizado.
-
-Este procedimiento es lineal respecto al número de nodos para entradas con estructura de árbol.
-
-## 10. Motor de layout
-
-El motor de layout separa dos ejes:
-
-- **Eje transversal:** orden y separación de los elementos terminales.
-- **Eje de profundidad:** profundidad topológica o distancia por longitud de rama.
-
-### 10.1 Asignación del eje transversal
-
-Los nodos terminales reciben posiciones secuenciales según la separación configurada. Los nodos internos se ubican en el punto medio entre su primer y último hijo. Los clados colapsados presentan un ancho mayor en función del número de descendientes.
-
-### 10.2 Asignación del eje de profundidad
-
-Phyli soporta dos interpretaciones:
-
-| Modo | Regla de coordenadas |
-|---|---|
-| Filograma | `x = distancia acumulada × factor de escala`. |
-| Cladograma | `x = profundidad topológica × ancho fijo de nivel`. |
-
-Cuando **Alinear puntas** está activo, las puntas se proyectan a una coordenada externa común, generando una vista tipo dendrograma.
-
-### 10.3 Proyección radial
-
-En vistas radiales, las coordenadas rectangulares se convierten a coordenadas polares:
-
-```text
-ángulo = posición terminal / extensión terminal total × ángulo del abanico
-radio = coordenada de profundidad
-x = cos(ángulo) × radio
-y = sin(ángulo) × radio
-```
-
-El ángulo radial puede reducirse por debajo de 360° para generar árboles en abanico.
-
-## 11. Pipeline de renderizado SVG
-
-El renderizador limpia el visor y reconstruye el árbol como grupos SVG:
-
-```text
-<g id="tree-root">
-  <g> líneas guía </g>
-  <g> ramas </g>
-  <g> cuñas de clados colapsados </g>
-  <g> marcadores de soporte </g>
-  <g> áreas interactivas de nodos internos </g>
-  <g> etiquetas </g>
-</g>
-```
-
-Este orden mantiene las etiquetas legibles, las ramas detrás de los nodos y los objetivos interactivos disponibles incluso cuando los marcadores de nodo están ocultos.
-
-### 11.1 Dibujo de ramas
-
-Las rutas de las ramas se generan según el layout activo:
-
-| Layout | Comportamiento de la ruta |
-|---|---|
-| Escalón | Segmentos horizontales y verticales. |
-| Curvo | Transición suave entre padre e hijo. |
-| Recto | Segmento directo. |
-| Radial | Proyección polar con posicionamiento radial. |
-| Radial escalonado | Proyección radial con geometría escalonada. |
-
-### 11.2 Clados colapsados
-
-Cuando un clado se colapsa, el subárbol completo no se dibuja. En su lugar, Phyli renderiza una cuña que indica la presencia de descendientes ocultos bajo ese nodo y reduce la saturación visual en árboles grandes.
-
-### 11.3 Marcadores de soporte
-
-Los valores de soporte se muestran como marcadores en nodos internos usando tres clases:
-
-| Soporte | Categoría de color | Interpretación |
-|---|---|---|
-| `≥ 95` | Alto | Agrupamiento con fuerte respaldo. |
-| `70–94` | Medio | Soporte moderado. |
-| `< 70` | Bajo | Soporte débil o incierto. |
-
-## 12. Controlador de interacción
-
-Phyli usa eventos directos del DOM y de SVG. La lógica principal incluye:
-
-- zoom con rueda del mouse;
-- desplazamiento mediante arrastre;
-- tooltips en nodos y ramas;
-- popovers de acciones de nodo;
-- resaltado de resultados de búsqueda;
-- expansión automática de rutas colapsadas cuando el taxón buscado está oculto;
-- organización lateral en acordeones;
-- ayudas emergentes asociadas a controles `?`.
-
-La transformación de la vista se almacena como:
-
-```js
-view: { k: zoomScale, x: translateX, y: translateY }
-```
-
-Esta transformación se aplica al grupo SVG principal, en lugar de recalcular las posiciones de los nodos durante el pan y el zoom.
-
-## 13. Sistema de exportación
-
-### 13.1 Exportación SVG
-
-La exportación SVG serializa el dibujo actual del árbol en un archivo vectorial independiente. Conserva etiquetas, ramas, marcadores de soporte, colores y clados colapsados.
-
-Uso recomendado: manuscritos, diagramas y edición posterior en software vectorial.
-
-### 13.2 Exportación PNG
-
-La exportación PNG sigue este proceso:
-
-```text
-construir SVG de exportación
-  ↓
-serializar SVG a texto
-  ↓
-crear Blob URL
-  ↓
-cargarlo como Image
-  ↓
-dibujar en Canvas a alta resolución
-  ↓
-descargar PNG
-```
-
-La salida ráster es útil para presentaciones, informes y material docente.
-
-### 13.3 Exportación Newick
-
-La exportación Newick recorre la topología enraizada actual y serializa el árbol de forma recursiva. Si el usuario enraizó el árbol, el archivo `.nwk` exportado refleja esa topología.
-
-### 13.4 Exportación JSON
-
-La exportación en JSON guarda el estado completo del proyecto. Es la mejor opción cuando se quiere reabrir la misma sesión de Phyli más adelante.
-
-### 13.5 Enlaces compartibles
-
-Los enlaces compartibles codifican el árbol y el estado visual relevante en la URL. Esto permite vistas interactivas reproducibles sin guardar datos en el servidor. En árboles muy grandes, la URL puede resultar demasiado larga, por lo que el JSON es más seguro para proyectos extensos.
-
-## 14. Interfaz multilingüe
-
-Phyli tiene una capa interna de idioma para los textos de interfaz. Actualmente soporta:
-
-- español;
-- inglés;
-- portugués.
-
-El usuario cambia el idioma mediante botones con banderas. El sistema actualiza títulos, etiquetas, tooltips, ayudas, mensajes dinámicos y metadatos cuando corresponde.
-
-Patrón recomendado para extender idiomas:
-
-1. Agregar un nuevo código de idioma al diccionario.
-2. Agregar traducciones de las cadenas de la interfaz.
-3. Agregar o actualizar el botón de bandera.
-4. Probar etiquetas estáticas, mensajes dinámicos, popovers, mensajes de exportación y paneles de ayuda.
-
-## 15. Guía de desarrollo
-
-### 15.1 Ejecución local
-
-Como Phyli es estático, puede abrirse directamente en el navegador. Para desarrollo se recomienda un servidor local:
+| Árboles | Parseo de Newick clásico con nombres de puntas, nombres de clados internos, longitudes de rama, soporte entre corchetes y etiquetas internas numéricas interpretadas como soporte. |
+| Redes | Parseo de Newick extendido con etiquetas híbridas repetidas, aristas de reticulación, nodos híbridos, valores de soporte y probabilidades de herencia `γ`. |
+| Entrada de datos | Archivos locales, Newick/eNewick/JSON pegado, URLs remotas, fragmentos de URL, entrada en la ruta con Apache, enlaces compartidos comprimidos y ejemplos integrados. |
+| Búsqueda | Selector buscable de puntas mediante nombres completos o parciales, recentrado de la vista y expansión de rutas ocultas por clados colapsados. |
+| Enraizamiento | Enraizamiento mediante un taxón terminal seleccionado o por punto medio. Se desactiva en redes para preservar las relaciones híbridas. |
+| Distancia | Distancia entre dos taxones terminales usando longitudes de rama cuando existen o pasos topológicos en caso contrario. El camino puede mantenerse resaltado mientras el resto del árbol se atenúa. |
+| Trazados | Escalón, curvo, recto, radial y radial escalonado. |
+| Escala | Modos filograma y cladograma, alineación opcional de puntas, ordenamiento de ramas, ángulo del abanico radial y separación ajustable entre taxones. |
+| Edición | Colapsar o expandir clados, enfocar un clado, asignar color, quitar color y restablecer la vista o los estilos. |
+| Diseño | Grosor y color de ramas, radio y color de nodos internos, tamaño y color de etiquetas, líneas guía, marcadores de soporte, nombres internos, aristas reticuladas y etiquetas `γ`. |
+| Exportación | SVG, PNG de alta resolución a 2×, Newick/Newick extendido, proyecto JSON y URL compartible comprimida. |
+| Interfaz | Traducción al español, inglés y portugués, ayudas contextuales, tooltips, barra lateral responsive, zoom, desplazamiento y ajuste a la vista. |
+
+## 3. Inicio rápido
+
+### 3.1 Apertura directa
+
+Abre `index.html` en un navegador moderno. La mayoría de las funciones opera directamente porque el código de la aplicación está integrado en la página.
+
+### 3.2 Servidor local
+
+Se recomienda un servidor local durante el desarrollo y para probar recursos remotos o rutas relativas.
 
 ```bash
 python -m http.server 8000
 ```
 
-Luego abrir:
+Luego abre:
 
 ```text
 http://localhost:8000/
 ```
 
-Un servidor local evita las restricciones del navegador que pueden afectar la carga de archivos y las rutas relativas.
+### 3.3 Contenido del repositorio
 
-### 15.2 Editar la aplicación
-
-La implementación actual está concentrada en `index.html`.
-
-Orden recomendado de edición:
-
-1. Actualizar los controles HTML o la estructura lateral.
-2. Actualizar las clases CSS y las reglas de respuesta.
-3. Actualizar el estado de JavaScript o los enlaces de eventos.
-4. Probar todos los ejemplos integrados.
-5. Probar la exportación a SVG, PNG, Newick, JSON y un enlace compartible.
-6. Probar el cambio de idioma después de cargar un árbol y abrir popovers.
-
-### 15.3 Agregar un nuevo árbol de ejemplo
-
-1. Agregar un archivo `.nwk` en `examples/`.
-2. Agregar un botón u opción en la sección de ejemplos.
-3. Registrar la ruta en la lógica de carga.
-4. Probar el ejemplo en GitHub Pages o en el servidor estático final.
-
-Nombre recomendado:
+La aplicación entregada mantiene una estructura intencionalmente compacta:
 
 ```text
-examples/my-example.nwk
+Phyli/
+├── index.html
+├── htaccess
+├── README.md
+└── assets/
+    ├── screenshot-main.png
+    ├── screenshot-radial.png
+    ├── screenshot-network.png
+    ├── screenshot-distance.png
+    └── screenshot-export.png
 ```
 
-### 15.4 Agregar un nuevo control visual
+| Elemento | Propósito |
+|---|---|
+| `index.html` | Aplicación completa: interfaz HTML, CSS, parser, renderizado, interacción, internacionalización y exportación. |
+| `htaccess` | Configuración de reescritura para Apache entregada sin el punto inicial. Debe renombrarse como `.htaccess` al desplegarla como configuración de Apache. |
+| `README.md` | Documentación del proyecto para GitHub u otro visor de repositorios. |
+| `assets/` | Capturas reales generadas desde la aplicación entregada. |
 
-Un nuevo control debe actualizar el estado central y luego llamar al pipeline de renderizado.
+## 4. Formatos de entrada
+
+### 4.1 Extensiones admitidas para archivos locales
+
+| Extensión | Contenido esperado |
+|---|---|
+| `.nwk`, `.new`, `.tre`, `.tree`, `.txt` | Árboles en Newick clásico. |
+| `.enwk`, `.enw`, `.net` | Redes filogenéticas en Newick extendido. |
+| `.json` | Proyectos de Phyli o estructuras antiguas compatibles. |
+
+El parser determina si la entrada es un árbol o una red a partir del contenido y no únicamente de la extensión.
+
+### 4.2 Newick clásico
+
+```newick
+((Homo_sapiens:0.10,Pan_troglodytes:0.10)95:0.20,
+ (Mus_musculus:0.25,Rattus_norvegicus:0.25)88:0.15,
+ Canis_lupus:0.30);
+```
+
+Phyli reconoce:
+
+| Sintaxis | Significado |
+|---|---|
+| `(A,B)` | Agrupación interna o clado. |
+| `Nombre_taxon` | Etiqueta terminal o interna. Los guiones bajos se muestran como espacios. |
+| `:0.25` | Longitud de rama. |
+| `[95]` | Valor de soporte almacenado como anotación entre corchetes. |
+| `)95:0.1` | Etiqueta interna numérica interpretada como soporte. |
+| `;` | Fin de la expresión Newick. |
+
+### 4.3 Newick extendido
+
+Un nodo híbrido se representa repitiendo el mismo identificador híbrido. El parser actual reconoce etiquetas como `#H`, `#LGT` y `#R`.
+
+```newick
+((A:1,(B:1)#H1:0.5::0.7)x:1,
+ (#H1:0.5::0.3,C:1)y:1)root;
+```
+
+El modelo de anotación de una rama es:
 
 ```text
-evento del control
-  ↓
-actualizar S
-  ↓
-computeLayout()
-  ↓
-render()
-  ↓
-fit() solo si el cambio geométrico requiere reajustar la vista
+:length:support:gamma
 ```
 
-Usa `fit()` con cuidado. Llamarlo después de cada cambio menor de estilo puede resultar molesto porque reinicia la vista actual del usuario.
+Se permiten valores intermedios vacíos. Por tanto, `:0.5::0.7` representa una longitud de rama de `0.5`, sin valor de soporte y con una probabilidad de herencia `γ = 0.7`.
 
-### 15.5 Agregar un nuevo formato de exportación
+Cuando se encuentran etiquetas híbridas repetidas, Phyli combina sus apariciones para construir:
 
-Un nuevo formato debe usar el estado actual, no leer la interfaz manualmente cuando sea evitable. Para exportaciones visuales, reutiliza el constructor de exportación SVG para que la salida coincida con lo que el usuario ve.
+1. Un árbol base enraizado.
+2. Una o más aristas de reticulación.
+3. Nodos híbridos con forma de rombo.
+4. Etiquetas opcionales de soporte y probabilidad de herencia.
 
-## 16. Checklist de pruebas
+### 4.4 Proyectos JSON
 
-### Entrada y parseo
+La exportación JSON actual guarda la representación Newick o Newick extendido original junto con el estado visual. Esto incluye trazado, modo de escala, alineación, ordenamiento, ángulo radial, separación entre taxones, propiedades de estilo, controles de visibilidad y metadatos del proyecto.
 
-- [ ] Cargar `examples/simple.nwk`.
-- [ ] Cargar `examples/vertebrates.nwk`.
-- [ ] Cargar `examples/tree-of-life.nwk`.
-- [ ] Cargar un `.nwk` local.
-- [ ] Cargar un proyecto `.json` local.
-- [ ] Pegar un árbol Newick manualmente.
-- [ ] Cargar un árbol mediante el hash de la URL.
-- [ ] Confirmar que un Newick inválido produce un error legible.
+Phyli también reconoce una estructura JSON anterior que contiene un objeto `tree` anidado y lo convierte nuevamente a Newick durante la importación.
 
-### Visualización
+## 5. Carga de datos
 
-- [ ] Probar escalón, curvo, recto, radial y radial escalonado.
-- [ ] Probar filograma y cladograma.
-- [ ] Probar alineación de puntas.
-- [ ] Probar ordenamiento de clados.
-- [ ] Probar cambios de ángulo radial.
-- [ ] Probar separación entre taxones.
-- [ ] Probar el color de las ramas, el grosor de las ramas, el tamaño de las etiquetas y el color de las etiquetas.
+| Método | Procedimiento y comportamiento |
+|---|---|
+| Archivo local | Arrastra un archivo admitido al área de carga o usa el selector. El procesamiento permanece en el navegador. |
+| Ejemplo integrado | Selecciona **Árbol de la vida** o **Red filogenética**. |
+| Contenido pegado | Pega Newick, Newick extendido o JSON en el campo de entrada y selecciona **Cargar**. |
+| Archivo remoto | Pega una dirección `http://` o `https://`. El servidor remoto debe permitir el acceso del navegador mediante CORS. Las URLs raw de GitHub normalmente funcionan. |
+| Fragmento de URL | Coloca el árbol después de `#`, usa `#nwk=...` o abre un enlace comprimido `#z=...` generado por Phyli. |
+| Parámetro de fuente remota | Usa `#src=https://.../tree.nwk` o un archivo equivalente en Newick extendido. |
+| Ruta en Apache | Con la regla de reescritura habilitada, coloca Newick directamente en la ruta. Los caracteres híbridos `#` deben codificarse como `%23`. |
 
-### Enraizamiento
+Ejemplos:
 
-- [ ] Enraizar por un taxón conocido.
-- [ ] Enraizar por midpoint.
-- [ ] Exportar el Newick después de enraizarlo y reabrirlo.
-- [ ] Probar nombres ambiguos de taxón.
-- [ ] Probar midpoint con un árbol con ramas largas.
+```text
+https://example.org/Phyli/#(A:1,(B:1,C:1));
+https://example.org/Phyli/#nwk=(A:1,(B:1,C:1));
+https://example.org/Phyli/#src=https://example.org/data/network.enwk
+https://example.org/Phyli/(A:1,(B:1,C:1));
+```
 
-### Interacción
+La forma comprimida `#z=` es generada por **Compartir enlace** y puede conservar el árbol o la red junto con los ajustes relevantes de la vista.
+
+## 6. Trabajo con árboles
+
+### 6.1 Búsqueda y navegación
+
+El buscador de taxones utiliza la lista de puntas del árbol actual. Acepta nombres exactos o parciales. Al seleccionar un resultado, resalta el taxón, recentra la vista y expande los ancestros colapsados necesarios para hacerlo visible.
+
+El visor admite:
+
+| Acción | Resultado |
+|---|---|
+| Rueda del mouse o botones de zoom | Acercar o alejar la vista. |
+| Arrastrar sobre el visor | Desplazar el árbol o la red. |
+| Botón de ajuste | Encajar la visualización completa en el visor. |
+| Botón de restablecimiento | Recuperar los estilos y ajustes visuales predeterminados. |
+| Pasar el cursor | Mostrar información del taxón, longitud de rama, soporte, descendientes o reticulación. |
+| Clic en un nodo interno | Abrir acciones para colapsar/expandir, enfocar, colorear el clado y quitar su color. |
+
+### 6.2 Enraizamiento por taxón
+
+Phyli convierte el árbol actual en un grafo no dirigido y ponderado, encuentra la arista conectada al taxón terminal seleccionado, inserta una raíz artificial en esa arista y reconstruye el árbol dirigido desde la nueva raíz.
+
+Cuando existen longitudes de rama, la arista seleccionada se divide en dos partes y conserva su longitud total.
+
+### 6.3 Enraizamiento por punto medio
+
+El enraizamiento por punto medio sigue el diámetro ponderado del árbol:
+
+1. Parte desde una hoja arbitraria y encuentra la hoja más lejana `A`.
+2. Recorre nuevamente desde `A` y encuentra la hoja más lejana `B`.
+3. Reconstruye el camino entre `A` y `B`.
+4. Ubica la raíz a la mitad de la distancia total.
+5. Divide la arista que contiene ese punto medio y reconstruye el árbol enraizado.
+
+Para una entrada con estructura de árbol, el recorrido y la reconstrucción son lineales respecto del número de nodos.
+
+### 6.4 Distancia entre dos taxones
+
+La herramienta de distancia encuentra el camino entre dos nodos terminales del árbol base enraizado actual.
+
+| Estado de la entrada | Unidad informada |
+|---|---|
+| Existen longitudes de rama | Suma de longitudes de rama, mostrada como sustituciones por sitio. |
+| No existen longitudes utilizables | Número de pasos topológicos. |
+
+La herramienta guarda los identificadores seleccionados y los conjuntos de aristas y nodos del camino. Cuando se activa **Atenuar el resto del árbol**, el camino y ambos taxones permanecen destacados mientras los elementos no relacionados pierden opacidad.
+
+## 7. Trabajo con redes filogenéticas
+
+El modo de red se activa automáticamente cuando se detectan etiquetas híbridas repetidas en Newick extendido.
+
+### 7.1 Codificación visual
+
+| Elemento | Renderizado |
+|---|---|
+| Rama del árbol base | Rama sólida estándar. |
+| Arista de reticulación | Flecha curva, segmentada y morada. |
+| Nodo híbrido | Marcador con forma de rombo. |
+| Probabilidad de herencia | Etiqueta `γ` cercana a la arista reticulada. |
+| Resumen de la red | Taxones, nodos, profundidad máxima, número de reticulaciones y distancia máxima. |
+
+### 7.2 Reglas específicas para redes
+
+| Función | Comportamiento en modo de red |
+|---|---|
+| Enraizar por taxón | Desactivado. |
+| Enraizar por punto medio | Desactivado. |
+| Distancia entre taxones | Se calcula sobre el árbol base; las aristas reticuladas no se incluyen en el camino. |
+| Visibilidad de reticulaciones | Puede activarse o desactivarse desde el panel Diseño. |
+| Visibilidad de `γ` | Puede activarse o desactivarse de forma independiente. |
+| Exportación Newick | Serializa la red actual nuevamente como Newick extendido, con etiquetas híbridas repetidas y anotaciones de arista. |
+
+El enraizamiento se desactiva deliberadamente porque reconstruir una red como un árbol simple podría dejar huérfanas o invalidar sus aristas de reticulación.
+
+## 8. Trazado y diseño visual
+
+### 8.1 Trazados
+
+| Trazado | Descripción |
+|---|---|
+| Escalón | Filogenia rectangular con segmentos horizontales y verticales. |
+| Curvo | Transiciones suaves entre padre e hijo. |
+| Recto | Segmentos diagonales directos. |
+| Radial | Proyección polar adecuada para árboles grandes. |
+| Radial escalonado | Proyección polar con geometría escalonada. |
+
+### 8.2 Modos de escala
+
+| Modo | Regla de coordenadas |
+|---|---|
+| Filograma | La profundidad horizontal o radial es proporcional a la longitud de rama acumulada. Se muestra una barra de escala. |
+| Cladograma | Se ignoran las longitudes de rama y la profundidad se determina por el nivel topológico. |
+
+**Alinear las puntas** proyecta los nodos terminales hacia una coordenada externa común. **Ordenar ramas** coloca primero los clados pequeños para generar una vista escalonada. Los trazados radiales también permiten configurar el ángulo del abanico entre 30° y 360°.
+
+### 8.3 Controles de estilo
+
+El panel Diseño permite modificar:
+
+1. Grosor y color de las ramas.
+2. Radio y color de los nodos internos.
+3. Tamaño y color de las etiquetas.
+4. Líneas guía de las puntas.
+5. Marcadores de bootstrap/soporte.
+6. Nombres de clados internos.
+7. Aristas de reticulación en modo de red.
+8. Etiquetas de probabilidad de herencia en modo de red.
+
+Los marcadores de soporte usan categorías cromáticas cualitativas para soporte alto, medio y bajo. El valor exacto permanece disponible mediante la interacción.
+
+## 9. Exportación y reproducibilidad
+
+| Exportación | Resultado |
+|---|---|
+| SVG | Figura vectorial independiente que conserva ramas, etiquetas, soporte, colores, reticulaciones y símbolos de clados colapsados. |
+| PNG | Exportación ráster construida desde SVG mediante Canvas a resolución 2×. |
+| Newick | Topología enraizada actual o red actual en Newick extendido. |
+| JSON | Proyecto de Phyli reabrible con datos y ajustes visuales. |
+| Enlace compartido | URL comprimida que contiene el árbol o red y el estado relevante de la vista. |
+
+SVG es el formato recomendado para manuscritos y edición posterior en Inkscape, Illustrator o Figma. PNG sirve para diapositivas e informes. JSON es más seguro que una URL compartida para proyectos muy grandes o sensibles.
+
+## 10. Arquitectura del software
+
+Phyli es una aplicación de una sola página sin frameworks.
+
+```mermaid
+flowchart LR
+    A[Archivo local, texto, URL, hash o ejemplo] --> B[Detección de entrada]
+    B --> C[Parser Newick o JSON]
+    C --> D[Normalización y anotación]
+    D --> E{¿Etiquetas híbridas repetidas?}
+    E -- No --> F[Estado de árbol]
+    E -- Sí --> G[Árbol base + grafo de reticulación]
+    F --> H[Motor de trazado]
+    G --> H
+    H --> I[Renderizador SVG]
+    I --> J[Búsqueda, pan, zoom y acciones de nodo]
+    I --> K[SVG, PNG, Newick, JSON y URL]
+```
+
+### 10.1 Módulos internos principales
+
+| Módulo | Responsabilidad |
+|---|---|
+| Capa de entrada | FileReader, contenido pegado, fetch remoto, decodificación de URL, descompresión de URL y carga de ejemplos. |
+| Parser | Tokenización de delimitadores Newick, etiquetas, anotaciones entre corchetes, campos de rama y etiquetas híbridas. |
+| Extracción de redes | Combina apariciones híbridas repetidas y construye aristas de reticulación. |
+| Anotación | Referencias al padre, profundidad, distancia acumulada, número de hojas, máximos descendentes y estadísticas. |
+| Enraizamiento | Conversión a grafo, enraizamiento en una arista, punto medio ponderado y reconstrucción. |
+| Distancia | Descubrimiento del camino en el árbol base, resaltado de nodos/aristas y acumulación de distancia. |
+| Trazado | Asignación rectangular de coordenadas y conversión polar para vistas radiales. |
+| Renderizado | Grupos SVG por capas para guías, ramas, reticulaciones, cuñas, soporte, nodos y etiquetas. |
+| Interacción | Tooltips, menú de nodos, búsqueda, expansión de rutas colapsadas, zoom, desplazamiento y ajuste del visor. |
+| Exportación | Serialización SVG, conversión PNG con Canvas, serialización recursiva Newick/eNewick, estado JSON y compresión URL con LZString. |
+| Internacionalización | Traducción en tiempo de ejecución de nodos de texto y atributos al español, inglés o portugués. |
+
+### 10.2 Dependencias de ejecución
+
+La aplicación no requiere framework JavaScript ni gestor de paquetes. LZString está integrado en `index.html` para generar URLs comprimidas. La tipografía de presentación se solicita desde Google Fonts cuando hay conexión a Internet; la lógica de la aplicación y el resto de la interfaz permanecen integrados localmente.
+
+## 11. Despliegue
+
+### 11.1 Hosting estático genérico
+
+Sube `index.html` y los recursos de documentación a un directorio web estático. Los árboles mediante hash y los enlaces compartidos `#z=` funcionan sin reglas de reescritura del servidor.
+
+### 11.2 GitHub Pages
+
+GitHub Pages puede servir la aplicación directamente. Mantén los enlaces basados en hash porque GitHub Pages no aplica el archivo de reescritura para Apache.
+
+Raíz recomendada del repositorio:
+
+```text
+index.html
+README.md
+.nojekyll
+assets/
+```
+
+### 11.3 Apache bajo `/Phyli/`
+
+El archivo `htaccess` entregado contiene reglas para recibir Newick directamente en la ruta. Antes del despliegue:
+
+1. Renombra `htaccess` como `.htaccess`.
+2. Confirma que `mod_rewrite` esté habilitado.
+3. Conserva `RewriteBase /Phyli/` únicamente cuando la aplicación esté instalada realmente bajo `/Phyli/`.
+4. Cambia `RewriteBase` al usar otro subdirectorio.
+5. Verifica que el servidor permita `AllowEncodedSlashes NoDecode` cuando corresponda.
+
+La regla envía las rutas inexistentes a `index.html`, permitiendo direcciones como:
+
+```text
+https://example.org/Phyli/(A:1,(B:1,C:1));
+```
+
+En Newick extendido incluido en la ruta, las marcas híbridas deben codificarse como `%23`.
+
+## 12. Privacidad y manejo de datos
+
+Los archivos locales se leen mediante `FileReader` y no se suben a un backend de Phyli porque dicho backend no existe. La carga remota envía una solicitud únicamente a la URL indicada por el usuario. Los enlaces compartidos colocan datos comprimidos del proyecto dentro de la URL, por lo que no deben utilizarse con árboles privados o sensibles si su exposición en la dirección no es aceptable.
+
+## 13. Rendimiento
+
+La mayoría de las operaciones centrales es lineal para un árbol con `n` nodos.
+
+| Operación | Complejidad esperada |
+|---|---|
+| Parseo y anotación | `O(n)` |
+| Trazado rectangular | `O(n)` |
+| Proyección radial | `O(n)` |
+| Construcción SVG | `O(n)` elementos visibles |
+| Enraizamiento por punto medio | `O(n)` para un árbol |
+| Búsqueda de taxones | `O(número de hojas)` |
+
+Los árboles muy grandes pueden volverse lentos porque cada rama, etiqueta, marcador de soporte, área interactiva y reticulación visible se representa mediante un elemento SVG/DOM.
+
+## 14. Compatibilidad de navegadores
+
+Phyli usa APIs web estándar: SVG, Canvas, Blob URLs, FileReader, Fetch, eventos DOM, portapapeles cuando está disponible y localStorage para recordar el idioma seleccionado.
+
+El entorno objetivo corresponde a versiones actuales de escritorio de:
+
+1. Chrome o Chromium.
+2. Microsoft Edge.
+3. Firefox.
+4. Safari.
+
+## 15. Limitaciones conocidas
+
+1. Los dialectos Newick y Newick extendido varían; algunas anotaciones poco comunes pueden requerir preprocesamiento.
+2. Los árboles muy grandes pueden generar etiquetas densas y una salida SVG costosa.
+3. La carga remota depende de la política CORS del servidor de origen.
+4. Las URLs compartidas están limitadas por la longitud práctica admitida por el navegador y el servidor.
+5. La distancia en redes sigue actualmente solo el árbol base y excluye las aristas de reticulación.
+6. El enraizamiento se encuentra deshabilitado intencionalmente para las redes.
+7. Newick incluido directamente en la ruta requiere reescritura en el servidor; la entrada mediante hash no la requiere.
+
+## 16. Checklist de validación
+
+### Datos y parseo
+
+- [ ] Abrir el ejemplo integrado Árbol de la vida.
+- [ ] Abrir la red integrada de Saccharomyces.
+- [ ] Cargar archivos locales `.nwk`, `.enwk` y `.json`.
+- [ ] Pegar Newick clásico, Newick extendido y JSON.
+- [ ] Probar una URL raw remota con CORS habilitado.
+- [ ] Confirmar que un Newick inválido produzca un error legible.
+
+### Operaciones con árboles
 
 - [ ] Buscar un taxón visible.
 - [ ] Buscar un taxón dentro de un clado colapsado.
-- [ ] Colapsar y expandir clados.
-- [ ] Colorear y restablecer los colores del clado.
-- [ ] Enfocar un clado.
-- [ ] Probar el zoom y el pan en el escritorio.
-- [ ] Probar en pantalla estrecha.
+- [ ] Enraizar mediante un taxón terminal.
+- [ ] Enraizar por punto medio.
+- [ ] Calcular una distancia con longitudes de rama.
+- [ ] Calcular una distancia sin longitudes de rama.
 
-### Exportación
+### Operaciones con redes
 
-- [ ] Exportar SVG y abrirlo.
-- [ ] Exportar PNG y verificar resolución.
-- [ ] Exportar Newick y reabrirlo.
-- [ ] Exportar JSON y reabrirlo.
-- [ ] Copiar el enlace compartido y abrirlo en una nueva pestaña.
+- [ ] Confirmar el número de reticulaciones y los marcadores híbridos.
+- [ ] Activar y desactivar las aristas reticuladas.
+- [ ] Activar y desactivar las etiquetas `γ`.
+- [ ] Exportar y reabrir Newick extendido.
+- [ ] Confirmar que los controles de enraizamiento permanezcan deshabilitados.
 
-### Internacionalización
+### Visualización y exportación
 
-- [ ] Cambiar a español antes de cargar un árbol.
-- [ ] Cambiar a inglés después de cargar un árbol.
-- [ ] Cambiar al portugués después de abrir la ayuda.
-- [ ] Revisar etiquetas, mensajes, ayudas y la exportación.
+- [ ] Probar los cinco trazados.
+- [ ] Probar filograma y cladograma.
+- [ ] Probar alineación de puntas, ordenamiento, ángulo radial y separación.
+- [ ] Colapsar, expandir, enfocar, colorear y restablecer un clado.
+- [ ] Exportar SVG, PNG, Newick y JSON.
+- [ ] Abrir un enlace compartido en otra pestaña.
+- [ ] Cambiar entre español, inglés y portugués después de cargar los datos.
 
-## 17. Notas de rendimiento
+## 17. Citación, licencia y créditos
 
-La mayoría de las operaciones de layout y de renderizado son lineales. Para un árbol con `n` nodos:
+La aplicación incluye la siguiente cita del trabajo original:
 
-| Operación | Costo esperado |
+> Mardones Aguilar, R. I. N., Villalobos Cid, M. J., & Universidad de Santiago de Chile, Facultad de Ingeniería, Departamento de Ingeniería Informática. (2006). *Desarrollo de aplicación en línea para la interacción y visualización de árboles filogenéticos*. Universidad de Santiago de Chile.
+
+El panel Acerca de declara que el proyecto base se distribuye bajo **Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)**. Una publicación formal del repositorio también debería incorporar un archivo `LICENSE` explícito para que las condiciones sean visibles fuera de la aplicación.
+
+Créditos actuales de continuidad, documentación y desarrollo web:
+
+| Colaborador | Contacto |
 |---|---|
-| Recorrido y estadísticas | `O(n)` |
-| Layout rectangular | `O(n)` |
-| Proyección radial | `O(n)` |
-| Render SVG | `O(n)` elementos DOM/SVG |
-| Enraizamiento por midpoint | `O(n)` |
-| Búsqueda | `O(número de hojas)` |
-
-Los árboles muy grandes pueden volverse lentos porque cada rama, etiqueta, marcador y área interactiva visibles son elementos SVG/DOM. Versiones futuras podrían usar etiquetas virtualizadas, Canvas/WebGL o expansión progresiva de clados.
-
-## 18. Compatibilidad de navegadores
-
-Phyli apunta a navegadores modernos:
-
-- Chrome / Chromium;
-- Microsoft Edge;
-- Firefox;
-- Safari.
-
-La app usa APIs web estándar: SVG, Canvas, Blob URLs, FileReader, eventos DOM y objetos JavaScript en memoria. No requiere framework JavaScript externo.
-
-## 19. Privacidad y manejo de datos
-
-Phyli procesa los árboles en el navegador. Los archivos locales no se suben a un backend de Phyli porque no existe ningún backend. La carga por URL remota solo solicita el archivo desde la dirección indicada por el usuario. Los enlaces compartibles pueden incluir datos comprimidos del árbol en la URL; por eso no conviene usarlos con datos privados o sensibles.
-
-## 20. Limitaciones conocidas
-
-- Existen dialectos distintos de Newick; anotaciones poco comunes pueden requerir preprocesamiento.
-- Los árboles muy grandes pueden generar etiquetas densas y SVG pesados.
-- Los enlaces compartibles dependen de los límites prácticos de longitud de las URL.
-- La carga de archivos remotos depende de la configuración de CORS del servidor de origen.
-- El midpoint asume que los largos de rama son significativos cuando están disponibles.
-
-## 21. Citación
-
-Si usas Phyli en docencia, investigación o demostraciones de software, cita el proyecto y reconoce el trabajo original.
-
-La metadata sugerida se entrega en `CITATION.cff` cuando el archivo se incluye en el repositorio.
-
-## 22. Créditos
-
-Phyli reconoce el trabajo original y la continuidad de:
-
-| Autor | Email |
-|---|---|
-| Rodrigo Mardones-Aguilar | [rodrigo.mardones.a@usach.cl](mailto:rodrigo.mardones.a@usach.cl) |
-| Eduardo Kessi-Pérez | [eduardo.kessi@usach.cl](mailto:eduardo.kessi@usach.cl]) |
-| Manuel Villalobos-Cid | [manuel.villalobos.c@usach.cl](mailto:manuel.villalobos.c@usach.cl) |
+| Manuel Villalobos Cid | [manuel.villalobos@usach.cl](mailto:manuel.villalobos@usach.cl) |
+| Rodrigo Mardones Aguilar | [rodrigo.mardones.a@usach.cl](mailto:rodrigo.mardones.a@usach.cl) |
+| Eduardo Kessi-Pérez | Universidad de Santiago de Chile |
 
 Contexto institucional: Universidad de Santiago de Chile, Facultad de Ingeniería, Departamento de Ingeniería Informática.
-
-Nota de desarrollo: este repositorio fue construido con apoyo asistido por IA mediante ChatGPT. La herramienta se utilizó para organizar la documentación, mejorar las explicaciones técnicas, refinar la interfaz multilingüe y preparar la estructura del repositorio en GitHub. Todas las decisiones finales, la autoría, la validación y la revisión del contenido fueron realizadas por los autores.

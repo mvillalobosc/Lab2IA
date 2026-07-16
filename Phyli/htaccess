@@ -1,8 +1,12 @@
-# Phily — Apache: servir index.html para cualquier ruta bajo /Phyli/
-# Habilita URLs con el árbol escrito en la ruta, por ejemplo:
+# Phyli — Apache: servir index.html para cualquier ruta bajo /Phyli/
+# Habilita URLs con el árbol o la red escritos en la ruta, por ejemplo:
 #   https://kalgan.diinf.usach.cl/Phyli/(Homo:1,(Mus:1,Rattus:1)Rodentia:1);
+#   https://kalgan.diinf.usach.cl/Phyli/((A:1,(B:1)%23H1:0.5::0.7)x:1,(%23H1:0.5::0.3,C:1)y:1)r;
 #
-# (La forma con # ya funciona SIN esto:  .../Phyli/#(A:1,B:1); )
+# En una red en Newick extendido, el # de las etiquetas híbridas se escribe %23:
+# si va crudo, el navegador lo toma como fragmento (Phyli igual lo reconstruye).
+#
+# (La forma con # ya funciona SIN esto:  .../Phyli/#(A:1,B:1);  .../Phyli/#((A:1,(B:1)#H1:0.5::0.7)x:1,(#H1:0.5::0.3,C:1)y:1)r; )
 
 RewriteEngine On
 RewriteBase /Phyli/
