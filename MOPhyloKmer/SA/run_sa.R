@@ -58,6 +58,11 @@ barra <- function(i, n, ancho = 30) {
           round(100 * i / n))
 }
 
+medoide <- function(P) {
+  if (nrow(P) <= 1) return(1L)
+  which.min(rowSums(as.matrix(dist(P))))
+}
+
 run_once_sa <- function(corrida) {
   set.seed(SEMILLA + corrida)
   progreso <- isTRUE(VERBOSE) && !isTRUE(PARALELO)
@@ -82,12 +87,26 @@ run_once_sa <- function(corrida) {
   fila  <- 0
   Temp  <- T0
 
+  # archivo de no-dominados (para la frontera y el arbol medoide)
+  arch_ls <- arbol_base$scores$ls
+  arch_me <- arbol_base$scores$me
+  arch_tr <- list(arbol_base)
+
   for (a in seq_len(PARADA)) {
     for (b in seq_len(N_INTERNAS)) {
       arbol_tmp <- perturbar_arbol(arbol_solucion)
       arbol_tmp <- calcular_objetivos(arbol_tmp)
       arbol_tmp <- calcular_objetivos_normalizados(arbol_tmp, max_ls, max_me)
       arbol_tmp <- calcular_hypervolumen(arbol_tmp)
+
+      # actualizar archivo de no-dominados (minimiza LS y ME)
+      nl <- arbol_tmp$scores$ls; nm <- arbol_tmp$scores$me
+      if (!any(arch_ls <= nl & arch_me <= nm & (arch_ls < nl | arch_me < nm))) {
+        keep <- !(nl <= arch_ls & nm <= arch_me & (nl < arch_ls | nm < arch_me))
+        arch_ls <- c(arch_ls[keep], nl)
+        arch_me <- c(arch_me[keep], nm)
+        arch_tr <- c(arch_tr[keep], list(arbol_tmp))
+      }
 
       deltaE <- arbol_solucion$scores$hyp - arbol_tmp$scores$hyp
       if (arbol_tmp$scores$hyp > arbol_mejor$scores$hyp) arbol_mejor <- arbol_tmp
@@ -107,10 +126,17 @@ run_once_sa <- function(corrida) {
   }
   if (progreso) cat("\n")
 
-  if (is.null(arbol_mejor$tip.label))
-    arbol_mejor$tip.label <- rownames(arbol_base$dist_kmer)
-  write.tree(arbol_mejor,
-             file.path(RESULTS_DIR, sprintf("tree_MOSA_%s_run%02d.nwk", ds, corrida)))
+  # --- frontera + arbol MEDOIDE de la frontera -----------------------
+  Pn  <- cbind(arch_ls / max_ls, arch_me / max_me)   # objetivos normalizados
+  med <- medoide(Pn)
+  write.csv(data.frame(ls = arch_ls, me = arch_me),
+            file.path(RESULTS_DIR, sprintf("front_MOSA_%s_run%02d.csv", ds, corrida)),
+            row.names = FALSE)
+  arbol_medoide <- arch_tr[[med]]
+  if (is.null(arbol_medoide$tip.label))
+    arbol_medoide$tip.label <- rownames(arbol_base$dist_kmer)
+  write.tree(arbol_medoide,
+             file.path(RESULTS_DIR, sprintf("medoid_MOSA_%s_run%02d.nwk", ds, corrida)))
   write.csv(
     data.frame(iteration = seq_len(total), current = traza[, 1],
                best_so_far = cummax(traza[, 2])),
@@ -136,7 +162,7 @@ if (isTRUE(PARALELO)) {
   on.exit(try(stopCluster(cl), silent = TRUE), add = TRUE)
   clusterExport(cl, c("ROOT", "DATA_DIR", "RESULTS_DIR", "DATASET", "TIPO", "K",
                       "N_INTERNAS", "PARADA", "T0", "ALPHA", "SEMILLA",
-                      "N_CORRIDAS", "VERBOSE", "PARALELO", "barra", "run_once_sa"),
+                      "N_CORRIDAS", "VERBOSE", "PARALELO", "barra", "medoide", "run_once_sa"),
                 envir = environment())
   clusterEvalQ(cl, {
     source(file.path(ROOT, "R", "packages.R"))
@@ -145,11 +171,22 @@ if (isTRUE(PARALELO)) {
     TRUE
   })
   res <- parLapply(cl, seq_len(N_CORRIDAS), run_once_sa)
+  stopCluster(cl)
 } else {
   res <- lapply(seq_len(N_CORRIDAS), run_once_sa)
 }
 
 resumen <- do.call(rbind, res)
+
+# --- consolidar: dejar SOLO el medoide y la frontera de la MEJOR corrida ---
+ds <- tools::file_path_sans_ext(DATASET)
+mejor <- resumen$corrida[which.max(resumen$hv_best)]
+file.copy(file.path(RESULTS_DIR, sprintf("medoid_MOSA_%s_run%02d.nwk", ds, mejor)),
+          file.path(RESULTS_DIR, sprintf("medoid_MOSA_%s.nwk", ds)), overwrite = TRUE)
+file.copy(file.path(RESULTS_DIR, sprintf("front_MOSA_%s_run%02d.csv", ds, mejor)),
+          file.path(RESULTS_DIR, sprintf("front_MOSA_%s.csv", ds)), overwrite = TRUE)
+unlink(list.files(RESULTS_DIR, pattern = sprintf("^medoid_MOSA_%s_run.*\\.nwk$", ds), full.names = TRUE))
+unlink(list.files(RESULTS_DIR, pattern = sprintf("^front_MOSA_%s_run.*\\.csv$", ds), full.names = TRUE))
 for (i in seq_len(nrow(resumen)))
   message(sprintf("Corrida %2d/%d  HVbest=%.4f  %.1fs",
                   resumen$corrida[i], N_CORRIDAS, resumen$hv_best[i], resumen$segundos[i]))

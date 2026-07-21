@@ -52,6 +52,12 @@ dir.create(RESULTS_DIR, showWarnings = FALSE, recursive = TRUE)
 
 # --- helper: construir arbol phylo desde una matriz de distancias -----
 #     (reemplaza el bloque NJ + limpieza repetido 4 veces en el original)
+# indice del MEDOIDE de un conjunto de puntos (minima suma de distancias)
+medoide <- function(P) {
+  if (nrow(P) <= 1) return(1L)
+  which.min(rowSums(as.matrix(dist(P))))
+}
+
 arbol_desde_matriz <- function(dist_mat, dist_original) {
   a <- NJ(dist_mat)
   a$dist_kmer     <- dist_mat
@@ -159,12 +165,18 @@ run_once_nsga <- function(corrida) {
 
   best_so_far <- cummax(hv_gen)
 
-  # --- arbol representativo + traza (cada corrida escribe su archivo) ---
-  arbol_final <- nuevaPoblacion[[1]]
-  if (is.null(arbol_final$tip.label))
-    arbol_final$tip.label <- rownames(matriz_original)
-  write.tree(arbol_final,
-             file.path(RESULTS_DIR, sprintf("tree_NSGA_%s_run%02d.nwk", ds, corrida)))
+  # --- frontera final + arbol MEDOIDE (centro de la frontera) --------
+  idxF <- which(me_ls$ranking == 1)
+  Pn   <- as.matrix(me_ls[idxF, c("LSnorm", "MEnorm")])   # objetivos normalizados
+  med  <- idxF[medoide(Pn)]
+  write.csv(data.frame(ls = me_ls$LS[idxF], me = me_ls$ME[idxF]),
+            file.path(RESULTS_DIR, sprintf("front_NSGA_%s_run%02d.csv", ds, corrida)),
+            row.names = FALSE)
+  arbol_medoide <- nuevaPoblacion[[med]]
+  if (is.null(arbol_medoide$tip.label))
+    arbol_medoide$tip.label <- rownames(matriz_original)
+  write.tree(arbol_medoide,
+             file.path(RESULTS_DIR, sprintf("medoid_NSGA_%s_run%02d.nwk", ds, corrida)))
   write.csv(
     data.frame(generation = 0:GENERACIONES, hypervolume = hv_gen,
                best_so_far = best_so_far),
@@ -192,7 +204,7 @@ if (isTRUE(PARALELO)) {
   clusterExport(cl, c("ROOT", "DATA_DIR", "RESULTS_DIR", "DATASET", "TIPO", "K",
                       "POBLACION", "GENERACIONES", "P_CROSS", "P_MUTA", "SEMILLA",
                       "N_CORRIDAS", "VERBOSE", "PARALELO",
-                      "arbol_desde_matriz", "barra", "run_once_nsga"),
+                      "arbol_desde_matriz", "medoide", "barra", "run_once_nsga"),
                 envir = environment())
   clusterEvalQ(cl, {
     source(file.path(ROOT, "R", "packages.R"))
@@ -201,11 +213,22 @@ if (isTRUE(PARALELO)) {
     TRUE
   })
   res <- parLapply(cl, seq_len(N_CORRIDAS), run_once_nsga)
+  stopCluster(cl)
 } else {
   res <- lapply(seq_len(N_CORRIDAS), run_once_nsga)
 }
 
 resumen <- do.call(rbind, res)
+
+# --- consolidar: dejar SOLO el medoide y la frontera de la MEJOR corrida ---
+ds <- tools::file_path_sans_ext(DATASET)
+mejor <- resumen$corrida[which.max(resumen$hv_max)]
+file.copy(file.path(RESULTS_DIR, sprintf("medoid_NSGA_%s_run%02d.nwk", ds, mejor)),
+          file.path(RESULTS_DIR, sprintf("medoid_NSGA_%s.nwk", ds)), overwrite = TRUE)
+file.copy(file.path(RESULTS_DIR, sprintf("front_NSGA_%s_run%02d.csv", ds, mejor)),
+          file.path(RESULTS_DIR, sprintf("front_NSGA_%s.csv", ds)), overwrite = TRUE)
+unlink(list.files(RESULTS_DIR, pattern = sprintf("^medoid_NSGA_%s_run.*\\.nwk$", ds), full.names = TRUE))
+unlink(list.files(RESULTS_DIR, pattern = sprintf("^front_NSGA_%s_run.*\\.csv$", ds), full.names = TRUE))
 for (i in seq_len(nrow(resumen)))
   message(sprintf("Corrida %2d/%d  HVmax=%.4f  %.1fs",
                   resumen$corrida[i], N_CORRIDAS, resumen$hv_max[i], resumen$segundos[i]))

@@ -1,8 +1,8 @@
 # =====================================================================
 # plot_trees.R  ·  Arboles filogeneticos NIVEL PUBLICACION (ggtree)
 # ---------------------------------------------------------------------
-# Grafica los arboles Newick exportados por las corridas (best tree por
-# algoritmo) con estilo limpio: layout dendrograma, etiquetas de taxon
+# Grafica el arbol MEDOIDE (centro de la frontera) de cada algoritmo,
+# de la mejor corrida, con estilo limpio: layout dendrograma, etiquetas de taxon
 # legibles y nodos internos marcados. Salida PNG 300dpi + PDF vectorial.
 #
 # Requiere ggtree (Bioconductor):
@@ -39,19 +39,23 @@ dataset <- if (length(args) >= 1) args[1] else
            if (exists("DATASET")) tools::file_path_sans_ext(DATASET) else NA
 layout  <- if (length(args) >= 2) args[2] else "dendrogram"   # o "rectangular"
 
-nwks <- list.files(RESULTS_DIR, pattern = "^tree_(NSGA|MOSA)_.*\\.nwk$")
+nwks <- list.files(RESULTS_DIR, pattern = "^medoid_(NSGA|MOSA)_.*\\.nwk$")
 if (length(nwks) == 0)
-  stop("No hay arboles (.nwk) en ", RESULTS_DIR,
+  stop("No hay arboles medoide (medoid_*.nwk) en ", RESULTS_DIR,
        ". Corre primero el algoritmo (Rscript main.R).")
 if (is.na(dataset))
-  dataset <- sub("^tree_(NSGA|MOSA)_(.*)_run.*$", "\\2", nwks[1])
+  dataset <- sub("\\.nwk$", "", sub("^medoid_(NSGA|MOSA)_", "", nwks[1]))
 
 NAVY <- "#12355B"; DOT <- "#2C7FB8"
 
 # elige la mejor corrida usando el resumen (mayor HV); si no, la primera
 mejor_nwk <- function(algo) {
+  # archivo consolidado de la mejor corrida
+  canon <- file.path(RESULTS_DIR, sprintf("medoid_%s_%s.nwk", algo, dataset))
+  if (file.exists(canon)) return(canon)
+  # fallback: elegir la mejor entre los por-corrida
   files <- list.files(RESULTS_DIR,
-                      pattern = sprintf("^tree_%s_%s_run.*\\.nwk$", algo, dataset),
+                      pattern = sprintf("^medoid_%s_%s_run.*\\.nwk$", algo, dataset),
                       full.names = TRUE)
   if (!length(files)) return(NULL)
   res <- file.path(RESULTS_DIR, sprintf("resumen_%s_%s.csv", algo, dataset))
@@ -83,12 +87,12 @@ dibujar <- function(nwk, titulo, nombre) {
   message("OK  ", nombre, "  <- ", basename(nwk))
 }
 
-SOLO <- if (exists("ALGO")) ALGO else NA
-algos <- if (is.na(SOLO)) c("NSGA", "MOSA") else SOLO
-for (algo in algos) {
+for (algo in c("NSGA", "MOSA")) {
   f <- mejor_nwk(algo)
-  if (!is.null(f))
-    dibujar(f, sprintf("%s  ·  %s", dataset, algo),
-            sprintf("tree_%s_%s", algo, dataset))
+  if (!is.null(f)) {
+    etq <- if (algo == "NSGA") "NSGA-II" else "MOSA"
+    dibujar(f, sprintf("%s - %s medoid tree", dataset, etq),
+            sprintf("medoid_%s_%s", algo, dataset))
+  }
 }
-message("\nArboles (PNG) guardados en:\n  ", FIG_DIR)
+message("\nArboles medoide (PNG) guardados en:\n  ", FIG_DIR)
