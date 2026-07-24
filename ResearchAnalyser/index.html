@@ -1,0 +1,551 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Analizadores DIINF USACH</title>
+  <meta name="description" content="Selector de analizadores DIINF USACH para publicaciones y tesis.">
+  <style>
+    @font-face {
+      font-family: "Space Grotesk";
+      src: url("shared/fonts/space-grotesk-latin-700-normal.woff2") format("woff2");
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Inter";
+      src: url("shared/fonts/inter-latin-400-normal.woff2") format("woff2");
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Inter";
+      src: url("shared/fonts/inter-latin-700-normal.woff2") format("woff2");
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    :root {
+      --usach-red: #ea3323;
+      --usach-blue: #0a2f6f;
+      --deep-blue: #071b3d;
+      --violet: #6f3dc8;
+      --magenta: #b31f74;
+      --cyan: #1ca9e1;
+      --ink: #101828;
+      --muted: #61708a;
+      --line: rgba(10, 47, 111, 0.16);
+      --paper: rgba(255, 255, 255, 0.92);
+      --shadow: 0 24px 60px rgba(7, 27, 61, 0.16);
+      --radius: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      color: var(--ink);
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 12% 8%, rgba(234, 51, 35, 0.13), transparent 28%),
+        radial-gradient(circle at 88% 12%, rgba(111, 61, 200, 0.16), transparent 30%),
+        radial-gradient(circle at 50% 100%, rgba(28, 169, 225, 0.13), transparent 34%),
+        #f8fbff;
+    }
+
+    body::before {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      content: "";
+      background-image:
+        linear-gradient(rgba(10, 47, 111, 0.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(10, 47, 111, 0.055) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.68), transparent 76%);
+    }
+
+    .topbar {
+      height: 8px;
+      background: linear-gradient(90deg, var(--usach-red), var(--magenta), var(--violet), var(--usach-blue), var(--cyan));
+    }
+
+    .page {
+      width: min(1180px, calc(100% - 36px));
+      min-height: calc(100vh - 8px);
+      margin: 0 auto;
+      padding: 38px 0 42px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 26px;
+    }
+
+    header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: end;
+      gap: 20px;
+    }
+
+    .site-mark {
+      grid-column: 1 / -1;
+      width: fit-content;
+      max-width: min(100%, 420px);
+      padding: 10px 14px;
+      border: 1px solid rgba(10, 47, 111, 0.12);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.78);
+      box-shadow: 0 12px 30px rgba(7, 27, 61, 0.08);
+      backdrop-filter: blur(16px);
+    }
+
+    .site-mark img {
+      width: min(360px, 100%);
+      height: auto;
+      display: block;
+    }
+
+    .kicker {
+      margin: 0 0 8px;
+      color: var(--usach-red);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 780px;
+      margin: 0;
+      color: var(--deep-blue);
+      font-family: "Space Grotesk", "Inter", sans-serif;
+      font-size: clamp(2.15rem, 5vw, 4.4rem);
+      line-height: 0.98;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      max-width: 530px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.65;
+      text-align: right;
+    }
+
+    .apps {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .app-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 560px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      color: inherit;
+      text-decoration: none;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+      isolation: isolate;
+      transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+    }
+
+    .app-card:focus-visible {
+      outline: 4px solid rgba(28, 169, 225, 0.42);
+      outline-offset: 4px;
+    }
+
+    .app-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(10, 47, 111, 0.32);
+      box-shadow: 0 30px 72px rgba(7, 27, 61, 0.22);
+    }
+
+    .art {
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+    }
+
+    .art img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      transition: transform 420ms ease;
+    }
+
+    .app-card:hover .art img {
+      transform: scale(1.035);
+    }
+
+    .app-card::before {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      content: "";
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.92) 62%, rgba(255, 255, 255, 0.98)),
+        linear-gradient(110deg, rgba(7, 27, 61, 0.58), transparent 42%);
+    }
+
+    .app-card.thesis::before {
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.90) 60%, rgba(255, 255, 255, 0.98)),
+        linear-gradient(110deg, rgba(90, 28, 145, 0.55), transparent 46%);
+    }
+
+    .content {
+      min-height: 560px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      gap: 18px;
+    }
+
+    .tag {
+      width: fit-content;
+      padding: 8px 12px;
+      border: 1px solid rgba(255, 255, 255, 0.58);
+      border-radius: 999px;
+      color: white;
+      font-size: 0.78rem;
+      font-weight: 700;
+      background: rgba(7, 27, 61, 0.58);
+      backdrop-filter: blur(12px);
+    }
+
+    .thesis .tag {
+      background: rgba(83, 32, 139, 0.58);
+    }
+
+    .copy {
+      padding: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.74);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.86);
+      backdrop-filter: blur(18px);
+    }
+
+    h2 {
+      margin: 0 0 8px;
+      color: var(--deep-blue);
+      font-family: "Space Grotesk", "Inter", sans-serif;
+      font-size: clamp(1.75rem, 3vw, 2.45rem);
+      line-height: 1.02;
+      letter-spacing: 0;
+    }
+
+    .copy p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.98rem;
+      line-height: 1.55;
+    }
+
+    .button {
+      width: fit-content;
+      min-height: 48px;
+      padding: 13px 18px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border-radius: var(--radius);
+      color: white;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--usach-red), var(--magenta));
+      box-shadow: 0 14px 24px rgba(179, 31, 116, 0.26);
+    }
+
+    .publications .button {
+      background: linear-gradient(135deg, var(--usach-blue), var(--cyan));
+      box-shadow: 0 14px 24px rgba(10, 47, 111, 0.24);
+    }
+
+    .button span {
+      font-size: 1.15rem;
+      line-height: 1;
+      transition: transform 180ms ease;
+    }
+
+    .app-card:hover .button span {
+      transform: translateX(4px);
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+
+    footer strong {
+      color: var(--deep-blue);
+    }
+
+    @media (max-width: 860px) {
+      .page {
+        width: min(100% - 24px, 640px);
+        padding: 24px 0 28px;
+        justify-content: flex-start;
+      }
+
+      header {
+        grid-template-columns: 1fr;
+      }
+
+      .site-mark {
+        max-width: 100%;
+      }
+
+      .lead {
+        text-align: left;
+      }
+
+      .apps {
+        grid-template-columns: 1fr;
+      }
+
+      .app-card,
+      .content {
+        min-height: 500px;
+      }
+
+      .content {
+        padding: 18px;
+      }
+
+      footer {
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .page {
+        width: min(100% - 18px, 440px);
+      }
+
+      .app-card,
+      .content {
+        min-height: 440px;
+      }
+
+      .copy {
+        padding: 16px;
+      }
+
+      .button {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
+    /* selector de idioma */
+    .lang-switch {
+      display: inline-flex;
+      gap: 4px;
+      padding: 4px;
+      background: rgba(255, 255, 255, 0.86);
+      border: 1px solid rgba(10, 47, 111, 0.14);
+      border-radius: 999px;
+      box-shadow: 0 12px 30px rgba(7, 27, 61, 0.08);
+      backdrop-filter: blur(16px);
+    }
+    .lang-switch button {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      border: 0;
+      border-radius: 999px;
+      padding: 7px 12px;
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      font: inherit;
+      font-size: 0.76rem;
+      font-weight: 700;
+    }
+    .lang-switch button.on {
+      background: var(--violet);
+      color: #fff;
+    }
+    .flag {
+      width: 20px;
+      height: 14px;
+      border-radius: 3px;
+      display: inline-block;
+      box-shadow: 0 0 0 1px rgba(33, 38, 43, 0.12) inset;
+      overflow: hidden;
+    }
+    .flag-cl { background: linear-gradient(90deg, #0039A6 0 34%, #fff 34% 100%); position: relative; }
+    .flag-cl::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 50%; background: #D52B1E; }
+    .flag-br { background: linear-gradient(135deg, #2E9E44, #65C466); position: relative; }
+    .flag-br::after { content: ""; position: absolute; inset: 3px 5px; background: #F7D116; clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%); }
+    .flag-en { background: #012169; position: relative; }
+    .flag-en::before { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, transparent 42%, #fff 42% 58%, transparent 58%), linear-gradient(transparent 34%, #fff 34% 66%, transparent 66%); }
+    .flag-en::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, transparent 46%, #C8102E 46% 54%, transparent 54%), linear-gradient(transparent 40%, #C8102E 40% 60%, transparent 60%); }
+
+    .brand-actions {
+      grid-column: 1 / -1;
+      display: flex;
+      justify-content: flex-end;
+      margin-top: -6px;
+    }
+    @media (max-width: 860px) {
+      .brand-actions { justify-content: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar" aria-hidden="true"></div>
+  <main class="page">
+    <header>
+      <div class="site-mark" aria-label="DIINF USACH">
+        <img src="shared/img/logo-diinf-usach.png" alt="Departamento de Ingeniería Informática USACH">
+      </div>
+      <div>
+        <p class="kicker" data-i18n="kicker">DIINF USACH</p>
+        <h1 data-i18n="title">¿Qué quieres analizar?</h1>
+      </div>
+      <p class="lead" data-i18n="lead">Selecciona una app y entra directo al panel.</p>
+      <div class="brand-actions">
+        <div class="lang-switch" id="lang_switch" aria-label="Idioma">
+          <button type="button" data-lang="es" class="on"><span class="flag flag-cl"></span><span>ESP</span></button>
+          <button type="button" data-lang="pt"><span class="flag flag-br"></span><span>POR</span></button>
+          <button type="button" data-lang="en"><span class="flag flag-en"></span><span>ENG</span></button>
+        </div>
+      </div>
+    </header>
+
+    <section class="apps" aria-label="Selector de analizadores">
+      <a class="app-card publications" href="publicaciones/index.html" aria-label="Abrir analizador de publicaciones">
+        <picture class="art">
+          <img src="shared/img/manga-publicaciones.webp" alt="" loading="eager">
+        </picture>
+        <div class="content">
+          <span class="tag" data-i18n="pub.tag">Producción académica</span>
+          <div class="copy">
+            <h2 data-i18n="pub.title">Analizar publicaciones</h2>
+            <p data-i18n="pub.desc">Explora artículos, autores, colaboración, revistas, impacto y reportes bibliométricos del departamento.</p>
+          </div>
+          <div class="button"><span data-i18n="pub.btn">Entrar a publicaciones</span> <span aria-hidden="true">→</span></div>
+        </div>
+      </a>
+
+      <a class="app-card thesis" href="tesis/index.html" aria-label="Abrir analizador de tesis y memorias">
+        <picture class="art">
+          <img src="shared/img/manga-tesis.webp" alt="" loading="eager">
+        </picture>
+        <div class="content">
+          <span class="tag" data-i18n="the.tag">Memorias y tesis</span>
+          <div class="copy">
+            <h2 data-i18n="the.title">Analizar tesis</h2>
+            <p data-i18n="the.desc">Revisa memorias, profesores guía, líneas de trabajo, años, estudiantes y patrones de titulación.</p>
+          </div>
+          <div class="button"><span data-i18n="the.btn">Entrar a tesis</span> <span aria-hidden="true">→</span></div>
+        </div>
+      </a>
+    </section>
+
+    <footer>
+      <span><strong data-i18n="footer.brand">Analizadores DIINF</strong> · <span data-i18n="footer.inst">Universidad de Santiago de Chile</span></span>
+      <span>Me robaron todas las sillas de la casa. No saben cómo me siento 😢</span>
+    </footer>
+  </main>
+
+  <script>
+    /* ============================================================
+       Idiomas (ES / PT / EN) para la página de entrada.
+       Mismo mecanismo que las apps de tesis y publicaciones.
+       Nota: el chiste de la silla del pie NO se traduce (a propósito).
+       ============================================================ */
+    const I18N = {
+      es: {
+        "kicker": "DIINF USACH",
+        "title": "\u00bfQu\u00e9 quieres analizar?",
+        "lead": "Selecciona una app y entra directo al panel.",
+        "pub.tag": "Producci\u00f3n acad\u00e9mica",
+        "pub.title": "Analizar publicaciones",
+        "pub.desc": "Explora art\u00edculos, autores, colaboraci\u00f3n, revistas, impacto y reportes bibliom\u00e9tricos del departamento.",
+        "pub.btn": "Entrar a publicaciones",
+        "the.tag": "Memorias y tesis",
+        "the.title": "Analizar tesis",
+        "the.desc": "Revisa memorias, profesores gu\u00eda, l\u00edneas de trabajo, a\u00f1os, estudiantes y patrones de titulaci\u00f3n.",
+        "the.btn": "Entrar a tesis",
+        "footer.brand": "Analizadores DIINF",
+        "footer.inst": "Universidad de Santiago de Chile"
+      },
+      pt: {
+        "kicker": "DIINF USACH",
+        "title": "O que voc\u00ea quer analisar?",
+        "lead": "Selecione um app e entre direto no painel.",
+        "pub.tag": "Produ\u00e7\u00e3o acad\u00eamica",
+        "pub.title": "Analisar publica\u00e7\u00f5es",
+        "pub.desc": "Explore artigos, autores, colabora\u00e7\u00e3o, revistas, impacto e relat\u00f3rios bibliom\u00e9tricos do departamento.",
+        "pub.btn": "Entrar em publica\u00e7\u00f5es",
+        "the.tag": "Trabalhos e teses",
+        "the.title": "Analisar teses",
+        "the.desc": "Revise trabalhos de conclus\u00e3o, orientadores, linhas de pesquisa, anos, estudantes e padr\u00f5es de titula\u00e7\u00e3o.",
+        "the.btn": "Entrar em teses",
+        "footer.brand": "Analisadores DIINF",
+        "footer.inst": "Universidade de Santiago do Chile"
+      },
+      en: {
+        "kicker": "DIINF USACH",
+        "title": "What do you want to analyse?",
+        "lead": "Pick an app and go straight to its dashboard.",
+        "pub.tag": "Academic output",
+        "pub.title": "Analyse publications",
+        "pub.desc": "Explore articles, authors, collaboration, journals, impact and bibliometric reports from the department.",
+        "pub.btn": "Open publications",
+        "the.tag": "Theses and dissertations",
+        "the.title": "Analyse theses",
+        "the.desc": "Review theses, advisors, research lines, years, students and graduation patterns.",
+        "the.btn": "Open theses",
+        "footer.brand": "DIINF Analysers",
+        "footer.inst": "University of Santiago, Chile"
+      }
+    };
+
+    let ENTRY_LANG = "es";
+    try { const s = localStorage.getItem("memorias_lang"); if (s && I18N[s]) ENTRY_LANG = s; } catch (e) {}
+
+    function T(key) {
+      const lang = I18N[ENTRY_LANG] ? ENTRY_LANG : "es";
+      return (I18N[lang] && I18N[lang][key]) || I18N.es[key] || key;
+    }
+    function applyLanguage() {
+      const lang = I18N[ENTRY_LANG] ? ENTRY_LANG : "es";
+      ENTRY_LANG = lang;
+      document.documentElement.lang = lang;
+      document.querySelectorAll("[data-i18n]").forEach(el => { el.textContent = T(el.dataset.i18n); });
+      document.querySelectorAll("#lang_switch button").forEach(b => b.classList.toggle("on", b.dataset.lang === lang));
+    }
+    function setLanguage(lang) {
+      if (!I18N[lang]) return;
+      ENTRY_LANG = lang;
+      try { localStorage.setItem("memorias_lang", lang); } catch (e) {}
+      applyLanguage();
+    }
+    document.querySelectorAll("#lang_switch button").forEach(btn => {
+      btn.addEventListener("click", () => setLanguage(btn.dataset.lang));
+    });
+    applyLanguage();
+  </script>
+</body>
+</html>
