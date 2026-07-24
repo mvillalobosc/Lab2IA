@@ -1,0 +1,38 @@
+cff-version: 1.2.0
+message: "Please cite this software and the related publication when using Research Analyser."
+title: "Research Analyser: Bibliometric and Final Project Analytics for DIINF USACH"
+type: software
+authors:
+  - family-names: "Villalobos Cid"
+    given-names: "Manuel José"
+  - family-names: "Cares Cárdenas"
+    given-names: "Valentina"
+version: "1.0.0"
+date-released: "2026-07-23"
+abstract: >-
+  Static multilingual web suite for analysing publications, academic profiles,
+  collaboration, disciplinary domains, and final degree projects at the
+  Departamento de Ingeniería Informática, Universidad de Santiago de Chile.
+keywords:
+  - bibliometrics
+  - research analytics
+  - final degree projects
+  - academic profiles
+  - data visualisation
+  - multilingual software
+preferred-citation:
+  type: conference-paper
+  title: "A Web-Based Tool to Explore Research Production Focused on Student Engagement"
+  authors:
+    - family-names: "Villalobos-Cid"
+      given-names: "Manuel"
+    - family-names: "Cabezas-Carvajal"
+      given-names: "P."
+    - family-names: "Ilabaca"
+      given-names: "C."
+    - family-names: "Chourio-Acevedo"
+      given-names: "L."
+  year: 2025
+  conference:
+    name: "2025 44th International Conference of the Chilean Computer Science Society (SCCC)"
+  doi: "10.1109/SCCC67219.2025.11420777"
