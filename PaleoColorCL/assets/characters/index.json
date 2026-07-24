@@ -1,0 +1,402 @@
+[
+  {
+    "id": "acrophoc",
+    "number": 1,
+    "name": "Acrophoca longirostris",
+    "habitat": "agua",
+    "epoch": "Neógeno",
+    "group": "Foca"
+  },
+  {
+    "id": "altypote",
+    "number": 2,
+    "name": "Altypotherium",
+    "habitat": "tierra",
+    "epoch": "Neógeno",
+    "group": "Notoungulado"
+  },
+  {
+    "id": "antifer",
+    "number": 3,
+    "name": "Antifer",
+    "habitat": "tierra",
+    "epoch": "Cuaternario",
+    "group": "Ciervo"
+  },
+  {
+    "id": "arackar",
+    "number": 4,
+    "name": "Arackar licanantay",
+    "habitat": "tierra",
+    "epoch": "Cretácico",
+    "group": "Saurópodo"
+  },
+  {
+    "id": "aristonec",
+    "number": 5,
+    "name": "Aristonectes quiriquinensis",
+    "habitat": "agua",
+    "epoch": "Cretácico",
+    "group": "Plesiosaurio"
+  },
+  {
+    "id": "astrapot",
+    "number": 6,
+    "name": "Astrapotherium",
+    "habitat": "tierra",
+    "epoch": "Neógeno",
+    "group": "Astrapoterio"
+  },
+  {
+    "id": "atacamat",
+    "number": 7,
+    "name": "Atacamatitan chilensis",
+    "habitat": "tierra",
+    "epoch": "Cretácico",
+    "group": "Saurópodo"
+  },
+  {
+    "id": "brachyde",
+    "number": 8,
+    "name": "Brachydelphis",
+    "habitat": "agua",
+    "epoch": "Neógeno",
+    "group": "Delfín"
+  },
+  {
+    "id": "brontopod",
+    "number": 9,
+    "name": "Brontopodus",
+    "habitat": "tierra",
+    "epoch": "Cretácico",
+    "group": "Saurópodo"
+  },
+  {
+    "id": "burkesuch",
+    "number": 10,
+    "name": "Burkesuchus mallingrandensis",
+    "habitat": "tierra",
+    "epoch": "Jurásico",
+    "group": "Cocodrilo"
+  },
+  {
+    "id": "camptosau",
+    "number": 11,
+    "name": "Camptosaurichnus fasolae",
+    "habitat": "tierra",
+    "epoch": "Jurásico",
+    "group": "Ornitópodo"
+  },
+  {
+    "id": "carcharo",
+    "number": 12,
+    "name": "Carcharocles angustidens",
+    "habitat": "agua",
+    "epoch": "Paleógeno",
+    "group": "Tiburón"
+  },
+  {
+    "id": "chilecebu",
+    "number": 13,
+    "name": "Chilecebus",
+    "habitat": "tierra",
+    "epoch": "Neógeno",
+    "group": "Primate"
+  },
+  {
+    "id": "chilesau",
+    "number": 14,
+    "name": "Chilesaurus diegosuarezi",
+    "habitat": "tierra",
+    "epoch": "Jurásico",
+    "group": "Terópodo"
+  },
+  {
+    "id": "cosmopol",
+    "number": 15,
+    "name": "Cosmopolitodus hastalis",
+    "habitat": "agua",
+    "epoch": "Neógeno",
+    "group": "Tiburón"
+  },
+  {
+    "id": "cuvieron",
+    "number": 16,
+    "name": "Cuvieronius",
+    "habitat": "tierra",
+    "epoch": "Cuaternario",
+    "group": "Proboscídeo"
+  },
+  {
+    "id": "doedicur",
+    "number": 17,
+    "name": "Doedicurus",
+    "habitat": "tierra",
+    "epoch": "Cuaternario",
+    "group": "Gliptodonte"
+  },
+  {
+    "id": "domeykod",
+    "number": 18,
+    "name": "Domeykodactylus ceciliae",
+    "habitat": "aire",
+    "epoch": "Cretácico",
+    "group": "Pterosaurio"
+  },
+  {
+    "id": "glyptodo",
+    "number": 19,
+    "name": "Glyptodon",
+    "habitat": "tierra",
+    "epoch": "Cuaternario",
+    "group": "Gliptodonte"
+  },
+  {
+    "id": "gondwanan",
+    "number": 20,
+    "name": "Gondwananectes osvaldoi",
+    "habitat": "agua",
+    "epoch": "Jurásico",
+    "group": "Plesiosaurio"
+  },
+  {
+    "id": "gonkoken",
+    "number": 21,
+    "name": "Gonkoken nanoi",
+    "habitat": "tierra",
+    "epoch": "Cretácico",
+    "group": "Hadrosaurio"
+  },
+  {
+    "id": "grallator",
+    "number": 22,
+    "name": "Grallator",
+    "habitat": "tierra",
+    "epoch": "Jurásico",
+    "group": "Terópodo"
+  },
+  {
+    "id": "hippidio",
+    "number": 23,
+    "name": "Hippidion",
+    "habitat": "tierra",
+    "epoch": "Cuaternario",
+    "group": "Caballo"
+  },
+  {
+    "id": "kaikaifi",
+    "number": 24,
+    "name": "Kaikaifilu hervei",
+    "habitat": "agua",
+    "epoch": "Cretácico",
+    "group": "Mosasaurio"
+  },
+  {
+    "id": "klohnia",
+    "number": 25,
+    "name": "Klohnia",
+    "habitat": "tierra",
+    "epoch": "Paleógeno",
+    "group": "Gondwanaterio"
+  },
+  {
+    "id": "macrauch",
+    "number": 26,
+    "name": "Macrauchenia",
+    "habitat": "tierra",
+    "epoch": "Cuaternario",
+    "group": "Litopterno"
+  },
+  {
+    "id": "magallano",
+    "number": 27,
+    "name": "Magallanodon baikashkenke",
+    "habitat": "tierra",
+    "epoch": "Cretácico",
+    "group": "Mamífero"
+  },
+  {
+    "id": "megather",
+    "number": 28,
+    "name": "Megatherium medinae",
+    "habitat": "tierra",
+    "epoch": "Cuaternario",
+    "group": "Perezoso"
+  },
+  {
+    "id": "mylodon",
+    "number": 29,
+    "name": "Mylodon",
+    "habitat": "tierra",
+    "epoch": "Cuaternario",
+    "group": "Perezoso"
+  },
+  {
+    "id": "myobrady",
+    "number": 30,
+    "name": "Myobradypterygius hauthali",
+    "habitat": "agua",
+    "epoch": "Cretácico",
+    "group": "Ictiosaurio"
+  },
+  {
+    "id": "neogaeor",
+    "number": 31,
+    "name": "Neogaeornis wetzeli",
+    "habitat": "agua",
+    "epoch": "Cretácico",
+    "group": "Ave"
+  },
+  {
+    "id": "nesodon",
+    "number": 32,
+    "name": "Nesodon",
+    "habitat": "tierra",
+    "epoch": "Neógeno",
+    "group": "Notoungulado"
+  },
+  {
+    "id": "odobeno",
+    "number": 33,
+    "name": "Odobenocetops",
+    "habitat": "agua",
+    "epoch": "Neógeno",
+    "group": "Cetáceo"
+  },
+  {
+    "id": "orretheri",
+    "number": 34,
+    "name": "Orretherium tzen",
+    "habitat": "tierra",
+    "epoch": "Cretácico",
+    "group": "Mamífero"
+  },
+  {
+    "id": "megalodon",
+    "number": 35,
+    "name": "Otodus megalodon",
+    "habitat": "agua",
+    "epoch": "Neógeno",
+    "group": "Tiburón"
+  },
+  {
+    "id": "palaeola",
+    "number": 36,
+    "name": "Palaeolama",
+    "habitat": "tierra",
+    "epoch": "Cuaternario",
+    "group": "Camélido"
+  },
+  {
+    "id": "pantonca",
+    "number": 37,
+    "name": "Panthera onca mesembrina",
+    "habitat": "tierra",
+    "epoch": "Cuaternario",
+    "group": "Felino"
+  },
+  {
+    "id": "parabront",
+    "number": 38,
+    "name": "Parabrontopodus frenkii",
+    "habitat": "tierra",
+    "epoch": "Jurásico",
+    "group": "Saurópodo"
+  },
+  {
+    "id": "pelagorn",
+    "number": 39,
+    "name": "Pelagornis chilensis",
+    "habitat": "aire",
+    "epoch": "Neógeno",
+    "group": "Ave"
+  },
+  {
+    "id": "pliopont",
+    "number": 40,
+    "name": "Pliopontos",
+    "habitat": "agua",
+    "epoch": "Neógeno",
+    "group": "Delfín"
+  },
+  {
+    "id": "pontiste",
+    "number": 41,
+    "name": "Pontistes rectifrons",
+    "habitat": "agua",
+    "epoch": "Neógeno",
+    "group": "Delfín"
+  },
+  {
+    "id": "pcaldere",
+    "number": 42,
+    "name": "Pygoscelis calderensis",
+    "habitat": "agua",
+    "epoch": "Neógeno",
+    "group": "Pingüino"
+  },
+  {
+    "id": "pygoscel",
+    "number": 43,
+    "name": "Pygoscelis grandis",
+    "habitat": "agua",
+    "epoch": "Neógeno",
+    "group": "Pingüino"
+  },
+  {
+    "id": "smilodon",
+    "number": 44,
+    "name": "Smilodon",
+    "habitat": "tierra",
+    "epoch": "Cuaternario",
+    "group": "Felino"
+  },
+  {
+    "id": "sphenmeg",
+    "number": 45,
+    "name": "Spheniscus megaramphus",
+    "habitat": "agua",
+    "epoch": "Neógeno",
+    "group": "Pingüino"
+  },
+  {
+    "id": "sphenurb",
+    "number": 46,
+    "name": "Spheniscus urbinai",
+    "habitat": "agua",
+    "epoch": "Neógeno",
+    "group": "Pingüino"
+  },
+  {
+    "id": "stegouros",
+    "number": 47,
+    "name": "Stegouros elengassen",
+    "habitat": "tierra",
+    "epoch": "Cretácico",
+    "group": "Anquilosaurio"
+  },
+  {
+    "id": "thalasso",
+    "number": 48,
+    "name": "Thalassocnus natans",
+    "habitat": "agua",
+    "epoch": "Neógeno",
+    "group": "Perezoso"
+  },
+  {
+    "id": "wunyelfia",
+    "number": 49,
+    "name": "Wunyelfia maulensis",
+    "habitat": "agua",
+    "epoch": "Cretácico",
+    "group": "Plesiosaurio"
+  },
+  {
+    "id": "yeutheri",
+    "number": 50,
+    "name": "Yeutherium pressor",
+    "habitat": "tierra",
+    "epoch": "Cretácico",
+    "group": "Mamífero"
+  }
+]

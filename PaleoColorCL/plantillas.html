@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#00A79A">
+  <title>Plantillas · PaleoColor CL</title>
+  <link rel="stylesheet" href="shell.css?v=99">
+  <style>
+    main{max-width:1100px;margin:0 auto;padding:26px 18px 40px}
+    .intro h2{margin:0 0 6px;font-size:clamp(1.5rem,4vw,2.1rem);letter-spacing:-.03em}
+    .intro p{margin:0 0 22px;color:var(--muted);font-size:.9rem;line-height:1.6;max-width:640px}
+    .filtros{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:16px}
+    #search{width:100%;padding:11px 13px;border:1px solid var(--line);border-radius:10px;font:inherit;font-size:.9rem;margin-bottom:12px}
+    .fila{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+    .fila .tit{font-size:.72rem;font-weight:900;color:var(--muted);min-width:96px}
+    .chips{display:flex;gap:6px;flex-wrap:wrap;flex:1}
+    .chip{border:1px solid var(--line);border-radius:999px;padding:6px 11px;background:#fff;color:var(--slate);font:inherit;font-size:.74rem;font-weight:800;cursor:pointer}
+    .chip.on{background:var(--teal);border-color:var(--teal);color:#fff}
+    .chip:disabled{opacity:.35;cursor:not-allowed}
+    .pie{display:flex;align-items:center;gap:10px;margin-top:10px;padding-top:10px;border-top:1px solid var(--line)}
+    .pie b{flex:1;font-size:.76rem;color:var(--muted)}
+    .pie button{border:0;border-radius:8px;padding:7px 12px;background:#eef1f3;color:var(--slate);font:inherit;font-size:.72rem;font-weight:800;cursor:pointer}
+    #empty{text-align:center;padding:30px;color:var(--muted);font-size:.86rem}
+    .sheet[hidden]{display:none}
+    #grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
+    .sheet{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px}
+    .head{display:flex;align-items:baseline;gap:8px;margin-bottom:10px}
+    .head .num{display:grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--orange);color:#fff;font-size:.66rem;font-weight:900;flex:none}
+    .head strong{font-size:.86rem;font-weight:900;line-height:1.15}.head small{color:var(--muted);font-size:.7rem;font-weight:700}
+    .thumb{aspect-ratio:1200/1704;border:1px solid var(--line);border-radius:8px;display:grid;place-items:center;overflow:hidden;background:#fff}
+    .thumb img{width:100%;display:block}.thumb span{color:var(--muted);font-size:.74rem;font-weight:700}
+    .thumb .err{color:#c2410c;padding:10px;text-align:center}
+    .acts{display:flex;gap:8px;margin-top:10px}
+    button{flex:1;border:0;border-radius:9px;padding:9px;font:inherit;font-size:.76rem;font-weight:800;color:#fff;background:var(--teal);cursor:pointer}
+    button.pr{background:var(--orange)}button:disabled{opacity:.4;cursor:not-allowed}
+    .empty{color:var(--muted);font-size:.86rem}.empty a{color:var(--teal);font-weight:800}
+    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:22px}
+    .step{padding:14px;border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--muted);font-size:.8rem;line-height:1.5}
+    .step b{display:block;color:var(--slate);margin-bottom:3px}
+    @media(max-width:680px){.steps{grid-template-columns:1fr}}
+    /* En móvil el título del filtro se pone ARRIBA de los chips: con 96px fijos al lado, a
+       360px de pantalla los chips se quedaban con 214px y se apilaban de a uno. */
+    @media(max-width:560px){
+      .fila{display:block}
+      .fila .tit{display:block;min-width:0;margin-bottom:6px}
+      .chips{gap:5px}
+      .chip{font-size:.7rem;padding:5px 9px}
+      #grid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+      .sheet{padding:9px}
+      main{padding:12px}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img id="logo" alt="Departamento de Ingeniería Informática, USACH">
+    <div class="sep"></div>
+    <div><h1>Plantillas para colorear</h1><p id="unit"></p></div>
+    <span class="grow"></span>
+    <a href="index.html">Visor →</a>
+    <a href="textos.html">Editar textos →</a>
+    <span class="build" id="build"></span>
+  </header>
+  <main>
+    <section class="intro">
+      <h2>Elige un personaje e imprímelo</h2>
+      <p>Cada hoja se genera desde el archivo del personaje, así que el QR, las marcas y el dibujo
+        siempre coinciden con lo que el visor espera.</p>
+    </section>
+    <section class="filtros">
+      <input type="search" id="search" placeholder="Buscar por nombre, tipo o número…" autocomplete="off">
+      <div class="fila"><span class="tit">¿Dónde vivía?</span><div class="chips" id="fHabitat"></div></div>
+      <div class="fila"><span class="tit">¿Cuándo?</span><div class="chips" id="fEpoch"></div></div>
+      <div class="pie"><b id="result"></b><button type="button" id="clear">Limpiar</button></div>
+    </section>
+    <div id="grid"></div>
+    <p class="empty" id="empty" hidden>Ninguna especie calza con eso. Prueba quitando un filtro.</p>
+    <section class="steps">
+      <div class="step"><b>1. Imprime al 100%</b>No recortes ni cambies la proporción de la hoja.</div>
+      <div class="step"><b>2. Colorea el personaje</b>No pintes el QR, las 4 marcas negras ni el fondo blanco.</div>
+      <div class="step"><b>3. Abre el visor</b>Apunta la cámara: reconoce el personaje por su QR.</div>
+    </section>
+  </main>
+  <footer><strong>Basado en:</strong><span id="credit"></span><p class="contacto" id="contact"></p></footer>
+  <script src="js/vendor/qrcode.js?v=99"></script>
+  <script type="module" src="js/plantillas.js?v=99"></script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+/*
+ * Cáscara compartida por plantillas.html y textos.html: las dos herramientas de escritorio.
+ *
+ * El visor (index.html) NO la usa y es correcto: comparte sólo 3 selectores con ellas porque
+ * es otra cosa —cámara a pantalla completa, fondo oscuro, sin scroll—. Forzarlo a esta hoja
+ * sería juntar lo que no se parece.
+ *
+ * Vive aparte porque los 10 selectores idénticos estaban copiados en los dos archivos y había
+ * que editarlos a la par. Son 0,6 KB: el problema nunca fue el peso, era el mantenimiento.
+ */
+:root {
+  --teal: #00A499;
+  --orange: #EA7600;
+  --slate: #394049;
+  --line: #e3e7ea;
+  --muted: #7b838d;
+  font-family: Inter, ui-rounded, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body { margin: 0; background: #f4f6f7; color: var(--slate); }
+
+header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding: 12px 20px;
+  background: #fff;
+  border-bottom: 1px solid var(--line);
+}
+header img { height: 40px; }
+header h1 { margin: 0; font-size: 1rem; font-weight: 900; }
+header p { margin: 2px 0 0; font-size: .74rem; color: var(--muted); font-weight: 600; }
+header a { color: var(--teal); font-size: .78rem; font-weight: 800; text-decoration: none; margin-left: 14px; }
+
+.sep { width: 1px; height: 34px; background: var(--line); }
+.grow { flex: 1; }
+.build { font-size: .68rem; color: #aeb5bd; font-weight: 800; letter-spacing: .08em; margin-left: 14px; }
+
+.card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 14px;
+}
+.card h2 {
+  margin: 0 0 10px;
+  font-size: .74rem;
+  font-weight: 900;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font: inherit;
+  font-size: .85rem;
+  background: #fff;
+  color: var(--slate);
+}
+
+footer {
+  padding: 16px 20px 30px;
+  color: #9aa1ab;
+  font-size: .66rem;
+  line-height: 1.6;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+footer strong { color: var(--muted); }
+
+.contacto { margin: 8px 0 0; color: var(--teal); font-size: .68rem; font-weight: 800; }

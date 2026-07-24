@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#00A499">
+  <title>Editor de textos · PaleoColor CL</title>
+  <link rel="stylesheet" href="shell.css?v=99">
+  <style>
+    main{display:grid;grid-template-columns:minmax(240px,1fr) minmax(300px,1.4fr) minmax(280px,400px);gap:16px;padding:16px;align-items:start;max-width:1500px;margin:0 auto}
+    label{display:block;font-size:.7rem;font-weight:800;color:var(--muted);margin:10px 0 4px}
+    textarea{min-height:120px;resize:vertical;line-height:1.5}
+    .row{display:flex;gap:8px}.row>*{flex:1}
+    ul{list-style:none;margin:0;padding:0;max-height:320px;overflow:auto}
+    .item{display:flex;align-items:center;gap:8px;padding:8px 9px;border:1px solid var(--line);border-radius:9px;margin-bottom:6px;cursor:pointer;background:#fff}
+    .item.on{border-color:var(--teal);background:#f0fbfa}
+    .item b{font-size:.76rem;font-weight:800;white-space:nowrap}
+    .item span{flex:1;font-size:.7rem;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+    .tools{display:flex;gap:3px}
+    .tools button{width:24px;height:24px;padding:0;border:1px solid var(--line);border-radius:6px;background:#fff;color:var(--muted);font-size:.7rem;cursor:pointer}
+    .tools button.del{color:#c2410c}
+    button.big{width:100%;border:0;border-radius:9px;padding:11px;font:inherit;font-size:.8rem;font-weight:800;color:#fff;background:var(--teal);cursor:pointer;margin-top:10px}
+    button.ghost{background:#eef1f3;color:var(--slate)}
+    button.orange{background:var(--orange)}
+    #preview{display:block;border-radius:10px;margin:0 auto}
+    .hint{margin:8px 0 0;font-size:.7rem;font-weight:700;color:var(--muted)}.hint.bad{color:#c2410c}
+    .tip{margin:10px 0 0;padding:9px 11px;border-radius:9px;background:#f0fbfa;color:#0f6b57;font-size:.72rem;line-height:1.55}
+    .tip code{background:rgba(0,0,0,.06);padding:1px 4px;border-radius:4px;font-size:.95em}
+    @media(max-width:1000px){main{grid-template-columns:1fr}}
+    @media(max-width:560px){
+      main{padding:12px;gap:12px}
+      ul{max-height:220px}
+      #preview{width:100%!important;height:auto!important}
+      .row{flex-wrap:wrap}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img id="logo" alt="Departamento de Ingeniería Informática, USACH">
+    <div class="sep"></div>
+    <div><h1>Editor de textos</h1><p id="unit"></p></div>
+    <span class="grow"></span>
+    <a href="index.html">Visor →</a>
+    <a href="plantillas.html">Plantillas →</a>
+    <span class="build" id="build"></span>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>1 · Especie</h2>
+      <select id="character"></select>
+
+      <h2 style="margin-top:16px">Identidad</h2>
+      <label for="pronunciation">Cómo se pronuncia</label>
+      <input type="text" id="pronunciation" placeholder="es·te·GOU·ros">
+      <label for="meaning">Qué significa</label>
+      <input type="text" id="meaning" placeholder="«cola con techo»">
+      <div class="row">
+        <div><label for="group">Grupo</label><input type="text" id="group" placeholder="Anquilosaurio"></div>
+        <div><label for="sizeM">Largo (m)</label><input type="text" id="sizeM" placeholder="2"></div>
+      </div>
+      <div class="row">
+        <div><label for="age">Edad (Ma)</label><input type="text" id="age" placeholder="72"></div>
+        <div><label for="bubble">Onomatopeya</label><input type="text" id="bubble" placeholder="¡ÑAM-ÑAM!"></div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>2 · Datos <span id="count" style="float:right;font-weight:700;text-transform:none;letter-spacing:0"></span></h2>
+      <ul id="items"></ul>
+      <button class="big ghost" id="add" type="button">+ Agregar dato</button>
+      <label for="label" style="margin-top:16px">Título del dato</label>
+      <input type="text" id="label" placeholder="¿Dónde vivió?">
+      <label for="text">Texto</label>
+      <textarea id="text" placeholder="Escribe acá. Destaca con **dos asteriscos**."></textarea>
+      <p class="hint" id="hint"></p>
+      <div class="tip">Lo que va entre <code>**dos asteriscos**</code> sale en <b>negrita y teal</b>.
+        El icono se elige solo según el título: pon <b>dónde</b>, <b>cuándo</b>, <b>grande</b>,
+        <b>nombre</b> o <b>portada</b> y le toca su icono.</div>
+      <button class="big orange" id="export" type="button">Descargar JSON</button>
+    </section>
+
+    <section class="card">
+      <h2>3 · Así lo verá el niño</h2>
+      <canvas id="preview" width="380" height="300"></canvas>
+      <p class="hint">Es el mismo dibujante del visor. Si acá no se lee, en el celular tampoco.</p>
+      <div class="tip">El JSON se copia sobre <code>assets/characters/</code> reemplazando el que está.
+        Sólo cambian los textos: el dibujo, las máscaras y los pivotes quedan intactos.</div>
+    </section>
+  </main>
+
+  <footer><strong>Basado en:</strong> <span id="credit"></span><p class="contacto" id="contact"></p></footer>
+  <script type="module" src="js/textos.js?v=99"></script>
+</body>
+</html>
