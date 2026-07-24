@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use PaleoColor CL, please cite this software."
+title: "PaleoColor CL: Chilean prehistoric animals in augmented reality"
+type: software
+authors:
+  - family-names: "Rodríguez Zamorano"
+    given-names: "A. A."
+  - family-names: "Villalobos Cid"
+    given-names: "Manuel José"
+version: "99"
+date-released: "2026-07-23"
+license: MIT
+keywords:
+  - augmented reality
+  - palaeontology
+  - educational technology
+  - Chile
+  - colouring

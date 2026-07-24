@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#394049">
+  <title>PaleoColor CL · Ingeniería Informática USACH</title>
+  <link rel="stylesheet" href="styles.css?v=99">
+</head>
+<body>
+  <main id="stage" aria-label="Cámara de realidad aumentada">
+    <video id="cam" playsinline muted autoplay></video>
+    <canvas id="arCanvas" aria-hidden="true"></canvas>
+    <canvas id="overlay" aria-hidden="true"></canvas>
+
+    <header class="topbar">
+      <div class="brand">
+        <img id="barLogo" class="bar-logo" alt="Departamento de Ingeniería Informática, USACH">
+        <div class="bar-sep" aria-hidden="true"></div>
+        <div>
+          <h1 id="appTitle">PaleoColor CL</h1>
+          <p id="appSub">Tu dibujo cobra vida sobre el papel</p>
+        </div>
+      </div>
+        <button id="menuBtn" class="menu-btn" type="button" aria-label="Menú" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <div id="menu" class="menu" hidden>
+          <button id="templateBtn" type="button">Plantilla</button>
+          <button id="helpBtn" type="button">Cómo funciona</button>
+          <div class="menu-row">
+            <div><strong id="animationLabel">Animación</strong><small id="animationHelp">ON: dibujo animado · OFF: solo papel</small></div>
+            <button id="animToggle" class="switch on" type="button" role="switch" aria-checked="true" aria-label="Activar o desactivar animación">
+              <span class="switch-track"><i></i></span>
+              <b id="switchText">ON</b>
+            </button>
+          </div>
+        </div>
+      <div class="lang" role="group" aria-label="Idioma">
+        <button data-lang="es" aria-pressed="true">ES</button>
+        <button data-lang="en" aria-pressed="false">EN</button>
+        <button data-lang="pt" aria-pressed="false">PT</button>
+      </div>
+    </header>
+
+    <div id="status" class="status searching">
+      <span class="status-dot"></span>
+      <span id="statusText">Apunta la cámara al QR</span>
+    </div>
+
+    <!-- Abajo NO va nada más. Apilando la tarjeta, el toast, el panel de animación y los
+         dos botones, el fondo ocupaba el 70% de la pantalla en un teléfono de 640 px.
+         Todo lo que no se usa apuntando la cámara se fue al menú de la barra. -->
+
+    <section id="gate" class="gate">
+      <div class="gate-card">
+        <img id="gateLogo" class="gate-logo" alt="Departamento de Ingeniería Informática, USACH">
+        <p class="eyebrow" id="gateEyebrow">Paleontología chilena en RA</p>
+        <h1 class="wordmark"><span>Paleo</span><b>Color</b><i>CL</i></h1>
+        <canvas id="coverArt" class="cover-art" aria-hidden="true"></canvas>
+        <h2 id="gateTitle">Colorea los dinosaurios de Chile y míralos caminar</h2>
+        <p id="gateCopy"></p>
+        <button id="startBtn" type="button">Encender cámara</button>
+        <button id="gateTemplate" class="secondary" type="button">Ver plantillas</button>
+        <p id="gateMsg" role="alert"></p>
+        <p class="gate-cite"><strong>Basado en</strong> <span id="gateCredit"></span></p>
+        <p class="gate-contact" id="gateContact"></p>
+        <p id="gateVersion" class="build"></p>
+      </div>
+    </section>
+
+    <div id="fatal" role="alert"></div>
+  </main>
+
+  <div id="modal" class="modal" aria-hidden="true">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button id="closeModal" class="close" type="button" aria-label="Cerrar">×</button>
+      <p class="eyebrow" id="modalEyebrow">Sin 3D ni texturas inventadas</p>
+      <h2 id="modalTitle">Cómo funciona</h2>
+      <ol id="modalSteps"></ol>
+      <p id="modalNote" class="note"></p>
+      <p class="cite"><strong>Basado en:</strong> <span id="modalCredit"></span></p>
+      <p class="cite contact" id="modalContact"></p>
+    </div>
+  </div>
+
+  <div id="toast" role="status"></div>
+
+  <script src="js/vendor/jsQR.js?v=99"></script>
+  <script type="module" src="js/app.js?v=99"></script>
+</body>
+</html>
