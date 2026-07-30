@@ -1,0 +1,36 @@
+MIT License
+
+Copyright (c) 2026 Ivania Elena Guzmán Madriaga and co-authors
+(complete the author list in CITATION.cff)
+
+Departamento de Ingeniería Informática, Universidad de Santiago de Chile.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+This licence covers the source code in this repository.
+
+It does not cover the input data. The hospital discharge records are published
+as open government data by the National Health Fund (FONASA) of Chile, the
+socio-economic indicators come from the CASEN 2022 survey (Ministry of Social
+Development and Family) and the structural indicators come from the 2024
+Population and Housing Census (National Institute of Statistics). Each of those
+sources carries its own terms of use, and users are responsible for complying
+with them.

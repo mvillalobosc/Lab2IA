@@ -1,0 +1,273 @@
+# =============================================================================
+# config.yml
+# Single source of truth for every path, threshold and parameter used by the
+# pipeline. No script contains a hard-coded path or magic number: if you need
+# to change something, change it here.
+#
+# Study: Machine learning characterisation of stroke in Chile using
+#        Diagnosis-Related Group (DRG) records, 2019-2024.
+# =============================================================================
+
+project:
+  name: "stroke-drg-chile"
+  # Free text, written into every log file and into results/run_metadata.json.
+  label: "Stroke characterisation from Chilean DRG discharge records, 2019-2024"
+
+# -----------------------------------------------------------------------------
+# Paths. Relative paths are resolved from the repository root, which is where
+# every script must be launched from (Rscript R/01_ingest_grd.R, etc.).
+# -----------------------------------------------------------------------------
+paths:
+  raw_grd:      "data/raw/grd"        # GRD_PUBLICO_YYYY.txt as published by FONASA
+  external:     "data/external"       # CASEN 2022 / Census 2024 derived indicators
+  interim:      "data/interim"        # intermediate parquet, safe to delete
+  processed:    "data/processed"      # analysis-ready parquet
+  results:      "results"
+  tables:       "results/tables"
+  figures:      "results/figures"
+  selection:    "results/selection"   # per-replicate metrics and selection frequencies
+  final_model:  "results/final_model" # coefficients + design matrix exported for SHAP
+  logs:         "results/logs"
+  duckdb_tmp:   "data/interim/duckdb_tmp.db"
+
+# -----------------------------------------------------------------------------
+# DuckDB engine limits. Every heavy operation runs inside DuckDB over parquet
+# files, so R never holds the full 5.8 M x 129 table in memory.
+# Set memory_limit to roughly 60 % of the RAM you can spare.
+# -----------------------------------------------------------------------------
+duckdb:
+  memory_limit: "8GB"
+  threads: 4
+  temp_directory: "data/interim/duckdb_spill"
+
+# -----------------------------------------------------------------------------
+# Step 01 - ingestion of the raw pipe-delimited FONASA files.
+# -----------------------------------------------------------------------------
+ingest:
+  years: [2019, 2020, 2021, 2022, 2023, 2024]
+  file_pattern: "GRD_PUBLICO_{year}.txt"
+  delimiter: "|"
+  # Encodings are tried in this order. The published files are inconsistent:
+  # some years are UTF-8, some Latin-1, some UTF-16.
+  encodings: ["UTF-8", "latin1", "UTF-16"]
+  # Columns parsed as dates (ymd). Anything not listed here or in numeric_columns
+  # is kept as trimmed upper-case text, which guarantees an identical schema
+  # across years.
+  date_columns:
+    ["FECHA_NACIMIENTO", "FECHA_INGRESO", "FECHAALTA",
+     "FECHATRASLADO1", "FECHATRASLADO2", "FECHATRASLADO3", "FECHATRASLADO4",
+     "FECHATRASLADO5", "FECHATRASLADO6", "FECHATRASLADO7", "FECHATRASLADO8",
+     "FECHATRASLADO9", "FECHAPROCEDIMIENTO1", "FECHAINTERV1"]
+  numeric_columns:
+    ["PESORN1", "PESORN2", "PESORN3", "PESORN4",
+     "USOSPABELLON", "IR_29301_PESO", "IR_29301_SEVERIDAD", "IR_29301_MORTALIDAD"]
+
+# -----------------------------------------------------------------------------
+# Step 02 - record-level cleaning and derived variables.
+# -----------------------------------------------------------------------------
+cleaning:
+  drop_empty_rows: true          # every payload column NULL or ""
+  drop_discharge_before_admission: true
+  deduplicate: true              # exact duplicate rows, md5 over payload columns
+  # Plausibility windows. Values outside the window become NULL (missing), they
+  # do not remove the record.
+  max_age: 110
+  max_length_of_stay: 365
+  # The published run also mapped EDAD == 0 to missing and median-imputed it.
+  # That is wrong for this dataset: age 0 means "under one year", and the file
+  # contains obstetric and neonatal discharges. Keep false unless you are
+  # deliberately reproducing the published run.
+  treat_age_zero_as_missing: false
+  # Missing EDAD / DURACION_HOSPITAL are imputed with the median of the
+  # development subset, computed once (step 05) instead of once per resample.
+  impute_numeric_with_development_median: true
+
+# -----------------------------------------------------------------------------
+# Step 03 - case definition.
+#
+# mode: "manuscript"  ischaemic = I63*, haemorrhagic = I61*, unspecified = I64
+#                     This is the definition stated in the Methods section.
+# mode: "extended"    ischaemic = I63*, I65*, I66*
+#                     haemorrhagic = I60*, I61*, I62*
+#                     unspecified = I64
+#                     This is what the original scripts actually ran. It is
+#                     kept only to reproduce the published numbers.
+#
+# exclude_outcome_codes_from_predictors: drops from the candidate feature set
+# every ICD-10 code family that appears in the active case definition. With
+# mode "extended" and this flag set to false (the published behaviour) codes
+# such as I60.9 and I62.0 are simultaneously part of the outcome and part of
+# the predictor set, which makes the haemorrhagic-versus-ischaemic contrast
+# partly circular. See README, section "Deviations from the published run".
+# -----------------------------------------------------------------------------
+case_definition:
+  mode: "manuscript"
+  exclude_outcome_codes_from_predictors: true
+  patterns:
+    manuscript:
+      ischaemic:   ["^I63"]
+      haemorrhagic: ["^I61"]
+      unspecified: ["^I64"]
+    extended:
+      ischaemic:   ["^I63", "^I65", "^I66"]
+      haemorrhagic: ["^I60", "^I61", "^I62"]
+      unspecified: ["^I64"]
+  # Columns scanned for the principal (D1) and secondary (D2) hierarchies.
+  principal_column: "DIAGNOSTICO1"
+  secondary_columns_range: [2, 35]     # DIAGNOSTICO2 .. DIAGNOSTICO35
+  procedure_columns_range: [1, 30]     # PROCEDIMIENTO1 .. PROCEDIMIENTO30
+
+# -----------------------------------------------------------------------------
+# Step 04 - territorial linkage (CASEN 2022 + Census 2024 municipal indicators).
+# -----------------------------------------------------------------------------
+linkage:
+  # Tidy CSV with one row per comuna and indicator. See data/README.md for the
+  # exact format and for the indicator list reported in the manuscript.
+  indicator_file: "municipal_indicators.csv"
+  # Maximum Levenshtein distance accepted when a comuna name does not match
+  # exactly after normalisation. 2 absorbs the usual accent and spacing noise
+  # without merging genuinely different comunas. Set to 0 to require exact keys.
+  max_levenshtein: 2
+  # Fail instead of warning when a comuna present in the discharge data has no
+  # indicator row. Useful once the external file is complete.
+  fail_on_unmatched: false
+
+# -----------------------------------------------------------------------------
+# Step 05 - development / reserved partition and chi-square screening.
+# -----------------------------------------------------------------------------
+split:
+  development_fraction: 0.70
+  stratify_by: ["D1_ACV_GENERAL", "D2_ACV_GENERAL"]
+  seed: 20250913
+
+screening:
+  # Codes are screened against stroke presence (D1_ACV_GENERAL and
+  # D2_ACV_GENERAL) inside the development subset only. The best (smallest)
+  # p-value per code is kept.
+  outcomes: ["D1_ACV_GENERAL", "D2_ACV_GENERAL"]
+  p_threshold: 5.0e-100          # stringent high-dimensional screening rule
+  p_adjust: "bonferroni"         # applied over the number of codes tested
+  min_expected_count: 5          # 2x2 cells with expected < 5 are discarded
+  # p-values this small underflow to zero in double precision, so the
+  # comparison is done on log10(p) internally. Nothing to configure.
+
+# -----------------------------------------------------------------------------
+# Step 06 - model matrix.
+# -----------------------------------------------------------------------------
+model_matrix:
+  include_comuna_dummies: true
+  # false: a feature named DIAG1_I63_9 is 1 whenever the code appears in ANY
+  #        diagnosis or procedure field. The prefix records where the code was
+  #        discovered during screening, not where it is evaluated. This is what
+  #        the published run did.
+  # true : the indicator respects its provenance, so DIAG1_* only looks at the
+  #        principal diagnosis and DIAG2_35_* only at the secondary diagnoses.
+  #        Cleaner semantics, different numbers.
+  provenance_aware_indicators: false
+  # A comuna needs at least this many discharges to get its own dummy; the rest
+  # collapse into COMUNA_OTRA. The published run created one dummy per distinct
+  # raw string, which produced several hundred near-empty columns.
+  # Set to 0 to reproduce that behaviour.
+  min_comuna_records: 0
+  numeric_features: ["EDAD", "DURACION_HOSPITAL", "SEXO_BINARIO"]
+
+# -----------------------------------------------------------------------------
+# Step 07 - consensus multimodel feature selection.
+# -----------------------------------------------------------------------------
+resampling:
+  n_replicates: 500
+  n_per_class: 100               # 100 cases + 100 controls, n = 200
+  cv_folds: 10
+  seed: 12345
+  # Drop near-zero-variance columns inside each resample (caret::nearZeroVar).
+  drop_near_zero_variance: true
+
+models:
+  # How each model decides that a feature was "selected" in a resample. This
+  # matters more than it looks: the consensus index of step 8 averages the
+  # per-model selection frequencies, so a rule that marks almost every column as
+  # selected contributes a frequency near 1 for everything and dilutes the
+  # consensus instead of informing it.
+  #
+  #   nonzero     Lasso only: the coefficient is not zero. A genuine subset.
+  #   top_k       the feature is among the top k of that model's importance
+  #               ranking in the resample. k defaults to consensus$top_n_features.
+  #   above_mean  Random Forest only: impurity importance above its own mean.
+  #   positive    Random Forest only: impurity importance above zero. With 500
+  #               trees this is true for nearly every column; kept for reference.
+  #   auc_above   KNN only: univariate ROC filter above auc_threshold. Note that
+  #               caret reports max(AUC, 1 - AUC), so the score is never below
+  #               0.5 and a 0.5 cut-off selects almost everything.
+  #   all_retained  KNN only: every column surviving the near-zero-variance
+  #               filter. This is what the published run recorded.
+  lasso:
+    lambda_criterion: "lambda.1se"   # or "lambda.min"
+    n_lambda: 100
+    selection_rule: "nonzero"
+    top_k: null                      # used only by top_k, null means inherit
+  random_forest:
+    num_trees: 500
+    # mtry defaults to floor(sqrt(p)); set an integer here to override.
+    mtry: null
+    min_node_size: 1
+    selection_rule: "top_k"
+    top_k: null
+  knn:
+    # The Methods section reports five candidate values of k.
+    k_grid: [5, 7, 9, 11, 13]
+    # "tuned_once": k is chosen once per scenario on a larger balanced sample
+    #               and then held fixed across the 500 replicates.
+    # "per_replicate": k is retuned inside every replicate (slower).
+    tuning: "tuned_once"
+    tuning_n_per_class: 1000
+    selection_rule: "top_k"
+    top_k: null
+    auc_threshold: 0.55
+
+consensus:
+  # Consensus index = mean selection frequency across the three models.
+  top_n_features: 30             # retained per scenario
+  top_n_plot: 10                 # displayed in the SHAP figures
+  # Final class-weighted Lasso fitted on the development subset, restricted to
+  # the consensus features, and exported for the SHAP step.
+  final_fit_max_rows: 1000000    # stratified subsample if the subset is larger
+  shap_sample_rows: 5000         # rows exported for the SHAP figures
+
+# -----------------------------------------------------------------------------
+# Analytical scenarios. name = column in the model matrix, label = wording used
+# in the manuscript tables and figures.
+# -----------------------------------------------------------------------------
+scenarios:
+  - {name: "D1_ACV_GENERAL",         label: "Stroke, principal diagnosis"}
+  - {name: "D2_ACV_GENERAL",         label: "Stroke, secondary diagnosis"}
+  - {name: "D1_ACV_HEMORRAGICO",     label: "Haemorrhagic stroke, principal"}
+  - {name: "D2_ACV_HEMORRAGICO",     label: "Haemorrhagic stroke, secondary"}
+  - {name: "D1_ACV_ISQUEMICO",       label: "Ischaemic stroke, principal"}
+  - {name: "D2_ACV_ISQUEMICO",       label: "Ischaemic stroke, secondary"}
+  - {name: "D1_ACV_NOESPECIFICADO",  label: "Unspecified stroke, principal"}
+  - {name: "D2_ACV_NOESPECIFICADO",  label: "Unspecified stroke, secondary"}
+  - {name: "D1_HEM_VS_ISQ",          label: "Haemorrhagic versus ischaemic"}
+
+# -----------------------------------------------------------------------------
+# Step 09 - hypervolume and reporting. Computed by R/lib_hypervolume.R.
+# -----------------------------------------------------------------------------
+hypervolume:
+  # Objectives, all maximised, in this order.
+  objectives: ["precision", "sensitivity", "f1", "accuracy"]
+  reference_point: [0.0, 0.0, 0.0, 0.0]
+  # "mean" : hypervolume of the single point formed by the four mean metrics,
+  #          i.e. the product of the means when the reference point is the
+  #          origin. This is the reading that matches the manuscript, where the
+  #          table reports mean metrics and one hypervolume per model. Cheap and
+  #          exactly reproducible.
+  # "front": exact hypervolume of the non-dominated set of the replicate points
+  #          (Zitzler's indicator applied to the replicate cloud). More
+  #          informative about stability, considerably slower.
+  mode: "mean"
+
+reporting:
+  # Municipalities described in Table 2 and Supplementary Tables S2-S4.
+  focus_municipalities: ["PUENTE ALTO", "COQUIMBO", "SAN CARLOS"]
+  top_municipalities_figure: 15   # bars in Figure 3
+  figure_format: "pdf"
+  figure_dpi: 300
