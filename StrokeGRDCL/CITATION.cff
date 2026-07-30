@@ -1,0 +1,66 @@
+# -----------------------------------------------------------------------------
+# CITATION.cff
+#
+# Citation metadata for this repository, in Citation File Format 1.2.0.
+# GitHub reads it and offers a "Cite this repository" button.
+#
+# TO COMPLETE BEFORE PUBLISHING
+#   1. The author list below holds the two names that appear in the delivered
+#      scripts and manuscript. Add the remaining co-authors, in the order used by
+#      the article, and fill in the ORCID identifiers.
+#   2. Once the archive is created, add the Zenodo DOI in the identifiers block
+#      and in preferred-citation.
+#   3. Update the version and date-released fields for each release.
+# -----------------------------------------------------------------------------
+
+cff-version: 1.2.0
+message: "If you use this software, please cite both the software and the article."
+title: "stroke-drg-chile: machine learning characterisation of stroke in Chile from Diagnosis-Related Group records"
+abstract: >-
+  Reproducible pipeline for the characterisation of clinical, demographic,
+  hospital and territorial features of stroke records in the Chilean public
+  hospital network, 2019-2024, using Diagnosis-Related Group discharge data.
+  Feature screening by chi-square test, consensus feature selection across a
+  Lasso-penalised logistic model, Random Forest and K-nearest neighbours over
+  balanced resamples, model comparison by hypervolume, and interpretation with
+  exact SHAP values of the final linear model.
+type: software
+license: MIT
+version: 1.0.0
+date-released: "2026-07-30"
+
+authors:
+  - family-names: "Guzmán-Madriaga"
+    given-names: "Ivania Elena"
+    affiliation: "Departamento de Ingeniería Informática, Universidad de Santiago de Chile"
+    # orcid: "https://orcid.org/0000-0000-0000-0000"
+  # - family-names: ""
+  #   given-names: ""
+  #   affiliation: "Departamento de Ingeniería Informática, Universidad de Santiago de Chile"
+  #   orcid: ""
+
+keywords:
+  - stroke
+  - diagnosis-related groups
+  - hospital discharge records
+  - machine learning
+  - feature selection
+  - health data science
+  - Chile
+
+repository-code: "https://github.com/<organisation>/stroke-drg-chile"
+
+# identifiers:
+#   - type: doi
+#     value: "10.5281/zenodo.XXXXXXX"
+#     description: "Archived release of the analytical code"
+
+preferred-citation:
+  type: article
+  title: "Machine learning characterisation of stroke in Chile using Diagnosis-Related Group records, 2019-2024"
+  authors:
+    - family-names: "Guzmán-Madriaga"
+      given-names: "Ivania Elena"
+  year: 2026
+  # journal: ""
+  # doi: ""
