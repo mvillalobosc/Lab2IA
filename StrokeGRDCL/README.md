@@ -1,4 +1,4 @@
-# stroke-drg-chile
+# StrokeGRDCL
 
 Reproducible pipeline for the study *Machine learning characterisation of stroke
 in Chile using Diagnosis-Related Group records, 2019-2024*.
