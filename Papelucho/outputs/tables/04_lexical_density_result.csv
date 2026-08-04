@@ -1,0 +1,2 @@
+metric,n_focus,n_comparison,median_focus,median_comparison,mean_focus,mean_comparison,difference,p_value,cliffs_delta,delta_lower,delta_upper,delta_magnitude,rank_biserial,higher_in,p_adjusted
+lexical_density,12,63,0.47871970725868296,0.505029296875,0.4725433831549279,0.5034738401663331,-0.02630958961631702,3.2434360857427756e-07,-0.9365079365079365,-0.9947089947089947,-0.8438492063492068,large,-0.9365079365079365,Comparison,3.2434360857427756e-07

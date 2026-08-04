@@ -1,0 +1,2 @@
+baseline_silhouette_delta_space,silhouette_median,silhouette_min,silhouette_max,silhouette_range,sign_stable_across_runs,neighbourhood_preservation_median,n_runs,verdict
+0.17261851130473957,0.6387097959181869,0.4170467474498762,0.8922614500358811,0.4752147025860049,TRUE,0.5773333333333334,45,Weakly stable: separation holds in sign but varies substantially in magnitude across seeds.

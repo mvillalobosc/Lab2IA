@@ -1,0 +1,5 @@
+text,expectation,score
+me siento muy feliz y contento hoy,positive,1.360672102833218
+fue un dia terrible y triste,negative,-0.8164965809277261
+no me siento feliz para nada,below the positive case,0.4082482904638631
+el perro corrio por el parque,neutral,0
