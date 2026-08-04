@@ -1,0 +1,35 @@
+metric,cliffs_delta_full corpus,cliffs_delta_audience-matched,cliffs_delta_original Spanish only,author_median_delta,author_prop_significant,direction_stable,effect_holds,n_designs_tested,n_designs_significant,verdict
+TTR,-0.6825396825396826,-0.5722222222222222,-0.6111111111111112,-0.7121212121212122,0.97,TRUE,TRUE,4,3,"robust: direction and effect size stable; the Spanish-only design is underpowered, not contradictory"
+MTLD,-0.783068783068783,-0.6555555555555556,-0.8333333333333334,-0.7348484848484849,0.995,TRUE,TRUE,4,3,"robust: direction and effect size stable; the Spanish-only design is underpowered, not contradictory"
+MATTR,-0.7275132275132276,-0.5388888888888889,-0.9444444444444444,-0.7121212121212122,0.96,TRUE,TRUE,4,2,"supported: direction and effect size stable across designs, significance limited by sample size"
+Hapax_ratio,-0.9232804232804233,-0.9722222222222222,-0.9444444444444444,-0.9090909090909091,1,TRUE,TRUE,4,3,"robust: direction and effect size stable; the Spanish-only design is underpowered, not contradictory"
+Shannon_H,-0.4126984126984127,-0.16111111111111112,-0.4444444444444444,-0.48484848484848486,0,FALSE,TRUE,4,0,not significant on the full corpus
+words_per_sentence,-0.018518518518518517,0.49444444444444446,0.2222222222222222,-0.12878787878787878,0,FALSE,TRUE,4,0,not significant on the full corpus
+letters_per_word,-1,-1,-1,-1,1,TRUE,TRUE,4,3,"robust: direction and effect size stable; the Spanish-only design is underpowered, not contradictory"
+syllables_per_word,-1,-1,-1,-1,1,TRUE,TRUE,4,3,"robust: direction and effect size stable; the Spanish-only design is underpowered, not contradictory"
+Fernandez_Huerta,0.9761904761904762,0.95,1,0.9848484848484849,1,TRUE,TRUE,4,3,"robust: direction and effect size stable; the Spanish-only design is underpowered, not contradictory"
+Szigriszt_Pazos,0.9788359788359788,0.9555555555555556,1,0.9848484848484849,1,TRUE,TRUE,4,3,"robust: direction and effect size stable; the Spanish-only design is underpowered, not contradictory"
+Gutierrez_Polini,1,1,1,1,1,TRUE,TRUE,4,3,"robust: direction and effect size stable; the Spanish-only design is underpowered, not contradictory"
+Mu_index,0.8518518518518519,0.7166666666666667,0.9444444444444444,0.8712121212121212,1,TRUE,TRUE,4,3,"robust: direction and effect size stable; the Spanish-only design is underpowered, not contradictory"
+CCONJ,1,1,1,1,1,TRUE,TRUE,4,3,"robust: direction and effect size stable; the Spanish-only design is underpowered, not contradictory"
+SCONJ,0.8068783068783069,0.7777777777777778,0.8888888888888888,0.7803030303030303,1,TRUE,TRUE,4,3,"robust: direction and effect size stable; the Spanish-only design is underpowered, not contradictory"
+PRON,0.9629629629629629,0.9222222222222223,1,0.9772727272727273,1,TRUE,TRUE,4,3,"robust: direction and effect size stable; the Spanish-only design is underpowered, not contradictory"
+VERB,0.7962962962962963,0.5888888888888889,0.5555555555555556,0.8560606060606061,1,TRUE,TRUE,4,3,"robust: direction and effect size stable; the Spanish-only design is underpowered, not contradictory"
+NOUN,-0.4576719576719577,0.06111111111111111,-0.5555555555555556,-0.6022727272727273,0.43,FALSE,FALSE,4,0,not significant on the full corpus
+ADJ,-0.7671957671957672,-0.7,-0.6111111111111112,-0.7878787878787878,1,TRUE,TRUE,4,3,"robust: direction and effect size stable; the Spanish-only design is underpowered, not contradictory"
+ADV,-0.026455026455026457,-0.6777777777777778,-0.8333333333333334,-0.06060606060606061,0,FALSE,TRUE,4,1,not significant on the full corpus
+DET,-0.6455026455026455,-0.26666666666666666,-0.6666666666666666,-0.75,1,TRUE,TRUE,4,2,"supported: direction and effect size stable across designs, significance limited by sample size"
+ADP,-0.9867724867724867,-0.9722222222222222,-1,-0.9924242424242424,1,TRUE,TRUE,4,3,"robust: direction and effect size stable; the Spanish-only design is underpowered, not contradictory"
+PROPN,-0.7195767195767195,-0.7944444444444444,-0.3333333333333333,-0.553030303030303,0,TRUE,TRUE,4,2,"supported: direction and effect size stable across designs, significance limited by sample size"
+lexical_density,-0.9365079365079365,-0.9888888888888889,-0.9444444444444444,-0.8560606060606061,1,TRUE,TRUE,4,3,"robust: direction and effect size stable; the Spanish-only design is underpowered, not contradictory"
+mean_sentiment,-0.36243386243386244,-0.6222222222222222,-0.2777777777777778,-0.5151515151515151,0.035,TRUE,TRUE,4,1,not significant on the full corpus
+sd_sentiment,0.6296296296296297,0.8277777777777777,0.7777777777777778,0.6818181818181818,0.975,TRUE,TRUE,4,3,"robust: direction and effect size stable; the Spanish-only design is underpowered, not contradictory"
+sentiment_range,0.6507936507936508,0.8055555555555556,0.6111111111111112,0.6666666666666666,0.85,TRUE,TRUE,4,2,"supported: direction and effect size stable across designs, significance limited by sample size"
+pct_negative_chunks,0.48544973544973546,0.7888888888888889,0.3888888888888889,0.6212121212121212,0.55,TRUE,TRUE,4,1,not significant on the full corpus
+joy,-0.09788359788359788,-0.14444444444444443,0.16666666666666666,-0.13636363636363635,0,TRUE,FALSE,4,0,not significant on the full corpus
+fear,0.1349206349206349,0.6833333333333333,0.3333333333333333,0.32196969696969696,0,TRUE,TRUE,4,1,not significant on the full corpus
+sadness,-0.07407407407407407,0.05,-0.2222222222222222,-0.06818181818181818,0,TRUE,FALSE,4,0,not significant on the full corpus
+trust,0.10317460317460317,0.2,0.3333333333333333,0,0,TRUE,TRUE,4,0,not significant on the full corpus
+anger,-0.21428571428571427,0.17222222222222222,0.05555555555555555,-0.11363636363636363,0,FALSE,FALSE,4,0,not significant on the full corpus
+emotion_density,-0.37566137566137564,0.011111111111111112,0,-0.3560606060606061,0,TRUE,FALSE,4,0,not significant on the full corpus
+valence_ratio,-0.3941798941798942,-0.65,-0.3888888888888889,-0.553030303030303,0.08,TRUE,TRUE,4,1,not significant on the full corpus

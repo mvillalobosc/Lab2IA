@@ -1,0 +1,370 @@
+Software environment for every pipeline step.
+Entorno de software de cada paso del pipeline.
+
+============================================================================
+Step: 01_build_corpus
+Date: 2026-08-03 21:09:52 UTC
+Seed: 20250803
+
+R version 4.3.3 (2024-02-29)
+Platform: x86_64-pc-linux-gnu (64-bit)
+Running under: Ubuntu 24.04.4 LTS
+
+Matrix products: default
+BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.12.0 
+LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.12.0
+
+locale:
+ [1] LC_CTYPE=C.UTF-8      LC_NUMERIC=C          LC_TIME=C.utf8       
+ [4] LC_COLLATE=C          LC_MONETARY=C.utf8    LC_MESSAGES=C.utf8   
+ [7] LC_PAPER=C.utf8       LC_NAME=C             LC_ADDRESS=C         
+[10] LC_TELEPHONE=C        LC_MEASUREMENT=C.utf8 LC_IDENTIFICATION=C  
+
+time zone: Etc/UTC
+tzcode source: system (glibc)
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] tidyr_1.3.1   ggplot2_3.4.4 tibble_3.2.1  purrr_1.0.2   readr_2.1.5  
+[6] stringi_1.8.3 stringr_1.5.1 dplyr_1.1.4  
+
+loaded via a namespace (and not attached):
+ [1] crayon_1.5.2     vctrs_0.6.5      cli_3.6.2        rlang_1.1.3     
+ [5] generics_0.1.3   bit_4.0.5        glue_1.7.0       colorspace_2.1-0
+ [9] hms_1.1.3        scales_1.3.0     fansi_1.0.5      grid_4.3.3      
+[13] munsell_0.5.0    tzdb_0.4.0       lifecycle_1.0.4  compiler_4.3.3  
+[17] pkgconfig_2.0.3  R6_2.5.1         tidyselect_1.2.0 utf8_1.2.4      
+[21] parallel_4.3.3   vroom_1.6.5      pillar_1.9.0     stopwords_2.4   
+[25] magrittr_2.0.3   bit64_4.0.5      withr_2.5.0      tools_4.3.3     
+[29] gtable_0.3.4    
+
+============================================================================
+Step: 02_lexical_diversity
+Date: 2026-08-03 21:26:44 UTC
+Seed: 20250803
+
+R version 4.3.3 (2024-02-29)
+Platform: x86_64-pc-linux-gnu (64-bit)
+Running under: Ubuntu 24.04.4 LTS
+
+Matrix products: default
+BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.12.0 
+LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.12.0
+
+locale:
+ [1] LC_CTYPE=C.UTF-8      LC_NUMERIC=C          LC_TIME=C.utf8       
+ [4] LC_COLLATE=C          LC_MONETARY=C.utf8    LC_MESSAGES=C.utf8   
+ [7] LC_PAPER=C.utf8       LC_NAME=C             LC_ADDRESS=C         
+[10] LC_TELEPHONE=C        LC_MEASUREMENT=C.utf8 LC_IDENTIFICATION=C  
+
+time zone: Etc/UTC
+tzcode source: system (glibc)
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] zoo_1.8-12    tidyr_1.3.1   ggplot2_3.4.4 tibble_3.2.1  purrr_1.0.2  
+[6] readr_2.1.5   stringi_1.8.3 stringr_1.5.1 dplyr_1.1.4  
+
+loaded via a namespace (and not attached):
+ [1] bit_4.0.5         Matrix_1.6-5      gtable_0.3.4      crayon_1.5.2     
+ [5] compiler_4.3.3    tidyselect_1.2.0  parallel_4.3.3    splines_4.3.3    
+ [9] systemfonts_1.0.5 scales_1.3.0      textshaping_0.3.7 lattice_0.22-5   
+[13] R6_2.5.1          labeling_0.4.3    generics_0.1.3    munsell_0.5.0    
+[17] pillar_1.9.0      tzdb_0.4.0        rlang_1.1.3       utf8_1.2.4       
+[21] bit64_4.0.5       cli_3.6.2         withr_2.5.0       magrittr_2.0.3   
+[25] mgcv_1.9-1        grid_4.3.3        vroom_1.6.5       hms_1.1.3        
+[29] nlme_3.1-164      lifecycle_1.0.4   vctrs_0.6.5       glue_1.7.0       
+[33] farver_2.1.1      ragg_1.2.7        fansi_1.0.5       colorspace_2.1-0 
+[37] tools_4.3.3       pkgconfig_2.0.3  
+
+============================================================================
+Step: 03_readability
+Date: 2026-08-03 21:29:18 UTC
+Seed: 20250803
+
+R version 4.3.3 (2024-02-29)
+Platform: x86_64-pc-linux-gnu (64-bit)
+Running under: Ubuntu 24.04.4 LTS
+
+Matrix products: default
+BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.12.0 
+LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.12.0
+
+locale:
+ [1] LC_CTYPE=C.UTF-8      LC_NUMERIC=C          LC_TIME=C.utf8       
+ [4] LC_COLLATE=C          LC_MONETARY=C.utf8    LC_MESSAGES=C.utf8   
+ [7] LC_PAPER=C.utf8       LC_NAME=C             LC_ADDRESS=C         
+[10] LC_TELEPHONE=C        LC_MEASUREMENT=C.utf8 LC_IDENTIFICATION=C  
+
+time zone: Etc/UTC
+tzcode source: system (glibc)
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] tidyr_1.3.1   ggplot2_3.4.4 tibble_3.2.1  purrr_1.0.2   readr_2.1.5  
+[6] stringi_1.8.3 stringr_1.5.1 dplyr_1.1.4  
+
+loaded via a namespace (and not attached):
+ [1] bit_4.0.5         gtable_0.3.4      crayon_1.5.2      compiler_4.3.3   
+ [5] tidyselect_1.2.0  parallel_4.3.3    systemfonts_1.0.5 scales_1.3.0     
+ [9] textshaping_0.3.7 R6_2.5.1          labeling_0.4.3    generics_0.1.3   
+[13] munsell_0.5.0     pillar_1.9.0      tzdb_0.4.0        rlang_1.1.3      
+[17] utf8_1.2.4        bit64_4.0.5       cli_3.6.2         withr_2.5.0      
+[21] magrittr_2.0.3    grid_4.3.3        vroom_1.6.5       hms_1.1.3        
+[25] lifecycle_1.0.4   vctrs_0.6.5       glue_1.7.0        farver_2.1.1     
+[29] ragg_1.2.7        fansi_1.0.5       colorspace_2.1-0  tools_4.3.3      
+[33] pkgconfig_2.0.3  
+
+============================================================================
+Step: 04_pos_analysis
+Date: 2026-08-04 02:40:22 UTC
+Seed: 20250803
+
+R version 4.3.3 (2024-02-29)
+Platform: x86_64-pc-linux-gnu (64-bit)
+Running under: Ubuntu 24.04.4 LTS
+
+Matrix products: default
+BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.12.0 
+LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.12.0
+
+locale:
+ [1] LC_CTYPE=C.UTF-8      LC_NUMERIC=C          LC_TIME=C.utf8       
+ [4] LC_COLLATE=C          LC_MONETARY=C.utf8    LC_MESSAGES=C.utf8   
+ [7] LC_PAPER=C.utf8       LC_NAME=C             LC_ADDRESS=C         
+[10] LC_TELEPHONE=C        LC_MEASUREMENT=C.utf8 LC_IDENTIFICATION=C  
+
+time zone: Etc/UTC
+tzcode source: system (glibc)
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] udpipe_0.8.16 tidyr_1.3.1   ggplot2_3.4.4 tibble_3.2.1  purrr_1.0.2  
+[6] readr_2.1.5   stringi_1.8.3 stringr_1.5.1 dplyr_1.1.4  
+
+loaded via a namespace (and not attached):
+ [1] bit_4.0.5          Matrix_1.6-5       gtable_0.3.4       crayon_1.5.2      
+ [5] compiler_4.3.3     tidyselect_1.2.0   Rcpp_1.0.12        parallel_4.3.3    
+ [9] textshaping_0.3.7  systemfonts_1.0.5  scales_1.3.0       lattice_0.22-5    
+[13] R6_2.5.1           labeling_0.4.3     generics_0.1.3     munsell_0.5.0     
+[17] pillar_1.9.0       tzdb_0.4.0         rlang_1.1.3        utf8_1.2.4        
+[21] bit64_4.0.5        cli_3.6.2          withr_2.5.0        magrittr_2.0.3    
+[25] grid_4.3.3         vroom_1.6.5        hms_1.1.3          lifecycle_1.0.4   
+[29] vctrs_0.6.5        glue_1.7.0         data.table_1.14.10 farver_2.1.1      
+[33] ragg_1.2.7         fansi_1.0.5        colorspace_2.1-0   tools_4.3.3       
+[37] pkgconfig_2.0.3   
+
+============================================================================
+Step: 05_sentiment
+Date: 2026-08-03 22:05:24 UTC
+Seed: 20250803
+
+R version 4.3.3 (2024-02-29)
+Platform: x86_64-pc-linux-gnu (64-bit)
+Running under: Ubuntu 24.04.4 LTS
+
+Matrix products: default
+BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.12.0 
+LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.12.0
+
+locale:
+ [1] LC_CTYPE=C.UTF-8      LC_NUMERIC=C          LC_TIME=C.utf8       
+ [4] LC_COLLATE=C          LC_MONETARY=C.utf8    LC_MESSAGES=C.utf8   
+ [7] LC_PAPER=C.utf8       LC_NAME=C             LC_ADDRESS=C         
+[10] LC_TELEPHONE=C        LC_MEASUREMENT=C.utf8 LC_IDENTIFICATION=C  
+
+time zone: Etc/UTC
+tzcode source: system (glibc)
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] sentimentr_2.9.1 tidyr_1.3.1      ggplot2_3.4.4    tibble_3.2.1    
+[5] purrr_1.0.2      readr_2.1.5      stringi_1.8.3    stringr_1.5.1   
+[9] dplyr_1.1.4     
+
+loaded via a namespace (and not attached):
+ [1] bit_4.0.5          gtable_0.3.4       crayon_1.5.2       compiler_4.3.3    
+ [5] tidyselect_1.2.0   parallel_4.3.3     textshaping_0.3.7  systemfonts_1.0.5 
+ [9] scales_1.3.0       R6_2.5.1           textclean_0.9.8    labeling_0.4.3    
+[13] generics_0.1.3     textshape_1.7.6    munsell_0.5.0      pillar_1.9.0      
+[17] tzdb_0.4.0         rlang_1.1.3        utf8_1.2.4         lexicon_1.3.1     
+[21] bit64_4.0.5        cli_3.6.2          withr_2.5.0        magrittr_2.0.3    
+[25] qdapRegex_0.7.9    grid_4.3.3         vroom_1.6.5        hms_1.1.3         
+[29] lifecycle_1.0.4    vctrs_0.6.5        syuzhet_1.0.7      glue_1.7.0        
+[33] data.table_1.14.10 farver_2.1.1       ragg_1.2.7         fansi_1.0.5       
+[37] colorspace_2.1-0   tools_4.3.3        pkgconfig_2.0.3   
+
+============================================================================
+Step: 06_emotions
+Date: 2026-08-04 01:33:31 UTC
+Seed: 20250803
+
+R version 4.3.3 (2024-02-29)
+Platform: x86_64-pc-linux-gnu (64-bit)
+Running under: Ubuntu 24.04.4 LTS
+
+Matrix products: default
+BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.12.0 
+LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.12.0
+
+locale:
+ [1] LC_CTYPE=C.UTF-8      LC_NUMERIC=C          LC_TIME=C.utf8       
+ [4] LC_COLLATE=C          LC_MONETARY=C.utf8    LC_MESSAGES=C.utf8   
+ [7] LC_PAPER=C.utf8       LC_NAME=C             LC_ADDRESS=C         
+[10] LC_TELEPHONE=C        LC_MEASUREMENT=C.utf8 LC_IDENTIFICATION=C  
+
+time zone: Etc/UTC
+tzcode source: system (glibc)
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] syuzhet_1.0.7 tidyr_1.3.1   ggplot2_3.4.4 tibble_3.2.1  purrr_1.0.2  
+[6] readr_2.1.5   stringi_1.8.3 stringr_1.5.1 dplyr_1.1.4  
+
+loaded via a namespace (and not attached):
+ [1] bit_4.0.5         gtable_0.3.4      crayon_1.5.2      compiler_4.3.3   
+ [5] tidyselect_1.2.0  parallel_4.3.3    systemfonts_1.0.5 scales_1.3.0     
+ [9] textshaping_0.3.7 R6_2.5.1          labeling_0.4.3    generics_0.1.3   
+[13] munsell_0.5.0     pillar_1.9.0      tzdb_0.4.0        rlang_1.1.3      
+[17] utf8_1.2.4        bit64_4.0.5       cli_3.6.2         withr_2.5.0      
+[21] magrittr_2.0.3    grid_4.3.3        vroom_1.6.5       hms_1.1.3        
+[25] lifecycle_1.0.4   vctrs_0.6.5       glue_1.7.0        farver_2.1.1     
+[29] ragg_1.2.7        fansi_1.0.5       colorspace_2.1-0  tools_4.3.3      
+[33] pkgconfig_2.0.3  
+
+============================================================================
+Step: 07_stylometry
+Date: 2026-08-04 01:36:42 UTC
+Seed: 20250803
+
+R version 4.3.3 (2024-02-29)
+Platform: x86_64-pc-linux-gnu (64-bit)
+Running under: Ubuntu 24.04.4 LTS
+
+Matrix products: default
+BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.12.0 
+LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.12.0
+
+locale:
+ [1] LC_CTYPE=C.UTF-8      LC_NUMERIC=C          LC_TIME=C.utf8       
+ [4] LC_COLLATE=C          LC_MONETARY=C.utf8    LC_MESSAGES=C.utf8   
+ [7] LC_PAPER=C.utf8       LC_NAME=C             LC_ADDRESS=C         
+[10] LC_TELEPHONE=C        LC_MEASUREMENT=C.utf8 LC_IDENTIFICATION=C  
+
+time zone: Etc/UTC
+tzcode source: system (glibc)
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+ [1] tidytext_0.4.1  ggdendro_0.1.23 tidyr_1.3.1     ggplot2_3.4.4  
+ [5] tibble_3.2.1    purrr_1.0.2     readr_2.1.5     stringi_1.8.3  
+ [9] stringr_1.5.1   dplyr_1.1.4    
+
+loaded via a namespace (and not attached):
+ [1] bit_4.0.5         Matrix_1.6-5      gtable_0.3.4      crayon_1.5.2     
+ [5] janeaustenr_1.0.0 compiler_4.3.3    tidyselect_1.2.0  Rcpp_1.0.12      
+ [9] parallel_4.3.3    textshaping_0.3.7 systemfonts_1.0.5 scales_1.3.0     
+[13] lattice_0.22-5    R6_2.5.1          labeling_0.4.3    SnowballC_0.7.1  
+[17] generics_0.1.3    MASS_7.3-60.0.1   munsell_0.5.0     pillar_1.9.0     
+[21] tzdb_0.4.0        tokenizers_0.3.0  rlang_1.1.3       utf8_1.2.4       
+[25] bit64_4.0.5       cli_3.6.2         withr_2.5.0       magrittr_2.0.3   
+[29] grid_4.3.3        vroom_1.6.5       hms_1.1.3         lifecycle_1.0.4  
+[33] vctrs_0.6.5       glue_1.7.0        farver_2.1.1      ragg_1.2.7       
+[37] fansi_1.0.5       colorspace_2.1-0  tools_4.3.3       pkgconfig_2.0.3  
+
+============================================================================
+Step: 08_umap
+Date: 2026-08-04 01:38:49 UTC
+Seed: 20250803
+
+R version 4.3.3 (2024-02-29)
+Platform: x86_64-pc-linux-gnu (64-bit)
+Running under: Ubuntu 24.04.4 LTS
+
+Matrix products: default
+BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.12.0 
+LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.12.0
+
+locale:
+ [1] LC_CTYPE=C.UTF-8      LC_NUMERIC=C          LC_TIME=C.utf8       
+ [4] LC_COLLATE=C          LC_MONETARY=C.utf8    LC_MESSAGES=C.utf8   
+ [7] LC_PAPER=C.utf8       LC_NAME=C             LC_ADDRESS=C         
+[10] LC_TELEPHONE=C        LC_MEASUREMENT=C.utf8 LC_IDENTIFICATION=C  
+
+time zone: Etc/UTC
+tzcode source: system (glibc)
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+ [1] cluster_2.1.6 uwot_0.1.16   Matrix_1.6-5  ggrepel_0.9.5 tidyr_1.3.1  
+ [6] ggplot2_3.4.4 tibble_3.2.1  purrr_1.0.2   readr_2.1.5   stringi_1.8.3
+[11] stringr_1.5.1 dplyr_1.1.4  
+
+loaded via a namespace (and not attached):
+ [1] bit_4.0.5         gtable_0.3.4      crayon_1.5.2      compiler_4.3.3   
+ [5] tidyselect_1.2.0  Rcpp_1.0.12       FNN_1.1.4         parallel_4.3.3   
+ [9] textshaping_0.3.7 systemfonts_1.0.5 scales_1.3.0      lattice_0.22-5   
+[13] R6_2.5.1          labeling_0.4.3    generics_0.1.3    munsell_0.5.0    
+[17] pillar_1.9.0      tzdb_0.4.0        rlang_1.1.3       utf8_1.2.4       
+[21] bit64_4.0.5       cli_3.6.2         withr_2.5.0       magrittr_2.0.3   
+[25] grid_4.3.3        vroom_1.6.5       irlba_2.3.5.1     hms_1.1.3        
+[29] lifecycle_1.0.4   vctrs_0.6.5       glue_1.7.0        farver_2.1.1     
+[33] ragg_1.2.7        fansi_1.0.5       colorspace_2.1-0  tools_4.3.3      
+[37] pkgconfig_2.0.3  
+
+============================================================================
+Step: 09_sensitivity
+Date: 2026-08-04 17:29:33 UTC
+Seed: 20250803
+
+R version 4.3.3 (2024-02-29)
+Platform: x86_64-pc-linux-gnu (64-bit)
+Running under: Ubuntu 24.04.4 LTS
+
+Matrix products: default
+BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.12.0 
+LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.12.0
+
+locale:
+ [1] LC_CTYPE=C.UTF-8      LC_NUMERIC=C          LC_TIME=C.utf8       
+ [4] LC_COLLATE=C          LC_MONETARY=C.utf8    LC_MESSAGES=C.utf8   
+ [7] LC_PAPER=C.utf8       LC_NAME=C             LC_ADDRESS=C         
+[10] LC_TELEPHONE=C        LC_MEASUREMENT=C.utf8 LC_IDENTIFICATION=C  
+
+time zone: Etc/UTC
+tzcode source: system (glibc)
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] tidyr_1.3.1   ggplot2_3.4.4 tibble_3.2.1  purrr_1.0.2   readr_2.1.5  
+[6] stringi_1.8.3 stringr_1.5.1 dplyr_1.1.4  
+
+loaded via a namespace (and not attached):
+ [1] bit_4.0.5         gtable_0.3.4      crayon_1.5.2      compiler_4.3.3   
+ [5] tidyselect_1.2.0  parallel_4.3.3    systemfonts_1.0.5 scales_1.3.0     
+ [9] textshaping_0.3.7 R6_2.5.1          labeling_0.4.3    generics_0.1.3   
+[13] munsell_0.5.0     pillar_1.9.0      tzdb_0.4.0        rlang_1.1.3      
+[17] utf8_1.2.4        bit64_4.0.5       cli_3.6.2         withr_2.5.0      
+[21] magrittr_2.0.3    grid_4.3.3        vroom_1.6.5       hms_1.1.3        
+[25] lifecycle_1.0.4   vctrs_0.6.5       glue_1.7.0        farver_2.1.1     
+[29] ragg_1.2.7        fansi_1.0.5       colorspace_2.1-0  tools_4.3.3      
+[33] pkgconfig_2.0.3  
+

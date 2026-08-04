@@ -1,0 +1,76 @@
+book_id,group,filename,bytes,md5
+PAP01,Papelucho,Papelucho.txt,109222,ad5dfd17f24b7f3f72a7371071121abe
+PAP02,Papelucho,Papelucho casi huerfano.txt,94111,695b27bc5598462b02081298b804d651
+PAP03,Papelucho,Papelucho historiador.txt,79283,871f08cc8eb1101cca730e4e0e3cbe0c
+PAP04,Papelucho,Papelucho detective.txt,119910,dfd2a2692bd5fce4d9203e17391e97e5
+PAP05,Papelucho,Papelucho en la clinica.txt,138828,86150ad508e6c7841ee7f1cac9dc2b7c
+PAP06,Papelucho,Papelucho perdido.txt,90590,fb099793869441dca1a41622db554b6a
+PAP07,Papelucho,Papelucho mi hermana Ji.txt,87881,728d6736b2358e96b50c2c5490ce2896
+PAP08,Papelucho,Papelucho misionero.txt,125185,444f8ed276528d3e39e61b5c4605c656
+PAP09,Papelucho,Papelucho y el marciano.txt,110173,b6cc8faf21efcbe19580467fb775c5dc
+PAP10,Papelucho,Papelucho y mi hermano hippie.txt,122845,b1df21e966467bba030538e7d1573eb4
+PAP11,Papelucho,Papelucho en vacaciones.txt,103809,967792b79fdc5e3f9d48c2c3a545ca1d
+PAP12,Papelucho,Papelucho soy dislexo.txt,92090,36e3bdc5e32b5088db8c2528e14c07d7
+CMP01,Comparison,Apocalipsis Z.txt,771993,cd7d5a2d3cef7e0cfcdb567830cd285d
+CMP02,Comparison,Cell.txt,770746,e56c507e60e99646add0b28650a28b33
+CMP03,Comparison,Conan Conan.txt,431002,31198c9232bf33b57e6defa3bb5a68f4
+CMP04,Comparison,Crepusculo Amanecer.txt,1111591,50242528687df51dd8f4ac22b06b17b1
+CMP05,Comparison,Crepusculo Crepusculo.txt,757377,9adcfea0945ef37e7fc3cfc2d8a0f003
+CMP06,Comparison,Crepusculo Eclipse.txt,974537,dabfb5c612ba01b652d1883125bd71c4
+CMP07,Comparison,Crepusculo Luna Nueva.txt,863210,93bf4403dd97db5d51cb43d176882ec2
+CMP08,Comparison,Crepusculo Sol de Medianoche.txt,473668,a8ad374ec2fdb7ae6a3dfeec5fd9e1a5
+CMP09,Comparison,El Elfo Oscuro El Exilio.txt,565374,3c53d29b2ffec80b7ecf6c441fd5cf8d
+CMP10,Comparison,El Elfo Oscuro El Refugio.txt,597643,1e87416e5f25da3749a309eb1412c70f
+CMP11,Comparison,El Elfo Oscuro La Morada.txt,618639,76402d152938f159b5a41eaabefd7f00
+CMP12,Comparison,El Ocho.txt,1320017,11608ecd8011318dcb1a8301379e8d5b
+CMP13,Comparison,El Perfume.txt,481144,ba0f1dc20b2fe9794d9a3f49ab68c6e2
+CMP14,Comparison,El caso Bourne.txt,1221673,5e6c7d144be55499b7d6b0fd9dfdf748
+CMP15,Comparison,El extran o caso de Benjamin Button.txt,58814,b829be3a6d760325997c9f6fdde2a24d
+CMP16,Comparison,El legado del drow Cerco de Oscuridad.txt,716001,dcd8f321e4fd9b1e14fafa82f540926e
+CMP17,Comparison,El legado del drow El Legado.txt,534610,01fcf558b59489e3b7eb145129155461
+CMP18,Comparison,El legado del drow Luz en las Tinieblas.txt,707102,2c8ab835bf637cca132f6b27287ed1a7
+CMP19,Comparison,El legado del drow Noche sin Estrellas.txt,671228,2aec89977178d5b1eaf26087916462ed
+CMP20,Comparison,El valle del viento helado La Gema del Halfling.txt,675295,87f389ef8aa08639a1721664248fa1b9
+CMP21,Comparison,El valle del viento helado La Piedra de Cristal.txt,713077,ee59a67ece470b0e799026682799003c
+CMP22,Comparison,El valle del viento helado Rios de Plata.txt,700276,e5a9c5518499b017492602b3f716ecdb
+CMP23,Comparison,Finis Mundi.txt,380966,160b0abd5b87f7ecc83b2e39fa5a652c
+CMP24,Comparison,Guerra Mundial Z.txt,771085,360fa63abfd0c8d20e9e1724fa41cbcb
+CMP25,Comparison,Harry Potter y el caliz de fuego.txt,1196236,8781bd5a254320fad59f84f770ce7c8f
+CMP26,Comparison,Harry Potter y el misterio del principe.txt,1054217,cd7b92a194a0e39d2262d9f27cef8449
+CMP27,Comparison,Harry Potter y el prisionero de Azkaban.txt,667156,ab679f5412e49bc7c064217c5b66c551
+CMP28,Comparison,Harry Potter y la camara secreta.txt,552075,82e83bd158e5864889e4362aac7f6e17
+CMP29,Comparison,Harry Potter y la orden del fenix.txt,1610082,7a7d3bbb8915ae967b3754ad15c604cb
+CMP30,Comparison,Harry Potter y la piedra filosofal.txt,470128,4e029a71c39d9e7713960d5f5fa7d9fc
+CMP31,Comparison,Harry Potter y las reliquias de la muerte.txt,1240768,a96ac2a9b9ef20049503359ecc999dfe
+CMP32,Comparison,Historias fantasticas.txt,337970,6d7bc5509bf01376012b2aee5d92152d
+CMP33,Comparison,La Expedicion.txt,304840,b39d72a2f8b9894dce0affe95209a15b
+CMP34,Comparison,La Historia Interminable.txt,719173,54db58d3cd06af1efe6e62d71cf00707
+CMP35,Comparison,La emperatriz de los Etereos.txt,407455,c6716d5acfa816f10e34dde7881758b6
+CMP36,Comparison,La torre Oscura.txt,377192,cc26e1f36abf1da890672841ebad8534
+CMP37,Comparison,Las espadas del cazador Las dos espadas.txt,770163,2ad8313681149b02a5c97f07214cbb40
+CMP38,Comparison,Las espadas del cazador Los Senderos de la Muerte.txt,804275,3b95e3893bd89e68553bcda71895ac86
+CMP39,Comparison,Paulo Coelho El Alquimista.txt,225212,4257e9277820f8fb45e8db4803c3bb59
+CMP40,Comparison,Percy Jackson y Los Olimpicos El ladron del rayo.txt,537801,64268c11f2623239edffbabf198c296f
+CMP41,Comparison,Percy Jackson y Los Olimpicos El mar de los monstruos.txt,423766,2b47af9bb4f5a41d32d8c1aff5084532
+CMP42,Comparison,Percy Jackson y Los Olimpicos La batalla del laberinto.txt,559559,0613bc2e36aedc1e2a9181f1f8bd2254
+CMP43,Comparison,Percy Jackson y Los Olimpicos La maldicion del Titan.txt,465058,faed46e90343871f35e4022d0d1d9727
+CMP44,Comparison,Peter Pan.txt,285782,def518cb497b136725195afa07b8268d
+CMP45,Comparison,Resident Evil Hora Cero.txt,376625,115414ef9f5f760431289df8e9e7a87b
+CMP46,Comparison,Resident Evil La conspiracion Umbrella.txt,445112,e21dcd6289250e166d02c2976877ade6
+CMP47,Comparison,Sendas de tinieblas El Siervo de La Piedra.txt,690738,87321d692ebcdbafd691f6b55f35590e
+CMP48,Comparison,Sendas de tinieblas El estigma de Errtu.txt,710187,4573731597e500d7f19bc1f7bde4b5b8
+CMP49,Comparison,Sendas de tinieblas El mar de las espadas.txt,690428,5d57761ab71008811884b779126cc9f4
+CMP50,Comparison,Sendas de tinieblas La columna del mundo.txt,699238,1d6eef80083c1a6cb66fffcf2b95c0f4
+CMP51,Comparison,Serie Diarios Vampiricos Conflicto The Struggle.txt,320813,67abc87cd4a92dab2dccfa9d4bc7147e
+CMP52,Comparison,Serie Diarios Vampiricos Despertar Awakening.txt,349330,9e2e1e0ae5bd008c5ae37398b629d030
+CMP53,Comparison,Serie Diarios Vampiricos El regreso Anochecer.txt,705758,bc2160477c2e82baede84ac134bddf4a
+CMP54,Comparison,Serie Diarios Vampiricos Furia The Fury.txt,336439,4f0adcc252f32b3b6b13cccb7007f656
+CMP55,Comparison,Serie Diarios Vampiricos Invocacion Dark Reunion.txt,343697,67f6fb931cca41205bbbd2fb85fe619f
+CMP56,Comparison,Stardust.txt,360361,2b15a43e8aaff49bff2dda9a56a34db8
+CMP57,Comparison,The Dead Zone.txt,968380,fc6413b2902d191298827cec201eba27
+CMP58,Comparison,Umberto Eco El Nombre de la Rosa.txt,1161292,aaa94168b97eee4297436d25ae4890bc
+CMP59,Comparison,Vampiratas Demonios del Oceano.txt,382367,7f57b28239c17e0e0f56c31e65b62797
+CMP60,Comparison,Vampiratas Emboscada en el Oceano.txt,96207,c20c43c46e44f25fc15480406b86d4a8
+CMP61,Comparison,Vampiratas Sangre de Capitan.txt,704824,aceee7e6a8cb5fbe0be87c163709081a
+CMP62,Comparison,Vampiratas Una ola de Terror.txt,564848,bccd883947e44fafd2dcbdf0f9a97d3e
+CMP63,Comparison,Viaje al Centro de la Tierra.txt,441256,e4b0d87c8591a5eace5268fa469a558b

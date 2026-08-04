@@ -1,0 +1,12 @@
+metric,whole_delta,whole_p,whole_higher,whole_sig,ctrl_delta,ctrl_p,ctrl_higher,ctrl_sig,direction_flips,significance_flips,interpretation
+TTR,0.9603174603174603,1.7779669475067972e-6,Papelucho,TRUE,-0.6825396825396826,0.0015853036218996387,Comparison,TRUE,TRUE,FALSE,Direction reverses once length is controlled: the whole-text result is a length artefact.
+RTTR,-0.9417989417989417,2.782300704740867e-6,Comparison,TRUE,-0.6825396825396826,0.0015853036218996387,Comparison,TRUE,FALSE,FALSE,Stable across both analyses.
+CTTR,-0.9417989417989417,2.782300704740867e-6,Comparison,TRUE,-0.6825396825396826,0.0015853036218996387,Comparison,TRUE,FALSE,FALSE,Stable across both analyses.
+Herdan_C,0.9365079365079365,2.782300704740867e-6,Papelucho,TRUE,-0.6825396825396826,0.0015853036218996387,Comparison,TRUE,TRUE,FALSE,Direction reverses once length is controlled: the whole-text result is a length artefact.
+Maas,-0.746031746031746,2.368977507932776e-4,Comparison,TRUE,0.6825396825396826,0.0015853036218996387,Papelucho,TRUE,TRUE,FALSE,Direction reverses once length is controlled: the whole-text result is a length artefact.
+MATTR,-0.4126984126984127,0.09849366143408433,Comparison,FALSE,-0.7275132275132276,6.549697067625432e-4,Comparison,TRUE,FALSE,TRUE,Significant only with length control: length was masking a real difference.
+MTLD,-0.22486772486772486,0.6660537682985747,Comparison,FALSE,-0.783068783068783,1.9502070397575712e-4,Comparison,TRUE,FALSE,TRUE,Significant only with length control: length was masking a real difference.
+Yule_K,-0.07936507936507936,1,Comparison,FALSE,-0.08994708994708994,1,Comparison,FALSE,FALSE,FALSE,Stable across both analyses.
+Simpson_D,-0.07936507936507936,1,Comparison,FALSE,-0.08994708994708994,1,Comparison,FALSE,FALSE,FALSE,Stable across both analyses.
+Shannon_H,-0.9153439153439153,4.15906652877315e-6,Comparison,TRUE,-0.4126984126984127,0.07387024607556325,Comparison,FALSE,FALSE,TRUE,Significant only without length control: likely a length artefact.
+Hapax_ratio,0.9074074074074074,4.458469410708427e-6,Papelucho,TRUE,-0.9232804232804233,5.21631980144519e-6,Comparison,TRUE,TRUE,FALSE,Direction reverses once length is controlled: the whole-text result is a length artefact.

@@ -1,0 +1,76 @@
+order,display,book_id,group,author,series
+1,Papelucho_06,PAP06,Papelucho,Marcela Paz,Papelucho
+2,Papelucho_11,PAP11,Papelucho,Marcela Paz,Papelucho
+3,Papelucho_09,PAP09,Papelucho,Marcela Paz,Papelucho
+4,Papelucho_12,PAP12,Papelucho,Marcela Paz,Papelucho
+5,Papelucho_10,PAP10,Papelucho,Marcela Paz,Papelucho
+6,Papelucho_07,PAP07,Papelucho,Marcela Paz,Papelucho
+7,Papelucho_08,PAP08,Papelucho,Marcela Paz,Papelucho
+8,Papelucho_04,PAP04,Papelucho,Marcela Paz,Papelucho
+9,Papelucho_05,PAP05,Papelucho,Marcela Paz,Papelucho
+10,Papelucho_01,PAP01,Papelucho,Marcela Paz,Papelucho
+11,Papelucho_02,PAP02,Papelucho,Marcela Paz,Papelucho
+12,La morada,CMP11,Comparison,R. A. Salvatore,El elfo oscuro
+13,El legado,CMP17,Comparison,R. A. Salvatore,El legado del drow
+14,El exilio,CMP09,Comparison,R. A. Salvatore,El elfo oscuro
+15,El refugio,CMP10,Comparison,R. A. Salvatore,El elfo oscuro
+16,La gema del halfling,CMP20,Comparison,R. A. Salvatore,El valle del viento helado
+17,La piedra de cristal,CMP21,Comparison,R. A. Salvatore,El valle del viento helado
+18,Ríos de plata,CMP22,Comparison,R. A. Salvatore,El valle del viento helado
+19,El estigma de Errtu,CMP48,Comparison,R. A. Salvatore,Sendas de tinieblas
+20,El mar de las espadas,CMP49,Comparison,R. A. Salvatore,Sendas de tinieblas
+21,El siervo de la piedra,CMP47,Comparison,R. A. Salvatore,Sendas de tinieblas
+22,La columna del mundo,CMP50,Comparison,R. A. Salvatore,Sendas de tinieblas
+23,Los senderos de la muerte,CMP38,Comparison,R. A. Salvatore,Las espadas del cazador
+24,Luz en las tinieblas,CMP18,Comparison,R. A. Salvatore,El legado del drow
+25,Noche sin estrellas,CMP19,Comparison,R. A. Salvatore,El legado del drow
+26,Cerco de oscuridad,CMP16,Comparison,R. A. Salvatore,El legado del drow
+27,Las dos espadas,CMP37,Comparison,R. A. Salvatore,Las espadas del cazador
+28,Hora cero,CMP45,Comparison,S. D. Perry,Resident Evil
+29,La conspiración Umbrella,CMP46,Comparison,S. D. Perry,Resident Evil
+30,Stardust,CMP56,Comparison,Neil Gaiman,
+31,Conan,CMP03,Comparison,Robert E. Howard,Conan
+32,La torre oscura: el pistolero,CMP36,Comparison,Stephen King,La torre oscura
+33,Guerra Mundial Z,CMP24,Comparison,Max Brooks,
+34,Papelucho_03,PAP03,Papelucho,Marcela Paz,Papelucho
+35,El alquimista,CMP39,Comparison,Paulo Coelho,
+36,Apocalipsis Z,CMP01,Comparison,Manel Loureiro,Apocalipsis Z
+37,Viaje al centro de la Tierra,CMP63,Comparison,Jules Verne,
+38,El nombre de la rosa,CMP58,Comparison,Umberto Eco,
+39,El perfume,CMP13,Comparison,Patrick Süskind,
+40,El regreso: anochecer,CMP53,Comparison,L. J. Smith,Crónicas vampíricas
+41,Sol de medianoche,CMP08,Comparison,Stephenie Meyer,Crepúsculo
+42,Amanecer,CMP04,Comparison,Stephenie Meyer,Crepúsculo
+43,El ladrón del rayo,CMP40,Comparison,Rick Riordan,Percy Jackson y los dioses del Olimpo
+44,Invocación,CMP55,Comparison,L. J. Smith,Crónicas vampíricas
+45,Harry Potter y la orden del fénix,CMP29,Comparison,J. K. Rowling,Harry Potter
+46,Harry Potter y las reliquias de...,CMP31,Comparison,J. K. Rowling,Harry Potter
+47,El extraño caso de Benjamin Button,CMP15,Comparison,F. Scott Fitzgerald,
+48,Cell,CMP02,Comparison,Stephen King,
+49,Historias fantásticas,CMP32,Comparison,Stephen King,
+50,La expedición,CMP33,Comparison,Stephen King,
+51,Peter Pan,CMP44,Comparison,J. M. Barrie,
+52,El ocho,CMP12,Comparison,Katherine Neville,
+53,La zona muerta,CMP57,Comparison,Stephen King,
+54,El caso Bourne,CMP14,Comparison,Robert Ludlum,Bourne
+55,Finis Mundi,CMP23,Comparison,Laura Gallego García,
+56,La emperatriz de los Etéreos,CMP35,Comparison,Laura Gallego García,
+57,La historia interminable,CMP34,Comparison,Michael Ende,
+58,El mar de los monstruos,CMP41,Comparison,Rick Riordan,Percy Jackson y los dioses del Olimpo
+59,La batalla del laberinto,CMP42,Comparison,Rick Riordan,Percy Jackson y los dioses del Olimpo
+60,La maldición del titán,CMP43,Comparison,Rick Riordan,Percy Jackson y los dioses del Olimpo
+61,Harry Potter y la piedra filosofal,CMP30,Comparison,J. K. Rowling,Harry Potter
+62,Harry Potter y el misterio del ...,CMP26,Comparison,J. K. Rowling,Harry Potter
+63,Harry Potter y el prisionero de...,CMP27,Comparison,J. K. Rowling,Harry Potter
+64,Harry Potter y el cáliz de fuego,CMP25,Comparison,J. K. Rowling,Harry Potter
+65,Harry Potter y la cámara secreta,CMP28,Comparison,J. K. Rowling,Harry Potter
+66,Luna nueva,CMP07,Comparison,Stephenie Meyer,Crepúsculo
+67,Crepúsculo,CMP05,Comparison,Stephenie Meyer,Crepúsculo
+68,Eclipse,CMP06,Comparison,Stephenie Meyer,Crepúsculo
+69,Despertar,CMP52,Comparison,L. J. Smith,Crónicas vampíricas
+70,Conflicto,CMP51,Comparison,L. J. Smith,Crónicas vampíricas
+71,Furia,CMP54,Comparison,L. J. Smith,Crónicas vampíricas
+72,Demonios del océano,CMP59,Comparison,Justin Somper,Vampiratas
+73,Emboscada en el océano,CMP60,Comparison,Justin Somper,Vampiratas
+74,Sangre de capitán,CMP61,Comparison,Justin Somper,Vampiratas
+75,Una ola de terror,CMP62,Comparison,Justin Somper,Vampiratas

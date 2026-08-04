@@ -1,0 +1,76 @@
+UMAP1,UMAP2,display,book_id,group,author,series
+-1.49600261926651,1.6283111786842346,Amanecer,CMP04,Comparison,Stephenie Meyer,Crepúsculo
+0.2907811951637269,-0.8169941687583924,Apocalipsis Z,CMP01,Comparison,Manel Loureiro,Apocalipsis Z
+0.4116415333747865,-0.2728519225120545,Cell,CMP02,Comparison,Stephen King,
+2.220624144077301,2.210312387943268,Cerco de oscuridad,CMP16,Comparison,R. A. Salvatore,El legado del drow
+1.752996141910553,0.623098394870758,Conan,CMP03,Comparison,Robert E. Howard,Conan
+-2.227386658191681,0.9950556969642639,Conflicto,CMP51,Comparison,L. J. Smith,Crónicas vampíricas
+-0.8545776057243346,1.6876416420936584,Crepúsculo,CMP05,Comparison,Stephenie Meyer,Crepúsculo
+-1.8311678814888,-0.011672475337982213,Demonios del océano,CMP59,Comparison,Justin Somper,Vampiratas
+-2.2830934572219848,0.6559572434425354,Despertar,CMP52,Comparison,L. J. Smith,Crónicas vampíricas
+-1.036801402568817,1.3927483773231506,Eclipse,CMP06,Comparison,Stephenie Meyer,Crepúsculo
+0.15950077295303355,0.45197584390640255,El alquimista,CMP39,Comparison,Paulo Coelho,
+-0.3488851237297057,0.2562728142738342,El caso Bourne,CMP14,Comparison,Robert Ludlum,Bourne
+1.6081678223609925,2.031639120578766,El estigma de Errtu,CMP48,Comparison,R. A. Salvatore,Sendas de tinieblas
+3.0791389298439027,1.2616067147254943,El exilio,CMP09,Comparison,R. A. Salvatore,El elfo oscuro
+-0.22006756544113149,-0.22380445241928104,El extraño caso de Benjamin Button,CMP15,Comparison,F. Scott Fitzgerald,
+-1.3188137459754943,1.1278515076637268,El ladrón del rayo,CMP40,Comparison,Rick Riordan,Percy Jackson y los dioses del Olimpo
+2.6715781044960023,1.0594091629981994,El legado,CMP17,Comparison,R. A. Salvatore,El legado del drow
+1.508045370578766,1.8176255440711975,El mar de las espadas,CMP49,Comparison,R. A. Salvatore,Sendas de tinieblas
+-0.391730134487152,-0.6601989054679871,El mar de los monstruos,CMP41,Comparison,Rick Riordan,Percy Jackson y los dioses del Olimpo
+0.5135425877571107,0.2751665329933166,El nombre de la rosa,CMP58,Comparison,Umberto Eco,
+0.5210310769081117,0.6033759331703186,El ocho,CMP12,Comparison,Katherine Neville,
+1.2534744095802308,0.12552788019180294,El perfume,CMP13,Comparison,Patrick Süskind,
+2.5906793427467347,1.2205600953102111,El refugio,CMP10,Comparison,R. A. Salvatore,El elfo oscuro
+-1.677718346118927,1.1428423142433166,El regreso: anochecer,CMP53,Comparison,L. J. Smith,Crónicas vampíricas
+1.3177334618568421,1.7530417656898498,El siervo de la piedra,CMP47,Comparison,R. A. Salvatore,Sendas de tinieblas
+-1.714510028362274,-0.499403932094574,Emboscada en el océano,CMP60,Comparison,Justin Somper,Vampiratas
+-1.1597626852989196,-0.6406178259849549,Finis Mundi,CMP23,Comparison,Laura Gallego García,
+-1.9936736273765563,0.9110207772254943,Furia,CMP54,Comparison,L. J. Smith,Crónicas vampíricas
+0.006446774005889999,-1.3593549513816834,Guerra Mundial Z,CMP24,Comparison,Max Brooks,
+-1.1671710658073424,0.22090914011001583,Harry Potter y el cáliz de fuego,CMP25,Comparison,J. K. Rowling,Harry Potter
+-0.7892628359794616,-0.059211709499359166,Harry Potter y el misterio del ...,CMP26,Comparison,J. K. Rowling,Harry Potter
+-1.4701833176612853,0.1713438248634338,Harry Potter y el prisionero de...,CMP27,Comparison,J. K. Rowling,Harry Potter
+-1.1549289870262145,-0.19361398458480839,Harry Potter y la cámara secreta,CMP28,Comparison,J. K. Rowling,Harry Potter
+-1.679481689929962,0.7168932175636291,Harry Potter y la orden del fénix,CMP29,Comparison,J. K. Rowling,Harry Potter
+-0.8965376067161559,-0.3939218306541443,Harry Potter y la piedra filosofal,CMP30,Comparison,J. K. Rowling,Harry Potter
+-1.4882720160484313,0.63152601480484,Harry Potter y las reliquias de...,CMP31,Comparison,J. K. Rowling,Harry Potter
+0.12013190507888805,-0.10512159109115604,Historias fantásticas,CMP32,Comparison,Stephen King,
+1.7464587044715882,0.9962330079078674,Hora cero,CMP45,Comparison,S. D. Perry,Resident Evil
+-2.0693540024757384,1.2455110764503479,Invocación,CMP55,Comparison,L. J. Smith,Crónicas vampíricas
+-0.587319676876068,0.7490501618385315,La batalla del laberinto,CMP42,Comparison,Rick Riordan,Percy Jackson y los dioses del Olimpo
+1.1619107079505921,1.5636978363990783,La columna del mundo,CMP50,Comparison,R. A. Salvatore,Sendas de tinieblas
+2.038767035007477,0.8583960747718811,La conspiración Umbrella,CMP46,Comparison,S. D. Perry,Resident Evil
+-1.968174521923065,-0.2138185286521912,La emperatriz de los Etéreos,CMP35,Comparison,Laura Gallego García,
+0.6173502755165101,-0.43611381292343143,La expedición,CMP33,Comparison,Stephen King,
+2.054906542301178,1.8208317971229553,La gema del halfling,CMP20,Comparison,R. A. Salvatore,El valle del viento helado
+-0.9586804556846618,-0.7723679327964783,La historia interminable,CMP34,Comparison,Michael Ende,
+-0.7331226515769957,0.5940008378028869,La maldición del titán,CMP43,Comparison,Rick Riordan,Percy Jackson y los dioses del Olimpo
+2.7665917229652406,0.9034443116188049,La morada,CMP11,Comparison,R. A. Salvatore,El elfo oscuro
+2.5346104454994203,1.769138834476471,La piedra de cristal,CMP21,Comparison,R. A. Salvatore,El valle del viento helado
+1.3534070801734925,0.4133825516700744,La torre oscura: el pistolero,CMP36,Comparison,Stephen King,La torre oscura
+-0.08985025167465199,0.3293175911903381,La zona muerta,CMP57,Comparison,Stephen King,
+1.8064915490150453,1.6916904664039611,Las dos espadas,CMP37,Comparison,R. A. Salvatore,Las espadas del cazador
+2.1362039399147035,1.4184508538246154,Los senderos de la muerte,CMP38,Comparison,R. A. Salvatore,Las espadas del cazador
+-1.0328064608573913,1.579627058506012,Luna nueva,CMP07,Comparison,Stephenie Meyer,Crepúsculo
+1.529180223941803,1.2648668503761291,Luz en las tinieblas,CMP18,Comparison,R. A. Salvatore,El legado del drow
+1.8754145455360414,1.3502245163917541,Noche sin estrellas,CMP19,Comparison,R. A. Salvatore,El legado del drow
+-0.7037985968589782,-3.768593707084656,Papelucho_01,PAP01,Papelucho,Marcela Paz,Papelucho
+-0.7731171298027038,-3.592083730697632,Papelucho_02,PAP02,Papelucho,Marcela Paz,Papelucho
+-0.28160292387008656,-2.61481187582016,Papelucho_03,PAP03,Papelucho,Marcela Paz,Papelucho
+-0.5079804110527038,-3.4186349892616272,Papelucho_04,PAP04,Papelucho,Marcela Paz,Papelucho
+-0.8981848406791686,-3.3529778504371643,Papelucho_05,PAP05,Papelucho,Marcela Paz,Papelucho
+0.019547636508941757,-3.115625002384186,Papelucho_06,PAP06,Papelucho,Marcela Paz,Papelucho
+-0.1819093871116637,-3.7606815481185913,Papelucho_07,PAP07,Papelucho,Marcela Paz,Papelucho
+-0.4865337061882018,-3.099034526348114,Papelucho_08,PAP08,Papelucho,Marcela Paz,Papelucho
+-0.3202920603752135,-3.5667868638038636,Papelucho_09,PAP09,Papelucho,Marcela Paz,Papelucho
+-0.19526178121566762,-3.515593626499176,Papelucho_10,PAP10,Papelucho,Marcela Paz,Papelucho
+-0.0595019507408141,-3.112317063808441,Papelucho_11,PAP11,Papelucho,Marcela Paz,Papelucho
+0.10967534303665172,-3.3170517468452454,Papelucho_12,PAP12,Papelucho,Marcela Paz,Papelucho
+-1.009206597805023,0.04643966913223263,Peter Pan,CMP44,Comparison,J. M. Barrie,
+2.357368643283844,1.7177434182167053,Ríos de plata,CMP22,Comparison,R. A. Salvatore,El valle del viento helado
+-1.6249857592582702,-0.6413650298118592,Sangre de capitán,CMP61,Comparison,Justin Somper,Vampiratas
+-1.6071715998649596,1.7832689499855041,Sol de medianoche,CMP08,Comparison,Stephenie Meyer,Crepúsculo
+-0.38278466939926137,-0.046567895412445104,Stardust,CMP56,Comparison,Neil Gaiman,
+-1.4129427123069762,-0.12187717199325565,Una ola de terror,CMP62,Comparison,Justin Somper,Vampiratas
+0.9512125802040101,0.6360416626930236,Viaje al centro de la Tierra,CMP63,Comparison,Jules Verne,
