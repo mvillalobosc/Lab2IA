@@ -1,0 +1,4 @@
+"step","script","minutes","status"
+"01","01_pareto_front.R",0.02,"ok"
+"02","02_hypervolume.R",0.01,"ok"
+"03","03_solution_overlap.R",0,"ok"

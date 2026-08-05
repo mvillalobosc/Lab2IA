@@ -1,0 +1,1044 @@
+﻿Isolate name;Standardized name;Isolation;Ecological origins;Geographical origins;HO deletion;Plasmid class;Plasmid CN;Ploidy;Aneuploidies;Zygosity;Total number of SNPs;Proportion of clean heterozygous SNPs (whole dataset);Number of singletons;Mean coverage;Clades;MTA (no distribution);Collection / Provider;Reference
+EXF-5295;BFC;Kefyr;Fermentation;Slovenia;no;A;75;2;euploid;homozygous;42,404;0.0;305;231;1. Wine/European ;;University of Ljubljana, Biotech Facility dept. Biology Ljubljana, Slovenia (Gunde-Cimerman N.);
+CBS4458;AGL;Red wine;Wine;France;yes;A;10;1;euploid;homozygous;43,585;0.0;565;921;1. Wine/European ;;CBS collection (Nguyen H.V.);
+YJM434_1b;ABE;Human, clinical ;Human, clinical;NA;yes;A;30;1;euploid;homozygous;42,562;0.0;117;197;1. Wine/European ;;Kruglyak Laboratory;1
+YJM453;SACE_YAM;Unknown;Human, clinical;NA;no;A;70;2;euploid;homozygous;41,676;0.0;139;82;1. Wine/European ;;Phaff collection;2
+DBVPG1554;BKI;Wine;Wine;Dalmatia ;no;A;12;2;euploid;homozygous;42,541;0.0;248;242;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+DBVPG1794_1b;ABR;Soil;Soil;Finland;yes;A;34;1;euploid;homozygous;42,682;0.0;3;189;1. Wine/European ;;Kruglyak Laboratory;1
+DBVPG1788_1b;ABQ;Soil;Soil;Finland;yes;A;29;1;euploid;homozygous;42,848;0.0;12;202;1. Wine/European ;;Kruglyak Laboratory;1
+DBVPG1790;BNV;Soil;Soil;Turku, Finland;no;A;8;2;euploid;homozygous;43,052;0.0;1;257;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+DBVPG1795;BPB;Grape must;Wine;Illasi, Verona, Italy;no;A;11;2;euploid;homozygous;43,363;0.0;393;368;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+DBVPG1960;BPT;Grape must;Wine;Recioto, Verona, Italy;no;A;9;2;euploid;heterozygous;45,188;9.9;337;255;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+DBVPG4162;BQM;Grape must;Wine;Reggio Emilia, Italy;no;A;8;2;euploid;heterozygous;45,851;13.3;385;199;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+EXF-6761;BFK;Quercus cerris;Tree;Slovenia;no;A;54;2;euploid;homozygous;42,620;0.0;310;296;1. Wine/European ;;University of Ljubljana, Biotech Facility dept. Biology Ljubljana, Slovenia (Gunde-Cimerman N.);
+DBVPG4410;BQS;Wine;Wine;Italy ;no;none;0;2;euploid;heterozygous;43,600;5.2;511;239;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+DBVPG2166;BQE;Sagrantino wine;Wine;production zone of Sagrantino wine, Montefalco, Foligno, Italy;no;A;10;2;euploid;heterozygous;46,097;15.3;490;186;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+MC5;AIN;Cooked wine (vino cotto);Wine;Ascoli Piceno, Italy;no;none;0;2;euploid;heterozygous;44,430;6.6;677;218;1. Wine/European ;;Università politecnica delle Marche (Maurizio Ciani);
+DBVPG4381;BQR;Seawater;Water;Italy ;no;A;13;2;euploid;heterozygous;43,741;4.8;528;209;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+DBVPG1984;BLT;Grape must;Wine;Slovenia;no;A;8;2;euploid;heterozygous;45,306;8.9;596;346;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+CBS457;AIF;Grape must;Wine;Italy;no;A;26;2;euploid;heterozygous;44,600;10.1;10;224;1. Wine/European ;;CBS collection (Nguyen H.V.);
+CBS1190;AQR;Wine;Wine;Germany;no;A;68;2;"aneu;+1*11;+1*14;";heterozygous;44,653;9.9;4;216;1. Wine/European ;;CBS collection (Nguyen H.V.);
+DBVPG1832;BPF;Fruit juice;Fruit;NA;no;none;0;2;euploid;heterozygous;44,882;10.0;401;258;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+DBVPG1973;BLR;Grape must;Wine;Greece;no;none;0;2;euploid;heterozygous;45,338;10.3;34;249;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+DBVPG1708;BNL;Soil;Soil;Ultura, Sweden;no;none;0;2;euploid;heterozygous;44,885;8.7;14;245;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+DBVPG1861;BPK;River water;Water;Rajamaki River, Finland;no;none;0;2;euploid;heterozygous;44,940;9.5;188;241;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+DBVPG1584;BKQ;Unknown;Unknown;Porec, Istria;no;A;41;2;euploid;heterozygous;44,193;5.4;754;237;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+DBVPG1841;BPG;Red Tecc;Unknown;Ethiopia;no;A;36;2;"aneu;+1*1;";homozygous;41,579;0.0;21;132;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+DBVPG1843;BPH;White Tecc;Unknown;Ethiopia;no;A;35;2;"aneu;+1*1;";homozygous;42,333;0.0;11;244;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+DBVPG4460;BQT;Wine;Wine;Jesi, Italy ;no;A;6;2;euploid;homozygous;42,858;0.0;410;251;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+CBS459;APT;Grape must;Wine;Italy;no;A;102;2;"aneu;+1*14;";homozygous;42,776;0.0;239;295;1. Wine/European ;;CBS collection (Nguyen H.V.);
+DBVPG1058;BID;Baker's yeast;Bakery;Pazzaglia, Italy;no;none;0;2;euploid;homozygous;42,560;0.0;363;256;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+CBS1590;AGI;Grape must / juice;Wine;Italy;no;A;1;2;euploid;homozygous;42,994;0.0;339;328;1. Wine/European ;;CBS collection (Nguyen H.V.);
+DBVPG1014;BHV;Grape must;Wine;Umbria, Italy;no;A;84;2;euploid;homozygous;42,750;0.0;373;221;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+DBVPG1057;BNE;Grape must;Wine;Colli Romani, Lazio, Italy;no;A;43;2;euploid;homozygous;42,723;0.0;24;224;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+DBVPG1599;BLA;Grape must;Wine;Cerro del Moro, La Mancha, Spain;no;A;21;2;euploid;homozygous;42,919;0.0;8;266;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+DBVPG1596;BKT;Grape must;Wine;Santa Cruz de los Canamos, La Mancha, Spain;no;A;15;2;euploid;homozygous;43,088;0.0;10;228;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+DBVPG1029;BIA;Fermenting Grape must;Wine;Colli di Roma, Lazio, Italy;no;A;33;2;euploid;homozygous;42,983;0.0;8;194;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+DBVPG1564;BKL;Grape must;Wine;Dolianova, Sardinia, Italy;no;A;21;2;euploid;homozygous;43,188;0.0;4;245;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+DBVPG1041;BIB;Grape must;Wine;Tuscany, Italy;no;A;44;2;euploid;homozygous;42,362;0.0;10;117;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+DBVPG1555;BKK;Unknown;Unknown;Radgona, Slovenia;no;A;25;2;euploid;homozygous;42,384;0.0;0;229;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+DBVPG1669;BLQ;Grape must;Wine;Cenicero, Rioja, Spain;no;A;42;2;"aneu;+1*11;";homozygous;42,745;0.0;2;296;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+YJM1336;SACE_YBY;Unknown;Wine;Italy;no;A;114;2;euploid;homozygous;43,911;0.0;14;402;1. Wine/European ;;Phaff collection;2
+YJM1526;SACE_YDF;Clinical (throat);Human, clinical;NA;no;A;155;2;euploid;homozygous;43,687;0.0;148;251;1. Wine/European ;;;2
+YJM1129;SACE_YDO;Non-Clinical, segregant of NRRL Y-53 (=NRRL Y-567);Distillery;Ohio, USA;no;A;47;2;euploid;homozygous;42,848;0.0;109;138;1. Wine/European ;;Phaff collection;2
+CBS1586;AHG;Pear must;Fruit;NA;yes;A;32;1;euploid;homozygous;42,683;0.0;381;228;1. Wine/European ;;CBS collection (Nguyen H.V.);
+C6.1;AII;Palm wine;Palm wine;Cameroon;no;A;25;2;"aneu;+1*1;";heterozygous;44,147;4.6;446;326;1. Wine/European ;;;3
+CBS1192;AHD;Wine;Wine;NA;yes;A;26;1;"aneu;+1*1;";homozygous;43,092;0.0;302;308;1. Wine/European ;;CBS collection (Nguyen H.V.);
+CBS1479;AGF;Wine;Wine;NA;yes;none;0;1;euploid;homozygous;42,942;0.0;82;475;1. Wine/European ;;CBS collection (Nguyen H.V.);
+CBS1194;AHE;Wine;Wine;NA;yes;none;0;1;"aneu;+1*8;";homozygous;42,589;0.0;73;215;1. Wine/European ;;CBS collection (Nguyen H.V.);
+CBS1175;AQQ;Wine;Wine;Switzerland;no;A;75;2;"aneu;+1*9;+1*14;";heterozygous;43,685;5.4;143;175;1. Wine/European ;;CBS collection (Nguyen H.V.);
+CBS1489;ASG;Tubercular lung;Human, clinical;Italy;no;A;46;2;"aneu;+2*2;+1*3;+1*8;+1*10;";homozygous;42,666;0.0;357;275;1. Wine/European ;;CBS collection (Nguyen H.V.);
+CBS4507;ASD;Brewer's yeast, English top yeast;Beer;NA;no;none;0;2;euploid;heterozygous;43,786;4.4;1;239;1. Wine/European ;;CBS collection (Nguyen H.V.);
+CBS4667;ASE;Grapes;Wine;Former Czechoslovakia;no;none;0;2;euploid;heterozygous;43,656;4.5;1;226;1. Wine/European ;;CBS collection (Nguyen H.V.);
+MC7;AIQ;Spontaneous alcoholic fermentation;Fermentation;Umbria, Italy;no;A;15;2;euploid;heterozygous;47,267;16.9;323;251;1. Wine/European ;;Università politecnica delle Marche (Maurizio Ciani);4
+DBVPG1625;BLG;Grape must;Wine;La Enconienda, La Mancha, Spain ;no;A;59;2;euploid;heterozygous;46,748;15.2;24;300;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+DBVPG1629;BLI;Grape must;Wine;La Mancha, Spain;no;A;39;2;euploid;heterozygous;47,028;15.7;28;372;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+CLIB154_1b;ACP;Wine;Wine;Russia;yes;A;22;1;euploid;homozygous;43,074;0.0;221;241;1. Wine/European (subclade 1);;Kruglyak Laboratory;1
+DBVPG1994;BQA;Grapes;Wine;Greece;no;A;10;2;euploid;homozygous;42,970;0.0;215;277;1. Wine/European (subclade 1);;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+21-4-125;AMA;Fruit of plum tree (Prunus domestica L., 'Stanley');Fruit;Male Zaluzie, Slovakia;no;A;43;3;euploid;heterozygous;47,184;18.5;320;232;1. Wine/European (subclade 1);;Culture collection of Yeast (Renata Vadkertiova);
+21-4-111;ALQ;Leaves of Prunus domestica L., 'Stanley';Tree;Male Zaluzie, Slovakia;no;A;56;2;euploid;homozygous;42,959;0.0;138;251;1. Wine/European (subclade 1);;Culture collection of Yeast (Renata Vadkertiova);
+CCY_21-4-120;BBI;Blossoms of plum tree (Prunus domestica L., 'Stanley');Flower;Male Levare, Slovakia;no;A;20;2;euploid;homozygous;43,097;0.0;197;279;1. Wine/European (subclade 1);;Culture collection of Yeast (Renata Vadkertiova);
+21-4-122;ALT;Blossoms of apricot tree (Prunus armeniaca);Flower;Male Zaluzie, Slovakia;no;A;28;2;euploid;homozygous;43,053;0.0;1;222;1. Wine/European (subclade 1);;Culture collection of Yeast (Renata Vadkertiova);
+CCY_21-4-121;BBK;Blossoms of apricot tree (Prunus armeniaca L., Madraska);Flower;Male Zaluzie, Slovakia;no;A;42;2;euploid;homozygous;43,352;0.0;1;268;1. Wine/European (subclade 1);;Culture collection of Yeast (Renata Vadkertiova);
+EXF-5287;BFB;Plum;Nature;Slovenia;no;A;94;2;euploid;heterozygous;46,371;16.7;239;213;1. Wine/European (subclade 1);;University of Ljubljana, Biotech Facility dept. Biology Ljubljana, Slovenia (Gunde-Cimerman N.);
+EXF-5297;BFD;Mashed pears;Fruit;Slovenia;no;A;63;2;euploid;homozygous;43,547;0.0;219;270;1. Wine/European (subclade 1);;University of Ljubljana, Biotech Facility dept. Biology Ljubljana, Slovenia (Gunde-Cimerman N.);
+21-4-116;ALS;Blossom of apple tree (Malus domestica);Flower;Male levare, Slovakia;no;A;35;2;euploid;homozygous;43,126;0.0;5;228;1. Wine/European (subclade 1);;Culture collection of Yeast (Renata Vadkertiova);
+CCY_21-4-119;BBH;Blossoms of pear tree (Pyrus communis);Flower;Male Levare, Slovakia;no;A;51;2;euploid;homozygous;43,197;0.0;10;250;1. Wine/European (subclade 1);;Culture collection of Yeast (Renata Vadkertiova);
+DBVPG1918;BPQ;Grape must;Wine;Malta;no;A;36;2;euploid;homozygous;42,978;0.0;121;180;1. Wine/European (subclade 1);;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+DBVPG4186;BQN;Wine;Wine;Slovenia;no;A;31;2;euploid;homozygous;43,170;0.0;6;196;1. Wine/European (subclade 1);;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+DBVPG4036;CBI;Grape must;Wine;ex Yugoslavia;no;A;43;2;euploid;homozygous;43,172;0.0;7;194;1. Wine/European (subclade 1);;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+N493-2C;CCM;Fir tree needles;Tree;Kiev district, Ukraine;no;A;101;2;euploid;homozygous;43,172;0.0;167;262;1. Wine/European (subclade 1);;State Research Institute of Genetics and Selection of Industrial Microorganisms (Naumov G.I.);
+EXF-3387;BEP;Homemade apple vingar;Unknown;Ljubljana, Slovenia;no;A;80;2;euploid;heterozygous;44,797;9.4;217;236;1. Wine/European (subclade 1);;University of Ljubljana, Biotech Facility dept. Biology Ljubljana, Slovenia (Gunde-Cimerman N.);
+DBVPG4695;BRC;Winery surface at the beginning of Vino Santo production, Lungarotti winery;Wine;Torgiano, Perugia, Italy;no;A;9;2;euploid;homozygous;42,776;0.0;156;261;1. Wine/European (subclade 1);;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+Lib39;CGT;Fermenting grape must (white wine);Wine;Lebanon;no;A;6;2;euploid;homozygous;43,263;0.0;156;264;1. Wine/European (subclade 1);;INRA Gringnon, France (Nguyen H.V.);
+21-4-99;ALL;River water (Danube);Water;Bratislava, Slovakia;no;A;29;2;euploid;heterozygous;46,123;13.9;60;263;1. Wine/European ;;Culture collection of Yeast (Renata Vadkertiova);
+21-4-101;ALM;River water (Danube);Water;Bratislava, Slovakia;no;A;32;2;"aneu;+1*9;";heterozygous;45,766;13.4;44;203;1. Wine/European ;;Culture collection of Yeast (Renata Vadkertiova);
+CECT1478;AVH;Wine;Wine;Hungary;no;none;0;2;"aneu;+1*2;+1*6;+1*7;+1*10;+1*13;+1*15;+1*16;";homozygous;42,765;0.0;309;266;1. Wine/European ;;CECT collection;
+CBS1227;AHR;Abscess on epididymis;Human, clinical;Romania;yes;A;1;1;euploid;homozygous;42,774;0.0;7;268;1. Wine/European ;;CBS collection (Nguyen H.V.);
+YJM244;SACE_YAD;Human;Human, clinical;Romania;no;A;61;2;euploid;homozygous;42,587;0.0;1;91;1. Wine/European ;;Phaff collection;2
+CBS1582;AGH;Wine;Wine;Portugal;yes;A;30;1;euploid;homozygous;42,592;0.0;318;225;1. Wine/European ;;CBS collection (Nguyen H.V.);
+ZP_577;BTH;Quercus faginea;Tree;Portugal, Aldeia das Dez, S. Estrela,;no;A;7;2;euploid;homozygous;42,813;0.0;337;324;1. Wine/European ;;Faculdade de Ciências e Tecnologia of Universidade NOVA de Lisboa (FCT-NOVA)(José Paulo Sampaio);
+UC4;ATH;Vineyard;Wine;Germany;no;A;125;2;euploid;heterozygous;44,025;6.0;418;214;1. Wine/European ;;Washington University School of Medicine (Justin C Fay);5
+CLIB484;BFQ;Cider brewery, industrial raw juice;Cider;Brittany, France;no;A;20;2;euploid;homozygous;42,381;0.0;5;263;1. Wine/European ;;CLIB collection (Serge Casaregola);
+SRC 147;CIA;Bioindustrial strains;Industrial;Bretagne, France;no;A;42;2;euploid;homozygous;42,511;0.0;6;263;1. Wine/European ;;Inserm Université P. M. Curie, Paris, France (Hennequin C.);
+CLIB485;BFR;Cider brewery, industrial raw juice;Cider;Brittany, France;no;A;35;2;euploid;homozygous;42,270;0.0;3;236;1. Wine/European ;;CLIB collection (Serge Casaregola);
+SRC 213;CIB;Bioindustrial strains;Industrial;Bretagne, France;no;A;72;2;euploid;homozygous;42,207;0.0;5;220;1. Wine/European ;;Inserm Université P. M. Curie, Paris, France (Hennequin C.);
+DBVPG1978;CBG;Grape must;Wine;Slovakia;no;A;21;2;euploid;heterozygous;45,588;13.9;498;167;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+CLIB294_1b;ACF;Distillery;Distillery;France;yes;A;28;1;euploid;homozygous;42,639;0.0;252;202;1. Wine/European ;;CLIB collection / Bureau National Interprofessionnel du Cognac;1
+YJM1356;SACE_YCD;Cider;Cider;NA;no;A;99;2;"aneu;+1*1;";homozygous;43,202;0.0;188;321;1. Wine/European ;;Phaff collection;2
+CBS423;APS;Wine;Wine;Switzerland;no;A;131;2;"aneu;+1*1;+1*8;+1*14;";heterozygous;44,618;8.4;548;219;1. Wine/European ;;CBS collection (Nguyen H.V.);
+CBS1257;ARC;Wine;Wine;Germany;no;A;149;2;"aneu;+1*14;";heterozygous;44,120;6.3;640;220;1. Wine/European ;;CBS collection (Nguyen H.V.);
+EXF-5042;BER;Straw broom sink cleaning after grape pressing;Wine;Slovenia;no;A;85;2;euploid;heterozygous;44,073;5.4;548;251;1. Wine/European ;;University of Ljubljana, Biotech Facility dept. Biology Ljubljana, Slovenia (Gunde-Cimerman N.);
+EXF-5046;BES;Grapes;Wine;Slovenia;no;A;210;2;euploid;heterozygous;43,843;5.5;578;238;1. Wine/European ;;University of Ljubljana, Biotech Facility dept. Biology Ljubljana, Slovenia (Gunde-Cimerman N.);
+CBS1602;ARK;Must of Blanchard pears;Fruit;NA;no;A;28;2;"aneu;+1*8;+1*13;";heterozygous;43,956;4.7;392;270;1. Wine/European ;;CBS collection (Nguyen H.V.);
+PR;ATA;Vineyard;Wine;France;no;none;0;2;euploid;homozygous;42,868;0.0;304;276;1. Wine/European ;;Washington University School of Medicine (Justin C Fay);5
+CBS2271;ARQ;Wine;Wine;Belgium;no;none;0;2;euploid;homozygous;42,347;0.0;475;196;1. Wine/European ;;CBS collection (Nguyen H.V.);
+YJM1242;SACE_YBN;Unknown;Fruit;Illinois, USA;no;A;72;2;euploid;homozygous;42,791;0.0;9;217;1. Wine/European ;;;2
+CBS1250;APV;Cherry wine;Wine;Spain;no;A;18;2;euploid;homozygous;42,341;0.0;17;226;1. Wine/European ;;CBS collection (Nguyen H.V.);
+UCD_40-49;CFV;Citrus fermentation;Fruit;NA;no;A;67;2;"aneu;+1*1;+1*4;";homozygous;42,651;0.0;25;291;1. Wine/European ;;Phaff collection;
+YJM1477;SACE_YDC;Blatz beer;Beer;Ethiopia;no;A;47;2;euploid;homozygous;43,345;0.0;10;295;1. Wine/European ;;;2
+L1528;SACE_GAP;Wine;Wine;Chile;no;A;33;2;euploid;homozygous;40,705;0.0;347;19;1. Wine/European ;;Universidad de Santiago de Chile (Francisco Cubillos) and Pontificia Universidad Catolica de Chile (Claudio Martinez);6
+CBS2966a;AAI;Distillery;Distillery;Denmark;yes;none;0;1;euploid;homozygous;43,085;0.0;18;243;1. Wine/European ;;CBS collection (Nguyen H.V.);
+CBS2965;ARV;Distillery;Distillery;Denmark;no;A;87;2;"aneu;+1*1;";homozygous;43,022;0.0;10;253;1. Wine/European ;;CBS collection (Nguyen H.V.);
+CLIB1040;BHC;Cider brewery, raw apple juice;Cider;Brittany, France;no;A;60;2;euploid;heterozygous;45,562;5.5;283;180;1. Wine/European ;;CLIB collection (Serge Casaregola);
+CLIB1062;BHF;Cider brewery, half fermenting apple juice;Cider;Brittany, France;no;A;37;2;euploid;homozygous;42,980;0.0;198;283;1. Wine/European ;;CLIB collection (Serge Casaregola);
+DBVPG1601;BLB;Grape must;Wine;Casa del Rey, La Mancha, Spain;no;A;24;2;euploid;homozygous;42,545;0.0;410;239;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+DBVPG1898;BPP;Grape must;Wine;Pantelleria, Italy;no;A;25;2;"aneu;+1*1;";homozygous;42,668;0.0;404;265;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+L-475;BTN;Wine;Wine;Chile;no;A;21;2;euploid;homozygous;42,470;0.0;293;193;1. Wine/European ;;Universidad de Santiago de Chile (Francisco Cubillos) and Pontificia Universidad Catolica de Chile (Claudio Martinez);
+L-304;BTL;Wine;Wine;Chile;no;A;5;2;euploid;homozygous;42,632;0.0;273;210;1. Wine/European ;;Universidad de Santiago de Chile (Francisco Cubillos) and Pontificia Universidad Catolica de Chile (Claudio Martinez);
+L-319;CRH;Wine;Wine;Chile;no;A;10;2;euploid;heterozygous;45,482;10.0;411;228;1. Wine/European ;;Universidad de Santiago de Chile (Francisco Cubillos) and Pontificia Universidad Catolica de Chile (Claudio Martinez);
+YJM189;SACE_YAA;Unknown;Distillery;NA;no;A;45;2;euploid;homozygous;43,640;0.0;391;167;1. Wine/European ;;Phaff collection;2
+L-1183;BSP;Wine;Wine;Uruguay;no;A;14;2;euploid;homozygous;41,722;0.0;306;143;1. Wine/European ;;Pontificia Universidad Catolica de Chile (Claudio Martinez);
+CBS1460;AHT;Fermenting fruit;Fermentation;Indonesia;yes;A;11;1;euploid;homozygous;43,122;0.0;20;244;1. Wine/European ;;CBS collection (Nguyen H.V.);
+Y4;ATN;Fruit;Fruit;Indonesia;no;A;85;2;euploid;homozygous;43,041;0.0;1;235;1. Wine/European ;;Washington University School of Medicine (Justin C Fay);5
+YJM1244;SACE_YBO;Unknown;Fruit;Indonesia;no;A;64;2;euploid;homozygous;43,261;0.0;4;58;1. Wine/European ;;;2
+DBVPG1701;BNK;Grape must;Wine;Cihuri, Rioja, Spain;no;A;20;2;euploid;homozygous;42,671;0.0;6;196;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+DBVPG1725;BNR;Grape must;Wine;La Puebla de la Barca, Rioja, Spain;no;A;52;2;euploid;homozygous;42,630;0.0;2;199;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+DBVPG3100;BQH;Grape must;Wine;Toscana, Italy;no;A;27;2;euploid;heterozygous;46,498;13.9;542;216;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+EXF-4126;BEQ;Dry wine-berry selection;Wine;Ljubljana, Slovenia;no;A;67;2;euploid;heterozygous;50,512;26.0;405;240;1. Wine/European ;;University of Ljubljana, Biotech Facility dept. Biology Ljubljana, Slovenia (Gunde-Cimerman N.);
+C15.1;AIK;Palm nuts ;Nature;Cameroon;no;A;23;2;euploid;heterozygous;43,321;3.0;138;278;1. Wine/European ;;;3
+D-1;CAH;Wine conserved in amphora;Wine;Georgia;no;A;100;2;"aneu;+1*4;";heterozygous;46,741;17.0;12;210;1. Wine/European ;;University of Basilicata (Angela Capece and Patrizia Romano);7
+A-14;CBA;Wine conserved in amphora;Wine;Georgia;no;A;64;2;euploid;heterozygous;46,883;17.3;7;229;1. Wine/European ;;University of Basilicata (Angela Capece and Patrizia Romano);7
+D-4;CAI;Wine conserved in amphora;Wine;Georgia;no;A;17;2;euploid;heterozygous;34,543;25.2;1;54;1. Wine/European ;;University of Basilicata (Angela Capece and Patrizia Romano);7
+A-16;CAK;Wine conserved in amphora;Wine;Georgia;no;A;12;2;euploid;heterozygous;49,833;24.2;7;337;1. Wine/European ;;University of Basilicata (Angela Capece and Patrizia Romano);7
+A-19;CAL;Wine conserved in amphora;Wine;Georgia;no;A;17;2;euploid;heterozygous;49,751;25.0;3;232;1. Wine/European ;;University of Basilicata (Angela Capece and Patrizia Romano);7
+M57;BSL;Wine;Wine;Italy;no;A;8;2;euploid;heterozygous;48,560;22.4;58;217;1. Wine/European ;;University of Florence (Duccio Cavalieri);8
+YJM1332;SACE_YBX;Unknown;Wine;Italy;no;A;40;2;euploid;homozygous;43,609;0.0;10;298;1. Wine/European ;;Phaff collection;2
+DBVPG6880;BSE;Winery;Wine;Ridge Winery, California, USA;no;A;45;2;euploid;homozygous;42,960;0.0;196;254;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+RM11-1a;AAA;Zinfandel vineyard;Wine;California, USA;yes;none;0;1;euploid;homozygous;42,872;0.0;254;218;1. Wine/European ;;Kruglyak Laboratory;
+UCD_40-255;CFS;Red Tokay grapes  (1939);Wine;Walnut Creek, California;no;A;153;4;"aneu;+1*2;-1*6;";homozygous;43,275;0.0;110;302;1. Wine/European ;;Phaff collection;
+EXF-5248;BEV;Seawater in harbour;Water;Koper, Slovenia;no;A;60;2;euploid;homozygous;42,934;0.0;1;190;1. Wine/European ;;University of Ljubljana, Biotech Facility dept. Biology Ljubljana, Slovenia (Gunde-Cimerman N.);
+EXF-5247;BET;Seawater in harbour;Water;Koper, Slovenia;no;A;66;2;euploid;homozygous;43,202;0.0;4;236;1. Wine/European ;;University of Ljubljana, Biotech Facility dept. Biology Ljubljana, Slovenia (Gunde-Cimerman N.);
+L-962;BST;Wine;Wine;Mendoza area, Argentina;no;A;8;2;euploid;homozygous;43,269;0.0;2;223;1. Wine/European ;;Pontificia Universidad Catolica de Chile (Claudio Martinez);
+M5;ASS;Vineyard;Wine;Italy;no;A;31;2;euploid;homozygous;44,701;0.0;124;204;1. Wine/European ;;Washington University School of Medicine (Justin C Fay);5
+DBVPG6879;BSD;Winery;Wine;Newton Winery, California, USA;no;A;24;2;euploid;homozygous;44,287;0.0;167;243;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+UC10;ATM;Wine;Wine;California, USA;no;A;114;2;euploid;homozygous;43,247;0.0;150;175;1. Wine/European ;;Washington University School of Medicine (Justin C Fay);5
+L-982;CQT;Wine;Wine;Argentina;no;A;24;2;euploid;homozygous;43,581;0.0;70;292;1. Wine/European ;;Pontificia Universidad Catolica de Chile (Claudio Martinez);
+DBVPG6876;BSA;Winery;Wine;Frog's Leap Winery, California, USA;no;A;33;2;euploid;homozygous;43,387;0.0;255;342;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+M22_1b;ADR;Vineyard;Wine;Italy;yes;A;25;1;euploid;homozygous;42,508;0.0;124;226;1. Wine/European ;;Kruglyak Laboratory;1
+DBVPG6878;BSC;Winery;Wine;Mondavi Winery, California, USA;no;A;7;2;euploid;homozygous;42,795;0.0;155;236;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+UCD_40-235;CFQ;Muscate grapes;Wine;Walnut Creek, California;no;A;63;2;euploid;homozygous;43,187;0.0;245;340;1. Wine/European ;;Phaff collection;
+UCD_40-248;CFR;Muscat must to be fortified  (1939);Wine;Tulare Winery, California;no;none;0;2;euploid;homozygous;42,776;0.0;206;219;1. Wine/European ;;Phaff collection;
+DBVPG6877;BSB;Winery;Wine;Sterling Winery, California, USA;no;none;0;2;euploid;homozygous;43,010;0.0;194;250;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+UC1_1b;ADC;Wine;Wine;France;yes;A;27;1;euploid;homozygous;42,594;0.0;16;259;1. Wine/European ;;Kruglyak Laboratory;1
+YJM1415;SACE_YCP;Wine;Wine;France;no;A;106;2;euploid;homozygous;43,403;0.0;8;410;1. Wine/European ;;Phaff collection;2
+YJM1417;SACE_YCQ;Cider;Cider;NA;no;A;48;2;euploid;homozygous;43,132;0.0;209;472;1. Wine/European ;;Phaff collection;2
+DBVPG1106;BII;Grapes;Wine;Australia;no;A;60;2;euploid;homozygous;43,102;0.0;207;257;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+DBVPG1129;BIS;Grape must;Wine;Senigallia, Italy;no;A;11;2;euploid;homozygous;43,106;0.0;185;227;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+DBVPG1080;BIG;Grape must;Wine;Barletta, Italy;no;A;47;2;"aneu;-1*1;";homozygous;43,119;0.0;502;277;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+MC8;AIR;Cooked wine (vino cotto);Wine;Ascoli Piceno, Italy;no;A;15;2;euploid;homozygous;42,709;0.0;0;244;1. Wine/European ;;Università politecnica delle Marche (Maurizio Ciani);
+MC10;AIT;Winery surface;Wine;Umbria, Italy;no;A;17;2;euploid;homozygous;42,683;0.0;1;237;1. Wine/European ;;Università politecnica delle Marche (Maurizio Ciani);4
+DBVPG1078;BNF;Grape must;Wine;San Ferdinando, Italy;no;none;0;2;euploid;homozygous;42,937;0.0;348;199;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+PB56;BAR;Bark from Quercus sp. (Oak 1), next to vineyard;Tree;Montalcino in Italy;no;A;17;2;euploid;homozygous;42,981;0.0;4;251;1. Wine/European ;;Max Planck Institute for Evolutionary Biology (Primrose Boynton);
+PB67;BAS;Soil beneath grape vine;Soil;Montalcino in Italy;no;A;13;2;euploid;homozygous;42,983;0.0;5;229;1. Wine/European ;;Max Planck Institute for Evolutionary Biology (Primrose Boynton);
+PB94;BAT;Soil by trunk of Quercus sp. (Oak 1), next to vineyard;Soil;Montalcino in Italy;no;A;21;2;euploid;homozygous;43,008;0.0;1;245;1. Wine/European ;;Max Planck Institute for Evolutionary Biology (Primrose Boynton);
+DBVPG4902;BRD;Dried sausages under oil;Unknown;Perugia, Italy;no;A;7;2;euploid;heterozygous;47,063;17.0;569;296;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+CBS6223;AGV;Grape juice;Wine;Chile;yes;A;48;1;euploid;homozygous;42,783;0.0;426;209;1. Wine/European ;;CBS collection (Nguyen H.V.);
+DBVPG3924;BQI;Grape must;Wine;Piave, Italy;no;A;7;2;euploid;homozygous;42,837;0.0;233;187;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+CBS3012;AGA;Wine;Wine;Cadiz, Spain;no;A;30;2;"aneu;+2*1;+2*8;";homozygous;42,762;0.0;11;233;1. Wine/European ;;CBS collection (Nguyen H.V.);
+CBS3013;AGS;Wine;Wine;Cadiz, Spain;yes;A;50;1;euploid;homozygous;42,714;0.0;11;220;1. Wine/European ;;CBS collection (Nguyen H.V.);
+DBVPG1798;BPC;Grape must;Wine;Sicily, Italy;no;A;5;2;euploid;homozygous;43,469;0.0;532;249;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+DBVPG1380;BKE;Grape must;Wine;Rufina, Italy;no;A;19;2;euploid;homozygous;43,206;0.0;360;204;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+DBVPG1626;BLH;Grape must;Wine;La Mancha, Spain;no;A;31;2;euploid;homozygous;43,229;0.0;315;287;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+L-846;CRG;Wine;Wine;Chile;no;A;20;2;euploid;heterozygous;45,841;12.4;399;213;1. Wine/European ;;Pontificia Universidad Catolica de Chile (Claudio Martinez);
+C10.4;AIL;Clay;Nature;Cameroon;no;A;48;2;euploid;heterozygous;44,829;10.2;9;212;1. Wine/European ;;;3
+SJ5L17;AMS;Probiotic;Probiotic;Austria;no;A;19;2;euploid;heterozygous;45,035;11.3;38;216;1. Wine/European ;yes;Biomin;
+DBVPG1611;BLE;Grape must;Wine;Retamosa, La Mancha, Spain;no;A;10;2;euploid;homozygous;43,192;0.0;384;330;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+Y9J_1b;ADB;Wine;Wine;Japan;yes;A;13;1;"aneu;+1*10;";homozygous;44,873;0.0;364;259;1. Wine/European ;;Kruglyak Laboratory;1
+DBVPG2049;BQB;Lambrusco grape must;Wine;Reggio Emilia, Italy;no;A;7;2;euploid;heterozygous;47,387;17.7;397;178;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+SJ5L16;AMR;Soil;Soil;Jhuosi, Hualein, Taiwan;no;A;15;2;euploid;homozygous;42,935;0.0;1;223;1. Wine/European ;;National Hsinchu University of Education (Ching-Fu Lee);25
+DBVPG4651_1b;ABT;Tuber magnatum;Nature;Italy;yes;A;20;1;euploid;homozygous;42,986;0.0;0;209;1. Wine/European ;;DBVPG collection;1
+DBVPG4651;BRA;Surface of Tuber magnatum;Nature;Italy;no;A;8;2;euploid;homozygous;43,409;0.0;2;297;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+DBVPG1056;BIC;grape must;Wine;production zone of Chianti wine, Italy;no;A;19;2;euploid;homozygous;44,477;0.0;374;314;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+DBVPG1631;BLK;Grape must treated with sulfur dioxide;Wine;Valdepenas, La Mancha, Spain;no;A;75;2;euploid;homozygous;43,993;0.0;339;267;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+2282;BBV;Grapes, Verdosilla variety;Wine;Tuejar, Spain;no;A;9;2;"aneu;+1*3;";heterozygous;46,043;10.6;26;295;1. Wine/European ;;Instituto de Agroquímica y Tecnología de los Alimentos (IATA)-CSIC (Amparo Querol);
+4LBI-3;BVK;Spontaneous grape fermentation;Wine;Basilicata, Italy;no;A;29;2;euploid;homozygous;43,518;0.0;8;230;1. Wine/European ;;University of Basilicata (Angela Capece and Patrizia Romano);
+4.9_WLP099;CFE;Carlsberg Beer, super high gravity;Beer;United Kingdom;no;A;68;2;euploid;heterozygous;46,661;13.9;72;272;1. Wine/European ;;Carlsberg;
+DBVPG5760;BRF;Wine fermenter;Wine;Production zone of Sagrantino wine, Montefalco, Foligno, Italy;no;A;9;2;euploid;heterozygous;48,840;19.2;10;215;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+SGU89;BSM;Wine;Wine;Italy;no;A;15;2;euploid;heterozygous;48,638;19.6;5;230;1. Wine/European ;;University of Florence (Duccio Cavalieri);8
+SG60;BSN;Wine;Wine;Italy;no;A;12;2;euploid;heterozygous;48,640;19.4;4;228;1. Wine/European ;;University of Florence (Duccio Cavalieri);8
+1216;CPE;Unknown;Unknown;El Sauzal, Tenerife, Spain;no;A;10;2;"aneu;+1*1;";homozygous;43,435;0.0;219;244;1. Wine/European ;;Instituto de Agroquímica y Tecnología de los Alimentos (IATA)-CSIC (Amparo Querol);
+DBVPG1656;BLM;Grape must treated with sulfur dioxide;Wine;Los Campillos, La Mancha, Spain;no;A;7;2;euploid;homozygous;42,837;0.0;188;306;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+DBVPG2088;BQC;Cognac;Distillery;Cognac, France;no;A;13;2;euploid;homozygous;43,003;0.0;161;251;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+DBVPG4905;BRE;Fermenting grape must;Wine;Marsciano, Perugia, Italy;no;A;12;2;euploid;homozygous;42,817;0.0;159;291;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+DBVPG1976;BPV;Wine;Wine;Slovakia;no;A;33;2;euploid;homozygous;43,438;0.0;162;261;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+Ba-215;CRC;Wine;Wine;Italy;no;A;8;2;euploid;homozygous;42,779;0.0;173;218;1. Wine/European ;;University of Basilicata (Angela Capece and Patrizia Romano);
+CLIB1410;BHN;Rice wine, Oenology;Fermentation;Laos;no;A;34;2;euploid;homozygous;42,710;0.0;277;220;1. Wine/European ;;CLIB collection (Serge Casaregola);
+PB200;BBB;Soil by trunk of Quercus sp. (Oak K), next to vineyard;Soil;Montalcino in Italy;no;A;45;2;euploid;homozygous;42,485;0.0;5;181;1. Wine/European ;;Max Planck Institute for Evolutionary Biology (Primrose Boynton);
+PB137;BAV;Bark of grape vine ;Wine;Montalcino in Italy;no;A;15;2;euploid;homozygous;42,739;0.0;4;262;1. Wine/European ;;Max Planck Institute for Evolutionary Biology (Primrose Boynton);
+B-4;CAE;Wine conserved in amphora;Wine;Georgia;no;A;3;2;euploid;homozygous;43,065;0.0;2;352;1. Wine/European ;;University of Basilicata (Angela Capece and Patrizia Romano);7
+C-3;CAF;Wine conserved in amphora;Wine;Georgia;no;A;3;2;euploid;homozygous;42,654;0.0;2;205;1. Wine/European ;;University of Basilicata (Angela Capece and Patrizia Romano);7
+C-6;CRL;Wine conserved in amphora;Wine;Georgia;no;A;6;2;euploid;homozygous;38,217;0.0;0;64;1. Wine/European ;;University of Basilicata (Angela Capece and Patrizia Romano);7
+PB197;BBA;Litter by trunk of Quercus sp. (Oak 4), next to vineyard;Soil;Montalcino in Italy;no;A;23;2;euploid;homozygous;42,759;0.0;280;260;1. Wine/European ;;Max Planck Institute for Evolutionary Biology (Primrose Boynton);
+YJM969;SACE_YAY;Unknown;Human, clinical;Italy;no;A;61;2;euploid;homozygous;41,867;0.0;0;25;1. Wine/European (subclade 2);;Phaff collection;2
+YJM981_b;ADI;Vagina;Human, clinical;Italy;yes;A;21;1;euploid;homozygous;43,151;0.0;6;220;1. Wine/European (subclade 2);;Phaff collection;1
+YJM975;SACE_YBA;Vagina;Human, clinical;Italy;no;A;48;2;euploid;homozygous;42,713;0.0;13;36;1. Wine/European (subclade 2);;Phaff collection;2
+YJM972;SACE_YAZ;Unknown;Human, clinical;Italy;no;A;47;2;euploid;homozygous;43,204;0.0;6;71;1. Wine/European (subclade 2);;Phaff collection;2
+YJM989;BMI;Vagina;Human, clinical;Italy;no;A;10;2;euploid;homozygous;42,862;0.0;0;219;1. Wine/European (subclade 2);;Phaff collection (McCusker);2
+YJM987;SACE_YBE;Unknown;Human, clinical;Italy;no;A;36;2;euploid;homozygous;42,571;0.0;5;114;1. Wine/European (subclade 2);;Phaff collection;2
+YJM990;BMK;Vagina;Human, clinical;Italy;no;A;8;2;euploid;homozygous;43,374;0.0;1;350;1. Wine/European (subclade 2);;Phaff collection (McCusker);10
+YJM980;SACE_YBF;Unknown;Human, clinical;Italy;no;A;49;2;euploid;homozygous;42,873;0.0;0;41;1. Wine/European (subclade 2);;Phaff collection;2
+YJM984;BMH;Vagina;Human, clinical;Italy;no;A;17;2;euploid;homozygous;42,736;0.0;3;196;1. Wine/European (subclade 2);;Phaff collection (McCusker);2
+IL_01_b;ADD;Soil;Soil;Illinois, USA;yes;A;19;1;euploid;homozygous;43,038;0.0;2;225;1. Wine/European (subclade 2);;Kruglyak Laboratory;1
+YJM978;SACE_YBB;Vagina;Human, clinical;Italy;no;A;51;2;euploid;homozygous;43,345;0.0;0;64;1. Wine/European (subclade 2);;Phaff collection;2
+YJM993;SACE_YBG;Unknown;Human, clinical;Italy;no;A;40;2;euploid;homozygous;43,516;0.0;7;122;1. Wine/European (subclade 2);;Phaff collection;2
+YJM996;SACE_YBH;Unknown;Human, clinical;Italy;no;A;47;2;euploid;homozygous;41,198;0.0;7;24;1. Wine/European (subclade 2);;Phaff collection;2
+CECT10351-1B;CDS;Tomato;Fruit;Spain;no;A;77;2;euploid;homozygous;43,285;0.0;501;287;1. Wine/European ;;CECT collection / State Research Institute of Genetics and Selection of Industrial Microorganisms (Naumov G.I.);
+DBVPG1122;BIM;Grape must;Wine;Lucera, Puglia, Italy;no;A;21;2;euploid;homozygous;42,623;0.0;12;253;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+DBVPG1123;BIN;Grape must;Wine;Manduria, Taranto, Italy;no;A;16;2;euploid;homozygous;42,548;0.0;4;213;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+DBVPG1163;BKA;Cherries;Fruit;Aurum, Sicily, Italy;no;A;7;2;euploid;homozygous;42,612;0.0;8;228;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+DBVPG4317;BQQ;Fermenting refrigerated Grape must (5C ca);Wine;Bettona, Perugia, Italy ;no;A;8;2;euploid;homozygous;42,420;0.0;672;172;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+T73_1b;ADS;Monastrel grape fermentation (red wine);Wine;Alicante, Spain;no;A;36;2;euploid;homozygous;43,029;0.0;493;210;1. Wine/European ;;Kruglyak Laboratory;1
+DBVPG1711;BNM;Grape must;Wine;Ygai, Rioja, Spain;no;A;46;2;euploid;homozygous;43,359;0.0;682;215;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+DBVPG1339_1b;ACR;Grapes;Wine;Netherlands;yes;A;26;1;euploid;homozygous;43,596;0.0;2;273;1. Wine/European ;;Kruglyak Laboratory;1
+DBVPG1105;BIH;Grapes;Wine;Adelaide, Australia;no;A;23;2;euploid;heterozygous;46,066;10.9;9;285;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+DBVPG1339;BKC;Grape must;Wine;Netherlands;no;A;24;2;euploid;heterozygous;46,163;10.9;4;274;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+DBVPG1975;BLS;Wine;Wine;Greece;no;A;7;2;euploid;heterozygous;45,909;8.8;16;403;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+DBVPG1374;BKD;Soil;Soil;Netherlands;no;A;34;2;euploid;heterozygous;46,921;15.0;59;318;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+DBVPG1714;BNP;Grape must;Wine;Fuen Mayor, Rioja, Spain;no;A;31;2;euploid;heterozygous;46,120;14.7;63;175;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+DBVPG1580;BKN;Grape must;Wine;Sardinia, Italy;no;A;80;2;euploid;homozygous;43,070;0.0;3;222;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+DBVPG1719;BNQ;Grape must;Wine;San Adrian, Rioja, Spain;no;A;138;2;euploid;homozygous;43,217;0.0;9;238;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+DBVPG3051;CBH;Grape must;Wine;Israel;no;A;39;2;euploid;heterozygous;43,130;7.5;867;95;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+DBVPG1523;BKH;Grape must;Wine;Trentino, Italy;no;A;39;2;euploid;homozygous;43,805;0.0;711;248;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+DBVPG1880;BPM;Grape must treated with pesticides;Wine;Italy;no;none;0;2;euploid;heterozygous;44,735;7.4;875;254;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+DBVPG1581;BKP;Grape must;Wine;Marassinai, Sardinia, Italy;no;A;31;2;"aneu;+1*8;";heterozygous;45,859;12.1;658;175;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+RB3-7Sc2;CRA;Wine;Wine;Italy;no;A;43;2;"aneu;-1*1;";heterozygous;45,518;10.7;727;195;1. Wine/European ;;University of Basilicata (Angela Capece and Patrizia Romano);
+SC2-37;CRB;Wine;Wine;Italy;no;A;10;2;euploid;homozygous;42,670;0.0;575;182;1. Wine/European ;;INRA Gringnon, France (Nguyen H.V.);
+Lib61;CHC;Fermenting grape must (red wine);Wine;Lebanon;no;A;18;2;euploid;heterozygous;44,705;7.6;664;301;1. Wine/European ;;INRA Gringnon, France (Nguyen H.V.);
+Ca6;CGS;Fermenting grape must (sweet wine);Wine;Lebanon;no;A;10;2;euploid;homozygous;44,096;0.0;420;235;1. Wine/European ;;INRA Gringnon, France (Nguyen H.V.);
+Lib54;CHB;Fermenting grape must (white wine);Wine;Lebanon;no;A;54;2;euploid;heterozygous;46,366;8.9;1,109;246;1. Wine/European ;;INRA Gringnon, France (Nguyen H.V.);
+Lib70;CHD;Fermenting grape must (white wine);Wine;Lebanon;no;A;17;2;euploid;heterozygous;47,284;19.0;758;214;1. Wine/European ;;INRA Gringnon, France (Nguyen H.V.);
+Lib51;CGV;Fermenting grape must (sweet wine);Wine;Lebanon;no;A;34;2;euploid;heterozygous;45,222;8.5;1,198;187;1. Wine/European ;;INRA Gringnon, France (Nguyen H.V.);
+Lib52;CHA;Fermenting grape must (sweet wine);Wine;Lebanon;no;A;16;2;euploid;homozygous;43,971;0.0;645;249;1. Wine/European ;;INRA Gringnon, France (Nguyen H.V.);
+Lib71;CHE;Fermenting grape must (rose wine);Wine;Lebanon;no;A;12;2;euploid;heterozygous;45,918;12.8;490;202;1. Wine/European ;;INRA Gringnon, France (Nguyen H.V.);
+CBS6914;AHI;White wine;Wine;Spain;yes;A;18;1;"aneu;+1*14;";homozygous;43,398;0.0;496;244;1. Wine/European ;;CBS collection (Nguyen H.V.);
+DBVPG1577;BKM;Grape must;Wine;Elmas, Sardinia, Italy;no;none;0;2;euploid;heterozygous;46,164;11.2;712;241;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+DBVPG1076;BIF;Grape must;Wine;Locorotondo, Puglia, Italy;no;A;15;2;euploid;homozygous;42,848;0.0;263;240;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+DBVPG1490;BKG;Grape must;Wine;Etna, Sicily, Italy;no;A;13;2;euploid;heterozygous;45,411;7.1;620;281;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+DBVPG1473;BKF;Wine;Wine;Piemonte, Italy;no;A;28;2;euploid;heterozygous;46,157;13.5;45;228;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+DBVPG1632;BLL;Grape must;Wine;Abertura, La Mancha, Spain;no;A;39;2;euploid;heterozygous;46,251;13.2;22;293;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+CBS2087;ARL;Lychee flower;Flower;China;no;A;3;2;"aneu;+1*1;";heterozygous;45,013;8.4;128;233;1. Wine/European ;;CBS collection (Nguyen H.V.);
+perentol;CKI;S. boulardii isolates (from Perenterol capsule);Human, clinical;Brussels, Belgium;no;A;216;2;euploid;heterozygous;43,960;5.4;3;195;1. Wine/European (subclade 3);;Inserm Université P. M. Curie, Paris, France (Hennequin C.);
+malade 98 3161;CKL;Feces, therapy;Human, clinical;Amiens, France;no;A;153;2;euploid;heterozygous;43,960;5.3;6;218;1. Wine/European (subclade 3);;Inserm Université P. M. Curie, Paris, France (Hennequin C.);
+ultra lev. 1127;CKH;S. boulardii isolates (from UltraLevure packet);Industrial;Paris, France;no;A;159;2;euploid;heterozygous;43,893;5.4;1;186;1. Wine/European (subclade 3);;Inserm Université P. M. Curie, Paris, France (Hennequin C.);
+malade 97 138633/11-2-5;CKD;Feces (therapy isolate);Human, clinical;Paris, France, H2;no;A;258;2;euploid;heterozygous;43,772;5.4;4;174;1. Wine/European (subclade 3);;Inserm Université P. M. Curie, Paris, France (Hennequin C.);
+malade 141076/11210;CKE;Feces (therapy isolate);Human, clinical;Paris, France, H2;no;A;148;2;euploid;heterozygous;44,078;5.2;11;205;1. Wine/European (subclade 3);;Inserm Université P. M. Curie, Paris, France (Hennequin C.);
+malade Elbaz 6766;CIS;Therapy isolates (Blood);Human, clinical;Paris, France, H6;no;A;94;2;euploid;heterozygous;44,017;5.2;3;200;1. Wine/European (subclade 3);;Inserm Université P. M. Curie, Paris, France (Hennequin C.);
+2698;BMN;Faringe;Human, clinical;Vall d'Hebron hospital, Barcelona, Spain;no;A;21;2;euploid;heterozygous;44,219;5.3;4;256;1. Wine/European (subclade 3);;Instituto de Agroquímica y Tecnología de los Alimentos (IATA)-CSIC (Amparo Querol);
+malade 459 Labaume;CIT;Blood (therapy isolate);Human, clinical;Paris, France, H1;no;A;103;2;euploid;heterozygous;43,967;5.0;6;186;1. Wine/European (subclade 3);;Inserm Université P. M. Curie, Paris, France (Hennequin C.);
+malade Broussais;CKP;Unknown;Human, clinical;Paris, France;no;A;172;2;euploid;heterozygous;43,849;4.8;5;203;1. Wine/European (subclade 3);;Inserm Université P. M. Curie, Paris, France (Hennequin C.);
+malade M2402A Necker ;CKQ;Feces (therapy isolate);Human, clinical;France;no;A;116;2;euploid;heterozygous;43,960;5.0;1;192;1. Wine/European (subclade 3);;Inserm Université P. M. Curie, Paris, France (Hennequin C.);
+malade 98 1655/125391;CKB;Blood (therapy isolate);Human, clinical;Paris, France, H3;no;A;171;2;euploid;heterozygous;43,846;5.3;1;164;1. Wine/European (subclade 3);;Inserm Université P. M. Curie, Paris, France (Hennequin C.);
+malade 139287/11_2_1;CKC;Blood (therapy isolate);Human, clinical;Paris, France, H2;no;A;203;2;euploid;heterozygous;43,879;5.3;3;163;1. Wine/European (subclade 3);;Inserm Université P. M. Curie, Paris, France (Hennequin C.);
+malade 6452;CIQ;Blood (therapy isolate);Human, clinical;Paris, France, H6;no;A;37;2;"aneu;-1*3;";heterozygous;43,652;4.3;8;177;1. Wine/European (subclade 3);;Inserm Université P. M. Curie, Paris, France (Hennequin C.);
+malade Hc6553;CIM;Blood (therapy isolate);Human, clinical;Paris, France, H6;no;A;103;2;"aneu;+2*9;";heterozygous;43,839;5.1;3;169;1. Wine/European (subclade 3);;Inserm Université P. M. Curie, Paris, France (Hennequin C.);
+malade Pac6436;CIN;Blood (therapy isolate);Human, clinical;Paris, France, H6;no;A;91;2;euploid;heterozygous;43,925;5.2;0;176;1. Wine/European (subclade 3);;Inserm Université P. M. Curie, Paris, France (Hennequin C.);
+malade 6441;CIR;Blood (therapy isolate);Human, clinical;Paris, France, H6;no;A;89;2;euploid;heterozygous;43,849;4.9;2;179;1. Wine/European (subclade 3);;Inserm Université P. M. Curie, Paris, France (Hennequin C.);
+malade 150865/1122;CKF;Feces (therapy isolate);Human, clinical;Paris, France, H2;no;A;237;2;euploid;heterozygous;43,706;4.8;8;163;1. Wine/European (subclade 3);;Inserm Université P. M. Curie, Paris, France (Hennequin C.);
+UL G84F88I90;CKG;S. boulardii isolates lychee (reference strain Biocodex);Fruit;Vietnam;no;A;86;2;euploid;heterozygous;44,013;5.5;3;202;1. Wine/European (subclade 3);;Inserm Université P. M. Curie, Paris, France (Hennequin C.);
+malade 98 2574;CKM;Feces, therapy;Human, clinical;Amiens, France;no;A;193;2;euploid;heterozygous;44,031;5.3;6;197;1. Wine/European (subclade 3);;Inserm Université P. M. Curie, Paris, France (Hennequin C.);
+malade 6442;CIP;Catheter (therapy isolate);Human, clinical;Paris, France, H6;no;A;147;2;"aneu;-1*3;+1*7;+1*11;+1*16;";heterozygous;43,729;4.7;3;179;1. Wine/European (subclade 3);;Inserm Université P. M. Curie, Paris, France (Hennequin C.);
+2644;BCA;Human feces;Human, clinical;Hospital Vall d'Hebron, Barcelona, Spain;no;A;284;2;euploid;heterozygous;44,014;5.4;5;183;1. Wine/European (subclade 3);;Instituto de Agroquímica y Tecnología de los Alimentos (IATA)-CSIC (Amparo Querol);
+SJ5L18;AMT;Probiotic;Probiotic;Austria;no;A;43;2;euploid;heterozygous;44,094;4.9;6;251;1. Wine/European (subclade 3);yes;Biomin;
+malade 1124/150017;CIV;Feces (therapy isolate);Human, clinical;Paris, France, H2;no;A;49;2;euploid;heterozygous;43,787;4.8;4;229;1. Wine/European (subclade 3);;Inserm Université P. M. Curie, Paris, France (Hennequin C.);
+malade Fauot;CKT;Unknown;Human, clinical;France;no;A;98;2;euploid;heterozygous;44,164;5.4;5;222;1. Wine/European (subclade 3);;Inserm Université P. M. Curie, Paris, France (Hennequin C.);
+DBVPG1108;BIL;Grapes;Wine;Australia;no;A;20;2;euploid;homozygous;42,550;0.0;620;174;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+DBVPG3591_1b;ABS;Cocoa beans;Nature;NA;yes;A;15;1;euploid;homozygous;42,657;0.0;640;297;1. Wine/European ;;DBVPG collection;1
+DBVPG1125;BIP;Grape must;Wine;Torre dei Passeri, Italy;no;none;0;2;"aneu;+1*8;";homozygous;43,035;0.0;4;252;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+DBVPG1126;BIQ;Grape must;Wine;Aquila, Italy;no;none;0;1;"aneu;+1*3;";homozygous;43,045;0.0;6;267;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+DBVPG1699;BNI;Grape must;Wine;De Casa la Reina, Rioja, Spain;no;A;82;2;euploid;homozygous;43,076;0.0;561;270;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+DBVPG3022;BLV;Grape must;Wine;Squinzano, Italy;no;A;20;2;euploid;homozygous;43,000;0.0;9;235;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+DBVPG3098;BQG;Grape must;Wine;Calabria, Italy;no;A;17;2;euploid;homozygous;43,002;0.0;5;279;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+FIMA_3;CRD;Wine;Wine;Italy;no;A;8;2;euploid;homozygous;42,581;0.0;398;137;1. Wine/European ;;University of Basilicata (Angela Capece and Patrizia Romano);
+AGME_5I;CRI;Wine;Wine;Italy;no;A;14;2;"aneu;+1*4;+1*8;+1*15;";homozygous;43,507;0.0;435;293;1. Wine/European ;;University of Basilicata (Angela Capece and Patrizia Romano);
+SA6-31;BVM;Spontaneous grape fermentation;Wine;Toscana, Italy;no;A;4;2;euploid;homozygous;43,129;0.0;2;241;1. Wine/European ;;University of Basilicata (Angela Capece and Patrizia Romano);
+CD7-9Sv2;CQV;Wine;Wine;Italy;no;A;5;2;euploid;homozygous;42,973;0.0;0;204;1. Wine/European ;;University of Basilicata (Angela Capece and Patrizia Romano);
+E1-6;CRK;Wine ;Wine;Italy;no;A;5;2;euploid;homozygous;43,119;0.0;6;241;1. Wine/European ;;University of Basilicata (Angela Capece and Patrizia Romano);
+DBVPG1615;BLF;Grape must;Wine;La Mancha, Spain;no;A;43;2;euploid;heterozygous;45,555;10.4;67;235;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+DBVPG1617-5A;CEA;Soil;Soil;Spain;yes;A;42;1;euploid;homozygous;43,167;0.0;3;267;1. Wine/European ;;DBVPG collection / State Research Institute of Genetics and Selection of Industrial Microorganisms (Naumov G.I.);
+DBVPG1619-4B;CEB;Soil;Soil;Spain;yes;A;34;1;euploid;homozygous;43,074;0.0;16;239;1. Wine/European ;;DBVPG collection / State Research Institute of Genetics and Selection of Industrial Microorganisms (Naumov G.I.);
+DBVPG1772;BNT;Soil;Soil;Kuopio, Finland;no;none;0;2;euploid;homozygous;42,917;0.0;703;213;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+DBVPG1608;BLD;Grape must;Wine;La Mancha, Spain;no;A;48;2;euploid;homozygous;43,024;0.0;445;270;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+DBVPG1594;BKR;Grape must;Wine;Los Cerros, La Mancha, Spain ;no;A;27;2;euploid;homozygous;43,106;0.0;27;261;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+DBVPG1620-1A;CEC;Soil;Soil;Spain;no;A;58;2;euploid;homozygous;43,041;0.0;24;270;1. Wine/European ;;DBVPG collection / State Research Institute of Genetics and Selection of Industrial Microorganisms (Naumov G.I.);
+DBVPG1685;BNH;Grape must;Wine;Haro, Rioja, Spain;no;A;62;2;euploid;homozygous;42,926;0.0;257;191;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+DBVPG1606;BLC;Grape must;Wine;Villarta de San Juan, La Mancha, Spain;no;A;111;2;euploid;heterozygous;44,118;4.2;146;309;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+DBVPG1622-8B;CEE;Soil;Soil;Spain;no;A;157;2;euploid;homozygous;42,823;0.0;54;243;1. Wine/European ;;DBVPG collection / State Research Institute of Genetics and Selection of Industrial Microorganisms (Naumov G.I.);
+DBVPG1712;BNN;Grape must;Wine;Pedrejon, Rioja, Spain;no;A;4;2;euploid;homozygous;43,088;0.0;451;297;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+DBVPG1621-5A;CED;Soil;Soil;Spain;no;A;54;2;euploid;homozygous;43,285;0.0;12;270;1. Wine/European ;;DBVPG collection / State Research Institute of Genetics and Selection of Industrial Microorganisms (Naumov G.I.);
+DBVPG1595;BKS;Grape must;Wine;La Mancha, Spain;no;A;20;2;euploid;heterozygous;45,291;9.6;11;239;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+DBVPG1661;BLP;Grape must;Wine;Los Polos, La Mancha, Spain;no;A;41;2;euploid;heterozygous;45,275;8.4;19;303;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+DBVPG1659;BLN;Grape must;Wine;Campo de Santiago, La Mancha, Spain;no;A;13;2;euploid;heterozygous;45,666;10.2;5;267;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+DBVPG1616-1D;CDV;Soil;Soil;Spain;no;A;71;2;euploid;homozygous;42,948;0.0;8;275;1. Wine/European ;;DBVPG collection / State Research Institute of Genetics and Selection of Industrial Microorganisms (Naumov G.I.);
+DBVPG1623-2A;CEF;Soil;Soil;Spain;no;A;90;2;euploid;homozygous;42,951;0.0;2;250;1. Wine/European ;;DBVPG collection / State Research Institute of Genetics and Selection of Industrial Microorganisms (Naumov G.I.);
+L-1191;ANQ;Wine;Wine;Valle de Ica, Peru;no;A;15;2;euploid;homozygous;42,592;0.0;468;192;1. Wine/European ;;Universidad de Santiago de Chile (Francisco Cubillos) and Pontificia Universidad Catolica de Chile (Claudio Martinez);11
+L-1194;AVK;Wine;Wine;Valle de Ica, Peru;no;A;10;2;euploid;homozygous;43,340;0.0;481;242;1. Wine/European ;;Universidad de Santiago de Chile (Francisco Cubillos) and Pontificia Universidad Catolica de Chile (Claudio Martinez);11
+DBVPG1107;BIK;Grapes;Wine;McLaren Valley, Australia;no;A;57;2;euploid;homozygous;42,526;0.0;229;172;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+NCYC_2743;CLH;Unknown;Wine;Spain;no;A;11;2;"aneu;+1*2;+1*13;+1*15;";homozygous;42,805;0.0;302;240;1. Wine/European ;;National Collection of Yeast Cultures (NCYC)(Stephen A James and Ian Roberts);
+CBS5635;AHN;Grape must;Wine;South Africa;yes;A;137;1;euploid;homozygous;42,374;0.0;1;209;1. Wine/European ;;CBS collection (Nguyen H.V.);
+DBVPG6295;BSG;Grape must;Wine;South Africa;no;A;68;2;euploid;homozygous;42,584;0.0;5;246;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+YJM1341;SACE_YCA;Unknown;Wine;South Africa;no;A;84;2;euploid;homozygous;42,110;0.0;5;66;1. Wine/European ;;Phaff collection;2
+UC8_1b;ACT;Wine;Wine;South Africa;yes;A;11;1;"aneu;+1*1;";homozygous;43,038;0.0;2;243;1. Wine/European ;;Kruglyak Laboratory;1
+WE372_1b;ACV;Wine;Wine;South Africa;yes;A;17;1;"aneu;+1*1;";homozygous;43,066;0.0;3;256;1. Wine/European ;;Kruglyak Laboratory;1
+CLQCA_02-003;AKP;Heart of palm processing equipment;Industrial;Santo Domingo, Ecuador;no;A;14;2;euploid;homozygous;42,751;0.0;0;208;1. Wine/European ;;National Collection of Yeast Cultures (NCYC)(Stephen A James) and Colección de Levaduras Quito Católica (CLQCA)(Enrique Javier Carvajal Barriga);
+CLQCA_10-027;AKV;Grass;Nature;Pichincha, Ecuador;no;A;12;2;euploid;homozygous;42,950;0.0;2;246;1. Wine/European ;;National Collection of Yeast Cultures (NCYC)(Stephen A James) and Colección de Levaduras Quito Católica (CLQCA)(Enrique Javier Carvajal Barriga);
+CLQCA_17-060;ALE;Hemipteran insect;Insect;Loja, Ecuador;no;A;14;2;euploid;homozygous;42,972;0.0;1;248;1. Wine/European ;;National Collection of Yeast Cultures (NCYC)(Stephen A James) and Colección de Levaduras Quito Católica (CLQCA)(Enrique Javier Carvajal Barriga);
+DBVPG4297;BQP;Prosecco wine;Wine;Treviso, Italy ;no;B;16;2;euploid;homozygous;43,470;0.0;372;231;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+DBVPG4686;BRB;Winery;Wine;Deruta, Perugia, Italy;no;A;6;2;euploid;heterozygous;46,987;14.4;605;222;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+DBVPG1145;BIT;Grape must;Wine;Corvo, Sicily, Italy;no;none;0;2;euploid;homozygous;43,613;0.0;577;275;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+CBS5112;AQB;Grape must;Wine;Spain;no;A;70;2;euploid;homozygous;42,937;0.0;6;265;1. Wine/European ;;CBS collection (Nguyen H.V.);
+DBVPG6223;BRH;Grape must;Wine;Spain;no;A;51;2;euploid;homozygous;43,575;0.0;13;321;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+CECT10109_1b;ABP;Prickly pear;Fruit;Spain;yes;A;95;1;euploid;homozygous;44,496;0.0;1,325;215;1. Wine/European ;;CECT collection;1
+DBVPG1127;BIR;Grape must;Wine;Popoli, Italy;no;A;25;2;euploid;heterozygous;48,291;18.6;1,703;290;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+1235;CPF;Unknown;Unknown;Guimar, Tenerife, Spain;no;A;7;2;"aneu;+1*2;+1*4;+1*8;+1*9;+1*13;+1*15;";heterozygous;46,549;12.7;1,593;316;1. Wine/European ;;Instituto de Agroquímica y Tecnología de los Alimentos (IATA)-CSIC (Amparo Querol);
+DBVPG1085;BNG;Grape must;Wine;Corato, Italy;no;A;58;3;euploid;heterozygous;54,418;29.9;800;244;1. Wine/European ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+E4;AIM;;Wine;Umbria, Italy;no;A;24;2;euploid;heterozygous;50,929;23.2;166;217;1. Wine/European ;;;12
+ho_SB;CFB;Wine;Wine;Bordeaux ;no;A;94;2;"aneu;+2*9;";homozygous;45,420;0.0;5;260;1. Wine/European ;;BioLaffort ISVV EA Enology Université de Bordeaux, France (Marullo P.);
+Lib73;CHF;Fermenting grape must (red wine);Wine;Lebanon;no;A;40;2;euploid;heterozygous;53,225;32.4;932;210;1. Wine/European ;;INRA Gringnon, France (Nguyen H.V.);
+CLIB889;BHB;Bakery;Bakery;Australia;no;A;367;2;euploid;heterozygous;50,401;22.6;17;203;1. Wine/European ;;CLIB collection / INRA Gringnon, France (Nguyen H.V.);
+CBS4093a;AAK;Film on white wine;Wine;Spain;yes;A;3;1;euploid;homozygous;46,926;0.0;303;267;1. Wine/European (subclade 4);;CBS collection (Nguyen H.V.);
+CBS5835;AHP;Wine;Wine;Spain;no;A;42;2;euploid;heterozygous;48,250;6.2;318;265;1. Wine/European (subclade 4);;CBS collection (Nguyen H.V.);
+CBS6007;AET;Wine;Wine;Spain;yes;none;0;1;euploid;homozygous;46,468;0.0;245;185;1. Wine/European (subclade 4);;CBS collection (Nguyen H.V.);
+CBS4079;AEK;Film on white wine;Wine;Spain;yes;A;4;1;euploid;homozygous;46,527;0.0;133;303;1. Wine/European (subclade 4);;CBS collection (Nguyen H.V.);
+CBS6006;AQE;Wine;Wine;Spain;no;A;68;2;euploid;heterozygous;47,932;5.4;246;218;1. Wine/European (subclade 4);;CBS collection (Nguyen H.V.);
+CBS462;AQP;Grape must;Wine;Spain;no;none;0;2;"aneu;+1*1;+1*9;";heterozygous;48,007;4.6;350;219;1. Wine/European (subclade 4);;CBS collection (Nguyen H.V.);
+CBS4092;ASA;Film on white wine;Wine;Spain;no;A;188;3;"aneu;+1*9;";heterozygous;49,347;10.7;474;172;1. Wine/European (subclade 4);;CBS collection (Nguyen H.V.);
+DBVPG1878;BPL;Grape must;Wine;Piave, Italy;no;A;8;2;euploid;heterozygous;48,779;8.2;390;258;1. Wine/European (subclade 4);;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+MC6;AIP;Grape;Wine;Umbria, Italy;no;A;32;2;"aneu;+1*9;";heterozygous;49,569;10.3;85;233;1. Wine/European (subclade 4);;Università politecnica delle Marche (Maurizio Ciani);4
+8-3;CAN;Wine conserved in amphora;Wine;Georgia;no;A;111;2;"aneu;+1*9;";heterozygous;49,331;10.2;26;188;1. Wine/European (subclade 4);;University of Basilicata (Angela Capece and Patrizia Romano);7
+11-8;CAB;Wine conserved in amphora;Wine;Georgia;no;A;22;2;euploid;heterozygous;49,090;9.4;71;265;1. Wine/European (subclade 4);;University of Basilicata (Angela Capece and Patrizia Romano);7
+11-2;CAP;Wine conserved in amphora;Wine;Georgia;no;A;42;2;euploid;heterozygous;48,490;6.2;11;272;1. Wine/European (subclade 4);;University of Basilicata (Angela Capece and Patrizia Romano);7
+CBS5155;AQC;Fermenting Grape must;Wine;South Armenia;no;A;94;2;euploid;heterozygous;47,571;4.6;1,303;181;1. Wine/European (subclade 4);;CBS collection (Nguyen H.V.);
+CBS2247;AHK;Grape must;Wine;South Africa;yes;A;20;1;euploid;homozygous;46,341;0.0;190;211;1. Wine/European (subclade 4);;CBS collection (Nguyen H.V.);
+CBS4054;AES;Red wine;Wine;Spain;yes;A;6;1;"aneu;+1*2;";homozygous;46,056;0.0;133;184;1. Wine/European (subclade 4);;CBS collection (Nguyen H.V.);
+CBS2183;AFI;Wine;Wine;Chateau Chalon France;yes;A;2;1;euploid;homozygous;46,921;0.0;165;407;1. Wine/European (subclade 4);;CBS collection (Nguyen H.V.);
+DBVPG1919;BPR;Caverns;Nature;Italy;no;A;28;3;euploid;heterozygous;49,913;12.8;1,022;219;1. Wine/European (subclade 4);;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+CBS2180;AIA;Turbid Italian wine;Wine;Italy;yes;A;38;1;euploid;homozygous;46,115;0.0;113;175;1. Wine/European (subclade 4);;CBS collection (Nguyen H.V.);
+B-24;BVT;Wine conserved in amphora;Wine;Georgia;no;A;35;2;euploid;heterozygous;48,086;7.6;38;203;1. Wine/European (subclade 4);;University of Basilicata (Angela Capece and Patrizia Romano);7
+5-18;CAA;Wine conserved in amphora;Wine;Georgia;no;A;38;2;euploid;heterozygous;48,248;6.4;22;260;1. Wine/European (subclade 4);;University of Basilicata (Angela Capece and Patrizia Romano);7
+A-12;CAC;Wine conserved in amphora;Wine;Georgia;no;A;88;2;euploid;heterozygous;48,485;7.8;0;236;1. Wine/European (subclade 4);;University of Basilicata (Angela Capece and Patrizia Romano);7
+8-15;BVV;Wine conserved in amphora;Wine;Georgia;no;A;137;2;euploid;heterozygous;48,435;7.9;4;226;1. Wine/European (subclade 4);;University of Basilicata (Angela Capece and Patrizia Romano);7
+11-18;CAD;Wine conserved in amphora;Wine;Georgia;no;A;27;2;euploid;heterozygous;48,531;8.0;2;269;1. Wine/European (subclade 4);;University of Basilicata (Angela Capece and Patrizia Romano);7
+9-7;CAM;Wine conserved in amphora;Wine;Georgia;no;none;0;2;euploid;heterozygous;48,564;8.3;18;179;1. Wine/European (subclade 4);;University of Basilicata (Angela Capece and Patrizia Romano);7
+5-2;CAQ;Wine conserved in amphora;Wine;Georgia;no;none;0;2;euploid;heterozygous;48,986;8.6;22;228;1. Wine/European (subclade 4);;University of Basilicata (Angela Capece and Patrizia Romano);7
+1-9;CBB;Wine conserved in amphora;Wine;Georgia;no;A;76;2;euploid;heterozygous;48,823;9.2;8;226;1. Wine/European (subclade 4);;University of Basilicata (Angela Capece and Patrizia Romano);7
+D-21;CBE;Wine conserved in amphora;Wine;Georgia;no;A;115;2;euploid;heterozygous;48,703;9.3;10;191;1. Wine/European (subclade 4);;University of Basilicata (Angela Capece and Patrizia Romano);7
+CBS2806a;AAE;Wine;Wine;Slovakia;yes;A;24;1;euploid;homozygous;46,244;0.0;119;228;1. Wine/European (subclade 4);;CBS collection (Nguyen H.V.);
+CBS2805;AIB;Wine;Wine;Slovakia;yes;A;3;1;euploid;homozygous;46,167;0.0;267;233;1. Wine/European (subclade 4);;CBS collection (Nguyen H.V.);
+B-17;CAS;Wine conserved in amphora;Wine;Georgia;no;A;159;2;euploid;homozygous;43,091;0.0;2;70;1. Wine/European (subclade 4);;University of Basilicata (Angela Capece and Patrizia Romano);7
+A-9;CAR;Wine conserved in amphora;Wine;Georgia;no;A;124;2;euploid;homozygous;46,284;0.0;0;195;1. Wine/European (subclade 4);;University of Basilicata (Angela Capece and Patrizia Romano);7
+C-12;CAT;Wine conserved in amphora;Wine;Georgia;no;A;134;2;euploid;homozygous;46,325;0.0;0;197;1. Wine/European (subclade 4);;University of Basilicata (Angela Capece and Patrizia Romano);7
+D-18;CBC;Wine conserved in amphora;Wine;Georgia;no;A;69;2;euploid;homozygous;45,980;0.0;4;165;1. Wine/European (subclade 4);;University of Basilicata (Angela Capece and Patrizia Romano);7
+B-13;CAV;Wine conserved in amphora;Wine;Georgia;no;A;53;2;"aneu;+1*3;";homozygous;46,179;0.0;4;206;1. Wine/European (subclade 4);;University of Basilicata (Angela Capece and Patrizia Romano);7
+B-11;CBD;Wine conserved in amphora;Wine;Georgia;no;A;75;2;euploid;homozygous;46,037;0.0;6;179;1. Wine/European (subclade 4);;University of Basilicata (Angela Capece and Patrizia Romano);7
+CBS2814;AFV;Wine;Wine;Slovakia;no;A;31;2;"aneu;-1*5;";homozygous;46,080;0.0;13;224;1. Wine/European (subclade 4);;CBS collection (Nguyen H.V.);
+CBS2808;ART;Wine;Wine;Slovakia;no;A;134;2;euploid;heterozygous;48,185;8.5;113;191;1. Wine/European (subclade 4);;CBS collection (Nguyen H.V.);
+CBS2807;AIC;Wine;Wine;Slovakia;yes;none;0;1;euploid;homozygous;46,159;0.0;39;202;1. Wine/European (subclade 4);;CBS collection (Nguyen H.V.);
+YJM270;SACE_YAF;Unknown;Wine;Slovenia;no;none;0;2;euploid;homozygous;46,607;0.0;35;84;1. Wine/European (subclade 4);;Phaff collection;2
+L-958;BSR;Wine;Wine;Mendoza area, Argentina;no;A;11;2;euploid;heterozygous;54,243;34.6;8;151;1. Wine/European ;;Pontificia Universidad Catolica de Chile (Claudio Martinez);
+L-960;BSS;Wine;Wine;Mendoza area, Argentina;no;A;17;2;euploid;heterozygous;54,975;35.3;12;188;1. Wine/European ;;Pontificia Universidad Catolica de Chile (Claudio Martinez);
+L-1201;BTR;Heterozygote, 12% Sporulation Efficiency;Wine;Valle de Ica, Peru;no;A;10;2;euploid;heterozygous;53,926;33.6;4;148;1. Wine/European ;;Universidad de Santiago de Chile (Francisco Cubillos) and Pontificia Universidad Catolica de Chile (Claudio Martinez);11
+L-1198;BTP;Heterozygote, 12% Sporulation Efficiency;Wine;Valle de Ica, Peru;no;A;7;2;euploid;heterozygous;53,951;31.5;6;221;1. Wine/European ;;Universidad de Santiago de Chile (Francisco Cubillos) and Pontificia Universidad Catolica de Chile (Claudio Martinez);11
+M1;ASR;Vineyard;Wine;Italy;no;A;61;2;euploid;heterozygous;53,806;30.9;12;251;1. Wine/European ;;Washington University School of Medicine (Justin C Fay);5
+YJM1574;SACE_YDJ;wine/European;Wine;NA;no;A;76;2;"aneu;+1*1;+1*6;";homozygous;46,850;0.0;9;302;1. Wine/European ;;;2
+CECT10266;AVB;Tanning liquor;Industrial;Spain;no;A;17;1;euploid;homozygous;47,764;0.0;714;198;2. Alpechin ;;CECT collection;
+CECT10171-5B;CDT;Larvae of Dacus oleae;Insect;Spain;no;A;43;2;euploid;homozygous;49,211;0.0;1,170;229;2. Alpechin ;;CECT collection / State Research Institute of Genetics and Selection of Industrial Microorganisms (Naumov G.I.);
+1560;CPG;Manzanilla-Alorena, olive (Noe), 2003;Nature;Aceituna, Spain;no;A;12;2;euploid;homozygous;48,602;0.0;926;271;2. Alpechin ;;Instituto de Agroquímica y Tecnología de los Alimentos (IATA)-CSIC (Amparo Querol);
+CBS3093_1b;ABM;Alpechin (waste from olive oil production);Industrial;Spain;yes;A;31;1;euploid;homozygous;47,755;0.0;259;198;2. Alpechin ;;CBS collection (Nguyen H.V.);1
+CBS3093;AHM;Alpechin (waste from olive oil production);Industrial;Spain;yes;A;75;1;euploid;homozygous;47,369;0.0;169;206;2. Alpechin ;;CBS collection (Nguyen H.V.);
+CBS4903;AQA;Alpechin (waste from olive oil production);Industrial;Spain;no;A;107;2;euploid;heterozygous;49,143;6.2;1,195;229;2. Alpechin ;;CBS collection (Nguyen H.V.);
+CBS5378;AQD;Alpechin (waste from olive oil production);Industrial;Spain;no;A;64;2;"aneu;+1*8;";heterozygous;49,020;5.2;339;231;2. Alpechin ;;CBS collection (Nguyen H.V.);
+CECT10497;ATQ;Alpechin (waste from olive oil production);Industrial;Spain;no;A;40;2;"aneu;+2*9;+1*11;";homozygous;48,938;0.0;505;249;2. Alpechin ;;CECT collection;
+UCD_09-448;CGD;Olives from Middle of season 1. on RBCA 11.25.09 Streaked onto PDA 11/30/09;Fruit;Davis, CA, UCD;no;B;65;2;euploid;homozygous;48,515;0.0;505;190;2. Alpechin ;;Phaff collection;
+UCD_11-601;CGE;Olive fermentation, 1-gallon, Bucket 5B brine, Sicilian style olives, inoculated with Saccharomyces cerevisiase from 2009 olives.;Fruit;Davis, CA, UCD Food Science, Pilot plant. ;no;B;90;2;euploid;homozygous;47,666;0.0;99;190;2. Alpechin ;;Phaff collection;
+CBS3081;AHL;Alpechin (waste from olive oil production);Industrial;Spain;yes;none;0;1;euploid;homozygous;48,054;0.0;101;236;2. Alpechin ;;CBS collection (Nguyen H.V.);
+DBVPG6302;BRK;Alpechin (waste from olive oil production);Industrial;Spain;no;none;0;2;euploid;homozygous;48,294;0.0;228;220;2. Alpechin ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+YJM1252;SACE_YBR;Alpechin (waste from olive oil production);Industrial;Spain;no;none;0;2;euploid;homozygous;48,964;0.0;295;424;2. Alpechin ;;Phaff collection;2
+CBS2909;AID;Human feces;Human;NA;no;A;46;2;euploid;heterozygous;48,742;4.9;543;200;2. Alpechin ;;CBS collection (Nguyen H.V.);
+CBS2910;AIE;Human feces;Human;Portugal;yes;A;22;1;"aneu;+1*9;";homozygous;47,729;0.0;141;203;2. Alpechin ;;CBS collection (Nguyen H.V.);
+YJM248;SACE_YAE;Faeces;Human;NA;no;A;78;2;euploid;homozygous;45,765;0.0;229;59;2. Alpechin ;;Phaff collection;2
+YJM1078;SACE_YDM;Clinical;Human, clinical;Portugal;no;A;44;2;euploid;homozygous;47,648;0.0;786;48;2. Alpechin ;;Phaff collection;2
+CBS439;AGN;Silvaner grapes;Wine;Germany;yes;none;0;1;euploid;homozygous;43,915;0.0;446;190;M1. Mosaic region 1 ;;CBS collection (Nguyen H.V.);
+M6;AST;Vineyard;Wine;Italy;no;A;102;2;euploid;heterozygous;50,184;23.4;367;177;M1. Mosaic region 1 ;;Washington University School of Medicine (Justin C Fay);5
+CLIB1060;BHE;Cider brewery, half fermenting apple juice;Cider;Brittany, France;no;B;99;2;"aneu;+1*14;";heterozygous;52,132;28.6;393;202;M1. Mosaic region 1;;CLIB collection (Serge Casaregola);
+CLIB1059;BHD;Cider brewery, half fermenting apple juice;Cider;Brittany, France;no;A;110;2;euploid;heterozygous;53,019;34.1;465;177;M1. Mosaic region 1;;CLIB collection (Serge Casaregola);
+CLIB1085;BHM;Cider brewery, dry cider;Cider;Upper Normandy, France;no;A;22;2;euploid;heterozygous;46,922;8.6;251;243;M1. Mosaic region 1;;CLIB collection (Serge Casaregola);
+CLIB1083;BHT;Cider brewery, dry cider;Cider;Upper Normandy, France;no;B;78;2;euploid;homozygous;46,705;0.0;491;264;M1. Mosaic region 1;;CLIB collection (Serge Casaregola);
+M9;ASV;Vineyard;Wine;Italy;no;A;71;2;"aneu;+1*9;";heterozygous;53,155;41.8;503;181;M1. Mosaic region 1;;Washington University School of Medicine (Justin C Fay);5
+CBS1540;AHF;Tibi grains;Nature;Switzerland;yes;A;29;1;euploid;homozygous;48,908;0.0;72;235;M1. Mosaic region 1;;CBS collection (Nguyen H.V.);
+SJ5L14;AMP;Fruiting body of Auricularia auricular;Fruit;Taian, Miaoli, Taiwan;no;none;0;2;euploid;heterozygous;54,334;19.9;132;183;M1. Mosaic region 1;;National Hsinchu University of Education (Ching-Fu Lee);25
+995;CPB;Fermented beverage from raisins and sugar;Beer;Hungary;no;A;17;2;"aneu;+1*3;";heterozygous;55,098;24.5;219;159;M1. Mosaic region 1;;Instituto de Agroquímica y Tecnología de los Alimentos (IATA)-CSIC (Amparo Querol);
+I14_1b;ACS;Vineyard soil;Wine;Italy;yes;A;27;1;euploid;homozygous;47,210;0.0;144;238;M1. Mosaic region 1;;Kruglyak Laboratory;1
+YJM1387;SACE_YCI;Unknown;Wine;Japan;no;none;0;2;euploid;homozygous;45,307;0.0;446;149;M1. Mosaic region 1;;Phaff collection;2
+CLIB1082;BHL;Cider brewery, dry cider;Cider;Upper Normandy, France;no;B;38;2;euploid;heterozygous;56,010;38.1;683;238;M1. Mosaic region 1;;CLIB collection (Serge Casaregola);
+CLIB1077;BHK;Cider brewery, dry cider;Cider;Upper Normandy, France;no;A;17;2;euploid;heterozygous;55,477;38.0;599;239;M1. Mosaic region 1;;CLIB collection (Serge Casaregola);
+CLIB413_1b;ACG;Fermenting rice beverage;Fermentation;China;yes;B;38;1;euploid;homozygous;44,262;0.0;5;178;M1. Mosaic region 1;;CLIB collection;1
+CLIB483_1b;ACH;Cider;Cider;Brittany, France;yes;B;47;1;euploid;homozygous;44,503;0.0;4;204;M1. Mosaic region 1;;CLIB collection;1
+SRC 120;CHV;Cider bioindustrial strain ;Cider;France;no;B;84;2;"aneu;+1*9;+1*11;+1*16;";homozygous;44,251;0.0;104;267;M1. Mosaic region 1;;Inserm Université P. M. Curie, Paris, France (Hennequin C.);
+CBS7959;AFR;Factory producing ethanol (sugar cane syrup);Industrial;Sao Paulo, Brazil;yes;A;21;1;"aneu;+1*1;";homozygous;50,923;0.0;465;251;3. Brazilian bioethanol ;;CBS collection (Nguyen H.V.);
+RP.10.14;BVC;Bioethanol;Bioethanol;Brazil;no;B;6;2;euploid;heterozygous;62,879;39.9;459;190;3. Brazilian bioethanol ;;IBB-Unesp (Ana Teresa B. F. Antonangelo );13
+CBS7962;AEG;Fermenting concentrated syrup (sugar cane);Industrial;Brazil;yes;B;77;1;euploid;homozygous;52,280;0.0;227;255;3. Brazilian bioethanol ;;CBS collection (Nguyen H.V.);
+CBS7961;AGM;Fermenting concentrated syrup (sugar cane);Industrial;Sao Paulo, Brazil;yes;B;23;1;euploid;homozygous;53,519;0.0;266;434;3. Brazilian bioethanol ;;CBS collection (Nguyen H.V.);
+SA.10.1.VL1;CNQ;Bioethanol;Bioethanol;Brazil;no;B;10;2;euploid;heterozygous;66,761;51.4;261;239;3. Brazilian bioethanol ;;IBB-Unesp (Ana Teresa B. F. Antonangelo );13
+CBS7964;AEH;Fermenting concentrated syrup (sugar cane);Industrial;Brazil;yes;B;85;1;euploid;homozygous;48,968;0.0;48;270;3. Brazilian bioethanol ;;CBS collection (Nguyen H.V.);
+CBS7960;AFD;Factory producing ethanol (sugar cane syrup);Industrial;Sao Paulo, Brazil;yes;A;41;1;euploid;homozygous;25,931;0.0;112;185;3. Brazilian bioethanol ;;CBS collection (Nguyen H.V.);
+CBS7963;AHC;Fermenting concentrated syrup (sugar cane);Industrial;Sao Paulo, Brazil;yes;A;39;1;euploid;homozygous;48,580;0.0;61;186;3. Brazilian bioethanol ;;CBS collection (Nguyen H.V.);
+M.9.1;BTT;Cachaça;Distillery;Brazil;no;B;5;2;euploid;heterozygous;60,639;39.2;165;188;3. Brazilian bioethanol ;;IBB-Unesp (Ana Teresa B. F. Antonangelo );13
+M1.1;APH;Cachaça, Muller Industrial;Distillery;Pirassununga, Sao Paulo, Brazil;no;B;24;2;euploid;heterozygous;59,578;35.9;77;207;3. Brazilian bioethanol ;;IBB-Unesp (Ana Teresa B. F. Antonangelo );13
+M.14.1;BTV;Cachaça;Distillery;Brazil;no;B;11;2;euploid;heterozygous;60,250;37.6;87;214;3. Brazilian bioethanol ;;IBB-Unesp (Ana Teresa B. F. Antonangelo );13
+RP.10.4;BVA;Bioethanol;Bioethanol;Brazil;no;B;14;2;euploid;heterozygous;60,841;39.5;281;247;3. Brazilian bioethanol ;;IBB-Unesp (Ana Teresa B. F. Antonangelo );13
+SM.9.4.BR2;CMT;Bioethanol;Bioethanol;Brazil;no;C;106;2;euploid;heterozygous;56,241;29.2;35;115;3. Brazilian bioethanol ;;IBB-Unesp (Ana Teresa B. F. Antonangelo );13
+SM.8.7.BR1;CNG;Bioethanol;Bioethanol;Brazil;no;C;37;2;euploid;heterozygous;60,821;39.5;44;212;3. Brazilian bioethanol ;;IBB-Unesp (Ana Teresa B. F. Antonangelo );13
+SA.1.5.;CNK;Bioethanol;Bioethanol;Brazil;no;B;14;2;euploid;heterozygous;57,724;29.5;114;349;3. Brazilian bioethanol ;;IBB-Unesp (Ana Teresa B. F. Antonangelo );13
+VF8_(6);APG;Bioethanol, Sao Joao sugar mill;Bioethanol;Araras, Sao Paulo, Brazil;no;B;15;1;euploid;homozygous;48,006;0.0;69;263;3. Brazilian bioethanol ;;IBB-Unesp (Ana Teresa B. F. Antonangelo );13
+SA.9.3.VR1;CNM;Bioethanol;Bioethanol;Brazil;no;B;9;2;euploid;heterozygous;61,093;41.3;103;202;3. Brazilian bioethanol ;;IBB-Unesp (Ana Teresa B. F. Antonangelo );13
+SA.9.4.BR2;CNP;Bioethanol;Bioethanol;Brazil;no;B;10;2;euploid;heterozygous;58,538;37.1;91;164;3. Brazilian bioethanol ;;IBB-Unesp (Ana Teresa B. F. Antonangelo );13
+SA.10.1.VR4;CNR;Bioethanol;Bioethanol;Brazil;no;B;17;2;euploid;heterozygous;59,740;39.7;85;220;3. Brazilian bioethanol ;;IBB-Unesp (Ana Teresa B. F. Antonangelo );13
+RP.10.13;BVB;Bioethanol;Bioethanol;Brazil;no;B;10;2;euploid;heterozygous;63,401;46.3;236;249;3. Brazilian bioethanol ;;IBB-Unesp (Ana Teresa B. F. Antonangelo );13
+SM.8.8.CVR1;CNI;Bioethanol;Bioethanol;Brazil;no;B;6;2;euploid;heterozygous;61,424;37.8;131;289;3. Brazilian bioethanol ;;IBB-Unesp (Ana Teresa B. F. Antonangelo );13
+SM.8.8.BL1;CNH;Bioethanol;Bioethanol;Brazil;no;A;4;2;euploid;heterozygous;61,846;39.3;114;241;3. Brazilian bioethanol ;;IBB-Unesp (Ana Teresa B. F. Antonangelo );13
+SM.9.4.BR1;BVH;Bioethanol;Bioethanol;Brazil;no;B;10;2;euploid;heterozygous;58,661;46.3;5;71;3. Brazilian bioethanol ;;IBB-Unesp (Ana Teresa B. F. Antonangelo );13
+SA.9.4.VL4;CNN;Bioethanol;Bioethanol;Brazil;no;B;18;2;euploid;heterozygous;64,402;48.2;8;194;3. Brazilian bioethanol ;;IBB-Unesp (Ana Teresa B. F. Antonangelo );13
+SM.8.7.L9;CNF;Bioethanol;Bioethanol;Brazil;no;B;9;2;euploid;heterozygous;66,088;49.5;3;219;3. Brazilian bioethanol ;;IBB-Unesp (Ana Teresa B. F. Antonangelo );13
+SM.8.2.C13;CNB;Bioethanol;Bioethanol;Brazil;no;B;32;2;euploid;heterozygous;66,666;50.0;5;311;3. Brazilian bioethanol ;;IBB-Unesp (Ana Teresa B. F. Antonangelo );13
+SM.9.4.BL2;BVG;Bioethanol;Bioethanol;Brazil;no;B;14;2;euploid;heterozygous;66,469;49.7;5;263;3. Brazilian bioethanol ;;IBB-Unesp (Ana Teresa B. F. Antonangelo );13
+SM.8.7.L8;CNE;Bioethanol;Bioethanol;Brazil;no;B;107;2;euploid;heterozygous;65,319;48.8;4;188;3. Brazilian bioethanol ;;IBB-Unesp (Ana Teresa B. F. Antonangelo );13
+SA.9.2.BL3;CNL;Bioethanol;Bioethanol;Brazil;no;B;10;2;"aneu;+1*3;";heterozygous;66,852;50.0;7;320;3. Brazilian bioethanol ;;IBB-Unesp (Ana Teresa B. F. Antonangelo );13
+SM.9.1.AL1;BVD;Bioethanol;Bioethanol;Brazil;no;B;5;2;euploid;homozygous;51,003;0.0;2;225;3. Brazilian bioethanol ;;IBB-Unesp (Ana Teresa B. F. Antonangelo );13
+SM.9.2.BR3(L);BVF;Bioethanol;Bioethanol;Brazil;no;B;6;2;euploid;heterozygous;63,282;41.2;7;243;3. Brazilian bioethanol ;;IBB-Unesp (Ana Teresa B. F. Antonangelo );13
+RP11.4.1;CNS;Bioethanol;Bioethanol;Brazil;no;B;7;2;euploid;heterozygous;61,973;39.7;1;171;3. Brazilian bioethanol ;;IBB-Unesp (Ana Teresa B. F. Antonangelo );13
+RP11.4.11;CNT;Bioethanol;Bioethanol;Brazil;no;B;9;2;euploid;heterozygous;62,369;39.6;5;214;3. Brazilian bioethanol ;;IBB-Unesp (Ana Teresa B. F. Antonangelo );13
+SM.9.1.BL7;BVE;Bioethanol;Bioethanol;Brazil;no;B;20;1;euploid;homozygous;48,315;0.0;8;254;3. Brazilian bioethanol ;;IBB-Unesp (Ana Teresa B. F. Antonangelo );13
+RP11.4.14;CNV;Bioethanol;Bioethanol;Brazil;no;B;20;2;"aneu;+1*6;";heterozygous;57,314;31.0;63;316;3. Brazilian bioethanol ;;IBB-Unesp (Ana Teresa B. F. Antonangelo );13
+CBS4734;AHB;Sugar cane juice;Nature;NA;yes;A;30;1;euploid;homozygous;47,433;0.0;71;213;No data;;CBS collection (Nguyen H.V.);
+YJM1250;SACE_YBQ;Sugar cane;Nature;NA;no;A;77;2;euploid;homozygous;47,178;0.0;64;51;No data;;Phaff collection;2
+N19-1C;CCL;Exudate of Quercus sp.;Tree;Gelendzhik region, Caucasus, Russia;no;none;0;2;euploid;homozygous;46,806;0.0;2,703;298;4. Mediterranean oak ;;State Research Institute of Genetics and Selection of Industrial Microorganisms (Naumov G.I.);
+2162;BBQ;Forest soil, 30C;Soil;Hungary;no;none;0;2;euploid;homozygous;45,547;0.0;18;238;4. Mediterranean oak ;;Instituto de Agroquímica y Tecnología de los Alimentos (IATA)-CSIC (Amparo Querol);
+2187;BBS;Forest soil, 30C;Soil;Hungary;no;none;0;2;euploid;homozygous;45,919;0.0;17;327;4. Mediterranean oak ;;Instituto de Agroquímica y Tecnología de los Alimentos (IATA)-CSIC (Amparo Querol);
+EXF-7197;BFP;Quercus sp.;Tree;Montenegro;no;none;0;2;euploid;homozygous;45,472;0.0;1,899;231;4. Mediterranean oak ;;University of Ljubljana, Biotech Facility dept. Biology Ljubljana, Slovenia (Gunde-Cimerman N.);
+ZP_567;BTG;Quercus pyrenaica;Tree;Portugal, Castelo de Vide,;no;none;0;2;euploid;homozygous;46,473;0.0;2,386;221;4. Mediterranean oak ;;Faculdade de Ciências e Tecnologia of Universidade NOVA de Lisboa (FCT-NOVA)(José Paulo Sampaio);
+sample 50;CLC;Dead tree;Tree;Bordeaux, France;no;none;0;2;"aneu;+2*3;";homozygous;45,668;0.0;6;182;4. Mediterranean oak ;;Schacherer Laboratory;
+sample 40;CLB;Tree leaves;Tree;Bordeaux, France;no;none;0;2;euploid;homozygous;45,988;0.0;6;264;4. Mediterranean oak ;;Schacherer Laboratory;
+sample 33;CLD;Flower;Flower;Bordeaux, France;no;A;1;2;"aneu;+2*3;";homozygous;45,922;0.0;39;224;4. Mediterranean oak ;;Schacherer Laboratory;
+CBS420;AQM;Stracchino cheese;Dairy;Italy;no;none;0;2;"aneu;+1*9;+1*16;";heterozygous;65,641;19.2;1,647;145;5. French dairy ;;CBS collection (Nguyen H.V.);
+EXF-7145;BFN;Quercus robur;Tree;Serbia;no;none;0;2;"aneu;+1*10;";heterozygous;48,250;39.6;1,104;49;5. French dairy ;;University of Ljubljana, Biotech Facility dept. Biology Ljubljana, Slovenia (Gunde-Cimerman N.);
+368428S;BME;Human;Human;RVI Newcastle, UK;no;none;0;3;"aneu;+1*9;";heterozygous;96,403;66.0;6,964;325;5. French dairy ;;National Collection of Yeast Cultures (NCYC)(Stephen A James, Donald Mackenzie and Ian Roberts);
+CBS2421;ARS;Japanese kefyr grains;Nature;NA;no;none;0;2;"aneu;+1*1;";heterozygous;66,561;36.0;2,073;115;5. French dairy ;;CBS collection (Nguyen H.V.);
+CBS2246;ARN;Sputum;Human, clinical;Netherlands;no;none;0;3;euploid;heterozygous;82,868;48.1;6,789;202;5. French dairy ;;CBS collection (Nguyen H.V.);
+CLIB560;BGM;Dairy, cheese (camembert);Dairy;Normandy, France;no;none;0;2;euploid;heterozygous;71,621;29.2;349;255;5. French dairy ;;CLIB collection / Laboratoire de Technologie Laitiere, INA-PG (Serge Casaregola);
+CLIB562;BGP;Dairy, cheese (camembert);Dairy;Normandy, France;no;none;0;2;euploid;heterozygous;67,376;32.8;295;74;5. French dairy ;;CLIB collection / Laboratoire de Technologie Laitiere, INA-PG (Serge Casaregola);
+EXF-5871;BFH;Homemade cheese;Dairy;Slovenia;no;none;0;2;euploid;heterozygous;73,794;35.8;1,911;258;5. French dairy ;;University of Ljubljana, Biotech Facility dept. Biology Ljubljana, Slovenia (Gunde-Cimerman N.);
+CLIB564;BGR;Dairy, cheese (camembert);Dairy;Normandy, France;no;none;0;2;"aneu;+1*12;";heterozygous;74,328;34.4;918;219;5. French dairy ;;CLIB collection / Laboratoire de Technologie Laitiere, INA-PG (Serge Casaregola);
+CLIB630;ASN;Dairy cheese (camembert);Dairy;Normandy, France;no;none;0;2;euploid;heterozygous;75,239;38.4;96;248;5. French dairy ;;CLIB collection / Laboratoire de Technologie Laitiere, INA-PG (Serge Casaregola);
+CLIB558;BGK;Dairy, cheese (camembert);Dairy;Normandy, France;no;none;0;2;euploid;heterozygous;75,031;39.1;84;242;5. French dairy ;;CLIB collection / Laboratoire de Technologie Laitiere, INA-PG (Serge Casaregola);
+CLIB631;BGS;Dairy, cheese (camembert);Dairy;Normandy, France;no;none;0;2;"aneu;+1*10;";heterozygous;73,029;36.4;134;235;5. French dairy ;;CLIB collection / Laboratoire de Technologie Laitiere, INA-PG (Serge Casaregola);
+CLIB552;BGD;Dairy, cheese (camembert);Dairy;Normandy, France;no;none;0;2;euploid;heterozygous;70,440;27.1;126;231;5. French dairy ;;CLIB collection / Laboratoire de Technologie Laitiere, INA-PG (Serge Casaregola);
+CLIB557;BGI;Dairy, cheese (camembert);Dairy;Normandy, France;no;none;0;2;euploid;heterozygous;74,022;36.2;84;231;5. French dairy ;;CLIB collection / Laboratoire de Technologie Laitiere, INA-PG (Serge Casaregola);
+CLQCA_13-023;ALD;Wax on rock surface;Nature;Bolivar, Ecuador;no;none;0;2;euploid;heterozygous;70,912;27.4;483;221;5. French dairy ;;National Collection of Yeast Cultures (NCYC)(Stephen A James) and Colección de Levaduras Quito Católica (CLQCA)(Enrique Javier Carvajal Barriga);
+CLIB546;BFS;Dairy, cheese (camembert);Dairy;Normandy, France;no;none;0;2;euploid;heterozygous;72,707;29.3;191;220;5. French dairy ;;CLIB collection / Laboratoire de Technologie Laitiere, INA-PG (Serge Casaregola);
+CLIB550;BGB;Dairy, cheese (camembert);Dairy;Normandy, France;no;none;0;2;euploid;heterozygous;72,631;28.6;148;218;5. French dairy ;;CLIB collection / Laboratoire de Technologie Laitiere, INA-PG (Serge Casaregola);
+CLIB554;BGF;Dairy, brine;Dairy;France;no;none;0;2;euploid;heterozygous;73,587;31.3;30;225;5. French dairy ;;CLIB collection / Laboratoire de Technologie Laitiere, INA-PG (Serge Casaregola);
+CLIB555;BGG;Dairy, brine;Dairy;France;no;none;0;2;"aneu;+1*11;";heterozygous;74,436;33.2;23;229;5. French dairy ;;CLIB collection / Laboratoire de Technologie Laitiere, INA-PG (Serge Casaregola);
+CBS2272;ARR;Butter milk;Dairy;Delft, Netherlands;no;none;0;2;"aneu;+1*1;+1*3;";heterozygous;66,719;5.4;95;199;5. French dairy ;;CBS collection (Nguyen H.V.);
+CLIB547;BFT;Dairy, cheese (camembert);Dairy;Normandy, France;no;none;0;2;euploid;heterozygous;69,298;13.8;261;208;5. French dairy ;;CLIB collection / Laboratoire de Technologie Laitiere, INA-PG (Serge Casaregola);
+CLIB553;BGE;Dairy, raw milk;Dairy;Normandy, France;no;none;0;2;euploid;heterozygous;69,299;12.9;121;225;5. French dairy ;;CLIB collection / Laboratoire de Technologie Laitiere, INA-PG (Serge Casaregola);
+CLIB559;BGL;Dairy, cheese (camembert);Dairy;Normandy, France;no;none;0;2;euploid;heterozygous;74,555;31.8;150;267;5. French dairy ;;CLIB collection / Laboratoire de Technologie Laitiere, INA-PG (Serge Casaregola);
+CLIB548;BFV;Dairy, cheese (camembert);Dairy;Normandy, France;no;none;0;2;"aneu;+1*11;";heterozygous;74,218;33.3;51;213;5. French dairy ;;CLIB collection / Laboratoire de Technologie Laitiere, INA-PG (Serge Casaregola);
+CLIB549;BGA;Dairy, cheese (camembert);Dairy;Normandy, France;no;none;0;2;euploid;heterozygous;73,861;32.0;35;224;5. French dairy ;;CLIB collection / Laboratoire de Technologie Laitiere, INA-PG (Serge Casaregola);
+CLIB648;BGT;Dairy, whey;Dairy;Alpes, France;no;none;0;2;euploid;heterozygous;71,410;25.8;174;244;5. French dairy ;;CLIB collection (Serge Casaregola);
+CLIB649;BGV;Dairy, whey;Dairy;Alpes, France;no;none;0;2;euploid;heterozygous;71,232;26.4;174;205;5. French dairy ;;CLIB collection (Serge Casaregola);
+CLIB556;BGH;Dairy, Saint Maure goat's cheese;Dairy;Poitou-Charentes, France;no;none;0;2;euploid;heterozygous;72,003;28.7;132;192;5. French dairy ;;CLIB collection / Laboratoire de Technologie Laitiere, INA-PG (Serge Casaregola);
+CLIB561;BGN;Dairy, cheese (camembert);Dairy;Normandy, France;no;none;0;2;euploid;heterozygous;72,229;28.6;128;309;5. French dairy ;;CLIB collection / Laboratoire de Technologie Laitiere, INA-PG (Serge Casaregola);
+CLIB551;BGC;Dairy, cheese (camembert);Dairy;Normandy, France;no;none;0;2;euploid;heterozygous;74,785;34.9;10;250;5. French dairy ;;CLIB collection / Laboratoire de Technologie Laitiere, INA-PG (Serge Casaregola);
+CLIB563;BGQ;Dairy, cheese (camembert);Dairy;Normandy, France;no;none;0;2;euploid;heterozygous;75,252;35.1;34;305;5. French dairy ;;CLIB collection / Laboratoire de Technologie Laitiere, INA-PG (Serge Casaregola);
+malade Boisse;CKV;Unknown;Human, clinical;France;no;none;0;2;euploid;heterozygous;73,873;33.4;98;232;5. French dairy ;;Inserm Université P. M. Curie, Paris, France (Hennequin C.);
+CBS4456;AFL;Kaffir beer;Beer;South Africa;yes;none;0;1;"aneu;+1*8;";homozygous;58,139;0.0;401;192;6. African beer ;;CBS collection (Nguyen H.V.);
+CBS4454;AEN;Kaffir beer;Beer;South Africa;no;none;0;2;"aneu;+1*1;+1*3;+1*4;";heterozygous;67,373;23.7;728;207;6. African beer ;;CBS collection (Nguyen H.V.);
+CBS4455;ASC;Kaffir beer;Beer;South Africa;no;none;0;3;"aneu;+1*1;";heterozygous;77,037;43.7;1,864;240;6. African beer ;;CBS collection (Nguyen H.V.);
+A-6;ANL;Sorghum beer;Beer;Ghana;no;none;0;4;euploid;heterozygous;86,350;50.0;6,635;207;6. African beer ;;The Royal Veterinary and Agricultural University (Lene Jespersen);14
+A-18;ANM;Sorghum beer;Beer;Ghana;no;none;0;4;euploid;heterozygous;85,165;48.8;5,570;211;6. African beer ;;The Royal Veterinary and Agricultural University (Lene Jespersen);14
+CH02;AVN;Pearl millet beer;Beer;Abengourou, Ivory Coast;no;none;0;4;euploid;heterozygous;86,031;47.4;6,659;292;6. African beer ;;Université de Lyon (Michel Aigle);15
+CH06;AVP;Pearl millet beer;Beer;Abengourou, Ivory Coast;no;none;0;5;"aneu;-1*14;";heterozygous;88,917;51.6;380;204;6. African beer ;;Université de Lyon (Michel Aigle);15
+CH10;AVQ;Pearl millet beer;Beer;Abengourou, Ivory Coast;no;none;0;5;"aneu;+1*4;";heterozygous;90,003;52.0;376;220;6. African beer ;;Université de Lyon (Michel Aigle);15
+CH11;AVR;Pearl millet beer;Beer;Abengourou, Ivory Coast;no;none;0;5;"aneu;-1*15;";heterozygous;90,171;52.5;475;218;6. African beer ;;Université de Lyon (Michel Aigle);15
+CH14;AVS;Pearl millet beer;Beer;Abengourou, Ivory Coast;no;none;0;5;"aneu;+1*12;+1*13;";heterozygous;91,561;53.6;465;244;6. African beer ;;Université de Lyon (Michel Aigle);15
+CH13;AVT;Pearl millet beer;Beer;Abengourou, Ivory Coast;no;none;0;5;"aneu;+1*2;+1*5;";heterozygous;90,019;51.9;360;229;6. African beer ;;Université de Lyon (Michel Aigle);15
+CLIB651;BEK;Beer leaven for Bili Bili beer, brewery;Beer;Chad;no;none;0;4;euploid;heterozygous;74,975;35.9;234;242;6. African beer ;;CLIB collection (Serge Casaregola);
+CLIB653;BEM;Beer leaven for Bili Bili beer, brewery;Beer;Chad;no;none;0;4;euploid;heterozygous;75,405;36.5;418;217;6. African beer ;;CLIB collection (Serge Casaregola);
+CLIB650;BEI;Bili Bili beer, brewery;Beer;Chad;no;none;0;3;euploid;heterozygous;69,615;28.1;35;261;6. African beer ;;CLIB collection (Serge Casaregola);
+CLIB654;BEN;Beer leaven for Bili Bili beer, brewery;Beer;Chad;no;none;0;3;euploid;heterozygous;69,397;28.2;34;231;6. African beer ;;CLIB collection (Serge Casaregola);
+CLIB655;BHA;Beer leaven for Bili Bili beer, brewery;Beer;Chad;no;A;3;3;euploid;heterozygous;69,408;28.1;18;223;6. African beer ;;CLIB collection (Serge Casaregola);
+MAJ_G;BDN;Plant material;Nature;Majunga, Madagascar;no;none;0;2;euploid;heterozygous;66,059;7.7;7,223;200;6. African beer ;;National Collection of Yeast Cultures (NCYC)(Stephen A James and Ian Roberts);
+N26-1-10:7-5(a);CES;Maize dough;Bakery;Ghana;no;none;0;2;"aneu;-1*1;";homozygous;61,039;0.0;1,180;143;6. African beer ;;State Research Institute of Genetics and Selection of Industrial Microorganisms (Naumov G.I.);
+N34:2-4(a);CER;Maize dough;Bakery;Ghana;no;none;0;2;euploid;homozygous;62,005;0.0;1,239;229;6. African beer ;;State Research Institute of Genetics and Selection of Industrial Microorganisms (Naumov G.I.);
+N134:7-1(a);CET;Maize dough;Bakery;Ghana;no;none;0;2;"aneu;-1*9;";homozygous;61,876;0.0;1,284;232;6. African beer ;;State Research Institute of Genetics and Selection of Industrial Microorganisms (Naumov G.I.);
+DBVPG1848;BPI;Tecc;Unknown;Ethiopia;no;none;0;2;"aneu;+1*1;+1*12;";heterozygous;71,062;49.3;267;174;No data;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+DBVPG1895;BPN;Grape must treated with pesticides;Wine;Italy;no;A;35;2;euploid;heterozygous;70,544;45.8;211;218;No data;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+YJM1463;SACE_YDB;White Tecc;Unknown;Africa;no;A;117;2;euploid;homozygous;56,625;0.0;121;184;No data;;;2
+CBS422a;AAB;Beer;Beer;Odessa, Ukraine;yes;A;32;1;euploid;homozygous;46,688;0.0;400;206;7. Mosaic beer ;;CBS collection (Nguyen H.V.);
+NCYC_88;CBN;Ale strain;Beer;UK;no;A;34;2;euploid;homozygous;47,679;0.0;443;229;7. Mosaic beer ;;National Collection of Yeast Cultures (NCYC)(Stephen A James and Ian Roberts);
+CBS7539;AQG;Turbid beer;Beer;Plovdiv, Bulgaria;no;B;89;2;euploid;heterozygous;54,822;26.9;893;221;7. Mosaic beer ;;CBS collection (Nguyen H.V.);
+6.2_WLP570;CFF;Carlsberg Beer;Beer;Belgium;no;A;76;2;euploid;heterozygous;59,242;38.3;926;254;7. Mosaic beer ;;Carlsberg;
+CBS7371;AFB;Brewery;Beer;UK;yes;A;26;1;euploid;homozygous;48,529;0.0;232;224;7. Mosaic beer ;;CBS collection (Nguyen H.V.);
+CBS6503;AFA;Brewery;Beer;UK;no;A;27;2;"aneu;-1*16;";homozygous;47,264;0.0;295;203;7. Mosaic beer ;;CBS collection (Nguyen H.V.);
+CBS6505;AFP;Brewery (Killer strain responsible for death of brewing yeast);Beer;UK;no;A;57;2;euploid;heterozygous;48,355;0.5;213;243;7. Mosaic beer ;;CBS collection (Nguyen H.V.);
+CBS7957;AQH;Factory producing cassava flour;Industrial;Sao Paulo, Brazil;no;A;289;3;"aneu;+1*3;";heterozygous;62,227;77.0;537;220;7. Mosaic beer ;;CBS collection (Nguyen H.V.);
+YJM193;SACE_YAB;Unknown;Distillery;NA;no;A;28;2;euploid;homozygous;49,322;0.0;105;42;7. Mosaic beer ;;Phaff collection;2
+CLIB382_1b;AAR;Beer;Beer;Ireland;yes;A;27;1;euploid;homozygous;48,456;0.0;20;216;7. Mosaic beer ;;CLIB collection;1
+CBS7958;AEA;Factory producing cassava flour;Industrial;Sao Paulo, Brazil;yes;A;2;1;euploid;homozygous;48,312;0.0;3;209;7. Mosaic beer ;;CBS collection (Nguyen H.V.);
+DBVPG6590;BRM;Alcohol production tank;Distillery;Brazil;no;A;19;1;euploid;homozygous;48,201;0.0;7;211;7. Mosaic beer ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+CBS1782;AEQ;Super-attenuated beer;Beer;Japan;yes;A;3;1;euploid;homozygous;48,790;0.0;15;227;7. Mosaic beer ;;CBS collection (Nguyen H.V.);
+YJM271;SACE_YAG;Brewery;Beer;NA;no;A;58;2;euploid;homozygous;48,209;0.0;20;52;7. Mosaic beer ;;Phaff collection;2
+CLIB272_2;AAQ;Beer;Beer;USA;yes;A;33;1;euploid;homozygous;47,515;0.0;457;165;7. Mosaic beer ;;CLIB collection / Charles University, Prague, Czech Republic (Vondrejs V.);1
+CBS4255;ASB;Sputum;Human, clinical;NA;no;A;55;2;euploid;heterozygous;63,288;46.4;1,010;247;7. Mosaic beer ;;CBS collection (Nguyen H.V.);
+CBS382;APP;Beer;Beer;Brazil, Rio de Janeiro;no;B;129;3;"aneu;+1*9;+1*10;+1*12;";heterozygous;61,961;36.0;1,728;230;7. Mosaic beer ;;CBS collection (Nguyen H.V.);
+1175;CPD;Spoiled beer;Beer;NA;no;A;194;2;"aneu;+1*8;";heterozygous;53,692;13.5;1,013;230;7. Mosaic beer ;;Instituto de Agroquímica y Tecnología de los Alimentos (IATA)-CSIC (Amparo Querol);
+CBS1463;AIG;Beer;Beer;NA;yes;A;29;1;euploid;homozygous;47,777;0.0;529;172;7. Mosaic beer ;;CBS collection (Nguyen H.V.);
+CBS1398;ARE;Leaf of Eucalyptus sp.;Tree;NA;no;A;35;2;"aneu;+1*2;+1*3;+1*6;+4*9;+1*12;+1*14;+1*15;";heterozygous;58,511;27.4;708;244;7. Mosaic beer ;;CBS collection (Nguyen H.V.);
+YJM1478;SACE_YDD;Kefyr;Fermentation;Missouri, USA;no;A;50;2;euploid;homozygous;51,763;0.0;218;331;7. Mosaic beer ;;;2
+CBS7993;AFQ;Fresh water;Water;Rio de Janeiro, Tijuca National Forest, Cushvara River, Brazil;yes;A;22;1;euploid;homozygous;52,097;0.0;295;243;M2. Mosaic region 2 ;;CBS collection (Nguyen H.V.);
+UFRJ_50613-2D(a);CDM;Cushvara river;Water;Rio de Janeiro, Brazil;no;A;20;2;euploid;homozygous;50,869;0.0;212;260;M2. Mosaic region 2 ;;State Research Institute of Genetics and Selection of Industrial Microorganisms (Naumov G.I.);
+YJM1383;SACE_YCF;Coconut;Fruit;Philippines;no;A;127;2;euploid;homozygous;47,877;0.0;536;392;M2. Mosaic region 2;;Phaff collection;2
+UCD_40-346;CFT;Spoiled Adriatic orchard figs, (1939);Fruit;Fresno area,  California;no;B;203;2;"aneu;+1*5;+1*9;";heterozygous;60,874;43.6;717;246;M2. Mosaic region 2;;Phaff collection;
+CBS2970;AER;Blackstrap molasses;Industrial;San Jose sugar mill, Rio Piedras, Puerto Rico;yes;B;17;1;"aneu;+1*2;+1*4;+1*8;+1*9;";heterozygous;52,079;11.4;1,107;218;M2. Mosaic region 2;;CBS collection (Nguyen H.V.);
+#33;BCV;Evolution canyon;Nature;Israel;no;B;86;2;euploid;heterozygous;52,520;19.6;12;219;M2. Mosaic region 2;;Comenius University in Bratislava (Josef Nosek)  and University of Haifa (Eviatar Nevo);16
+#35;BDB;Evolution canyon;Nature;Israel;no;B;102;2;euploid;heterozygous;52,428;18.8;23;215;M2. Mosaic region 2;;Comenius University in Bratislava (Josef Nosek)  and University of Haifa (Eviatar Nevo);16
+#13;BDD;Evolution canyon;Nature;Israel;no;B;65;2;euploid;heterozygous;53,787;25.3;31;223;M2. Mosaic region 2;;Comenius University in Bratislava (Josef Nosek)  and University of Haifa (Eviatar Nevo);16
+#34;BDA;Evolution canyon;Nature;Israel;no;B;64;2;"aneu;+1*1;";heterozygous;52,902;25.2;2;200;M2. Mosaic region 2;;Comenius University in Bratislava (Josef Nosek)  and University of Haifa (Eviatar Nevo);16
+#14;BDE;Evolution canyon;Nature;Israel;no;B;118;3;"aneu;-1*3;";heterozygous;55,880;31.4;15;203;M2. Mosaic region 2;;Comenius University in Bratislava (Josef Nosek)  and University of Haifa (Eviatar Nevo);16
+#59;BDH;Evolution canyon;Nature;Israel;no;B;76;2;euploid;heterozygous;54,238;26.1;2;217;M2. Mosaic region 2;;Comenius University in Bratislava (Josef Nosek)  and University of Haifa (Eviatar Nevo);16
+#60;BDI;Evolution canyon;Nature;Israel;no;B;71;2;"aneu;+1*1;";heterozygous;54,127;25.1;15;233;M2. Mosaic region 2;;Comenius University in Bratislava (Josef Nosek)  and University of Haifa (Eviatar Nevo);16
+#63;BDK;Evolution canyon;Nature;Israel;no;B;29;2;"aneu;+1*1;";homozygous;47,842;0.0;667;219;M2. Mosaic region 2;;Comenius University in Bratislava (Josef Nosek)  and University of Haifa (Eviatar Nevo);16
+YJM1433;SACE_YCT;Wine;Wine;France;no;A;49;2;euploid;homozygous;49,355;0.0;281;46;M2. Mosaic region 2;;;2
+YJM1355;SACE_YCC;Molasses;Industrial;Illinois, USA;no;B;142;2;euploid;homozygous;52,252;0.0;908;334;M2. Mosaic region 2;;Phaff collection;2
+CLIB1070;BHG;Cider brewery, dry cider;Cider;Lower Normandy, France;no;A;8;2;euploid;heterozygous;57,984;37.6;246;271;M2. Mosaic region 2;;CLIB collection (Serge Casaregola);
+CLIB1071;BHH;Cider brewery, dry cider;Cider;Lower Normandy, France;no;A;34;2;euploid;homozygous;47,740;0.0;54;256;M2. Mosaic region 2;;CLIB collection (Serge Casaregola);
+CLIB1072;BHI;Cider brewery, dry cider;Cider;Lower Normandy, France;no;A;17;2;euploid;heterozygous;47,149;0.3;40;246;M2. Mosaic region 2;;CLIB collection (Serge Casaregola);
+273614N;SACE_MAA;Royal Victoria Infirmary, Newcastle UK, Galloway A Clinical isolate (Fecal) Mackenzie D;Human, clinical;Newcastle, UK;no;B;43;2;euploid;homozygous;48,607;0.0;25;49;M2. Mosaic region 2;;;17
+YJM1450;SACE_YCZ;Clinical;Human, clinical;Kansas, USA;no;B;82;2;euploid;homozygous;49,803;0.0;28;75;M2. Mosaic region 2;;;2
+CBS1252;AFF;Bakery;Bakery;France;yes;B;23;1;euploid;homozygous;49,046;0.0;34;213;8. Mixed origin ;;CBS collection (Nguyen H.V.);
+CBS1236-a;AAL;Bakery;Bakery;France;no;B;107;2;"aneu;-1*6;";heterozygous;66,644;51.4;37;188;8. Mixed origin ;;CBS collection (Nguyen H.V.);
+CLIB192_1b;AAM;Bakery;Bakery;France;yes;B;19;1;euploid;homozygous;50,479;0.0;28;188;8. Mixed origin ;;CLIB collection;1
+UWOPS83-883-2;ANP;Drosophila sp. from Opuntia stricta,;Insect;Navassa Island;no;B;29;2;euploid;heterozygous;69,442;61.5;36;205;8. Mixed origin ;;University of Western Ontario, Canada (Lachance M.A.);
+CBS1487;AHV;Brewery;Beer;NA;yes;B;1;1;"aneu;+1*1;+1*11;";heterozygous;50,020;5.4;26;192;8. Mixed origin ;;CBS collection (Nguyen H.V.);
+CECT10131;ATS;Flower;Flower;Spain;no;B;185;2;euploid;heterozygous;66,671;53.1;5;248;8. Mixed origin ;;CECT collection;
+1663;BBP;Flower of Centaurea alba;Flower;Spain;no;B;92;2;euploid;heterozygous;66,391;53.0;4;207;8. Mixed origin ;;Instituto de Agroquímica y Tecnología de los Alimentos (IATA)-CSIC (Amparo Querol);
+CECT10331:9-1;CDR;Flowers of Centaurea alba;Flower;Spain;no;B;42;2;euploid;homozygous;51,780;0.0;26;231;8. Mixed origin ;;CECT collection / State Research Institute of Genetics and Selection of Industrial Microorganisms (Naumov G.I.);
+NCYC_2925;BMG;Human sputum;Human, clinical;Norway;no;B;77;3;"aneu;+1*1;";heterozygous;73,522;62.3;74;334;8. Mixed origin ;;National Collection of Yeast Cultures (NCYC)(Stephen A James and Ian Roberts);
+SBE-1C;CHL;Bakery;Bakery;Northern Europe;no;B;40;2;"aneu;+1*2;+1*13;";heterozygous;67,514;52.0;19;184;8. Mixed origin ;yes;INRA Moulon, France (Sicard D.);
+Y6_b;ADP;Unknown;Unknown;French Guiana;no;B;90;2;"aneu;+2*2;+2*9;+2*11;";heterozygous;50,450;6.2;5;267;8. Mixed origin ;;Kruglyak Laboratory;1
+SJ6L01;AMK;Leaf of Cunninghamia lanceolata;Tree;Tuchih, Nantou, Taiwan;no;B;33;3;"aneu;-1*7;";heterozygous;76,864;66.2;9;232;8. Mixed origin ;;National Hsinchu University of Education (Ching-Fu Lee);25
+SJ5L11;AML;Leaf of Acacia dealbata;Tree;Tuchih, Nantou, Taiwan;no;B;71;3;euploid;heterozygous;75,678;65.5;9;204;8. Mixed origin ;;National Hsinchu University of Education (Ching-Fu Lee);25
+SJ1L04;AMI;Leaf of Podocarppus macrophyllus;Tree;Yuchih, Nantou, Taiwan;no;B;47;3;"aneu;+1*1;";heterozygous;78,948;68.2;10;251;8. Mixed origin ;;National Hsinchu University of Education (Ching-Fu Lee);25
+SJ7L01;AMG;Leaf of Ardisia cornudentata;Tree;Tuchih, Nantou, Taiwan;no;B;60;3;euploid;heterozygous;78,714;68.7;1;189;8. Mixed origin ;;National Hsinchu University of Education (Ching-Fu Lee);25
+SJ5L15;AMQ;Leaf of Acacia dealbata;Tree;Tuchih, Nantou, Taiwan;no;B;66;3;euploid;heterozygous;78,429;68.0;11;191;8. Mixed origin ;;National Hsinchu University of Education (Ching-Fu Lee);25
+YS10(E);APK;Baker's yeast;Bakery;South Africa;no;B;54;3;euploid;heterozygous;79,106;68.8;8;240;8. Mixed origin ;;Macquarie University (Philip Bell);18
+YS19;APN;"type yeasts of the species Saccharomyces cerevisiae in different sugar media"", Letters in Applied Microbiology 2001";Bakery;Philippines;no;B;26;3;"aneu;+1*1;";heterozygous;79,007;67.4;10;272;8. Mixed origin ;;Macquarie University (Philip Bell);18
+Ponton 13;CIE;Mouth;Human, clinical;Spain;no;B;49;3;"aneu;+1*1;-1*3;-1*8;-1*9;-1*10;-1*13;";heterozygous;72,027;60.0;14;212;8. Mixed origin ;;Inserm Université P. M. Curie, Paris, France (Hennequin C.);
+CBS2973;AEM;Beer wort;Beer;NA;yes;B;9;1;"aneu;+1*11;";heterozygous;50,189;6.0;34;201;8. Mixed origin ;;CBS collection (Nguyen H.V.);
+CBS1464;AFT;Infected nail of 4 yo girl;Human, clinical;Austria;no;B;12;4;euploid;homozygous;51,260;0.0;13;221;8. Mixed origin ;;CBS collection (Nguyen H.V.);
+CBS8292;AQI;Seawater;Water;Sweden;no;B;117;2;euploid;heterozygous;65,679;56.2;24;202;8. Mixed origin ;;CBS collection (Nguyen H.V.);
+CBS8291;AFE;Seawater;Water;Sweden;no;B;84;2;euploid;heterozygous;62,805;42.2;63;188;8. Mixed origin ;;CBS collection (Nguyen H.V.);
+CECT10120;ATR;Fruit;Fruit;Spain;no;B;64;2;euploid;heterozygous;64,234;48.7;66;199;8. Mixed origin ;;CECT collection;
+CBS7764;AFC;Salmo gairdneri (rainbow trout);Nature;Goteborg, Sweden;no;B;2;2;"aneu;+1*7;-1*14;";heterozygous;66,068;48.2;23;294;8. Mixed origin ;;CBS collection (Nguyen H.V.);
+YS15;APM;"type yeasts of the species Saccharomyces cerevisiae in different sugar media"", Letters in Applied Microbiology 2001";Bakery;Korea;no;B;31;2;"aneu;+1*9;";heterozygous;64,114;46.0;32;215;8. Mixed origin ;;Macquarie University (Philip Bell);18
+YS20;API;"type yeasts of the species Saccharomyces cerevisiae in different sugar media"", Letters in Applied Microbiology 2001";Bakery;Korea;no;B;30;2;"aneu;+1*8;+1*9;";heterozygous;68,623;54.0;7;224;8. Mixed origin ;;Macquarie University (Philip Bell);18
+CLIB340;ASL;Bakery levain;Bakery;Anatolia, Turkey;no;B;177;2;"aneu;+1*2;+1*9;";heterozygous;66,262;46.5;7;243;8. Mixed origin ;;CLIB collection / (Oraler G.);
+YS22(E);BTF;"type yeasts of the species Saccharomyces cerevisiae in different sugar media"", Letters in Applied Microbiology 2001";Bakery;NA;no;B;31;2;"aneu;+1*1;+1*9;";heterozygous;66,945;47.3;5;407;8. Mixed origin ;;Macquarie University (Philip Bell);18
+B1;ASP;Unknown;Unknown;France;no;B;307;2;euploid;heterozygous;71,670;61.5;28;205;8. Mixed origin ;;Washington University School of Medicine (Justin C Fay);5
+#23;BCR;Evolution canyon;Nature;Israel;no;B;256;4;"aneu;+1*8;";heterozygous;85,985;76.5;63;215;8. Mixed origin ;;Comenius University in Bratislava (Josef Nosek)  and University of Haifa (Eviatar Nevo);16
+#03;BCS;Evolution canyon;Nature;Israel;no;B;64;2;euploid;heterozygous;66,063;54.3;2;229;8. Mixed origin ;;Comenius University in Bratislava (Josef Nosek)  and University of Haifa (Eviatar Nevo);16
+#05;BCT;Evolution canyon;Nature;Israel;no;B;56;2;euploid;heterozygous;64,918;50.0;4;248;8. Mixed origin ;;Comenius University in Bratislava (Josef Nosek)  and University of Haifa (Eviatar Nevo);16
+CBS2361;AGK;Trinidadian cane sugar;Nature;UK;yes;B;5;1;euploid;homozygous;51,923;0.0;21;405;8. Mixed origin ;;CBS collection (Nguyen H.V.);
+CBS1385;AGE;Bakery;Bakery;NA;no;B;51;2;"aneu;-1*6;";heterozygous;65,234;47.9;16;211;8. Mixed origin ;;CBS collection (Nguyen H.V.);
+79;BTC;Fleischmann baker's yeast.;Bakery;NA;no;B;86;2;euploid;heterozygous;64,470;44.5;30;235;8. Mixed origin ;;National Collection of Yeast Cultures (NCYC)(Stephen A James and Ian Roberts);
+DBVPG6861;ABV;Poluted stream;Water;Tijuca forest, Rio de Janeiro, Brazil;no;B;45;3;"aneu;+1*1;+1*9;";heterozygous;84,868;73.0;36;241;8. Mixed origin ;;DBVPG collection;1
+21-4-124;ALV;Fruit of plum tree (Prunus domestica L., 'Stanley');Fruit;Male Zaluzie, Slovakia;no;B;20;3;"aneu;+1*1;+1*7;+1*9;+1*11;";heterozygous;85,367;74.2;16;195;8. Mixed origin ;;Culture collection of Yeast (Renata Vadkertiova);
+CCY_21-4-88;BBC;Fruitbody of mushroom Xerocomus badius (Fr.) Gilb.;Fruit;Laksarska Nova Ves, Slovakia;no;B;63;3;"aneu;+1*7;";heterozygous;83,317;71.0;31;320;8. Mixed origin ;;Culture collection of Yeast (Renata Vadkertiova);
+SJ5L13;AMN;Leaf of Wendlandia formosana;Tree;Tuchih, Nantou, Taiwan;no;B;29;4;euploid;heterozygous;92,215;77.6;47;253;8. Mixed origin ;;National Hsinchu University of Education (Ching-Fu Lee);25
+3.4_Safbrew_T-58;CFP;Carlsberg Beer;Beer;NA;no;B;110;4;euploid;heterozygous;93,432;78.5;6;225;8. Mixed origin ;;Carlsberg;
+CCY_21-4-102;BBF;River water (Danube);Water;Bratislava, Slovakia;no;B;71;2;euploid;heterozygous;68,837;49.6;35;227;8. Mixed origin ;;Culture collection of Yeast (Renata Vadkertiova);
+CLIB326_1;AAP;Bakery;Bakery;Australia;no;B;36;2;euploid;heterozygous;68,539;51.0;19;197;8. Mixed origin ;;CLIB collection;1
+21-4-103;ALN;River water (Morava);Water;Bratislava, Deninska Nova Ves, Slovakia;no;B;23;2;euploid;heterozygous;71,303;53.9;23;218;8. Mixed origin ;;Culture collection of Yeast (Renata Vadkertiova);
+21-4-105;ALP;River water Morava;Water;Bratislava, Deninska Nova Ves, Slovakia;no;B;24;2;"aneu;+1*9;";heterozygous;69,838;51.0;12;223;8. Mixed origin ;;Culture collection of Yeast (Renata Vadkertiova);
+CCY_21-4-97;BBD;Fish pond water;Water;Jakubov, Slovakia;no;B;49;2;"aneu;+1*8;";heterozygous;69,389;52.0;25;310;8. Mixed origin ;;Culture collection of Yeast (Renata Vadkertiova);
+CCY_21-4-98;BBE;Sediment of fresh water lake;Water;Jakubov, Slovakia;no;B;106;2;"aneu;+1*8;";heterozygous;67,543;48.0;22;302;8. Mixed origin ;;Culture collection of Yeast (Renata Vadkertiova);
+CLIB274_1;AAN;Bakery;Bakery;Czech Republic;no;B;35;2;"aneu;-1*3;";heterozygous;70,294;54.1;15;189;8. Mixed origin ;;CLIB collection;1
+646-3B;CHI;Bakery;Bakery;USA;no;B;23;2;euploid;heterozygous;70,916;56.1;21;177;8. Mixed origin ;yes;INRA Moulon, France (Sicard D.);
+YS11(E);APL;"type yeasts of the species Saccharomyces cerevisiae in different sugar media"", Letters in Applied Microbiology 2001";Bakery;Turkey;no;B;16;2;euploid;heterozygous;69,856;56.1;39;204;8. Mixed origin ;;Macquarie University (Philip Bell);18
+CBS6216;AEV;Tapwater;Water;Rotterdam, Netherlands;no;B;29;2;"aneu;+1*7;";heterozygous;68,065;47.0;33;228;8. Mixed origin ;;CBS collection;
+2.6_Windsor_British;CFI;Carlsberg Beer;Beer;UK;no;B;103;4;"aneu;+1*9;";heterozygous;94,571;77.7;28;253;8. Mixed origin ;;Carlsberg;
+3.3_Safale_S-33;CFN;Carlsberg Beer;Beer;NA;no;B;100;4;"aneu;+1*2;+1*9;";heterozygous;95,047;77.6;33;277;8. Mixed origin ;;Carlsberg;
+Win-8B;CHK;Brewery;Beer;UK;no;B;38;2;"aneu;+1*9;";heterozygous;71,262;54.1;13;212;8. Mixed origin ;yes;INRA Moulon, France (Sicard D.);
+319-5C;CHH;Bakery;Bakery;France;no;B;10;2;"aneu;+1*7;";heterozygous;68,402;52.3;102;150;8. Mixed origin ;yes;INRA Moulon, France (Sicard D.);
+CLIB318_1;ADL;Bakery;Bakery;Netherlands;no;B;33;2;"aneu;+1*1;+1*6;+1*9;+1*11;";heterozygous;75,765;59.2;15;216;8. Mixed origin ;;CLIB collection;1
+CLQCA_10-386;BDL;Beer;Beer;Equador;no;B;9;2;euploid;heterozygous;73,045;53.7;29;240;8. Mixed origin ;;National Collection of Yeast Cultures (NCYC)(Stephen A James) and Colección de Levaduras Quito Católica (CLQCA)(Enrique Javier Carvajal Barriga);
+EXF-6835;BFM;Petrol station, oil contaminated asphalt;Industrial;Slovenia;no;B;141;4;"aneu;-1*13;-1*16;";heterozygous;86,428;77.5;19;77;8. Mixed origin ;;University of Ljubljana, Biotech Facility dept. Biology Ljubljana, Slovenia (Gunde-Cimerman N.);
+EXF-5734;BFE;Spoiled gooseberry juice;Industrial;NA;no;B;127;4;"aneu;-1*14;";heterozygous;96,517;78.0;6;270;8. Mixed origin ;;University of Ljubljana, Biotech Facility dept. Biology Ljubljana, Slovenia (Gunde-Cimerman N.);
+EXF-5869;BFG;Rotten wood;Nature;NA;no;B;103;4;euploid;heterozygous;96,580;78.6;11;199;8. Mixed origin ;;University of Ljubljana, Biotech Facility dept. Biology Ljubljana, Slovenia (Gunde-Cimerman N.);
+YS5(E);BTD;"type yeasts of the species Saccharomyces cerevisiae in different sugar media"", Letters in Applied Microbiology 2001";Bakery;NA;no;B;35;4;"aneu;+1*10;";heterozygous;91,744;79.0;42;90;8. Mixed origin ;;Macquarie University (Philip Bell);18
+CLIB324_2;ADM;Bakery;Bakery;Vietnam;no;B;69;2;euploid;heterozygous;72,819;54.8;34;298;8. Mixed origin ;;CLIB collection;1
+CLQCA_10-003;AKT;Stingless bee;Insect;Pichincha, Ecuador;no;A;18;2;euploid;heterozygous;71,777;55.7;58;186;8. Mixed origin ;;National Collection of Yeast Cultures (NCYC)(Stephen A James) and Colección de Levaduras Quito Católica (CLQCA)(Enrique Javier Carvajal Barriga);
+324-6C;CHG;Bakery;Bakery;Vietnam;no;B;57;2;euploid;heterozygous;70,009;53.5;44;225;8. Mixed origin ;yes;INRA Moulon, France (Sicard D.);
+SC 29 F. Dromer IP;CHR;Vagina;Human, clinical;France;no;A;52;2;euploid;heterozygous;73,587;56.4;10;212;8. Mixed origin ;;Inserm Université P. M. Curie, Paris, France (Hennequin C.);
+NCYC_2780;BML;Vagina;Human, clinical;Belgium;no;B;19;4;"aneu;-1*3;+1*6;-1*7;-1*10;";heterozygous;92,767;76.9;57;328;8. Mixed origin ;;National Collection of Yeast Cultures (NCYC)(Stephen A James and Ian Roberts);
+YS8(E);BTE;"type yeasts of the species Saccharomyces cerevisiae in different sugar media"", Letters in Applied Microbiology 2001";Bakery;NA;no;B;38;4;euploid;heterozygous;97,345;80.4;27;282;8. Mixed origin ;;Macquarie University (Philip Bell);18
+2680;BMM;Vagina;Human, clinical;Vall d'Hebron hospital, Barcelona, Spain;no;A;20;4;"aneu;-1*1;-1*6;+1*7;-1*9;+1*13;+1*15;";heterozygous;96,513;80.4;11;220;8. Mixed origin ;;Instituto de Agroquímica y Tecnología de los Alimentos (IATA)-CSIC (Amparo Querol);
+SD-15;CBF;Sourdough levan;Bakery;Matera, Italy;no;A;158;4;"aneu;+1*9;";heterozygous;97,515;80.8;13;232;8. Mixed origin ;;University of Basilicata (Angela Capece and Patrizia Romano);
+malade 98 3312;CKK;Feces, clinical;Human, clinical;Amiens, France;no;A;96;4;euploid;heterozygous;95,578;80.8;13;155;8. Mixed origin ;;Inserm Université P. M. Curie, Paris, France (Hennequin C.);
+malade Berchid;CKS;Unknown;Human, clinical;France;no;B;132;4;"aneu;+1*15;-1*16;";heterozygous;95,106;79.0;15;236;8. Mixed origin ;;Inserm Université P. M. Curie, Paris, France (Hennequin C.);
+malade Moreau;CLA;Unknown;Human, clinical;France;no;B;142;4;"aneu;-1*14;";heterozygous;95,895;80.5;18;195;8. Mixed origin ;;Inserm Université P. M. Curie, Paris, France (Hennequin C.);
+YJM1326;SACE_YBW;Unknown;Human, clinical;Minnesota, USA;no;A;55;2;euploid;homozygous;52,705;0.0;156;567;No data;;Phaff collection;2
+LCBG-3D6;CPI;Agave spp. fermentation during rustic mezcal production;Distillery;Tamaulipas, Mexico;no;Spar;8;2;euploid;heterozygous;74,644;22.3;653;252;9. Mexican agave ;;Instituto Politécnico Nacional - Centro de Biotecnología Genómica (Claudia Patricia Larralde Corona);19
+LCBG-3D2;CPM;Agave spp. fermentation during rustic mezcal production;Distillery;Tamaulipas, Mexico;no;none;0;2;euploid;heterozygous;73,782;21.5;583;234;9. Mexican agave ;;Instituto Politécnico Nacional - Centro de Biotecnología Genómica (Claudia Patricia Larralde Corona);19
+LCBG-Mosca3;CPK;Agave spp. fermentation during rustic mezcal production;Distillery;Tamaulipas, Mexico;no;A;27;2;euploid;heterozygous;71,788;22.3;53;131;9. Mexican agave ;;Instituto Politécnico Nacional - Centro de Biotecnología Genómica (Claudia Patricia Larralde Corona);
+LCBG-4Y3;CPL;Agave spp. fermentation during rustic mezcal production;Distillery;Tamaulipas, Mexico;no;A;16;2;euploid;heterozygous;73,971;23.0;256;248;9. Mexican agave ;;Instituto Politécnico Nacional - Centro de Biotecnología Genómica (Claudia Patricia Larralde Corona);
+LCBG-3D4;CPQ;Agave spp. fermentation during rustic mezcal production;Distillery;Tamaulipas, Mexico;no;A;20;2;"aneu;+1*11;";heterozygous;74,034;24.7;445;195;9. Mexican agave ;;Instituto Politécnico Nacional - Centro de Biotecnología Genómica (Claudia Patricia Larralde Corona);
+LCBG-3Y3;CPN;Agave spp. fermentation during rustic mezcal production;Distillery;Tamaulipas, Mexico;no;A;9;2;euploid;heterozygous;75,247;25.5;199;183;9. Mexican agave ;;Instituto Politécnico Nacional - Centro de Biotecnología Genómica (Claudia Patricia Larralde Corona);19
+LCBG-3Y8;CPR;Agave spp. fermentation during rustic mezcal production;Distillery;Tamaulipas, Mexico;no;A;14;2;"aneu;+1*12;";heterozygous;75,527;25.9;242;211;9. Mexican agave ;;Instituto Politécnico Nacional - Centro de Biotecnología Genómica (Claudia Patricia Larralde Corona);19
+CLQCA_20-060;ALI;Water in leaf with organic matter;Water;Yasuni National Park, Orellana, Ecuador;no;Spar;8;2;euploid;heterozygous;86,950;18.6;9,326;210;No data;;National Collection of Yeast Cultures (NCYC)(Stephen A James) and Colección de Levaduras Quito Católica (CLQCA)(Enrique Javier Carvajal Barriga);
+HE008;BCG;Human feces;Human;French Guiana;no;none;0;2;euploid;heterozygous;84,266;10.3;417;230;10. French Guiana human ;;Institut Pasteur (Christophe d'Enfert and Marie-Elisabeth Bougnoux);20
+HE001;BCB;Human feces;Human;French Guiana;no;none;0;2;euploid;heterozygous;83,898;11.1;366;218;10. French Guiana human ;;Institut Pasteur (Christophe d'Enfert and Marie-Elisabeth Bougnoux);20
+HE013;BCM;Human feces;Human;French Guiana;no;none;0;2;euploid;heterozygous;82,798;8.5;257;207;10. French Guiana human ;;Institut Pasteur (Christophe d'Enfert and Marie-Elisabeth Bougnoux);20
+CEY619;BDT;Human feces;Human;French Guiana;no;none;0;2;euploid;heterozygous;83,991;10.1;202;223;10. French Guiana human ;;Institut Pasteur (Christophe d'Enfert and Marie-Elisabeth Bougnoux);20
+HE007;BCF;Human feces;Human;French Guiana;no;none;0;2;euploid;heterozygous;83,879;9.6;286;224;10. French Guiana human ;;Institut Pasteur (Christophe d'Enfert and Marie-Elisabeth Bougnoux);20
+HE012;BCL;Human feces;Human;French Guiana;no;none;0;2;euploid;heterozygous;83,806;8.6;127;230;10. French Guiana human ;;Institut Pasteur (Christophe d'Enfert and Marie-Elisabeth Bougnoux);20
+HE005;BCD;Human feces;Human;French Guiana;no;none;0;2;euploid;heterozygous;85,291;12.3;119;233;10. French Guiana human ;;Institut Pasteur (Christophe d'Enfert and Marie-Elisabeth Bougnoux);20
+CEY615;BDP;Human feces;Human;French Guiana;no;none;0;2;euploid;heterozygous;84,072;9.0;174;277;10. French Guiana human ;;Institut Pasteur (Christophe d'Enfert and Marie-Elisabeth Bougnoux);20
+HE010;BCI;Human feces;Human;French Guiana;no;none;0;2;"aneu;+1*4;";heterozygous;84,562;11.3;300;217;10. French Guiana human ;;Institut Pasteur (Christophe d'Enfert and Marie-Elisabeth Bougnoux);20
+HE004;BCC;Human feces;Human;French Guiana;no;none;0;2;euploid;heterozygous;82,839;11.1;83;112;10. French Guiana human ;;Institut Pasteur (Christophe d'Enfert and Marie-Elisabeth Bougnoux);20
+CEY623;BEC;Human feces;Human;French Guiana;no;none;0;2;"aneu;+1*12;";heterozygous;83,878;9.0;123;223;10. French Guiana human ;;Institut Pasteur (Christophe d'Enfert and Marie-Elisabeth Bougnoux);20
+CEY624;BED;Human feces;Human;French Guiana;no;none;0;2;euploid;heterozygous;84,956;12.0;150;217;10. French Guiana human ;;Institut Pasteur (Christophe d'Enfert and Marie-Elisabeth Bougnoux);20
+HE006;BCE;Human feces;Human;French Guiana;no;none;0;2;euploid;heterozygous;83,514;8.8;193;190;10. French Guiana human ;;Institut Pasteur (Christophe d'Enfert and Marie-Elisabeth Bougnoux);20
+HE020;BCQ;Human;Human;French Guiana;no;none;0;2;euploid;heterozygous;83,686;9.0;147;226;10. French Guiana human ;;Institut Pasteur (Christophe d'Enfert and Marie-Elisabeth Bougnoux);20
+CEY620;BDV;Human feces;Human;French Guiana;no;none;0;2;euploid;heterozygous;84,027;9.8;140;228;10. French Guiana human ;;Institut Pasteur (Christophe d'Enfert and Marie-Elisabeth Bougnoux);20
+CEY651;BNB;Fruits;Fruit;French Guiana;no;none;0;2;euploid;heterozygous;85,700;11.4;127;284;10. French Guiana human ;;Institut Pasteur (Christophe d'Enfert and Marie-Elisabeth Bougnoux);20
+CEY617;BDR;Human feces;Human;French Guiana;no;none;0;2;euploid;heterozygous;82,774;8.3;304;189;10. French Guiana human ;;Institut Pasteur (Christophe d'Enfert and Marie-Elisabeth Bougnoux);20
+CEY649;BMV;Agouti paca (RO);Nature;French Guiana;no;none;0;2;euploid;heterozygous;83,933;9.1;101;300;10. French Guiana human ;;Institut Pasteur (Christophe d'Enfert and Marie-Elisabeth Bougnoux);20
+CEY650;BNA;Agouti paca (RO);Nature;French Guiana;no;none;0;2;euploid;heterozygous;84,173;10.3;147;297;10. French Guiana human ;;Institut Pasteur (Christophe d'Enfert and Marie-Elisabeth Bougnoux);20
+HE009;BCH;Human feces;Human;French Guiana;no;none;0;2;euploid;heterozygous;83,906;9.7;288;242;10. French Guiana human ;;Institut Pasteur (Christophe d'Enfert and Marie-Elisabeth Bougnoux);20
+HE016;BCP;Human feces;Human;French Guiana;no;none;0;2;euploid;heterozygous;83,189;9.3;95;192;10. French Guiana human ;;Institut Pasteur (Christophe d'Enfert and Marie-Elisabeth Bougnoux);20
+CEY618;BDS;Human feces;Human;French Guiana;no;none;0;2;euploid;heterozygous;84,136;11.2;125;196;10. French Guiana human ;;Institut Pasteur (Christophe d'Enfert and Marie-Elisabeth Bougnoux);20
+HE015;BCN;Human feces;Human;French Guiana;no;none;0;1;euploid;homozygous;79,777;0.0;45;213;10. French Guiana human ;;Institut Pasteur (Christophe d'Enfert and Marie-Elisabeth Bougnoux);20
+CEY621;BEA;Human feces;Human;French Guiana;no;none;0;2;euploid;heterozygous;83,253;8.2;115;186;10. French Guiana human ;;Institut Pasteur (Christophe d'Enfert and Marie-Elisabeth Bougnoux);20
+CEY652;BNC;Fruits;Fruit;French Guiana;no;none;0;2;euploid;heterozygous;83,874;7.5;317;334;10. French Guiana human ;;Institut Pasteur (Christophe d'Enfert and Marie-Elisabeth Bougnoux);20
+CEY616;BDQ;Human feces;Human;French Guiana;no;none;0;2;euploid;heterozygous;85,618;12.8;671;213;10. French Guiana human ;;Institut Pasteur (Christophe d'Enfert and Marie-Elisabeth Bougnoux);20
+CEY622;BEB;Human feces;Human;French Guiana;no;none;0;2;euploid;heterozygous;85,611;11.6;655;307;10. French Guiana human ;;Institut Pasteur (Christophe d'Enfert and Marie-Elisabeth Bougnoux);20
+HE011;BCK;Human feces;Human;French Guiana;no;none;0;2;euploid;heterozygous;84,931;11.4;445;238;10. French Guiana human ;;Institut Pasteur (Christophe d'Enfert and Marie-Elisabeth Bougnoux);20
+CEY646;BMR;Chicken;Nature;French Guiana;no;none;0;2;euploid;heterozygous;82,826;6.6;245;291;10. French Guiana human ;;Institut Pasteur (Christophe d'Enfert and Marie-Elisabeth Bougnoux);20
+CEY625;BEE;Human feces;Human;French Guiana;no;none;0;2;euploid;heterozygous;84,594;11.1;429;241;10. French Guiana human ;;Institut Pasteur (Christophe d'Enfert and Marie-Elisabeth Bougnoux);20
+CEY653;BND;Fruits;Fruit;French Guiana;no;none;0;2;euploid;heterozygous;82,589;6.0;300;189;10. French Guiana human ;;Institut Pasteur (Christophe d'Enfert and Marie-Elisabeth Bougnoux);20
+CEY647;CQS;Molossus molossus (bat);Nature;French Guiana;no;none;0;2;euploid;homozygous;80,676;0.0;19,508;243;No data;;Institut Pasteur (Christophe d'Enfert and Marie-Elisabeth Bougnoux);
+908;BBM;Raicilla (Mexican distilled spirit);Distillery;Jalisco, Mexico;no;Spar;30;2;euploid;homozygous;79,266;0.0;3,874;279;No data;;Instituto de Agroquímica y Tecnología de los Alimentos (IATA)-CSIC (Amparo Querol);
+906;CPA;Must from various Agave sp. ;Nature;Mexico;no;A;13;2;euploid;heterozygous;83,678;21.3;4,762;299;No data;;Instituto de Agroquímica y Tecnología de los Alimentos (IATA)-CSIC (Amparo Querol);
+PW5_b;ADE;Raphia palm wine;Palm wine;Aba, Abia State, Nigeria;yes;none;0;1;euploid;homozygous;74,022;0.0;2,686;261;No data;;Kruglyak Laboratory;1
+YJM1399;SACE_YCL;Wild cherry tree;Tree;NA;no;none;0;2;euploid;homozygous;46,357;0.0;867;88;No data;;Phaff collection;2
+YJM1311;SACE_YBV;Unknown;Human, clinical;Michigan, USA;no;B;77;2;euploid;homozygous;50,816;0.0;408;282;No data;;Phaff collection;2
+YJM693;SACE_YAX;Unknown;Human, clinical;Texas, USA;no;none;0;2;euploid;homozygous;49,810;0.0;683;40;No data;;Phaff collection;2
+YJM1385;SACE_YCG;Sugar refinery;Industrial;Maryland, USA;no;none;0;2;euploid;homozygous;51,737;0.0;1,115;185;No data;;Phaff collection;2
+CBS1388a;AAH;Unknown;Unknown;NA;yes;A;1;1;euploid;homozygous;52,600;0.0;780;264;No data;;CBS collection (Nguyen H.V.);
+CBS1173;AFS;Fruit ilex;Fruit;NA;no;none;0;2;"aneu;-1*2;-1*3;-1*4;-1*6;-1*9;-1*10;-1*11;-1*15;-1*16;";heterozygous;58,552;18.4;1,314;237;No data;;CBS collection (Nguyen H.V.);
+CBS2444;AGC;Distillery;Distillery;Seagrams distillery, Louisville, Kentucky;yes;A;17;1;"aneu;+1*1;+1*5;+1*10;+1*11;";heterozygous;50,356;10.2;499;85;No data;;CBS collection (Nguyen H.V.);
+4.5_WLP530;CFC;Carlsberg Beer, Abbey ale yeast (Westmalle brewery);Beer;Westmalle, Belgium;no;A;85;4;"aneu;-1*12;";heterozygous;84,295;68.9;2,228;216;11. Ale beer ;;Carlsberg;
+CBS6308;AGB;Brewer yeast, Yorkshire type;Beer;South Yorkshire, UK;no;A;111;2;euploid;heterozygous;57,000;40.9;437;60;11. Ale beer ;;CBS collection (Nguyen H.V.);
+CECT1462;ATV;Beer;Beer;UK;no;A;153;4;euploid;heterozygous;79,605;63.4;2,043;88;11. Ale beer ;;CECT collection;
+CBS2165a;AAC;Brewers;Beer;England;no;A;14;2;euploid;heterozygous;66,697;38.0;1,966;271;11. Ale beer ;;CBS collection (Nguyen H.V.);
+NCYC_1187;CBR;Ale strain;Beer;UK;no;A;168;4;euploid;heterozygous;83,141;63.9;80;150;11. Ale beer ;;National Collection of Yeast Cultures (NCYC)(Stephen A James and Ian Roberts);
+1.6_Safale_S40;CFG;Carlsberg Beer;Beer;UK;no;A;106;4;"aneu;-1*6;";heterozygous;84,065;63.6;196;276;11. Ale beer ;;Carlsberg;
+Nottingham_ale_1.8_Lallemand;CFH;Carlsberg Beer;Beer;UK;no;A;119;4;"aneu;-1*1;-1*7;";heterozygous;83,187;64.1;413;222;11. Ale beer ;;Carlsberg;
+CBS1248;AEC;Brewers yeast;Beer;NA;no;A;23;Xn;NA;heterozygous;78,687;59.1;1,961;111;11. Ale beer ;;CBS collection (Nguyen H.V.);
+1.3_Safale_US05;CFD;Carlsberg Beer, American Ale yeast;Beer;USA;no;A;63;4;"aneu;-1*1;-1*5;+1*6;-1*12;";heterozygous;74,644;50.3;343;190;11. Ale beer ;;Carlsberg;
+5.5_WLP090;CFM;"Carlsberg Beer, ""San Diego Super Yeast""";Beer;San Diego, USA;no;A;70;4;"aneu;-1*1;-1*5;-1*9;";heterozygous;75,244;51.3;502;258;11. Ale beer ;;Carlsberg;
+CBS1230;AQT;Beer;Beer;Belgium;no;A;109;3;"aneu;+1*6;";heterozygous;69,879;44.4;1,314;232;11. Ale beer ;;CBS collection;
+DBVPG6694;BRP;Artois Peterman beer;Beer;Belgium;no;A;60;4;"aneu;+1*1;-1*3;";heterozygous;78,549;57.6;481;302;11. Ale beer ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+DBVPG6693;BSI;Beer;Beer;Belgium;no;A;176;4;"aneu;+1*1;+1*9;-1*14;";heterozygous;74,184;52.7;263;259;11. Ale beer ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+CBS1171;AEB;Brewers top yeast;Beer;Oranjeboom brewery, Rotterdam, Netherlands;no;A;112;4;"aneu;+1*1;+1*2;+1*15;";heterozygous;74,793;52.0;137;212;11. Ale beer ;;CBS collection (Nguyen H.V.);
+CLIB227;ASH;Beer holland;Beer;Netherlands;no;A;122;4;"aneu;-1*1;-1*5;-1*7;-1*8;+1*9;-1*14;+1*16;";heterozygous;71,496;48.7;34;149;11. Ale beer ;;CLIB collection (Serge Casaregola);
+CCY_21-4-106;BBG;River water (Morava);Water;Devinska Nova Ves, Slovakia;no;A;184;4;"aneu;-1*1;-1*6;-1*8;-1*10;-1*14;-1*16;";heterozygous;71,763;47.7;78;230;11. Ale beer ;;Culture collection of Yeast (Renata Vadkertiova);
+DBVPG6695;BRQ;Orval Trappist beer;Beer;Belgium;no;A;110;4;"aneu;-1*1;-1*5;+2*9;-1*10;+1*13;";heterozygous;75,749;54.5;296;331;11. Ale beer ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+UCD_06-645;CGC;Female olive fly, surface sterilized, smashed, plated on RBCA;Fruit;Davis, CA, UCD;no;A;135;4;euploid;heterozygous;79,147;59.0;387;302;11. Ale beer ;;Phaff collection;
+SM8.3.M5;CNC;Bioethanol;Bioethanol;Brazil;no;B;124;2;euploid;heterozygous;70,376;54.4;1,529;217;M3. Mosaic region 3 ;;IBB-Unesp (Ana Teresa B. F. Antonangelo );13
+2720;BMQ;Blood;Human, clinical;La Fe Hospital,Valencia, Spain;no;B;11;2;"aneu;+1*1;+1*6;+1*7;+1*9;+1*11;+1*12;+1*13;";heterozygous;53,504;65.6;1,844;58;M3. Mosaic region 3 ;;Instituto de Agroquímica y Tecnología de los Alimentos (IATA)-CSIC (Amparo Querol);
+YJM269_1b;ACN;Red Blauer Portugieser grapes;Wine;Austria;yes;A;23;1;euploid;homozygous;23,030;0.0;19;191;M3. Mosaic region 3 ;;Kruglyak Laboratory;1
+1;CBK;Chalcidoidea  ;Insect;Schleswig-Holstein;no;A;35;1;euploid;homozygous;29,204;2.3;3;233;M3. Mosaic region 3 ;;Max Planck Institute for Evolutionary Biology (Duncan Greig);
+2;CBL;Chalcidoidea  ;Insect;Schleswig-Holstein;no;A;13;2;euploid;heterozygous;62,006;91.1;7;189;M3. Mosaic region 3 ;;Max Planck Institute for Evolutionary Biology (Duncan Greig);
+DBVPG6044;AKI;Bili wine;Wine;West Africa;no;A;12;2;euploid;homozygous;61,663;0.0;8;175;M3. Mosaic region 3 ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+Y55_1b;ADA;Wine;Wine;France;yes;A;19;1;euploid;homozygous;62,285;0.0;5;267;M3. Mosaic region 3 ;;Kruglyak Laboratory;1
+YJM627;ATE;Seg. Y55;Unknown;France;no;A;91;2;euploid;homozygous;62,289;0.0;2;256;M3. Mosaic region 3;;Washington University School of Medicine (Justin C Fay);5
+3;CBM;Chalcidoidea  ;Insect;Forest of Nehmten in Schleswig-Holstein;no;A;12;2;euploid;heterozygous;62,734;87.9;13;250;M3. Mosaic region 3;;Max Planck Institute for Evolutionary Biology (Duncan Greig);
+EM93_3;ACA;Rotting fig;Fruit;California, USA;yes;A;21;1;euploid;homozygous;25,551;0.0;0;230;M3. Mosaic region 3;;Kruglyak Laboratory;1
+TL229S2.2;ACB;Cheese;Dairy;France;yes;A;21;1;euploid;homozygous;25,605;0.0;5;249;M3. Mosaic region 3;;Kruglyak Laboratory;1
+DBVPG6350;BRL;UC Berkeley;Unknown;USA;no;A;7;1;"aneu;+1*11;";homozygous;17,881;4.4;132;184;M3. Mosaic region 3;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+CBS7765;ADT;Salmo gairdneri (rainbow trout);Nature;Sweden, Goteborg;yes;A;1;1;euploid;homozygous;100;0.0;12;267;M3. Mosaic region 3;;CBS collection (Nguyen H.V.);
+W303;SACE_GAV;Lab strain;Lab strain;NA;no;A;57;2;euploid;homozygous;7,951;0.0;16;19;M3. Mosaic region 3;;EUROFAN;6
+YJM1381;SACE_YCE;Rum fermentation;Distillery;Trinidad;no;B;85;2;euploid;homozygous;50,506;0.0;1,122;316;M3. Mosaic region 3;;Phaff collection;2
+YJM1386;SACE_YCH;Sugar cane;Nature;Jamaica;no;B;49;2;euploid;homozygous;53,201;0.0;585;45;M3. Mosaic region 3;;Phaff collection;2
+NCYC_2966;CLG;Feces;Human, clinical;Nottingham, UK;no;B;6;2;euploid;heterozygous;71,760;57.2;1,806;268;M3. Mosaic region 3;;National Collection of Yeast Cultures (NCYC)(Stephen A James and Ian Roberts);
+MTF2546;CQC;Cocoa bean fermentation;Fermentation;West Africa;no;none;0;2;euploid;heterozygous;60,620;21.9;10;259;12. West African cocoa ;;The Royal Veterinary and Agricultural University (Lene Jespersen);21
+MTF2547;CQD;Cocoa bean fermentation;Fermentation;West Africa;no;none;0;2;euploid;heterozygous;60,680;21.9;10;281;12. West African cocoa ;;The Royal Veterinary and Agricultural University (Lene Jespersen);21
+MTF2550;CQG;Cocoa bean fermentation;Fermentation;West Africa;no;A;6;2;euploid;heterozygous;67,960;21.4;587;231;12. West African cocoa ;;The Royal Veterinary and Agricultural University (Lene Jespersen);21
+MTF2552;CQI;Cocoa bean fermentation;Fermentation;West Africa;no;A;6;2;euploid;heterozygous;69,228;26.8;782;268;12. West African cocoa ;;The Royal Veterinary and Agricultural University (Lene Jespersen);21
+MTF2551;CQH;Cocoa bean fermentation;Fermentation;West Africa;no;none;0;2;euploid;heterozygous;64,122;31.5;20;254;12. West African cocoa ;;The Royal Veterinary and Agricultural University (Lene Jespersen);21
+MTF2554;CQL;Cocoa bean fermentation;Fermentation;West Africa;no;none;0;2;euploid;heterozygous;65,042;34.7;5;215;12. West African cocoa ;;The Royal Veterinary and Agricultural University (Lene Jespersen);21
+AY529516;ANN;Cocoa bean fermentation;Fermentation;Ghana;no;none;0;2;euploid;heterozygous;64,415;36.5;1;207;12. West African cocoa ;;The Royal Veterinary and Agricultural University (Lene Jespersen);21
+MTF2555;CQM;Cocoa bean fermentation;Fermentation;West Africa;no;none;0;2;euploid;heterozygous;64,947;36.4;6;272;12. West African cocoa ;;The Royal Veterinary and Agricultural University (Lene Jespersen);21
+MTF2548;CQE;Cocoa bean fermentation;Fermentation;West Africa;no;none;0;2;euploid;heterozygous;63,365;33.1;9;215;12. West African cocoa ;;The Royal Veterinary and Agricultural University (Lene Jespersen);21
+MTF2553;CQK;Cocoa bean fermentation;Fermentation;West Africa;no;none;0;2;euploid;heterozygous;60,388;24.4;25;298;12. West African cocoa ;;The Royal Veterinary and Agricultural University (Lene Jespersen);21
+MTF2549;CQF;Cocoa bean fermentation;Fermentation;West Africa;no;none;0;2;euploid;heterozygous;60,318;22.5;31;266;12. West African cocoa ;;The Royal Veterinary and Agricultural University (Lene Jespersen);21
+MTF2556;CQN;Cocoa bean fermentation;Fermentation;West Africa;no;none;0;2;euploid;heterozygous;61,386;27.4;22;222;12. West African cocoa ;;The Royal Veterinary and Agricultural University (Lene Jespersen);21
+MTF2557;CQP;Cocoa bean fermentation;Fermentation;West Africa;no;none;0;2;euploid;heterozygous;60,014;20.7;234;286;12. West African cocoa ;;The Royal Veterinary and Agricultural University (Lene Jespersen);21
+CLQCA_04-021;AKQ;Beetle;Insect;Los Rios, Ecuador;no;none;0;2;euploid;homozygous;52,138;0.0;464;224;M3. Mosaic region 3 ;;National Collection of Yeast Cultures (NCYC)(Stephen A James) and Colección de Levaduras Quito Católica (CLQCA)(Enrique Javier Carvajal Barriga);
+CLQCA_09-001;AKS;Flower (Opuntia sp.);Flower;Imbabura, Ecuador;no;A;8;2;euploid;homozygous;55,664;0.0;219;207;M3. Mosaic region 3 ;;National Collection of Yeast Cultures (NCYC)(Stephen A James) and Colección de Levaduras Quito Católica (CLQCA)(Enrique Javier Carvajal Barriga);
+CLQCA_18-003;ALG;Cocoa fruit;Fruit;Sucumbios, Ecuador;no;none;0;2;euploid;homozygous;51,601;0.0;243;226;M3. Mosaic region 3 ;;National Collection of Yeast Cultures (NCYC)(Stephen A James) and Colección de Levaduras Quito Católica (CLQCA)(Enrique Javier Carvajal Barriga);
+YJM454_1b;ABH;Human, clinical ;Human, clinical;NA;yes;A;19;1;euploid;homozygous;53,845;0.0;77;183;M3. Mosaic region 3 ;;Kruglyak Laboratory;1
+YJM456;SACE_YAN;Unknown;Human, clinical;California, USA;no;A;103;2;euploid;homozygous;42,954;0.0;4;108;M3. Mosaic region 3 ;;Phaff collection;2
+YJM1338;SACE_YBZ;Sour fig;Fruit;Maryland, USA;no;A;50;2;euploid;homozygous;54,838;0.0;92;208;M3. Mosaic region 3 ;;Phaff collection;2
+ZP_611;BTI;Quercus robur;Tree;Canada, Vancouver,;no;A;5;2;euploid;homozygous;58,106;0.0;329;315;M3. Mosaic region 3 ;;Faculdade de Ciências e Tecnologia of Universidade NOVA de Lisboa (FCT-NOVA)(José Paulo Sampaio);
+UCD_05-780;CGB;Beetle from infested Prunus bokhariensis, walk plate on RBCA.  No mold on plate.  Prunus bokhariensis Type Botanky E-1-18;Insect;Winters, CA Wolfskill USDA Prunus germplasm collection, ;no;A;78;2;euploid;homozygous;53,627;0.0;30;211;M3. Mosaic region 3;;Phaff collection (?);
+YJM1527;SACE_YDG;Prune;Fruit;California, USA;no;A;110;2;euploid;homozygous;46,033;0.0;7;65;M3. Mosaic region 3;;;2
+YJM653_1b;ABI;Brochoalveolar lavage;Human, clinical;USA;yes;B;29;1;euploid;homozygous;51,490;0.0;113;208;M3. Mosaic region 3;;Kruglyak Laboratory;1
+YJM681;SACE_YAT;Unknown;Human, clinical;California, USA;no;B;90;2;euploid;homozygous;51,525;0.0;134;44;M3. Mosaic region 3;;Phaff collection;2
+D3742;BSK;Spoiled ice tea;Unknown;France;no;B;29;2;euploid;heterozygous;65,669;45.4;596;250;M3. Mosaic region 3;;National Collection of Yeast Cultures (NCYC)(Stephen A James and Ian Roberts);
+384103A;BMD;Human;Human;RVI Newcastle, UK;no;B;21;2;euploid;heterozygous;70,978;58.9;643;285;M3. Mosaic region 3;;National Collection of Yeast Cultures (NCYC)(Stephen A James, Donald Mackenzie and Ian Roberts);
+YJM320b;AAV;Blood;Human, clinical;California, USA;yes;B;22;1;euploid;homozygous;50,886;0.0;1;188;M3. Mosaic region 3;;Kruglyak Laboratory;1
+DBVPG6874;BRV;Human;Human, clinical;USA ;no;B;22;2;euploid;heterozygous;65,653;39.7;51;277;M3. Mosaic region 3;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+YJM541;SACE_YAP;Unknown;Human, clinical;California, USA;no;B;85;2;"aneu;+1*9;";homozygous;52,869;0.0;13;73;M3. Mosaic region 3;;Phaff collection;2
+YJM554;SACE_YAQ;Unknown;Human, clinical;California, USA;no;B;59;2;euploid;homozygous;53,947;0.0;22;69;M3. Mosaic region 3;;Phaff collection;2
+YJM555;SACE_YAR;Unknown;Human, clinical;California, USA;no;B;42;2;euploid;homozygous;50,682;0.0;130;131;M3. Mosaic region 3;;Phaff collection;2
+YJM678_1b;ABK;Unknown;Human, clinical;NA;yes;none;0;1;euploid;homozygous;49,537;0.0;29;202;M3. Mosaic region 3;;Kruglyak Laboratory;1
+YJM682;SACE_YAU;Unknown;Human, clinical;Texas, USA;no;B;74;2;euploid;homozygous;49,259;0.0;18;67;M3. Mosaic region 3;;Phaff collection;2
+YJM326_b;ABA;Human, clinical ;Human, clinical;California, USA;yes;B;25;1;euploid;homozygous;50,836;0.0;35;217;M3. Mosaic region 3;;Kruglyak Laboratory;1
+YJM683;SACE_YAV;Unknown;Human, clinical;Texas, USA;no;none;0;2;euploid;homozygous;51,208;0.0;45;106;M3. Mosaic region 3;;Phaff collection;2
+YJM145_b;AAS;AIDS patient;Human, clinical;USA;yes;A;37;1;euploid;homozygous;52,302;0.0;145;177;M3. Mosaic region 3;;Kruglyak Laboratory;1
+YJM280_b;AAT;Peritoneal fluid;Human, clinical;USA;yes;B;24;1;"aneu;+1*1;";homozygous;53,723;0.0;207;201;M3. Mosaic region 3;;Kruglyak Laboratory;1
+YJM440_1b;ABG;Human, clinical ;Human, clinical;NA;yes;A;29;1;euploid;homozygous;53,538;0.0;128;177;M3. Mosaic region 3;;Kruglyak Laboratory;1
+YJM450;SACE_YAK;Unknown;Human, clinical;California, USA;no;A;62;2;euploid;homozygous;53,367;0.0;143;153;M3. Mosaic region 3;;Phaff collection;2
+ATCC_38618:2-2;CEN;Concentrated orange juice;Fruit;NA;no;B;212;2;"aneu;+1*11;+1*13;";heterozygous;51,817;0.1;141;199;M3. Mosaic region 3;;State Research Institute of Genetics and Selection of Industrial Microorganisms (Naumov G.I.);
+YJM689;SACE_YAW;Unknown;Human, clinical;Texas, USA;no;none;0;2;euploid;homozygous;49,427;0.0;251;36;M3. Mosaic region 3;;Phaff collection;2
+YJM1190;SACE_YBJ;Unknown;Human, clinical;Michigan, USA;no;B;87;2;euploid;homozygous;38,681;0.0;100;31;M3. Mosaic region 3;;Phaff collection;2
+YJM1199;SACE_YBK;Unknown;Human, clinical;Michigan, USA;no;B;101;2;euploid;homozygous;54,843;0.0;79;42;M3. Mosaic region 3;;Phaff collection;2
+YJM1202;SACE_YBL;Unknown;Human, clinical;Michigan, USA;no;B;79;2;euploid;homozygous;54,837;0.0;178;455;M3. Mosaic region 3;;Phaff collection;2
+YJM1304;SACE_YBT;Unknown;Human, clinical;Texas, USA;no;B;104;2;euploid;homozygous;54,208;0.0;306;526;M3. Mosaic region 3;;Phaff collection;2
+CLIB208_1;ADK;Bakery;Bakery;Shanaong, China;no;A;70;2;"aneu;-1*9;";heterozygous;63,171;41.2;1,957;224;M3. Mosaic region 3;;CLIB collection;1
+378604X;SACE_MAB;Clinical sputum;Human, clinical;Newcastle, UK;no;B;17;2;euploid;homozygous;47,666;0.0;596;46;M3. Mosaic region 3;;;17
+malade 3285/11-2-4;CKA;Bronchoalveolar lavage (therapy isolate);Human, clinical;Paris, France, H3;no;A;1;2;euploid;heterozygous;62,400;43.5;650;183;M3. Mosaic region 3;;Inserm Université P. M. Curie, Paris, France (Hennequin C.);
+CBS1544;AGP;Juice;Fruit;Netherlands;yes;none;0;1;"aneu;+1*1;+1*9;";heterozygous;51,572;4.9;159;287;M3. Mosaic region 3;;CBS collection (Nguyen H.V.);
+YJM1549;SACE_YDH;Fermenting fruit juice;Fermentation;Netherlands;no;none;0;2;"aneu;+1*1;+1*6;+1*11;";homozygous;49,737;0.0;152;233;M3. Mosaic region 3;;;2
+SC 32 F. Dromer IP;CHS;Feces;Human, clinical;France;no;B;122;2;euploid;heterozygous;60,498;37.5;5;221;M3. Mosaic region 3;;Inserm Université P. M. Curie, Paris, France (Hennequin C.);
+SC 33 F. Dromer IP;CHT;Feces;Human, clinical;France;no;B;88;2;euploid;heterozygous;61,535;38.4;31;286;M3. Mosaic region 3;;Inserm Université P. M. Curie, Paris, France (Hennequin C.);
+YJM428_1b;ABD;Paracenteis fluid;Human, clinical;California, USA;no;B;36;2;"aneu;+2*16;";homozygous;49,343;0.0;7;206;M3. Mosaic region 3;;Kruglyak Laboratory;1
+YJM308;ATC;Clinical;Human, clinical;NA;no;B;107;2;"aneu;+1*11;";heterozygous;64,818;53.2;217;200;M3. Mosaic region 3;;Washington University School of Medicine (Justin C Fay);5
+YJM339;ATD;Clinical;Human, clinical;NA;no;B;115;2;euploid;homozygous;50,732;0.0;247;201;M3. Mosaic region 3;;Washington University School of Medicine (Justin C Fay);5
+DBVPG6696;ANA;Banana wine;Wine;Burundi;no;none;0;2;"aneu;+1*12;";heterozygous;63,774;7.3;4,652;247;M3. Mosaic region 3;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+IMB-53;BBL;Beetle Mimela aurata (Coleoptera, Rutelinae);Insect;Platanus orientalis forest, in Belasista Mountain, near Kamena Village in Bulgaria;no;none;0;2;"aneu;+1*5;+1*8;+1*9;+1*12;+1*14;";homozygous;62,200;0.0;3,333;296;M3. Mosaic region 3;;Bulgarian Academy of Science (Dilnora Gouliamova);
+N37-1A;CDC;Exudate of Quercus robur;Tree;Botanical Garden, Novosibirsk, Siberia, Russia;no;none;0;2;"aneu;-1*5;";homozygous;63,582;0.0;803;234;M3. Mosaic region 3;;State Research Institute of Genetics and Selection of Industrial Microorganisms (Naumov G.I.);
+N38-4A;CDD;Exudate of Quercus robur;Tree;Botanical Garden, Novosibirsk, Siberia, Russia;no;none;0;2;euploid;homozygous;63,187;0.0;227;221;M3. Mosaic region 3;;State Research Institute of Genetics and Selection of Industrial Microorganisms (Naumov G.I.);
+N39-7A;CDE;Exudate of Quercus robur;Tree;Novosibirsk, Siberia, Russia;no;none;0;2;euploid;homozygous;63,268;0.0;278;202;M3. Mosaic region 3;;State Research Institute of Genetics and Selection of Industrial Microorganisms (Naumov G.I.);
+997;CPC;Apricot pulp;Fruit;Hungary;no;C;15;2;euploid;heterozygous;73,341;54.6;1,818;203;M3. Mosaic region 3;;Instituto de Agroquímica y Tecnología de los Alimentos (IATA)-CSIC (Amparo Querol);
+269521J;BMF;Human;Human;RVI Newcastle, UK;no;B;158;2;"aneu;+1*1;";heterozygous;75,631;57.8;2,147;308;M3. Mosaic region 3;;National Collection of Yeast Cultures (NCYC)(Stephen A James, Donald Mackenzie and Ian Roberts);
+malade 98 2601;CKN;Feces, clinical;Human, clinical;Amiens, France;no;A;87;2;euploid;heterozygous;76,104;65.8;955;196;M3. Mosaic region 3;;Inserm Université P. M. Curie, Paris, France (Hennequin C.);
+PB11;CIG;Feces;Human, clinical;Netherlands;no;A;39;2;euploid;heterozygous;65,549;48.8;75;246;M3. Mosaic region 3;;Inserm Université P. M. Curie, Paris, France (Hennequin C.);
+PB15;CIL;Feces;Human, clinical;Netherlands;no;A;74;2;euploid;heterozygous;68,647;53.9;99;194;M3. Mosaic region 3;;Inserm Université P. M. Curie, Paris, France (Hennequin C.);
+CBS428a;AAG;Unknown;Unknown;NA;yes;C;27;1;euploid;homozygous;55,875;0.0;383;213;M3. Mosaic region 3;;CBS collection (Nguyen H.V.);
+CBS6333;AHA;Rotting banana (from Musa sapientum);Fruit;Costa Rica;yes;C;30;1;euploid;homozygous;52,500;0.0;330;194;M3. Mosaic region 3;;CBS collection (Nguyen H.V.);
+PB13;CII;Sputum;Human, clinical;Netherlands;no;B;69;2;euploid;heterozygous;70,156;53.3;85;173;M3. Mosaic region 3;;Inserm Université P. M. Curie, Paris, France (Hennequin C.);
+PB14;CIK;Sputum;Human, clinical;Netherlands;no;B;70;2;"aneu;+1*11;";heterozygous;70,838;54.0;65;208;M3. Mosaic region 3;;Inserm Université P. M. Curie, Paris, France (Hennequin C.);
+NCYC_2798;BTA;Clinical isolate, AIDS patient;Human, clinical;Germany;no;none;0;3;euploid;heterozygous;83,228;67.8;1,525;217;M3. Mosaic region 3;;National Collection of Yeast Cultures (NCYC)(Stephen A James and Ian Roberts);
+#36;BDC;Evolution canyon;Nature;Israel;no;B;61;2;"aneu;+1*1;";heterozygous;67,299;41.3;41;239;M3. Mosaic region 3;;Comenius University in Bratislava (Josef Nosek)  and University of Haifa (Eviatar Nevo);16
+#57;BDF;Evolution canyon;Nature;Israel;no;B;62;2;"aneu;+1*1;";heterozygous;66,092;37.7;8;227;M3. Mosaic region 3;;Comenius University in Bratislava (Josef Nosek)  and University of Haifa (Eviatar Nevo);16
+#58;BDG;Evolution canyon;Nature;Israel;no;B;38;2;"aneu;+1*1;";heterozygous;66,112;37.9;9;229;M3. Mosaic region 3;;Comenius University in Bratislava (Josef Nosek)  and University of Haifa (Eviatar Nevo);16
+B10-1;CHQ;Levain from organic flour;Bakery;Forcalquier;no;none;0;2;euploid;heterozygous;73,855;53.2;2,187;277;M3. Mosaic region 3;yes;INRA Moulon, France (Sicard D.);
+21-4-114;ALR;Leaves of peach tree (Prunus armeniaca);Tree;Male levare, Slovakia;no;B;28;3;"aneu;+1*9;+1*11;+1*12;";heterozygous;81,176;63.1;3,288;222;M3. Mosaic region 3;;Culture collection of Yeast (Renata Vadkertiova);
+CBS1394;AEL;Distillery;Distillery;NA;no;A;48;2;euploid;heterozygous;72,219;45.8;1,220;213;M3. Mosaic region 3;;CBS collection (Nguyen H.V.);
+CBS2441;AEE;Distillery;Distillery;NA;no;A;116;3;"aneu;+2*1;+1*5;+1*8;+1*9;";heterozygous;77,418;49.0;797;223;M3. Mosaic region 3;;CBS collection (Nguyen H.V.);
+CBS1239;ARA;Distillery;Distillery;NA;no;A;171;4;"aneu;+1*1;+1*8;+1*15;";heterozygous;78,741;49.4;1,402;226;M3. Mosaic region 3;;CBS collection (Nguyen H.V.);
+CBS1254;ARB;Bakery;Bakery;NA;no;A;129;4;"aneu;+1*8;-1*10;";heterozygous;76,486;49.1;1,008;241;M3. Mosaic region 3;;CBS collection (Nguyen H.V.);
+77;BTB;Baker's yeast;Bakery;NA;no;A;137;3;"aneu;+1*1;";heterozygous;75,015;46.7;1,342;211;M3. Mosaic region 3;;National Collection of Yeast Cultures (NCYC)(Stephen A James and Ian Roberts);
+Y1;ATB;Mushroom;Nature;NA;no;B;91;3;euploid;heterozygous;84,272;71.5;1,331;215;M3. Mosaic region 3;;Washington University School of Medicine (Justin C Fay);5
+DBVPG1074;BIE;Grape must;Wine;San Severo, Puglia, Italy;no;C;17;2;euploid;heterozygous;81,539;68.2;57;217;M3. Mosaic region 3;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+DBVPG1792;BPA;Soil;Soil;Viik, Helsinki, Finland;no;C;45;2;"aneu;+1*8;";heterozygous;82,161;68.3;71;287;M3. Mosaic region 3;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+CBS3078;AGT;Spores;Unknown;NA;yes;B;47;1;euploid;homozygous;53,325;0.0;891;215;M3. Mosaic region 3;;CBS collection (Nguyen H.V.);
+PB12;CIH;Feces;Human, clinical;Netherlands;no;none;0;2;euploid;heterozygous;68,898;42.8;1,117;184;M3. Mosaic region 3;;Inserm Université P. M. Curie, Paris, France (Hennequin C.);
+YJM436_1b;ABF;Mouth;Human, clinical;NA;yes;B;12;1;euploid;homozygous;53,434;0.0;67;183;M3. Mosaic region 3;;Kruglyak Laboratory;1
+YJM451;SACE_YAL;Unknown;Human, clinical;NA;no;B;42;2;euploid;homozygous;54,126;0.0;110;51;M3. Mosaic region 3;;;2
+CBS1428;AEI;Bakery;Bakery;NA;yes;A;30;1;euploid;homozygous;55,805;0.0;124;240;M3. Mosaic region 3;;CBS collection (Nguyen H.V.);
+CBS1387;AFG;Bakery;Bakery;NA;yes;A;16;1;euploid;homozygous;57,359;0.0;183;678;M3. Mosaic region 3;;CBS collection (Nguyen H.V.);
+YJM1307;SACE_YBU;Unknown;Human, clinical;Washington DC, USA;no;A;51;2;euploid;homozygous;57,372;0.0;130;419;M3. Mosaic region 3;;Phaff collection;2
+YJM1208;SACE_YBM;Unknown;Human, clinical;Michigan, USA;no;B;94;2;euploid;homozygous;51,589;0.0;163;142;M3. Mosaic region 3;;;2
+YJM421_b;ABC;Ascites fluid;Human, clinical;USA;yes;B;17;1;euploid;homozygous;51,278;0.0;9;204;M3. Mosaic region 3;;;1
+YJM1615;SACE_YDL;Clinical;Human, clinical;California, USA;no;B;108;2;euploid;homozygous;51,882;0.0;7;95;M3. Mosaic region 3;;;2
+YJM1083;SACE_YDN;Clinical;Human, clinical;North Carolina, USA;no;B;75;2;euploid;homozygous;52,360;0.0;464;350;M3. Mosaic region 3;;Phaff collection;2
+Ponton 11;CIC;Mouth;Human, clinical;Spain;no;B;49;2;euploid;heterozygous;68,564;41.1;825;227;M3. Mosaic region 3;;Inserm Université P. M. Curie, Paris, France (Hennequin C.);
+CCY_21-4-93:6B;CDK;Leaves of Sequoia sp.;Tree;North Korea;yes;C;154;1;euploid;homozygous;58,780;0.0;1,011;165;M3. Mosaic region 3;;State Research Institute of Genetics and Selection of Industrial Microorganisms (Naumov G.I.);
+CCY_21-4-89:7-3;CEM;Fermenting acorn meal;Fermentation;North Korea;yes;C;32;1;euploid;homozygous;57,683;0.0;865;203;M3. Mosaic region 3;;State Research Institute of Genetics and Selection of Industrial Microorganisms (Naumov G.I.);
+Ponton 14;CIF;Feces;Human, clinical;Spain;no;B;25;2;euploid;heterozygous;70,667;39.3;1,554;175;M3. Mosaic region 3;;Inserm Université P. M. Curie, Paris, France (Hennequin C.);
+Ponton 12;CID;Mouth;Human, clinical;Spain;no;B;130;2;euploid;heterozygous;66,691;35.3;894;235;M3. Mosaic region 3;;Inserm Université P. M. Curie, Paris, France (Hennequin C.);
+2281;BBT;Grapes, Picudo variety;Wine;Valdevimbre, Spain;no;B;39;3;euploid;heterozygous;89,544;59.4;5,186;239;M3. Mosaic region 3;;Instituto de Agroquímica y Tecnología de los Alimentos (IATA)-CSIC (Amparo Querol);
+B9b-1;CHN;Levain from organic flour (Renan);Bakery;Gif-sur-Yvette;no;A;8;2;euploid;heterozygous;76,575;48.0;32;218;M3. Mosaic region 3;yes;INRA Moulon, France (Sicard D.);
+B9c-1;CHP;Levain from organic flour (Renan);Bakery;Gif-sur-Yvette;no;A;8;2;euploid;heterozygous;76,117;47.6;30;224;M3. Mosaic region 3;yes;INRA Moulon, France (Sicard D.);
+RIB6002;CMG;Sake;Sake;Japan;no;B*;26;3;"aneu;-1*1;+1*8;";heterozygous;87,649;60.2;2,011;194;M3. Mosaic region 3;;National Research Institute of Brewing, Hiroshima;
+CLQCA_17-111;CRE;Termite mound;Insect;Ecuador;no;none;0;3;euploid;heterozygous;88,842;59.1;5,174;221;M3. Mosaic region 3;;National Collection of Yeast Cultures (NCYC)(Stephen A James) and Colección de Levaduras Quito Católica (CLQCA)(Enrique Javier Carvajal Barriga);
+MAJ_A;BDM;Plant material;Nature;Majunga, Madagascar;no;B;103;2;euploid;heterozygous;71,939;32.9;4,822;204;M3. Mosaic region 3;;National Collection of Yeast Cultures (NCYC)(Stephen A James and Ian Roberts);
+Y10_1b;ACI;Coconut;Fruit;Philippines;yes;C;34;1;euploid;homozygous;62,994;0.0;2,274;183;M3. Mosaic region 3;;;1
+YJM1419;SACE_YCS;Bagasse;Unknown;NA;no;B;55;2;euploid;homozygous;55,184;0.0;932;55;M3. Mosaic region 3;;;2
+Y3_1b;ACL;Palm wine;Palm wine;NA;yes;none;0;1;"aneu;+1*12;";homozygous;64,550;0.0;2,562;212;M3. Mosaic region 3;;;1
+MUCL_30909-2C;CEQ;Cassava;Fermentation;Burundi;no;A;18;2;euploid;homozygous;67,476;0.0;4,348;161;M3. Mosaic region 3;;State Research Institute of Genetics and Selection of Industrial Microorganisms (Naumov G.I.);
+DJ68;BAB;Palm wine;Palm wine;Yoboki, Djibouti;no;none;0;3;euploid;heterozygous;82,692;27.0;40;268;13. African palm wine ;;Université de Lyon (Michel Aigle);22
+DJ65;AVV;Palm wine;Palm wine;Yoboki, Djibouti;no;none;0;3;euploid;heterozygous;82,391;26.2;12;307;13. African palm wine ;;Université de Lyon (Michel Aigle);22
+DJ66;BAA;Palm wine;Palm wine;Yoboki, Djibouti;no;none;0;3;euploid;heterozygous;81,257;24.8;12;224;13. African palm wine ;;Université de Lyon (Michel Aigle);22
+DJ71;BAD;Palm wine;Palm wine;Yoboki, Djibouti;no;none;0;3;euploid;heterozygous;82,196;26.3;40;260;13. African palm wine ;;Université de Lyon (Michel Aigle);22
+DJ70;BAC;Palm wine;Palm wine;Yoboki, Djibouti;no;none;0;3;euploid;heterozygous;82,625;26.2;24;296;13. African palm wine ;;Université de Lyon (Michel Aigle);22
+DJ73;BAE;Palm wine;Palm wine;Yoboki, Djibouti;no;none;0;3;euploid;heterozygous;82,522;26.7;18;264;13. African palm wine ;;Université de Lyon (Michel Aigle);22
+DJ74;BAF;Palm wine;Palm wine;Yoboki, Djibouti;no;C;13;2;euploid;heterozygous;87,289;28.3;5,785;202;13. African palm wine ;;Université de Lyon (Michel Aigle);22
+Dji2-2A(a);CFA;Palm wine ;Palm wine;Djibouti;no;C;50;2;euploid;homozygous;74,035;0.0;1,885;277;13. African palm wine ;;State Research Institute of Genetics and Selection of Industrial Microorganisms (Naumov G.I.);
+SK1;SACE_GAL;Lab strain;Lab strain;USA;no;A;48;2;euploid;homozygous;68,401;0.0;21;24;13. African palm wine ;;Rosenstiel Basic Medical Sciences Research Center (James E Haber);6
+FTPW4;CPS;Palm wine;Palm wine;Burkina Faso;no;none;0;3;euploid;heterozygous;88,636;25.6;3,234;219;13. African palm wine ;;Université de Lyon (Michel Aigle);22
+FTPW3;CPT;Palm wine;Palm wine;Burkina Faso;no;none;0;2;"aneu;+1*9;";heterozygous;80,692;8.6;2,892;207;13. African palm wine ;;Université de Lyon (Michel Aigle);22
+FTPW32;CQA;Palm wine;Palm wine;Burkina Faso;no;none;0;2;euploid;heterozygous;77,813;3.0;694;246;13. African palm wine ;;Université de Lyon (Michel Aigle);22
+FTPW35;CQB;Palm wine;Palm wine;Burkina Faso;no;none;0;2;euploid;heterozygous;79,654;7.9;1,502;264;13. African palm wine ;;Université de Lyon (Michel Aigle);22
+CBS1419;AHS;Wine;Wine;Ghana;yes;none;0;1;"aneu;+1*9;";homozygous;75,709;0.0;4,296;290;13. African palm wine ;;CBS collection (Nguyen H.V.);
+CBS7903;ADV;Palm wine;Palm wine;Nigeria;yes;none;0;1;euploid;homozygous;7,359;0.0;2,592;219;13. African palm wine ;;CBS collection (Nguyen H.V.);
+NPA06.1;AKG;Palm wine;Palm wine;Nigeria;no;none;0;2;euploid;homozygous;74,047;0.0;2,049;224;13. African palm wine ;;INRA Montpelier, France (Legras JL);23
+YJM195;SACE_YAC;Palm wine;Palm wine;Nigeria;no;none;0;2;euploid;homozygous;76,930;0.0;4,016;68;13. African palm wine ;;Phaff collection;2
+YPS1009_b;ADF;Exudate from Quercus sp.;Tree;USA;yes;none;0;1;euploid;homozygous;75,878;0.0;18;271;13. African palm wine ;;Kruglyak Laboratory;1
+NPA07.1;AKB;Palm wine;Palm wine;Nigeria;no;none;0;2;euploid;heterozygous;78,487;6.6;426;238;13. African palm wine ;;INRA Montpelier, France (Legras JL);23
+NPA05b1;AKD;Palm wine;Palm wine;Nigeria;no;none;0;3;euploid;heterozygous;78,831;6.3;1,022;201;13. African palm wine ;;INRA Montpelier, France (Legras JL);23
+NPA05a1;AKC;Palm wine;Palm wine;Nigeria;no;none;0;3;"aneu;+1*14;";heterozygous;79,612;8.8;1,120;225;13. African palm wine ;;INRA Montpelier, France (Legras JL);23
+NPA03.1;AKE;Palm wine;Palm wine;Nigeria;no;none;0;2;euploid;homozygous;75,530;0.0;324;194;13. African palm wine ;;INRA Montpelier, France (Legras JL);23
+NPA02-1;AKH;Palm wine;Palm wine;Nigeria;no;none;0;2;euploid;homozygous;75,887;0.0;297;234;13. African palm wine ;;INRA Montpelier, France (Legras JL);23
+CBS400;APQ;Palm wine, from Elaeis guineensis;Palm wine;Ivory Coast;no;none;0;2;euploid;homozygous;75,577;0.0;18;245;13. African palm wine ;;CBS collection (Nguyen H.V.);
+CBS403;APR;Ginger beer, from Zingiber officinale;Beer;West Africa;no;none;0;2;"aneu;+1*9;";homozygous;75,732;0.0;10;265;13. African palm wine ;;CBS collection (Nguyen H.V.);
+Y5;ATP;Bili wine;Palm wine;West Africa;no;none;0;2;euploid;homozygous;75,885;0.0;15;348;13. African palm wine ;;Washington University School of Medicine (Justin C Fay);
+YJM1248;SACE_YBP;Unknown;Wine;West Africa;no;none;0;2;euploid;homozygous;75,831;0.0;14;53;13. African palm wine ;;;2
+YJM1439;SACE_YCV;Ginger beer;Beer;West Africa;no;none;0;2;"aneu;+1*8;";homozygous;75,194;0.0;11;36;13. African palm wine ;;;2
+HN10;BAM;Rotten wood;Nature;Wuzhi Mountain, Hainan province, China;no;none;0;2;euploid;homozygous;84,486;0.0;105;221;14. CHNIII ;;Chinese Academy of Sciences (Feng-Yan Bai);24
+HN19;BAQ;Bark from tree in Fagaceae family ;Tree;Wuzhi Mountain, Hainan province, China;no;none;0;2;euploid;homozygous;84,480;0.0;76;236;14. CHNIII ;;Chinese Academy of Sciences (Feng-Yan Bai);24
+SX1;BAG;Bark from tree in Fagaceae family ;Tree;Qinling Mountain, Shaanxi province, China;no;none;0;2;euploid;homozygous;109,626;0.0;2,449;201;15. CHNII ;;Chinese Academy of Sciences (Feng-Yan Bai);24
+SX3;BAH;Bark from Carya sp.;Tree;Qinling Mountain, Shaanxi province, China;no;none;0;2;euploid;homozygous;110,370;0.0;2,644;230;15. CHNII ;;Chinese Academy of Sciences (Feng-Yan Bai);24
+HN6;BAL;Rotten wood;Nature;Bawangling Mountain, Hainan province, China;no;none;0;2;euploid;homozygous;126,303;0.0;45,722;237;16. CHNI;;Chinese Academy of Sciences (Feng-Yan Bai);24
+EN14S01;AMH;Soil;Soil;Sinyi, Nantou, Taiwan;no;D;10;2;euploid;homozygous;166,452;0.0;161;228;17. Taiwanese ;;National Hsinchu University of Education (Ching-Fu Lee);25
+EM14S01-3B;CEG;Soil ;Soil;Taiwan;no;D;45;2;euploid;homozygous;166,759;0.0;148;226;17. Taiwanese ;;State Research Institute of Genetics and Selection of Industrial Microorganisms (Naumov G.I.);25
+GE14S01-7B;CEI;Soil;Soil;Taiwan;no;D;53;2;euploid;homozygous;166,118;0.0;1,708;193;17. Taiwanese ;;State Research Institute of Genetics and Selection of Industrial Microorganisms (Naumov G.I.);25
+Ksc2-2B;CCQ;Tree exudate;Tree;Japan;no;none;0;2;euploid;homozygous;72,686;0.0;7,600;240;18. Far East Asia ;;State Research Institute of Genetics and Selection of Industrial Microorganisms (Naumov G.I.);
+Ksc40-8A;CCR;Tree exudate;Tree;Japan;no;none;0;2;euploid;homozygous;73,580;0.0;2,813;247;18. Far East Asia ;;State Research Institute of Genetics and Selection of Industrial Microorganisms (Naumov G.I.);
+Ksc73-2D;CCS;Tree exudate;Tree;Japan;no;none;0;2;euploid;homozygous;74,816;0.0;2,552;258;18. Far East Asia ;;State Research Institute of Genetics and Selection of Industrial Microorganisms (Naumov G.I.);
+BJ20;BAK;Bark from Quercus wutaishanica;Tree;Dongling Mountain, Beijing, China;no;none;0;2;euploid;homozygous;76,505;0.0;4,159;266;18. Far East Asia ;;Chinese Academy of Sciences (Feng-Yan Bai);24
+BJ6;BAI;Persimmon;Fruit;Changping, Beijing, China;no;none;0;2;euploid;homozygous;77,220;0.0;3,485;265;18. Far East Asia ;;Chinese Academy of Sciences (Feng-Yan Bai);24
+CLIB219_2b;ACQ;Wine;Wine;Russia;yes;none;0;1;euploid;homozygous;77,273;0.0;56;218;18. Far East Asia ;;CLIB collection / State Research Institute of Genetics and Selection of Industrial Microorganisms (Naumov G.I.);1
+VKM_Y-504:S;CCN;Berries of Viburnum Burejanum;Fruit;Russian Far East;no;none;0;2;euploid;homozygous;77,912;0.0;35;262;18. Far East Asia ;;State Research Institute of Genetics and Selection of Industrial Microorganisms (Naumov G.I.);
+N51-1A;CDL;Exudate of Quercus mongolica;Tree;Vladivostok, Russian Far East;no;none;0;2;euploid;homozygous;78,120;0.0;1,343;261;18. Far East Asia ;;State Research Institute of Genetics and Selection of Industrial Microorganisms (Naumov G.I.);
+YJM1418;SACE_YCR;Quercus sp. ;Tree;Japan;no;none;0;2;euploid;homozygous;78,925;0.0;1,727;502;18. Far East Asia ;;Phaff collection;2
+UWOPS03-429.1;BMA;Nectar, bertam palm;Tree;Malaysia;no;none;0;2;euploid;homozygous;78,549;0.0;16;209;19. Malaysian ;;University of Western Ontario, Canada (Lachance M.A.);9
+UWOPS03-461.4;AKM;Nectar, Bertam palm;Tree;Malaysia;no;none;0;2;euploid;homozygous;78,382;0.0;22;200;19. Malaysian ;;University of Western Ontario, Canada (Lachance M.A.);9
+UWOPS03-433.3;BMB;Nectar, bertam palm;Tree;Malaysia;no;none;0;2;euploid;homozygous;78,822;0.0;31;238;19. Malaysian ;;University of Western Ontario, Canada (Lachance M.A.);9
+UWOPS03-459.1;BMC;Nectar, bertam palm;Tree;Malaysia;no;none;0;2;euploid;homozygous;79,389;0.0;51;314;19. Malaysian ;;University of Western Ontario, Canada (Lachance M.A.);9
+UWOPS05_227_2;SACE_MAL;Telok Senangin, Malaysia, Lachance M, 2005 Trigona spp (Stingless bee) collected near Bertam palm flower;Insect;Telok Senangin, Malaysia;no;none;0;2;euploid;homozygous;78,333;0.0;169;61;19. Malaysian ;;University of Western Ontario, Canada (Lachance M.A.);17
+YJM1447;SACE_YCY;Bertam Palm;Tree;Malaysia;no;A;6;2;euploid;homozygous;62,447;0.0;24;52;19. Malaysian ;;;2
+CBS2888_1b;ABL;Soil;Soil;South Africa;yes;none;0;1;euploid;homozygous;70,982;0.0;58;295;No data;;CBS collection (Nguyen H.V.);1
+YJM1342;SACE_YCB;Unknown;Soil;South Africa;no;B;1;2;euploid;homozygous;71,946;0.0;143;387;No data;;Phaff collection;2
+SJ5L12;AMM;Leaf of Trema orientalis;Tree;Beinan, Taitung, Taiwan;no;none;0;2;euploid;homozygous;70,453;0.0;5,286;212;No data;;National Hsinchu University of Education (Ching-Fu Lee);25
+HN15;BAN;Rotten wood;Nature;Wuzhi Mountain, Hainan province, China;no;none;0;2;euploid;homozygous;73,116;0.0;2,860;225;20. CHN V ;;Chinese Academy of Sciences (Feng-Yan Bai);24
+HN16;BAP;Soil;Soil;Wuzhi Mountain, Hainan province, China;no;none;0;2;euploid;homozygous;72,925;0.0;2,552;223;20. CHN V ;;Chinese Academy of Sciences (Feng-Yan Bai);24
+YPS615;CMP;Quercus sp.;Tree;Pennsylvania, USA;no;none;0;2;euploid;homozygous;66,125;0.0;11;111;21. Ecuadorean ;;YPS collection / University of Pennsylvania, USA (Snigowski P.);
+CLQCA_20-314;CCH;Termite mound;Insect;Yasuni, Orellana;no;none;0;2;"aneu;+1*16;";homozygous;67,900;0.0;40;191;21. Ecuadorean ;;National Collection of Yeast Cultures (NCYC)(Stephen A James) and Colección de Levaduras Quito Católica (CLQCA)(Enrique Javier Carvajal Barriga);
+YPS1000_1b;ACC;Exudate from Quercus sp.;Tree;USA;yes;none;0;1;euploid;homozygous;68,090;0.0;3;245;21. Ecuadorean ;;;1
+CLQCA_20-156;CCC;Flower (Gesneriaceae sp.);Flower;Yasuni, Orellana;no;none;0;2;euploid;homozygous;68,394;0.0;45;260;21. Ecuadorean ;;National Collection of Yeast Cultures (NCYC)(Stephen A James) and Colección de Levaduras Quito Católica (CLQCA)(Enrique Javier Carvajal Barriga);
+CLQCA_20-184;CCD;Flower from Heliconia sp.;Flower;Yasuni, Orellana;no;none;0;2;euploid;homozygous;68,846;0.0;93;401;21. Ecuadorean ;;National Collection of Yeast Cultures (NCYC)(Stephen A James) and Colección de Levaduras Quito Católica (CLQCA)(Enrique Javier Carvajal Barriga);
+CLQCA_20-221;CCE;Flower from Heliconia sp.;Flower;Yasuni, Orellana;no;none;0;2;euploid;homozygous;68,824;0.0;14;328;21. Ecuadorean ;;National Collection of Yeast Cultures (NCYC)(Stephen A James) and Colección de Levaduras Quito Católica (CLQCA)(Enrique Javier Carvajal Barriga);
+CLQCA_20-246;CCF;Termite mound;Insect;Yasuni, Orellana;no;none;0;2;euploid;homozygous;68,927;0.0;5;379;21. Ecuadorean ;;National Collection of Yeast Cultures (NCYC)(Stephen A James) and Colección de Levaduras Quito Católica (CLQCA)(Enrique Javier Carvajal Barriga);
+CLQCA_20-259;CCG;Decaying fruit;Fruit;Yasuni, Orellana;no;none;0;2;euploid;homozygous;68,472;0.0;8;304;21. Ecuadorean ;;National Collection of Yeast Cultures (NCYC)(Stephen A James) and Colección de Levaduras Quito Católica (CLQCA)(Enrique Javier Carvajal Barriga);
+CLQCA_20-248;CCI;Termite mound;Insect;Yasuni, Orellana;no;none;0;2;euploid;homozygous;67,968;0.0;4;209;21. Ecuadorean ;;National Collection of Yeast Cultures (NCYC)(Stephen A James) and Colección de Levaduras Quito Católica (CLQCA)(Enrique Javier Carvajal Barriga);
+YPS617;CMQ;Quercus sp.;Tree;Pennsylvania, USA;no;none;0;2;euploid;homozygous;67,256;0.0;8;160;21. Ecuadorean ;;YPS collection / University of Pennsylvania, USA (Snigowski P.);
+UWOPS87-2421;SACE_GAT;Opuntia spp.;Nature;Hawaii;no;none;0;2;euploid;homozygous;63,460;0.0;4;32;No data;;University of Western Ontario, Canada (Lachance M.A.);6
+YJM1444;SACE_YCX;Cladode;Nature;Hawaii;no;none;0;2;euploid;homozygous;63,579;0.0;5;38;No data;;;2
+UCD_61-190-6A;CDN;Drosophila sp. ;Insect;California, USA;no;none;0;2;"aneu;+2*1;+2*3;";homozygous;66,851;0.0;787;253;No data;;State Research Institute of Genetics and Selection of Industrial Microorganisms (Naumov G.I.);
+EXF-5284;BFA;Soil below rotten apple;Soil;Slovenia;no;none;0;2;euploid;homozygous;60,214;0.0;34;279;No data;;University of Ljubljana, Biotech Facility dept. Biology Ljubljana, Slovenia (Gunde-Cimerman N.);
+EXF-6780;BFL;Quercus petrea;Tree;Slovenia;no;none;0;2;euploid;homozygous;60,316;0.0;34;300;No data;;University of Ljubljana, Biotech Facility dept. Biology Ljubljana, Slovenia (Gunde-Cimerman N.);
+IY_03-5-30-1-1-1_(1);AMB;Chauliodes pectinicornis (male) - Corydalidae;Insect;Louisiana, USA;no;none;0;2;euploid;homozygous;62,522;0.0;35;208;No data;;Louisiana State University (Meredith Blackwell);26
+IY_03-5-26-5-1-1_(1);AMC;Chauliodes pectinicornis (female) - Corydalidae;Insect;Louisiana, USA;no;none;0;2;euploid;homozygous;62,634;0.0;34;212;No data;;Louisiana State University (Meredith Blackwell);26
+N95-6-1C;CDQ;Exudate of Quercus sp.;Tree;Augusta, MI 49012, USA;no;none;0;2;euploid;homozygous;62,838;0.0;34;232;No data;;State Research Institute of Genetics and Selection of Industrial Microorganisms (Naumov G.I.);
+UWOPS83-787_3;SACE_GAS;Opuntia spp.;Nature;Bahamas;no;none;0;2;euploid;homozygous;65,004;0.0;50;458;No data;;University of Western Ontario, Canada (Lachance M.A.);6
+YJM1443;SACE_YCW;Fruit;Fruit;Bahamas;no;none;0;2;euploid;homozygous;63,423;0.0;7;47;No data;;;2
+N22.00-5D;CDF;Fruit of Grataegus dachurica;Fruit;Botanical garden, Blagoveshchensk, Russia;no;none;0;2;euploid;homozygous;72,076;0.0;37;224;22. Far East Russian ;;State Research Institute of Genetics and Selection of Industrial Microorganisms (Naumov G.I.);
+N3.00-7A;CDG;Grape berries of wild Vitus amurensis;Wine;Botanical garden, Blagoveshchensk, Russia;no;none;0;2;euploid;homozygous;72,484;0.0;28;269;22. Far East Russian ;;State Research Institute of Genetics and Selection of Industrial Microorganisms (Naumov G.I.);
+N159.01-2B;CDH;Exudate of Quercus mongolica;Tree;Botanical garden, Blagoveshchensk, Russia;no;none;0;2;euploid;homozygous;72,011;0.0;8;201;22. Far East Russian ;;State Research Institute of Genetics and Selection of Industrial Microorganisms (Naumov G.I.);
+N163.01-5A;CDI;Exudate of Quercus mongolica;Tree;Botanical garden, Blagoveshchensk, Russia;no;none;0;2;euploid;homozygous;71,849;0.0;15;185;22. Far East Russian ;;State Research Institute of Genetics and Selection of Industrial Microorganisms (Naumov G.I.);
+ES4M07;AMD;Fruiting body of Geastrum sp.;Fruit;Dongpu, Sinyi Township, Nantou, Taiwan;no;none;0;2;euploid;homozygous;65,433;0.0;1,674;223;No data;;National Hsinchu University of Education (Ching-Fu Lee);25
+ES2M03;AMF;Fruiting body of Russula sp.;Fruit;Dongpu, Sinyi Township, Nantou, Taiwan;no;none;0;2;euploid;homozygous;65,491;0.0;5;195;No data;;National Hsinchu University of Education (Ching-Fu Lee);25
+ES2M03-7A;CEH;Fruiting body of Russula sp.;Fruit;Taiwan;no;none;0;2;euploid;homozygous;66,059;0.0;27;250;No data;;State Research Institute of Genetics and Selection of Industrial Microorganisms (Naumov G.I.);
+IFO_0877:6-1;CCP;Quercus sp.;Tree;Japan;no;none;0;2;euploid;homozygous;62,333;0.0;3,376;205;No data;;State Research Institute of Genetics and Selection of Industrial Microorganisms (Naumov G.I.);
+CLIB414;BEG;High sugar foodstuff, Food;Industrial;Japan;no;none;0;2;"aneu;+1*16;";homozygous;63,240;0.0;2,145;264;No data;;CLIB collection (Serge Casaregola);
+ATCC_66348-1D;CDB;Soil;Soil;Japan;no;none;0;2;euploid;homozygous;63,118;0.0;2,306;192;No data;;State Research Institute of Genetics and Selection of Industrial Microorganisms (Naumov G.I.);
+YPS163;AVI;Soil beneath Quercus rubra;Soil;Pennsylvanian;no;none;0;2;euploid;homozygous;62,131;0.0;3;167;23. North American oak ;;YPS collection / University of Pennsylvania, USA (Snigowski P.);27
+YPS163_1b;ACD;Exudate from Quercus sp.;Tree;USA;yes;none;0;1;euploid;homozygous;62,419;0.0;2;202;23. North American oak ;;Kruglyak Laboratory;1
+YPS139;ANF;Soil beneath unidentified Quercus sp.;Soil;Pennsylvania, USA;no;none;0;2;euploid;homozygous;62,263;0.0;1;183;23. North American oak ;;YPS collection / University of Pennsylvania, USA (Snigowski P.);27
+YPS142;ANH;Bark of q.rubra;Nature;Pennsylvania, USA;no;none;0;2;euploid;homozygous;62,446;0.0;0;202;23. North American oak ;;YPS collection / University of Pennsylvania, USA (Snigowski P.);27
+YPS129;ANC;Flux from Quercus alba;Tree;Pennsylvania, USA;no;none;0;2;euploid;homozygous;62,601;0.0;27;226;23. North American oak ;;YPS collection / University of Pennsylvania, USA (Snigowski P.);27
+YPS134;ANE;Soil beneath Quercus velutina;Soil;Pennsylvania, USA;no;none;0;2;euploid;homozygous;62,452;0.0;2;193;23. North American oak ;;YPS collection / University of Pennsylvania, USA (Snigowski P.);27
+YPS141;ANG;Soil beneath Quercus velutina;Soil;Pennsylvania, USA;no;none;0;2;euploid;homozygous;62,526;0.0;17;215;23. North American oak ;;YPS collection / University of Pennsylvania, USA (Snigowski P.);27
+YPS133;AND;Soil beneath Quercus alba;Soil;Pennsylvania, USA;no;none;0;2;euploid;homozygous;62,591;0.0;0;238;23. North American oak ;;YPS collection / University of Pennsylvania, USA (Snigowski P.);27
+YPS154;ANK;Bark of q.velutina;Tree;Pennsylvania, USA;no;none;0;2;euploid;homozygous;62,497;0.0;11;224;23. North American oak ;;YPS collection / University of Pennsylvania, USA (Snigowski P.);27
+YPS143;ANI;Soil beneath(q.rubra);Soil;Pennsylvania, USA;no;none;0;2;euploid;homozygous;62,732;0.0;0;272;23. North American oak ;;YPS collection / University of Pennsylvania, USA (Snigowski P.);27
+YPS128;AKN;Soil beneath Quercus alba;Soil;Pennsylvania, USA;no;none;0;2;euploid;homozygous;62,706;0.0;20;245;23. North American oak ;;YPS collection / University of Pennsylvania, USA (Snigowski P.);27
+YJM1273;SACE_YBS;Quercus sp. ;Tree;Pennsylvania, USA;no;none;0;2;euploid;homozygous;63,960;0.0;12;309;23. North American oak ;;Phaff collection;2
+YJM1434;SACE_YCU;Oak;Tree;Pennsylvania, USA;no;none;0;2;euploid;homozygous;64,035;0.0;12;291;23. North American oak ;;;2
+2163;BBR;Quercus faginea, 30C;Tree;Castellon, Spain;no;none;0;2;euploid;homozygous;65,253;0.0;624;236;No data;;Instituto de Agroquímica y Tecnología de los Alimentos (IATA)-CSIC (Amparo Querol);
+YJM1402;SACE_YCO;Wine;Wine;NA;no;A;5;2;euploid;homozygous;55,007;0.0;36;154;No data;;Phaff collection;2
+YPS670;CMS;Quercus sp.;Tree;Pennsylvania, USA;no;none;0;2;euploid;homozygous;63,254;0.0;40;211;No data;;YPS collection / University of Pennsylvania, USA (Snigowski P.);
+NC_02_b;ADG;Exudate from Quercus sp.;Tree;North Carolina, USA;yes;none;0;1;euploid;homozygous;63,527;0.0;21;265;No data;;;1
+N95-5-1A;CDP;Exudate of Quercus sp.;Tree;Augusta, MI 49012, USA;no;none;0;2;euploid;homozygous;63,585;0.0;24;267;No data;;State Research Institute of Genetics and Selection of Industrial Microorganisms (Naumov G.I.);
+YJM1573;SACE_YDI;Fermented food;Unknown;India;no;none;0;2;euploid;homozygous;64,303;0.0;23;118;No data;;;2
+CBS1592;ARH;Fermenting cacao;Fermentation;Java, Indonesia;no;C;85;2;"aneu;+1*1;";heterozygous;67,859;9.4;1,380;211;24. Asian islands ;;CBS collection (Nguyen H.V.);
+CBS1593;ARI;Fermenting cacao;Fermentation;Java, Indonesia;no;C;131;2;"aneu;+2*1;+1*2;";heterozygous;70,548;14.4;1,564;210;24. Asian islands ;;CBS collection (Nguyen H.V.);
+CBS2992;AFK;Palm wine;Palm wine;Pakistan;no;none;0;2;euploid;homozygous;68,308;0.0;2,869;187;24. Asian islands ;;CBS collection (Nguyen H.V.);
+CBS3000;AHH;Palm wine;Palm wine;Denmark;yes;none;0;1;euploid;homozygous;68,352;0.0;2,479;203;24. Asian islands ;;CBS collection (Nguyen H.V.);
+S11F3-6B;CCT;Phloem sap of Caryota urens;Tree;Sri Lanka;no;C;171;2;euploid;homozygous;68,304;0.0;2,678;223;24. Asian islands ;;State Research Institute of Genetics and Selection of Industrial Microorganisms (Naumov G.I.);
+S8BM-30-2D;CCV;Phloem sap of Caryota urens;Tree;Sri Lanka;no;C;91;2;euploid;homozygous;68,338;0.0;2,448;199;24. Asian islands ;;State Research Institute of Genetics and Selection of Industrial Microorganisms (Naumov G.I.);
+S8BM-32-4D(a);CDA;Phloem sap of Caryota urens;Tree;Sri Lanka;yes;C;19;1;euploid;homozygous;68,336;0.0;2,481;247;24. Asian islands ;;State Research Institute of Genetics and Selection of Industrial Microorganisms (Naumov G.I.);
+CBS1594;AGR;Plant;Nature;NA;yes;C;34;1;euploid;homozygous;67,676;0.0;2,366;189;24. Asian islands ;;CBS collection (Nguyen H.V.);
+CBS1576;ARG;Exudate of Arenga sp.;Tree;Celebes, Sulavesi, Indonesia;no;C;66;2;euploid;homozygous;68,061;0.0;2,858;222;24. Asian islands ;;CBS collection (Nguyen H.V.);
+YJM1400;SACE_YCM;Guava;Fruit;Philippines;no;C;52;2;euploid;homozygous;68,707;0.0;69;478;24. Asian islands ;;Phaff collection;2
+YJM1479;SACE_YDE;Coconut tuba;Palm wine;Phillipines;no;C;46;2;euploid;homozygous;67,977;0.0;12;129;24. Asian islands ;;;2
+YJM1401;SACE_YCN;Papaya;Fruit;Philippines;no;C;52;2;euploid;homozygous;64,919;0.0;1,781;357;No data;;Phaff collection;2
+CLIB409;ASM;Sugar cane (plant);Nature;Vietnam;no;none;0;3;"aneu;+1*1;+1*6;+1*9;+1*16;";heterozygous;74,710;26.9;1,641;247;No data;;CLIB collection (Serge Casaregola);
+VNL3;CGH;Unknown;Unknown;Ha Noi, North Vietnam;no;none;0;3;euploid;heterozygous;77,009;29.5;2,786;268;No data;;INRA Gringnon, France (Nguyen H.V.);
+ATCC_52922-1C;CEP;Tapuy (rice wine);Fermentation;Philippines;no;none;0;2;"aneu;+1*8;";homozygous;63,858;0.0;3,416;295;No data;;State Research Institute of Genetics and Selection of Industrial Microorganisms (Naumov G.I.);
+malade Darkman;CKR;Unknown;Human, clinical;France;no;none;0;2;"aneu;+1*6;";heterozygous;63,224;9.9;1,082;204;No data;;Inserm Université P. M. Curie, Paris, France (Hennequin C.);
+CBS2270;ARP;Japanese wine;Wine;Japan;no;none;0;2;"aneu;+1*4;+1*11;+1*15;";heterozygous;64,226;4.2;1,444;256;25. Sake ;;CBS collection (Nguyen H.V.);
+CBS6414;AEF;Sake yeast;Sake;Japan;yes;none;0;1;euploid;homozygous;62,552;0.0;859;252;25. Sake ;;CBS collection (Nguyen H.V.);
+RIB6003;CMH;Sake;Sake;Japan;no;none;0;2;euploid;heterozygous;65,191;8.1;57;185;25. Sake ;;National Research Institute of Brewing, Hiroshima;
+CBS2188;ARM;Fruit of Eryobotrya japonica;Fruit;Japan;no;none;0;2;euploid;heterozygous;64,667;6.5;33;231;25. Sake ;;CBS collection (Nguyen H.V.);
+K5;CLI;Sake;Sake;Japan;no;none;0;2;euploid;heterozygous;65,124;6.5;18;241;25. Sake ;;Washington University School of Medicine (Justin C Fay);5
+RIB6005;CMK;Sake;Sake;Japan;no;none;0;2;euploid;heterozygous;64,627;6.1;11;188;25. Sake ;;National Research Institute of Brewing, Hiroshima;
+UC5;CLQ;Sake;Sake;Japan;no;none;0;1;"aneu;+1*1;";homozygous;62,379;0.0;651;191;25. Sake ;;Washington University School of Medicine (Justin C Fay);5
+K14;CLN;Sake;Sake;Japan;no;none;0;2;euploid;homozygous;62,276;0.0;462;207;25. Sake ;;Washington University School of Medicine (Justin C Fay);5
+CBS6413;AFN;Sake yeast;Sake;Japan;yes;none;0;1;euploid;homozygous;62,669;0.0;507;251;25. Sake ;;CBS collection (Nguyen H.V.);
+K12_2;ADQ;Sake (shochu);Sake;Japan;yes;none;0;1;euploid;homozygous;62,621;0.0;431;208;25. Sake ;;Kruglyak Laboratory;1
+CBS6412;AFM;Sake yeast;Sake;Japan;yes;none;0;1;euploid;homozygous;63,117;0.0;349;693;25. Sake ;;CBS collection (Nguyen H.V.);
+RIB0005;APA;Sake;Sake;Japan;no;none;0;2;euploid;heterozygous;63,466;3.3;268;202;25. Sake ;;National Research Institute of Brewing, Hiroshima;
+RIB1005;BTS;Sake;Sake;Japan;no;none;0;2;"aneu;+1*11;";heterozygous;65,973;8.4;519;271;25. Sake ;;National Research Institute of Brewing, Hiroshima;
+RIB0003;ANT;Sake;Sake;Japan;no;none;0;2;"aneu;+1*1;+1*8;";heterozygous;65,139;6.1;8;218;25. Sake ;;National Research Institute of Brewing, Hiroshima;
+RIB0001;ANR;Sake;Sake;Japan;no;none;0;2;"aneu;+1*1;";heterozygous;64,875;5.8;14;197;25. Sake ;;National Research Institute of Brewing, Hiroshima;
+RIB0004;ANV;Sake;Sake;Japan;no;none;0;2;"aneu;+1*1;+1*8;";heterozygous;65,208;6.1;8;217;25. Sake ;;National Research Institute of Brewing, Hiroshima;
+K1_1;ADN;Sake;Sake;Japan;yes;none;0;1;euploid;homozygous;62,766;0.0;7;207;25. Sake ;;Kruglyak Laboratory;1
+RIB6001;CMF;Sake;Sake;Japan;no;none;0;2;"aneu;+1*3;";heterozygous;64,372;5.2;27;157;25. Sake ;;National Research Institute of Brewing, Hiroshima;
+RIB6004;CMI;Sake;Sake;Japan;no;none;0;2;euploid;heterozygous;63,672;4.0;216;168;25. Sake ;;National Research Institute of Brewing, Hiroshima;
+CBS436a;AAD;Moto (sake yeast starter);Sake;Japan;no;none;0;2;"aneu;+2*8;";homozygous;62,525;0.0;114;205;25. Sake ;;CBS collection (Nguyen H.V.);
+RIB0002;ANS;Sake;Sake;Japan;no;none;0;2;euploid;heterozygous;63,224;2.8;97;196;25. Sake ;;National Research Institute of Brewing, Hiroshima;
+CBS435;AQN;Moto (sake yeast starter);Sake;Japan;no;none;0;2;euploid;heterozygous;63,555;4.1;69;221;25. Sake ;;CBS collection (Nguyen H.V.);
+K13;CLM;Sake;Sake;Japan;no;none;0;2;"aneu;+1*3;";heterozygous;64,273;4.3;21;277;25. Sake ;;Washington University School of Medicine (Justin C Fay);5
+RIB0007;CMN;Sake;Sake;Japan;no;none;0;2;"aneu;+1*1;";heterozygous;63,863;5.8;36;145;25. Sake ;;National Research Institute of Brewing, Hiroshima;
+RIB1001;APC;Sake;Sake;Japan;no;none;0;2;euploid;heterozygous;64,509;3.8;13;284;25. Sake ;;National Research Institute of Brewing, Hiroshima;
+RIB1002;APD;Sake;Sake;Japan;no;none;0;2;"aneu;+1*9;";heterozygous;64,774;3.9;13;284;25. Sake ;;National Research Institute of Brewing, Hiroshima;
+CECT10711;AVC;Sake;Sake;Japan;no;none;0;2;"aneu;-1*1;+1*9;+1*15;";heterozygous;64,054;2.8;9;252;25. Sake ;;CECT collection;
+RIB1016;CMD;Sake;Sake;Japan;no;none;0;2;"aneu;+1*3;+1*9;";heterozygous;63,917;3.4;16;148;25. Sake ;;National Research Institute of Brewing, Hiroshima;
+K15;CLP;Sake;Sake;Japan;no;none;0;2;euploid;heterozygous;64,047;2.1;16;220;25. Sake ;;Washington University School of Medicine (Justin C Fay);5
+RIB1015;CMC;Sake;Sake;Japan;no;none;0;2;"aneu;+1*14;";heterozygous;63,568;3.1;14;134;25. Sake ;;National Research Institute of Brewing, Hiroshima;
+RIB1004;APF;Sake;Sake;Japan;no;none;0;2;euploid;heterozygous;64,072;2.8;18;210;25. Sake ;;National Research Institute of Brewing, Hiroshima;
+RIB1003;APE;Sake;Sake;Japan;no;none;0;2;"aneu;+1*3;+1*11;";heterozygous;64,029;2.5;4;220;25. Sake ;;National Research Institute of Brewing, Hiroshima;
+CECT10712;AVD;Sake;Sake;Japan;no;none;0;2;"aneu;+1*3;+1*11;";heterozygous;63,593;1.8;7;233;25. Sake ;;CECT collection;
+RIB6009;AVM;Sake;Sake;Japan;no;none;0;2;"aneu;+1*3;+1*11;";heterozygous;63,786;2.2;12;217;25. Sake ;;National Research Institute of Brewing, Hiroshima;
+RIB1011;CLT;Sake;Sake;Japan;no;none;0;2;"aneu;+1*9;";heterozygous;63,853;2.6;4;181;25. Sake ;;National Research Institute of Brewing, Hiroshima;
+RIB1010;CLS;Sake;Sake;Japan;no;none;0;2;euploid;heterozygous;63,872;2.2;8;197;25. Sake ;;National Research Institute of Brewing, Hiroshima;
+RIB1017;CME;Sake;Sake;Japan;no;none;0;2;"aneu;+1*9;";heterozygous;64,150;2.8;4;188;25. Sake ;;National Research Institute of Brewing, Hiroshima;
+K10;CLL;Sake;Sake;Japan;no;none;0;2;euploid;heterozygous;63,904;2.7;11;188;25. Sake ;;Washington University School of Medicine (Justin C Fay);5
+RIB1008;CLR;Sake;Sake;Japan;no;none;0;2;euploid;heterozygous;63,666;2.0;2;206;25. Sake ;;National Research Institute of Brewing, Hiroshima;
+RIB6006;CML;Sake;Sake;Japan;no;none;0;2;"aneu;-1*1;";homozygous;62,051;0.0;13;130;25. Sake ;;National Research Institute of Brewing, Hiroshima;
+RIB6007;CMM;Sake;Sake;Japan;no;none;0;2;"aneu;+1*3;";heterozygous;63,682;3.8;445;122;25. Sake ;;National Research Institute of Brewing, Hiroshima;
+RIB1014;CMB;Sake;Sake;Japan;no;none;0;2;"aneu;+1*11;";heterozygous;63,648;2.3;16;177;25. Sake ;;National Research Institute of Brewing, Hiroshima;
+RIB6008;AVL;Sake;Sake;Japan;no;none;0;2;"aneu;+1*3;";heterozygous;63,678;2.5;9;195;25. Sake ;;National Research Institute of Brewing, Hiroshima;
+RIB1012;CLV;Sake;Sake;Japan;no;none;0;2;"aneu;+1*3;+1*9;";heterozygous;63,851;2.6;4;167;25. Sake ;;National Research Institute of Brewing, Hiroshima;
+K9;CLK;Sake;Sake;Japan;no;none;0;2;"aneu;+2*9;";heterozygous;64,501;2.8;9;275;25. Sake ;;Washington University School of Medicine (Justin C Fay);5
+RIB1006;CQQ;Sake;Sake;Japan;no;none;0;2;"aneu;+1*3;";heterozygous;64,584;2.9;24;234;25. Sake ;;National Research Institute of Brewing, Hiroshima;
+RIB1007;CQR;Sake;Sake;Japan;no;none;0;2;"aneu;+1*3;";heterozygous;64,643;3.1;3;237;25. Sake ;;National Research Institute of Brewing, Hiroshima;
+CBS440;AHQ;Molasses;Industrial;Taiwan;yes;none;0;1;euploid;homozygous;60,494;0.0;1,331;239;26. Asian fermentation ;;CBS collection (Nguyen H.V.);
+BMQ557;CGL;Unknown;Unknown;Hai Phong, North Vietnam;no;none;0;2;euploid;heterozygous;66,127;15.6;1,569;316;26. Asian fermentation ;;INRA Gringnon, France (Nguyen H.V.);
+CBS1509;AFH;Distillery;Distillery;NA;yes;none;0;1;euploid;homozygous;61,502;0.0;273;484;26. Asian fermentation ;;CBS collection (Nguyen H.V.);
+CBS1480;AGG;Distillery;Distillery;NA;no;none;0;2;euploid;heterozygous;63,490;8.2;533;217;26. Asian fermentation ;;CBS collection (Nguyen H.V.);
+CBS1508;AEP;Starter for sorghum brandy;Distillery;NA;no;none;0;2;euploid;homozygous;61,295;0.0;322;327;26. Asian fermentation ;;CBS collection (Nguyen H.V.);
+IFO_0289:4-3(b);CEV;Moromi of Chinese wine kaoliangchiu;Distillery;China;yes;none;0;1;euploid;homozygous;62,046;0.0;497;564;26. Asian fermentation ;;State Research Institute of Genetics and Selection of Industrial Microorganisms (Naumov G.I.);
+Me7;CGI;Unknown;Unknown;Cai Be, South Vietnam;no;C;41;2;euploid;heterozygous;68,572;18.8;1,534;270;26. Asian fermentation ;;INRA Gringnon, France (Nguyen H.V.);
+SGB1;CGN;Rice fermentation starter culture;Fermentation;Saigon, South Vietnam;no;C;28;2;euploid;heterozygous;67,289;15.0;116;224;26. Asian fermentation ;;INRA Gringnon, France (Nguyen H.V.);
+SG4;CGP;Unknown;Unknown;Saigon, South Vietnam;no;C;24;2;euploid;heterozygous;68,647;18.3;174;247;26. Asian fermentation ;;INRA Gringnon, France (Nguyen H.V.);
+TayTa;CGG;Unknown;Unknown;Long An, South Vietnam;no;none;0;2;euploid;heterozygous;66,586;13.6;460;231;26. Asian fermentation ;;INRA Gringnon, France (Nguyen H.V.);
+VL5;CGR;Rice fermentation starter culture;Fermentation;Phan Thiet, South Vietnam;no;none;0;2;euploid;heterozygous;65,658;10.4;632;251;26. Asian fermentation ;;INRA Gringnon, France (Nguyen H.V.);
+CBS1196;AQS;Arak Distillery;Distillery;Indonesia;no;none;0;2;"aneu;+1*1;";heterozygous;62,590;3.9;940;215;26. Asian fermentation ;;CBS collection (Nguyen H.V.);
+CLIB415;BEH;Fermenting rice (lao chao), Fermented beverage;Fermentation;Taiwan;no;C;42;2;euploid;homozygous;60,746;0.0;950;230;26. Asian fermentation ;;CLIB collection (Serge Casaregola);
+Y9_4;ACM;Ragi fermentation;Fermentation;Indonesia;yes;none;0;1;euploid;homozygous;61,466;0.0;7;216;26. Asian fermentation ;;Kruglyak Laboratory;1
+K12;AKL;Sake;Sake;Japan;no;none;0;2;euploid;heterozygous;67,948;19.2;149;242;26. Asian fermentation ;;Washington University School of Medicine (Justin C Fay);
+YJM413_b;ABB;Blood;Human, clinical;USA;yes;none;0;1;euploid;homozygous;61,013;0.0;1;197;26. Asian fermentation ;;Kruglyak Laboratory;1
+Y12_1b;ACK;Palm wine;Palm wine;Ivory Coast;yes;none;0;1;euploid;homozygous;61,198;0.0;2;223;26. Asian fermentation ;;Kruglyak Laboratory;1
+T7_b;ADH;Exudate from Quercus sp.;Tree;Babler State Park, MO, USA;yes;none;0;1;euploid;homozygous;61,327;0.0;2;287;26. Asian fermentation ;;Kruglyak Laboratory;1
+YJM1460;SACE_YDA;Palm Wine;Palm wine;Newcastle, UK;no;A;1;2;euploid;homozygous;60,697;0.0;13;219;26. Asian fermentation ;;;2
+CLQCA_10-620;ALB;Orthopteran insect;Insect;Pichincha, Ecuador;no;none;0;2;euploid;heterozygous;64,492;9.1;8;219;26. Asian fermentation ;;National Collection of Yeast Cultures (NCYC)(Stephen A James) and Colección de Levaduras Quito Católica (CLQCA)(Enrique Javier Carvajal Barriga);
+CLQCA_05-006;AKR;Rotten fruit;Fruit;Guayas, Ecuador;no;none;0;2;euploid;heterozygous;64,803;9.0;56;299;26. Asian fermentation ;;National Collection of Yeast Cultures (NCYC)(Stephen A James) and Colección de Levaduras Quito Católica (CLQCA)(Enrique Javier Carvajal Barriga);
+CLQCA_11-024;ALC;Unidentified aquatic plant;Nature;Cotopaxi, Ecuador;no;none;0;2;euploid;heterozygous;64,505;8.6;6;261;26. Asian fermentation ;;National Collection of Yeast Cultures (NCYC)(Stephen A James) and Colección de Levaduras Quito Católica (CLQCA)(Enrique Javier Carvajal Barriga);
+CLQCA_19-011;ALH;Horse dung;Nature;Napo, Ecuador ;no;none;0;2;euploid;heterozygous;64,271;9.0;4;198;26. Asian fermentation ;;National Collection of Yeast Cultures (NCYC)(Stephen A James) and Colección de Levaduras Quito Católica (CLQCA)(Enrique Javier Carvajal Barriga);
+CLQCA_10-619;ALA;Beetle;Insect;Pichincha, Ecuador;no;none;0;2;euploid;heterozygous;64,666;8.9;5;241;26. Asian fermentation ;;National Collection of Yeast Cultures (NCYC)(Stephen A James) and Colección de Levaduras Quito Católica (CLQCA)(Enrique Javier Carvajal Barriga);
+CLQCA_24SC-235;ALK;Tree exudate (Bursera graveolens);Tree;Galapagos, Ecuador;no;none;0;2;"aneu;+1*5;";heterozygous;63,635;7.1;14;176;26. Asian fermentation ;;National Collection of Yeast Cultures (NCYC)(Stephen A James) and Colección de Levaduras Quito Católica (CLQCA)(Enrique Javier Carvajal Barriga);
+RR1a;CGQ;Unknown;Unknown;My Tho, South Vietnam;no;none;0;2;euploid;heterozygous;64,849;8.8;7;260;26. Asian fermentation ;;INRA Gringnon, France (Nguyen H.V.);
+DBVPG5836;BRG;Soil close to plum tree, depth: 25 cm. Agricultural soil: presence of important vegetation, some fallen fruit (plum) rotting & insects. Average T (June): [max: 26.3C / min: 13.6C]. Precipitation (June): 17.4 mm.;Soil;District of Hamma Bouziane, Constantine, Algeria;no;none;0;3;euploid;heterozygous;65,134;8.7;25;271;26. Asian fermentation ;;DBVPG collection (Benedetta Turchetti and Pietro Buzzini);
+Lx2;CGK;Unknown;Unknown;Dong Thap, South Vietnam;no;none;0;2;euploid;heterozygous;64,887;9.1;8;253;26. Asian fermentation ;;INRA Gringnon, France (Nguyen H.V.);
+SBD;CHM;Bakery;Bakery;Northern Europe;no;none;0;2;euploid;heterozygous;65,121;9.5;4;296;26. Asian fermentation ;yes;INRA Moulon, France (Sicard D.);
+CLIB1411;BHP;Rice wine, Oenology;Fermentation;Laos;no;none;0;2;euploid;heterozygous;66,366;13.5;13;222;26. Asian fermentation ;;CLIB collection (Serge Casaregola);
+CLIB1412;BHQ;Rice wine, Oenology;Fermentation;Laos;no;none;0;2;euploid;heterozygous;66,121;12.6;29;238;26. Asian fermentation ;;CLIB collection (Serge Casaregola);
+CLIB1413;BHR;Rice wine, Oenology;Fermentation;Laos;no;none;0;2;euploid;heterozygous;65,999;12.5;21;242;26. Asian fermentation ;;CLIB collection (Serge Casaregola);
+CLIB1414;BHS;Rice wine, Oenology;Fermentation;Laos;no;none;0;2;euploid;heterozygous;66,295;14.3;186;187;26. Asian fermentation ;;CLIB collection (Serge Casaregola);
+CLIB413;BEF;Fermenting rice;Fermentation;China;no;none;0;2;euploid;heterozygous;67,419;16.4;2,139;234;26. Asian fermentation ;;CLIB collection (Serge Casaregola);
+JCM_2985-4B;CEK;Fermented fish;Fermentation;Tailand;no;none;0;2;euploid;homozygous;62,045;0.0;242;235;26. Asian fermentation ;;State Research Institute of Genetics and Selection of Industrial Microorganisms (Naumov G.I.);
+JCM_3529-7B;CEL;Fermented shrimp;Fermentation;Tailand;no;none;0;2;euploid;homozygous;62,121;0.0;259;292;26. Asian fermentation ;;State Research Institute of Genetics and Selection of Industrial Microorganisms (Naumov G.I.);
+YJM1388;SACE_YCJ;Fermented tapioca;Unknown;Malaya;no;none;0;2;"aneu;+1*9;";homozygous;63,677;0.0;782;378;26. Asian fermentation ;;;2
+YJM1389;SACE_YCK;Sewage;Industrial;Thailand;no;A;1;2;euploid;homozygous;60,836;0.0;98;48;26. Asian fermentation ;;Phaff collection;2
+YJM1592;SACE_YDK;Sewage;Industrial;Thailand;no;none;0;2;euploid;homozygous;61,343;0.0;113;49;26. Asian fermentation ;;;2
+;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;
+References;;;;;;;;;;;;;;;;;;
+1. Schacherer, J., Shapiro, J.A., Ruderfer, D.M. & Kruglyak, L. Comprehensive polymorphism survey elucidates population structure of Saccharomyces cerevisiae. Nature 458, 342–45 (2009).;;;;;;;;;;;;;;;;;;
+2. Strope, P.K. et al. The 100-genomes strains, an S. cerevisiae resource that illuminates its natural phenotypic and genotypic variation and emergence as an opportunistic pathogen. Genome Research 25, 762–74 (2015).;;;;;;;;;;;;;;;;;;
+3. Stringini, M., Comitini, F., Taccari, M. & Ciani, M. Yeast diversity during tapping and fermentation of palm wine from Cameroon. Food Microbiology 26, 415–20 (2009);;;;;;;;;;;;;;;;;;
+4. Ciani, M., Mannazzu, I., Marinangeli, P., Clementi, F. & Martini, A. Contribution of winery-resident Saccharomyces cerevisiae strains to spontaneous grape must fermentation. Antonie van Leeuwenhoek 85, 159–64 (2004).;;;;;;;;;;;;;;;;;;
+5. Fay, J.C. & Benavides, J.A. Evidence for domesticated and wild populations of Saccharomyces cerevisiae. PLoS Genetics 1, 66-71 (2005).;;;;;;;;;;;;;;;;;;
+6. Bergström, A. et al. A High-Definition view of functional genetic variation from natural yeast genomes. Molecular Biology and Evolution 31, 872–88 (2014).;;;;;;;;;;;;;;;;;;
+7. Capece, A., Siesto, G., Poeta, C., Pietrafesa, R. & Romano, P. Indigenous yeast population from Georgian aged wines produced by traditional “Kakhetian” method. Food Microbiology 36, 447–55 (2013).;;;;;;;;;;;;;;;;;;
+8. Stefanini, I., Dapporto, L., et al. Saocial wasp are a Saccharomyces mating nest. PNAS 113, 2247-51 (2016);;;;;;;;;;;;;;;;;;
+9. Naumov, G.I., Serpova, E.V. & Naumova, E.S. A genetically isolated population of Saccharomyces cerevisiae in Malaysia. Microbiology 75, 201–05 (2006).;;;;;;;;;;;;;;;;;;
+10. McCullough, M.J., Clemons, K.V., Farina, C., McCusker, J.H., Stevens, D.A. Epidemiological investigation of vaginal Saccharomyces cerevisiae isolates by a genotypic method. Journal of Clin. Microbiol. 36, 557-62 (1998).;;;;;;;;;;;;;;;;;;
+11. Cubillos, F. A., Vã¡squez, C., Faugeron, S., Ganga, A.L. & Martã­nez, C. Self-fertilization is the main sexual reproduction mechanism in native wine yeast populations. FEMS Microbiology Ecology 67, 162–70 (2009).;;;;;;;;;;;;;;;;;;
+12. Cocolin, L., Pepe, V., Comitini, F., Comi, G. & Ciani, M. Enological and genetic traits of isolated from former and modern wineries. FEMS Yeast Research 5, 237–45 (2004).;;;;;;;;;;;;;;;;;;
+13. Antonangelo, A.T.B.F., Alonso, D.P., Ribolla, P.E.M. & Colombi, D. , Microsatellite marker-based assessment of the biodiversity of native bioethanol yeast strains.  Yeast 30, 307–17 (2013).;;;;;;;;;;;;;;;;;;
+14. van der Aa Kühle, A., Jesperen, L., Glover, R. L., Diawara, B. & Jakobsen, M. Identification and characterization of Saccharomyces cerevisiae strains isolated from West African sorghum beer. Yeast 18, 1069–79 (2001).;;;;;;;;;;;;;;;;;;
+15. Al Safadi, R., Weiss-Gayet, M., Briolay, J., Aigle, M. A polyploid population of Saccharomyces cerevisiae with separate sexes (dioecy). FEMS Yeast Res. 10, 757-68 (2010);;;;;;;;;;;;;;;;;;
+16. Ezov, T.K. et al. Molecular-genetic biodiversity in a natural population of the yeast Saccharomyces cerevisiae from “Evolution Canyon”: Microsatellite Polymorphism, Ploidy and Controversial Sexual Status. Genetics 174, 1455–68 (2006);;;;;;;;;;;;;;;;;;
+17. Skelly, D. A. et al. Integrative phenomics reveals insight into the structure of phenotypic diversity in budding yeast. Genome Research 23, 1496–504 (2013).;;;;;;;;;;;;;;;;;;
+18. Bell, P., Higgins, V. & Attfield, P. Comparison of fermentative capacities of industrial baking and wild-type yeasts of the species Saccharomyces cerevisiae in different sugar media. Letters in Applied Microbiology 32, 224–29 (2001).;;;;;;;;;;;;;;;;;;
+19. Hernández, A. A.O., Taillandier, P., Pérez, D.R., Zapata, J.A.N. & Corona, C.P.L. The effect of hexose ratios on metabolite production in Saccharomyces cerevisiae strains obtained from the spontaneous fermentation of mezcal. Antonie van Leeuwenhoek 103, 833–43 (2012).;;;;;;;;;;;;;;;;;;
+20. Angebault, C.C.A. et al., Candida albicans Is Not Always the Preferential Yeast Colonizing Humans: A Study in Wayampi Amerindians. Journal of Infectious Diseases 208, 1705–16 (2013).;;;;;;;;;;;;;;;;;;
+21. Jespersen, L., Nielsen, D., Honholt, S. & Jakobsen, M. Occurrence and diversity of yeasts involved in fermentation of West African cocoa beans. FEMS Yeast Research 5, 441–53 (2005).;;;;;;;;;;;;;;;;;;
+22. Tapsoba, F.C.A., Legras, J-L., Savadogo, A., Dequin, S. & Traore, A.S. Diversity of Saccharomyces cerevisiae strains isolated from Borassus akeassii palm wines from Burkina Faso in comparison to other African beverages. International Journal of Food Microbiology 211, 128–33 (2015).;;;;;;;;;;;;;;;;;;
+23. Ezeronye, O. & Legras, J-L. Genetic analysis of Saccharomyces cerevisiae strains isolated from palm wine in eastern Nigeria. Comparison with other African strains. Journal of Applied Microbiology 106, 1569–78 (2009).;;;;;;;;;;;;;;;;;;
+24. Wang, Q-M., Liu, W-Q., Liti, G., Wang, S-A. & Bai, F-Y. Surprisingly diverged populations of Saccharomyces cerevisiaein natural environments remote from human activity. Molecular Ecology 21, 5404–17 (2012).;;;;;;;;;;;;;;;;;;
+25. Naumov, G.I., Lee, C-F. & Naumova, E.S. Molecular genetic diversity of the Saccharomyces yeasts in Taiwan: Saccharomyces arboricola, Saccharomyces cerevisiae and Saccharomyces kudriavzevii. Antonie van Leeuwenhoek 103, 217–28 (2012).;;;;;;;;;;;;;;;;;;
+26. Nguyen, N.H., Suh, S-O. & Blackwell, M. Five novel Candida species in insect-associated yeast clades isolated from Neuroptera and other insects. Mycologia 99, 842–58 (2007).;;;;;;;;;;;;;;;;;;
+27. Sniegowski, P., Dombrowski, P. & Fingerman, E. Saccharomyces cerevisiae and Saccharomyces paradoxus coexist in a natural woodland site in North America and display different levels of reproductive isolation from European conspecifics. FEMS Yeast Research 1, 299–306 (2002).;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;
