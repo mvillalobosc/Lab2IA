@@ -1,0 +1,38 @@
+Step: 11_collect_runs
+Date: 2026-08-05 00:40:27 UTC
+Seed: 20250803
+
+R version 4.3.3 (2024-02-29)
+Platform: x86_64-pc-linux-gnu (64-bit)
+Running under: Ubuntu 24.04.4 LTS
+
+Matrix products: default
+BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.12.0 
+LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.12.0
+
+locale:
+ [1] LC_CTYPE=C.UTF-8      LC_NUMERIC=C          LC_TIME=C.utf8       
+ [4] LC_COLLATE=C.utf8     LC_MONETARY=C.utf8    LC_MESSAGES=C.utf8   
+ [7] LC_PAPER=C.utf8       LC_NAME=C             LC_ADDRESS=C         
+[10] LC_TELEPHONE=C        LC_MEASUREMENT=C.utf8 LC_IDENTIFICATION=C  
+
+time zone: Etc/UTC
+tzcode source: system (glibc)
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] tidyr_1.3.1     phangorn_2.11.1 ape_5.7-1       dplyr_1.1.4    
+[5] readr_2.1.5    
+
+loaded via a namespace (and not attached):
+ [1] crayon_1.5.2     vctrs_0.6.5      nlme_3.1-164     cli_3.6.2       
+ [5] rlang_1.1.3      purrr_1.0.2      generics_0.1.3   bit_4.0.5       
+ [9] glue_1.7.0       hms_1.1.3        fansi_1.0.5      quadprog_1.5-8  
+[13] grid_4.3.3       tibble_3.2.1     tzdb_0.4.0       lifecycle_1.0.4 
+[17] compiler_4.3.3   codetools_0.2-19 igraph_1.6.0     Rcpp_1.0.12     
+[21] pkgconfig_2.0.3  fastmatch_1.1-4  lattice_0.22-5   digest_0.6.34   
+[25] R6_2.5.1         tidyselect_1.2.0 utf8_1.2.4       vroom_1.6.5     
+[29] pillar_1.9.0     parallel_4.3.3   magrittr_2.0.3   Matrix_1.6-5    
+[33] bit64_4.0.5      tools_4.3.3     

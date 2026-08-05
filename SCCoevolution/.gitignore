@@ -1,0 +1,20 @@
+# EN: Unpacked alignments. The 106 the paper uses travel as data/alignments_used.tar.gz
+#     and are unpacked on demand by R/04_build_trees.R.
+# ES: Alineamientos descomprimidos. Los 106 que usa el paper viajan como
+#     data/alignments_used.tar.gz y se descomprimen a demanda desde R/04_build_trees.R.
+data/alignments/
+outputs/runs/*.rds
+!data/alignments/.gitkeep
+
+# R session artefacts. The original project committed .RData and .Rhistory in
+# three folders; they carry stale objects that silently shadow a fresh run.
+.Rhistory
+.RData
+.Rproj.user/
+*.Rproj
+
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*~

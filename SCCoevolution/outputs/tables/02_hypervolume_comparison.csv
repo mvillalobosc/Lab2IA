@@ -1,0 +1,2 @@
+n_mosa,n_nsga2,median_mosa,median_nsga2,mean_mosa,mean_nsga2,p_value,rank_biserial,ci_lower,ci_upper,higher_in
+31,29,1.7191977077363898,2.810888252148997,1.709677419354839,2.7979448671079936,3.073502624731448e-11,-1,-1,-1,NSGA-II

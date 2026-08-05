@@ -1,0 +1,3 @@
+objective,check,statistic,value,verified,note
+f1_panel_size,exact value,max absolute error,0.0050671401877837585,TRUE,f1 = (k - 1) / (k_max - 1); fully determined by the panel-size bounds
+f2_nrf,ordering only,Spearman correlation,0.9945000517380603,TRUE,"published f2 is the raw nRF rescaled over the optimiser's generation history, which is not in the released data, so absolute values cannot be recomputed"
