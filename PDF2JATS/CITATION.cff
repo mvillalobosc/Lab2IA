@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "Si utilizas PDF2JATS, cita este software usando estos metadatos."
+title: "PDF2JATS: Mesa de Marcación XML"
+version: "1.10"
+date-released: 2026-08-12
+type: software
+authors:
+  - family-names: "Villalobos Cid"
+    given-names: "Manuel José"
+    affiliation: "Departamento de Ingeniería Informática, Universidad de Santiago de Chile"
+  - name: "Departamento de Ingeniería Informática (DIINF), Universidad de Santiago de Chile"
+repository-code: "https://github.com/"
+abstract: "Herramienta web para extraer, revisar, corregir y preparar artículos científicos en XML a partir de archivos PDF."
+keywords:
+  - JATS
+  - SciELO Publishing Schema
+  - XML
+  - scholarly publishing
+  - editorial workflow
