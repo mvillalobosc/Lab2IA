@@ -1,4 +1,4 @@
-# pichintun-nlp
+# PichintunNLP
 
 [English](README.en.md) | **Español**
 
