@@ -1,0 +1,165 @@
+---
+title: "Analisis de lenguaje natural de la serie Pichintun"
+author: |
+  | Ekaterina Cornejo Contreras, Manuel Villalobos Cid
+  | Departamento de Ingenieria Informatica, Universidad de Santiago de Chile
+date: "`r format(Sys.Date(), '%d de %B de %Y')`"
+output:
+  html_document:
+    toc: yes
+    toc_float:
+      collapsed: no
+    number_sections: yes
+    theme: yeti
+    fig_caption: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+
+# El informe no recalcula nada. Lee las salidas que dejo run_all.R, de modo que
+# renderizarlo cuesta segundos y no puede diferir de lo que se ejecuto.
+raiz <- normalizePath(file.path(dirname(knitr::current_input()), ".."))
+tabla <- function(nombre) {
+  readr::read_csv(file.path(raiz, "outputs", "tables", paste0(nombre, ".csv")),
+                  show_col_types = FALSE)
+}
+figura <- function(nombre) {
+  f <- file.path(raiz, "outputs", "figures", paste0(nombre, ".png"))
+  if (file.exists(f)) knitr::include_graphics(f) else invisible(NULL)
+}
+```
+
+```{r carga}
+maestro    <- tabla("08_maestro_capitulos")
+temporadas <- tabla("08_maestro_temporadas")
+verif      <- tabla("08_verificacion")
+modelos    <- tabla("07_resumen_modelos")
+```
+
+# Corpus
+
+El corpus reune los `r nrow(maestro)` capitulos de las `r nrow(temporadas)`
+temporadas de *Pichintun*, publicados entre `r min(maestro$publish_date)` y
+`r max(maestro$publish_date)`. Tras eliminar la cancion introductoria y las
+stopwords, el corpus contiene `r format(sum(maestro$n_tokens), big.mark = " ")`
+tokens, de los cuales `r format(sum(maestro$n_cultural), big.mark = " ")`
+corresponden a voces indigenas y chilenismos.
+
+```{r tabla-temporadas}
+knitr::kable(temporadas, caption = "Resumen por temporada")
+```
+
+## Verificacion de la corrida
+
+```{r tabla-verif}
+knitr::kable(verif, caption = "Chequeos de integridad")
+```
+
+# Composicion lexica
+
+```{r fig-composicion, fig.cap="Proporcion de espanol generico frente a lexico cultural por capitulo"}
+figura("03_composicion_lexica")
+```
+
+```{r fig-nubes-temp, fig.cap="Nubes de palabras por temporada, lexico cultural"}
+figura("03_nube_temporada_cultural")
+```
+
+```{r fig-keyness-temp, fig.cap="Palabras caracteristicas de cada temporada (chi cuadrado)"}
+figura("03_keyness_temporada_generico")
+```
+
+```{r fig-dendro-frec, fig.cap="Distancia euclidiana entre capitulos segun frecuencia de palabras"}
+figura("03_dendro_capitulos_euclidiana")
+```
+
+# Temas
+
+Las palabras se clasifican en 16 temas mutuamente excluyentes. La cobertura
+efectiva sobre el corpus es de 94,1 por ciento de los tokens.
+
+```{r fig-radar-temp, fig.cap="Perfil tematico de cada temporada"}
+figura("04_radar_temas_temporada")
+```
+
+```{r fig-keyness-temas, fig.cap="Temas caracteristicos de cada temporada"}
+figura("04_keyness_temas_temporada")
+```
+
+```{r tabla-temas}
+knitr::kable(tabla("04_temas_por_temporada"), caption = "Frecuencia tematica por temporada")
+```
+
+# Sentimiento y emociones
+
+El analisis afectivo se realiza sobre las traducciones al ingles, unica lengua
+para la que `sentimentr` dispone de lexicos. La traduccion puede alterar la
+carga afectiva, en particular en pasajes con voces indigenas.
+
+```{r fig-sent-temp, fig.cap="Evolucion del sentimiento a lo largo de cada temporada"}
+figura("05_sentimiento_temporada")
+```
+
+```{r fig-tendencia-sent, fig.cap="Tendencia del sentimiento por tramos comparables"}
+figura("05_tendencia_sentimiento")
+```
+
+```{r fig-emo-temp, fig.cap="Perfil emocional promedio de cada temporada"}
+figura("05_emociones_temporada")
+```
+
+# Complejidad y diversidad lexica
+
+ARI se calcula sobre el texto en ingles, ya que `quanteda` no dispone de la
+parametrizacion del indice para espanol. MATTR se calcula sobre el espanol con
+una ventana de 200 palabras.
+
+```{r fig-complej, fig.cap="Complejidad y diversidad por capitulo dentro de cada temporada"}
+figura("06_complejidad_temporada_p01")
+```
+
+```{r fig-tendencia-lex, fig.cap="Tendencia lexica a lo largo de las cuatro temporadas"}
+figura("06_tendencia_lexica")
+```
+
+```{r tabla-complej}
+knitr::kable(tabla("06_complejidad_temporada"), caption = "ARI y MATTR por temporada")
+```
+
+# Factores asociados a la recepcion
+
+```{r tabla-modelos}
+knitr::kable(modelos, caption = "Ajuste de los tres modelos de popularidad")
+```
+
+```{r advertencia, results='asis'}
+sobre <- modelos$respuesta[modelos$sobreparametrizado]
+if (length(sobre)) {
+  cat("> **Advertencia.** Los modelos de ", paste(sobre, collapse = " y "),
+      " seleccionan mas predictores de los que sostienen 34 observaciones. ",
+      "El R2 ajustado esta inflado y los p valores no son interpretables en ",
+      "el sentido habitual. Vease la seccion correspondiente del README.\n\n",
+      sep = "")
+}
+```
+
+```{r fig-imp-likes, fig.cap="Importancia de los predictores sobre los likes"}
+figura("07_importancia_rf_likes")
+```
+
+```{r fig-imp-views, fig.cap="Importancia de los predictores sobre las visualizaciones"}
+figura("07_importancia_rf_visualizaciones")
+```
+
+# Tabla maestra
+
+```{r tabla-maestra}
+knitr::kable(maestro, caption = "Metricas por capitulo")
+```
+
+---
+
+Informe generado a partir de las salidas de `run_all.R`. El detalle de las
+decisiones metodologicas y de los cambios respecto al codigo original esta en
+`README.md`.
