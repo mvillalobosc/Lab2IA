@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: "Si utiliza este software, por favor cite el repositorio."
+title: "pichintun-nlp: analisis de lenguaje natural de la serie infantil Pichintun"
+abstract: >-
+  Pipeline reproducible en R para el analisis lexico, tematico, afectivo y de
+  legibilidad de los 34 capitulos de las cuatro temporadas de la serie infantil
+  chilena Pichintun, junto con el modelamiento de los factores asociados a su
+  recepcion en YouTube.
+type: software
+authors:
+  - family-names: "Cornejo Contreras"
+    given-names: "Ekaterina"
+    affiliation: "Departamento de Ingenieria Informatica, Universidad de Santiago de Chile"
+  - family-names: "Villalobos Cid"
+    given-names: "Manuel"
+    affiliation: "Departamento de Ingenieria Informatica, Universidad de Santiago de Chile"
+keywords:
+  - procesamiento de lenguaje natural
+  - analisis de sentimientos
+  - legibilidad
+  - television infantil
+  - R
+license: MIT
