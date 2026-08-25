@@ -1,0 +1,578 @@
+"id_libro","titulo","nivel_asignado","nivel_predicho","delta","modelo","desajustado_modelo","n_metricas_extremas","metricas"
+"L0150","Gazapito quiere comer torta",2,12,10,"polr",TRUE,2,"szigriszt_pazos (z=-3.2); entropia_shannon (z=2.5)"
+"L0181","Yo sí, yo no",2,12,10,"polr",TRUE,2,"szigriszt_pazos (z=-3.2); entropia_shannon (z=2.5)"
+"L0425","El cerdito",12,3,-9,"polr",TRUE,3,"yule_k (z=2.6); entropia_shannon (z=-5.3); prop_alegria (z=2.9)"
+"L0078","El delantal blanco",9,1,-8,"polr",TRUE,3,"mattr_100 (z=-3.6); yule_k (z=3.2); entropia_shannon (z=-3.4)"
+"L0663","La Araucana",8,1,-7,"polr",TRUE,6,"mattr_100 (z=2.8); mtld (z=5.8); entropia_shannon (z=-4.2); dist_dependencia_media (z=6); prop_alegria (z=-2.8); prop_tristeza (z=-3.6)"
+"L0711","Solo las flores son nuestra riqueza",8,1,-7,"polr",TRUE,6,"mattr_100 (z=-6.4); mtld (z=-2.6); entropia_shannon (z=-5.4); polaridad_media (z=5.4); prop_alegria (z=9.9); prop_tristeza (z=-4.7)"
+"L0485","Guillermo",5,12,7,"polr",TRUE,0,NA
+"L0515","El jinete sin cabeza",6,12,6,"polr",TRUE,6,"ari (z=6.4); rix (z=7.2); szigriszt_pazos (z=-5.3); long_oracion_media (z=6.1); dist_dependencia_media (z=3.4); subordinadas_por_oracion (z=4.5)"
+"L0573","Castilla",7,1,-6,"polr",TRUE,6,"szigriszt_pazos (z=2.7); yule_k (z=3.2); entropia_shannon (z=-6.4); subordinadas_por_oracion (z=-3.2); polaridad_media (z=-4.5); prop_tristeza (z=3.3)"
+"L0505","Capítulo XXV: donde se apunta la aventura del rebuzno (Don Quijote de la Mancha)",6,12,6,"polr",TRUE,5,"ari (z=4.7); rix (z=4.4); long_oracion_media (z=5.3); dist_dependencia_media (z=2.7); subordinadas_por_oracion (z=5.4)"
+"L0544","Las aventuras del barón de Munchausen",6,12,6,"polr",TRUE,5,"ari (z=3.8); rix (z=4.4); szigriszt_pazos (z=-3.1); long_oracion_media (z=3.5); subordinadas_por_oracion (z=2.7)"
+"L0611","Inti y Mama Quilla",7,1,-6,"polr",TRUE,5,"mattr_100 (z=-2.8); entropia_shannon (z=-5.8); polaridad_media (z=4); prop_alegria (z=9.7); prop_tristeza (z=-5.3)"
+"L0662","La Araucana",7,1,-6,"polr",TRUE,5,"mtld (z=6.5); entropia_shannon (z=-6.2); dist_dependencia_media (z=6.5); prop_alegria (z=-3); prop_tristeza (z=-2.8)"
+"L0033","La hormiguita",1,7,6,"polr",TRUE,3,"mattr_100 (z=-3.7); yule_k (z=2.8); prop_tristeza (z=4.3)"
+"L0427","El drama del desencantado",12,6,-6,"polr",TRUE,3,"mattr_100 (z=-2.5); yule_k (z=2.6); entropia_shannon (z=-5.7)"
+"L0604","Fábula 11: los dos amigos",7,1,-6,"polr",TRUE,3,"entropia_shannon (z=-5.1); polaridad_media (z=5.1); prop_alegria (z=5)"
+"L0647","Rig Veda",7,1,-6,"polr",TRUE,3,"mtld (z=-2.8); entropia_shannon (z=-6.3); subordinadas_por_oracion (z=-2.7)"
+"L0650","Si",7,1,-6,"polr",TRUE,2,"entropia_shannon (z=-5.5); prop_tristeza (z=-3.8)"
+"L0443","La casa de Asterión",12,6,-6,"polr",TRUE,1,"entropia_shannon (z=-4.1)"
+"L0002","10 cuentos para abrir el apetito",1,7,6,"polr",TRUE,0,NA
+"L0008","El labrador y el diablo",1,7,6,"polr",TRUE,0,NA
+"L0013","El negrito zambo",1,7,6,"polr",TRUE,0,NA
+"L0031","La flor Lililá,",1,7,6,"polr",TRUE,0,NA
+"L0051","Mira lo que tengo",1,7,6,"polr",TRUE,0,NA
+"L0507","Corazón",6,12,6,"polr",TRUE,0,NA
+"L0523","El príncipe y el mendigo",6,12,6,"polr",TRUE,0,NA
+"L0553","Pacha Pulai",6,12,6,"polr",TRUE,0,NA
+"L0559","Tom Sawyer",6,12,6,"polr",TRUE,0,NA
+"L0564","Cuentos escritos a máquina",6,12,6,"polr",TRUE,0,NA
+"L0638","No se culpe a nadie",7,12,5,"polr",TRUE,6,"ari (z=3.7); rix (z=3.4); szigriszt_pazos (z=-2.7); mattr_100 (z=-2.6); long_oracion_media (z=3.8); subordinadas_por_oracion (z=5.3)"
+"L0513","El huevo de yegua (Pedro Urdemales)",6,1,-5,"polr",TRUE,5,"mattr_100 (z=-5.6); mtld (z=-4.8); yule_k (z=6); entropia_shannon (z=-3.9); subordinadas_por_oracion (z=2.6)"
+"L0174","Tranquila Tragaleguas",2,7,5,"polr",TRUE,4,"szigriszt_pazos (z=-3.8); dist_dependencia_media (z=3.6); polaridad_media (z=2.8); prop_alegria (z=4.4)"
+"L0503","¿Buena suerte o mala suerte? (cuento sufí)",6,1,-5,"polr",TRUE,4,"mattr_100 (z=-3.5); yule_k (z=2.7); entropia_shannon (z=-3.5); polaridad_media (z=-2.6)"
+"L0036","La pequeña oruga glotona",1,6,5,"polr",TRUE,3,"mattr_100 (z=-3.5); mtld (z=-3.2); prop_tristeza (z=2.7)"
+"L0356","Las consignas de enseñanza de la lengua. Un análisis desde el interaccionismo socio-discursivo",12,7,-5,"polr",TRUE,3,"mattr_100 (z=-2.7); yule_k (z=3.3); polaridad_media (z=5.1)"
+"L0626","Las metamorfosis",7,12,5,"polr",TRUE,3,"mattr_100 (z=3.7); mtld (z=4.5); yule_k (z=-2.5)"
+"L0344","La noche boca arriba",12,7,-5,"polr",TRUE,2,"entropia_shannon (z=-2.7); polaridad_media (z=-3)"
+"L0431","El otro yo",12,7,-5,"polr",TRUE,2,"entropia_shannon (z=-6); prop_tristeza (z=4.4)"
+"L0442","La bandera de Chile",12,7,-5,"polr",TRUE,2,"yule_k (z=4.3); entropia_shannon (z=-3.2)"
+"L0444","La ciudad lucía",12,7,-5,"polr",TRUE,2,"mattr_100 (z=-5.8); mtld (z=-3.4)"
+"L0449","La señorita Cora",12,7,-5,"polr",TRUE,2,"subordinadas_por_oracion (z=3.2); prop_tristeza (z=3)"
+"L0519","El picapedrero (cuento popular chino)",6,1,-5,"polr",TRUE,2,"polaridad_media (z=2.8); prop_tristeza (z=-3.7)"
+"L0586","El conde Lucanor",7,12,5,"polr",TRUE,2,"long_oracion_media (z=3); subordinadas_por_oracion (z=6.2)"
+"L0666","Don Quijote de la Mancha: primera parte",7,12,5,"polr",TRUE,2,"long_oracion_media (z=2.9); subordinadas_por_oracion (z=5.4)"
+"L0690","El ruiseñor y la rosa",8,3,-5,"polr",TRUE,2,"mattr_100 (z=-3.8); prop_alegria (z=4.1)"
+"L0162","Las tres hilanderas",2,7,5,"polr",TRUE,1,"prop_tristeza (z=3.1)"
+"L0178","Vamos a buscar un tesoro. Historia de cómo el pequeño oso y el pequeño tigre fueron en busca de la felicidad.",2,7,5,"polr",TRUE,1,"entropia_shannon (z=2.9)"
+"L0409","A puerta cerrada",12,7,-5,"polr",TRUE,1,"szigriszt_pazos (z=3)"
+"L0419","Desde el jardín",12,7,-5,"polr",TRUE,1,"polaridad_media (z=3.1)"
+"L0424","El cepillo de dientes",12,7,-5,"polr",TRUE,1,"szigriszt_pazos (z=3.6)"
+"L0434","El vestido blanco",12,7,-5,"polr",TRUE,1,"mattr_100 (z=-3.6)"
+"L0439","Fuegos",12,7,-5,"polr",TRUE,1,"polaridad_media (z=-3.4)"
+"L0461","Pedro Páramo",12,7,-5,"polr",TRUE,1,"szigriszt_pazos (z=2.8)"
+"L0530","Felicidad clandestina",6,1,-5,"polr",TRUE,1,"prop_alegria (z=2.7)"
+"L0600","El vaso de leche",7,12,5,"polr",TRUE,1,"dist_dependencia_media (z=4.2)"
+"L0658","Sub-Terra",7,12,5,"polr",TRUE,1,"rix (z=2.5)"
+"L0685","El contador de historias",8,3,-5,"polr",TRUE,1,"prop_alegria (z=2.5)"
+"L0026","Hansel y Gretel",1,6,5,"polr",TRUE,0,NA
+"L0040","Las tres plumas",1,6,5,"polr",TRUE,0,NA
+"L0044","Los músicos de Bremen",1,6,5,"polr",TRUE,0,NA
+"L0049","Madre Nieve",1,6,5,"polr",TRUE,0,NA
+"L0127","Caperucita roja tal como se la contaron a Jorge",2,7,5,"polr",TRUE,0,NA
+"L0137","El fantasma de palacio",2,7,5,"polr",TRUE,0,NA
+"L0149","Franz se mete en problemas de amor",2,7,5,"polr",TRUE,0,NA
+"L0155","La hormiguita Cantora y el duende Melodía",2,7,5,"polr",TRUE,0,NA
+"L0159","La reina de las abejas",2,7,5,"polr",TRUE,0,NA
+"L0170","Rosa Caramelo",2,7,5,"polr",TRUE,0,NA
+"L0406","¿Sueñan los androides con ovejas eléctricas?",12,7,-5,"polr",TRUE,0,NA
+"L0417","Del amor y otros demonios",12,7,-5,"polr",TRUE,0,NA
+"L0423","El baile",12,7,-5,"polr",TRUE,0,NA
+"L0426","El denario del sueño",12,7,-5,"polr",TRUE,0,NA
+"L0428","El extranjero",12,7,-5,"polr",TRUE,0,NA
+"L0429","El libro de arena",12,7,-5,"polr",TRUE,0,NA
+"L0430","El llano en llamas",12,7,-5,"polr",TRUE,0,NA
+"L0432","El padre mío",12,7,-5,"polr",TRUE,0,NA
+"L0459","Otra vuelta de tuerca",12,7,-5,"polr",TRUE,0,NA
+"L0463","Siete días de la señora K.",12,7,-5,"polr",TRUE,0,NA
+"L0465","Un tranvía llamado deseo",12,7,-5,"polr",TRUE,0,NA
+"L0467","Una sombra ya pronto serás",12,7,-5,"polr",TRUE,0,NA
+"L0543","La vendedora de fósforos",6,1,-5,"polr",TRUE,0,NA
+"L0569","Adiós al séptimo de línea",7,12,5,"polr",TRUE,0,NA
+"L0571","Bajo la misma estrella",7,12,5,"polr",TRUE,0,NA
+"L0578","Cuentos de amor, de locura y de muerte",7,12,5,"polr",TRUE,0,NA
+"L0583","El capitán Alatriste",7,12,5,"polr",TRUE,0,NA
+"L0584","El capitán Alatriste",7,12,5,"polr",TRUE,0,NA
+"L0592","El fantasma de Canterville",7,12,5,"polr",TRUE,0,NA
+"L0594","El libro de las tierras vírgenes",7,12,5,"polr",TRUE,0,NA
+"L0602","en Mitos griegos 1",7,12,5,"polr",TRUE,0,NA
+"L0627","Las minas del rey Salomón",7,12,5,"polr",TRUE,0,NA
+"L0628","Las minas del rey Salomón",7,12,5,"polr",TRUE,0,NA
+"L0633","Memoria del fuego I: Los nacimientos",7,12,5,"polr",TRUE,0,NA
+"L0635","Mitos de memoria del fuego",7,12,5,"polr",TRUE,0,NA
+"L0636","Mitos griegos",7,12,5,"polr",TRUE,0,NA
+"L0637","Momentos estelares de la humanidad",7,12,5,"polr",TRUE,0,NA
+"L0656","Vuelo Nocturno",7,12,5,"polr",TRUE,0,NA
+"L0660","La Odisea",7,12,5,"polr",TRUE,0,NA
+"L0664","La Ilíada",7,12,5,"polr",TRUE,0,NA
+"L0669","Sub-Sole",7,12,5,"polr",TRUE,0,NA
+"L0721","Los juegos del hambre",12,7,-5,"polr",TRUE,0,NA
+"L0355","Las consignas de enseñanza de la lengua. Un análisis desde el interaccionismo socio-discursivo",11,7,-4,"polr",TRUE,3,"mattr_100 (z=-3); yule_k (z=2.8); polaridad_media (z=3)"
+"L0491","Las dos ranas (cuentos de la Pachatantra)",5,1,-4,"polr",TRUE,3,"mattr_100 (z=-4.5); yule_k (z=2.6); prop_alegria (z=-3.1)"
+"L0667","Don Quijote de la Mancha: primera parte",8,12,4,"polr",TRUE,3,"ari (z=2.8); long_oracion_media (z=2.9); subordinadas_por_oracion (z=5.1)"
+"L0702","Libro de buen amor",8,12,4,"polr",TRUE,3,"ari (z=2.8); rix (z=2.7); dist_dependencia_media (z=3.4)"
+"L0262","La astuta hija del campesino",3,7,4,"polr",TRUE,2,"long_oracion_media (z=4.4); dist_dependencia_media (z=2.7)"
+"L0289","Canto a su amor desaparecido",11,7,-4,"polr",TRUE,2,"mtld (z=-2.8); prop_tristeza (z=3.4)"
+"L0475","El burro que acarrea sal",5,1,-4,"polr",TRUE,2,"mattr_100 (z=-3.8); yule_k (z=3.9)"
+"L0696","La dama de Shalott",8,12,4,"polr",TRUE,2,"dist_dependencia_media (z=6.2); prop_tristeza (z=-3.7)"
+"L0134","El coyote y la tortuga (leyenda hopi)",2,6,4,"polr",TRUE,1,"subordinadas_por_oracion (z=3.1)"
+"L0238","Bolita",3,7,4,"polr",TRUE,1,"yule_k (z=-2.6)"
+"L0256","El rey pico de tordo",3,7,4,"polr",TRUE,1,"long_oracion_media (z=2.9)"
+"L0269","Las medias de los flamencos",3,7,4,"polr",TRUE,1,"polaridad_media (z=-4.7)"
+"L0280","Ratón de campo y ratón de ciudad",3,7,4,"polr",TRUE,1,"long_oracion_media (z=3.4)"
+"L0297","El consumo me consume",11,7,-4,"polr",TRUE,1,"yule_k (z=3.3)"
+"L0312","La isla a mediodía",11,7,-4,"polr",TRUE,1,"entropia_shannon (z=-3)"
+"L0343","La noche boca arriba",11,7,-4,"polr",TRUE,1,"entropia_shannon (z=-2.7)"
+"L0477","El hombre que contaba Historias",5,1,-4,"polr",TRUE,1,"mattr_100 (z=-2.7)"
+"L0679","Divina comedia",8,12,4,"polr",TRUE,1,"subordinadas_por_oracion (z=3.1)"
+"L0698","La Divina Comedia",8,12,4,"polr",TRUE,1,"subordinadas_por_oracion (z=3.1)"
+"L0718","Los heraldos negros",8,12,4,"polr",TRUE,1,"prop_tristeza (z=6.4)"
+"L0126","Caperucita roja",2,6,4,"polr",TRUE,0,NA
+"L0133","El cóndor y la pastora",2,6,4,"polr",TRUE,0,NA
+"L0156","La liebre y el erizo",2,6,4,"polr",TRUE,0,NA
+"L0158","La princesa y el guisante",2,6,4,"polr",TRUE,0,NA
+"L0161","Las doce princesas bailarinas",2,6,4,"polr",TRUE,0,NA
+"L0227","El coordinador",11,7,-4,"polr",TRUE,0,NA
+"L0232","Abuelita Opalina",3,7,4,"polr",TRUE,0,NA
+"L0237","Blancanieve y Rojaflor",3,7,4,"polr",TRUE,0,NA
+"L0241","Cenicienta",3,7,4,"polr",TRUE,0,NA
+"L0245","Cuentos por teléfono",3,7,4,"polr",TRUE,0,NA
+"L0246","El amigo del duende Melodía",3,7,4,"polr",TRUE,0,NA
+"L0261","La abeja haragana",3,7,4,"polr",TRUE,0,NA
+"L0274","Papelucho",3,7,4,"polr",TRUE,0,NA
+"L0275","Papelucho y el marciano",3,7,4,"polr",TRUE,0,NA
+"L0291","Carol",11,7,-4,"polr",TRUE,0,NA
+"L0294","Daisy Miller",11,7,-4,"polr",TRUE,0,NA
+"L0302","El señor de las moscas",11,7,-4,"polr",TRUE,0,NA
+"L0305","Emma Zunz",11,7,-4,"polr",TRUE,0,NA
+"L0308","Hechos consumados",11,7,-4,"polr",TRUE,0,NA
+"L0317","Lagar",11,7,-4,"polr",TRUE,0,NA
+"L0318","Las babas del diablo",11,7,-4,"polr",TRUE,0,NA
+"L0319","Las batallas en el desierto",11,7,-4,"polr",TRUE,0,NA
+"L0320","Las relaciones peligrosas",11,7,-4,"polr",TRUE,0,NA
+"L0321","Los dones previsibles",11,7,-4,"polr",TRUE,0,NA
+"L0328","Poesías completas",11,7,-4,"polr",TRUE,0,NA
+"L0329","Primer amor",11,7,-4,"polr",TRUE,0,NA
+"L0330","Qué vergüenza",11,7,-4,"polr",TRUE,0,NA
+"L0331","Recado confidencial a los chilenos",11,7,-4,"polr",TRUE,0,NA
+"L0335","Sensatez y sentimientos",11,7,-4,"polr",TRUE,0,NA
+"L0337","Tlön, Uqbar, Orbis Terti",11,7,-4,"polr",TRUE,0,NA
+"L0476","El día que Txeg Txeg y Kay Kay no se saludaron",5,1,-4,"polr",TRUE,0,NA
+"L0565","Cuentos escritos a máquina",8,12,4,"polr",TRUE,0,NA
+"L0665","La Ilíada",8,12,4,"polr",TRUE,0,NA
+"L0670","Sub-Sole",8,12,4,"polr",TRUE,0,NA
+"L0675","Crónicas marcianas",8,12,4,"polr",TRUE,0,NA
+"L0683","El candor del padre Brown",8,12,4,"polr",TRUE,0,NA
+"L0686","El enfermo imaginario",8,12,4,"polr",TRUE,0,NA
+"L0687","El fugitivo",8,12,4,"polr",TRUE,0,NA
+"L0688","El fugitivo",8,12,4,"polr",TRUE,0,NA
+"L0705","Obras completas",8,12,4,"polr",TRUE,0,NA
+"L0709","Relatos de lo inesperado",8,12,4,"polr",TRUE,0,NA
+"L0713","Viaje de un naturalista alrededor del Mundo en el navío de S.M Beagle",8,12,4,"polr",TRUE,0,NA
+"L0714","La Eneida",8,12,4,"polr",TRUE,0,NA
+"L0717","La hija del capitán",11,7,-4,"polr",TRUE,0,NA
+"L0189","Comunicado",10,7,-3,"polr",TRUE,5,"rix (z=2.9); mattr_100 (z=-3.3); yule_k (z=4.2); entropia_shannon (z=-4.8); long_oracion_media (z=2.6)"
+"L0225","Yo tengo un sueño",10,7,-3,"polr",TRUE,5,"mattr_100 (z=-6.2); mtld (z=-3.4); yule_k (z=3.8); entropia_shannon (z=-3.3); prop_alegria (z=4.2)"
+"L0113","Poemas de amor",9,12,3,"polr",TRUE,4,"mattr_100 (z=-2.6); mtld (z=-2.5); subordinadas_por_oracion (z=3.3); prop_tristeza (z=3.2)"
+"L0525","El rey Midas",6,3,-3,"polr",TRUE,4,"ari (z=-2.9); rix (z=-2.6); polaridad_media (z=5.9); prop_alegria (z=3)"
+"L0077","El conde Lucanor",9,12,3,"polr",TRUE,3,"ari (z=2.6); long_oracion_media (z=3.4); subordinadas_por_oracion (z=5)"
+"L0082","El ingenioso hidalgo don Quijote de la Mancha: segunda parte",9,12,3,"polr",TRUE,3,"ari (z=2.5); long_oracion_media (z=3.4); subordinadas_por_oracion (z=4.1)"
+"L0117","Prometeo liberado",9,12,3,"polr",TRUE,3,"yule_k (z=-3.1); entropia_shannon (z=3); dist_dependencia_media (z=2.5)"
+"L0186","Ayayema",10,7,-3,"polr",TRUE,3,"mattr_100 (z=4.8); mtld (z=5.7); yule_k (z=-2.9)"
+"L0203","En la muerte de Laura",10,7,-3,"polr",TRUE,3,"mattr_100 (z=-2.8); entropia_shannon (z=-2.8); prop_alegria (z=3.1)"
+"L0369","El burro flautista",4,1,-3,"polr",TRUE,3,"mattr_100 (z=-2.6); entropia_shannon (z=-2.7); prop_tristeza (z=3.8)"
+"L0183","A la felicidad de Eumelo",10,7,-3,"polr",TRUE,2,"mtld (z=2.7); polaridad_media (z=-2.8)"
+"L0214","Memorias de un emigrante",10,7,-3,"polr",TRUE,2,"mattr_100 (z=2.6); mtld (z=2.9)"
+"L0286","El gato con botas",3,6,3,"polr",TRUE,2,"long_oracion_media (z=3.4); subordinadas_por_oracion (z=3)"
+"L0371","El enano saltarín (Rumpelstilzchen",4,7,3,"polr",TRUE,2,"rix (z=3); szigriszt_pazos (z=-2.7)"
+"L0372","El flautista de Hamelin",4,1,-3,"polr",TRUE,2,"rix (z=2.5); prop_alegria (z=3.9)"
+"L0396","Leyenda del copihue (leyenda mapuche)",4,1,-3,"polr",TRUE,2,"polaridad_media (z=-4.6); prop_tristeza (z=3.1)"
+"L0079","El estudiante de Salamanca",9,12,3,"polr",TRUE,1,"polaridad_media (z=-2.7)"
+"L0091","Historia de cronopios y famas",9,12,3,"polr",TRUE,1,"rix (z=2.6)"
+"L0097","La casa de Asterión",9,6,-3,"polr",TRUE,1,"entropia_shannon (z=-4.2)"
+"L0216","Moradas",10,7,-3,"polr",TRUE,1,"subordinadas_por_oracion (z=2.5)"
+"L0219","Panteísmo",10,7,-3,"polr",TRUE,1,"prop_alegria (z=2.9)"
+"L0359","¡Judy Moody es doctora!",4,7,3,"polr",TRUE,1,"dist_dependencia_media (z=-2.6)"
+"L0381","El tigre negro y el venado blanco",4,7,3,"polr",TRUE,1,"prop_tristeza (z=2.7)"
+"L0403","Antiguo Testamento",4,7,3,"polr",TRUE,1,"mtld (z=-2.5)"
+"L0534","La caja de Pandora",6,3,-3,"polr",TRUE,1,"entropia_shannon (z=-3.2)"
+"L0061","Canción del río indiferente",9,12,3,"polr",TRUE,0,NA
+"L0066","Cuentos de amor, de locura y de muerte",9,12,3,"polr",TRUE,0,NA
+"L0069","Décimas de la Negra Ester",9,12,3,"polr",TRUE,0,NA
+"L0073","Drácula",9,12,3,"polr",TRUE,0,NA
+"L0075","El barón de Münchhausen",9,12,3,"polr",TRUE,0,NA
+"L0076","El conde de Montecristo",9,12,3,"polr",TRUE,0,NA
+"L0088","Fedra",9,12,3,"polr",TRUE,0,NA
+"L0095","Jane Eyre",9,12,3,"polr",TRUE,0,NA
+"L0102","La ópera de dos centavos",9,12,3,"polr",TRUE,0,NA
+"L0110","Ópera de los dos centavos",9,12,3,"polr",TRUE,0,NA
+"L0119","Rimas y leyendas",9,12,3,"polr",TRUE,0,NA
+"L0121","Un cuento de navidad",9,12,3,"polr",TRUE,0,NA
+"L0184","Al sur de la Alameda",10,7,-3,"polr",TRUE,0,NA
+"L0185","Año nuevo en Gander",10,7,-3,"polr",TRUE,0,NA
+"L0191","Cuánta tierra necesita un hombre",10,7,-3,"polr",TRUE,0,NA
+"L0193","De ratones y de hombres",10,7,-3,"polr",TRUE,0,NA
+"L0196","El dador",10,7,-3,"polr",TRUE,0,NA
+"L0197","El inspector",10,7,-3,"polr",TRUE,0,NA
+"L0198","El retrato de Dorian Gray",10,7,-3,"polr",TRUE,0,NA
+"L0199","El señor de las moscas",10,7,-3,"polr",TRUE,0,NA
+"L0200","El señor de los anillos",10,7,-3,"polr",TRUE,0,NA
+"L0201","El señor de los anillos: La comunidad del anillo",10,7,-3,"polr",TRUE,0,NA
+"L0204","Flores para Algernon",10,7,-3,"polr",TRUE,0,NA
+"L0205","Frankenstein o el moderno Prometeo",10,7,-3,"polr",TRUE,0,NA
+"L0209","La perla",10,7,-3,"polr",TRUE,0,NA
+"L0218","No pasó nada",10,7,-3,"polr",TRUE,0,NA
+"L0221","Rebeldes",10,7,-3,"polr",TRUE,0,NA
+"L0222","Rebelión en la granja",10,7,-3,"polr",TRUE,0,NA
+"L0226","El coordinador",10,7,-3,"polr",TRUE,0,NA
+"L0239","Carlota y la Mona Lisa",3,6,3,"polr",TRUE,0,NA
+"L0240","Carlota y Monna Lisa",3,6,3,"polr",TRUE,0,NA
+"L0250","El flojo, el sabio y el lobo",3,6,3,"polr",TRUE,0,NA
+"L0252","El loro pelado",3,6,3,"polr",TRUE,0,NA
+"L0268","Las hadas",3,6,3,"polr",TRUE,0,NA
+"L0277","Piedras de fuego",3,6,3,"polr",TRUE,0,NA
+"L0278","Pulgarcita",3,6,3,"polr",TRUE,0,NA
+"L0362","Angélica",4,7,3,"polr",TRUE,0,NA
+"L0368","Cuentos para niños",4,7,3,"polr",TRUE,0,NA
+"L0373","El gallito de oro",4,7,3,"polr",TRUE,0,NA
+"L0375","El patito feo",4,7,3,"polr",TRUE,0,NA
+"L0378","El ruiseñor",4,7,3,"polr",TRUE,0,NA
+"L0379","El soldadito de plomo",4,7,3,"polr",TRUE,0,NA
+"L0380","El terror del sexto B",4,7,3,"polr",TRUE,0,NA
+"L0383","Fray Perico y su borrico",4,7,3,"polr",TRUE,0,NA
+"L0384","Ícaro y Dédalo (mito griego",4,1,-3,"polr",TRUE,0,NA
+"L0385","La bella y la bestia",4,7,3,"polr",TRUE,0,NA
+"L0387","La caperucita roja",4,7,3,"polr",TRUE,0,NA
+"L0388","La creación del mundo (mito mapuche)",4,7,3,"polr",TRUE,0,NA
+"L0389","La leyenda del Pehuén (leyenda mapuche)",4,1,-3,"polr",TRUE,0,NA
+"L0390","La nariz",4,7,3,"polr",TRUE,0,NA
+"L0395","Las tres mentiras",4,1,-3,"polr",TRUE,0,NA
+"L0397","Los duraznos",4,1,-3,"polr",TRUE,0,NA
+"L0398","Medusa (mito griego)",4,7,3,"polr",TRUE,0,NA
+"L0401","Un ladrón entre nosotros",4,7,3,"polr",TRUE,0,NA
+"L0055","Para ver y no creer",1,3,2,"polr",TRUE,5,"szigriszt_pazos (z=2.5); mattr_100 (z=5.2); mtld (z=20.5); yule_k (z=-5.2); entropia_shannon (z=4)"
+"L0212","Mapurbe",10,12,2,"polr",TRUE,5,"ari (z=6.4); rix (z=6.6); szigriszt_pazos (z=-4.3); long_oracion_media (z=5.8); subordinadas_por_oracion (z=4.5)"
+"L0120","Satiricón",9,7,-2,"polr",TRUE,4,"mattr_100 (z=5.1); mtld (z=9.9); yule_k (z=-3.7); entropia_shannon (z=5.8)"
+"L0060","Antiguo Testamento",9,7,-2,"polr",TRUE,3,"mattr_100 (z=-4.4); mtld (z=-2.6); yule_k (z=2.5)"
+"L0063","Creación del hombre. Popol Vuh",9,7,-2,"polr",TRUE,3,"mattr_100 (z=-4); mtld (z=-2.5); entropia_shannon (z=-2.8)"
+"L0071","Domo y Lituche",9,7,-2,"polr",TRUE,3,"polaridad_media (z=2.8); prop_alegria (z=3.4); prop_tristeza (z=-2.9)"
+"L0109","Odio al árbol",9,7,-2,"polr",TRUE,3,"entropia_shannon (z=-3.4); polaridad_media (z=2.7); prop_tristeza (z=-3.6)"
+"L0253","El pájaro del alma",3,1,-2,"polr",TRUE,3,"mattr_100 (z=-4.8); mtld (z=-3.9); yule_k (z=4.5)"
+"L0062","Carta de Dickens a su hijo",9,7,-2,"polr",TRUE,2,"entropia_shannon (z=-5); prop_tristeza (z=2.9)"
+"L0083","El lazarillo de Tormes",9,7,-2,"polr",TRUE,2,"long_oracion_media (z=2.6); subordinadas_por_oracion (z=3.2)"
+"L0194","Don Quijote de la Mancha: segunda parte",10,12,2,"polr",TRUE,2,"long_oracion_media (z=2.7); subordinadas_por_oracion (z=3.5)"
+"L0208","Inmóvil en la luz, pero danzante,",10,12,2,"polr",TRUE,2,"dist_dependencia_media (z=7.7); prop_alegria (z=2.6)"
+"L0479","El oso, la mona y el cerdo",5,3,-2,"polr",TRUE,2,"szigriszt_pazos (z=2.9); mattr_100 (z=2.8)"
+"L0501","Rip Van Winkle",5,7,2,"polr",TRUE,2,"rix (z=2.8); szigriszt_pazos (z=-2.7)"
+"L0668","Don Quijote de la Mancha: primera parte",10,12,2,"polr",TRUE,2,"long_oracion_media (z=2.5); subordinadas_por_oracion (z=3.7)"
+"L0011","El león y los cuatro bueyes",1,3,2,"polr",TRUE,1,"subordinadas_por_oracion (z=3.2)"
+"L0030","La cigarra y la hormiga",1,3,2,"polr",TRUE,1,"prop_alegria (z=2.5)"
+"L0043","Los duendes y el zapatero",1,3,2,"polr",TRUE,1,"subordinadas_por_oracion (z=2.6)"
+"L0072","Don Juan Tenorio",9,7,-2,"polr",TRUE,1,"szigriszt_pazos (z=2.6)"
+"L0084","El libro talonario",9,7,-2,"polr",TRUE,1,"entropia_shannon (z=-2.7)"
+"L0086","El verdadero final de la bella durmiente",9,7,-2,"polr",TRUE,1,"prop_alegria (z=2.9)"
+"L0090","Himno a la noche",9,7,-2,"polr",TRUE,1,"prop_alegria (z=3.9)"
+"L0094","Iván el imbécil",9,7,-2,"polr",TRUE,1,"mattr_100 (z=-2.6)"
+"L0100","La Nona",9,7,-2,"polr",TRUE,1,"dist_dependencia_media (z=-2.8)"
+"L0211","Los actuales dilemas del Desarrollo Humano en Chile",10,12,2,"polr",TRUE,1,"mattr_100 (z=-3.2)"
+"L0215","Miltín 1934",10,12,2,"polr",TRUE,1,"mattr_100 (z=2.9)"
+"L0255","El pescador y el pececito dorado",3,1,-2,"polr",TRUE,1,"polaridad_media (z=-3.4)"
+"L0270","Los dos amigos y el oso",3,1,-2,"polr",TRUE,1,"yule_k (z=4.4)"
+"L0271","Los dos conejos",3,1,-2,"polr",TRUE,1,"long_oracion_media (z=-2.5)"
+"L0474","El asno descontento",5,3,-2,"polr",TRUE,1,"subordinadas_por_oracion (z=2.6)"
+"L0478","El lobo y el cabrito",5,3,-2,"polr",TRUE,1,"subordinadas_por_oracion (z=4.3)"
+"L0484","Episdio de los molinos de viento (Don Quijote de la Mancha)",5,3,-2,"polr",TRUE,1,"subordinadas_por_oracion (z=4.4)"
+"L0490","Las babuchas fatídicas (Las mil y una noches)",5,7,2,"polr",TRUE,1,"rix (z=2.6)"
+"L0682","El bigote del tigre",8,6,-2,"polr",TRUE,1,"entropia_shannon (z=-2.6)"
+"L0034","La liebre y la tortuga",1,3,2,"polr",TRUE,0,NA
+"L0039","La tortilla corredora",1,3,2,"polr",TRUE,0,NA
+"L0059","Agamenón",9,7,-2,"polr",TRUE,0,NA
+"L0064","Crepúsculo",9,7,-2,"polr",TRUE,0,NA
+"L0065","Crónica de una muerte anunciada",9,7,-2,"polr",TRUE,0,NA
+"L0067","Cuentos de Pedro Urdemales",9,7,-2,"polr",TRUE,0,NA
+"L0068","Cumbres borrascosas",9,7,-2,"polr",TRUE,0,NA
+"L0074","El baile",9,7,-2,"polr",TRUE,0,NA
+"L0080","El gaucho Martín Fierro",9,7,-2,"polr",TRUE,0,NA
+"L0081","El guardián entre el centeno",9,7,-2,"polr",TRUE,0,NA
+"L0085","El retrato de Dorian Gray",9,7,-2,"polr",TRUE,0,NA
+"L0087","Extractos de los diarios de Adán y de Eva",9,7,-2,"polr",TRUE,0,NA
+"L0089","Frankestein o el moderno Prometeo",9,7,-2,"polr",TRUE,0,NA
+"L0093","Inquietudes sentimentales",9,7,-2,"polr",TRUE,0,NA
+"L0096","La balada del café triste",9,7,-2,"polr",TRUE,0,NA
+"L0098","La dama de las camelias",9,7,-2,"polr",TRUE,0,NA
+"L0099","La miseria del hombre",9,7,-2,"polr",TRUE,0,NA
+"L0101","La Odisea",9,7,-2,"polr",TRUE,0,NA
+"L0104","La vida simplemente",9,7,-2,"polr",TRUE,0,NA
+"L0105","Los jefes",9,7,-2,"polr",TRUE,0,NA
+"L0106","Los Miserables",9,7,-2,"polr",TRUE,0,NA
+"L0108","Más allá del horizonte",9,7,-2,"polr",TRUE,0,NA
+"L0111","Orgullo y Prejuicio",9,7,-2,"polr",TRUE,0,NA
+"L0112","Pinocho",9,7,-2,"polr",TRUE,0,NA
+"L0115","Prometeo",9,7,-2,"polr",TRUE,0,NA
+"L0116","Prometeo encadenado",9,7,-2,"polr",TRUE,0,NA
+"L0118","Rebelión de la granja",9,7,-2,"polr",TRUE,0,NA
+"L0187","Bartelby, el escribiente",10,12,2,"polr",TRUE,0,NA
+"L0188","Cinema Utoppia",10,12,2,"polr",TRUE,0,NA
+"L0192","De qué hablo cuando hablo de correr",10,12,2,"polr",TRUE,0,NA
+"L0195","El conde de Montecristo",10,12,2,"polr",TRUE,0,NA
+"L0206","Grandes esperanzas",10,12,2,"polr",TRUE,0,NA
+"L0210","Laberinto de la soledad",10,12,2,"polr",TRUE,0,NA
+"L0213","Matar a un ruiseñor",10,12,2,"polr",TRUE,0,NA
+"L0217","Muda, triste y pensativa",10,12,2,"polr",TRUE,0,NA
+"L0223","Si esto es un hombre",10,12,2,"polr",TRUE,0,NA
+"L0224","Sonetos",10,12,2,"polr",TRUE,0,NA
+"L0228","Hijo de ladrón",10,12,2,"polr",TRUE,0,NA
+"L0254","El pato y la serpiente",3,1,-2,"polr",TRUE,0,NA
+"L0258","El tesoro que la tierra oculta",3,1,-2,"polr",TRUE,0,NA
+"L0266","La lechera",3,1,-2,"polr",TRUE,0,NA
+"L0267","La zorra y la liebre",3,1,-2,"polr",TRUE,0,NA
+"L0391","La pluma del halcón altanero",4,6,2,"polr",TRUE,0,NA
+"L0394","La zarevna muerta y los siete guerreros",4,6,2,"polr",TRUE,0,NA
+"L0469","Alí Baba y los cuarenta ladrones (Las mil y una noches)",5,7,2,"polr",TRUE,0,NA
+"L0470","Amor a la vida",5,7,2,"polr",TRUE,0,NA
+"L0473","Después de veinte años",5,3,-2,"polr",TRUE,0,NA
+"L0480","El pequeño elefante",5,7,2,"polr",TRUE,0,NA
+"L0481","El pequeño escribiente florentino",5,7,2,"polr",TRUE,0,NA
+"L0482","El pequeño Nicolás",5,7,2,"polr",TRUE,0,NA
+"L0486","Harry Potter y la piedra filosofal",5,7,2,"polr",TRUE,0,NA
+"L0487","Heidi",5,7,2,"polr",TRUE,0,NA
+"L0488","Juan sin miedo",5,7,2,"polr",TRUE,0,NA
+"L0489","La niña de los gansos",5,7,2,"polr",TRUE,0,NA
+"L0492","Las telarañas de Carlota",5,7,2,"polr",TRUE,0,NA
+"L0493","Los cretinos",5,7,2,"polr",TRUE,0,NA
+"L0494","Los dos amantes (leyenda mexicana precolombina)",5,7,2,"polr",TRUE,0,NA
+"L0495","Los secuestradores de burros",5,7,2,"polr",TRUE,0,NA
+"L0500","Un pacto con el diablo",5,7,2,"polr",TRUE,0,NA
+"L0659","Sub-Terra",10,12,2,"polr",TRUE,0,NA
+"L0671","Sub-Sole",10,12,2,"polr",TRUE,0,NA
+"L0691","Entremés del mancebo que casó con mujer brava",8,6,-2,"polr",TRUE,0,NA
+"L0692","Éramos los elegidos del sol",8,7,-1,"polr",FALSE,8,"ari (z=13.4); rix (z=10.6); szigriszt_pazos (z=-10.4); mtld (z=-2.7); entropia_shannon (z=-4.8); long_oracion_media (z=12.4); subordinadas_por_oracion (z=7.1); polaridad_media (z=4)"
+"L0304","Eloy",11,12,1,"polr",FALSE,6,"ari (z=4.2); rix (z=4.1); szigriszt_pazos (z=-2.8); long_oracion_media (z=5.2); dist_dependencia_media (z=4.5); subordinadas_por_oracion (z=5.4)"
+"L0353","El problema de los géneros discursivos",11,12,1,"polr",FALSE,4,"rix (z=3.6); szigriszt_pazos (z=-2.8); mattr_100 (z=-3.6); polaridad_media (z=2.6)"
+"L0537","La historia de Abdula, el mendigo ciego (en Las mil y una noches)",6,7,1,"polr",FALSE,4,"ari (z=2.9); rix (z=4.4); szigriszt_pazos (z=-2.7); subordinadas_por_oracion (z=2.5)"
+"L0674","Como en Santiago",8,7,-1,"polr",FALSE,4,"szigriszt_pazos (z=3.6); mattr_100 (z=6); mtld (z=8.2); yule_k (z=-3.8)"
+"L0306","Ética para Amador",11,12,1,"polr",FALSE,3,"szigriszt_pazos (z=-3.2); entropia_shannon (z=-5.9); prop_alegria (z=-4.5)"
+"L0694","La araña",8,7,-1,"polr",FALSE,3,"szigriszt_pazos (z=-2.6); yule_k (z=3.6); polaridad_media (z=-4.9)"
+"L0123","Abuela de arriba, abuela de abajo",2,1,-1,"polr",FALSE,2,"mattr_100 (z=-3.2); yule_k (z=4.7)"
+"L0125","Camilón comilón",2,1,-1,"polr",FALSE,2,"polaridad_media (z=2.7); prop_alegria (z=2.5)"
+"L0147","Fábula de la ratoncita presumida",2,3,1,"polr",FALSE,2,"mattr_100 (z=-4.7); prop_tristeza (z=4.3)"
+"L0148","Flon Flon y Musina",2,1,-1,"polr",FALSE,2,"polaridad_media (z=-3.1); prop_tristeza (z=2.5)"
+"L0290","Canto del macho anciano y otros poemas",11,12,1,"polr",FALSE,2,"rix (z=3); dist_dependencia_media (z=3.9)"
+"L0357","Pensamiento y lenguaje. Teoría del desarrollo cultural de las funciones psíquicas",11,12,1,"polr",FALSE,2,"rix (z=2.8); prop_tristeza (z=-3.1)"
+"L0404","Antiguo Testamento",6,7,1,"polr",FALSE,2,"mattr_100 (z=-5.8); mtld (z=-4.7)"
+"L0531","Iván el imbécil",6,7,1,"polr",FALSE,2,"mattr_100 (z=-3.2); mtld (z=-2.7)"
+"L0132","El árbol generoso",2,1,-1,"polr",FALSE,1,"yule_k (z=2.8)"
+"L0145","El sastrecillo valiente",2,3,1,"polr",FALSE,1,"polaridad_media (z=-2.6)"
+"L0160","La serpiente emplumada de Asososca (leyenda nicaragüense)",2,1,-1,"polr",FALSE,1,"prop_tristeza (z=-3.1)"
+"L0287","El gato con botas",5,6,1,"polr",FALSE,1,"subordinadas_por_oracion (z=2.7)"
+"L0295","Don Quijote de la Mancha",11,12,1,"polr",FALSE,1,"subordinadas_por_oracion (z=3.9)"
+"L0299","El ingenioso hidalgo don Quijote de La Mancha: primera parte",11,12,1,"polr",FALSE,1,"subordinadas_por_oracion (z=3.3)"
+"L0349","¿Es lógico? Análisis y evaluación de argumentos",11,12,1,"polr",FALSE,1,"mattr_100 (z=-3.5)"
+"L0366","Canción del pirata",4,3,-1,"polr",FALSE,1,"dist_dependencia_media (z=3.5)"
+"L0483","El traje nuevo del emperador",5,6,1,"polr",FALSE,1,"polaridad_media (z=2.5)"
+"L0532","Konrad",6,7,1,"polr",FALSE,1,"mattr_100 (z=-2.6)"
+"L0536","La Cenicienta",6,7,1,"polr",FALSE,1,"rix (z=2.8)"
+"L0547","Los perros rojos",6,7,1,"polr",FALSE,1,"polaridad_media (z=-2.7)"
+"L0551","Mujercitas",6,7,1,"polr",FALSE,1,"mtld (z=3.2)"
+"L0555","Platero y yo",6,7,1,"polr",FALSE,1,"dist_dependencia_media (z=2.9)"
+"L0556","Rikki-tikki-tavi",6,7,1,"polr",FALSE,1,"polaridad_media (z=-2.9)"
+"L0566","La pata de palo",6,7,1,"polr",FALSE,1,"subordinadas_por_oracion (z=2.5)"
+"L0710","Setenta balcones y ninguna flor",8,7,-1,"polr",FALSE,1,"prop_tristeza (z=8.3)"
+"L0012","El lobo y los siete cabritos",1,2,1,"polr",FALSE,0,NA
+"L0057","Una sopa de piedra",1,2,1,"polr",FALSE,0,NA
+"L0130","Días con Sapo y Sepo",2,1,-1,"polr",FALSE,0,NA
+"L0140","El oso que no lo era",2,1,-1,"polr",FALSE,0,NA
+"L0167","Quiero ser famosa",2,3,1,"polr",FALSE,0,NA
+"L0168","Rapunzel",2,3,1,"polr",FALSE,0,NA
+"L0173","Tanabata (leyenda japonesa)",2,1,-1,"polr",FALSE,0,NA
+"L0229","Hijo de ladrón",11,12,1,"polr",FALSE,0,NA
+"L0288","Bartleby, el escribano",11,12,1,"polr",FALSE,0,NA
+"L0292","Cómo me hice monja",11,12,1,"polr",FALSE,0,NA
+"L0293","Cuentos de buenas noches para niñas rebeldes",11,12,1,"polr",FALSE,0,NA
+"L0296","Drácula",11,12,1,"polr",FALSE,0,NA
+"L0300","El ingenioso hidalgo don Quijote de La Mancha: segunda parte",11,12,1,"polr",FALSE,0,NA
+"L0301","El lugar sin límites",11,12,1,"polr",FALSE,0,NA
+"L0303","El túnel",11,12,1,"polr",FALSE,0,NA
+"L0307","Facundo",11,12,1,"polr",FALSE,0,NA
+"L0309","Inés del alma mía",11,12,1,"polr",FALSE,0,NA
+"L0310","La cucaracha soñadora",11,12,1,"polr",FALSE,0,NA
+"L0311","La hora de la estrella",11,12,1,"polr",FALSE,0,NA
+"L0313","La metamorfosis",11,12,1,"polr",FALSE,0,NA
+"L0316","La tía Julia y el escribidor",11,12,1,"polr",FALSE,0,NA
+"L0323","Los pasos perdidos",11,12,1,"polr",FALSE,0,NA
+"L0324","Los siete locos",11,12,1,"polr",FALSE,0,NA
+"L0325","Los vagabundos del Dharma",11,12,1,"polr",FALSE,0,NA
+"L0326","Naciste pintada",11,12,1,"polr",FALSE,0,NA
+"L0327","Poesía completa",11,12,1,"polr",FALSE,0,NA
+"L0332","Reducciones",11,12,1,"polr",FALSE,0,NA
+"L0333","Residencia en la Tierra",11,12,1,"polr",FALSE,0,NA
+"L0334","Rosaura a las diez",11,12,1,"polr",FALSE,0,NA
+"L0338","Todos los fuegos el fuego",11,12,1,"polr",FALSE,0,NA
+"L0339","Tokio blues",11,12,1,"polr",FALSE,0,NA
+"L0341","La Metamorfosis",11,12,1,"polr",FALSE,0,NA
+"L0345","Pantaleón y las visitadoras",11,12,1,"polr",FALSE,0,NA
+"L0347","Un mundo feliz",11,12,1,"polr",FALSE,0,NA
+"L0348","Un mundo feliz",12,11,-1,"polr",FALSE,0,NA
+"L0360","Aladino y la lámpara maravillosa",4,3,-1,"polr",FALSE,0,NA
+"L0361","Androcles y el león (leyenda romana)",4,3,-1,"polr",FALSE,0,NA
+"L0392","La serpiente blanca",4,3,-1,"polr",FALSE,0,NA
+"L0420","Duna",12,11,-1,"polr",FALSE,0,NA
+"L0499","Ulises y el cíclope",5,6,1,"polr",FALSE,0,NA
+"L0506","Colmillo Blanco",6,7,1,"polr",FALSE,0,NA
+"L0509","Cuentos clásicos de Andersen",6,7,1,"polr",FALSE,0,NA
+"L0511","El Ankus del rey",6,7,1,"polr",FALSE,0,NA
+"L0512","El cuarto de guardar",6,7,1,"polr",FALSE,0,NA
+"L0514","El jardín secreto",6,7,1,"polr",FALSE,0,NA
+"L0516","El libro de la selva",6,7,1,"polr",FALSE,0,NA
+"L0517","El libro de los chicos enamorados",6,7,1,"polr",FALSE,0,NA
+"L0518","El mapa imposible",6,7,1,"polr",FALSE,0,NA
+"L0522","El príncipe feliz",6,7,1,"polr",FALSE,0,NA
+"L0524","El rescate del jefe Rojo",6,7,1,"polr",FALSE,0,NA
+"L0529","En la ciudad de los Césares",6,7,1,"polr",FALSE,0,NA
+"L0538","La historia interminable",6,7,1,"polr",FALSE,0,NA
+"L0540","La reina de las nieves",6,7,1,"polr",FALSE,0,NA
+"L0541","La Sirenita",6,7,1,"polr",FALSE,0,NA
+"L0545","Las crónicas de Narnia: El león, la bruja y el ropero",6,7,1,"polr",FALSE,0,NA
+"L0546","Los escarabajos vuelan al atardecer",6,7,1,"polr",FALSE,0,NA
+"L0548","Malditas matemáticas",6,7,1,"polr",FALSE,0,NA
+"L0549","Matilda",6,7,1,"polr",FALSE,0,NA
+"L0550","Momo",6,7,1,"polr",FALSE,0,NA
+"L0554","Papaíto piernas largas",6,7,1,"polr",FALSE,0,NA
+"L0557","Robin Hood",6,7,1,"polr",FALSE,0,NA
+"L0558","Socorro (varios cuentos)",6,7,1,"polr",FALSE,0,NA
+"L0560","Travesía infernal",6,7,1,"polr",FALSE,0,NA
+"L0561","Vassilissa la sabia (cuento popular ruso)",6,7,1,"polr",FALSE,0,NA
+"L0567","La pata de palo",8,7,-1,"polr",FALSE,0,NA
+"L0661","La Odisea",11,12,1,"polr",FALSE,0,NA
+"L0672","Alicia en el País de las Maravillas",8,7,-1,"polr",FALSE,0,NA
+"L0673","Beowulf",8,7,-1,"polr",FALSE,0,NA
+"L0676","Cuentos judíos de la aldea de Chelm",8,7,-1,"polr",FALSE,0,NA
+"L0677","Cuentos judíos de la aldea de Chelm",8,7,-1,"polr",FALSE,0,NA
+"L0678","Cyrano de Bergerac",8,7,-1,"polr",FALSE,0,NA
+"L0680","Dos pesos de agua",8,7,-1,"polr",FALSE,0,NA
+"L0681","El avaro",8,7,-1,"polr",FALSE,0,NA
+"L0684","El cantar de Rolando",8,7,-1,"polr",FALSE,0,NA
+"L0689","El perro y el caballo",8,7,-1,"polr",FALSE,0,NA
+"L0693","Homero. Ilíada",8,7,-1,"polr",FALSE,0,NA
+"L0695","La Canción de los Nibelungos",8,7,-1,"polr",FALSE,0,NA
+"L0697","La desaparición de Honorato Subrac",8,7,-1,"polr",FALSE,0,NA
+"L0699","La fierecilla domada",8,7,-1,"polr",FALSE,0,NA
+"L0700","La melancólica muerte del chico Ostra",8,7,-1,"polr",FALSE,0,NA
+"L0703","Los trabajos y los días",8,7,-1,"polr",FALSE,0,NA
+"L0704","Muchos gatos para un solo crimen",8,7,-1,"polr",FALSE,0,NA
+"L0706","Poema de Mío Cid",8,7,-1,"polr",FALSE,0,NA
+"L0707","Poema del Mío Cid",8,7,-1,"polr",FALSE,0,NA
+"L0712","Tristán e Isolda",8,7,-1,"polr",FALSE,0,NA
+"L0715","La Eneida",11,12,1,"polr",FALSE,0,NA
+"L0716","La hija del capitán",8,7,-1,"polr",FALSE,0,NA
+"L0720","Los juegos del hambre",8,7,-1,"polr",FALSE,0,NA
+"L0122","¡No funciona la tele!",2,NA,NA,NA,NA,7,"ari (z=60.4); szigriszt_pazos (z=-111.3); mtld (z=-4.2); yule_k (z=456.2); entropia_shannon (z=-12.9); prop_alegria (z=-3.2); prop_tristeza (z=-4.2)"
+"L0023","Fernando furioso",1,1,0,"polr",FALSE,6,"mattr_100 (z=-13.8); mtld (z=-5.1); yule_k (z=25.7); entropia_shannon (z=-2.9); long_oracion_media (z=5.8); dist_dependencia_media (z=3.1)"
+"L0354","El problema de los géneros discursivos",12,12,0,"polr",FALSE,6,"ari (z=2.9); rix (z=4.1); szigriszt_pazos (z=-4.7); mattr_100 (z=-3.2); yule_k (z=2.9); polaridad_media (z=4.4)"
+"L0412","Caín",12,12,0,"polr",FALSE,6,"ari (z=4.3); rix (z=3.8); szigriszt_pazos (z=-4); long_oracion_media (z=5); dist_dependencia_media (z=2.9); subordinadas_por_oracion (z=6.7)"
+"L0433","El rastro",12,12,0,"polr",FALSE,6,"ari (z=4.3); rix (z=4.9); szigriszt_pazos (z=-4.5); long_oracion_media (z=4.5); dist_dependencia_media (z=3.2); subordinadas_por_oracion (z=3.8)"
+"L0435","Ensayo sobre la ceguera",12,12,0,"polr",FALSE,6,"ari (z=4.6); rix (z=4); szigriszt_pazos (z=-4.4); long_oracion_media (z=5.2); dist_dependencia_media (z=3.4); subordinadas_por_oracion (z=6.9)"
+"L0441","Kaddish para el hijo no nacido",12,12,0,"polr",FALSE,6,"ari (z=4.7); rix (z=4.8); szigriszt_pazos (z=-5); long_oracion_media (z=5); dist_dependencia_media (z=3.3); subordinadas_por_oracion (z=5.4)"
+"L0358","Pensamiento y lenguaje. Teoría del desarrollo cultural de las funciones psíquicas",12,12,0,"polr",FALSE,5,"rix (z=3.2); szigriszt_pazos (z=-3.6); yule_k (z=2.6); polaridad_media (z=3.5); prop_tristeza (z=-4.4)"
+"L0581","El anillo",7,7,0,"polr",FALSE,5,"ari (z=2.8); rix (z=3.1); szigriszt_pazos (z=-2.9); entropia_shannon (z=-2.6); subordinadas_por_oracion (z=3.1)"
+"L0577","Cuando me puse a pensar",7,NA,NA,NA,NA,5,"entropia_shannon (z=-8.2); subordinadas_por_oracion (z=4.7); polaridad_media (z=2.9); prop_alegria (z=6.8); prop_tristeza (z=-6.7)"
+"L0027","Historias de ratones",1,1,0,"polr",FALSE,4,"mattr_100 (z=-4.8); mtld (z=-3.8); yule_k (z=7.2); prop_tristeza (z=4.2)"
+"L0504","Aracné",6,6,0,"polr",FALSE,4,"ari (z=2.8); rix (z=3); szigriszt_pazos (z=-3.1); prop_tristeza (z=-2.8)"
+"L0580","Dos plagas, más el volcán Calbuco y el cambio tan bajo",7,7,0,"polr",FALSE,4,"entropia_shannon (z=-5); polaridad_media (z=-2.9); prop_alegria (z=-3.1); prop_tristeza (z=3.3)"
+"L0045","Los secretos del abuelo sapo",1,1,0,"polr",FALSE,3,"mattr_100 (z=3.8); mtld (z=5.9); yule_k (z=-4.5)"
+"L0462","Poemas de amor",12,12,0,"polr",FALSE,3,"mtld (z=-2.6); subordinadas_por_oracion (z=2.6); prop_tristeza (z=4.3)"
+"L0640","Piel de asno",7,7,0,"polr",FALSE,3,"subordinadas_por_oracion (z=2.5); polaridad_media (z=2.9); prop_alegria (z=2.9)"
+"L0047","Los tres chanchitos",1,1,0,"polr",FALSE,2,"mtld (z=-3.1); yule_k (z=4.1)"
+"L0056","Un paseo al campo",1,1,0,"polr",FALSE,2,"mtld (z=-3.1); yule_k (z=9.4)"
+"L0350","¿Es lógico? Análisis y evaluación de argumentos",12,12,0,"polr",FALSE,2,"mattr_100 (z=-3.2); prop_tristeza (z=-2.6)"
+"L0405","Antiguo Testamento",7,7,0,"polr",FALSE,2,"mattr_100 (z=-5.5); mtld (z=-3.7)"
+"L0413","Cipango",12,12,0,"polr",FALSE,2,"long_oracion_media (z=2.6); polaridad_media (z=-2.7)"
+"L0440","Hans Pozo",12,12,0,"polr",FALSE,2,"dist_dependencia_media (z=3.1); polaridad_media (z=-3.1)"
+"L0451","Las flores del mal",12,12,0,"polr",FALSE,2,"yule_k (z=-3.4); entropia_shannon (z=3.2)"
+"L0575","Conejos blancos",7,7,0,"polr",FALSE,2,"entropia_shannon (z=-5.1); prop_tristeza (z=8.2)"
+"L0607","Génesis",7,7,0,"polr",FALSE,2,"mattr_100 (z=-5.3); mtld (z=-3.3)"
+"L0623","La mano",7,7,0,"polr",FALSE,2,"polaridad_media (z=-3.5); prop_alegria (z=-3)"
+"L0639","Nuevo testamento",7,7,0,"polr",FALSE,2,"mattr_100 (z=-4); mtld (z=-3.4)"
+"L0655","Vencidos",7,7,0,"polr",FALSE,2,"mattr_100 (z=-4.6); mtld (z=-3.8)"
+"L0719","Los heraldos negros",12,12,0,"polr",FALSE,2,"polaridad_media (z=-3); prop_tristeza (z=6)"
+"L0009","El león que no sabía escribir",1,1,0,"polr",FALSE,1,"polaridad_media (z=2.7)"
+"L0032","La gallina roja y el grano de trigo",1,1,0,"polr",FALSE,1,"prop_alegria (z=2.6)"
+"L0037","La sorpresa",1,1,0,"polr",FALSE,1,"prop_alegria (z=4)"
+"L0263","La bella durmiente",3,3,0,"polr",FALSE,1,"long_oracion_media (z=2.9)"
+"L0450","La última niebla",12,12,0,"polr",FALSE,1,"mtld (z=3)"
+"L0454","Lo que queda del día",12,12,0,"polr",FALSE,1,"polaridad_media (z=3.2)"
+"L0458","Operación masacre",12,12,0,"polr",FALSE,1,"prop_alegria (z=-2.6)"
+"L0464","Tres tristes tigres",12,12,0,"polr",FALSE,1,"prop_tristeza (z=3.4)"
+"L0597","El perro que no sabía ladrar",7,7,0,"polr",FALSE,1,"entropia_shannon (z=-3.9)"
+"L0616","La decisión de Randolph Carter",7,7,0,"polr",FALSE,1,"mtld (z=3.1)"
+"L0005","Donde viven los monstruos",1,1,0,"polr",FALSE,0,NA
+"L0006","El cuervo y la vasija",1,1,0,"polr",FALSE,0,NA
+"L0014","El pastorcito mentiroso",1,1,0,"polr",FALSE,0,NA
+"L0018","El tonto Perico,",1,1,0,"polr",FALSE,0,NA
+"L0024","Frederick",1,1,0,"polr",FALSE,0,NA
+"L0028","Juanito y las semillas mágicas",1,1,0,"polr",FALSE,0,NA
+"L0230","Hijo de ladrón",12,12,0,"polr",FALSE,0,NA
+"L0247","El diablo y el boxeador",3,3,0,"polr",FALSE,0,NA
+"L0260","El zorro y las uvas",3,3,0,"polr",FALSE,0,NA
+"L0264","La gallina de los huevos de oro",3,3,0,"polr",FALSE,0,NA
+"L0272","Los tres deseos",3,3,0,"polr",FALSE,0,NA
+"L0342","La Metamorfosis",12,12,0,"polr",FALSE,0,NA
+"L0346","Pantaleón y las visitadoras",12,12,0,"polr",FALSE,0,NA
+"L0407","1984",12,12,0,"polr",FALSE,0,NA
+"L0408","A partir de Manhattan",12,12,0,"polr",FALSE,0,NA
+"L0410","Benito Cereno",12,12,0,"polr",FALSE,0,NA
+"L0411","Boquitas pintadas",12,12,0,"polr",FALSE,0,NA
+"L0414","Conversación en La Catedral",12,12,0,"polr",FALSE,0,NA
+"L0415","Crimen y castigo",12,12,0,"polr",FALSE,0,NA
+"L0416","De amor y de sombra",12,12,0,"polr",FALSE,0,NA
+"L0418","Desastres íntimos",12,12,0,"polr",FALSE,0,NA
+"L0421","El Aleph",12,12,0,"polr",FALSE,0,NA
+"L0422","El astillero",12,12,0,"polr",FALSE,0,NA
+"L0436","Espantapájaros",12,12,0,"polr",FALSE,0,NA
+"L0437","Fahrenheit 451",12,12,0,"polr",FALSE,0,NA
+"L0438","Flores oscuras",12,12,0,"polr",FALSE,0,NA
+"L0445","La maravillosa vida breve de Óscar Wao",12,12,0,"polr",FALSE,0,NA
+"L0447","La palabra del mudo",12,12,0,"polr",FALSE,0,NA
+"L0448","La señora Dalloway",12,12,0,"polr",FALSE,0,NA
+"L0452","Las genealogías",12,12,0,"polr",FALSE,0,NA
+"L0453","Leviatán",12,12,0,"polr",FALSE,0,NA
+"L0455","Los detectives salvajes",12,12,0,"polr",FALSE,0,NA
+"L0456","Los emigrados",12,12,0,"polr",FALSE,0,NA
+"L0457","Madame Bovary",12,12,0,"polr",FALSE,0,NA
+"L0466","Una historia del mundo en diez capítulos y medio",12,12,0,"polr",FALSE,0,NA
+"L0468","Veinticuatro horas en la vida de una mujer",12,12,0,"polr",FALSE,0,NA
+"L0502","Rip Van Winkle",7,7,0,"polr",FALSE,0,NA
+"L0535","La casa de muñecas",6,6,0,"polr",FALSE,0,NA
+"L0568","¿Estás ahí, Dios? Soy yo, Margaret",7,7,0,"polr",FALSE,0,NA
+"L0572","Bibiana y su mundo",7,7,0,"polr",FALSE,0,NA
+"L0574","Cinco panes de cebada",7,7,0,"polr",FALSE,0,NA
+"L0576","Corazón de tinta",7,7,0,"polr",FALSE,0,NA
+"L0582","El caballero de la carreta",7,7,0,"polr",FALSE,0,NA
+"L0587","El corsario negro; La hija del corsario negro",7,7,0,"polr",FALSE,0,NA
+"L0588","El dador",7,7,0,"polr",FALSE,0,NA
+"L0590","El extraño caso del doctor Jekyll y el señor Hyde",7,7,0,"polr",FALSE,0,NA
+"L0591","El extraño caso del doctor Jekyll y Mr. Hyde",7,7,0,"polr",FALSE,0,NA
+"L0593","El ladrón del rayo",7,7,0,"polr",FALSE,0,NA
+"L0595","El libro del cementerio",7,7,0,"polr",FALSE,0,NA
+"L0596","El niño con el pijama de rayas",7,7,0,"polr",FALSE,0,NA
+"L0598","El Principito",7,7,0,"polr",FALSE,0,NA
+"L0599","El último grumete de la Baquedano",7,7,0,"polr",FALSE,0,NA
+"L0601","En la corte de mi padre",7,7,0,"polr",FALSE,0,NA
+"L0603","Eragon",7,7,0,"polr",FALSE,0,NA
+"L0605","Famoso cohete",7,7,0,"polr",FALSE,0,NA
+"L0606","Fútbol a sol y sombra",7,7,0,"polr",FALSE,0,NA
+"L0608","Ghostgirl",7,7,0,"polr",FALSE,0,NA
+"L0609","Gólem, el coloso de barro",7,7,0,"polr",FALSE,0,NA
+"L0610","Historia de una gaviota y el gato que le enseñó a volar",7,7,0,"polr",FALSE,0,NA
+"L0612","Kalfukura",7,7,0,"polr",FALSE,0,NA
+"L0613","La casa del juez",7,7,0,"polr",FALSE,0,NA
+"L0614","La colina de Watership",7,7,0,"polr",FALSE,0,NA
+"L0617","La gran Gilly Hopkins",7,7,0,"polr",FALSE,0,NA
+"L0618","La hija del corsario negro",7,7,0,"polr",FALSE,0,NA
+"L0619","La historia de Hércules",7,7,0,"polr",FALSE,0,NA
+"L0621","La huella del Dragón. Cuentos populares chinos",7,7,0,"polr",FALSE,0,NA
+"L0622","La leyenda de Al-Qit",7,7,0,"polr",FALSE,0,NA
+"L0624","La noche del Samurai: cuentos populares japoneses",7,7,0,"polr",FALSE,0,NA
+"L0625","La pata de mono",7,7,0,"polr",FALSE,0,NA
+"L0632","Mágico sur",7,7,0,"polr",FALSE,0,NA
+"L0634","Mi planta de naranja lima",7,7,0,"polr",FALSE,0,NA
+"L0643","Puente a Terabithia",7,7,0,"polr",FALSE,0,NA
+"L0646","Quique Hache. El mall embrujado y otras historias",7,7,0,"polr",FALSE,0,NA
+"L0648","Robin Hood",7,7,0,"polr",FALSE,0,NA
+"L0649","Robin Hood",7,7,0,"polr",FALSE,0,NA
+"L0651","Stardust",7,7,0,"polr",FALSE,0,NA
+"L0652","Trilogía de Fairy Oak",7,7,0,"polr",FALSE,0,NA
+"L0653","Un destripador de antaño",7,7,0,"polr",FALSE,0,NA
+"L0654","Un viejo que leía novelas de amor",7,7,0,"polr",FALSE,0,NA
+"L0657","Yo soy Malala",7,7,0,"polr",FALSE,0,NA
