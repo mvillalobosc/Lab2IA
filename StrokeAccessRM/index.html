@@ -274,7 +274,7 @@ select.field{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xml
       <div class="chips" id="tipoChips" style="margin:8px 0 2px;display:none"></div>
       <div class="toggle" id="tgIso" style="margin-top:6px">
         <div class="sw"></div>
-        <div class="lbl" data-i18n-html="p3.iso">Isócronas de viaje<small>Cobertura ACV (21 hospitales de la tesis)</small></div>
+        <div class="lbl" data-i18n-html="p3.iso">Isócronas de viaje<small>Cobertura ACV</small></div>
       </div>
       <div class="chips" id="isoChips" style="margin-top:8px;display:none"></div>
     </section>
@@ -436,7 +436,7 @@ es:{
  'p3.title':'Red asistencial de la RM',
  'p3.hint':'113 establecimientos de la Región Metropolitana. Los hospitales que atienden ACV isquémico van resaltados.',
  'p3.est':'Establecimientos<small>Hospitales, clínicas e institutos</small>',
- 'p3.iso':'Isócronas de viaje<small>Cobertura ACV (21 hospitales de la tesis)</small>',
+ 'p3.iso':'Isócronas de viaje<small>Cobertura ACV</small>',
  'p4.title':'Consulta un punto',
  'p4.hint':'Escribe una dirección o usa tu ubicación: te digo en qué zona cae y su hospital más cercano.',
  'p4.ph':'Ej: Alameda 3363, Estación Central','p4.search':'Buscar','p4.geo':'➤ Mi ubicación',
@@ -668,8 +668,8 @@ const state = { hosp:false, iso:false, isoOn:{10:true,20:true,30:true,40:true,50
 const map = L.map('map',{zoomControl:false, preferCanvas:true, minZoom:8, maxZoom:17})
   .setView([-33.55,-70.66],10);
 L.control.zoom({position:'bottomright'}).addTo(map);
-L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',{
-  attribution:'© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> · © <a href="https://carto.com/attributions">CARTO</a>',
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{
+  attribution:'© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> · © <a href="https://www.openstreetmap.org/copyright">CARTO</a>',
   subdomains:'abcd', maxZoom:19
 }).addTo(map);
 
