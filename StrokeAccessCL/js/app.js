@@ -41,7 +41,7 @@ const SALUD_REGIONAL = {
 const TIERS = [30,45,60];
 const TIER_COLOR = {30:'#00A499',45:'#EAAA00',60:'#EA7600'};
 const ORS_URL = 'https://api.openrouteservice.org/v2/isochrones/driving-car';
-const ORS_KEY_PROYECTO = ''; // GitHub/public version: paste your ORS key in Help if live recalculation is needed.
+const ORS_KEY_PROYECTO = '5b3ce3597851110001cf6248df4d16338e0543969a432e9df8d71e65';
 const CHILE_BOUNDS = [[-56.2,-76.8],[-17.4,-66.2]];
 
 const $ = id => document.getElementById(id);
@@ -135,7 +135,7 @@ function initMap(){
   map=L.map('map',{zoomControl:false,attributionControl:true,minZoom:4,maxZoom:18});
   L.control.zoom({position:'topright'}).addTo(map);
   L.control.scale({position:'bottomleft',imperial:false}).addTo(map);
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',
     {subdomains:'abcd',maxZoom:19,attribution:'© OpenStreetMap · © CARTO'}).addTo(map);
   map.fitBounds(CHILE_BOUNDS,{paddingTopLeft:[10,10]});
   capaIso=L.layerGroup().addTo(map);
