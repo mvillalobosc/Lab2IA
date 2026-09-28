@@ -1,0 +1,695 @@
+% =====================================================================
+% Supplementary material
+% Benchmarking national health systems against a global reference set, 2015-2020
+% Compile: pdflatex -> bibtex -> pdflatex -> pdflatex (shares references.bib and WileyNJD-AMA.bst with the manuscript).
+% =====================================================================
+\documentclass[11pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{mathptmx}
+\usepackage[letterpaper,margin=0.9in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{threeparttable}
+\usepackage{caption}
+\usepackage{xcolor}
+\usepackage{microtype}
+\usepackage[super,sort&compress]{natbib}
+\setcitestyle{citesep={,}}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xurl}
+\renewcommand{\bibnumfmt}[1]{#1.}
+\captionsetup{labelformat=empty,justification=raggedright,singlelinecheck=false}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\newcommand{\pending}[1]{\textcolor{red}{\textbf{[PENDING: #1]}}}
+% Helpers expected by WileyNJD-AMA.bst (DOI links in the reference list)
+\newcommand{\doibase}{https://doi.org/}
+\makeatletter\providecommand{\href@noop}[2]{#2}\makeatother
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\begin{document}
+
+\begin{center}
+{\large\bfseries Supplementary material}\\[6pt]
+{\bfseries Benchmarking national health systems against a global reference set, 2015--2020: relative technical efficiency, productivity change and associated factors}
+\end{center}
+
+\tableofcontents
+
+% =====================================================================
+% S1. LITERATURE OVERVIEW
+% =====================================================================
+\clearpage
+\section{Supplementary tables}
+
+\begin{table}[htbp]
+\footnotesize
+\caption{\textbf{Table S1.} Representative empirical studies of health-system technical efficiency by region and method. The signs (+) and ($-$) in the last column indicate positive or negative associations with the efficiency scores.}
+\begin{tabularx}{\textwidth}{@{}L{2.6cm}L{2.1cm}XXL{1.7cm}XL{2.4cm}@{}}
+\toprule
+\textbf{Study} & \textbf{Countries} & \textbf{Inputs} & \textbf{Outputs} & \textbf{Model} & \textbf{Main findings} & \textbf{Associated factors} \\
+\midrule
+Retzlaff-Roberts et al.\citep{retzlaff2004} & OECD (27) & Expenditure, physicians, beds & Life expectancy, mortality, PYLL & DEA & Japan, Sweden and Spain had high efficiency; the USA had low efficiency & Socioeconomic factors, education \\
+Ahmed et al.\citep{ahmed2019} & Asia (15) & Expenditure, physicians, beds & Life expectancy, mortality & DEA & Singapore, Japan and Korea had high efficiency; Bangladesh and Nepal also performed well & GDP (+), urbanisation (+) \\
+Gómez Gallego et al.\citep{gomezgallego2019} & Europe (28) & Expenditure, physicians, beds & Life expectancy, infant mortality & DEA, Malmquist & Eastern Europe had higher efficiency than Western Europe & GDP (+), government share (+) \\
+Marinho et al.\citep{marinho2020} & Latin America and OECD & Expenditure, physicians, nurses, beds & Life expectancy, infant mortality & SFA & Chile, Costa Rica and Cuba had high efficiency; Brazil and Uruguay had lower values & GDP (+) \\
+Arhin et al.\citep{arhin2023} & Africa (46) & Expenditure, staff, infrastructure & Vaccination, life expectancy & DEA, Tobit & Senegal and Nigeria were efficient; regional differences were marked & Density (+), education (+) \\
+Kang et al.\citep{kang2023} & China and ASEAN (11) & Expenditure, health workers, beds & Life expectancy, infant survival & DEA, SFA, Tobit & China, Singapore and Malaysia were efficient; efficiency decreased during COVID-19 & Urbanisation (+), COVID-19 ($-$) \\
+Peres et al.\citep{peres2025} & Latin America and the Caribbean (23) & Expenditure, physicians, nurses, beds & Life expectancy, infant mortality & DEA & Efficiency varied across countries; higher expenditure did not necessarily translate into better outcomes & Not modelled \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+% =====================================================================
+% S2. COUNTRIES PER FRONTIER
+% =====================================================================
+\begin{table}[htbp]
+\footnotesize
+\caption{\textbf{Table S2.} Number of countries in each annual DEA frontier and in the balanced panel used for the Malmquist analysis, by financing model and geographic region, 2015--2020. The balanced panel comprises the 34 countries with complete input and output data in all six years. Source: adapted from the source thesis.\citep{valenzuela2024}}
+\begin{tabular}{@{}lcccccccccc@{}}
+\toprule
+& & \multicolumn{3}{c}{\textbf{Financing model}} & \multicolumn{5}{c}{\textbf{Geographic region}} \\
+\cmidrule(lr){3-5}\cmidrule(lr){6-10}
+\textbf{Year} & \textbf{Countries} & Private & Mixed & Public & Africa & Americas & Asia & Europe & Oceania \\
+\midrule
+2015 & 83 & 6 & 66 & 11 & 12 & 13 & 23 & 32 & 3 \\
+2016 & 84 & 5 & 65 & 14 & 10 & 17 & 24 & 31 & 2 \\
+2017 & 84 & 5 & 67 & 12 & 7 & 20 & 26 & 30 & 1 \\
+2018 & 85 & 6 & 62 & 17 & 11 & 19 & 25 & 29 & 1 \\
+2019 & 71 & 5 & 52 & 14 & 9 & 10 & 24 & 27 & 1 \\
+2020 & 59 & 2 & 48 & 9 & 4 & 11 & 18 & 25 & 1 \\
+Balanced panel & 34 & 1 & 29 & 4 & 2 & 5 & 7 & 19 & 1 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% =====================================================================
+% S3. DATA APPENDIX
+% =====================================================================
+\clearpage
+\subsection*{Data appendix (Table S3)}
+
+Table S3 documents every variable with its indicator code, definition, unit, source, transformation and missing-data rule. The rules below apply to all variables.
+
+\begin{enumerate}
+\item \textbf{Reference period.} Calendar years 2015 to 2020. Every value is the observation published for that calendar year; no value was carried forward or backward from another year, and no interpolation or imputation was applied in the main dataset (the single interpolated cell of the robustness extraction is documented in item 7).
+\item \textbf{Complete-case rule for the DEA frontiers.} A country enters the frontier of a given year only if all three inputs and both outputs are observed for that year. This produced 83, 84, 84, 85, 71 and 59 countries in 2015 to 2020 (Table S2). Missing values were concentrated in physicians and hospital beds.
+\item \textbf{Balanced panel and fixed sets.} The Malmquist analysis used the balanced panel of 34 countries defined in the source study as the countries present in every annual dataset at the time of that analysis.\citep{valenzuela2024} In the final annual frontiers reported in Table S6, 39 countries have a score in every year; this larger set is used for the descriptive re-tabulation (Table S8) and for the fixed-sample frontiers (Table S11), which do not depend on the panel structure of the Malmquist index.
+\item \textbf{Second-stage models.} Country-year observations enter the second-stage models when the efficiency score and all contextual variables are observed: 445 of the 466 country-years (the 21 exclusions lack public education expenditure). The year-specific models use 76, 76, 83, 82, 70 and 58 observations for 2015 to 2020.
+\item \textbf{Group classifications.} Geographic regions (continents) and subregions follow the World Bank classification. Income groups follow the World Bank income classification recorded in the source dataset for each country (Table S6). The financing model (public, mixed, private) follows the Commonwealth Fund's international health care system profiles, which classify systems by their main source of financing.\citep{commonwealth2024} The income-group frontiers of Table S13 merge the low- and lower-middle-income groups because the low-income group contains three to seven countries per year.
+\item \textbf{Reporting quality.} Physician and bed densities are compiled by WHO from national administrative sources and differ in periodicity and completeness; life expectancy and infant mortality are estimates produced by the UN Population Division and the UN Inter-agency Group for Child Mortality Estimation and are available for all countries and years. The countries that lack a score in 2019 and 2020 are therefore mainly those with irregular workforce or bed reporting, and Table S8 documents their characteristics.
+\item \textbf{Software.} The main analysis (annual DEA frontiers, specification comparison, Malmquist index, Kruskal--Wallis tests and the original Tobit models) was run in R 4.3.1 with the rDEA package.\citep{valenzuela2024} The robustness analyses and the second-stage models reported in this article (Tables S9 to S15 and Tables 2 and 3 of the main text) were computed in Python 3.11 with SciPy 1.17 (radial DEA solved as linear programmes with the HiGHS solver; maximum-likelihood Tobit and truncated regressions; bootstrap with 500 replications for the Tobit models, 2,000 for Algorithm 1 and 100/1,000 for Algorithm 2 of Simar and Wilson). The code is available from the corresponding author.
+\item \textbf{Two data extractions.} The main analysis uses the extraction made for the source study in 2024. The robustness analyses use a new extraction from the World Bank API made on 27 September 2026, restricted to the same 466 country-year cells; one cell (Albania 2018, physicians) is no longer published and was interpolated between 2016 and 2019. Re-estimating the annual IO--CRS frontiers on the new extraction reproduces the published scores closely (Spearman rank correlation 0.94 to 0.99 by year, 0.98 pooled; mean absolute difference 0.03; the same eight to nine frontier countries in most years). The largest differences involve countries whose physician or bed series were revised by WHO after 2024 (Liberia, Togo, Bhutan, Thailand, Kazakhstan).
+\end{enumerate}
+
+{\footnotesize\setlength{\tabcolsep}{4pt}
+\begin{longtable}{@{}L{2.6cm}L{3.0cm}L{4.4cm}L{2.0cm}L{3.2cm}@{}}
+\caption{\textbf{Table S3.} Variables, indicator codes, definitions, sources and transformations. WDI, World Development Indicators (World Bank); GHO, Global Health Observatory (WHO); GHED, Global Health Expenditure Database (WHO).}\\
+\toprule
+\textbf{Variable} & \textbf{Indicator code} & \textbf{Definition and unit} & \textbf{Source} & \textbf{Transformation and missing-data rule} \\
+\midrule
+\endfirsthead
+\multicolumn{5}{@{}l}{\textit{Table S3, continued}} \\
+\toprule
+\textbf{Variable} & \textbf{Indicator code} & \textbf{Definition and unit} & \textbf{Source} & \textbf{Transformation and missing-data rule} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{5}{r}{\textit{continued on next page}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+\multicolumn{5}{@{}l}{\textit{DEA inputs}} \\
+Current health expenditure & SH.XPD.CHEX.GD.ZS & Current health expenditure as a percentage of GDP, all financing sources & WDI (compiled from GHED) & None; complete-case rule \\
+Physicians & SH.MED.PHYS.ZS & Medical doctors (generalists and specialists) per 1,000 population & WDI (compiled from the WHO Global Health Observatory) & None; complete-case rule \\
+Hospital beds & WHS6\_102 (GHO); SH.MED.BEDS.ZS (WDI, per 1,000) & Hospital beds per 10,000 population, including inpatient beds in public, private, general and specialised hospitals & WHO Global Health Observatory & None; complete-case rule. Radial DEA scores are invariant to the unit of measurement, so the per 10,000 (main analysis) and per 1,000 (robustness extraction) series give the same frontiers \\
+\multicolumn{5}{@{}l}{\textit{DEA outputs}} \\
+Life expectancy at birth & SP.DYN.LE00.IN & Years a newborn would live if age-specific mortality patterns at birth stayed constant, total population & WDI (UN Population Division estimates) & None; complete-case rule \\
+Infant survival & Derived from SP.DYN.IMRT.IN & Reciprocal of the infant mortality rate (infant deaths per 1,000 live births), so that higher values indicate better outcomes; a rate-based quantity independent of population size & WDI (UN IGME estimates) & $1/\text{IMR}$; complete-case rule \\
+\multicolumn{5}{@{}l}{\textit{Contextual variables (second stage)}} \\
+Crude birth rate & SP.DYN.CBRT.IN & Live births per 1,000 population & WDI & None \\
+Crude death rate & SP.DYN.CDRT.IN & Deaths per 1,000 population & WDI & None \\
+Gross national income per capita & NY.GNP.PCAP.CD & GNI per capita, Atlas method, current USD & WDI & None \\
+Labour force & SL.TLF.TOTL.IN & Total labour force, persons aged 15 and older & WDI (ILO estimates) & None \\
+Public expenditure on education & SE.XPD.TOTL.GD.ZS & General government expenditure on education as a percentage of GDP & WDI (UNESCO UIS) & None \\
+GDP per capita & NY.GDP.PCAP.CD & GDP per capita, current USD & WDI & None \\
+Population density & EN.POP.DNST & Persons per square kilometre of land area & WDI & None \\
+Rural population & SP.RUR.TOTL.ZS & Rural population as a percentage of total population & WDI & None \\
+\multicolumn{5}{@{}l}{\textit{Pandemic-related variables (2020 model)}} \\
+Confirmed cases & -- & Cumulative confirmed COVID-19 cases per million population at 31 December 2020 & Our World in Data compilation of official reports\citep{owid2020} & Divided by 1,000 (cases per thousand people); Laos included \\
+Confirmed deaths & -- & Cumulative confirmed COVID-19 deaths per million population at 31 December 2020 & Our World in Data compilation of official reports\citep{owid2020} & Divided by 10 (deaths per 100,000 people) \\
+Mean daily reproduction number & -- & Daily effective reproduction number estimated with the Kalman-filter method of Arroyo-Marioli et al.\citep{arroyo2021} & Our World in Data compilation\citep{owid2020} & Mean over the days of 2020 with an estimate; not available for Laos (58 of 59 countries) \\
+\multicolumn{5}{@{}l}{\textit{Classification variables}} \\
+Region and subregion & -- & World Bank regional classification & World Bank & -- \\
+Income group & -- & World Bank income classification (low, lower-middle, upper-middle, high) as recorded in the source dataset & World Bank & -- \\
+Financing model & -- & Main source of financing of the health system: public, mixed or private & Commonwealth Fund international health care system profiles\citep{commonwealth2024} & -- \\
+\end{longtable}
+}
+
+% =====================================================================
+% S4. STRATA CELL COUNTS
+% =====================================================================
+\clearpage
+\begin{table}[htbp]
+\footnotesize
+\caption{\textbf{Table S4.} Number of country-year observations in each cell of the two-dimensional descriptive stratification of IO--CRS technical efficiency (Figure S3), pooled across 2015--2020 (466 country-year observations).}
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+\multicolumn{5}{@{}l}{\textit{(a) Geographic region by financing model}} \\
+\textbf{Region} & Public & Mixed & Private & Total \\
+\midrule
+Africa & 21 & 16 & 16 & 53 \\
+Americas & 5 & 82 & 3 & 90 \\
+Asia & 16 & 114 & 10 & 140 \\
+Europe & 35 & 139 & 0 & 174 \\
+Oceania & 0 & 9 & 0 & 9 \\
+Total & 77 & 360 & 29 & 466 \\
+\midrule
+\multicolumn{5}{@{}l}{\textit{(b) World Bank income group by financing model}} \\
+\textbf{Income group} & Public & Mixed & Private & Total \\
+\midrule
+Low & 17 & 2 & 15 & 34 \\
+Lower-middle & 16 & 59 & 11 & 86 \\
+Upper-middle & 10 & 125 & 0 & 135 \\
+High & 34 & 174 & 3 & 211 \\
+Total & 77 & 360 & 29 & 466 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% =====================================================================
+% S5. KRUSKAL-WALLIS
+% =====================================================================
+\begin{table}[htbp]
+\footnotesize
+\caption{\textbf{Table S5.} Kruskal--Wallis test p values for annual differences in IO--CRS technical efficiency across geographic regions, subregions and financing models, 2015--2020. All comparisons were significant at $p<0.05$ in every year. Source: adapted from the source thesis.\citep{valenzuela2024}}
+\begin{tabular}{@{}lccc@{}}
+\toprule
+\textbf{Year} & \textbf{Region} & \textbf{Subregion} & \textbf{Financing model} \\
+\midrule
+2015 & 0.00002 & 0.00007 & 0.00022 \\
+2016 & 0.00127 & 0.01509 & 0.00176 \\
+2017 & 0.00296 & 0.00152 & 0.00116 \\
+2018 & 0.00364 & 0.00199 & 0.01545 \\
+2019 & 0.00019 & 0.00098 & 0.00192 \\
+2020 & 0.03889 & 0.02192 & 0.01503 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% =====================================================================
+% S6. COUNTRY SCORES
+% =====================================================================
+\clearpage
+Table S6 reports the annual IO--CRS technical efficiency scores by country with the World Bank income group and the dominant financing model. Country codes follow ISO 3166-1 alpha-3. A dash indicates that the country lacked complete input and output data for that year and was excluded from that year's frontier. Scores are shown to two decimals; the derived statistics in Tables S7 and S8 and the means in Table 1 of the main text were computed from these values.
+
+\footnotesize
+\begin{longtable}{@{}llllcccccc@{}}
+\caption{\textbf{Table S6.} Annual technical efficiency scores with the IO--CRS model, by country, 2015--2020. Income denotes the World Bank income group (Low, Lower-mid, Upper-mid, High). Source: adapted from the source thesis.\citep{valenzuela2024}}\\
+\toprule
+\textbf{Code} & \textbf{Country} & \textbf{Income} & \textbf{Financing} & \textbf{2015} & \textbf{2016} & \textbf{2017} & \textbf{2018} & \textbf{2019} & \textbf{2020} \\
+\midrule
+\endfirsthead
+\multicolumn{10}{@{}l}{\textit{Table S6, continued}} \\
+\toprule
+\textbf{Code} & \textbf{Country} & \textbf{Income} & \textbf{Financing} & \textbf{2015} & \textbf{2016} & \textbf{2017} & \textbf{2018} & \textbf{2019} & \textbf{2020} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{10}{r}{\textit{continued on next page}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+AFG & Afghanistan & Low & Public & 0.62 & 0.59 & 0.45 & -- & -- & -- \\
+ALB & Albania & Upper-mid & Mixed & -- & 0.51 & -- & 0.47 & -- & 0.55 \\
+ARE & United Arab Emirates & High & Public & -- & -- & -- & -- & 0.79 & 0.92 \\
+ARG & Argentina & Upper-mid & Mixed & 0.29 & 0.33 & 0.30 & -- & 0.32 & 0.42 \\
+ARM & Armenia & Upper-mid & Mixed & 0.29 & -- & 0.29 & -- & -- & -- \\
+AUS & Australia & High & Mixed & 0.44 & 0.46 & -- & -- & -- & -- \\
+AUT & Austria & High & Mixed & 0.36 & 0.38 & 0.38 & 0.35 & 0.37 & 0.48 \\
+AZE & Azerbaijan & Upper-mid & Mixed & 0.65 & 0.64 & 0.74 & 0.70 & 0.65 & -- \\
+BEL & Belgium & High & Mixed & 0.45 & 0.44 & 0.48 & 0.46 & 0.46 & 0.60 \\
+BEN & Benin & Lower-mid & Public & -- & 1.00 & -- & 1.00 & 1.00 & -- \\
+BGD & Bangladesh & Lower-mid & Private & 1.00 & 0.98 & 1.00 & 1.00 & 1.00 & -- \\
+BGR & Bulgaria & Upper-mid & Mixed & 0.42 & -- & -- & 0.40 & -- & -- \\
+BHR & Bahrain & High & Mixed & 0.80 & 0.82 & -- & -- & -- & -- \\
+BHS & Bahamas & High & Mixed & -- & -- & 0.44 & -- & -- & -- \\
+BLR & Belarus & Upper-mid & Public & 0.58 & 0.63 & 0.65 & 0.64 & 0.65 & -- \\
+BLZ & Belize & Upper-mid & Mixed & -- & -- & 0.68 & 0.66 & -- & -- \\
+BOL & Bolivia & Lower-mid & Mixed & -- & 0.45 & 0.50 & -- & -- & -- \\
+BRA & Brazil & Upper-mid & Mixed & -- & -- & 0.36 & -- & 0.33 & -- \\
+BRB & Barbados & High & Public & -- & -- & 0.46 & -- & -- & -- \\
+BTN & Bhutan & Lower-mid & Public & 0.79 & 0.77 & 1.00 & 0.82 & 0.77 & 0.72 \\
+BWA & Botswana & Upper-mid & Public & -- & 0.46 & -- & 0.44 & -- & -- \\
+CAN & Canada & High & Mixed & 0.47 & 0.49 & 0.47 & 0.49 & 0.51 & 0.64 \\
+CHE & Switzerland & High & Mixed & 0.35 & 0.35 & 0.36 & 0.35 & 0.36 & 0.52 \\
+CHL & Chile & High & Mixed & 0.49 & 0.49 & 0.47 & 0.47 & 0.48 & 0.62 \\
+CHN & China & Upper-mid & Mixed & 0.62 & 0.62 & 0.63 & 0.57 & 0.60 & 0.67 \\
+COL & Colombia & Upper-mid & Mixed & 0.46 & 0.45 & 0.47 & 0.46 & 0.43 & 0.55 \\
+CPV & Cabo Verde & Lower-mid & Mixed & 0.63 & 0.62 & -- & 0.58 & -- & -- \\
+CRI & Costa Rica & Upper-mid & Mixed & 0.74 & 0.75 & 0.69 & 0.69 & 0.72 & 0.81 \\
+CUB & Cuba & Upper-mid & Public & 0.31 & 0.32 & -- & -- & -- & -- \\
+CYP & Cyprus & High & Mixed & 0.89 & 1.00 & 0.91 & 0.90 & 0.90 & -- \\
+CZE & Czechia & High & Mixed & 0.53 & 0.57 & 0.54 & 0.50 & 0.53 & 0.69 \\
+DEU & Germany & High & Mixed & 0.35 & 0.36 & 0.37 & 0.36 & 0.34 & 0.46 \\
+DNK & Denmark & High & Public & 0.62 & 0.62 & 0.58 & 0.58 & 0.60 & -- \\
+DOM & Dominican Republic & Upper-mid & Mixed & -- & -- & -- & 0.68 & 0.64 & -- \\
+DZA & Algeria & Lower-mid & Public & -- & 0.46 & -- & -- & -- & -- \\
+ECU & Ecuador & Upper-mid & Mixed & 0.48 & 0.53 & 0.52 & -- & -- & -- \\
+EGY & Egypt & Lower-mid & Mixed & 0.61 & -- & -- & -- & -- & -- \\
+ESP & Spain & High & Mixed & 0.64 & 0.68 & 0.64 & 0.64 & 0.65 & 0.76 \\
+EST & Estonia & High & Mixed & 0.59 & 0.63 & 0.67 & 0.75 & 0.78 & 1.00 \\
+FIN & Finland & High & Public & 0.70 & 0.70 & 0.74 & 0.76 & 0.79 & 1.00 \\
+FJI & Fiji & Upper-mid & Mixed & 0.76 & -- & -- & -- & -- & -- \\
+FRA & France & High & Mixed & 0.45 & 0.43 & 0.45 & 0.44 & 0.44 & 0.55 \\
+GBR & United Kingdom & High & Mixed & 0.55 & 0.58 & 0.54 & 0.57 & 0.58 & 0.69 \\
+GEO & Georgia & Upper-mid & Mixed & 0.39 & 0.37 & 0.43 & 0.38 & 0.43 & 0.36 \\
+GHA & Ghana & Lower-mid & Private & 0.92 & -- & -- & -- & -- & -- \\
+GMB & Gambia & Low & Public & 1.00 & -- & -- & -- & 0.99 & 1.00 \\
+GRC & Greece & High & Mixed & 0.44 & 0.45 & 0.46 & 0.44 & 0.45 & -- \\
+GTM & Guatemala & Upper-mid & Mixed & -- & -- & 0.84 & 0.90 & -- & 0.83 \\
+GUY & Guyana & Upper-mid & Public & -- & -- & -- & 0.53 & -- & -- \\
+HND & Honduras & Lower-mid & Mixed & -- & 0.77 & 0.85 & -- & -- & 0.85 \\
+HRV & Croatia & High & Mixed & 0.51 & 0.52 & 0.53 & 0.48 & 0.51 & -- \\
+HTI & Haiti & Low & Public & -- & -- & -- & 0.59 & -- & -- \\
+HUN & Hungary & High & Mixed & 0.49 & 0.49 & 0.52 & 0.50 & 0.56 & 0.65 \\
+IDN & Indonesia & Lower-mid & Mixed & 1.00 & -- & 1.00 & 0.93 & 0.92 & 0.86 \\
+IND & India & Lower-mid & Mixed & -- & -- & -- & -- & -- & 0.75 \\
+IRL & Ireland & High & Public & -- & -- & -- & 0.62 & -- & 0.93 \\
+IRN & Iran & Lower-mid & Mixed & 0.50 & -- & 0.49 & 0.43 & -- & -- \\
+ISL & Iceland & High & Public & 0.79 & 0.82 & 0.79 & 0.83 & 0.84 & -- \\
+ISR & Israel & High & Mixed & 0.56 & 0.59 & 0.58 & 0.60 & 0.60 & 0.87 \\
+ITA & Italy & High & Mixed & 0.56 & 0.60 & 0.57 & 0.61 & 0.63 & 0.81 \\
+JAM & Jamaica & Upper-mid & Mixed & 0.67 & 0.55 & -- & 0.53 & -- & -- \\
+JOR & Jordan & Lower-mid & Mixed & -- & -- & 0.47 & -- & 0.48 & -- \\
+JPN & Japan & High & Mixed & -- & 0.91 & -- & 0.99 & -- & 1.00 \\
+KAZ & Kazakhstan & Upper-mid & Mixed & 0.93 & 0.82 & 0.97 & 0.95 & 1.00 & 0.78 \\
+KGZ & Kyrgyz Republic & Lower-mid & Mixed & -- & -- & -- & -- & 0.59 & -- \\
+KOR & Korea, Rep. & High & Mixed & 0.70 & 0.71 & 0.74 & 0.72 & 0.72 & 0.87 \\
+LAO & Lao PDR & Lower-mid & Mixed & 1.00 & 1.00 & 1.00 & 1.00 & 0.97 & 1.00 \\
+LBN & Lebanon & Upper-mid & Mixed & -- & 0.41 & 0.41 & 0.39 & 0.38 & -- \\
+LBR & Liberia & Low & Public & -- & -- & -- & 0.72 & -- & -- \\
+LCA & St. Lucia & Upper-mid & Mixed & -- & -- & 0.73 & -- & -- & -- \\
+LKA & Sri Lanka & Lower-mid & Mixed & 0.84 & 0.85 & 0.93 & 0.82 & -- & 0.95 \\
+LTU & Lithuania & High & Mixed & 0.51 & 0.52 & 0.55 & 0.51 & 0.52 & 0.69 \\
+LUX & Luxembourg & High & Mixed & 0.82 & 0.87 & 0.83 & -- & -- & -- \\
+LVA & Latvia & High & Mixed & 0.58 & 0.55 & 0.58 & 0.52 & 0.53 & 0.68 \\
+MDA & Moldova & Lower-mid & Mixed & 0.31 & -- & 0.40 & -- & 0.42 & 0.37 \\
+MDV & Maldives & Upper-mid & Mixed & -- & 0.40 & 0.42 & 0.45 & 0.44 & -- \\
+MEX & Mexico & Upper-mid & Mixed & 0.67 & 0.68 & 0.69 & 0.69 & -- & 0.78 \\
+MLI & Mali & Low & Private & 1.00 & 1.00 & 1.00 & 1.00 & -- & -- \\
+MLT & Malta & High & Mixed & 0.39 & -- & -- & -- & -- & -- \\
+MMR & Myanmar & Lower-mid & Public & -- & 0.52 & 0.58 & 0.55 & 0.54 & -- \\
+MNG & Mongolia & Lower-mid & Mixed & 0.63 & 0.61 & -- & 0.66 & -- & -- \\
+MOZ & Mozambique & Low & Public & -- & -- & 0.65 & 0.51 & 0.60 & 0.71 \\
+MUS & Mauritius & Upper-mid & Mixed & 0.50 & 0.49 & 0.50 & 0.45 & 0.45 & 0.42 \\
+MYS & Malaysia & Upper-mid & Mixed & 0.81 & 0.83 & 0.85 & 0.79 & 0.79 & 0.92 \\
+NER & Niger & Low & Private & 1.00 & 1.00 & 1.00 & 1.00 & 1.00 & 1.00 \\
+NIC & Nicaragua & Lower-mid & Mixed & 0.60 & 0.57 & 0.54 & 0.57 & -- & -- \\
+NLD & Netherlands & High & Mixed & 0.45 & 0.48 & 0.46 & 0.48 & 0.51 & 0.66 \\
+NOR & Norway & High & Public & 0.62 & 0.69 & 0.67 & 0.72 & 0.75 & 0.85 \\
+NPL & Nepal & Lower-mid & Mixed & -- & -- & 1.00 & 1.00 & 1.00 & 1.00 \\
+NZL & New Zealand & High & Mixed & 0.48 & 0.50 & 0.49 & 0.50 & 0.52 & 0.67 \\
+OMN & Oman & High & Public & -- & -- & -- & -- & -- & 0.93 \\
+PAK & Pakistan & Lower-mid & Private & 1.00 & 1.00 & 1.00 & 0.97 & 0.90 & -- \\
+PAN & Panama & Upper-mid & Mixed & 0.44 & 0.43 & 0.44 & 0.41 & 0.38 & 0.50 \\
+PER & Peru & Upper-mid & Mixed & -- & 0.62 & -- & 0.59 & -- & -- \\
+PHL & Philippines & Lower-mid & Mixed & -- & -- & 0.79 & 0.74 & 0.67 & 0.83 \\
+POL & Poland & High & Mixed & 0.55 & 0.55 & 0.56 & -- & -- & 0.69 \\
+PRT & Portugal & High & Mixed & 0.53 & 0.54 & 0.52 & 0.53 & 0.53 & 0.69 \\
+PRY & Paraguay & Upper-mid & Mixed & -- & -- & -- & 0.59 & -- & 0.71 \\
+ROU & Romania & Upper-mid & Mixed & -- & 0.61 & 0.62 & -- & -- & -- \\
+RUS & Russian Federation & Upper-mid & Mixed & 0.56 & 0.57 & 0.59 & 0.54 & 0.56 & 0.53 \\
+RWA & Rwanda & Low & Public & 0.80 & 0.71 & 0.85 & 0.60 & 0.83 & -- \\
+SEN & Senegal & Lower-mid & Mixed & 0.89 & 1.00 & -- & -- & 1.00 & -- \\
+SGP & Singapore & High & Mixed & 1.00 & 1.00 & 1.00 & 1.00 & 1.00 & -- \\
+SLV & El Salvador & Lower-mid & Mixed & -- & 0.54 & -- & 0.52 & -- & -- \\
+SRB & Serbia & Upper-mid & Mixed & 0.37 & 0.38 & -- & -- & -- & -- \\
+STP & Sao Tome and Principe & Lower-mid & Public & -- & -- & -- & -- & 0.67 & -- \\
+SUR & Suriname & Upper-mid & Mixed & 0.48 & 0.45 & 0.53 & 0.44 & -- & -- \\
+SVK & Slovak Republic & High & Mixed & 0.48 & 0.46 & 0.50 & 0.46 & 0.47 & 0.55 \\
+SVN & Slovenia & High & Mixed & 0.80 & 0.76 & 0.79 & 0.78 & 0.75 & 1.00 \\
+SWE & Sweden & High & Public & 0.93 & 1.00 & 1.00 & 1.00 & 1.00 & 1.00 \\
+TCD & Chad & Low & Mixed & 0.87 & -- & 0.95 & -- & -- & -- \\
+TGO & Togo & Low & Private & 1.00 & 0.94 & 0.81 & 0.62 & 0.79 & -- \\
+THA & Thailand & Upper-mid & Mixed & 1.00 & 1.00 & 0.91 & 0.85 & 0.84 & 0.97 \\
+TTO & Trinidad and Tobago & High & Mixed & 0.47 & -- & 0.44 & 0.42 & 0.42 & -- \\
+TUN & Tunisia & Lower-mid & Mixed & 0.51 & -- & -- & -- & -- & -- \\
+TUR & Turkiye & Upper-mid & Mixed & 0.72 & 0.68 & 0.74 & 0.67 & 0.69 & 0.65 \\
+TZA & Tanzania & Lower-mid & Public & -- & -- & -- & 1.00 & -- & -- \\
+URY & Uruguay & High & Mixed & -- & 0.42 & 0.43 & -- & -- & -- \\
+USA & United States & High & Private & -- & -- & -- & 0.37 & 0.37 & 0.42 \\
+VNM & Vietnam & Lower-mid & Mixed & 0.63 & 0.61 & -- & -- & -- & -- \\
+\end{longtable}
+\normalsize
+
+% =====================================================================
+% S7. SCORES BY INCOME GROUP (derived from Table S6)
+% =====================================================================
+\clearpage
+\begin{table}[htbp]
+\footnotesize
+\caption{\textbf{Table S7.} Mean IO--CRS technical efficiency by World Bank income group and year (number of countries in parentheses), with the mean, median and standard deviation of all countries in each annual frontier. Computed from the scores in Table S6, which are reported to two decimals; means may therefore differ from values computed on unrounded scores by up to 0.005.}
+\begin{tabular}{@{}lcccccc@{}}
+\toprule
+\textbf{Group} & \textbf{2015} & \textbf{2016} & \textbf{2017} & \textbf{2018} & \textbf{2019} & \textbf{2020} \\
+\midrule
+Low income & 0.90 (7) & 0.85 (5) & 0.82 (7) & 0.72 (7) & 0.84 (5) & 0.90 (3) \\
+Lower-middle income & 0.74 (16) & 0.73 (16) & 0.77 (15) & 0.79 (16) & 0.78 (14) & 0.81 (9) \\
+Upper-middle income & 0.57 (23) & 0.56 (26) & 0.60 (25) & 0.59 (27) & 0.57 (18) & 0.65 (16) \\
+High income & 0.58 (37) & 0.61 (37) & 0.58 (37) & 0.59 (35) & 0.60 (34) & 0.74 (31) \\
+\midrule
+All countries, mean & 0.634 (83) & 0.630 (84) & 0.640 (84) & 0.638 (85) & 0.644 (71) & 0.735 (59) \\
+All countries, median & 0.60 & 0.59 & 0.58 & 0.59 & 0.60 & 0.71 \\
+All countries, SD & 0.21 & 0.20 & 0.21 & 0.20 & 0.21 & 0.19 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% =====================================================================
+% S8. REFERENCE-SET COMPOSITION (derived from Table S6)
+% =====================================================================
+\begin{table}[htbp]
+\footnotesize
+\caption{\textbf{Table S8.} Composition of the annual reference sets and of the frontier, 2015--2020, derived from the scores in Table S6. (a) Frontier-defining countries (score equal to 1.00) by year; income groups in parentheses and counted as low/lower-middle/upper-middle/high (L/LM/UM/H). (b) Transition between the 2019 and 2020 models. (c) Countries with a score in every year. No frontier was re-estimated for this table; it re-tabulates the annual results.}
+\begin{tabularx}{\textwidth}{@{}lccl X@{}}
+\toprule
+\multicolumn{5}{@{}l}{\textit{(a) Frontier-defining countries by year}} \\
+\textbf{Year} & \textbf{Countries in frontier} & \textbf{Frontier members} & \textbf{L/LM/UM/H} & \textbf{Members} \\
+\midrule
+2015 & 83 & 10 & 4/4/1/1 & BGD (LM), GMB (L), IDN (LM), LAO (LM), MLI (L), NER (L), PAK (LM), SGP (H), TGO (L), THA (UM) \\
+2016 & 84 & 10 & 2/4/1/3 & BEN (LM), CYP (H), LAO (LM), MLI (L), NER (L), PAK (LM), SEN (LM), SGP (H), SWE (H), THA (UM) \\
+2017 & 84 & 10 & 2/6/0/2 & BGD (LM), BTN (LM), IDN (LM), LAO (LM), MLI (L), NER (L), NPL (LM), PAK (LM), SGP (H), SWE (H) \\
+2018 & 85 & 9 & 2/5/0/2 & BEN (LM), BGD (LM), LAO (LM), MLI (L), NER (L), NPL (LM), SGP (H), SWE (H), TZA (LM) \\
+2019 & 71 & 8 & 1/4/1/2 & BEN (LM), BGD (LM), KAZ (UM), NER (L), NPL (LM), SEN (LM), SGP (H), SWE (H) \\
+2020 & 59 & 9 & 2/2/0/5 & EST (H), FIN (H), GMB (L), JPN (H), LAO (LM), NER (L), NPL (LM), SVN (H), SWE (H) \\
+\bottomrule
+\end{tabularx}
+
+\vspace{8pt}
+\begin{tabularx}{\textwidth}{@{}L{6.4cm}cX@{}}
+\toprule
+\multicolumn{3}{@{}l}{\textit{(b) Transition between the 2019 and 2020 models}} \\
+\textbf{Set} & \textbf{n} & \textbf{Characteristics} \\
+\midrule
+Countries in the 2019 model & 71 & 2019 mean 0.64 \\
+\quad without a 2020 score & 23 & 2019 mean 0.68; income groups L 2, LM 8, UM 6, H 7 \\
+\quad retained in 2020 & 48 & 2019 mean 0.63; 2020 mean 0.72 \\
+Countries entering only in 2020 & 11 & 2020 mean 0.82; ALB, GTM, HND, IND, IRL, JPN, LKA, MEX, OMN, POL, PRY \\
+Frontier-defining countries in at least one year, 2015--2019 & 18 & of which without a 2020 score: 9 (BEN, BGD, CYP, MLI, PAK, SEN, SGP, TGO, TZA) \\
+Countries on the 2019 frontier & 8 & of which without a 2020 score: 4 (BEN, BGD, SEN, SGP) \\
+\bottomrule
+\end{tabularx}
+
+\vspace{8pt}
+\begin{tabularx}{\textwidth}{@{}L{4.6cm}XXXXXX@{}}
+\toprule
+\multicolumn{7}{@{}l}{\textit{(c) Countries with an IO--CRS score in every year (n = 39)}} \\
+\textbf{Statistic} & \textbf{2015} & \textbf{2016} & \textbf{2017} & \textbf{2018} & \textbf{2019} & \textbf{2020} \\
+\midrule
+Countries with a score in every year & \multicolumn{6}{l}{39; income groups L 1, LM 2, UM 11, H 25; financing public 4, mixed 34, private 1} \\
+Annual mean & 0.605 & 0.609 & 0.623 & 0.606 & 0.616 & 0.715 \\
+Annual median & 0.56 & 0.57 & 0.57 & 0.54 & 0.56 & 0.69 \\
+Frontier members within the set & LAO, NER, THA & LAO, NER, SWE, THA & BTN, LAO, NER, SWE & LAO, NER, SWE & KAZ, NER, SWE & EST, FIN, LAO, NER, SVN, SWE \\
+Spearman rank correlation between consecutive years & \multicolumn{6}{l}{2015--2016: 0.99; 2016--2017: 0.98; 2017--2018: 0.97; 2018--2019: 0.99; 2019--2020: 0.91} \\
+\bottomrule
+\end{tabularx}
+
+\vspace{4pt}
+{\footnotesize Members of the fixed set: AUT, BEL, BTN, CAN, CHE, CHL, CHN, COL, CRI, CZE, DEU, ESP, EST, FIN, FRA, GBR, GEO, HUN, ISR, ITA, KAZ, KOR, LAO, LTU, LVA, MUS, MYS, NER, NLD, NOR, NZL, PAN, PRT, RUS, SVK, SVN, SWE, THA, TUR.}
+\end{table}
+
+% =====================================================================
+% S9. MULTICOLLINEARITY DIAGNOSTICS (second-stage predictors, fresh extraction)
+% =====================================================================
+\clearpage
+\begin{table}[htbp]
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\caption{\textbf{Table S9.} Multicollinearity diagnostics for the second-stage predictors: pairwise Pearson correlations (lower triangle) and variance inflation factors (VIF) in the full specification (eight predictors) and in the reduced specification that omits GNI per capita. Pooled country-year observations with complete data, 2015--2020 (n = 445). Total population is shown as a memorandum row because it is not a predictor but is the variable with which the labour force could overlap.}
+\begin{tabular}{@{}lcccccccc cc@{}}
+\toprule
+& & & & & & & & & \multicolumn{2}{c}{\textbf{VIF}} \\
+\cmidrule(lr){10-11}
+\textbf{Predictor} & CBR & CDR & GNIpc & LF & EDU & GDPpc & DENS & RUR & Full & Reduced \\
+\midrule
+Crude birth rate (CBR) & 1 & & & & & & & & 1.76 & 1.76 \\
+Crude death rate (CDR) & $-$0.21 & 1 & & & & & & & 1.16 & 1.15 \\
+GNI per capita (GNIpc) & $-$0.51 & 0.08 & 1 & & & & & & 51.90 & -- \\
+Labour force (LF) & $-$0.03 & $-$0.02 & $-$0.03 & 1 & & & & & 1.06 & 1.04 \\
+Public education expenditure (EDU) & $-$0.28 & 0.06 & 0.45 & $-$0.18 & 1 & & & & 1.59 & 1.48 \\
+GDP per capita (GDPpc) & $-$0.50 & 0.06 & 0.99 & $-$0.04 & 0.42 & 1 & & & 49.95 & 1.81 \\
+Population density (DENS) & $-$0.10 & $-$0.21 & 0.17 & $-$0.01 & $-$0.19 & 0.19 & 1 & & 1.23 & 1.22 \\
+Rural population (RUR) & 0.59 & 0.04 & $-$0.60 & 0.03 & $-$0.42 & $-$0.59 & $-$0.15 & 1 & 2.07 & 2.07 \\
+\midrule
+Total population (memorandum) & 0.02 & $-$0.04 & $-$0.06 & 0.99 & $-$0.18 & $-$0.07 & $-$0.01 & 0.07 & -- & -- \\
+\bottomrule
+\end{tabular}
+
+\vspace{4pt}
+{\footnotesize GNI per capita and GDP per capita are almost collinear (r = 0.99; VIF about 50 for both); all other VIFs are below 2.1 in either specification. Population density is only weakly correlated with the rural share ($-$0.15) and the rural share is moderately correlated with income ($-$0.60) and with the birth rate (0.59). The labour force is uncorrelated with the per-capita variables and proxies population size (r = 0.99 with total population), which is why it enters the models as a size variable.}
+\end{table}
+
+% =====================================================================
+% S10. RETURNS TO SCALE AND SCALE EFFICIENCY (from the main estimation)
+% =====================================================================
+\begin{table}[htbp]
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\caption{\textbf{Table S10.} Constant versus variable returns to scale, 2015--2020. (a) Annual IO--CRS and IO--VRS scores from the main estimation (means and medians on the unrounded scores, as in Table 1 of the main text) and the implied scale efficiency (IO--CRS divided by IO--VRS, computed from the country scores reported to two decimals). (b) Pooled country-year values by World Bank income group. The VRS frontier is larger than the CRS frontier in every year; the countries on it are listed below the table.}
+\begin{tabular}{@{}lc cc cc cc cc c@{}}
+\toprule
+\multicolumn{11}{@{}l}{\textit{(a) By year}} \\
+& & \multicolumn{2}{c}{\textbf{IO--CRS}} & \multicolumn{2}{c}{\textbf{IO--VRS}} & \multicolumn{2}{c}{\textbf{Scale efficiency}} & \multicolumn{2}{c}{\textbf{Frontier size}} & \textbf{Spearman} \\
+\cmidrule(lr){3-4}\cmidrule(lr){5-6}\cmidrule(lr){7-8}\cmidrule(lr){9-10}
+\textbf{Year} & \textbf{n} & Mean & Median & Mean & Median & Mean & Median & CRS & VRS & \textbf{CRS--VRS} \\
+\midrule
+2015 & 83 & 0.634 & 0.598 & 0.738 & 0.739 & 0.867 & 0.912 & 10 & 20 & 0.81 \\
+2016 & 84 & 0.630 & 0.592 & 0.750 & 0.740 & 0.843 & 0.865 & 10 & 21 & 0.82 \\
+2017 & 84 & 0.640 & 0.579 & 0.733 & 0.705 & 0.879 & 0.943 & 10 & 18 & 0.79 \\
+2018 & 85 & 0.638 & 0.589 & 0.750 & 0.747 & 0.854 & 0.900 & 9 & 22 & 0.81 \\
+2019 & 71 & 0.643 & 0.597 & 0.759 & 0.755 & 0.854 & 0.920 & 8 & 21 & 0.77 \\
+2020 & 59 & 0.735 & 0.708 & 0.830 & 0.886 & 0.886 & 0.894 & 9 & 25 & 0.85 \\
+\bottomrule
+\end{tabular}
+
+\vspace{6pt}
+\begin{tabular}{@{}lccccc@{}}
+\toprule
+\multicolumn{6}{@{}l}{\textit{(b) Pooled by income group (466 country-years)}} \\
+\textbf{Income group} & \textbf{n} & \textbf{CRS mean} & \textbf{VRS mean} & \textbf{Scale efficiency mean} & \textbf{Share with scale efficiency below 0.8} \\
+\midrule
+Low income & 34 & 0.829 & 0.865 & 0.957 & 3\% \\
+Lower-middle income & 86 & 0.768 & 0.842 & 0.908 & 20\% \\
+Upper-middle income & 135 & 0.587 & 0.702 & 0.843 & 30\% \\
+High income & 211 & 0.612 & 0.739 & 0.842 & 35\% \\
+\bottomrule
+\end{tabular}
+
+\vspace{4pt}
+{\footnotesize Countries on the VRS frontier: 2015: BGD, BHR, CHE, CRI, ESP, FIN, GMB, IDN, ISL, LAO, MLI, NER, NIC, PAK, RWA, SEN, SGP, TCD, TGO, THA. 2016: BEN, BGD, BHR, CHE, CRI, CYP, ESP, FIN, HND, ISL, JPN, LAO, MLI, NER, NOR, PAK, SEN, SGP, SWE, TGO, THA. 2017: BGD, BTN, CHE, CRI, ESP, FIN, GTM, HND, IDN, LAO, MLI, NER, NPL, PAK, SGP, SWE, TCD, THA. 2018: BEN, BGD, BTN, CHE, CRI, ESP, EST, FIN, GTM, IDN, JPN, KAZ, LAO, MLI, NER, NOR, NPL, PAK, SGP, SWE, THA, TZA. 2019: ARE, BEN, BGD, BTN, CHE, CRI, ESP, EST, FIN, GMB, IDN, KAZ, LAO, NER, NOR, NPL, PAK, SEN, SGP, SWE, THA. 2020: ARE, BTN, CAN, CRI, EST, FIN, GMB, GTM, HND, IRL, ISR, JPN, KOR, LAO, LKA, MYS, NER, NOR, NPL, NZL, OMN, PHL, SVN, SWE, THA. Countries with the lowest pooled scale efficiency (mean over their years): CHE (0.39), MLT (0.57), PAN (0.57), CAN (0.58), LBN (0.59), CHL (0.61), MDV (0.64), ECU (0.64), DZA (0.64), NZL (0.66), TUN (0.67), COL (0.68).}
+\end{table}
+
+% =====================================================================
+% S11. REFERENCE-SET ROBUSTNESS (fresh extraction)
+% =====================================================================
+\clearpage
+\begin{table}[htbp]
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\caption{\textbf{Table S11.} Annual IO--CRS scores under two reference sets that do not change from year to year, estimated on the September 2026 extraction for the same country-year cells as the main analysis. Pooled intertemporal frontier: all 466 country-years form one frontier and each observation is scored against it.\citep{tulkens1995} Fixed sample: the 39 countries with data in every year form their own frontier each year. The last column reports the mean pooled-frontier score of those 39 countries.}
+\begin{tabular}{@{}lccccc ccc c@{}}
+\toprule
+& \multicolumn{5}{c}{\textbf{Pooled intertemporal frontier (all countries)}} & \multicolumn{3}{c}{\textbf{Fixed sample (39 countries)}} & \textbf{Pooled frontier,} \\
+\cmidrule(lr){2-6}\cmidrule(lr){7-9}
+\textbf{Year} & n & Mean & Median & On frontier & Spearman vs annual & Mean & Median & On frontier & \textbf{39 countries, mean} \\
+\midrule
+2015 & 83 & 0.585 & 0.531 & 4 & 0.99 & 0.798 & 0.789 & 11 & 0.564 \\
+2016 & 84 & 0.591 & 0.534 & 4 & 0.98 & 0.786 & 0.763 & 9 & 0.567 \\
+2017 & 84 & 0.589 & 0.534 & 2 & 0.99 & 0.790 & 0.782 & 10 & 0.572 \\
+2018 & 85 & 0.615 & 0.574 & 2 & 0.99 & 0.779 & 0.760 & 10 & 0.586 \\
+2019 & 71 & 0.614 & 0.569 & 4 & 0.99 & 0.785 & 0.754 & 9 & 0.586 \\
+2020 & 59 & 0.590 & 0.544 & 3 & 0.95 & 0.723 & 0.683 & 6 & 0.570 \\
+\bottomrule
+\end{tabular}
+
+\vspace{4pt}
+{\footnotesize Countries on the pooled intertemporal frontier: 2015: BGD, CYP, IDN, PAK; 2016: BEN, CYP, NER, THA; 2017: MLI, NER; 2018: SGP, TZA; 2019: BEN, BGD, GMB, NPL; 2020: LAO, NPL, SWE. Countries on the fixed-sample frontier: 2015: BTN, EST, FIN, KAZ, KOR, LAO, MYS, NER, SVN, SWE, THA; 2016: EST, FIN, KOR, LAO, MYS, NER, SVN, SWE, THA; 2017: BTN, EST, FIN, KAZ, KOR, LAO, MYS, NER, SVN, SWE; 2018: EST, FIN, KAZ, KOR, LAO, MYS, NER, SVN, SWE, THA; 2019: BTN, EST, FIN, KAZ, LAO, MYS, NER, SWE, THA; 2020: EST, FIN, LAO, NER, SWE, THA. Under the pooled frontier, the 48 countries present in both 2019 and 2020 had a mean score of 0.60 in 2019 and 0.57 in 2020. Spearman rank correlations of the fixed-sample scores between consecutive years: 2015--2016: 0.97; 2016--2017: 0.96; 2017--2018: 0.98; 2018--2019: 0.97; 2019--2020: 0.93.}
+\end{table}
+
+% =====================================================================
+% S12. EXPENDITURE MEASURE (fresh extraction)
+% =====================================================================
+\begin{table}[htbp]
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\caption{\textbf{Table S12.} Sensitivity of the annual IO--CRS scores to the expenditure measure: current health expenditure per capita in purchasing-power-parity international dollars (SH.XPD.CHEX.PP.CD) in place of expenditure as a percentage of GDP, with the same physicians, beds, outputs and country sets (September 2026 extraction). The income-group columns give the mean score with expenditure as a share of GDP / with expenditure per capita.}
+\begin{tabular}{@{}lccccc cccc@{}}
+\toprule
+& & & & & & \multicolumn{4}{c}{\textbf{Mean by income group (\% GDP / per capita)}} \\
+\cmidrule(lr){7-10}
+\textbf{Year} & \textbf{n} & \textbf{Mean} & \textbf{Median} & \textbf{On frontier} & \textbf{Spearman vs main} & Low & Lower-middle & Upper-middle & High \\
+\midrule
+2015 & 83 & 0.561 & 0.548 & 8 & 0.82 & 0.93/0.90 & 0.73/0.59 & 0.53/0.44 & 0.58/0.56 \\
+2016 & 84 & 0.573 & 0.549 & 8 & 0.79 & 0.87/0.90 & 0.75/0.63 & 0.55/0.46 & 0.60/0.59 \\
+2017 & 84 & 0.573 & 0.548 & 7 & 0.82 & 0.84/0.83 & 0.77/0.63 & 0.56/0.47 & 0.58/0.57 \\
+2018 & 85 & 0.592 & 0.571 & 11 & 0.74 & 0.72/0.79 & 0.81/0.69 & 0.59/0.48 & 0.59/0.59 \\
+2019 & 71 & 0.624 & 0.593 & 12 & 0.82 & 0.91/0.95 & 0.82/0.72 & 0.54/0.47 & 0.60/0.62 \\
+2020 & 59 & 0.628 & 0.593 & 7 & 0.86 & 0.92/0.97 & 0.81/0.71 & 0.65/0.50 & 0.73/0.63 \\
+\bottomrule
+\end{tabular}
+
+\vspace{4pt}
+{\footnotesize Countries on the per-capita frontier: 2015: BGD, CYP, GMB, LKA, MLI, NER, SGP, TGO; 2016: BGD, BLR, CYP, LKA, MLI, NER, SGP, TGO; 2017: BGD, CYP, LKA, NER, NPL, RWA, SGP; 2018: BGD, BLR, CYP, EST, LKA, NER, NPL, RWA, SGP, SWE, TZA; 2019: BEN, BGD, BLR, CYP, EST, GMB, NER, NPL, RWA, SGP, STP, SWE; 2020: EST, FIN, GMB, LKA, NER, NPL, SWE. Pooled Spearman correlation between the two specifications: 0.80 (within the high-income group: 0.87). Largest decreases in the pooled mean score when expenditure is measured per capita: LAO ($-$0.39), PAK ($-$0.39), OMN ($-$0.38), KAZ ($-$0.37), BWA ($-$0.37), BTN ($-$0.36), JPN ($-$0.35), DOM ($-$0.33), GHA ($-$0.31), AZE ($-$0.29). Largest increases: BLR (+0.35), KGZ (+0.27), EST (+0.24), STP (+0.23), SRB (+0.17), MOZ (+0.16), RWA (+0.15), BLZ (+0.15), GRC (+0.13), NIC (+0.12).}
+\end{table}
+
+% =====================================================================
+% S13. INCOME-GROUP FRONTIERS AND METAFRONTIER (fresh extraction)
+% =====================================================================
+\clearpage
+\begin{table}[htbp]
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\caption{\textbf{Table S13.} Metafrontier analysis by income group, 2015--2020 (September 2026 extraction, same country-year cells as the main analysis). For each group and year: number of countries, mean score on the global frontier (meta), mean score on the group's own frontier (group) and mean technology gap ratio (TGR = meta / group).\citep{battese2004,odonnell2008} Low- and lower-middle-income countries form one group because the low-income group has three to seven countries per year. (b) Examples of the mean score of individual countries on the global frontier and on their group frontier (meta $\rightarrow$ group).}
+\begin{tabular}{@{}l cccc cccc cccc@{}}
+\toprule
+\multicolumn{13}{@{}l}{\textit{(a) By year and income group}} \\
+& \multicolumn{4}{c}{\textbf{Low and lower-middle}} & \multicolumn{4}{c}{\textbf{Upper-middle}} & \multicolumn{4}{c}{\textbf{High}} \\
+\cmidrule(lr){2-5}\cmidrule(lr){6-9}\cmidrule(lr){10-13}
+\textbf{Year} & n & Meta & Group & TGR & n & Meta & Group & TGR & n & Meta & Group & TGR \\
+\midrule
+2015 & 23 & 0.79 & 0.85 & 0.92 & 23 & 0.53 & 0.78 & 0.68 & 37 & 0.58 & 0.69 & 0.84 \\
+2016 & 21 & 0.78 & 0.86 & 0.90 & 26 & 0.55 & 0.78 & 0.70 & 37 & 0.60 & 0.69 & 0.86 \\
+2017 & 22 & 0.79 & 0.85 & 0.92 & 25 & 0.56 & 0.76 & 0.73 & 37 & 0.58 & 0.77 & 0.77 \\
+2018 & 23 & 0.78 & 0.85 & 0.93 & 27 & 0.59 & 0.81 & 0.73 & 35 & 0.59 & 0.77 & 0.77 \\
+2019 & 19 & 0.84 & 0.91 & 0.92 & 18 & 0.54 & 0.78 & 0.69 & 34 & 0.60 & 0.76 & 0.79 \\
+2020 & 12 & 0.84 & 0.89 & 0.94 & 16 & 0.65 & 0.81 & 0.80 & 31 & 0.73 & 0.83 & 0.88 \\
+\midrule
+Pooled & 120 & 0.80 & 0.87 & 0.92 & 135 & 0.57 & 0.79 & 0.72 & 211 & 0.61 & 0.75 & 0.82 \\
+\bottomrule
+\end{tabular}
+
+\vspace{6pt}
+\begin{tabularx}{\textwidth}{@{}L{3.4cm}X@{}}
+\toprule
+\multicolumn{2}{@{}l}{\textit{(b) Country examples, pooled mean of the years with data (meta $\rightarrow$ group)}} \\
+\midrule
+High & SWE 0.97$\rightarrow$0.99; FIN 0.79$\rightarrow$0.80; EST 0.72$\rightarrow$0.73; JPN 0.98$\rightarrow$1.00; SGP 1.00$\rightarrow$1.00; DEU 0.38$\rightarrow$0.50; CHE 0.39$\rightarrow$0.53; AUT 0.37$\rightarrow$0.46; USA 0.39$\rightarrow$0.75 \\
+Upper-middle & ARG 0.30$\rightarrow$0.41; BRA 0.35$\rightarrow$0.57; CRI 0.71$\rightarrow$1.00; THA 0.97$\rightarrow$1.00; MYS 0.78$\rightarrow$1.00; KAZ 0.85$\rightarrow$1.00; CHN 0.59$\rightarrow$0.81; COL 0.47$\rightarrow$0.71; MEX 0.70$\rightarrow$0.97; TUR 0.64$\rightarrow$0.90 \\
+Low and lower-middle & NER 1.00$\rightarrow$1.00; LAO 0.99$\rightarrow$0.99; BGD 1.00$\rightarrow$1.00; NPL 1.00$\rightarrow$1.00; MLI 1.00$\rightarrow$1.00; BTN 0.91$\rightarrow$0.94; IDN 0.97$\rightarrow$1.00; PAK 1.00$\rightarrow$1.00; MOZ 0.65$\rightarrow$0.66; RWA 0.83$\rightarrow$0.90; AFG 0.54$\rightarrow$0.54; HTI 0.73$\rightarrow$0.73 \\
+\bottomrule
+\end{tabularx}
+
+\vspace{4pt}
+{\footnotesize Spearman rank correlation between metafrontier and group-frontier scores, pooled: low and lower-middle 0.79; upper-middle 0.92; high 0.70. Median TGR: low and lower-middle 1.00; upper-middle 0.71; high 0.83.}
+\end{table}
+
+% =====================================================================
+% S14. SECOND-STAGE ESTIMATOR COMPARISON
+% =====================================================================
+\clearpage
+\begin{table}[htbp]
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\caption{\textbf{Table S14.} Second-stage estimates of the association between contextual variables and the IO--CRS score under six estimators, pooled country-years 2015--2020: coefficient (95\% confidence interval). (a) Tobit regressions censored at zero and one with case-resampling bootstrap (500 replications; percentile intervals): the eight-predictor model, the main model without GNI per capita, and the main model without Singapore. (b) Ordinary least squares with heteroskedasticity-robust (HC1) standard errors (normal intervals); Simar--Wilson Algorithm 1, truncated regression on the observations below the frontier with 2,000 bootstrap replications; Simar--Wilson Algorithm 2, truncated regression on bias-corrected scores (100 replications for the bias correction, 1,000 for the intervals).\citep{simar2007} Panel (b) uses the seven-predictor specification.}
+\begin{tabular}{@{}lccc@{}}
+\toprule
+\multicolumn{4}{@{}l}{\textit{(a) Tobit regressions}} \\
+\textbf{Variable (unit)} & \textbf{Eight predictors} & \textbf{Main model (seven predictors)} & \textbf{Main model without Singapore} \\
+\midrule
+Crude birth rate (per 1,000 population) & 0.0099 (0.0065, 0.0132) & 0.0099 (0.0065, 0.0131) & 0.0089 (0.0058, 0.0121) \\
+Crude death rate (per 1,000 population) & $-$0.0068 ($-$0.0133, 0.0000) & $-$0.0067 ($-$0.0132, $-$0.0001) & $-$0.0103 ($-$0.0168, $-$0.0040) \\
+GNI per capita (thousand USD) & 0.0003 ($-$0.0048, 0.0096) & -- & -- \\
+Labour force (ten million persons) & 0.0048 ($-$0.0001, 0.0197) & 0.0049 ($-$0.0001, 0.0197) & 0.0051 (0.0007, 0.0195) \\
+Public education expenditure (\% of GDP) & $-$0.0110 ($-$0.0283, 0.0081) & $-$0.0107 ($-$0.0274, 0.0077) & $-$0.0146 ($-$0.0312, 0.0059) \\
+GDP per capita (thousand USD) & 0.0017 ($-$0.0071, 0.0063) & 0.0020 (0.0008, 0.0034) & 0.0021 (0.0008, 0.0032) \\
+Population density (hundred persons per km\textsuperscript{2}) & 0.0069 (0.0030, 0.0090) & 0.0069 (0.0030, 0.0090) & $-$0.0052 ($-$0.0141, 0.0041) \\
+Rural population (\% of total) & 0.0025 (0.0011, 0.0040) & 0.0025 (0.0012, 0.0040) & 0.0029 (0.0017, 0.0044) \\
+Intercept & 0.4599 (0.3143, 0.5759) & 0.4592 (0.3162, 0.5738) & 0.5262 (0.3828, 0.6492) \\
+Observations & 445 & 445 & 440 \\
+\midrule
+\multicolumn{4}{@{}l}{\textit{(b) Alternative estimators, seven predictors}} \\
+\textbf{Variable (unit)} & \textbf{OLS, HC1 errors} & \textbf{Simar--Wilson Algorithm 1} & \textbf{Simar--Wilson Algorithm 2} \\
+\midrule
+Crude birth rate (per 1,000 population) & 0.0074 (0.0049, 0.0099) & 0.0027 ($-$0.0004, 0.0059) & 0.0097 (0.0062, 0.0135) \\
+Crude death rate (per 1,000 population) & $-$0.0090 ($-$0.0149, $-$0.0032) & $-$0.0156 ($-$0.0220, $-$0.0089) & $-$0.0087 ($-$0.0162, $-$0.0010) \\
+Labour force (ten million persons) & 0.0043 ($-$0.0014, 0.0101) & 0.0035 ($-$0.0013, 0.0099) & 0.0023 ($-$0.0031, 0.0087) \\
+Public education expenditure (\% of GDP) & $-$0.0096 ($-$0.0252, 0.0061) & $-$0.0144 ($-$0.0287, $-$0.0001) & $-$0.0032 ($-$0.0179, 0.0122) \\
+GDP per capita (thousand USD) & 0.0017 (0.0006, 0.0029) & 0.0014 (0.0004, 0.0024) & 0.0020 (0.0008, 0.0031) \\
+Population density (hundred persons per km\textsuperscript{2}) & 0.0040 (0.0027, 0.0054) & $-$0.0079 ($-$0.0153, $-$0.0003) & 0.0074 (0.0039, 0.0137) \\
+Rural population (\% of total) & 0.0024 (0.0011, 0.0036) & 0.0024 (0.0012, 0.0036) & 0.0026 (0.0013, 0.0041) \\
+Intercept & 0.5169 (0.4030, 0.6308) & 0.6643 (0.5411, 0.7878) & 0.3397 (0.1997, 0.4705) \\
+Observations & 445 & 389 & 406 \\
+\bottomrule
+\end{tabular}
+
+\vspace{4pt}
+{\footnotesize GDP, gross domestic product; GNI, gross national income; OLS, ordinary least squares. The 56 country-years on the frontier are censored in the Tobit models, kept in OLS, dropped by Algorithm 1 and retained by Algorithm 2 once the bias correction moves them below one (406 of 445 observations are below one after correction). Bias correction lowered the mean annual scores of the second-stage sample by 0.035 (2015), 0.052 (2016), 0.100 (2017), 0.063 (2018), 0.099 (2019), 0.068 (2020), from 0.637, 0.635, 0.631, 0.640, 0.652, 0.732 to 0.602, 0.583, 0.531, 0.577, 0.552, 0.664 in 2015 to 2020. Eight-predictor model: GNI per capita and GDP per capita have variance inflation factors of 51.9 and 50.0 (Table S9); neither is significant there, and the other coefficients are unchanged. Percentile intervals for the labour force are asymmetric because a few countries (China, India, the United States) have very large labour forces; in the model without Singapore the interval excludes zero while the normal-approximation p value is 0.28, and we do not read this as an association.}
+\end{table}
+
+% =====================================================================
+% S15. YEAR-SPECIFIC TOBIT MODELS
+% =====================================================================
+\begin{table}[htbp]
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\caption{\textbf{Table S15.} Year-specific Tobit regressions of the IO--CRS score on the seven contextual variables of the main model, 2015--2020. Coefficients with case-resampling bootstrap inference (200 replications per year); $^{*}$ p $<$ 0.05, $^{**}$ p $<$ 0.01, $^{***}$ p $<$ 0.001 from the normal approximation to the bootstrap standard error.}
+\begin{tabular}{@{}lcccccc@{}}
+\toprule
+\textbf{Variable (unit)} & \textbf{2015} & \textbf{2016} & \textbf{2017} & \textbf{2018} & \textbf{2019} & \textbf{2020} \\
+\midrule
+Crude birth rate (per 1,000 population) & 0.0120$^{***}$ & 0.0116$^{*}$ & 0.0073 & 0.0109$^{*}$ & 0.0119$^{**}$ & 0.0072 \\
+Crude death rate (per 1,000 population) & $-$0.0115 & $-$0.0015 & $-$0.0080 & $-$0.0018 & $-$0.0062 & $-$0.0174$^{*}$ \\
+Labour force (ten million persons) & 0.0287 & 0.0255 & 0.0218 & 0.0115 & $-$0.0036 & $-$0.0023 \\
+Public education expenditure (\% of GDP) & 0.0054 & $-$0.0073 & 0.0008 & $-$0.0046 & $-$0.0173 & $-$0.0270 \\
+GDP per capita (thousand USD) & 0.0023 & 0.0031 & 0.0025 & 0.0010 & 0.0017 & 0.0017 \\
+Population density (hundred persons per km\textsuperscript{2}) & 0.0098 & 0.0074 & 0.0072 & 0.0080 & 0.0063 & $-$0.0021 \\
+Rural population (\% of total) & 0.0039$^{*}$ & 0.0030 & 0.0046$^{**}$ & 0.0014 & 0.0016 & 0.0008 \\
+\midrule
+Observations & 76 & 76 & 83 & 82 & 70 & 58 \\
+Observations on the frontier & 10 & 10 & 10 & 9 & 8 & 9 \\
+\bottomrule
+\end{tabular}
+
+\vspace{4pt}
+{\footnotesize GDP, gross domestic product. The birth rate is positive in four of six years, the rural share in two, the death rate negative only in 2020, and GDP per capita, population density, labour force and education expenditure are not significant in any single year. Each annual model has 58 to 83 observations, so the year-specific tests have low power; the pooled model in Table 2 of the main text is the main result.}
+\end{table}
+
+
+% =====================================================================
+% SUPPLEMENTARY FIGURES
+% =====================================================================
+\clearpage
+\section{Supplementary figures}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.78\textwidth]{figures/Figure_S1.png}
+\caption{\textbf{Figure S1.} Analytical workflow used to estimate health-system technical efficiency, productivity change, group differences and the contextual factors associated with efficiency, 2015--2020. The robustness analyses of Section 3.10 of the main text (Tables S9 to S15) are not shown.}
+\end{figure}
+
+\clearpage
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{figures/Figure_S2.png}
+\caption{\textbf{Figure S2.} Comparison of the four orientation and returns-to-scale DEA combinations (IO--CRS, OO--CRS, IO--VRS, OO--VRS). (a) Density of the efficiency scores: OO--VRS concentrates near 1.0, whereas the CRS models spread across the range. (b) Pearson correlation matrix of the scores across specifications. Together they support the selection of IO--CRS for its discriminating capacity and stability.}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{figures/Figure_S3.png}
+\caption{\textbf{Figure S3.} Distribution of IO--CRS technical efficiency scores in the two-dimensional descriptive stratification. (a) Geographic region by financing model. (b) World Bank income group by financing model. Boxes show the interquartile range and the median, whiskers extend to 1.5 times the interquartile range and points show country-year observations. Cell sizes vary across groups; the number of observations per cell is given in Table S4.}
+\end{figure}
+
+% =====================================================================
+% REFERENCES
+% =====================================================================
+\clearpage
+\bibliographystyle{WileyNJD-AMA}
+\bibliography{references}
+
+\end{document}
