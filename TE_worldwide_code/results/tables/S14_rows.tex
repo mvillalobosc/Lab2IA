@@ -1,0 +1,24 @@
+% (a) Tobit: eight predictors | main model | main model without Singapore
+Crude birth rate (per 1,000 population) & 0.0099 (0.0064, 0.0134) & 0.0099 (0.0064, 0.0133) & 0.0089 (0.0056, 0.0121) \\
+Crude death rate (per 1,000 population) & $-$0.0068 ($-$0.0135, 0.0000) & $-$0.0067 ($-$0.0134, $-$0.0001) & $-$0.0103 ($-$0.0167, $-$0.0039) \\
+GNI per capita (thousand USD) & 0.0004 ($-$0.0050, 0.0087) & -- & -- \\
+Labour force (ten million persons) & 0.0048 (0.0003, 0.0201) & 0.0049 (0.0003, 0.0200) & 0.0051 (0.0005, 0.0194) \\
+Public education expenditure (\% of GDP) & $-$0.0110 ($-$0.0277, 0.0101) & $-$0.0107 ($-$0.0266, 0.0092) & $-$0.0146 ($-$0.0301, 0.0047) \\
+GDP per capita (thousand USD) & 0.0017 ($-$0.0063, 0.0061) & 0.0020 (0.0008, 0.0033) & 0.0021 (0.0009, 0.0034) \\
+Population density (hundred persons per km\textsuperscript{2}) & 0.0069 (0.0028, 0.0094) & 0.0069 (0.0028, 0.0093) & $-$0.0052 ($-$0.0148, 0.0039) \\
+Rural population (\% of total) & 0.0025 (0.0012, 0.0041) & 0.0025 (0.0012, 0.0041) & 0.0029 (0.0016, 0.0044) \\
+Intercept & 0.4599 (0.3037, 0.5857) & 0.4592 (0.3032, 0.5863) & 0.5262 (0.3687, 0.6475) \\
+Observations & 445 & 445 & 440 \\
+% (b) OLS HC1 | Simar-Wilson Algorithm 1 | Simar-Wilson Algorithm 2 (Shephard distance scale for both Simar-Wilson columns)
+Crude birth rate (per 1,000 population) & 0.0074 (0.0049, 0.0099) & $-$0.0105 ($-$0.0285, 0.0060) & $-$0.0329 ($-$0.0537, $-$0.0146) \\
+Crude death rate (per 1,000 population) & $-$0.0090 ($-$0.0149, $-$0.0032) & 0.0649 (0.0342, 0.0962) & 0.0786 (0.0411, 0.1164) \\
+Labour force (ten million persons) & 0.0043 ($-$0.0014, 0.0101) & $-$0.0096 ($-$0.0412, 0.0129) & $-$0.0414 ($-$0.0867, $-$0.0055) \\
+Public education expenditure (\% of GDP) & $-$0.0096 ($-$0.0252, 0.0061) & 0.0480 ($-$0.0186, 0.1157) & $-$0.0069 ($-$0.0911, 0.0785) \\
+GDP per capita (thousand USD) & 0.0017 (0.0006, 0.0029) & $-$0.0049 ($-$0.0099, $-$0.0003) & $-$0.0075 ($-$0.0141, $-$0.0011) \\
+Population density (hundred persons per km\textsuperscript{2}) & 0.0040 (0.0027, 0.0054) & 0.0367 ($-$0.0010, 0.0692) & $-$0.0172 ($-$0.0416, $-$0.0029) \\
+Rural population (\% of total) & 0.0024 (0.0011, 0.0036) & $-$0.0109 ($-$0.0170, $-$0.0050) & $-$0.0159 ($-$0.0235, $-$0.0087) \\
+Intercept & 0.5169 (0.4030, 0.6308) & 1.3856 (0.8144, 1.9748) & 2.4162 (1.7973, 3.1147) \\
+Observations & 445 & 389 & 445 \\
+% Simar-Wilson Algorithm 2, mean score by year before and after bias correction: 2015: 0.637 -> 0.555; 2016: 0.635 -> 0.523; 2017: 0.631 -> 0.540; 2018: 0.640 -> 0.520; 2019: 0.652 -> 0.547; 2020: 0.732 -> 0.638
+% main Tobit p values: (Intercept) = 0.0000, cbr = 0.0000, cdr = 0.0473, lf_10m = 0.3346, edu = 0.2424, gdp_k = 0.0018, dens_h = 0.0001, rur = 0.0005, log_sigma = 0.0000
+% without Singapore p values: (Intercept) = 0.0000, cbr = 0.0000, cdr = 0.0019, lf_10m = 0.2914, edu = 0.1031, gdp_k = 0.0010, dens_h = 0.2783, rur = 0.0000, log_sigma = 0.0000
