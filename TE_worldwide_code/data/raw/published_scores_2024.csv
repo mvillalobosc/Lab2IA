@@ -1,0 +1,467 @@
+code,country,income,financing,year,te_io_crs,te_oo_crs,te_io_vrs,te_oo_vrs
+AFG,Afghanistan,Low,Public,2015,0.62,0.62,0.76,0.97
+AFG,Afghanistan,Low,Public,2016,0.59,0.59,0.77,0.95
+AFG,Afghanistan,Low,Public,2017,0.45,0.45,0.46,0.89
+ALB,Albania,Upper-mid,Mixed,2016,0.51,0.51,0.66,0.98
+ALB,Albania,Upper-mid,Mixed,2018,0.47,0.47,0.65,0.96
+ALB,Albania,Upper-mid,Mixed,2020,0.55,0.55,0.62,0.95
+ARE,United Arab Emirates,High,Public,2019,0.79,0.79,1.0,1.0
+ARE,United Arab Emirates,High,Public,2020,0.92,0.92,1.0,1.0
+ARG,Argentina,Upper-mid,Mixed,2015,0.29,0.29,0.34,0.93
+ARG,Argentina,Upper-mid,Mixed,2016,0.33,0.33,0.39,0.91
+ARG,Argentina,Upper-mid,Mixed,2017,0.3,0.3,0.33,0.92
+ARG,Argentina,Upper-mid,Mixed,2019,0.32,0.32,0.4,0.92
+ARG,Argentina,Upper-mid,Mixed,2020,0.42,0.42,0.47,0.92
+ARM,Armenia,Upper-mid,Mixed,2015,0.29,0.29,0.32,0.9
+ARM,Armenia,Upper-mid,Mixed,2017,0.29,0.29,0.31,0.9
+AUS,Australia,High,Mixed,2015,0.44,0.44,0.6,0.99
+AUS,Australia,High,Mixed,2016,0.46,0.46,0.61,0.99
+AUT,Austria,High,Mixed,2015,0.36,0.36,0.39,0.98
+AUT,Austria,High,Mixed,2016,0.38,0.38,0.41,0.98
+AUT,Austria,High,Mixed,2017,0.38,0.38,0.4,0.98
+AUT,Austria,High,Mixed,2018,0.35,0.35,0.38,0.97
+AUT,Austria,High,Mixed,2019,0.37,0.37,0.4,0.98
+AUT,Austria,High,Mixed,2020,0.48,0.48,0.59,0.97
+AZE,Azerbaijan,Upper-mid,Mixed,2015,0.65,0.65,0.69,0.87
+AZE,Azerbaijan,Upper-mid,Mixed,2016,0.64,0.64,0.74,0.9
+AZE,Azerbaijan,Upper-mid,Mixed,2017,0.74,0.74,0.76,0.92
+AZE,Azerbaijan,Upper-mid,Mixed,2018,0.7,0.7,0.77,0.92
+AZE,Azerbaijan,Upper-mid,Mixed,2019,0.65,0.65,0.66,0.9
+BEL,Belgium,High,Mixed,2015,0.45,0.45,0.51,0.98
+BEL,Belgium,High,Mixed,2016,0.44,0.44,0.53,0.98
+BEL,Belgium,High,Mixed,2017,0.48,0.48,0.58,0.98
+BEL,Belgium,High,Mixed,2018,0.46,0.46,0.57,0.98
+BEL,Belgium,High,Mixed,2019,0.46,0.46,0.6,0.98
+BEL,Belgium,High,Mixed,2020,0.6,0.6,0.68,0.97
+BEN,Benin,Lower-mid,Public,2016,1.0,1.0,1.0,1.0
+BEN,Benin,Lower-mid,Public,2018,1.0,1.0,1.0,1.0
+BEN,Benin,Lower-mid,Public,2019,1.0,1.0,1.0,1.0
+BGD,Bangladesh,Lower-mid,Private,2015,1.0,1.0,1.0,1.0
+BGD,Bangladesh,Lower-mid,Private,2016,0.98,0.98,1.0,1.0
+BGD,Bangladesh,Lower-mid,Private,2017,1.0,1.0,1.0,1.0
+BGD,Bangladesh,Lower-mid,Private,2018,1.0,1.0,1.0,1.0
+BGD,Bangladesh,Lower-mid,Private,2019,1.0,1.0,1.0,1.0
+BGR,Bulgaria,Upper-mid,Mixed,2015,0.42,0.42,0.43,0.9
+BGR,Bulgaria,Upper-mid,Mixed,2018,0.4,0.4,0.42,0.9
+BHR,Bahrain,High,Mixed,2015,0.8,0.8,1.0,1.0
+BHR,Bahrain,High,Mixed,2016,0.82,0.82,1.0,1.0
+BHS,Bahamas,High,Mixed,2017,0.44,0.44,0.46,0.9
+BLR,Belarus,Upper-mid,Public,2015,0.58,0.58,0.6,0.89
+BLR,Belarus,Upper-mid,Public,2016,0.63,0.63,0.66,0.89
+BLR,Belarus,Upper-mid,Public,2017,0.65,0.65,0.68,0.89
+BLR,Belarus,Upper-mid,Public,2018,0.64,0.64,0.68,0.89
+BLR,Belarus,Upper-mid,Public,2019,0.65,0.65,0.69,0.89
+BLZ,Belize,Upper-mid,Mixed,2017,0.68,0.68,0.8,0.97
+BLZ,Belize,Upper-mid,Mixed,2018,0.66,0.66,0.79,0.97
+BOL,Bolivia,Lower-mid,Mixed,2016,0.45,0.45,0.5,0.87
+BOL,Bolivia,Lower-mid,Mixed,2017,0.5,0.5,0.51,0.88
+BRA,Brazil,Upper-mid,Mixed,2017,0.36,0.36,0.46,0.91
+BRA,Brazil,Upper-mid,Mixed,2019,0.33,0.33,0.53,0.92
+BRB,Barbados,High,Public,2017,0.46,0.46,0.53,0.93
+BTN,Bhutan,Lower-mid,Public,2015,0.79,0.79,0.84,0.97
+BTN,Bhutan,Lower-mid,Public,2016,0.77,0.77,0.86,0.94
+BTN,Bhutan,Lower-mid,Public,2017,1.0,1.0,1.0,1.0
+BTN,Bhutan,Lower-mid,Public,2018,0.82,0.82,1.0,1.0
+BTN,Bhutan,Lower-mid,Public,2019,0.77,0.77,1.0,1.0
+BTN,Bhutan,Lower-mid,Public,2020,0.72,0.72,1.0,1.0
+BWA,Botswana,Upper-mid,Public,2016,0.46,0.46,0.5,0.87
+BWA,Botswana,Upper-mid,Public,2018,0.44,0.44,0.51,0.9
+CAN,Canada,High,Mixed,2015,0.47,0.47,0.82,0.99
+CAN,Canada,High,Mixed,2016,0.49,0.49,0.86,0.99
+CAN,Canada,High,Mixed,2017,0.47,0.47,0.84,0.98
+CAN,Canada,High,Mixed,2018,0.49,0.49,0.87,0.98
+CAN,Canada,High,Mixed,2019,0.51,0.51,0.93,0.99
+CAN,Canada,High,Mixed,2020,0.64,0.64,1.0,1.0
+CHE,Switzerland,High,Mixed,2015,0.35,0.35,1.0,1.0
+CHE,Switzerland,High,Mixed,2016,0.35,0.35,1.0,1.0
+CHE,Switzerland,High,Mixed,2017,0.36,0.36,1.0,1.0
+CHE,Switzerland,High,Mixed,2018,0.35,0.35,1.0,1.0
+CHE,Switzerland,High,Mixed,2019,0.36,0.36,1.0,1.0
+CHE,Switzerland,High,Mixed,2020,0.52,0.52,0.9,1.0
+CHL,Chile,High,Mixed,2015,0.49,0.49,0.79,0.97
+CHL,Chile,High,Mixed,2016,0.49,0.49,0.79,0.98
+CHL,Chile,High,Mixed,2017,0.47,0.47,0.84,0.98
+CHL,Chile,High,Mixed,2018,0.47,0.47,0.82,0.98
+CHL,Chile,High,Mixed,2019,0.48,0.48,0.88,0.98
+CHL,Chile,High,Mixed,2020,0.62,0.62,0.81,0.98
+CHN,China,Upper-mid,Mixed,2015,0.62,0.62,0.71,0.94
+CHN,China,Upper-mid,Mixed,2016,0.62,0.62,0.74,0.94
+CHN,China,Upper-mid,Mixed,2017,0.63,0.63,0.7,0.94
+CHN,China,Upper-mid,Mixed,2018,0.57,0.57,0.66,0.94
+CHN,China,Upper-mid,Mixed,2019,0.6,0.6,0.65,0.94
+CHN,China,Upper-mid,Mixed,2020,0.67,0.67,0.8,0.97
+COL,Colombia,Upper-mid,Mixed,2015,0.46,0.46,0.74,0.95
+COL,Colombia,Upper-mid,Mixed,2016,0.45,0.45,0.7,0.95
+COL,Colombia,Upper-mid,Mixed,2017,0.47,0.47,0.68,0.96
+COL,Colombia,Upper-mid,Mixed,2018,0.46,0.46,0.68,0.95
+COL,Colombia,Upper-mid,Mixed,2019,0.43,0.43,0.73,0.96
+COL,Colombia,Upper-mid,Mixed,2020,0.55,0.55,0.65,0.94
+CPV,Cabo Verde,Lower-mid,Mixed,2015,0.63,0.63,0.75,0.95
+CPV,Cabo Verde,Lower-mid,Mixed,2016,0.62,0.62,0.78,0.96
+CPV,Cabo Verde,Lower-mid,Mixed,2018,0.58,0.58,0.78,0.97
+CRI,Costa Rica,Upper-mid,Mixed,2015,0.74,0.74,1.0,1.0
+CRI,Costa Rica,Upper-mid,Mixed,2016,0.75,0.75,1.0,1.0
+CRI,Costa Rica,Upper-mid,Mixed,2017,0.69,0.69,1.0,1.0
+CRI,Costa Rica,Upper-mid,Mixed,2018,0.69,0.69,1.0,1.0
+CRI,Costa Rica,Upper-mid,Mixed,2019,0.72,0.72,1.0,1.0
+CRI,Costa Rica,Upper-mid,Mixed,2020,0.81,0.81,1.0,1.0
+CUB,Cuba,Upper-mid,Public,2015,0.31,0.31,0.37,0.94
+CUB,Cuba,Upper-mid,Public,2016,0.32,0.32,0.37,0.93
+CYP,Cyprus,High,Mixed,2015,0.89,0.89,0.89,0.98
+CYP,Cyprus,High,Mixed,2016,1.0,1.0,1.0,1.0
+CYP,Cyprus,High,Mixed,2017,0.91,0.91,0.91,0.98
+CYP,Cyprus,High,Mixed,2018,0.9,0.9,0.91,0.98
+CYP,Cyprus,High,Mixed,2019,0.9,0.9,0.92,0.98
+CZE,Czechia,High,Mixed,2015,0.53,0.53,0.54,0.95
+CZE,Czechia,High,Mixed,2016,0.57,0.57,0.57,0.95
+CZE,Czechia,High,Mixed,2017,0.54,0.54,0.54,0.95
+CZE,Czechia,High,Mixed,2018,0.5,0.5,0.5,0.94
+CZE,Czechia,High,Mixed,2019,0.53,0.53,0.53,0.95
+CZE,Czechia,High,Mixed,2020,0.69,0.69,0.69,0.94
+DEU,Germany,High,Mixed,2015,0.35,0.35,0.36,0.97
+DEU,Germany,High,Mixed,2016,0.36,0.36,0.38,0.97
+DEU,Germany,High,Mixed,2017,0.37,0.37,0.38,0.97
+DEU,Germany,High,Mixed,2018,0.36,0.36,0.38,0.96
+DEU,Germany,High,Mixed,2019,0.34,0.34,0.38,0.97
+DEU,Germany,High,Mixed,2020,0.46,0.46,0.53,0.97
+DNK,Denmark,High,Public,2015,0.62,0.62,0.68,0.98
+DNK,Denmark,High,Public,2016,0.62,0.62,0.67,0.97
+DNK,Denmark,High,Public,2017,0.58,0.58,0.66,0.98
+DNK,Denmark,High,Public,2018,0.58,0.58,0.65,0.97
+DNK,Denmark,High,Public,2019,0.6,0.6,0.69,0.97
+DOM,Dominican Republic,Upper-mid,Mixed,2018,0.68,0.68,0.74,0.96
+DOM,Dominican Republic,Upper-mid,Mixed,2019,0.64,0.64,0.74,0.97
+DZA,Algeria,Lower-mid,Public,2016,0.46,0.46,0.72,0.95
+ECU,Ecuador,Upper-mid,Mixed,2015,0.48,0.48,0.8,0.96
+ECU,Ecuador,Upper-mid,Mixed,2016,0.53,0.53,0.82,0.97
+ECU,Ecuador,Upper-mid,Mixed,2017,0.52,0.52,0.78,0.97
+EGY,Egypt,Lower-mid,Mixed,2015,0.61,0.61,0.66,0.94
+ESP,Spain,High,Mixed,2015,0.64,0.64,1.0,1.0
+ESP,Spain,High,Mixed,2016,0.68,0.68,1.0,1.0
+ESP,Spain,High,Mixed,2017,0.64,0.64,1.0,1.0
+ESP,Spain,High,Mixed,2018,0.64,0.64,1.0,1.0
+ESP,Spain,High,Mixed,2019,0.65,0.65,1.0,1.0
+ESP,Spain,High,Mixed,2020,0.76,0.76,0.91,0.99
+EST,Estonia,High,Mixed,2015,0.59,0.59,0.61,0.94
+EST,Estonia,High,Mixed,2016,0.63,0.63,0.64,0.93
+EST,Estonia,High,Mixed,2017,0.67,0.67,0.67,0.95
+EST,Estonia,High,Mixed,2018,0.75,0.75,1.0,1.0
+EST,Estonia,High,Mixed,2019,0.78,0.78,1.0,1.0
+EST,Estonia,High,Mixed,2020,1.0,1.0,1.0,1.0
+FIN,Finland,High,Public,2015,0.7,0.7,1.0,1.0
+FIN,Finland,High,Public,2016,0.7,0.7,1.0,1.0
+FIN,Finland,High,Public,2017,0.74,0.74,1.0,1.0
+FIN,Finland,High,Public,2018,0.76,0.76,1.0,1.0
+FIN,Finland,High,Public,2019,0.79,0.79,1.0,1.0
+FIN,Finland,High,Public,2020,1.0,1.0,1.0,1.0
+FJI,Fiji,Upper-mid,Mixed,2015,0.76,0.76,0.78,0.89
+FRA,France,High,Mixed,2015,0.45,0.45,0.63,0.99
+FRA,France,High,Mixed,2016,0.43,0.43,0.64,0.99
+FRA,France,High,Mixed,2017,0.45,0.45,0.66,0.99
+FRA,France,High,Mixed,2018,0.44,0.44,0.65,0.99
+FRA,France,High,Mixed,2019,0.44,0.44,0.66,0.99
+FRA,France,High,Mixed,2020,0.55,0.55,0.78,0.99
+GBR,United Kingdom,High,Mixed,2015,0.55,0.55,0.73,0.98
+GBR,United Kingdom,High,Mixed,2016,0.58,0.58,0.76,0.98
+GBR,United Kingdom,High,Mixed,2017,0.54,0.54,0.78,0.98
+GBR,United Kingdom,High,Mixed,2018,0.57,0.57,0.79,0.98
+GBR,United Kingdom,High,Mixed,2019,0.58,0.58,0.83,0.98
+GBR,United Kingdom,High,Mixed,2020,0.69,0.69,0.89,0.98
+GEO,Georgia,Upper-mid,Mixed,2015,0.39,0.39,0.41,0.89
+GEO,Georgia,Upper-mid,Mixed,2016,0.37,0.37,0.4,0.88
+GEO,Georgia,Upper-mid,Mixed,2017,0.43,0.43,0.43,0.88
+GEO,Georgia,Upper-mid,Mixed,2018,0.38,0.38,0.4,0.88
+GEO,Georgia,Upper-mid,Mixed,2019,0.43,0.43,0.43,0.88
+GEO,Georgia,Upper-mid,Mixed,2020,0.36,0.36,0.39,0.88
+GHA,Ghana,Lower-mid,Private,2015,0.92,0.92,0.93,0.99
+GMB,Gambia,Low,Public,2015,1.0,1.0,1.0,1.0
+GMB,Gambia,Low,Public,2019,0.99,0.99,1.0,1.0
+GMB,Gambia,Low,Public,2020,1.0,1.0,1.0,1.0
+GRC,Greece,High,Mixed,2015,0.44,0.44,0.5,0.98
+GRC,Greece,High,Mixed,2016,0.45,0.45,0.52,0.98
+GRC,Greece,High,Mixed,2017,0.46,0.46,0.51,0.98
+GRC,Greece,High,Mixed,2018,0.44,0.44,0.52,0.98
+GRC,Greece,High,Mixed,2019,0.45,0.45,0.53,0.97
+GTM,Guatemala,Upper-mid,Mixed,2017,0.84,0.84,1.0,1.0
+GTM,Guatemala,Upper-mid,Mixed,2018,0.9,0.9,1.0,1.0
+GTM,Guatemala,Upper-mid,Mixed,2020,0.83,0.83,1.0,1.0
+GUY,Guyana,Upper-mid,Public,2018,0.53,0.53,0.53,0.87
+HND,Honduras,Lower-mid,Mixed,2016,0.77,0.77,1.0,1.0
+HND,Honduras,Lower-mid,Mixed,2017,0.85,0.85,1.0,1.0
+HND,Honduras,Lower-mid,Mixed,2020,0.85,0.85,1.0,1.0
+HRV,Croatia,High,Mixed,2015,0.51,0.51,0.53,0.93
+HRV,Croatia,High,Mixed,2016,0.52,0.52,0.56,0.94
+HRV,Croatia,High,Mixed,2017,0.53,0.53,0.54,0.93
+HRV,Croatia,High,Mixed,2018,0.48,0.48,0.51,0.93
+HRV,Croatia,High,Mixed,2019,0.51,0.51,0.52,0.94
+HTI,Haiti,Low,Public,2018,0.59,0.59,0.66,0.92
+HUN,Hungary,High,Mixed,2015,0.49,0.49,0.49,0.91
+HUN,Hungary,High,Mixed,2016,0.49,0.49,0.5,0.91
+HUN,Hungary,High,Mixed,2017,0.52,0.52,0.52,0.91
+HUN,Hungary,High,Mixed,2018,0.5,0.5,0.5,0.91
+HUN,Hungary,High,Mixed,2019,0.56,0.56,0.56,0.91
+HUN,Hungary,High,Mixed,2020,0.65,0.65,0.68,0.91
+IDN,Indonesia,Lower-mid,Mixed,2015,1.0,1.0,1.0,1.0
+IDN,Indonesia,Lower-mid,Mixed,2017,1.0,1.0,1.0,1.0
+IDN,Indonesia,Lower-mid,Mixed,2018,0.93,0.93,1.0,1.0
+IDN,Indonesia,Lower-mid,Mixed,2019,0.92,0.92,1.0,1.0
+IDN,Indonesia,Lower-mid,Mixed,2020,0.86,0.86,0.87,0.96
+IND,India,Lower-mid,Mixed,2020,0.75,0.75,0.81,0.96
+IRL,Ireland,High,Public,2018,0.62,0.62,0.72,0.99
+IRL,Ireland,High,Public,2020,0.93,0.93,1.0,1.0
+IRN,Iran,Lower-mid,Mixed,2015,0.5,0.5,0.72,0.95
+IRN,Iran,Lower-mid,Mixed,2017,0.49,0.49,0.68,0.97
+IRN,Iran,Lower-mid,Mixed,2018,0.43,0.43,0.64,0.96
+ISL,Iceland,High,Public,2015,0.79,0.79,1.0,1.0
+ISL,Iceland,High,Public,2016,0.82,0.82,1.0,1.0
+ISL,Iceland,High,Public,2017,0.79,0.79,0.79,1.0
+ISL,Iceland,High,Public,2018,0.83,0.83,0.87,0.99
+ISL,Iceland,High,Public,2019,0.84,0.84,0.84,0.99
+ISR,Israel,High,Mixed,2015,0.56,0.56,0.67,0.99
+ISR,Israel,High,Mixed,2016,0.59,0.59,0.73,0.99
+ISR,Israel,High,Mixed,2017,0.58,0.58,0.71,0.99
+ISR,Israel,High,Mixed,2018,0.6,0.6,0.74,0.99
+ISR,Israel,High,Mixed,2019,0.6,0.6,0.74,0.99
+ISR,Israel,High,Mixed,2020,0.87,0.87,1.0,1.0
+ITA,Italy,High,Mixed,2015,0.56,0.56,0.71,1.0
+ITA,Italy,High,Mixed,2016,0.6,0.6,0.93,1.0
+ITA,Italy,High,Mixed,2017,0.57,0.57,0.74,1.0
+ITA,Italy,High,Mixed,2018,0.61,0.61,0.84,1.0
+ITA,Italy,High,Mixed,2019,0.63,0.63,0.79,1.0
+ITA,Italy,High,Mixed,2020,0.81,0.81,0.91,0.99
+JAM,Jamaica,Upper-mid,Mixed,2015,0.67,0.67,0.81,0.96
+JAM,Jamaica,Upper-mid,Mixed,2016,0.55,0.55,0.68,0.94
+JAM,Jamaica,Upper-mid,Mixed,2018,0.53,0.53,0.67,0.95
+JOR,Jordan,Lower-mid,Mixed,2017,0.47,0.47,0.66,0.95
+JOR,Jordan,Lower-mid,Mixed,2019,0.48,0.48,0.74,0.96
+JPN,Japan,High,Mixed,2016,0.91,0.91,1.0,1.0
+JPN,Japan,High,Mixed,2018,0.99,0.99,1.0,1.0
+JPN,Japan,High,Mixed,2020,1.0,1.0,1.0,1.0
+KAZ,Kazakhstan,Upper-mid,Mixed,2015,0.93,0.93,0.96,0.98
+KAZ,Kazakhstan,Upper-mid,Mixed,2016,0.82,0.82,0.89,0.96
+KAZ,Kazakhstan,Upper-mid,Mixed,2017,0.97,0.97,0.98,0.99
+KAZ,Kazakhstan,Upper-mid,Mixed,2018,0.95,0.95,1.0,1.0
+KAZ,Kazakhstan,Upper-mid,Mixed,2019,1.0,1.0,1.0,1.0
+KAZ,Kazakhstan,Upper-mid,Mixed,2020,0.78,0.78,0.81,0.94
+KGZ,Kyrgyz Republic,Lower-mid,Mixed,2019,0.59,0.59,0.59,0.86
+KOR,"Korea, Rep.",High,Mixed,2015,0.7,0.7,0.86,0.99
+KOR,"Korea, Rep.",High,Mixed,2016,0.71,0.71,0.85,0.99
+KOR,"Korea, Rep.",High,Mixed,2017,0.74,0.74,0.93,0.99
+KOR,"Korea, Rep.",High,Mixed,2018,0.72,0.72,0.87,0.99
+KOR,"Korea, Rep.",High,Mixed,2019,0.72,0.72,0.94,1.0
+KOR,"Korea, Rep.",High,Mixed,2020,0.87,0.87,1.0,1.0
+LAO,Lao PDR,Lower-mid,Mixed,2015,1.0,1.0,1.0,1.0
+LAO,Lao PDR,Lower-mid,Mixed,2016,1.0,1.0,1.0,1.0
+LAO,Lao PDR,Lower-mid,Mixed,2017,1.0,1.0,1.0,1.0
+LAO,Lao PDR,Lower-mid,Mixed,2018,1.0,1.0,1.0,1.0
+LAO,Lao PDR,Lower-mid,Mixed,2019,0.97,0.97,1.0,1.0
+LAO,Lao PDR,Lower-mid,Mixed,2020,1.0,1.0,1.0,1.0
+LBN,Lebanon,Upper-mid,Mixed,2016,0.41,0.41,0.64,0.96
+LBN,Lebanon,Upper-mid,Mixed,2017,0.41,0.41,0.69,0.96
+LBN,Lebanon,Upper-mid,Mixed,2018,0.39,0.39,0.68,0.96
+LBN,Lebanon,Upper-mid,Mixed,2019,0.38,0.38,0.67,0.95
+LBR,Liberia,Low,Public,2018,0.72,0.72,0.73,0.91
+LCA,St. Lucia,Upper-mid,Mixed,2017,0.73,0.73,0.81,0.97
+LKA,Sri Lanka,Lower-mid,Mixed,2015,0.84,0.84,0.87,0.95
+LKA,Sri Lanka,Lower-mid,Mixed,2016,0.85,0.85,0.9,0.97
+LKA,Sri Lanka,Lower-mid,Mixed,2017,0.93,0.93,0.97,0.99
+LKA,Sri Lanka,Lower-mid,Mixed,2018,0.82,0.82,0.9,0.96
+LKA,Sri Lanka,Lower-mid,Mixed,2020,0.95,0.95,1.0,1.0
+LTU,Lithuania,High,Mixed,2015,0.51,0.51,0.52,0.9
+LTU,Lithuania,High,Mixed,2016,0.52,0.52,0.53,0.9
+LTU,Lithuania,High,Mixed,2017,0.55,0.55,0.55,0.91
+LTU,Lithuania,High,Mixed,2018,0.51,0.51,0.52,0.9
+LTU,Lithuania,High,Mixed,2019,0.52,0.52,0.53,0.91
+LTU,Lithuania,High,Mixed,2020,0.69,0.69,0.7,0.91
+LUX,Luxembourg,High,Mixed,2015,0.82,0.82,0.82,0.99
+LUX,Luxembourg,High,Mixed,2016,0.87,0.87,0.87,1.0
+LUX,Luxembourg,High,Mixed,2017,0.83,0.83,0.83,0.99
+LVA,Latvia,High,Mixed,2015,0.58,0.58,0.58,0.9
+LVA,Latvia,High,Mixed,2016,0.55,0.55,0.56,0.9
+LVA,Latvia,High,Mixed,2017,0.58,0.58,0.59,0.9
+LVA,Latvia,High,Mixed,2018,0.52,0.52,0.53,0.89
+LVA,Latvia,High,Mixed,2019,0.53,0.53,0.54,0.9
+LVA,Latvia,High,Mixed,2020,0.68,0.68,0.69,0.91
+MDA,Moldova,Lower-mid,Mixed,2015,0.31,0.31,0.32,0.84
+MDA,Moldova,Lower-mid,Mixed,2017,0.4,0.4,0.4,0.85
+MDA,Moldova,Lower-mid,Mixed,2019,0.42,0.42,0.42,0.85
+MDA,Moldova,Lower-mid,Mixed,2020,0.37,0.37,0.38,0.85
+MDV,Maldives,Upper-mid,Mixed,2016,0.4,0.4,0.74,0.99
+MDV,Maldives,Upper-mid,Mixed,2017,0.42,0.42,0.7,0.98
+MDV,Maldives,Upper-mid,Mixed,2018,0.45,0.45,0.68,0.98
+MDV,Maldives,Upper-mid,Mixed,2019,0.44,0.44,0.59,0.97
+MEX,Mexico,Upper-mid,Mixed,2015,0.67,0.67,0.94,0.99
+MEX,Mexico,Upper-mid,Mixed,2016,0.68,0.68,0.91,0.98
+MEX,Mexico,Upper-mid,Mixed,2017,0.69,0.69,0.86,0.97
+MEX,Mexico,Upper-mid,Mixed,2018,0.69,0.69,0.85,0.97
+MEX,Mexico,Upper-mid,Mixed,2020,0.78,0.78,0.78,0.93
+MLI,Mali,Low,Private,2015,1.0,1.0,1.0,1.0
+MLI,Mali,Low,Private,2016,1.0,1.0,1.0,1.0
+MLI,Mali,Low,Private,2017,1.0,1.0,1.0,1.0
+MLI,Mali,Low,Private,2018,1.0,1.0,1.0,1.0
+MLT,Malta,High,Mixed,2015,0.39,0.39,0.69,0.99
+MMR,Myanmar,Lower-mid,Public,2016,0.52,0.52,0.56,0.89
+MMR,Myanmar,Lower-mid,Public,2017,0.58,0.58,0.59,0.87
+MMR,Myanmar,Lower-mid,Public,2018,0.55,0.55,0.58,0.89
+MMR,Myanmar,Lower-mid,Public,2019,0.54,0.54,0.57,0.9
+MNG,Mongolia,Lower-mid,Mixed,2015,0.63,0.63,0.64,0.84
+MNG,Mongolia,Lower-mid,Mixed,2016,0.61,0.61,0.64,0.85
+MNG,Mongolia,Lower-mid,Mixed,2018,0.66,0.66,0.69,0.88
+MOZ,Mozambique,Low,Public,2017,0.65,0.65,0.66,0.93
+MOZ,Mozambique,Low,Public,2018,0.51,0.51,0.55,0.9
+MOZ,Mozambique,Low,Public,2019,0.6,0.6,0.6,0.9
+MOZ,Mozambique,Low,Public,2020,0.71,0.71,0.72,0.98
+MUS,Mauritius,Upper-mid,Mixed,2015,0.5,0.5,0.56,0.91
+MUS,Mauritius,Upper-mid,Mixed,2016,0.49,0.49,0.58,0.9
+MUS,Mauritius,Upper-mid,Mixed,2017,0.5,0.5,0.54,0.9
+MUS,Mauritius,Upper-mid,Mixed,2018,0.45,0.45,0.5,0.91
+MUS,Mauritius,Upper-mid,Mixed,2019,0.45,0.45,0.46,0.89
+MUS,Mauritius,Upper-mid,Mixed,2020,0.42,0.42,0.5,0.91
+MYS,Malaysia,Upper-mid,Mixed,2015,0.81,0.81,0.86,0.95
+MYS,Malaysia,Upper-mid,Mixed,2016,0.83,0.83,0.92,0.97
+MYS,Malaysia,Upper-mid,Mixed,2017,0.85,0.85,0.89,0.96
+MYS,Malaysia,Upper-mid,Mixed,2018,0.79,0.79,0.83,0.95
+MYS,Malaysia,Upper-mid,Mixed,2019,0.79,0.79,0.81,0.95
+MYS,Malaysia,Upper-mid,Mixed,2020,0.92,0.92,1.0,1.0
+NER,Niger,Low,Private,2015,1.0,1.0,1.0,1.0
+NER,Niger,Low,Private,2016,1.0,1.0,1.0,1.0
+NER,Niger,Low,Private,2017,1.0,1.0,1.0,1.0
+NER,Niger,Low,Private,2018,1.0,1.0,1.0,1.0
+NER,Niger,Low,Private,2019,1.0,1.0,1.0,1.0
+NER,Niger,Low,Private,2020,1.0,1.0,1.0,1.0
+NIC,Nicaragua,Lower-mid,Mixed,2015,0.6,0.6,1.0,1.0
+NIC,Nicaragua,Lower-mid,Mixed,2016,0.57,0.57,0.84,0.98
+NIC,Nicaragua,Lower-mid,Mixed,2017,0.54,0.54,0.7,0.98
+NIC,Nicaragua,Lower-mid,Mixed,2018,0.57,0.57,0.76,0.99
+NLD,Netherlands,High,Mixed,2015,0.45,0.45,0.59,0.98
+NLD,Netherlands,High,Mixed,2016,0.48,0.48,0.61,0.98
+NLD,Netherlands,High,Mixed,2017,0.46,0.46,0.64,0.98
+NLD,Netherlands,High,Mixed,2018,0.48,0.48,0.65,0.98
+NLD,Netherlands,High,Mixed,2019,0.51,0.51,0.7,0.98
+NLD,Netherlands,High,Mixed,2020,0.66,0.66,0.81,0.98
+NOR,Norway,High,Public,2015,0.62,0.62,0.62,1.0
+NOR,Norway,High,Public,2016,0.69,0.69,1.0,1.0
+NOR,Norway,High,Public,2017,0.67,0.67,0.67,0.99
+NOR,Norway,High,Public,2018,0.72,0.72,1.0,1.0
+NOR,Norway,High,Public,2019,0.75,0.75,1.0,1.0
+NOR,Norway,High,Public,2020,0.85,0.85,1.0,1.0
+NPL,Nepal,Lower-mid,Mixed,2017,1.0,1.0,1.0,1.0
+NPL,Nepal,Lower-mid,Mixed,2018,1.0,1.0,1.0,1.0
+NPL,Nepal,Lower-mid,Mixed,2019,1.0,1.0,1.0,1.0
+NPL,Nepal,Lower-mid,Mixed,2020,1.0,1.0,1.0,1.0
+NZL,New Zealand,High,Mixed,2015,0.48,0.48,0.74,0.99
+NZL,New Zealand,High,Mixed,2016,0.5,0.5,0.74,0.98
+NZL,New Zealand,High,Mixed,2017,0.49,0.49,0.74,0.98
+NZL,New Zealand,High,Mixed,2018,0.5,0.5,0.75,0.98
+NZL,New Zealand,High,Mixed,2019,0.52,0.52,0.8,0.98
+NZL,New Zealand,High,Mixed,2020,0.67,0.67,1.0,1.0
+OMN,Oman,High,Public,2020,0.93,0.93,1.0,1.0
+PAK,Pakistan,Lower-mid,Private,2015,1.0,1.0,1.0,1.0
+PAK,Pakistan,Lower-mid,Private,2016,1.0,1.0,1.0,1.0
+PAK,Pakistan,Lower-mid,Private,2017,1.0,1.0,1.0,1.0
+PAK,Pakistan,Lower-mid,Private,2018,0.97,0.97,1.0,1.0
+PAK,Pakistan,Lower-mid,Private,2019,0.9,0.9,1.0,1.0
+PAN,Panama,Upper-mid,Mixed,2015,0.44,0.44,0.73,0.96
+PAN,Panama,Upper-mid,Mixed,2016,0.43,0.43,0.71,0.96
+PAN,Panama,Upper-mid,Mixed,2017,0.44,0.44,0.73,0.97
+PAN,Panama,Upper-mid,Mixed,2018,0.41,0.41,0.77,0.97
+PAN,Panama,Upper-mid,Mixed,2019,0.38,0.38,0.86,0.98
+PAN,Panama,Upper-mid,Mixed,2020,0.5,0.5,0.77,0.97
+PER,Peru,Upper-mid,Mixed,2016,0.62,0.62,0.82,0.96
+PER,Peru,Upper-mid,Mixed,2018,0.59,0.59,0.79,0.97
+PHL,Philippines,Lower-mid,Mixed,2017,0.79,0.79,0.81,0.97
+PHL,Philippines,Lower-mid,Mixed,2018,0.74,0.74,0.81,0.97
+PHL,Philippines,Lower-mid,Mixed,2019,0.67,0.67,0.82,0.98
+PHL,Philippines,Lower-mid,Mixed,2020,0.83,0.83,1.0,1.0
+POL,Poland,High,Mixed,2015,0.55,0.55,0.56,0.94
+POL,Poland,High,Mixed,2016,0.55,0.55,0.58,0.94
+POL,Poland,High,Mixed,2017,0.56,0.56,0.57,0.94
+POL,Poland,High,Mixed,2020,0.69,0.69,0.74,0.93
+PRT,Portugal,High,Mixed,2015,0.53,0.53,0.56,0.98
+PRT,Portugal,High,Mixed,2016,0.54,0.54,0.57,0.97
+PRT,Portugal,High,Mixed,2017,0.52,0.52,0.57,0.98
+PRT,Portugal,High,Mixed,2018,0.53,0.53,0.56,0.97
+PRT,Portugal,High,Mixed,2019,0.53,0.53,0.57,0.97
+PRT,Portugal,High,Mixed,2020,0.69,0.69,0.72,0.97
+PRY,Paraguay,Upper-mid,Mixed,2018,0.59,0.59,0.76,0.96
+PRY,Paraguay,Upper-mid,Mixed,2020,0.71,0.71,0.9,0.99
+ROU,Romania,Upper-mid,Mixed,2016,0.61,0.61,0.68,0.91
+ROU,Romania,Upper-mid,Mixed,2017,0.62,0.62,0.64,0.91
+RUS,Russian Federation,Upper-mid,Mixed,2015,0.56,0.56,0.56,0.86
+RUS,Russian Federation,Upper-mid,Mixed,2016,0.57,0.57,0.57,0.86
+RUS,Russian Federation,Upper-mid,Mixed,2017,0.59,0.59,0.59,0.87
+RUS,Russian Federation,Upper-mid,Mixed,2018,0.54,0.54,0.55,0.87
+RUS,Russian Federation,Upper-mid,Mixed,2019,0.56,0.56,0.57,0.87
+RUS,Russian Federation,Upper-mid,Mixed,2020,0.53,0.53,0.53,0.86
+RWA,Rwanda,Low,Public,2015,0.8,0.8,1.0,1.0
+RWA,Rwanda,Low,Public,2016,0.71,0.71,0.82,0.97
+RWA,Rwanda,Low,Public,2017,0.85,0.85,0.92,0.99
+RWA,Rwanda,Low,Public,2018,0.6,0.6,0.61,0.97
+RWA,Rwanda,Low,Public,2019,0.83,0.83,0.84,0.97
+SEN,Senegal,Lower-mid,Mixed,2015,0.89,0.89,1.0,1.0
+SEN,Senegal,Lower-mid,Mixed,2016,1.0,1.0,1.0,1.0
+SEN,Senegal,Lower-mid,Mixed,2019,1.0,1.0,1.0,1.0
+SGP,Singapore,High,Mixed,2015,1.0,1.0,1.0,1.0
+SGP,Singapore,High,Mixed,2016,1.0,1.0,1.0,1.0
+SGP,Singapore,High,Mixed,2017,1.0,1.0,1.0,1.0
+SGP,Singapore,High,Mixed,2018,1.0,1.0,1.0,1.0
+SGP,Singapore,High,Mixed,2019,1.0,1.0,1.0,1.0
+SLV,El Salvador,Lower-mid,Mixed,2016,0.54,0.54,0.7,0.94
+SLV,El Salvador,Lower-mid,Mixed,2018,0.52,0.52,0.59,0.92
+SRB,Serbia,Upper-mid,Mixed,2015,0.37,0.37,0.38,0.91
+SRB,Serbia,Upper-mid,Mixed,2016,0.38,0.38,0.41,0.91
+STP,Sao Tome and Principe,Lower-mid,Public,2019,0.67,0.67,0.72,0.93
+SUR,Suriname,Upper-mid,Mixed,2015,0.48,0.48,0.49,0.89
+SUR,Suriname,Upper-mid,Mixed,2016,0.45,0.45,0.49,0.89
+SUR,Suriname,Upper-mid,Mixed,2017,0.53,0.53,0.54,0.91
+SUR,Suriname,Upper-mid,Mixed,2018,0.44,0.44,0.56,0.92
+SVK,Slovak Republic,High,Mixed,2015,0.48,0.48,0.51,0.92
+SVK,Slovak Republic,High,Mixed,2016,0.46,0.46,0.51,0.93
+SVK,Slovak Republic,High,Mixed,2017,0.5,0.5,0.52,0.93
+SVK,Slovak Republic,High,Mixed,2018,0.46,0.46,0.49,0.92
+SVK,Slovak Republic,High,Mixed,2019,0.47,0.47,0.49,0.93
+SVK,Slovak Republic,High,Mixed,2020,0.55,0.55,0.62,0.93
+SVN,Slovenia,High,Mixed,2015,0.8,0.8,0.99,1.0
+SVN,Slovenia,High,Mixed,2016,0.76,0.76,0.91,0.99
+SVN,Slovenia,High,Mixed,2017,0.79,0.79,0.94,0.99
+SVN,Slovenia,High,Mixed,2018,0.78,0.78,0.9,0.98
+SVN,Slovenia,High,Mixed,2019,0.75,0.75,0.75,0.98
+SVN,Slovenia,High,Mixed,2020,1.0,1.0,1.0,1.0
+SWE,Sweden,High,Public,2015,0.93,0.93,0.93,0.99
+SWE,Sweden,High,Public,2016,1.0,1.0,1.0,1.0
+SWE,Sweden,High,Public,2017,1.0,1.0,1.0,1.0
+SWE,Sweden,High,Public,2018,1.0,1.0,1.0,1.0
+SWE,Sweden,High,Public,2019,1.0,1.0,1.0,1.0
+SWE,Sweden,High,Public,2020,1.0,1.0,1.0,1.0
+TCD,Chad,Low,Mixed,2015,0.87,0.87,1.0,1.0
+TCD,Chad,Low,Mixed,2017,0.95,0.95,1.0,1.0
+TGO,Togo,Low,Private,2015,1.0,1.0,1.0,1.0
+TGO,Togo,Low,Private,2016,0.94,0.94,1.0,1.0
+TGO,Togo,Low,Private,2017,0.81,0.81,0.81,0.94
+TGO,Togo,Low,Private,2018,0.62,0.62,0.68,0.9
+TGO,Togo,Low,Private,2019,0.79,0.79,0.81,0.91
+THA,Thailand,Upper-mid,Mixed,2015,1.0,1.0,1.0,1.0
+THA,Thailand,Upper-mid,Mixed,2016,1.0,1.0,1.0,1.0
+THA,Thailand,Upper-mid,Mixed,2017,0.91,0.91,1.0,1.0
+THA,Thailand,Upper-mid,Mixed,2018,0.85,0.85,1.0,1.0
+THA,Thailand,Upper-mid,Mixed,2019,0.84,0.84,1.0,1.0
+THA,Thailand,Upper-mid,Mixed,2020,0.97,0.97,1.0,1.0
+TTO,Trinidad and Tobago,High,Mixed,2015,0.47,0.47,0.54,0.9
+TTO,Trinidad and Tobago,High,Mixed,2017,0.44,0.44,0.48,0.89
+TTO,Trinidad and Tobago,High,Mixed,2018,0.42,0.42,0.44,0.89
+TTO,Trinidad and Tobago,High,Mixed,2019,0.42,0.42,0.51,0.91
+TUN,Tunisia,Lower-mid,Mixed,2015,0.51,0.51,0.76,0.95
+TUR,Turkiye,Upper-mid,Mixed,2015,0.72,0.72,0.84,0.94
+TUR,Turkiye,Upper-mid,Mixed,2016,0.68,0.68,0.84,0.94
+TUR,Turkiye,Upper-mid,Mixed,2017,0.74,0.74,0.85,0.95
+TUR,Turkiye,Upper-mid,Mixed,2018,0.67,0.67,0.81,0.95
+TUR,Turkiye,Upper-mid,Mixed,2019,0.69,0.69,0.79,0.95
+TUR,Turkiye,Upper-mid,Mixed,2020,0.65,0.65,0.79,0.95
+TZA,Tanzania,Lower-mid,Public,2018,1.0,1.0,1.0,1.0
+URY,Uruguay,High,Mixed,2016,0.42,0.42,0.57,0.94
+URY,Uruguay,High,Mixed,2017,0.43,0.43,0.55,0.93
+USA,United States,High,Private,2018,0.37,0.37,0.57,0.94
+USA,United States,High,Private,2019,0.37,0.37,0.58,0.94
+USA,United States,High,Private,2020,0.42,0.42,0.54,0.93
+VNM,Vietnam,Lower-mid,Mixed,2015,0.63,0.63,0.7,0.94
+VNM,Vietnam,Lower-mid,Mixed,2016,0.61,0.61,0.73,0.93
