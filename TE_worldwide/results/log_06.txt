@@ -1,4 +1,0 @@
-pooled frontier annual means: {2015: np.float64(0.585), 2016: np.float64(0.591), 2017: np.float64(0.589), 2018: np.float64(0.615), 2019: np.float64(0.614), 2020: np.float64(0.59)}
-fixed-sample annual means: {2015: np.float64(0.798), 2016: np.float64(0.786), 2017: np.float64(0.79), 2018: np.float64(0.779), 2019: np.float64(0.785), 2020: np.float64(0.723)}
-metafrontier pooled: {'H': {'n': 211, 'meta': np.float64(0.611), 'group': np.float64(0.746), 'tgr': np.float64(0.817), 'tgr_median': np.float64(0.828), 'spearman_meta_group': np.float64(0.701)}, 'L+LM': {'n': 120, 'meta': np.float64(0.8), 'group': np.float64(0.866), 'tgr': np.float64(0.921), 'tgr_median': np.float64(1.0), 'spearman_meta_group': np.float64(0.793)}, 'UM': {'n': 135, 'meta': np.float64(0.567), 'group': np.float64(0.785), 'tgr': np.float64(0.718), 'tgr_median': np.float64(0.715), 'spearman_meta_group': np.float64(0.915)}}
-saved results/robustness_results.json
