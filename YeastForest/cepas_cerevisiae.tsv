@@ -1,0 +1,1012 @@
+cepa	Población	Aislado	Población de origen	Continente	País	Sitio	Ecología	Sustrato	Ploidía	Latitud	Longitud	Precision
+AAA	Wine/European	RM11-1a	1. Wine/European	Norteamerica	USA	California, USA	Wine	Zinfandel vineyard	1	36.8	-119.4	region
+AAB	Mosaic beer	CBS422a	7. Mosaic beer	Europa	Ukraine	Odessa, Ukraine	Beer	Beer	1	48.4	31.2	region
+AAC	Ale beer	CBS2165a	11. Ale beer	Europa	England	England	Beer	Brewers	2	52.4	-1.5	pais
+AAD	Sake	CBS436a	25. Sake	Asia	Japan	Japan	Sake	Moto (sake yeast starter)	2	36.2	138.3	pais
+AAE	Wine/European (subclade 4)	CBS2806a	1. Wine/European (subclade 4)	Europa	Slovakia	Slovakia	Wine	Wine	1	48.7	19.7	pais
+AAG	Mosaic region 3	CBS428a	M3. Mosaic region 3	Desconocido			Unknown	Unknown	1			
+AAH		CBS1388a		Desconocido			Unknown	Unknown	1			
+AAI	Wine/European	CBS2966a	1. Wine/European	Europa	Denmark	Denmark	Distillery	Distillery	1	56.3	9.5	pais
+AAK	Wine/European (subclade 4)	CBS4093a	1. Wine/European (subclade 4)	Europa	Spain	Spain	Wine	Film on white wine	1	40.4	-3.7	pais
+AAL	Mixed origin	CBS1236-a	8. Mixed origin	Europa	France	France	Bakery	Bakery	2	46.2	2.2	pais
+AAM	Mixed origin	CLIB192_1b	8. Mixed origin	Europa	France	France	Bakery	Bakery	1	46.2	2.2	pais
+AAN	Mixed origin	CLIB274_1	8. Mixed origin	Europa	Czech Republic	Czech Republic	Bakery	Bakery	2	49.8	15.5	pais
+AAP	Mixed origin	CLIB326_1	8. Mixed origin	Oceania	Australia	Australia	Bakery	Bakery	2	-25.3	133.8	pais
+AAQ	Mosaic beer	CLIB272_2	7. Mosaic beer	Norteamerica	USA	USA	Beer	Beer	1	39.8	-98.6	pais
+AAR	Mosaic beer	CLIB382_1b	7. Mosaic beer	Europa	Ireland	Ireland	Beer	Beer	1	53.4	-8.2	pais
+AAS	Mosaic region 3	YJM145_b	M3. Mosaic region 3	Norteamerica	USA	USA	Human, clinical	AIDS patient	1	39.8	-98.6	pais
+AAT	Mosaic region 3	YJM280_b	M3. Mosaic region 3	Norteamerica	USA	USA	Human, clinical	Peritoneal fluid	1	39.8	-98.6	pais
+AAV	Mosaic region 3	YJM320b	M3. Mosaic region 3	Norteamerica	USA	California, USA	Human, clinical	Blood	1	36.8	-119.4	region
+ABA	Mosaic region 3	YJM326_b	M3. Mosaic region 3	Norteamerica	USA	California, USA	Human, clinical	Human, clinical	1	36.8	-119.4	region
+ABB	Asian fermentation	YJM413_b	26. Asian fermentation	Norteamerica	USA	USA	Human, clinical	Blood	1	39.8	-98.6	pais
+ABC	Mosaic region 3	YJM421_b	M3. Mosaic region 3	Norteamerica	USA	USA	Human, clinical	Ascites fluid	1	39.8	-98.6	pais
+ABD	Mosaic region 3	YJM428_1b	M3. Mosaic region 3	Norteamerica	USA	California, USA	Human, clinical	Paracenteis fluid	2	36.8	-119.4	region
+ABE	Wine/European	YJM434_1b	1. Wine/European	Desconocido			Human, clinical	Human, clinical	1			
+ABF	Mosaic region 3	YJM436_1b	M3. Mosaic region 3	Desconocido			Human, clinical	Mouth	1			
+ABG	Mosaic region 3	YJM440_1b	M3. Mosaic region 3	Desconocido			Human, clinical	Human, clinical	1			
+ABH	Mosaic region 3	YJM454_1b	M3. Mosaic region 3	Desconocido			Human, clinical	Human, clinical	1			
+ABI	Mosaic region 3	YJM653_1b	M3. Mosaic region 3	Norteamerica	USA	USA	Human, clinical	Brochoalveolar lavage	1	39.8	-98.6	pais
+ABK	Mosaic region 3	YJM678_1b	M3. Mosaic region 3	Desconocido			Human, clinical	Unknown	1			
+ABL		CBS2888_1b		Africa	South Africa	South Africa	Soil	Soil	1	-30.6	22.9	pais
+ABM	Alpechin	CBS3093_1b	2. Alpechin	Europa	Spain	Spain	Industrial	Alpechin (waste from olive oil production)	1	40.4	-3.7	pais
+ABP	Wine/European	CECT10109_1b	1. Wine/European	Europa	Spain	Spain	Fruit	Prickly pear	1	40.4	-3.7	pais
+ABQ	Wine/European	DBVPG1788_1b	1. Wine/European	Europa	Finland	Finland	Soil	Soil	1	61.9	25.7	pais
+ABR	Wine/European	DBVPG1794_1b	1. Wine/European	Europa	Finland	Finland	Soil	Soil	1	61.9	25.7	pais
+ABS	Wine/European	DBVPG3591_1b	1. Wine/European	Desconocido			Nature	Cocoa beans	1			
+ABT	Wine/European	DBVPG4651_1b	1. Wine/European	Europa	Italy	Italy	Nature	Tuber magnatum	1	41.9	12.6	pais
+ABV	Mixed origin	DBVPG6861	8. Mixed origin	Sudamerica	Brazil	Tijuca forest, Rio de Janeiro, Brazil	Water	Poluted stream	3	-14.2	-51.9	region
+ACA	Mosaic region 3	EM93_3	M3. Mosaic region 3	Norteamerica	USA	California, USA	Fruit	Rotting fig	1	36.8	-119.4	region
+ACB	Mosaic region 3	TL229S2.2	M3. Mosaic region 3	Europa	France	France	Dairy	Cheese	1	46.2	2.2	pais
+ACC	Ecuadorean	YPS1000_1b	21. Ecuadorean	Norteamerica	USA	USA	Tree	Exudate from Quercus sp.	1	39.8	-98.6	pais
+ACD	North American oak	YPS163_1b	23. North American oak	Norteamerica	USA	USA	Tree	Exudate from Quercus sp.	1	39.8	-98.6	pais
+ACF	Wine/European	CLIB294_1b	1. Wine/European	Europa	France	France	Distillery	Distillery	1	46.2	2.2	pais
+ACG	Mosaic region 1	CLIB413_1b	M1. Mosaic region 1	Asia	China	China	Fermentation	Fermenting rice beverage	1	35.9	104.2	pais
+ACH	Mosaic region 1	CLIB483_1b	M1. Mosaic region 1	Europa	France	Brittany, France	Cider	Cider	1	48.2	-2.9	region
+ACI	Mosaic region 3	Y10_1b	M3. Mosaic region 3	Asia	Philippines	Philippines	Fruit	Coconut	1	12.9	121.8	pais
+ACK	Asian fermentation	Y12_1b	26. Asian fermentation	Africa	Ivory Coast	Ivory Coast	Palm wine	Palm wine	1	7.5	-5.5	pais
+ACL	Mosaic region 3	Y3_1b	M3. Mosaic region 3	Desconocido			Palm wine	Palm wine	1			
+ACM	Asian fermentation	Y9_4	26. Asian fermentation	Asia	Indonesia	Indonesia	Fermentation	Ragi fermentation	1	-0.8	113.9	pais
+ACN	Mosaic region 3	YJM269_1b	M3. Mosaic region 3	Europa	Austria	Austria	Wine	Red Blauer Portugieser grapes	1	47.5	14.6	pais
+ACP	Wine/European (subclade 1)	CLIB154_1b	1. Wine/European (subclade 1)	Asia	Russia	Russia	Wine	Wine	1	61.5	105.3	pais
+ACQ	Far East Asia	CLIB219_2b	18. Far East Asia	Asia	Russia	Russia	Wine	Wine	1	61.5	105.3	pais
+ACR	Wine/European	DBVPG1339_1b	1. Wine/European	Europa	Netherlands	Netherlands	Wine	Grapes	1	52.1	5.3	pais
+ACS	Mosaic region 1	I14_1b	M1. Mosaic region 1	Europa	Italy	Italy	Wine	Vineyard soil	1	41.9	12.6	pais
+ACT	Wine/European	UC8_1b	1. Wine/European	Africa	South Africa	South Africa	Wine	Wine	1	-30.6	22.9	pais
+ACV	Wine/European	WE372_1b	1. Wine/European	Africa	South Africa	South Africa	Wine	Wine	1	-30.6	22.9	pais
+ADA	Mosaic region 3	Y55_1b	M3. Mosaic region 3	Europa	France	France	Wine	Wine	1	46.2	2.2	pais
+ADB	Wine/European	Y9J_1b	1. Wine/European	Asia	Japan	Japan	Wine	Wine	1	36.2	138.3	pais
+ADC	Wine/European	UC1_1b	1. Wine/European	Europa	France	France	Wine	Wine	1	46.2	2.2	pais
+ADD	Wine/European (subclade 2)	IL_01_b	1. Wine/European (subclade 2)	Norteamerica	USA	Illinois, USA	Soil	Soil	1	39.8	-98.6	region
+ADE		PW5_b		Africa	Nigeria	Aba, Abia State, Nigeria	Palm wine	Raphia palm wine	1	9.1	8.7	region
+ADF	African palm wine	YPS1009_b	13. African palm wine	Norteamerica	USA	USA	Tree	Exudate from Quercus sp.	1	39.8	-98.6	pais
+ADG		NC_02_b		Norteamerica	USA	North Carolina, USA	Tree	Exudate from Quercus sp.	1	39.8	-98.6	region
+ADH	Asian fermentation	T7_b	26. Asian fermentation	Norteamerica	USA	Babler State Park, MO, USA	Tree	Exudate from Quercus sp.	1	39.8	-98.6	region
+ADI	Wine/European (subclade 2)	YJM981_b	1. Wine/European (subclade 2)	Europa	Italy	Italy	Human, clinical	Vagina	1	41.9	12.6	pais
+ADK	Mosaic region 3	CLIB208_1	M3. Mosaic region 3	Asia	China	Shanaong, China	Bakery	Bakery	2	35.9	104.2	region
+ADL	Mixed origin	CLIB318_1	8. Mixed origin	Europa	Netherlands	Netherlands	Bakery	Bakery	2	52.1	5.3	pais
+ADM	Mixed origin	CLIB324_2	8. Mixed origin	Asia	Vietnam	Vietnam	Bakery	Bakery	2	14.1	108.3	pais
+ADN	Sake	K1_1	25. Sake	Asia	Japan	Japan	Sake	Sake	1	36.2	138.3	pais
+ADP	Mixed origin	Y6_b	8. Mixed origin	Sudamerica	French Guiana	French Guiana	Unknown	Unknown	2	4.0	-53.0	pais
+ADQ	Sake	K12_2	25. Sake	Asia	Japan	Japan	Sake	Sake (shochu)	1	36.2	138.3	pais
+ADR	Wine/European	M22_1b	1. Wine/European	Europa	Italy	Italy	Wine	Vineyard	1	41.9	12.6	pais
+ADS	Wine/European	T73_1b	1. Wine/European	Europa	Spain	Alicante, Spain	Wine	Monastrel grape fermentation (red wine)	2	40.4	-3.7	region
+ADT	Mosaic region 3	CBS7765	M3. Mosaic region 3	Europa	Goteborg	Sweden, Goteborg	Nature	Salmo gairdneri (rainbow trout)	1	57.71	11.97	localidad
+ADV	African palm wine	CBS7903	13. African palm wine	Africa	Nigeria	Nigeria	Palm wine	Palm wine	1	9.1	8.7	pais
+AEA	Mosaic beer	CBS7958	7. Mosaic beer	Sudamerica	Brazil	Sao Paulo, Brazil	Industrial	Factory producing cassava flour	1	-14.2	-51.9	region
+AEB	Ale beer	CBS1171	11. Ale beer	Europa	Netherlands	Oranjeboom brewery, Rotterdam, Netherlands	Beer	Brewers top yeast	4	52.1	5.3	region
+AEC	Ale beer	CBS1248	11. Ale beer	Desconocido			Beer	Brewers yeast	Xn			
+AEE	Mosaic region 3	CBS2441	M3. Mosaic region 3	Desconocido			Distillery	Distillery	3			
+AEF	Sake	CBS6414	25. Sake	Asia	Japan	Japan	Sake	Sake yeast	1	36.2	138.3	pais
+AEG	Brazilian bioethanol	CBS7962	3. Brazilian bioethanol	Sudamerica	Brazil	Brazil	Industrial	Fermenting concentrated syrup (sugar cane)	1	-14.2	-51.9	pais
+AEH	Brazilian bioethanol	CBS7964	3. Brazilian bioethanol	Sudamerica	Brazil	Brazil	Industrial	Fermenting concentrated syrup (sugar cane)	1	-14.2	-51.9	pais
+AEI	Mosaic region 3	CBS1428	M3. Mosaic region 3	Desconocido			Bakery	Bakery	1			
+AEK	Wine/European (subclade 4)	CBS4079	1. Wine/European (subclade 4)	Europa	Spain	Spain	Wine	Film on white wine	1	40.4	-3.7	pais
+AEL	Mosaic region 3	CBS1394	M3. Mosaic region 3	Desconocido			Distillery	Distillery	2			
+AEM	Mixed origin	CBS2973	8. Mixed origin	Desconocido			Beer	Beer wort	1			
+AEN	African beer	CBS4454	6. African beer	Africa	South Africa	South Africa	Beer	Kaffir beer	2	-30.6	22.9	pais
+AEP	Asian fermentation	CBS1508	26. Asian fermentation	Desconocido			Distillery	Starter for sorghum brandy	2			
+AEQ	Mosaic beer	CBS1782	7. Mosaic beer	Asia	Japan	Japan	Beer	Super-attenuated beer	1	36.2	138.3	pais
+AER	Mosaic region 2	CBS2970	M2. Mosaic region 2	Norteamerica	Puerto Rico	San Jose sugar mill, Rio Piedras, Puerto Rico	Industrial	Blackstrap molasses	1	18.2	-66.6	region
+AES	Wine/European (subclade 4)	CBS4054	1. Wine/European (subclade 4)	Europa	Spain	Spain	Wine	Red wine	1	40.4	-3.7	pais
+AET	Wine/European (subclade 4)	CBS6007	1. Wine/European (subclade 4)	Europa	Spain	Spain	Wine	Wine	1	40.4	-3.7	pais
+AEV	Mixed origin	CBS6216	8. Mixed origin	Europa	Netherlands	Rotterdam, Netherlands	Water	Tapwater	2	52.1	5.3	region
+AFA	Mosaic beer	CBS6503	7. Mosaic beer	Europa	UK	UK	Beer	Brewery	2	55.4	-3.4	pais
+AFB	Mosaic beer	CBS7371	7. Mosaic beer	Europa	UK	UK	Beer	Brewery	1	55.4	-3.4	pais
+AFC	Mixed origin	CBS7764	8. Mixed origin	Europa	Sweden	Goteborg, Sweden	Nature	Salmo gairdneri (rainbow trout)	2	60.1	18.6	region
+AFD	Brazilian bioethanol	CBS7960	3. Brazilian bioethanol	Sudamerica	Brazil	Sao Paulo, Brazil	Industrial	Factory producing ethanol (sugar cane syrup)	1	-14.2	-51.9	region
+AFE	Mixed origin	CBS8291	8. Mixed origin	Europa	Sweden	Sweden	Water	Seawater	2	60.1	18.6	pais
+AFF	Mixed origin	CBS1252	8. Mixed origin	Europa	France	France	Bakery	Bakery	1	46.2	2.2	pais
+AFG	Mosaic region 3	CBS1387	M3. Mosaic region 3	Desconocido			Bakery	Bakery	1			
+AFH	Asian fermentation	CBS1509	26. Asian fermentation	Desconocido			Distillery	Distillery	1			
+AFI	Wine/European (subclade 4)	CBS2183	1. Wine/European (subclade 4)	Europa	Chateau Chalon France	Chateau Chalon France	Wine	Wine	1	46.75	5.62	localidad
+AFK	Asian islands	CBS2992	24. Asian islands	Asia	Pakistan	Pakistan	Palm wine	Palm wine	2	30.38	69.35	pais
+AFL	African beer	CBS4456	6. African beer	Africa	South Africa	South Africa	Beer	Kaffir beer	1	-30.6	22.9	pais
+AFM	Sake	CBS6412	25. Sake	Asia	Japan	Japan	Sake	Sake yeast	1	36.2	138.3	pais
+AFN	Sake	CBS6413	25. Sake	Asia	Japan	Japan	Sake	Sake yeast	1	36.2	138.3	pais
+AFP	Mosaic beer	CBS6505	7. Mosaic beer	Europa	UK	UK	Beer	Brewery (Killer strain responsible for death of brewing yeast)	2	55.4	-3.4	pais
+AFQ	Mosaic region 2	CBS7993	M2. Mosaic region 2	Sudamerica	Brazil	Rio de Janeiro, Tijuca National Forest, Cushvara River, Brazil	Water	Fresh water	1	-14.2	-51.9	region
+AFR	Brazilian bioethanol	CBS7959	3. Brazilian bioethanol	Sudamerica	Brazil	Sao Paulo, Brazil	Industrial	Factory producing ethanol (sugar cane syrup)	1	-14.2	-51.9	region
+AFS		CBS1173		Desconocido			Fruit	Fruit ilex	2			
+AFT	Mixed origin	CBS1464	8. Mixed origin	Europa	Austria	Austria	Human, clinical	Infected nail of 4 yo girl	4	47.5	14.6	pais
+AFV	Wine/European (subclade 4)	CBS2814	1. Wine/European (subclade 4)	Europa	Slovakia	Slovakia	Wine	Wine	2	48.7	19.7	pais
+AGA	Wine/European	CBS3012	1. Wine/European	Europa	Spain	Cadiz, Spain	Wine	Wine	2	40.4	-3.7	region
+AGB	Ale beer	CBS6308	11. Ale beer	Europa	UK	South Yorkshire, UK	Beer	Brewer yeast, Yorkshire type	2	55.4	-3.4	region
+AGC		CBS2444		Norteamerica	Kentucky	Seagrams distillery, Louisville, Kentucky	Distillery	Distillery	1	38.25	-85.76	localidad
+AGE	Mixed origin	CBS1385	8. Mixed origin	Desconocido			Bakery	Bakery	2			
+AGF	Wine/European	CBS1479	1. Wine/European	Desconocido			Wine	Wine	1			
+AGG	Asian fermentation	CBS1480	26. Asian fermentation	Desconocido			Distillery	Distillery	2			
+AGH	Wine/European	CBS1582	1. Wine/European	Europa	Portugal	Portugal	Wine	Wine	1	39.4	-8.2	pais
+AGI	Wine/European	CBS1590	1. Wine/European	Europa	Italy	Italy	Wine	Grape must / juice	2	41.9	12.6	pais
+AGK	Mixed origin	CBS2361	8. Mixed origin	Europa	UK	UK	Nature	Trinidadian cane sugar	1	55.4	-3.4	pais
+AGL	Wine/European	CBS4458	1. Wine/European	Europa	France	France	Wine	Red wine	1	46.2	2.2	pais
+AGM	Brazilian bioethanol	CBS7961	3. Brazilian bioethanol	Sudamerica	Brazil	Sao Paulo, Brazil	Industrial	Fermenting concentrated syrup (sugar cane)	1	-14.2	-51.9	region
+AGN	Mosaic region 1	CBS439	M1. Mosaic region 1	Europa	Germany	Germany	Wine	Silvaner grapes	1	51.2	10.4	pais
+AGP	Mosaic region 3	CBS1544	M3. Mosaic region 3	Europa	Netherlands	Netherlands	Fruit	Juice	1	52.1	5.3	pais
+AGR	Asian islands	CBS1594	24. Asian islands	Desconocido			Nature	Plant	1			
+AGS	Wine/European	CBS3013	1. Wine/European	Europa	Spain	Cadiz, Spain	Wine	Wine	1	40.4	-3.7	region
+AGT	Mosaic region 3	CBS3078	M3. Mosaic region 3	Desconocido			Unknown	Spores	1			
+AGV	Wine/European	CBS6223	1. Wine/European	Sudamerica	Chile	Chile	Wine	Grape juice	1	-35.7	-71.5	pais
+AHA	Mosaic region 3	CBS6333	M3. Mosaic region 3	Sudamerica	Costa Rica	Costa Rica	Fruit	Rotting banana (from Musa sapientum)	1	9.7	-83.8	pais
+AHB		CBS4734		Desconocido			Nature	Sugar cane juice	1			
+AHC	Brazilian bioethanol	CBS7963	3. Brazilian bioethanol	Sudamerica	Brazil	Sao Paulo, Brazil	Industrial	Fermenting concentrated syrup (sugar cane)	1	-14.2	-51.9	region
+AHD	Wine/European	CBS1192	1. Wine/European	Desconocido			Wine	Wine	1			
+AHE	Wine/European	CBS1194	1. Wine/European	Desconocido			Wine	Wine	1			
+AHF	Mosaic region 1	CBS1540	M1. Mosaic region 1	Europa	Switzerland	Switzerland	Nature	Tibi grains	1	46.8	8.2	pais
+AHG	Wine/European	CBS1586	1. Wine/European	Desconocido			Fruit	Pear must	1			
+AHH	Asian islands	CBS3000	24. Asian islands	Europa	Denmark	Denmark	Palm wine	Palm wine	1	56.3	9.5	pais
+AHI	Wine/European	CBS6914	1. Wine/European	Europa	Spain	Spain	Wine	White wine	1	40.4	-3.7	pais
+AHK	Wine/European (subclade 4)	CBS2247	1. Wine/European (subclade 4)	Africa	South Africa	South Africa	Wine	Grape must	1	-30.6	22.9	pais
+AHL	Alpechin	CBS3081	2. Alpechin	Europa	Spain	Spain	Industrial	Alpechin (waste from olive oil production)	1	40.4	-3.7	pais
+AHM	Alpechin	CBS3093	2. Alpechin	Europa	Spain	Spain	Industrial	Alpechin (waste from olive oil production)	1	40.4	-3.7	pais
+AHN	Wine/European	CBS5635	1. Wine/European	Africa	South Africa	South Africa	Wine	Grape must	1	-30.6	22.9	pais
+AHP	Wine/European (subclade 4)	CBS5835	1. Wine/European (subclade 4)	Europa	Spain	Spain	Wine	Wine	2	40.4	-3.7	pais
+AHQ	Asian fermentation	CBS440	26. Asian fermentation	Asia	Taiwan	Taiwan	Industrial	Molasses	1	23.7	121.0	pais
+AHR	Wine/European	CBS1227	1. Wine/European	Europa	Romania	Romania	Human, clinical	Abscess on epididymis	1	45.9	25.0	pais
+AHS	African palm wine	CBS1419	13. African palm wine	Africa	Ghana	Ghana	Wine	Wine	1	7.9	-1.0	pais
+AHT	Wine/European	CBS1460	1. Wine/European	Asia	Indonesia	Indonesia	Fermentation	Fermenting fruit	1	-0.8	113.9	pais
+AHV	Mixed origin	CBS1487	8. Mixed origin	Desconocido			Beer	Brewery	1			
+AIA	Wine/European (subclade 4)	CBS2180	1. Wine/European (subclade 4)	Europa	Italy	Italy	Wine	Turbid Italian wine	1	41.9	12.6	pais
+AIB	Wine/European (subclade 4)	CBS2805	1. Wine/European (subclade 4)	Europa	Slovakia	Slovakia	Wine	Wine	1	48.7	19.7	pais
+AIC	Wine/European (subclade 4)	CBS2807	1. Wine/European (subclade 4)	Europa	Slovakia	Slovakia	Wine	Wine	1	48.7	19.7	pais
+AID	Alpechin	CBS2909	2. Alpechin	Desconocido			Human	Human feces	2			
+AIE	Alpechin	CBS2910	2. Alpechin	Europa	Portugal	Portugal	Human	Human feces	1	39.4	-8.2	pais
+AIF	Wine/European	CBS457	1. Wine/European	Europa	Italy	Italy	Wine	Grape must	2	41.9	12.6	pais
+AIG	Mosaic beer	CBS1463	7. Mosaic beer	Desconocido			Beer	Beer	1			
+AII	Wine/European	C6.1	1. Wine/European	Africa	Cameroon	Cameroon	Palm wine	Palm wine	2	7.4	12.4	pais
+AIK	Wine/European	C15.1	1. Wine/European	Africa	Cameroon	Cameroon	Nature	Palm nuts	2	7.4	12.4	pais
+AIL	Wine/European	C10.4	1. Wine/European	Africa	Cameroon	Cameroon	Nature	Clay	2	7.4	12.4	pais
+AIM	Wine/European	E4	1. Wine/European	Europa	Italy	Umbria, Italy	Wine		2	41.9	12.6	region
+AIN	Wine/European	MC5	1. Wine/European	Europa	Italy	Ascoli Piceno, Italy	Wine	Cooked wine (vino cotto)	2	41.9	12.6	region
+AIP	Wine/European (subclade 4)	MC6	1. Wine/European (subclade 4)	Europa	Italy	Umbria, Italy	Wine	Grape	2	41.9	12.6	region
+AIQ	Wine/European	MC7	1. Wine/European	Europa	Italy	Umbria, Italy	Fermentation	Spontaneous alcoholic fermentation	2	41.9	12.6	region
+AIR	Wine/European	MC8	1. Wine/European	Europa	Italy	Ascoli Piceno, Italy	Wine	Cooked wine (vino cotto)	2	41.9	12.6	region
+AIT	Wine/European	MC10	1. Wine/European	Europa	Italy	Umbria, Italy	Wine	Winery surface	2	41.9	12.6	region
+AKB	African palm wine	NPA07.1	13. African palm wine	Africa	Nigeria	Nigeria	Palm wine	Palm wine	2	9.1	8.7	pais
+AKC	African palm wine	NPA05a1	13. African palm wine	Africa	Nigeria	Nigeria	Palm wine	Palm wine	3	9.1	8.7	pais
+AKD	African palm wine	NPA05b1	13. African palm wine	Africa	Nigeria	Nigeria	Palm wine	Palm wine	3	9.1	8.7	pais
+AKE	African palm wine	NPA03.1	13. African palm wine	Africa	Nigeria	Nigeria	Palm wine	Palm wine	2	9.1	8.7	pais
+AKG	African palm wine	NPA06.1	13. African palm wine	Africa	Nigeria	Nigeria	Palm wine	Palm wine	2	9.1	8.7	pais
+AKH	African palm wine	NPA02-1	13. African palm wine	Africa	Nigeria	Nigeria	Palm wine	Palm wine	2	9.1	8.7	pais
+AKI	Mosaic region 3	DBVPG6044	M3. Mosaic region 3	Africa	West Africa	West Africa	Wine	Bili wine	2	9.0	-2.0	pais
+AKL	Asian fermentation	K12	26. Asian fermentation	Asia	Japan	Japan	Sake	Sake	2	36.2	138.3	pais
+AKM	Malaysian	UWOPS03-461.4	19. Malaysian	Asia	Malaysia	Malaysia	Tree	Nectar, Bertam palm	2	4.2	101.9	pais
+AKN	North American oak	YPS128	23. North American oak	Norteamerica	USA	Pennsylvania, USA	Soil	Soil beneath Quercus alba	2	41.2	-77.2	region
+AKP	Wine/European	CLQCA_02-003	1. Wine/European	Sudamerica	Ecuador	Santo Domingo, Ecuador	Industrial	Heart of palm processing equipment	2	-1.8	-78.2	region
+AKQ	Mosaic region 3	CLQCA_04-021	M3. Mosaic region 3	Sudamerica	Ecuador	Los Rios, Ecuador	Insect	Beetle	2	-1.8	-78.2	region
+AKR	Asian fermentation	CLQCA_05-006	26. Asian fermentation	Sudamerica	Ecuador	Guayas, Ecuador	Fruit	Rotten fruit	2	-1.8	-78.2	region
+AKS	Mosaic region 3	CLQCA_09-001	M3. Mosaic region 3	Sudamerica	Ecuador	Imbabura, Ecuador	Flower	Flower (Opuntia sp.)	2	-1.8	-78.2	region
+AKT	Mixed origin	CLQCA_10-003	8. Mixed origin	Sudamerica	Ecuador	Pichincha, Ecuador	Insect	Stingless bee	2	-1.8	-78.2	region
+AKV	Wine/European	CLQCA_10-027	1. Wine/European	Sudamerica	Ecuador	Pichincha, Ecuador	Nature	Grass	2	-1.8	-78.2	region
+ALA	Asian fermentation	CLQCA_10-619	26. Asian fermentation	Sudamerica	Ecuador	Pichincha, Ecuador	Insect	Beetle	2	-1.8	-78.2	region
+ALB	Asian fermentation	CLQCA_10-620	26. Asian fermentation	Sudamerica	Ecuador	Pichincha, Ecuador	Insect	Orthopteran insect	2	-1.8	-78.2	region
+ALC	Asian fermentation	CLQCA_11-024	26. Asian fermentation	Sudamerica	Ecuador	Cotopaxi, Ecuador	Nature	Unidentified aquatic plant	2	-1.8	-78.2	region
+ALD	French dairy	CLQCA_13-023	5. French dairy	Sudamerica	Ecuador	Bolivar, Ecuador	Nature	Wax on rock surface	2	-1.8	-78.2	region
+ALE	Wine/European	CLQCA_17-060	1. Wine/European	Sudamerica	Ecuador	Loja, Ecuador	Insect	Hemipteran insect	2	-1.8	-78.2	region
+ALG	Mosaic region 3	CLQCA_18-003	M3. Mosaic region 3	Sudamerica	Ecuador	Sucumbios, Ecuador	Fruit	Cocoa fruit	2	-1.8	-78.2	region
+ALH	Asian fermentation	CLQCA_19-011	26. Asian fermentation	Sudamerica	Ecuador	Napo, Ecuador	Nature	Horse dung	2	-1.8	-78.2	region
+ALI		CLQCA_20-060		Sudamerica	Ecuador	Yasuni National Park, Orellana, Ecuador	Water	Water in leaf with organic matter	2	-1.8	-78.2	region
+ALK	Asian fermentation	CLQCA_24SC-235	26. Asian fermentation	Sudamerica	Ecuador	Galapagos, Ecuador	Tree	Tree exudate (Bursera graveolens)	2	-1.8	-78.2	region
+ALL	Wine/European	21-4-99	1. Wine/European	Europa	Slovakia	Bratislava, Slovakia	Water	River water (Danube)	2	48.7	19.7	region
+ALM	Wine/European	21-4-101	1. Wine/European	Europa	Slovakia	Bratislava, Slovakia	Water	River water (Danube)	2	48.7	19.7	region
+ALN	Mixed origin	21-4-103	8. Mixed origin	Europa	Slovakia	Bratislava, Deninska Nova Ves, Slovakia	Water	River water (Morava)	2	48.7	19.7	region
+ALP	Mixed origin	21-4-105	8. Mixed origin	Europa	Slovakia	Bratislava, Deninska Nova Ves, Slovakia	Water	River water Morava	2	48.7	19.7	region
+ALQ	Wine/European (subclade 1)	21-4-111	1. Wine/European (subclade 1)	Europa	Slovakia	Male Zaluzie, Slovakia	Tree	Leaves of Prunus domestica L., 'Stanley'	2	48.7	19.7	region
+ALR	Mosaic region 3	21-4-114	M3. Mosaic region 3	Europa	Slovakia	Male levare, Slovakia	Tree	Leaves of peach tree (Prunus armeniaca)	3	48.7	19.7	region
+ALS	Wine/European (subclade 1)	21-4-116	1. Wine/European (subclade 1)	Europa	Slovakia	Male levare, Slovakia	Flower	Blossom of apple tree (Malus domestica)	2	48.7	19.7	region
+ALT	Wine/European (subclade 1)	21-4-122	1. Wine/European (subclade 1)	Europa	Slovakia	Male Zaluzie, Slovakia	Flower	Blossoms of apricot tree (Prunus armeniaca)	2	48.7	19.7	region
+ALV	Mixed origin	21-4-124	8. Mixed origin	Europa	Slovakia	Male Zaluzie, Slovakia	Fruit	Fruit of plum tree (Prunus domestica L., 'Stanley')	3	48.7	19.7	region
+AMA	Wine/European (subclade 1)	21-4-125	1. Wine/European (subclade 1)	Europa	Slovakia	Male Zaluzie, Slovakia	Fruit	Fruit of plum tree (Prunus domestica L., 'Stanley')	3	48.7	19.7	region
+AMB		IY_03-5-30-1-1-1_(1)		Norteamerica	USA	Louisiana, USA	Insect	Chauliodes pectinicornis (male) - Corydalidae	2	39.8	-98.6	region
+AMC		IY_03-5-26-5-1-1_(1)		Norteamerica	USA	Louisiana, USA	Insect	Chauliodes pectinicornis (female) - Corydalidae	2	39.8	-98.6	region
+AMD		ES4M07		Asia	Taiwan	Dongpu, Sinyi Township, Nantou, Taiwan	Fruit	Fruiting body of Geastrum sp.	2	23.7	121.0	region
+AMF		ES2M03		Asia	Taiwan	Dongpu, Sinyi Township, Nantou, Taiwan	Fruit	Fruiting body of Russula sp.	2	23.7	121.0	region
+AMG	Mixed origin	SJ7L01	8. Mixed origin	Asia	Taiwan	Tuchih, Nantou, Taiwan	Tree	Leaf of Ardisia cornudentata	3	23.7	121.0	region
+AMH	Taiwanese	EN14S01	17. Taiwanese	Asia	Taiwan	Sinyi, Nantou, Taiwan	Soil	Soil	2	23.7	121.0	region
+AMI	Mixed origin	SJ1L04	8. Mixed origin	Asia	Taiwan	Yuchih, Nantou, Taiwan	Tree	Leaf of Podocarppus macrophyllus	3	23.7	121.0	region
+AMK	Mixed origin	SJ6L01	8. Mixed origin	Asia	Taiwan	Tuchih, Nantou, Taiwan	Tree	Leaf of Cunninghamia lanceolata	3	23.7	121.0	region
+AML	Mixed origin	SJ5L11	8. Mixed origin	Asia	Taiwan	Tuchih, Nantou, Taiwan	Tree	Leaf of Acacia dealbata	3	23.7	121.0	region
+AMM		SJ5L12		Asia	Taiwan	Beinan, Taitung, Taiwan	Tree	Leaf of Trema orientalis	2	23.7	121.0	region
+AMN	Mixed origin	SJ5L13	8. Mixed origin	Asia	Taiwan	Tuchih, Nantou, Taiwan	Tree	Leaf of Wendlandia formosana	4	23.7	121.0	region
+AMP	Mosaic region 1	SJ5L14	M1. Mosaic region 1	Asia	Taiwan	Taian, Miaoli, Taiwan	Fruit	Fruiting body of Auricularia auricular	2	23.7	121.0	region
+AMQ	Mixed origin	SJ5L15	8. Mixed origin	Asia	Taiwan	Tuchih, Nantou, Taiwan	Tree	Leaf of Acacia dealbata	3	23.7	121.0	region
+AMR	Wine/European	SJ5L16	1. Wine/European	Asia	Taiwan	Jhuosi, Hualein, Taiwan	Soil	Soil	2	23.7	121.0	region
+AMS	Wine/European	SJ5L17	1. Wine/European	Europa	Austria	Austria	Probiotic	Probiotic	2	47.5	14.6	pais
+AMT	Wine/European (subclade 3)	SJ5L18	1. Wine/European (subclade 3)	Europa	Austria	Austria	Probiotic	Probiotic	2	47.5	14.6	pais
+ANA	Mosaic region 3	DBVPG6696	M3. Mosaic region 3	Africa	Burundi	Burundi	Wine	Banana wine	2	-3.4	29.9	pais
+ANC	North American oak	YPS129	23. North American oak	Norteamerica	USA	Pennsylvania, USA	Tree	Flux from Quercus alba	2	41.2	-77.2	region
+AND	North American oak	YPS133	23. North American oak	Norteamerica	USA	Pennsylvania, USA	Soil	Soil beneath Quercus alba	2	41.2	-77.2	region
+ANE	North American oak	YPS134	23. North American oak	Norteamerica	USA	Pennsylvania, USA	Soil	Soil beneath Quercus velutina	2	41.2	-77.2	region
+ANF	North American oak	YPS139	23. North American oak	Norteamerica	USA	Pennsylvania, USA	Soil	Soil beneath unidentified Quercus sp.	2	41.2	-77.2	region
+ANG	North American oak	YPS141	23. North American oak	Norteamerica	USA	Pennsylvania, USA	Soil	Soil beneath Quercus velutina	2	41.2	-77.2	region
+ANH	North American oak	YPS142	23. North American oak	Norteamerica	USA	Pennsylvania, USA	Nature	Bark of q.rubra	2	41.2	-77.2	region
+ANI	North American oak	YPS143	23. North American oak	Norteamerica	USA	Pennsylvania, USA	Soil	Soil beneath(q.rubra)	2	41.2	-77.2	region
+ANK	North American oak	YPS154	23. North American oak	Norteamerica	USA	Pennsylvania, USA	Tree	Bark of q.velutina	2	41.2	-77.2	region
+ANL	African beer	A-6	6. African beer	Africa	Ghana	Ghana	Beer	Sorghum beer	4	7.9	-1.0	pais
+ANM	African beer	A-18	6. African beer	Africa	Ghana	Ghana	Beer	Sorghum beer	4	7.9	-1.0	pais
+ANN	West African cocoa	AY529516	12. West African cocoa	Africa	Ghana	Ghana	Fermentation	Cocoa bean fermentation	2	7.9	-1.0	pais
+ANP	Mixed origin	UWOPS83-883-2	8. Mixed origin	Norteamerica	Navassa Island	Navassa Island	Insect	Drosophila sp. from Opuntia stricta	2	18.4	-75.01	localidad
+ANQ	Wine/European	L-1191	1. Wine/European	Sudamerica	Peru	Valle de Ica, Peru	Wine	Wine	2	-9.2	-75.0	region
+ANR	Sake	RIB0001	25. Sake	Asia	Japan	Japan	Sake	Sake	2	36.2	138.3	pais
+ANS	Sake	RIB0002	25. Sake	Asia	Japan	Japan	Sake	Sake	2	36.2	138.3	pais
+ANT	Sake	RIB0003	25. Sake	Asia	Japan	Japan	Sake	Sake	2	36.2	138.3	pais
+ANV	Sake	RIB0004	25. Sake	Asia	Japan	Japan	Sake	Sake	2	36.2	138.3	pais
+APA	Sake	RIB0005	25. Sake	Asia	Japan	Japan	Sake	Sake	2	36.2	138.3	pais
+APC	Sake	RIB1001	25. Sake	Asia	Japan	Japan	Sake	Sake	2	36.2	138.3	pais
+APD	Sake	RIB1002	25. Sake	Asia	Japan	Japan	Sake	Sake	2	36.2	138.3	pais
+APE	Sake	RIB1003	25. Sake	Asia	Japan	Japan	Sake	Sake	2	36.2	138.3	pais
+APF	Sake	RIB1004	25. Sake	Asia	Japan	Japan	Sake	Sake	2	36.2	138.3	pais
+APG	Brazilian bioethanol	VF8_(6)	3. Brazilian bioethanol	Sudamerica	Brazil	Araras, Sao Paulo, Brazil	Bioethanol	Bioethanol, Sao Joao sugar mill	1	-14.2	-51.9	region
+APH	Brazilian bioethanol	M1.1	3. Brazilian bioethanol	Sudamerica	Brazil	Pirassununga, Sao Paulo, Brazil	Distillery	Cachaça, Muller Industrial	2	-14.2	-51.9	region
+API	Mixed origin	YS20	8. Mixed origin	Asia	Korea	Korea	Bakery	type yeasts of the species Saccharomyces cerevisiae in different sugar media', Letters in Applied Microbiology 2001	2	35.9	127.8	pais
+APK	Mixed origin	YS10(E)	8. Mixed origin	Africa	South Africa	South Africa	Bakery	Baker's yeast	3	-30.6	22.9	pais
+APL	Mixed origin	YS11(E)	8. Mixed origin	Europa	Turkey	Turkey	Bakery	type yeasts of the species Saccharomyces cerevisiae in different sugar media', Letters in Applied Microbiology 2001	2	38.9	35.2	pais
+APM	Mixed origin	YS15	8. Mixed origin	Asia	Korea	Korea	Bakery	type yeasts of the species Saccharomyces cerevisiae in different sugar media', Letters in Applied Microbiology 2001	2	35.9	127.8	pais
+APN	Mixed origin	YS19	8. Mixed origin	Asia	Philippines	Philippines	Bakery	type yeasts of the species Saccharomyces cerevisiae in different sugar media', Letters in Applied Microbiology 2001	3	12.9	121.8	pais
+APP	Mosaic beer	CBS382	7. Mosaic beer	Sudamerica	Rio de Janeiro	Brazil, Rio de Janeiro	Beer	Beer	3	-22.91	-43.17	aproximada
+APQ	African palm wine	CBS400	13. African palm wine	Africa	Ivory Coast	Ivory Coast	Palm wine	Palm wine, from Elaeis guineensis	2	7.5	-5.5	pais
+APR	African palm wine	CBS403	13. African palm wine	Africa	West Africa	West Africa	Beer	Ginger beer, from Zingiber officinale	2	9.0	-2.0	pais
+APS	Wine/European	CBS423	1. Wine/European	Europa	Switzerland	Switzerland	Wine	Wine	2	46.8	8.2	pais
+APT	Wine/European	CBS459	1. Wine/European	Europa	Italy	Italy	Wine	Grape must	2	41.9	12.6	pais
+APV	Wine/European	CBS1250	1. Wine/European	Europa	Spain	Spain	Wine	Cherry wine	2	40.4	-3.7	pais
+AQA	Alpechin	CBS4903	2. Alpechin	Europa	Spain	Spain	Industrial	Alpechin (waste from olive oil production)	2	40.4	-3.7	pais
+AQB	Wine/European	CBS5112	1. Wine/European	Europa	Spain	Spain	Wine	Grape must	2	40.4	-3.7	pais
+AQC	Wine/European (subclade 4)	CBS5155	1. Wine/European (subclade 4)	Asia	South Armenia	South Armenia	Wine	Fermenting Grape must	2	39.53	45.99	region
+AQD	Alpechin	CBS5378	2. Alpechin	Europa	Spain	Spain	Industrial	Alpechin (waste from olive oil production)	2	40.4	-3.7	pais
+AQE	Wine/European (subclade 4)	CBS6006	1. Wine/European (subclade 4)	Europa	Spain	Spain	Wine	Wine	2	40.4	-3.7	pais
+AQG	Mosaic beer	CBS7539	7. Mosaic beer	Europa	Bulgaria	Plovdiv, Bulgaria	Beer	Turbid beer	2	42.7	25.5	region
+AQH	Mosaic beer	CBS7957	7. Mosaic beer	Sudamerica	Brazil	Sao Paulo, Brazil	Industrial	Factory producing cassava flour	3	-14.2	-51.9	region
+AQI	Mixed origin	CBS8292	8. Mixed origin	Europa	Sweden	Sweden	Water	Seawater	2	60.1	18.6	pais
+AQM	French dairy	CBS420	5. French dairy	Europa	Italy	Italy	Dairy	Stracchino cheese	2	41.9	12.6	pais
+AQN	Sake	CBS435	25. Sake	Asia	Japan	Japan	Sake	Moto (sake yeast starter)	2	36.2	138.3	pais
+AQP	Wine/European (subclade 4)	CBS462	1. Wine/European (subclade 4)	Europa	Spain	Spain	Wine	Grape must	2	40.4	-3.7	pais
+AQQ	Wine/European	CBS1175	1. Wine/European	Europa	Switzerland	Switzerland	Wine	Wine	2	46.8	8.2	pais
+AQR	Wine/European	CBS1190	1. Wine/European	Europa	Germany	Germany	Wine	Wine	2	51.2	10.4	pais
+AQS	Asian fermentation	CBS1196	26. Asian fermentation	Asia	Indonesia	Indonesia	Distillery	Arak Distillery	2	-0.8	113.9	pais
+AQT	Ale beer	CBS1230	11. Ale beer	Europa	Belgium	Belgium	Beer	Beer	3	50.5	4.5	pais
+ARA	Mosaic region 3	CBS1239	M3. Mosaic region 3	Desconocido			Distillery	Distillery	4			
+ARB	Mosaic region 3	CBS1254	M3. Mosaic region 3	Desconocido			Bakery	Bakery	4			
+ARC	Wine/European	CBS1257	1. Wine/European	Europa	Germany	Germany	Wine	Wine	2	51.2	10.4	pais
+ARE	Mosaic beer	CBS1398	7. Mosaic beer	Desconocido			Tree	Leaf of Eucalyptus sp.	2			
+ARG	Asian islands	CBS1576	24. Asian islands	Asia	Indonesia	Celebes, Sulavesi, Indonesia	Tree	Exudate of Arenga sp.	2	-0.8	113.9	region
+ARH	Asian islands	CBS1592	24. Asian islands	Asia	Indonesia	Java, Indonesia	Fermentation	Fermenting cacao	2	-0.8	113.9	region
+ARI	Asian islands	CBS1593	24. Asian islands	Asia	Indonesia	Java, Indonesia	Fermentation	Fermenting cacao	2	-0.8	113.9	region
+ARK	Wine/European	CBS1602	1. Wine/European	Desconocido			Fruit	Must of Blanchard pears	2			
+ARL	Wine/European	CBS2087	1. Wine/European	Asia	China	China	Flower	Lychee flower	2	35.9	104.2	pais
+ARM	Sake	CBS2188	25. Sake	Asia	Japan	Japan	Fruit	Fruit of Eryobotrya japonica	2	36.2	138.3	pais
+ARN	French dairy	CBS2246	5. French dairy	Europa	Netherlands	Netherlands	Human, clinical	Sputum	3	52.1	5.3	pais
+ARP	Sake	CBS2270	25. Sake	Asia	Japan	Japan	Wine	Japanese wine	2	36.2	138.3	pais
+ARQ	Wine/European	CBS2271	1. Wine/European	Europa	Belgium	Belgium	Wine	Wine	2	50.5	4.5	pais
+ARR	French dairy	CBS2272	5. French dairy	Europa	Netherlands	Delft, Netherlands	Dairy	Butter milk	2	52.1	5.3	region
+ARS	French dairy	CBS2421	5. French dairy	Desconocido			Nature	Japanese kefyr grains	2			
+ART	Wine/European (subclade 4)	CBS2808	1. Wine/European (subclade 4)	Europa	Slovakia	Slovakia	Wine	Wine	2	48.7	19.7	pais
+ARV	Wine/European	CBS2965	1. Wine/European	Europa	Denmark	Denmark	Distillery	Distillery	2	56.3	9.5	pais
+ASA	Wine/European (subclade 4)	CBS4092	1. Wine/European (subclade 4)	Europa	Spain	Spain	Wine	Film on white wine	3	40.4	-3.7	pais
+ASB	Mosaic beer	CBS4255	7. Mosaic beer	Desconocido			Human, clinical	Sputum	2			
+ASC	African beer	CBS4455	6. African beer	Africa	South Africa	South Africa	Beer	Kaffir beer	3	-30.6	22.9	pais
+ASD	Wine/European	CBS4507	1. Wine/European	Desconocido			Beer	Brewer's yeast, English top yeast	2			
+ASE	Wine/European	CBS4667	1. Wine/European	Europa	Former Czechoslovakia	Former Czechoslovakia	Wine	Grapes	2	49.75	15.34	localidad
+ASG	Wine/European	CBS1489	1. Wine/European	Europa	Italy	Italy	Human, clinical	Tubercular lung	2	41.9	12.6	pais
+ASH	Ale beer	CLIB227	11. Ale beer	Europa	Netherlands	Netherlands	Beer	Beer holland	4	52.1	5.3	pais
+ASL	Mixed origin	CLIB340	8. Mixed origin	Europa	Turkey	Anatolia, Turkey	Bakery	Bakery levain	2	38.9	35.2	region
+ASM		CLIB409		Asia	Vietnam	Vietnam	Nature	Sugar cane (plant)	3	14.1	108.3	pais
+ASN	French dairy	CLIB630	5. French dairy	Europa	France	Normandy, France	Dairy	Dairy cheese (camembert)	2	49.2	0.1	region
+ASP	Mixed origin	B1	8. Mixed origin	Europa	France	France	Unknown	Unknown	2	46.2	2.2	pais
+ASR	Wine/European	M1	1. Wine/European	Europa	Italy	Italy	Wine	Vineyard	2	41.9	12.6	pais
+ASS	Wine/European	M5	1. Wine/European	Europa	Italy	Italy	Wine	Vineyard	2	41.9	12.6	pais
+AST	Mosaic region 1	M6	M1. Mosaic region 1	Europa	Italy	Italy	Wine	Vineyard	2	41.9	12.6	pais
+ASV	Mosaic region 1	M9	M1. Mosaic region 1	Europa	Italy	Italy	Wine	Vineyard	2	41.9	12.6	pais
+ATA	Wine/European	PR	1. Wine/European	Europa	France	France	Wine	Vineyard	2	46.2	2.2	pais
+ATB	Mosaic region 3	Y1	M3. Mosaic region 3	Desconocido			Nature	Mushroom	3			
+ATC	Mosaic region 3	YJM308	M3. Mosaic region 3	Desconocido			Human, clinical	Clinical	2			
+ATD	Mosaic region 3	YJM339	M3. Mosaic region 3	Desconocido			Human, clinical	Clinical	2			
+ATE	Mosaic region 3	YJM627	M3. Mosaic region 3	Europa	France	France	Unknown	Seg. Y55	2	46.2	2.2	pais
+ATH	Wine/European	UC4	1. Wine/European	Europa	Germany	Germany	Wine	Vineyard	2	51.2	10.4	pais
+ATM	Wine/European	UC10	1. Wine/European	Norteamerica	USA	California, USA	Wine	Wine	2	36.8	-119.4	region
+ATN	Wine/European	Y4	1. Wine/European	Asia	Indonesia	Indonesia	Fruit	Fruit	2	-0.8	113.9	pais
+ATP	African palm wine	Y5	13. African palm wine	Africa	West Africa	West Africa	Palm wine	Bili wine	2	9.0	-2.0	pais
+ATQ	Alpechin	CECT10497	2. Alpechin	Europa	Spain	Spain	Industrial	Alpechin (waste from olive oil production)	2	40.4	-3.7	pais
+ATR	Mixed origin	CECT10120	8. Mixed origin	Europa	Spain	Spain	Fruit	Fruit	2	40.4	-3.7	pais
+ATS	Mixed origin	CECT10131	8. Mixed origin	Europa	Spain	Spain	Flower	Flower	2	40.4	-3.7	pais
+ATV	Ale beer	CECT1462	11. Ale beer	Europa	UK	UK	Beer	Beer	4	55.4	-3.4	pais
+AVB	Alpechin	CECT10266	2. Alpechin	Europa	Spain	Spain	Industrial	Tanning liquor	1	40.4	-3.7	pais
+AVC	Sake	CECT10711	25. Sake	Asia	Japan	Japan	Sake	Sake	2	36.2	138.3	pais
+AVD	Sake	CECT10712	25. Sake	Asia	Japan	Japan	Sake	Sake	2	36.2	138.3	pais
+AVH	Wine/European	CECT1478	1. Wine/European	Europa	Hungary	Hungary	Wine	Wine	2	47.2	19.5	pais
+AVI	North American oak	YPS163	23. North American oak	Norteamerica	Pennsylvanian	Pennsylvanian	Soil	Soil beneath Quercus rubra	2	41.2	-77.19	region
+AVK	Wine/European	L-1194	1. Wine/European	Sudamerica	Peru	Valle de Ica, Peru	Wine	Wine	2	-9.2	-75.0	region
+AVL	Sake	RIB6008	25. Sake	Asia	Japan	Japan	Sake	Sake	2	36.2	138.3	pais
+AVM	Sake	RIB6009	25. Sake	Asia	Japan	Japan	Sake	Sake	2	36.2	138.3	pais
+AVN	African beer	CH02	6. African beer	Africa	Ivory Coast	Abengourou, Ivory Coast	Beer	Pearl millet beer	4	7.5	-5.5	region
+AVP	African beer	CH06	6. African beer	Africa	Ivory Coast	Abengourou, Ivory Coast	Beer	Pearl millet beer	5	7.5	-5.5	region
+AVQ	African beer	CH10	6. African beer	Africa	Ivory Coast	Abengourou, Ivory Coast	Beer	Pearl millet beer	5	7.5	-5.5	region
+AVR	African beer	CH11	6. African beer	Africa	Ivory Coast	Abengourou, Ivory Coast	Beer	Pearl millet beer	5	7.5	-5.5	region
+AVS	African beer	CH14	6. African beer	Africa	Ivory Coast	Abengourou, Ivory Coast	Beer	Pearl millet beer	5	7.5	-5.5	region
+AVT	African beer	CH13	6. African beer	Africa	Ivory Coast	Abengourou, Ivory Coast	Beer	Pearl millet beer	5	7.5	-5.5	region
+AVV	African palm wine	DJ65	13. African palm wine	Africa	Djibouti	Yoboki, Djibouti	Palm wine	Palm wine	3	11.8	42.6	region
+BAA	African palm wine	DJ66	13. African palm wine	Africa	Djibouti	Yoboki, Djibouti	Palm wine	Palm wine	3	11.8	42.6	region
+BAB	African palm wine	DJ68	13. African palm wine	Africa	Djibouti	Yoboki, Djibouti	Palm wine	Palm wine	3	11.8	42.6	region
+BAC	African palm wine	DJ70	13. African palm wine	Africa	Djibouti	Yoboki, Djibouti	Palm wine	Palm wine	3	11.8	42.6	region
+BAD	African palm wine	DJ71	13. African palm wine	Africa	Djibouti	Yoboki, Djibouti	Palm wine	Palm wine	3	11.8	42.6	region
+BAE	African palm wine	DJ73	13. African palm wine	Africa	Djibouti	Yoboki, Djibouti	Palm wine	Palm wine	3	11.8	42.6	region
+BAF	African palm wine	DJ74	13. African palm wine	Africa	Djibouti	Yoboki, Djibouti	Palm wine	Palm wine	2	11.8	42.6	region
+BAG	CHNII	SX1	15. CHNII	Asia	China	Qinling Mountain, Shaanxi province, China	Tree	Bark from tree in Fagaceae family	2	35.9	104.2	region
+BAH	CHNII	SX3	15. CHNII	Asia	China	Qinling Mountain, Shaanxi province, China	Tree	Bark from Carya sp.	2	35.9	104.2	region
+BAI	Far East Asia	BJ6	18. Far East Asia	Asia	China	Changping, Beijing, China	Fruit	Persimmon	2	35.9	104.2	region
+BAK	Far East Asia	BJ20	18. Far East Asia	Asia	China	Dongling Mountain, Beijing, China	Tree	Bark from Quercus wutaishanica	2	35.9	104.2	region
+BAL	CHNI	HN6	16. CHNI	Asia	China	Bawangling Mountain, Hainan province, China	Nature	Rotten wood	2	35.9	104.2	region
+BAM	CHNIII	HN10	14. CHNIII	Asia	China	Wuzhi Mountain, Hainan province, China	Nature	Rotten wood	2	35.9	104.2	region
+BAN	CHN V	HN15	20. CHN V	Asia	China	Wuzhi Mountain, Hainan province, China	Nature	Rotten wood	2	35.9	104.2	region
+BAP	CHN V	HN16	20. CHN V	Asia	China	Wuzhi Mountain, Hainan province, China	Soil	Soil	2	35.9	104.2	region
+BAQ	CHNIII	HN19	14. CHNIII	Asia	China	Wuzhi Mountain, Hainan province, China	Tree	Bark from tree in Fagaceae family	2	35.9	104.2	region
+BAR	Wine/European	PB56	1. Wine/European	Europa	Montalcino in Italy	Montalcino in Italy	Tree	Bark from Quercus sp. (Oak 1), next to vineyard	2	43.06	11.49	localidad
+BAS	Wine/European	PB67	1. Wine/European	Europa	Montalcino in Italy	Montalcino in Italy	Soil	Soil beneath grape vine	2	43.06	11.49	localidad
+BAT	Wine/European	PB94	1. Wine/European	Europa	Montalcino in Italy	Montalcino in Italy	Soil	Soil by trunk of Quercus sp. (Oak 1), next to vineyard	2	43.06	11.49	localidad
+BAV	Wine/European	PB137	1. Wine/European	Europa	Montalcino in Italy	Montalcino in Italy	Wine	Bark of grape vine	2	43.06	11.49	localidad
+BBA	Wine/European	PB197	1. Wine/European	Europa	Montalcino in Italy	Montalcino in Italy	Soil	Litter by trunk of Quercus sp. (Oak 4), next to vineyard	2	43.06	11.49	localidad
+BBB	Wine/European	PB200	1. Wine/European	Europa	Montalcino in Italy	Montalcino in Italy	Soil	Soil by trunk of Quercus sp. (Oak K), next to vineyard	2	43.06	11.49	localidad
+BBC	Mixed origin	CCY_21-4-88	8. Mixed origin	Europa	Slovakia	Laksarska Nova Ves, Slovakia	Fruit	Fruitbody of mushroom Xerocomus badius (Fr.) Gilb.	3	48.7	19.7	region
+BBD	Mixed origin	CCY_21-4-97	8. Mixed origin	Europa	Slovakia	Jakubov, Slovakia	Water	Fish pond water	2	48.7	19.7	region
+BBE	Mixed origin	CCY_21-4-98	8. Mixed origin	Europa	Slovakia	Jakubov, Slovakia	Water	Sediment of fresh water lake	2	48.7	19.7	region
+BBF	Mixed origin	CCY_21-4-102	8. Mixed origin	Europa	Slovakia	Bratislava, Slovakia	Water	River water (Danube)	2	48.7	19.7	region
+BBG	Ale beer	CCY_21-4-106	11. Ale beer	Europa	Slovakia	Devinska Nova Ves, Slovakia	Water	River water (Morava)	4	48.7	19.7	region
+BBH	Wine/European (subclade 1)	CCY_21-4-119	1. Wine/European (subclade 1)	Europa	Slovakia	Male Levare, Slovakia	Flower	Blossoms of pear tree (Pyrus communis)	2	48.7	19.7	region
+BBI	Wine/European (subclade 1)	CCY_21-4-120	1. Wine/European (subclade 1)	Europa	Slovakia	Male Levare, Slovakia	Flower	Blossoms of plum tree (Prunus domestica L., 'Stanley')	2	48.7	19.7	region
+BBK	Wine/European (subclade 1)	CCY_21-4-121	1. Wine/European (subclade 1)	Europa	Slovakia	Male Zaluzie, Slovakia	Flower	Blossoms of apricot tree (Prunus armeniaca L., Madraska)	2	48.7	19.7	region
+BBL	Mosaic region 3	IMB-53	M3. Mosaic region 3	Europa	near Kamena Village in Bulgaria	Platanus orientalis forest, in Belasista Mountain, near Kamena Village in Bulgaria	Insect	Beetle Mimela aurata (Coleoptera, Rutelinae)	2	41.36	23.05	localidad
+BBM		908		Norteamerica	Mexico	Jalisco, Mexico	Distillery	Raicilla (Mexican distilled spirit)	2	23.6	-102.6	region
+BBP	Mixed origin	1663	8. Mixed origin	Europa	Spain	Spain	Flower	Flower of Centaurea alba	2	40.4	-3.7	pais
+BBQ	Mediterranean oak	2162	4. Mediterranean oak	Europa	Hungary	Hungary	Soil	Forest soil, 30C	2	47.2	19.5	pais
+BBR		2163		Europa	Spain	Castellon, Spain	Tree	Quercus faginea, 30C	2	40.4	-3.7	region
+BBS	Mediterranean oak	2187	4. Mediterranean oak	Europa	Hungary	Hungary	Soil	Forest soil, 30C	2	47.2	19.5	pais
+BBT	Mosaic region 3	2281	M3. Mosaic region 3	Europa	Spain	Valdevimbre, Spain	Wine	Grapes, Picudo variety	3	40.4	-3.7	region
+BBV	Wine/European	2282	1. Wine/European	Europa	Spain	Tuejar, Spain	Wine	Grapes, Verdosilla variety	2	40.4	-3.7	region
+BCA	Wine/European (subclade 3)	2644	1. Wine/European (subclade 3)	Europa	Spain	Hospital Vall d'Hebron, Barcelona, Spain	Human, clinical	Human feces	2	40.4	-3.7	region
+BCB	French Guiana human	HE001	10. French Guiana human	Sudamerica	French Guiana	French Guiana	Human	Human feces	2	4.0	-53.0	pais
+BCC	French Guiana human	HE004	10. French Guiana human	Sudamerica	French Guiana	French Guiana	Human	Human feces	2	4.0	-53.0	pais
+BCD	French Guiana human	HE005	10. French Guiana human	Sudamerica	French Guiana	French Guiana	Human	Human feces	2	4.0	-53.0	pais
+BCE	French Guiana human	HE006	10. French Guiana human	Sudamerica	French Guiana	French Guiana	Human	Human feces	2	4.0	-53.0	pais
+BCF	French Guiana human	HE007	10. French Guiana human	Sudamerica	French Guiana	French Guiana	Human	Human feces	2	4.0	-53.0	pais
+BCG	French Guiana human	HE008	10. French Guiana human	Sudamerica	French Guiana	French Guiana	Human	Human feces	2	4.0	-53.0	pais
+BCH	French Guiana human	HE009	10. French Guiana human	Sudamerica	French Guiana	French Guiana	Human	Human feces	2	4.0	-53.0	pais
+BCI	French Guiana human	HE010	10. French Guiana human	Sudamerica	French Guiana	French Guiana	Human	Human feces	2	4.0	-53.0	pais
+BCK	French Guiana human	HE011	10. French Guiana human	Sudamerica	French Guiana	French Guiana	Human	Human feces	2	4.0	-53.0	pais
+BCL	French Guiana human	HE012	10. French Guiana human	Sudamerica	French Guiana	French Guiana	Human	Human feces	2	4.0	-53.0	pais
+BCM	French Guiana human	HE013	10. French Guiana human	Sudamerica	French Guiana	French Guiana	Human	Human feces	2	4.0	-53.0	pais
+BCN	French Guiana human	HE015	10. French Guiana human	Sudamerica	French Guiana	French Guiana	Human	Human feces	1	4.0	-53.0	pais
+BCP	French Guiana human	HE016	10. French Guiana human	Sudamerica	French Guiana	French Guiana	Human	Human feces	2	4.0	-53.0	pais
+BCQ	French Guiana human	HE020	10. French Guiana human	Sudamerica	French Guiana	French Guiana	Human	Human	2	4.0	-53.0	pais
+BCR	Mixed origin	#23	8. Mixed origin	Africa	Israel	Israel	Nature	Evolution canyon	4	31.0	34.9	pais
+BCS	Mixed origin	#03	8. Mixed origin	Africa	Israel	Israel	Nature	Evolution canyon	2	31.0	34.9	pais
+BCT	Mixed origin	#05	8. Mixed origin	Africa	Israel	Israel	Nature	Evolution canyon	2	31.0	34.9	pais
+BCV	Mosaic region 2	#33	M2. Mosaic region 2	Africa	Israel	Israel	Nature	Evolution canyon	2	31.0	34.9	pais
+BDA	Mosaic region 2	#34	M2. Mosaic region 2	Africa	Israel	Israel	Nature	Evolution canyon	2	31.0	34.9	pais
+BDB	Mosaic region 2	#35	M2. Mosaic region 2	Africa	Israel	Israel	Nature	Evolution canyon	2	31.0	34.9	pais
+BDC	Mosaic region 3	#36	M3. Mosaic region 3	Africa	Israel	Israel	Nature	Evolution canyon	2	31.0	34.9	pais
+BDD	Mosaic region 2	#13	M2. Mosaic region 2	Africa	Israel	Israel	Nature	Evolution canyon	2	31.0	34.9	pais
+BDE	Mosaic region 2	#14	M2. Mosaic region 2	Africa	Israel	Israel	Nature	Evolution canyon	3	31.0	34.9	pais
+BDF	Mosaic region 3	#57	M3. Mosaic region 3	Africa	Israel	Israel	Nature	Evolution canyon	2	31.0	34.9	pais
+BDG	Mosaic region 3	#58	M3. Mosaic region 3	Africa	Israel	Israel	Nature	Evolution canyon	2	31.0	34.9	pais
+BDH	Mosaic region 2	#59	M2. Mosaic region 2	Africa	Israel	Israel	Nature	Evolution canyon	2	31.0	34.9	pais
+BDI	Mosaic region 2	#60	M2. Mosaic region 2	Africa	Israel	Israel	Nature	Evolution canyon	2	31.0	34.9	pais
+BDK	Mosaic region 2	#63	M2. Mosaic region 2	Africa	Israel	Israel	Nature	Evolution canyon	2	31.0	34.9	pais
+BDL	Mixed origin	CLQCA_10-386	8. Mixed origin	Sudamerica	Equador	Equador	Beer	Beer	2	-1.83	-78.18	pais
+BDM	Mosaic region 3	MAJ_A	M3. Mosaic region 3	Africa	Madagascar	Majunga, Madagascar	Nature	Plant material	2	-18.8	46.9	region
+BDN	African beer	MAJ_G	6. African beer	Africa	Madagascar	Majunga, Madagascar	Nature	Plant material	2	-18.8	46.9	region
+BDP	French Guiana human	CEY615	10. French Guiana human	Sudamerica	French Guiana	French Guiana	Human	Human feces	2	4.0	-53.0	pais
+BDQ	French Guiana human	CEY616	10. French Guiana human	Sudamerica	French Guiana	French Guiana	Human	Human feces	2	4.0	-53.0	pais
+BDR	French Guiana human	CEY617	10. French Guiana human	Sudamerica	French Guiana	French Guiana	Human	Human feces	2	4.0	-53.0	pais
+BDS	French Guiana human	CEY618	10. French Guiana human	Sudamerica	French Guiana	French Guiana	Human	Human feces	2	4.0	-53.0	pais
+BDT	French Guiana human	CEY619	10. French Guiana human	Sudamerica	French Guiana	French Guiana	Human	Human feces	2	4.0	-53.0	pais
+BDV	French Guiana human	CEY620	10. French Guiana human	Sudamerica	French Guiana	French Guiana	Human	Human feces	2	4.0	-53.0	pais
+BEA	French Guiana human	CEY621	10. French Guiana human	Sudamerica	French Guiana	French Guiana	Human	Human feces	2	4.0	-53.0	pais
+BEB	French Guiana human	CEY622	10. French Guiana human	Sudamerica	French Guiana	French Guiana	Human	Human feces	2	4.0	-53.0	pais
+BEC	French Guiana human	CEY623	10. French Guiana human	Sudamerica	French Guiana	French Guiana	Human	Human feces	2	4.0	-53.0	pais
+BED	French Guiana human	CEY624	10. French Guiana human	Sudamerica	French Guiana	French Guiana	Human	Human feces	2	4.0	-53.0	pais
+BEE	French Guiana human	CEY625	10. French Guiana human	Sudamerica	French Guiana	French Guiana	Human	Human feces	2	4.0	-53.0	pais
+BEF	Asian fermentation	CLIB413	26. Asian fermentation	Asia	China	China	Fermentation	Fermenting rice	2	35.9	104.2	pais
+BEG		CLIB414		Asia	Japan	Japan	Industrial	High sugar foodstuff, Food	2	36.2	138.3	pais
+BEH	Asian fermentation	CLIB415	26. Asian fermentation	Asia	Taiwan	Taiwan	Fermentation	Fermenting rice (lao chao), Fermented beverage	2	23.7	121.0	pais
+BEI	African beer	CLIB650	6. African beer	Africa	Chad	Chad	Beer	Bili Bili beer, brewery	3	15.5	18.7	pais
+BEK	African beer	CLIB651	6. African beer	Africa	Chad	Chad	Beer	Beer leaven for Bili Bili beer, brewery	4	15.5	18.7	pais
+BEM	African beer	CLIB653	6. African beer	Africa	Chad	Chad	Beer	Beer leaven for Bili Bili beer, brewery	4	15.5	18.7	pais
+BEN	African beer	CLIB654	6. African beer	Africa	Chad	Chad	Beer	Beer leaven for Bili Bili beer, brewery	3	15.5	18.7	pais
+BEP	Wine/European (subclade 1)	EXF-3387	1. Wine/European (subclade 1)	Europa	Slovenia	Ljubljana, Slovenia	Unknown	Homemade apple vingar	2	46.2	15.0	region
+BEQ	Wine/European	EXF-4126	1. Wine/European	Europa	Slovenia	Ljubljana, Slovenia	Wine	Dry wine-berry selection	2	46.2	15.0	region
+BER	Wine/European	EXF-5042	1. Wine/European	Europa	Slovenia	Slovenia	Wine	Straw broom sink cleaning after grape pressing	2	46.2	15.0	pais
+BES	Wine/European	EXF-5046	1. Wine/European	Europa	Slovenia	Slovenia	Wine	Grapes	2	46.2	15.0	pais
+BET	Wine/European	EXF-5247	1. Wine/European	Europa	Slovenia	Koper, Slovenia	Water	Seawater in harbour	2	46.2	15.0	region
+BEV	Wine/European	EXF-5248	1. Wine/European	Europa	Slovenia	Koper, Slovenia	Water	Seawater in harbour	2	46.2	15.0	region
+BFA		EXF-5284		Europa	Slovenia	Slovenia	Soil	Soil below rotten apple	2	46.2	15.0	pais
+BFB	Wine/European (subclade 1)	EXF-5287	1. Wine/European (subclade 1)	Europa	Slovenia	Slovenia	Nature	Plum	2	46.2	15.0	pais
+BFC	Wine/European	EXF-5295	1. Wine/European	Europa	Slovenia	Slovenia	Fermentation	Kefyr	2	46.2	15.0	pais
+BFD	Wine/European (subclade 1)	EXF-5297	1. Wine/European (subclade 1)	Europa	Slovenia	Slovenia	Fruit	Mashed pears	2	46.2	15.0	pais
+BFE	Mixed origin	EXF-5734	8. Mixed origin	Desconocido			Industrial	Spoiled gooseberry juice	4			
+BFG	Mixed origin	EXF-5869	8. Mixed origin	Desconocido			Nature	Rotten wood	4			
+BFH	French dairy	EXF-5871	5. French dairy	Europa	Slovenia	Slovenia	Dairy	Homemade cheese	2	46.2	15.0	pais
+BFK	Wine/European	EXF-6761	1. Wine/European	Europa	Slovenia	Slovenia	Tree	Quercus cerris	2	46.2	15.0	pais
+BFL		EXF-6780		Europa	Slovenia	Slovenia	Tree	Quercus petrea	2	46.2	15.0	pais
+BFM	Mixed origin	EXF-6835	8. Mixed origin	Europa	Slovenia	Slovenia	Industrial	Petrol station, oil contaminated asphalt	4	46.2	15.0	pais
+BFN	French dairy	EXF-7145	5. French dairy	Europa	Serbia	Serbia	Tree	Quercus robur	2	44.0	21.0	pais
+BFP	Mediterranean oak	EXF-7197	4. Mediterranean oak	Europa	Montenegro	Montenegro	Tree	Quercus sp.	2	42.7	19.4	pais
+BFQ	Wine/European	CLIB484	1. Wine/European	Europa	France	Brittany, France	Cider	Cider brewery, industrial raw juice	2	48.2	-2.9	region
+BFR	Wine/European	CLIB485	1. Wine/European	Europa	France	Brittany, France	Cider	Cider brewery, industrial raw juice	2	48.2	-2.9	region
+BFS	French dairy	CLIB546	5. French dairy	Europa	France	Normandy, France	Dairy	Dairy, cheese (camembert)	2	49.2	0.1	region
+BFT	French dairy	CLIB547	5. French dairy	Europa	France	Normandy, France	Dairy	Dairy, cheese (camembert)	2	49.2	0.1	region
+BFV	French dairy	CLIB548	5. French dairy	Europa	France	Normandy, France	Dairy	Dairy, cheese (camembert)	2	49.2	0.1	region
+BGA	French dairy	CLIB549	5. French dairy	Europa	France	Normandy, France	Dairy	Dairy, cheese (camembert)	2	49.2	0.1	region
+BGB	French dairy	CLIB550	5. French dairy	Europa	France	Normandy, France	Dairy	Dairy, cheese (camembert)	2	49.2	0.1	region
+BGC	French dairy	CLIB551	5. French dairy	Europa	France	Normandy, France	Dairy	Dairy, cheese (camembert)	2	49.2	0.1	region
+BGD	French dairy	CLIB552	5. French dairy	Europa	France	Normandy, France	Dairy	Dairy, cheese (camembert)	2	49.2	0.1	region
+BGE	French dairy	CLIB553	5. French dairy	Europa	France	Normandy, France	Dairy	Dairy, raw milk	2	49.2	0.1	region
+BGF	French dairy	CLIB554	5. French dairy	Europa	France	France	Dairy	Dairy, brine	2	46.2	2.2	pais
+BGG	French dairy	CLIB555	5. French dairy	Europa	France	France	Dairy	Dairy, brine	2	46.2	2.2	pais
+BGH	French dairy	CLIB556	5. French dairy	Europa	France	Poitou-Charentes, France	Dairy	Dairy, Saint Maure goat's cheese	2	46.2	2.2	region
+BGI	French dairy	CLIB557	5. French dairy	Europa	France	Normandy, France	Dairy	Dairy, cheese (camembert)	2	49.2	0.1	region
+BGK	French dairy	CLIB558	5. French dairy	Europa	France	Normandy, France	Dairy	Dairy, cheese (camembert)	2	49.2	0.1	region
+BGL	French dairy	CLIB559	5. French dairy	Europa	France	Normandy, France	Dairy	Dairy, cheese (camembert)	2	49.2	0.1	region
+BGM	French dairy	CLIB560	5. French dairy	Europa	France	Normandy, France	Dairy	Dairy, cheese (camembert)	2	49.2	0.1	region
+BGN	French dairy	CLIB561	5. French dairy	Europa	France	Normandy, France	Dairy	Dairy, cheese (camembert)	2	49.2	0.1	region
+BGP	French dairy	CLIB562	5. French dairy	Europa	France	Normandy, France	Dairy	Dairy, cheese (camembert)	2	49.2	0.1	region
+BGQ	French dairy	CLIB563	5. French dairy	Europa	France	Normandy, France	Dairy	Dairy, cheese (camembert)	2	49.2	0.1	region
+BGR	French dairy	CLIB564	5. French dairy	Europa	France	Normandy, France	Dairy	Dairy, cheese (camembert)	2	49.2	0.1	region
+BGS	French dairy	CLIB631	5. French dairy	Europa	France	Normandy, France	Dairy	Dairy, cheese (camembert)	2	49.2	0.1	region
+BGT	French dairy	CLIB648	5. French dairy	Europa	France	Alpes, France	Dairy	Dairy, whey	2	46.2	2.2	region
+BGV	French dairy	CLIB649	5. French dairy	Europa	France	Alpes, France	Dairy	Dairy, whey	2	46.2	2.2	region
+BHA	African beer	CLIB655	6. African beer	Africa	Chad	Chad	Beer	Beer leaven for Bili Bili beer, brewery	3	15.5	18.7	pais
+BHB	Wine/European	CLIB889	1. Wine/European	Oceania	Australia	Australia	Bakery	Bakery	2	-25.3	133.8	pais
+BHC	Wine/European	CLIB1040	1. Wine/European	Europa	France	Brittany, France	Cider	Cider brewery, raw apple juice	2	48.2	-2.9	region
+BHD	Mosaic region 1	CLIB1059	M1. Mosaic region 1	Europa	France	Brittany, France	Cider	Cider brewery, half fermenting apple juice	2	48.2	-2.9	region
+BHE	Mosaic region 1	CLIB1060	M1. Mosaic region 1	Europa	France	Brittany, France	Cider	Cider brewery, half fermenting apple juice	2	48.2	-2.9	region
+BHF	Wine/European	CLIB1062	1. Wine/European	Europa	France	Brittany, France	Cider	Cider brewery, half fermenting apple juice	2	48.2	-2.9	region
+BHG	Mosaic region 2	CLIB1070	M2. Mosaic region 2	Europa	France	Lower Normandy, France	Cider	Cider brewery, dry cider	2	46.2	2.2	region
+BHH	Mosaic region 2	CLIB1071	M2. Mosaic region 2	Europa	France	Lower Normandy, France	Cider	Cider brewery, dry cider	2	46.2	2.2	region
+BHI	Mosaic region 2	CLIB1072	M2. Mosaic region 2	Europa	France	Lower Normandy, France	Cider	Cider brewery, dry cider	2	46.2	2.2	region
+BHK	Mosaic region 1	CLIB1077	M1. Mosaic region 1	Europa	France	Upper Normandy, France	Cider	Cider brewery, dry cider	2	46.2	2.2	region
+BHL	Mosaic region 1	CLIB1082	M1. Mosaic region 1	Europa	France	Upper Normandy, France	Cider	Cider brewery, dry cider	2	46.2	2.2	region
+BHM	Mosaic region 1	CLIB1085	M1. Mosaic region 1	Europa	France	Upper Normandy, France	Cider	Cider brewery, dry cider	2	46.2	2.2	region
+BHN	Wine/European	CLIB1410	1. Wine/European	Asia	Laos	Laos	Fermentation	Rice wine, Oenology	2	19.9	102.5	pais
+BHP	Asian fermentation	CLIB1411	26. Asian fermentation	Asia	Laos	Laos	Fermentation	Rice wine, Oenology	2	19.9	102.5	pais
+BHQ	Asian fermentation	CLIB1412	26. Asian fermentation	Asia	Laos	Laos	Fermentation	Rice wine, Oenology	2	19.9	102.5	pais
+BHR	Asian fermentation	CLIB1413	26. Asian fermentation	Asia	Laos	Laos	Fermentation	Rice wine, Oenology	2	19.9	102.5	pais
+BHS	Asian fermentation	CLIB1414	26. Asian fermentation	Asia	Laos	Laos	Fermentation	Rice wine, Oenology	2	19.9	102.5	pais
+BHT	Mosaic region 1	CLIB1083	M1. Mosaic region 1	Europa	France	Upper Normandy, France	Cider	Cider brewery, dry cider	2	46.2	2.2	region
+BHV	Wine/European	DBVPG1014	1. Wine/European	Europa	Italy	Umbria, Italy	Wine	Grape must	2	41.9	12.6	region
+BIA	Wine/European	DBVPG1029	1. Wine/European	Europa	Italy	Colli di Roma, Lazio, Italy	Wine	Fermenting Grape must	2	41.9	12.6	region
+BIB	Wine/European	DBVPG1041	1. Wine/European	Europa	Italy	Tuscany, Italy	Wine	Grape must	2	41.9	12.6	region
+BIC	Wine/European	DBVPG1056	1. Wine/European	Europa	Italy	production zone of Chianti wine, Italy	Wine	grape must	2	41.9	12.6	region
+BID	Wine/European	DBVPG1058	1. Wine/European	Europa	Italy	Pazzaglia, Italy	Bakery	Baker's yeast	2	41.9	12.6	region
+BIE	Mosaic region 3	DBVPG1074	M3. Mosaic region 3	Europa	Italy	San Severo, Puglia, Italy	Wine	Grape must	2	41.9	12.6	region
+BIF	Wine/European	DBVPG1076	1. Wine/European	Europa	Italy	Locorotondo, Puglia, Italy	Wine	Grape must	2	41.9	12.6	region
+BIG	Wine/European	DBVPG1080	1. Wine/European	Europa	Italy	Barletta, Italy	Wine	Grape must	2	41.9	12.6	region
+BIH	Wine/European	DBVPG1105	1. Wine/European	Oceania	Australia	Adelaide, Australia	Wine	Grapes	2	-25.3	133.8	region
+BII	Wine/European	DBVPG1106	1. Wine/European	Oceania	Australia	Australia	Wine	Grapes	2	-25.3	133.8	pais
+BIK	Wine/European	DBVPG1107	1. Wine/European	Oceania	Australia	McLaren Valley, Australia	Wine	Grapes	2	-25.3	133.8	region
+BIL	Wine/European	DBVPG1108	1. Wine/European	Oceania	Australia	Australia	Wine	Grapes	2	-25.3	133.8	pais
+BIM	Wine/European	DBVPG1122	1. Wine/European	Europa	Italy	Lucera, Puglia, Italy	Wine	Grape must	2	41.9	12.6	region
+BIN	Wine/European	DBVPG1123	1. Wine/European	Europa	Italy	Manduria, Taranto, Italy	Wine	Grape must	2	41.9	12.6	region
+BIP	Wine/European	DBVPG1125	1. Wine/European	Europa	Italy	Torre dei Passeri, Italy	Wine	Grape must	2	41.9	12.6	region
+BIQ	Wine/European	DBVPG1126	1. Wine/European	Europa	Italy	Aquila, Italy	Wine	Grape must	1	41.9	12.6	region
+BIR	Wine/European	DBVPG1127	1. Wine/European	Europa	Italy	Popoli, Italy	Wine	Grape must	2	41.9	12.6	region
+BIS	Wine/European	DBVPG1129	1. Wine/European	Europa	Italy	Senigallia, Italy	Wine	Grape must	2	41.9	12.6	region
+BIT	Wine/European	DBVPG1145	1. Wine/European	Europa	Italy	Corvo, Sicily, Italy	Wine	Grape must	2	41.9	12.6	region
+BKA	Wine/European	DBVPG1163	1. Wine/European	Europa	Italy	Aurum, Sicily, Italy	Fruit	Cherries	2	41.9	12.6	region
+BKC	Wine/European	DBVPG1339	1. Wine/European	Europa	Netherlands	Netherlands	Wine	Grape must	2	52.1	5.3	pais
+BKD	Wine/European	DBVPG1374	1. Wine/European	Europa	Netherlands	Netherlands	Soil	Soil	2	52.1	5.3	pais
+BKE	Wine/European	DBVPG1380	1. Wine/European	Europa	Italy	Rufina, Italy	Wine	Grape must	2	41.9	12.6	region
+BKF	Wine/European	DBVPG1473	1. Wine/European	Europa	Italy	Piemonte, Italy	Wine	Wine	2	41.9	12.6	region
+BKG	Wine/European	DBVPG1490	1. Wine/European	Europa	Italy	Etna, Sicily, Italy	Wine	Grape must	2	41.9	12.6	region
+BKH	Wine/European	DBVPG1523	1. Wine/European	Europa	Italy	Trentino, Italy	Wine	Grape must	2	41.9	12.6	region
+BKI	Wine/European	DBVPG1554	1. Wine/European	Europa	Dalmatia	Dalmatia	Wine	Wine	2	43.54	16.44	localidad
+BKK	Wine/European	DBVPG1555	1. Wine/European	Europa	Slovenia	Radgona, Slovenia	Unknown	Unknown	2	46.2	15.0	region
+BKL	Wine/European	DBVPG1564	1. Wine/European	Europa	Italy	Dolianova, Sardinia, Italy	Wine	Grape must	2	41.9	12.6	region
+BKM	Wine/European	DBVPG1577	1. Wine/European	Europa	Italy	Elmas, Sardinia, Italy	Wine	Grape must	2	41.9	12.6	region
+BKN	Wine/European	DBVPG1580	1. Wine/European	Europa	Italy	Sardinia, Italy	Wine	Grape must	2	41.9	12.6	region
+BKP	Wine/European	DBVPG1581	1. Wine/European	Europa	Italy	Marassinai, Sardinia, Italy	Wine	Grape must	2	41.9	12.6	region
+BKQ	Wine/European	DBVPG1584	1. Wine/European	Europa	Istria	Porec, Istria	Unknown	Unknown	2	45.23	13.6	localidad
+BKR	Wine/European	DBVPG1594	1. Wine/European	Europa	Spain	Los Cerros, La Mancha, Spain	Wine	Grape must	2	40.4	-3.7	region
+BKS	Wine/European	DBVPG1595	1. Wine/European	Europa	Spain	La Mancha, Spain	Wine	Grape must	2	40.4	-3.7	region
+BKT	Wine/European	DBVPG1596	1. Wine/European	Europa	Spain	Santa Cruz de los Canamos, La Mancha, Spain	Wine	Grape must	2	40.4	-3.7	region
+BLA	Wine/European	DBVPG1599	1. Wine/European	Europa	Spain	Cerro del Moro, La Mancha, Spain	Wine	Grape must	2	40.4	-3.7	region
+BLB	Wine/European	DBVPG1601	1. Wine/European	Europa	Spain	Casa del Rey, La Mancha, Spain	Wine	Grape must	2	40.4	-3.7	region
+BLC	Wine/European	DBVPG1606	1. Wine/European	Europa	Spain	Villarta de San Juan, La Mancha, Spain	Wine	Grape must	2	40.4	-3.7	region
+BLD	Wine/European	DBVPG1608	1. Wine/European	Europa	Spain	La Mancha, Spain	Wine	Grape must	2	40.4	-3.7	region
+BLE	Wine/European	DBVPG1611	1. Wine/European	Europa	Spain	Retamosa, La Mancha, Spain	Wine	Grape must	2	40.4	-3.7	region
+BLF	Wine/European	DBVPG1615	1. Wine/European	Europa	Spain	La Mancha, Spain	Wine	Grape must	2	40.4	-3.7	region
+BLG	Wine/European	DBVPG1625	1. Wine/European	Europa	Spain	La Enconienda, La Mancha, Spain	Wine	Grape must	2	40.4	-3.7	region
+BLH	Wine/European	DBVPG1626	1. Wine/European	Europa	Spain	La Mancha, Spain	Wine	Grape must	2	40.4	-3.7	region
+BLI	Wine/European	DBVPG1629	1. Wine/European	Europa	Spain	La Mancha, Spain	Wine	Grape must	2	40.4	-3.7	region
+BLK	Wine/European	DBVPG1631	1. Wine/European	Europa	Spain	Valdepenas, La Mancha, Spain	Wine	Grape must treated with sulfur dioxide	2	40.4	-3.7	region
+BLL	Wine/European	DBVPG1632	1. Wine/European	Europa	Spain	Abertura, La Mancha, Spain	Wine	Grape must	2	40.4	-3.7	region
+BLM	Wine/European	DBVPG1656	1. Wine/European	Europa	Spain	Los Campillos, La Mancha, Spain	Wine	Grape must treated with sulfur dioxide	2	40.4	-3.7	region
+BLN	Wine/European	DBVPG1659	1. Wine/European	Europa	Spain	Campo de Santiago, La Mancha, Spain	Wine	Grape must	2	40.4	-3.7	region
+BLP	Wine/European	DBVPG1661	1. Wine/European	Europa	Spain	Los Polos, La Mancha, Spain	Wine	Grape must	2	40.4	-3.7	region
+BLQ	Wine/European	DBVPG1669	1. Wine/European	Europa	Spain	Cenicero, Rioja, Spain	Wine	Grape must	2	40.4	-3.7	region
+BLR	Wine/European	DBVPG1973	1. Wine/European	Europa	Greece	Greece	Wine	Grape must	2	39.1	21.8	pais
+BLS	Wine/European	DBVPG1975	1. Wine/European	Europa	Greece	Greece	Wine	Wine	2	39.1	21.8	pais
+BLT	Wine/European	DBVPG1984	1. Wine/European	Europa	Slovenia	Slovenia	Wine	Grape must	2	46.2	15.0	pais
+BLV	Wine/European	DBVPG3022	1. Wine/European	Europa	Italy	Squinzano, Italy	Wine	Grape must	2	41.9	12.6	region
+BMA	Malaysian	UWOPS03-429.1	19. Malaysian	Asia	Malaysia	Malaysia	Tree	Nectar, bertam palm	2	4.2	101.9	pais
+BMB	Malaysian	UWOPS03-433.3	19. Malaysian	Asia	Malaysia	Malaysia	Tree	Nectar, bertam palm	2	4.2	101.9	pais
+BMC	Malaysian	UWOPS03-459.1	19. Malaysian	Asia	Malaysia	Malaysia	Tree	Nectar, bertam palm	2	4.2	101.9	pais
+BMD	Mosaic region 3	384103A	M3. Mosaic region 3	Europa	UK	RVI Newcastle, UK	Human	Human	2	55.4	-3.4	region
+BME	French dairy	368428S	5. French dairy	Europa	UK	RVI Newcastle, UK	Human	Human	3	55.4	-3.4	region
+BMF	Mosaic region 3	269521J	M3. Mosaic region 3	Europa	UK	RVI Newcastle, UK	Human	Human	2	55.4	-3.4	region
+BMG	Mixed origin	NCYC_2925	8. Mixed origin	Europa	Norway	Norway	Human, clinical	Human sputum	3	60.5	8.5	pais
+BMH	Wine/European (subclade 2)	YJM984	1. Wine/European (subclade 2)	Europa	Italy	Italy	Human, clinical	Vagina	2	41.9	12.6	pais
+BMI	Wine/European (subclade 2)	YJM989	1. Wine/European (subclade 2)	Europa	Italy	Italy	Human, clinical	Vagina	2	41.9	12.6	pais
+BMK	Wine/European (subclade 2)	YJM990	1. Wine/European (subclade 2)	Europa	Italy	Italy	Human, clinical	Vagina	2	41.9	12.6	pais
+BML	Mixed origin	NCYC_2780	8. Mixed origin	Europa	Belgium	Belgium	Human, clinical	Vagina	4	50.5	4.5	pais
+BMM	Mixed origin	2680	8. Mixed origin	Europa	Spain	Vall d'Hebron hospital, Barcelona, Spain	Human, clinical	Vagina	4	40.4	-3.7	region
+BMN	Wine/European (subclade 3)	2698	1. Wine/European (subclade 3)	Europa	Spain	Vall d'Hebron hospital, Barcelona, Spain	Human, clinical	Faringe	2	40.4	-3.7	region
+BMQ	Mosaic region 3	2720	M3. Mosaic region 3	Europa	Spain	La Fe Hospital,Valencia, Spain	Human, clinical	Blood	2	40.4	-3.7	region
+BMR	French Guiana human	CEY646	10. French Guiana human	Sudamerica	French Guiana	French Guiana	Nature	Chicken	2	4.0	-53.0	pais
+BMV	French Guiana human	CEY649	10. French Guiana human	Sudamerica	French Guiana	French Guiana	Nature	Agouti paca (RO)	2	4.0	-53.0	pais
+BNA	French Guiana human	CEY650	10. French Guiana human	Sudamerica	French Guiana	French Guiana	Nature	Agouti paca (RO)	2	4.0	-53.0	pais
+BNB	French Guiana human	CEY651	10. French Guiana human	Sudamerica	French Guiana	French Guiana	Fruit	Fruits	2	4.0	-53.0	pais
+BNC	French Guiana human	CEY652	10. French Guiana human	Sudamerica	French Guiana	French Guiana	Fruit	Fruits	2	4.0	-53.0	pais
+BND	French Guiana human	CEY653	10. French Guiana human	Sudamerica	French Guiana	French Guiana	Fruit	Fruits	2	4.0	-53.0	pais
+BNE	Wine/European	DBVPG1057	1. Wine/European	Europa	Italy	Colli Romani, Lazio, Italy	Wine	Grape must	2	41.9	12.6	region
+BNF	Wine/European	DBVPG1078	1. Wine/European	Europa	Italy	San Ferdinando, Italy	Wine	Grape must	2	41.9	12.6	region
+BNG	Wine/European	DBVPG1085	1. Wine/European	Europa	Italy	Corato, Italy	Wine	Grape must	3	41.9	12.6	region
+BNH	Wine/European	DBVPG1685	1. Wine/European	Europa	Spain	Haro, Rioja, Spain	Wine	Grape must	2	40.4	-3.7	region
+BNI	Wine/European	DBVPG1699	1. Wine/European	Europa	Spain	De Casa la Reina, Rioja, Spain	Wine	Grape must	2	40.4	-3.7	region
+BNK	Wine/European	DBVPG1701	1. Wine/European	Europa	Spain	Cihuri, Rioja, Spain	Wine	Grape must	2	40.4	-3.7	region
+BNL	Wine/European	DBVPG1708	1. Wine/European	Europa	Sweden	Ultura, Sweden	Soil	Soil	2	60.1	18.6	region
+BNM	Wine/European	DBVPG1711	1. Wine/European	Europa	Spain	Ygai, Rioja, Spain	Wine	Grape must	2	40.4	-3.7	region
+BNN	Wine/European	DBVPG1712	1. Wine/European	Europa	Spain	Pedrejon, Rioja, Spain	Wine	Grape must	2	40.4	-3.7	region
+BNP	Wine/European	DBVPG1714	1. Wine/European	Europa	Spain	Fuen Mayor, Rioja, Spain	Wine	Grape must	2	40.4	-3.7	region
+BNQ	Wine/European	DBVPG1719	1. Wine/European	Europa	Spain	San Adrian, Rioja, Spain	Wine	Grape must	2	40.4	-3.7	region
+BNR	Wine/European	DBVPG1725	1. Wine/European	Europa	Spain	La Puebla de la Barca, Rioja, Spain	Wine	Grape must	2	40.4	-3.7	region
+BNT	Wine/European	DBVPG1772	1. Wine/European	Europa	Finland	Kuopio, Finland	Soil	Soil	2	61.9	25.7	region
+BNV	Wine/European	DBVPG1790	1. Wine/European	Europa	Finland	Turku, Finland	Soil	Soil	2	61.9	25.7	region
+BPA	Mosaic region 3	DBVPG1792	M3. Mosaic region 3	Europa	Finland	Viik, Helsinki, Finland	Soil	Soil	2	61.9	25.7	region
+BPB	Wine/European	DBVPG1795	1. Wine/European	Europa	Italy	Illasi, Verona, Italy	Wine	Grape must	2	41.9	12.6	region
+BPC	Wine/European	DBVPG1798	1. Wine/European	Europa	Italy	Sicily, Italy	Wine	Grape must	2	41.9	12.6	region
+BPF	Wine/European	DBVPG1832	1. Wine/European	Desconocido			Fruit	Fruit juice	2			
+BPG	Wine/European	DBVPG1841	1. Wine/European	Africa	Ethiopia	Ethiopia	Unknown	Red Tecc	2	9.1	40.5	pais
+BPH	Wine/European	DBVPG1843	1. Wine/European	Africa	Ethiopia	Ethiopia	Unknown	White Tecc	2	9.1	40.5	pais
+BPI		DBVPG1848		Africa	Ethiopia	Ethiopia	Unknown	Tecc	2	9.1	40.5	pais
+BPK	Wine/European	DBVPG1861	1. Wine/European	Europa	Finland	Rajamaki River, Finland	Water	River water	2	61.9	25.7	region
+BPL	Wine/European (subclade 4)	DBVPG1878	1. Wine/European (subclade 4)	Europa	Italy	Piave, Italy	Wine	Grape must	2	41.9	12.6	region
+BPM	Wine/European	DBVPG1880	1. Wine/European	Europa	Italy	Italy	Wine	Grape must treated with pesticides	2	41.9	12.6	pais
+BPN		DBVPG1895		Europa	Italy	Italy	Wine	Grape must treated with pesticides	2	41.9	12.6	pais
+BPP	Wine/European	DBVPG1898	1. Wine/European	Europa	Italy	Pantelleria, Italy	Wine	Grape must	2	41.9	12.6	region
+BPQ	Wine/European (subclade 1)	DBVPG1918	1. Wine/European (subclade 1)	Europa	Malta	Malta	Wine	Grape must	2	35.9	14.4	pais
+BPR	Wine/European (subclade 4)	DBVPG1919	1. Wine/European (subclade 4)	Europa	Italy	Italy	Nature	Caverns	3	41.9	12.6	pais
+BPT	Wine/European	DBVPG1960	1. Wine/European	Europa	Italy	Recioto, Verona, Italy	Wine	Grape must	2	41.9	12.6	region
+BPV	Wine/European	DBVPG1976	1. Wine/European	Europa	Slovakia	Slovakia	Wine	Wine	2	48.7	19.7	pais
+BQA	Wine/European (subclade 1)	DBVPG1994	1. Wine/European (subclade 1)	Europa	Greece	Greece	Wine	Grapes	2	39.1	21.8	pais
+BQB	Wine/European	DBVPG2049	1. Wine/European	Europa	Italy	Reggio Emilia, Italy	Wine	Lambrusco grape must	2	41.9	12.6	region
+BQC	Wine/European	DBVPG2088	1. Wine/European	Europa	France	Cognac, France	Distillery	Cognac	2	46.2	2.2	region
+BQE	Wine/European	DBVPG2166	1. Wine/European	Europa	Italy	production zone of Sagrantino wine, Montefalco, Foligno, Italy	Wine	Sagrantino wine	2	41.9	12.6	region
+BQG	Wine/European	DBVPG3098	1. Wine/European	Europa	Italy	Calabria, Italy	Wine	Grape must	2	41.9	12.6	region
+BQH	Wine/European	DBVPG3100	1. Wine/European	Europa	Italy	Toscana, Italy	Wine	Grape must	2	41.9	12.6	region
+BQI	Wine/European	DBVPG3924	1. Wine/European	Europa	Italy	Piave, Italy	Wine	Grape must	2	41.9	12.6	region
+BQM	Wine/European	DBVPG4162	1. Wine/European	Europa	Italy	Reggio Emilia, Italy	Wine	Grape must	2	41.9	12.6	region
+BQN	Wine/European (subclade 1)	DBVPG4186	1. Wine/European (subclade 1)	Europa	Slovenia	Slovenia	Wine	Wine	2	46.2	15.0	pais
+BQP	Wine/European	DBVPG4297	1. Wine/European	Europa	Italy	Treviso, Italy	Wine	Prosecco wine	2	41.9	12.6	region
+BQQ	Wine/European	DBVPG4317	1. Wine/European	Europa	Italy	Bettona, Perugia, Italy	Wine	Fermenting refrigerated Grape must (5C ca)	2	41.9	12.6	region
+BQR	Wine/European	DBVPG4381	1. Wine/European	Europa	Italy	Italy	Water	Seawater	2	41.9	12.6	pais
+BQS	Wine/European	DBVPG4410	1. Wine/European	Europa	Italy	Italy	Wine	Wine	2	41.9	12.6	pais
+BQT	Wine/European	DBVPG4460	1. Wine/European	Europa	Italy	Jesi, Italy	Wine	Wine	2	41.9	12.6	region
+BRA	Wine/European	DBVPG4651	1. Wine/European	Europa	Italy	Italy	Nature	Surface of Tuber magnatum	2	41.9	12.6	pais
+BRB	Wine/European	DBVPG4686	1. Wine/European	Europa	Italy	Deruta, Perugia, Italy	Wine	Winery	2	41.9	12.6	region
+BRC	Wine/European (subclade 1)	DBVPG4695	1. Wine/European (subclade 1)	Europa	Italy	Torgiano, Perugia, Italy	Wine	Winery surface at the beginning of Vino Santo production, Lungarotti winery	2	41.9	12.6	region
+BRD	Wine/European	DBVPG4902	1. Wine/European	Europa	Italy	Perugia, Italy	Unknown	Dried sausages under oil	2	41.9	12.6	region
+BRE	Wine/European	DBVPG4905	1. Wine/European	Europa	Italy	Marsciano, Perugia, Italy	Wine	Fermenting grape must	2	41.9	12.6	region
+BRF	Wine/European	DBVPG5760	1. Wine/European	Europa	Italy	Production zone of Sagrantino wine, Montefalco, Foligno, Italy	Wine	Wine fermenter	2	41.9	12.6	region
+BRG	Asian fermentation	DBVPG5836	26. Asian fermentation	Africa	Algeria	District of Hamma Bouziane, Constantine, Algeria	Soil	Soil close to plum tree, depth: 25 cm. Agricultural soil: presence of important vegetation, some fallen fruit (plum) rotting & insects. Average T (June): [max: 26.3C / min: 13.6C]. Precipitation (June): 17.4 mm.	3	28.0	1.7	region
+BRH	Wine/European	DBVPG6223	1. Wine/European	Europa	Spain	Spain	Wine	Grape must	2	40.4	-3.7	pais
+BRK	Alpechin	DBVPG6302	2. Alpechin	Europa	Spain	Spain	Industrial	Alpechin (waste from olive oil production)	2	40.4	-3.7	pais
+BRL	Mosaic region 3	DBVPG6350	M3. Mosaic region 3	Norteamerica	USA	USA	Unknown	UC Berkeley	1	39.8	-98.6	pais
+BRM	Mosaic beer	DBVPG6590	7. Mosaic beer	Sudamerica	Brazil	Brazil	Distillery	Alcohol production tank	1	-14.2	-51.9	pais
+BRP	Ale beer	DBVPG6694	11. Ale beer	Europa	Belgium	Belgium	Beer	Artois Peterman beer	4	50.5	4.5	pais
+BRQ	Ale beer	DBVPG6695	11. Ale beer	Europa	Belgium	Belgium	Beer	Orval Trappist beer	4	50.5	4.5	pais
+BRV	Mosaic region 3	DBVPG6874	M3. Mosaic region 3	Norteamerica	USA	USA	Human, clinical	Human	2	39.8	-98.6	pais
+BSA	Wine/European	DBVPG6876	1. Wine/European	Norteamerica	USA	Frog's Leap Winery, California, USA	Wine	Winery	2	39.8	-98.6	region
+BSB	Wine/European	DBVPG6877	1. Wine/European	Norteamerica	USA	Sterling Winery, California, USA	Wine	Winery	2	39.8	-98.6	region
+BSC	Wine/European	DBVPG6878	1. Wine/European	Norteamerica	USA	Mondavi Winery, California, USA	Wine	Winery	2	39.8	-98.6	region
+BSD	Wine/European	DBVPG6879	1. Wine/European	Norteamerica	USA	Newton Winery, California, USA	Wine	Winery	2	39.8	-98.6	region
+BSE	Wine/European	DBVPG6880	1. Wine/European	Norteamerica	USA	Ridge Winery, California, USA	Wine	Winery	2	39.8	-98.6	region
+BSG	Wine/European	DBVPG6295	1. Wine/European	Africa	South Africa	South Africa	Wine	Grape must	2	-30.6	22.9	pais
+BSI	Ale beer	DBVPG6693	11. Ale beer	Europa	Belgium	Belgium	Beer	Beer	4	50.5	4.5	pais
+BSK	Mosaic region 3	D3742	M3. Mosaic region 3	Europa	France	France	Unknown	Spoiled ice tea	2	46.2	2.2	pais
+BSL	Wine/European	M57	1. Wine/European	Europa	Italy	Italy	Wine	Wine	2	41.9	12.6	pais
+BSM	Wine/European	SGU89	1. Wine/European	Europa	Italy	Italy	Wine	Wine	2	41.9	12.6	pais
+BSN	Wine/European	SG60	1. Wine/European	Europa	Italy	Italy	Wine	Wine	2	41.9	12.6	pais
+BSP	Wine/European	L-1183	1. Wine/European	Sudamerica	Uruguay	Uruguay	Wine	Wine	2	-32.5	-55.8	pais
+BSR	Wine/European	L-958	1. Wine/European	Sudamerica	Argentina	Mendoza area, Argentina	Wine	Wine	2	-38.4	-63.6	region
+BSS	Wine/European	L-960	1. Wine/European	Sudamerica	Argentina	Mendoza area, Argentina	Wine	Wine	2	-38.4	-63.6	region
+BST	Wine/European	L-962	1. Wine/European	Sudamerica	Argentina	Mendoza area, Argentina	Wine	Wine	2	-38.4	-63.6	region
+BTA	Mosaic region 3	NCYC_2798	M3. Mosaic region 3	Europa	Germany	Germany	Human, clinical	Clinical isolate, AIDS patient	3	51.2	10.4	pais
+BTB	Mosaic region 3	77	M3. Mosaic region 3	Desconocido			Bakery	Baker's yeast	3			
+BTC	Mixed origin	79	8. Mixed origin	Desconocido			Bakery	Fleischmann baker's yeast.	2			
+BTD	Mixed origin	YS5(E)	8. Mixed origin	Desconocido			Bakery	type yeasts of the species Saccharomyces cerevisiae in different sugar media', Letters in Applied Microbiology 2001	4			
+BTE	Mixed origin	YS8(E)	8. Mixed origin	Desconocido			Bakery	type yeasts of the species Saccharomyces cerevisiae in different sugar media', Letters in Applied Microbiology 2001	4			
+BTF	Mixed origin	YS22(E)	8. Mixed origin	Desconocido			Bakery	type yeasts of the species Saccharomyces cerevisiae in different sugar media', Letters in Applied Microbiology 2001	2			
+BTG	Mediterranean oak	ZP_567	4. Mediterranean oak	Europa	Castelo de Vide	Portugal, Castelo de Vide	Tree	Quercus pyrenaica	2	39.42	-7.45	localidad
+BTH	Wine/European	ZP_577	1. Wine/European	Europa	S. Estrela	Portugal, Aldeia das Dez, S. Estrela	Tree	Quercus faginea	2	40.32	-7.83	localidad
+BTI	Mosaic region 3	ZP_611	M3. Mosaic region 3	Norteamerica	Vancouver	Canada, Vancouver	Tree	Quercus robur	2	49.28	-123.12	localidad
+BTL	Wine/European	L-304	1. Wine/European	Sudamerica	Chile	Chile	Wine	Wine	2	-35.7	-71.5	pais
+BTN	Wine/European	L-475	1. Wine/European	Sudamerica	Chile	Chile	Wine	Wine	2	-35.7	-71.5	pais
+BTP	Wine/European	L-1198	1. Wine/European	Sudamerica	Peru	Valle de Ica, Peru	Wine	Heterozygote, 12% Sporulation Efficiency	2	-9.2	-75.0	region
+BTR	Wine/European	L-1201	1. Wine/European	Sudamerica	Peru	Valle de Ica, Peru	Wine	Heterozygote, 12% Sporulation Efficiency	2	-9.2	-75.0	region
+BTS	Sake	RIB1005	25. Sake	Asia	Japan	Japan	Sake	Sake	2	36.2	138.3	pais
+BTT	Brazilian bioethanol	M.9.1	3. Brazilian bioethanol	Sudamerica	Brazil	Brazil	Distillery	Cachaça	2	-14.2	-51.9	pais
+BTV	Brazilian bioethanol	M.14.1	3. Brazilian bioethanol	Sudamerica	Brazil	Brazil	Distillery	Cachaça	2	-14.2	-51.9	pais
+BVA	Brazilian bioethanol	RP.10.4	3. Brazilian bioethanol	Sudamerica	Brazil	Brazil	Bioethanol	Bioethanol	2	-14.2	-51.9	pais
+BVB	Brazilian bioethanol	RP.10.13	3. Brazilian bioethanol	Sudamerica	Brazil	Brazil	Bioethanol	Bioethanol	2	-14.2	-51.9	pais
+BVC	Brazilian bioethanol	RP.10.14	3. Brazilian bioethanol	Sudamerica	Brazil	Brazil	Bioethanol	Bioethanol	2	-14.2	-51.9	pais
+BVD	Brazilian bioethanol	SM.9.1.AL1	3. Brazilian bioethanol	Sudamerica	Brazil	Brazil	Bioethanol	Bioethanol	2	-14.2	-51.9	pais
+BVE	Brazilian bioethanol	SM.9.1.BL7	3. Brazilian bioethanol	Sudamerica	Brazil	Brazil	Bioethanol	Bioethanol	1	-14.2	-51.9	pais
+BVF	Brazilian bioethanol	SM.9.2.BR3(L)	3. Brazilian bioethanol	Sudamerica	Brazil	Brazil	Bioethanol	Bioethanol	2	-14.2	-51.9	pais
+BVG	Brazilian bioethanol	SM.9.4.BL2	3. Brazilian bioethanol	Sudamerica	Brazil	Brazil	Bioethanol	Bioethanol	2	-14.2	-51.9	pais
+BVH	Brazilian bioethanol	SM.9.4.BR1	3. Brazilian bioethanol	Sudamerica	Brazil	Brazil	Bioethanol	Bioethanol	2	-14.2	-51.9	pais
+BVK	Wine/European	4LBI-3	1. Wine/European	Europa	Italy	Basilicata, Italy	Wine	Spontaneous grape fermentation	2	41.9	12.6	region
+BVM	Wine/European	SA6-31	1. Wine/European	Europa	Italy	Toscana, Italy	Wine	Spontaneous grape fermentation	2	41.9	12.6	region
+BVT	Wine/European (subclade 4)	B-24	1. Wine/European (subclade 4)	Europa	Georgia	Georgia	Wine	Wine conserved in amphora	2	42.3	43.4	pais
+BVV	Wine/European (subclade 4)	8-15	1. Wine/European (subclade 4)	Europa	Georgia	Georgia	Wine	Wine conserved in amphora	2	42.3	43.4	pais
+CAA	Wine/European (subclade 4)	5-18	1. Wine/European (subclade 4)	Europa	Georgia	Georgia	Wine	Wine conserved in amphora	2	42.3	43.4	pais
+CAB	Wine/European (subclade 4)	11-8	1. Wine/European (subclade 4)	Europa	Georgia	Georgia	Wine	Wine conserved in amphora	2	42.3	43.4	pais
+CAC	Wine/European (subclade 4)	A-12	1. Wine/European (subclade 4)	Europa	Georgia	Georgia	Wine	Wine conserved in amphora	2	42.3	43.4	pais
+CAD	Wine/European (subclade 4)	11-18	1. Wine/European (subclade 4)	Europa	Georgia	Georgia	Wine	Wine conserved in amphora	2	42.3	43.4	pais
+CAE	Wine/European	B-4	1. Wine/European	Europa	Georgia	Georgia	Wine	Wine conserved in amphora	2	42.3	43.4	pais
+CAF	Wine/European	C-3	1. Wine/European	Europa	Georgia	Georgia	Wine	Wine conserved in amphora	2	42.3	43.4	pais
+CAH	Wine/European	D-1	1. Wine/European	Europa	Georgia	Georgia	Wine	Wine conserved in amphora	2	42.3	43.4	pais
+CAI	Wine/European	D-4	1. Wine/European	Europa	Georgia	Georgia	Wine	Wine conserved in amphora	2	42.3	43.4	pais
+CAK	Wine/European	A-16	1. Wine/European	Europa	Georgia	Georgia	Wine	Wine conserved in amphora	2	42.3	43.4	pais
+CAL	Wine/European	A-19	1. Wine/European	Europa	Georgia	Georgia	Wine	Wine conserved in amphora	2	42.3	43.4	pais
+CAM	Wine/European (subclade 4)	9-7	1. Wine/European (subclade 4)	Europa	Georgia	Georgia	Wine	Wine conserved in amphora	2	42.3	43.4	pais
+CAN	Wine/European (subclade 4)	8-3	1. Wine/European (subclade 4)	Europa	Georgia	Georgia	Wine	Wine conserved in amphora	2	42.3	43.4	pais
+CAP	Wine/European (subclade 4)	11-2	1. Wine/European (subclade 4)	Europa	Georgia	Georgia	Wine	Wine conserved in amphora	2	42.3	43.4	pais
+CAQ	Wine/European (subclade 4)	5-2	1. Wine/European (subclade 4)	Europa	Georgia	Georgia	Wine	Wine conserved in amphora	2	42.3	43.4	pais
+CAR	Wine/European (subclade 4)	A-9	1. Wine/European (subclade 4)	Europa	Georgia	Georgia	Wine	Wine conserved in amphora	2	42.3	43.4	pais
+CAS	Wine/European (subclade 4)	B-17	1. Wine/European (subclade 4)	Europa	Georgia	Georgia	Wine	Wine conserved in amphora	2	42.3	43.4	pais
+CAT	Wine/European (subclade 4)	C-12	1. Wine/European (subclade 4)	Europa	Georgia	Georgia	Wine	Wine conserved in amphora	2	42.3	43.4	pais
+CAV	Wine/European (subclade 4)	B-13	1. Wine/European (subclade 4)	Europa	Georgia	Georgia	Wine	Wine conserved in amphora	2	42.3	43.4	pais
+CBA	Wine/European	A-14	1. Wine/European	Europa	Georgia	Georgia	Wine	Wine conserved in amphora	2	42.3	43.4	pais
+CBB	Wine/European (subclade 4)	1-9	1. Wine/European (subclade 4)	Europa	Georgia	Georgia	Wine	Wine conserved in amphora	2	42.3	43.4	pais
+CBC	Wine/European (subclade 4)	D-18	1. Wine/European (subclade 4)	Europa	Georgia	Georgia	Wine	Wine conserved in amphora	2	42.3	43.4	pais
+CBD	Wine/European (subclade 4)	B-11	1. Wine/European (subclade 4)	Europa	Georgia	Georgia	Wine	Wine conserved in amphora	2	42.3	43.4	pais
+CBE	Wine/European (subclade 4)	D-21	1. Wine/European (subclade 4)	Europa	Georgia	Georgia	Wine	Wine conserved in amphora	2	42.3	43.4	pais
+CBF	Mixed origin	SD-15	8. Mixed origin	Europa	Italy	Matera, Italy	Bakery	Sourdough levan	4	41.9	12.6	region
+CBG	Wine/European	DBVPG1978	1. Wine/European	Europa	Slovakia	Slovakia	Wine	Grape must	2	48.7	19.7	pais
+CBH	Wine/European	DBVPG3051	1. Wine/European	Africa	Israel	Israel	Wine	Grape must	2	31.0	34.9	pais
+CBI	Wine/European (subclade 1)	DBVPG4036	1. Wine/European (subclade 1)	Europa	ex Yugoslavia	ex Yugoslavia	Wine	Grape must	2	44.02	20.91	localidad
+CBK	Mosaic region 3	1	M3. Mosaic region 3	Europa	Schleswig-Holstein	Schleswig-Holstein	Insect	Chalcidoidea	1	54.2	9.7	pais
+CBL	Mosaic region 3	2	M3. Mosaic region 3	Europa	Schleswig-Holstein	Schleswig-Holstein	Insect	Chalcidoidea	2	54.2	9.7	pais
+CBM	Mosaic region 3	3	M3. Mosaic region 3	Europa	Forest of Nehmten in Schleswig-Holstein	Forest of Nehmten in Schleswig-Holstein	Insect	Chalcidoidea	2	54.18	10.35	localidad
+CBN	Mosaic beer	NCYC_88	7. Mosaic beer	Europa	UK	UK	Beer	Ale strain	2	55.4	-3.4	pais
+CBR	Ale beer	NCYC_1187	11. Ale beer	Europa	UK	UK	Beer	Ale strain	4	55.4	-3.4	pais
+CCC	Ecuadorean	CLQCA_20-156	21. Ecuadorean	Sudamerica	Orellana	Yasuni, Orellana	Flower	Flower (Gesneriaceae sp.)	2	-0.5	-76.9	region
+CCD	Ecuadorean	CLQCA_20-184	21. Ecuadorean	Sudamerica	Orellana	Yasuni, Orellana	Flower	Flower from Heliconia sp.	2	-0.5	-76.9	region
+CCE	Ecuadorean	CLQCA_20-221	21. Ecuadorean	Sudamerica	Orellana	Yasuni, Orellana	Flower	Flower from Heliconia sp.	2	-0.5	-76.9	region
+CCF	Ecuadorean	CLQCA_20-246	21. Ecuadorean	Sudamerica	Orellana	Yasuni, Orellana	Insect	Termite mound	2	-0.5	-76.9	region
+CCG	Ecuadorean	CLQCA_20-259	21. Ecuadorean	Sudamerica	Orellana	Yasuni, Orellana	Fruit	Decaying fruit	2	-0.5	-76.9	region
+CCH	Ecuadorean	CLQCA_20-314	21. Ecuadorean	Sudamerica	Orellana	Yasuni, Orellana	Insect	Termite mound	2	-0.5	-76.9	region
+CCI	Ecuadorean	CLQCA_20-248	21. Ecuadorean	Sudamerica	Orellana	Yasuni, Orellana	Insect	Termite mound	2	-0.5	-76.9	region
+CCL	Mediterranean oak	N19-1C	4. Mediterranean oak	Asia	Russia	Gelendzhik region, Caucasus, Russia	Tree	Exudate of Quercus sp.	2	61.5	105.3	region
+CCM	Wine/European (subclade 1)	N493-2C	1. Wine/European (subclade 1)	Europa	Ukraine	Kiev district, Ukraine	Tree	Fir tree needles	2	48.4	31.2	region
+CCN	Far East Asia	VKM_Y-504:S	18. Far East Asia	Asia	Russian Far East	Russian Far East	Fruit	Berries of Viburnum Burejanum	2	48.48	135.08	region
+CCP		IFO_0877:6-1		Asia	Japan	Japan	Tree	Quercus sp.	2	36.2	138.3	pais
+CCQ	Far East Asia	Ksc2-2B	18. Far East Asia	Asia	Japan	Japan	Tree	Tree exudate	2	36.2	138.3	pais
+CCR	Far East Asia	Ksc40-8A	18. Far East Asia	Asia	Japan	Japan	Tree	Tree exudate	2	36.2	138.3	pais
+CCS	Far East Asia	Ksc73-2D	18. Far East Asia	Asia	Japan	Japan	Tree	Tree exudate	2	36.2	138.3	pais
+CCT	Asian islands	S11F3-6B	24. Asian islands	Asia	Sri Lanka	Sri Lanka	Tree	Phloem sap of Caryota urens	2	7.9	80.8	pais
+CCV	Asian islands	S8BM-30-2D	24. Asian islands	Asia	Sri Lanka	Sri Lanka	Tree	Phloem sap of Caryota urens	2	7.9	80.8	pais
+CDA	Asian islands	S8BM-32-4D(a)	24. Asian islands	Asia	Sri Lanka	Sri Lanka	Tree	Phloem sap of Caryota urens	1	7.9	80.8	pais
+CDB		ATCC_66348-1D		Asia	Japan	Japan	Soil	Soil	2	36.2	138.3	pais
+CDC	Mosaic region 3	N37-1A	M3. Mosaic region 3	Asia	Russia	Botanical Garden, Novosibirsk, Siberia, Russia	Tree	Exudate of Quercus robur	2	61.5	105.3	region
+CDD	Mosaic region 3	N38-4A	M3. Mosaic region 3	Asia	Russia	Botanical Garden, Novosibirsk, Siberia, Russia	Tree	Exudate of Quercus robur	2	61.5	105.3	region
+CDE	Mosaic region 3	N39-7A	M3. Mosaic region 3	Asia	Russia	Novosibirsk, Siberia, Russia	Tree	Exudate of Quercus robur	2	61.5	105.3	region
+CDF	Far East Russian	N22.00-5D	22. Far East Russian	Asia	Russia	Botanical garden, Blagoveshchensk, Russia	Fruit	Fruit of Grataegus dachurica	2	61.5	105.3	region
+CDG	Far East Russian	N3.00-7A	22. Far East Russian	Asia	Russia	Botanical garden, Blagoveshchensk, Russia	Wine	Grape berries of wild Vitus amurensis	2	61.5	105.3	region
+CDH	Far East Russian	N159.01-2B	22. Far East Russian	Asia	Russia	Botanical garden, Blagoveshchensk, Russia	Tree	Exudate of Quercus mongolica	2	61.5	105.3	region
+CDI	Far East Russian	N163.01-5A	22. Far East Russian	Asia	Russia	Botanical garden, Blagoveshchensk, Russia	Tree	Exudate of Quercus mongolica	2	61.5	105.3	region
+CDK	Mosaic region 3	CCY_21-4-93:6B	M3. Mosaic region 3	Asia	North Korea	North Korea	Tree	Leaves of Sequoia sp.	1	40.34	127.51	localidad
+CDL	Far East Asia	N51-1A	18. Far East Asia	Asia	Russian Far East	Vladivostok, Russian Far East	Tree	Exudate of Quercus mongolica	2	43.12	131.89	localidad
+CDM	Mosaic region 2	UFRJ_50613-2D(a)	M2. Mosaic region 2	Sudamerica	Brazil	Rio de Janeiro, Brazil	Water	Cushvara river	2	-14.2	-51.9	region
+CDN		UCD_61-190-6A		Norteamerica	USA	California, USA	Insect	Drosophila sp.	2	36.8	-119.4	region
+CDP		N95-5-1A		Norteamerica	USA	Augusta, MI 49012, USA	Tree	Exudate of Quercus sp.	2	39.8	-98.6	region
+CDQ		N95-6-1C		Norteamerica	USA	Augusta, MI 49012, USA	Tree	Exudate of Quercus sp.	2	39.8	-98.6	region
+CDR	Mixed origin	CECT10331:9-1	8. Mixed origin	Europa	Spain	Spain	Flower	Flowers of Centaurea alba	2	40.4	-3.7	pais
+CDS	Wine/European	CECT10351-1B	1. Wine/European	Europa	Spain	Spain	Fruit	Tomato	2	40.4	-3.7	pais
+CDT	Alpechin	CECT10171-5B	2. Alpechin	Europa	Spain	Spain	Insect	Larvae of Dacus oleae	2	40.4	-3.7	pais
+CDV	Wine/European	DBVPG1616-1D	1. Wine/European	Europa	Spain	Spain	Soil	Soil	2	40.4	-3.7	pais
+CEA	Wine/European	DBVPG1617-5A	1. Wine/European	Europa	Spain	Spain	Soil	Soil	1	40.4	-3.7	pais
+CEB	Wine/European	DBVPG1619-4B	1. Wine/European	Europa	Spain	Spain	Soil	Soil	1	40.4	-3.7	pais
+CEC	Wine/European	DBVPG1620-1A	1. Wine/European	Europa	Spain	Spain	Soil	Soil	2	40.4	-3.7	pais
+CED	Wine/European	DBVPG1621-5A	1. Wine/European	Europa	Spain	Spain	Soil	Soil	2	40.4	-3.7	pais
+CEE	Wine/European	DBVPG1622-8B	1. Wine/European	Europa	Spain	Spain	Soil	Soil	2	40.4	-3.7	pais
+CEF	Wine/European	DBVPG1623-2A	1. Wine/European	Europa	Spain	Spain	Soil	Soil	2	40.4	-3.7	pais
+CEG	Taiwanese	EM14S01-3B	17. Taiwanese	Asia	Taiwan	Taiwan	Soil	Soil	2	23.7	121.0	pais
+CEH		ES2M03-7A		Asia	Taiwan	Taiwan	Fruit	Fruiting body of Russula sp.	2	23.7	121.0	pais
+CEI	Taiwanese	GE14S01-7B	17. Taiwanese	Asia	Taiwan	Taiwan	Soil	Soil	2	23.7	121.0	pais
+CEK	Asian fermentation	JCM_2985-4B	26. Asian fermentation	Asia	Tailand	Tailand	Fermentation	Fermented fish	2	15.87	100.99	localidad
+CEL	Asian fermentation	JCM_3529-7B	26. Asian fermentation	Asia	Tailand	Tailand	Fermentation	Fermented shrimp	2	15.87	100.99	localidad
+CEM	Mosaic region 3	CCY_21-4-89:7-3	M3. Mosaic region 3	Asia	North Korea	North Korea	Fermentation	Fermenting acorn meal	1	40.34	127.51	localidad
+CEN	Mosaic region 3	ATCC_38618:2-2	M3. Mosaic region 3	Desconocido			Fruit	Concentrated orange juice	2			
+CEP		ATCC_52922-1C		Asia	Philippines	Philippines	Fermentation	Tapuy (rice wine)	2	12.9	121.8	pais
+CEQ	Mosaic region 3	MUCL_30909-2C	M3. Mosaic region 3	Africa	Burundi	Burundi	Fermentation	Cassava	2	-3.4	29.9	pais
+CER	African beer	N34:2-4(a)	6. African beer	Africa	Ghana	Ghana	Bakery	Maize dough	2	7.9	-1.0	pais
+CES	African beer	N26-1-10:7-5(a)	6. African beer	Africa	Ghana	Ghana	Bakery	Maize dough	2	7.9	-1.0	pais
+CET	African beer	N134:7-1(a)	6. African beer	Africa	Ghana	Ghana	Bakery	Maize dough	2	7.9	-1.0	pais
+CEV	Asian fermentation	IFO_0289:4-3(b)	26. Asian fermentation	Asia	China	China	Distillery	Moromi of Chinese wine kaoliangchiu	1	35.9	104.2	pais
+CFA	African palm wine	Dji2-2A(a)	13. African palm wine	Africa	Djibouti	Djibouti	Palm wine	Palm wine	2	11.8	42.6	pais
+CFB	Wine/European	ho_SB	1. Wine/European	Europa	Bordeaux	Bordeaux	Wine	Wine	2	44.84	-0.58	localidad
+CFC	Ale beer	4.5_WLP530	11. Ale beer	Europa	Belgium	Westmalle, Belgium	Beer	Carlsberg Beer, Abbey ale yeast (Westmalle brewery)	4	50.5	4.5	region
+CFD	Ale beer	1.3_Safale_US05	11. Ale beer	Norteamerica	USA	USA	Beer	Carlsberg Beer, American Ale yeast	4	39.8	-98.6	pais
+CFE	Wine/European	4.9_WLP099	1. Wine/European	Europa	United Kingdom	United Kingdom	Beer	Carlsberg Beer, super high gravity	2	55.38	-3.44	localidad
+CFF	Mosaic beer	6.2_WLP570	7. Mosaic beer	Europa	Belgium	Belgium	Beer	Carlsberg Beer	2	50.5	4.5	pais
+CFG	Ale beer	1.6_Safale_S40	11. Ale beer	Europa	UK	UK	Beer	Carlsberg Beer	4	55.4	-3.4	pais
+CFH	Ale beer	Nottingham_ale_1.8_Lallemand	11. Ale beer	Europa	UK	UK	Beer	Carlsberg Beer	4	55.4	-3.4	pais
+CFI	Mixed origin	2.6_Windsor_British	8. Mixed origin	Europa	UK	UK	Beer	Carlsberg Beer	4	55.4	-3.4	pais
+CFM	Ale beer	5.5_WLP090	11. Ale beer	Norteamerica	USA	San Diego, USA	Beer	Carlsberg Beer, 'San Diego Super Yeast'	4	39.8	-98.6	region
+CFN	Mixed origin	3.3_Safale_S-33	8. Mixed origin	Desconocido			Beer	Carlsberg Beer	4			
+CFP	Mixed origin	3.4_Safbrew_T-58	8. Mixed origin	Desconocido			Beer	Carlsberg Beer	4			
+CFQ	Wine/European	UCD_40-235	1. Wine/European	Norteamerica	California	Walnut Creek, California	Wine	Muscate grapes	2	37.91	-122.06	localidad
+CFR	Wine/European	UCD_40-248	1. Wine/European	Norteamerica	California	Tulare Winery, California	Wine	Muscat must to be fortified (1939)	2	36.21	-119.34	localidad
+CFS	Wine/European	UCD_40-255	1. Wine/European	Norteamerica	California	Walnut Creek, California	Wine	Red Tokay grapes (1939)	4	37.91	-122.06	localidad
+CFT	Mosaic region 2	UCD_40-346	M2. Mosaic region 2	Norteamerica	California	Fresno area, California	Fruit	Spoiled Adriatic orchard figs, (1939)	2	36.74	-119.79	localidad
+CFV	Wine/European	UCD_40-49	1. Wine/European	Desconocido			Fruit	Citrus fermentation	2			
+CGB	Mosaic region 3	UCD_05-780	M3. Mosaic region 3	Norteamerica	CA Wolfskill USDA Prunus germplasm collection	Winters, CA Wolfskill USDA Prunus germplasm collection	Insect	Beetle from infested Prunus bokhariensis, walk plate on RBCA. No mold on plate. Prunus bokhariensis Type Botanky E-1-18	2	38.53	-121.97	localidad
+CGC	Ale beer	UCD_06-645	11. Ale beer	Norteamerica	UCD	Davis, CA, UCD	Fruit	Female olive fly, surface sterilized, smashed, plated on RBCA	4	38.54	-121.74	localidad
+CGD	Alpechin	UCD_09-448	2. Alpechin	Norteamerica	UCD	Davis, CA, UCD	Fruit	Olives from Middle of season 1. on RBCA 11.25.09 Streaked onto PDA 11/30/09	2	38.54	-121.74	localidad
+CGE	Alpechin	UCD_11-601	2. Alpechin	Norteamerica	Pilot plant.	Davis, CA, UCD Food Science, Pilot plant.	Fruit	Olive fermentation, 1-gallon, Bucket 5B brine, Sicilian style olives, inoculated with Saccharomyces cerevisiase from 2009 olives.	2	38.54	-121.74	localidad
+CGG	Asian fermentation	TayTa	26. Asian fermentation	Asia	South Vietnam	Long An, South Vietnam	Unknown	Unknown	2	10.6	106.41	localidad
+CGH		VNL3		Asia	North Vietnam	Ha Noi, North Vietnam	Unknown	Unknown	3	21.03	105.85	localidad
+CGI	Asian fermentation	Me7	26. Asian fermentation	Asia	South Vietnam	Cai Be, South Vietnam	Unknown	Unknown	2	10.35	105.99	localidad
+CGK	Asian fermentation	Lx2	26. Asian fermentation	Asia	South Vietnam	Dong Thap, South Vietnam	Unknown	Unknown	2	10.49	105.69	localidad
+CGL	Asian fermentation	BMQ557	26. Asian fermentation	Asia	North Vietnam	Hai Phong, North Vietnam	Unknown	Unknown	2	20.86	106.68	localidad
+CGN	Asian fermentation	SGB1	26. Asian fermentation	Asia	South Vietnam	Saigon, South Vietnam	Fermentation	Rice fermentation starter culture	2	10.82	106.63	localidad
+CGP	Asian fermentation	SG4	26. Asian fermentation	Asia	South Vietnam	Saigon, South Vietnam	Unknown	Unknown	2	10.82	106.63	localidad
+CGQ	Asian fermentation	RR1a	26. Asian fermentation	Asia	South Vietnam	My Tho, South Vietnam	Unknown	Unknown	2	10.36	106.36	localidad
+CGR	Asian fermentation	VL5	26. Asian fermentation	Asia	South Vietnam	Phan Thiet, South Vietnam	Fermentation	Rice fermentation starter culture	2	10.93	108.1	localidad
+CGS	Wine/European	Ca6	1. Wine/European	Africa	Lebanon	Lebanon	Wine	Fermenting grape must (sweet wine)	2	33.9	35.9	pais
+CGT	Wine/European (subclade 1)	Lib39	1. Wine/European (subclade 1)	Africa	Lebanon	Lebanon	Wine	Fermenting grape must (white wine)	2	33.9	35.9	pais
+CGV	Wine/European	Lib51	1. Wine/European	Africa	Lebanon	Lebanon	Wine	Fermenting grape must (sweet wine)	2	33.9	35.9	pais
+CHA	Wine/European	Lib52	1. Wine/European	Africa	Lebanon	Lebanon	Wine	Fermenting grape must (sweet wine)	2	33.9	35.9	pais
+CHB	Wine/European	Lib54	1. Wine/European	Africa	Lebanon	Lebanon	Wine	Fermenting grape must (white wine)	2	33.9	35.9	pais
+CHC	Wine/European	Lib61	1. Wine/European	Africa	Lebanon	Lebanon	Wine	Fermenting grape must (red wine)	2	33.9	35.9	pais
+CHD	Wine/European	Lib70	1. Wine/European	Africa	Lebanon	Lebanon	Wine	Fermenting grape must (white wine)	2	33.9	35.9	pais
+CHE	Wine/European	Lib71	1. Wine/European	Africa	Lebanon	Lebanon	Wine	Fermenting grape must (rose wine)	2	33.9	35.9	pais
+CHF	Wine/European	Lib73	1. Wine/European	Africa	Lebanon	Lebanon	Wine	Fermenting grape must (red wine)	2	33.9	35.9	pais
+CHG	Mixed origin	324-6C	8. Mixed origin	Asia	Vietnam	Vietnam	Bakery	Bakery	2	14.1	108.3	pais
+CHH	Mixed origin	319-5C	8. Mixed origin	Europa	France	France	Bakery	Bakery	2	46.2	2.2	pais
+CHI	Mixed origin	646-3B	8. Mixed origin	Norteamerica	USA	USA	Bakery	Bakery	2	39.8	-98.6	pais
+CHK	Mixed origin	Win-8B	8. Mixed origin	Europa	UK	UK	Beer	Brewery	2	55.4	-3.4	pais
+CHL	Mixed origin	SBE-1C	8. Mixed origin	Europa	Northern Europe	Northern Europe	Bakery	Bakery	2	59.0	15.0	pais
+CHM	Asian fermentation	SBD	26. Asian fermentation	Europa	Northern Europe	Northern Europe	Bakery	Bakery	2	59.0	15.0	pais
+CHN	Mosaic region 3	B9b-1	M3. Mosaic region 3	Europa	Gif-sur-Yvette	Gif-sur-Yvette	Bakery	Levain from organic flour (Renan)	2	48.7	2.13	localidad
+CHP	Mosaic region 3	B9c-1	M3. Mosaic region 3	Europa	Gif-sur-Yvette	Gif-sur-Yvette	Bakery	Levain from organic flour (Renan)	2	48.7	2.13	localidad
+CHQ	Mosaic region 3	B10-1	M3. Mosaic region 3	Europa	Forcalquier	Forcalquier	Bakery	Levain from organic flour	2	43.96	5.78	localidad
+CHR	Mixed origin	SC 29 F. Dromer IP	8. Mixed origin	Europa	France	France	Human, clinical	Vagina	2	46.2	2.2	pais
+CHS	Mosaic region 3	SC 32 F. Dromer IP	M3. Mosaic region 3	Europa	France	France	Human, clinical	Feces	2	46.2	2.2	pais
+CHT	Mosaic region 3	SC 33 F. Dromer IP	M3. Mosaic region 3	Europa	France	France	Human, clinical	Feces	2	46.2	2.2	pais
+CHV	Mosaic region 1	SRC 120	M1. Mosaic region 1	Europa	France	France	Cider	Cider bioindustrial strain	2	46.2	2.2	pais
+CIA	Wine/European	SRC 147	1. Wine/European	Europa	France	Bretagne, France	Industrial	Bioindustrial strains	2	46.2	2.2	region
+CIB	Wine/European	SRC 213	1. Wine/European	Europa	France	Bretagne, France	Industrial	Bioindustrial strains	2	46.2	2.2	region
+CIC	Mosaic region 3	Ponton 11	M3. Mosaic region 3	Europa	Spain	Spain	Human, clinical	Mouth	2	40.4	-3.7	pais
+CID	Mosaic region 3	Ponton 12	M3. Mosaic region 3	Europa	Spain	Spain	Human, clinical	Mouth	2	40.4	-3.7	pais
+CIE	Mixed origin	Ponton 13	8. Mixed origin	Europa	Spain	Spain	Human, clinical	Mouth	3	40.4	-3.7	pais
+CIF	Mosaic region 3	Ponton 14	M3. Mosaic region 3	Europa	Spain	Spain	Human, clinical	Feces	2	40.4	-3.7	pais
+CIG	Mosaic region 3	PB11	M3. Mosaic region 3	Europa	Netherlands	Netherlands	Human, clinical	Feces	2	52.1	5.3	pais
+CIH	Mosaic region 3	PB12	M3. Mosaic region 3	Europa	Netherlands	Netherlands	Human, clinical	Feces	2	52.1	5.3	pais
+CII	Mosaic region 3	PB13	M3. Mosaic region 3	Europa	Netherlands	Netherlands	Human, clinical	Sputum	2	52.1	5.3	pais
+CIK	Mosaic region 3	PB14	M3. Mosaic region 3	Europa	Netherlands	Netherlands	Human, clinical	Sputum	2	52.1	5.3	pais
+CIL	Mosaic region 3	PB15	M3. Mosaic region 3	Europa	Netherlands	Netherlands	Human, clinical	Feces	2	52.1	5.3	pais
+CIM	Wine/European (subclade 3)	malade Hc6553	1. Wine/European (subclade 3)	Europa	H6	Paris, France, H6	Human, clinical	Blood (therapy isolate)	2	48.86	2.35	localidad
+CIN	Wine/European (subclade 3)	malade Pac6436	1. Wine/European (subclade 3)	Europa	H6	Paris, France, H6	Human, clinical	Blood (therapy isolate)	2	48.86	2.35	localidad
+CIP	Wine/European (subclade 3)	malade 6442	1. Wine/European (subclade 3)	Europa	H6	Paris, France, H6	Human, clinical	Catheter (therapy isolate)	2	48.86	2.35	localidad
+CIQ	Wine/European (subclade 3)	malade 6452	1. Wine/European (subclade 3)	Europa	H6	Paris, France, H6	Human, clinical	Blood (therapy isolate)	2	48.86	2.35	localidad
+CIR	Wine/European (subclade 3)	malade 6441	1. Wine/European (subclade 3)	Europa	H6	Paris, France, H6	Human, clinical	Blood (therapy isolate)	2	48.86	2.35	localidad
+CIS	Wine/European (subclade 3)	malade Elbaz 6766	1. Wine/European (subclade 3)	Europa	H6	Paris, France, H6	Human, clinical	Therapy isolates (Blood)	2	48.86	2.35	localidad
+CIT	Wine/European (subclade 3)	malade 459 Labaume	1. Wine/European (subclade 3)	Europa	H1	Paris, France, H1	Human, clinical	Blood (therapy isolate)	2	48.86	2.35	localidad
+CIV	Wine/European (subclade 3)	malade 1124/150017	1. Wine/European (subclade 3)	Europa	H2	Paris, France, H2	Human, clinical	Feces (therapy isolate)	2	48.86	2.35	localidad
+CKA	Mosaic region 3	malade 3285/11-2-4	M3. Mosaic region 3	Europa	H3	Paris, France, H3	Human, clinical	Bronchoalveolar lavage (therapy isolate)	2	48.86	2.35	localidad
+CKB	Wine/European (subclade 3)	malade 98 1655/125391	1. Wine/European (subclade 3)	Europa	H3	Paris, France, H3	Human, clinical	Blood (therapy isolate)	2	48.86	2.35	localidad
+CKC	Wine/European (subclade 3)	malade 139287/11_2_1	1. Wine/European (subclade 3)	Europa	H2	Paris, France, H2	Human, clinical	Blood (therapy isolate)	2	48.86	2.35	localidad
+CKD	Wine/European (subclade 3)	malade 97 138633/11-2-5	1. Wine/European (subclade 3)	Europa	H2	Paris, France, H2	Human, clinical	Feces (therapy isolate)	2	48.86	2.35	localidad
+CKE	Wine/European (subclade 3)	malade 141076/11210	1. Wine/European (subclade 3)	Europa	H2	Paris, France, H2	Human, clinical	Feces (therapy isolate)	2	48.86	2.35	localidad
+CKF	Wine/European (subclade 3)	malade 150865/1122	1. Wine/European (subclade 3)	Europa	H2	Paris, France, H2	Human, clinical	Feces (therapy isolate)	2	48.86	2.35	localidad
+CKG	Wine/European (subclade 3)	UL G84F88I90	1. Wine/European (subclade 3)	Asia	Vietnam	Vietnam	Fruit	S. boulardii isolates lychee (reference strain Biocodex)	2	14.1	108.3	pais
+CKH	Wine/European (subclade 3)	ultra lev. 1127	1. Wine/European (subclade 3)	Europa	France	Paris, France	Industrial	S. boulardii isolates (from UltraLevure packet)	2	46.2	2.2	region
+CKI	Wine/European (subclade 3)	perentol	1. Wine/European (subclade 3)	Europa	Belgium	Brussels, Belgium	Human, clinical	S. boulardii isolates (from Perenterol capsule)	2	50.5	4.5	region
+CKK	Mixed origin	malade 98 3312	8. Mixed origin	Europa	France	Amiens, France	Human, clinical	Feces, clinical	4	46.2	2.2	region
+CKL	Wine/European (subclade 3)	malade 98 3161	1. Wine/European (subclade 3)	Europa	France	Amiens, France	Human, clinical	Feces, therapy	2	46.2	2.2	region
+CKM	Wine/European (subclade 3)	malade 98 2574	1. Wine/European (subclade 3)	Europa	France	Amiens, France	Human, clinical	Feces, therapy	2	46.2	2.2	region
+CKN	Mosaic region 3	malade 98 2601	M3. Mosaic region 3	Europa	France	Amiens, France	Human, clinical	Feces, clinical	2	46.2	2.2	region
+CKP	Wine/European (subclade 3)	malade Broussais	1. Wine/European (subclade 3)	Europa	France	Paris, France	Human, clinical	Unknown	2	46.2	2.2	region
+CKQ	Wine/European (subclade 3)	malade M2402A Necker	1. Wine/European (subclade 3)	Europa	France	France	Human, clinical	Feces (therapy isolate)	2	46.2	2.2	pais
+CKR		malade Darkman		Europa	France	France	Human, clinical	Unknown	2	46.2	2.2	pais
+CKS	Mixed origin	malade Berchid	8. Mixed origin	Europa	France	France	Human, clinical	Unknown	4	46.2	2.2	pais
+CKT	Wine/European (subclade 3)	malade Fauot	1. Wine/European (subclade 3)	Europa	France	France	Human, clinical	Unknown	2	46.2	2.2	pais
+CKV	French dairy	malade Boisse	5. French dairy	Europa	France	France	Human, clinical	Unknown	2	46.2	2.2	pais
+CLA	Mixed origin	malade Moreau	8. Mixed origin	Europa	France	France	Human, clinical	Unknown	4	46.2	2.2	pais
+CLB	Mediterranean oak	sample 40	4. Mediterranean oak	Europa	France	Bordeaux, France	Tree	Tree leaves	2	46.2	2.2	region
+CLC	Mediterranean oak	sample 50	4. Mediterranean oak	Europa	France	Bordeaux, France	Tree	Dead tree	2	46.2	2.2	region
+CLD	Mediterranean oak	sample 33	4. Mediterranean oak	Europa	France	Bordeaux, France	Flower	Flower	2	46.2	2.2	region
+CLG	Mosaic region 3	NCYC_2966	M3. Mosaic region 3	Europa	UK	Nottingham, UK	Human, clinical	Feces	2	55.4	-3.4	region
+CLH	Wine/European	NCYC_2743	1. Wine/European	Europa	Spain	Spain	Wine	Unknown	2	40.4	-3.7	pais
+CLI	Sake	K5	25. Sake	Asia	Japan	Japan	Sake	Sake	2	36.2	138.3	pais
+CLK	Sake	K9	25. Sake	Asia	Japan	Japan	Sake	Sake	2	36.2	138.3	pais
+CLL	Sake	K10	25. Sake	Asia	Japan	Japan	Sake	Sake	2	36.2	138.3	pais
+CLM	Sake	K13	25. Sake	Asia	Japan	Japan	Sake	Sake	2	36.2	138.3	pais
+CLN	Sake	K14	25. Sake	Asia	Japan	Japan	Sake	Sake	2	36.2	138.3	pais
+CLP	Sake	K15	25. Sake	Asia	Japan	Japan	Sake	Sake	2	36.2	138.3	pais
+CLQ	Sake	UC5	25. Sake	Asia	Japan	Japan	Sake	Sake	1	36.2	138.3	pais
+CLR	Sake	RIB1008	25. Sake	Asia	Japan	Japan	Sake	Sake	2	36.2	138.3	pais
+CLS	Sake	RIB1010	25. Sake	Asia	Japan	Japan	Sake	Sake	2	36.2	138.3	pais
+CLT	Sake	RIB1011	25. Sake	Asia	Japan	Japan	Sake	Sake	2	36.2	138.3	pais
+CLV	Sake	RIB1012	25. Sake	Asia	Japan	Japan	Sake	Sake	2	36.2	138.3	pais
+CMB	Sake	RIB1014	25. Sake	Asia	Japan	Japan	Sake	Sake	2	36.2	138.3	pais
+CMC	Sake	RIB1015	25. Sake	Asia	Japan	Japan	Sake	Sake	2	36.2	138.3	pais
+CMD	Sake	RIB1016	25. Sake	Asia	Japan	Japan	Sake	Sake	2	36.2	138.3	pais
+CME	Sake	RIB1017	25. Sake	Asia	Japan	Japan	Sake	Sake	2	36.2	138.3	pais
+CMF	Sake	RIB6001	25. Sake	Asia	Japan	Japan	Sake	Sake	2	36.2	138.3	pais
+CMG	Mosaic region 3	RIB6002	M3. Mosaic region 3	Asia	Japan	Japan	Sake	Sake	3	36.2	138.3	pais
+CMH	Sake	RIB6003	25. Sake	Asia	Japan	Japan	Sake	Sake	2	36.2	138.3	pais
+CMI	Sake	RIB6004	25. Sake	Asia	Japan	Japan	Sake	Sake	2	36.2	138.3	pais
+CMK	Sake	RIB6005	25. Sake	Asia	Japan	Japan	Sake	Sake	2	36.2	138.3	pais
+CML	Sake	RIB6006	25. Sake	Asia	Japan	Japan	Sake	Sake	2	36.2	138.3	pais
+CMM	Sake	RIB6007	25. Sake	Asia	Japan	Japan	Sake	Sake	2	36.2	138.3	pais
+CMN	Sake	RIB0007	25. Sake	Asia	Japan	Japan	Sake	Sake	2	36.2	138.3	pais
+CMP	Ecuadorean	YPS615	21. Ecuadorean	Norteamerica	USA	Pennsylvania, USA	Tree	Quercus sp.	2	41.2	-77.2	region
+CMQ	Ecuadorean	YPS617	21. Ecuadorean	Norteamerica	USA	Pennsylvania, USA	Tree	Quercus sp.	2	41.2	-77.2	region
+CMS		YPS670		Norteamerica	USA	Pennsylvania, USA	Tree	Quercus sp.	2	41.2	-77.2	region
+CMT	Brazilian bioethanol	SM.9.4.BR2	3. Brazilian bioethanol	Sudamerica	Brazil	Brazil	Bioethanol	Bioethanol	2	-14.2	-51.9	pais
+CNB	Brazilian bioethanol	SM.8.2.C13	3. Brazilian bioethanol	Sudamerica	Brazil	Brazil	Bioethanol	Bioethanol	2	-14.2	-51.9	pais
+CNC	Mosaic region 3	SM8.3.M5	M3. Mosaic region 3	Sudamerica	Brazil	Brazil	Bioethanol	Bioethanol	2	-14.2	-51.9	pais
+CNE	Brazilian bioethanol	SM.8.7.L8	3. Brazilian bioethanol	Sudamerica	Brazil	Brazil	Bioethanol	Bioethanol	2	-14.2	-51.9	pais
+CNF	Brazilian bioethanol	SM.8.7.L9	3. Brazilian bioethanol	Sudamerica	Brazil	Brazil	Bioethanol	Bioethanol	2	-14.2	-51.9	pais
+CNG	Brazilian bioethanol	SM.8.7.BR1	3. Brazilian bioethanol	Sudamerica	Brazil	Brazil	Bioethanol	Bioethanol	2	-14.2	-51.9	pais
+CNH	Brazilian bioethanol	SM.8.8.BL1	3. Brazilian bioethanol	Sudamerica	Brazil	Brazil	Bioethanol	Bioethanol	2	-14.2	-51.9	pais
+CNI	Brazilian bioethanol	SM.8.8.CVR1	3. Brazilian bioethanol	Sudamerica	Brazil	Brazil	Bioethanol	Bioethanol	2	-14.2	-51.9	pais
+CNK	Brazilian bioethanol	SA.1.5.	3. Brazilian bioethanol	Sudamerica	Brazil	Brazil	Bioethanol	Bioethanol	2	-14.2	-51.9	pais
+CNL	Brazilian bioethanol	SA.9.2.BL3	3. Brazilian bioethanol	Sudamerica	Brazil	Brazil	Bioethanol	Bioethanol	2	-14.2	-51.9	pais
+CNM	Brazilian bioethanol	SA.9.3.VR1	3. Brazilian bioethanol	Sudamerica	Brazil	Brazil	Bioethanol	Bioethanol	2	-14.2	-51.9	pais
+CNN	Brazilian bioethanol	SA.9.4.VL4	3. Brazilian bioethanol	Sudamerica	Brazil	Brazil	Bioethanol	Bioethanol	2	-14.2	-51.9	pais
+CNP	Brazilian bioethanol	SA.9.4.BR2	3. Brazilian bioethanol	Sudamerica	Brazil	Brazil	Bioethanol	Bioethanol	2	-14.2	-51.9	pais
+CNQ	Brazilian bioethanol	SA.10.1.VL1	3. Brazilian bioethanol	Sudamerica	Brazil	Brazil	Bioethanol	Bioethanol	2	-14.2	-51.9	pais
+CNR	Brazilian bioethanol	SA.10.1.VR4	3. Brazilian bioethanol	Sudamerica	Brazil	Brazil	Bioethanol	Bioethanol	2	-14.2	-51.9	pais
+CNS	Brazilian bioethanol	RP11.4.1	3. Brazilian bioethanol	Sudamerica	Brazil	Brazil	Bioethanol	Bioethanol	2	-14.2	-51.9	pais
+CNT	Brazilian bioethanol	RP11.4.11	3. Brazilian bioethanol	Sudamerica	Brazil	Brazil	Bioethanol	Bioethanol	2	-14.2	-51.9	pais
+CNV	Brazilian bioethanol	RP11.4.14	3. Brazilian bioethanol	Sudamerica	Brazil	Brazil	Bioethanol	Bioethanol	2	-14.2	-51.9	pais
+CPA		906		Norteamerica	Mexico	Mexico	Nature	Must from various Agave sp.	2	23.6	-102.6	pais
+CPB	Mosaic region 1	995	M1. Mosaic region 1	Europa	Hungary	Hungary	Beer	Fermented beverage from raisins and sugar	2	47.2	19.5	pais
+CPC	Mosaic region 3	997	M3. Mosaic region 3	Europa	Hungary	Hungary	Fruit	Apricot pulp	2	47.2	19.5	pais
+CPD	Mosaic beer	1175	7. Mosaic beer	Desconocido			Beer	Spoiled beer	2			
+CPE	Wine/European	1216	1. Wine/European	Europa	Spain	El Sauzal, Tenerife, Spain	Unknown	Unknown	2	40.4	-3.7	region
+CPF	Wine/European	1235	1. Wine/European	Europa	Spain	Guimar, Tenerife, Spain	Unknown	Unknown	2	40.4	-3.7	region
+CPG	Alpechin	1560	2. Alpechin	Europa	Spain	Aceituna, Spain	Nature	Manzanilla-Alorena, olive (Noe), 2003	2	40.4	-3.7	region
+CPI	Mexican agave	LCBG-3D6	9. Mexican agave	Norteamerica	Mexico	Tamaulipas, Mexico	Distillery	Agave spp. fermentation during rustic mezcal production	2	23.6	-102.6	region
+CPK	Mexican agave	LCBG-Mosca3	9. Mexican agave	Norteamerica	Mexico	Tamaulipas, Mexico	Distillery	Agave spp. fermentation during rustic mezcal production	2	23.6	-102.6	region
+CPL	Mexican agave	LCBG-4Y3	9. Mexican agave	Norteamerica	Mexico	Tamaulipas, Mexico	Distillery	Agave spp. fermentation during rustic mezcal production	2	23.6	-102.6	region
+CPM	Mexican agave	LCBG-3D2	9. Mexican agave	Norteamerica	Mexico	Tamaulipas, Mexico	Distillery	Agave spp. fermentation during rustic mezcal production	2	23.6	-102.6	region
+CPN	Mexican agave	LCBG-3Y3	9. Mexican agave	Norteamerica	Mexico	Tamaulipas, Mexico	Distillery	Agave spp. fermentation during rustic mezcal production	2	23.6	-102.6	region
+CPQ	Mexican agave	LCBG-3D4	9. Mexican agave	Norteamerica	Mexico	Tamaulipas, Mexico	Distillery	Agave spp. fermentation during rustic mezcal production	2	23.6	-102.6	region
+CPR	Mexican agave	LCBG-3Y8	9. Mexican agave	Norteamerica	Mexico	Tamaulipas, Mexico	Distillery	Agave spp. fermentation during rustic mezcal production	2	23.6	-102.6	region
+CPS	African palm wine	FTPW4	13. African palm wine	Africa	Burkina Faso	Burkina Faso	Palm wine	Palm wine	3	12.2	-1.6	pais
+CPT	African palm wine	FTPW3	13. African palm wine	Africa	Burkina Faso	Burkina Faso	Palm wine	Palm wine	2	12.2	-1.6	pais
+CQA	African palm wine	FTPW32	13. African palm wine	Africa	Burkina Faso	Burkina Faso	Palm wine	Palm wine	2	12.2	-1.6	pais
+CQB	African palm wine	FTPW35	13. African palm wine	Africa	Burkina Faso	Burkina Faso	Palm wine	Palm wine	2	12.2	-1.6	pais
+CQC	West African cocoa	MTF2546	12. West African cocoa	Africa	West Africa	West Africa	Fermentation	Cocoa bean fermentation	2	9.0	-2.0	pais
+CQD	West African cocoa	MTF2547	12. West African cocoa	Africa	West Africa	West Africa	Fermentation	Cocoa bean fermentation	2	9.0	-2.0	pais
+CQE	West African cocoa	MTF2548	12. West African cocoa	Africa	West Africa	West Africa	Fermentation	Cocoa bean fermentation	2	9.0	-2.0	pais
+CQF	West African cocoa	MTF2549	12. West African cocoa	Africa	West Africa	West Africa	Fermentation	Cocoa bean fermentation	2	9.0	-2.0	pais
+CQG	West African cocoa	MTF2550	12. West African cocoa	Africa	West Africa	West Africa	Fermentation	Cocoa bean fermentation	2	9.0	-2.0	pais
+CQH	West African cocoa	MTF2551	12. West African cocoa	Africa	West Africa	West Africa	Fermentation	Cocoa bean fermentation	2	9.0	-2.0	pais
+CQI	West African cocoa	MTF2552	12. West African cocoa	Africa	West Africa	West Africa	Fermentation	Cocoa bean fermentation	2	9.0	-2.0	pais
+CQK	West African cocoa	MTF2553	12. West African cocoa	Africa	West Africa	West Africa	Fermentation	Cocoa bean fermentation	2	9.0	-2.0	pais
+CQL	West African cocoa	MTF2554	12. West African cocoa	Africa	West Africa	West Africa	Fermentation	Cocoa bean fermentation	2	9.0	-2.0	pais
+CQM	West African cocoa	MTF2555	12. West African cocoa	Africa	West Africa	West Africa	Fermentation	Cocoa bean fermentation	2	9.0	-2.0	pais
+CQN	West African cocoa	MTF2556	12. West African cocoa	Africa	West Africa	West Africa	Fermentation	Cocoa bean fermentation	2	9.0	-2.0	pais
+CQP	West African cocoa	MTF2557	12. West African cocoa	Africa	West Africa	West Africa	Fermentation	Cocoa bean fermentation	2	9.0	-2.0	pais
+CQQ	Sake	RIB1006	25. Sake	Asia	Japan	Japan	Sake	Sake	2	36.2	138.3	pais
+CQR	Sake	RIB1007	25. Sake	Asia	Japan	Japan	Sake	Sake	2	36.2	138.3	pais
+CQS		CEY647		Sudamerica	French Guiana	French Guiana	Nature	Molossus molossus (bat)	2	4.0	-53.0	pais
+CQT	Wine/European	L-982	1. Wine/European	Sudamerica	Argentina	Argentina	Wine	Wine	2	-38.4	-63.6	pais
+CQV	Wine/European	CD7-9Sv2	1. Wine/European	Europa	Italy	Italy	Wine	Wine	2	41.9	12.6	pais
+CRA	Wine/European	RB3-7Sc2	1. Wine/European	Europa	Italy	Italy	Wine	Wine	2	41.9	12.6	pais
+CRB	Wine/European	SC2-37	1. Wine/European	Europa	Italy	Italy	Wine	Wine	2	41.9	12.6	pais
+CRC	Wine/European	Ba-215	1. Wine/European	Europa	Italy	Italy	Wine	Wine	2	41.9	12.6	pais
+CRD	Wine/European	FIMA_3	1. Wine/European	Europa	Italy	Italy	Wine	Wine	2	41.9	12.6	pais
+CRE	Mosaic region 3	CLQCA_17-111	M3. Mosaic region 3	Sudamerica	Ecuador	Ecuador	Insect	Termite mound	3	-1.8	-78.2	pais
+CRG	Wine/European	L-846	1. Wine/European	Sudamerica	Chile	Chile	Wine	Wine	2	-35.7	-71.5	pais
+CRH	Wine/European	L-319	1. Wine/European	Sudamerica	Chile	Chile	Wine	Wine	2	-35.7	-71.5	pais
+CRI	Wine/European	AGME_5I	1. Wine/European	Europa	Italy	Italy	Wine	Wine	2	41.9	12.6	pais
+CRK	Wine/European	E1-6	1. Wine/European	Europa	Italy	Italy	Wine	Wine	2	41.9	12.6	pais
+CRL	Wine/European	C-6	1. Wine/European	Europa	Georgia	Georgia	Wine	Wine conserved in amphora	2	42.3	43.4	pais
+SACE_GAL	African palm wine	SK1	13. African palm wine	Norteamerica	USA	USA	Lab strain	Lab strain	2	39.8	-98.6	pais
+SACE_GAP	Wine/European	L1528	1. Wine/European	Sudamerica	Chile	Chile	Wine	Wine	2	-35.7	-71.5	pais
+SACE_GAS		UWOPS83-787_3		Norteamerica	Bahamas	Bahamas	Nature	Opuntia spp.	2	25.03	-77.4	localidad
+SACE_GAT		UWOPS87-2421		Norteamerica	Hawaii	Hawaii	Nature	Opuntia spp.	2	19.9	-155.58	localidad
+SACE_GAV	Mosaic region 3	W303	M3. Mosaic region 3	Desconocido			Lab strain	Lab strain	2			
+SACE_MAA	Mosaic region 2	273614N	M2. Mosaic region 2	Europa	UK	Newcastle, UK	Human, clinical	Royal Victoria Infirmary, Newcastle UK, Galloway A Clinical isolate (Fecal) Mackenzie D	2	55.4	-3.4	region
+SACE_MAB	Mosaic region 3	378604X	M3. Mosaic region 3	Europa	UK	Newcastle, UK	Human, clinical	Clinical sputum	2	55.4	-3.4	region
+SACE_MAL	Malaysian	UWOPS05_227_2	19. Malaysian	Asia	Malaysia	Telok Senangin, Malaysia	Insect	Telok Senangin, Malaysia, Lachance M, 2005 Trigona spp (Stingless bee) collected near Bertam palm flower	2	4.2	101.9	region
+SACE_YAA	Wine/European	YJM189	1. Wine/European	Desconocido			Distillery	Unknown	2			
+SACE_YAB	Mosaic beer	YJM193	7. Mosaic beer	Desconocido			Distillery	Unknown	2			
+SACE_YAC	African palm wine	YJM195	13. African palm wine	Africa	Nigeria	Nigeria	Palm wine	Palm wine	2	9.1	8.7	pais
+SACE_YAD	Wine/European	YJM244	1. Wine/European	Europa	Romania	Romania	Human, clinical	Human	2	45.9	25.0	pais
+SACE_YAE	Alpechin	YJM248	2. Alpechin	Desconocido			Human	Faeces	2			
+SACE_YAF	Wine/European (subclade 4)	YJM270	1. Wine/European (subclade 4)	Europa	Slovenia	Slovenia	Wine	Unknown	2	46.2	15.0	pais
+SACE_YAG	Mosaic beer	YJM271	7. Mosaic beer	Desconocido			Beer	Brewery	2			
+SACE_YAK	Mosaic region 3	YJM450	M3. Mosaic region 3	Norteamerica	USA	California, USA	Human, clinical	Unknown	2	36.8	-119.4	region
+SACE_YAL	Mosaic region 3	YJM451	M3. Mosaic region 3	Desconocido			Human, clinical	Unknown	2			
+SACE_YAM	Wine/European	YJM453	1. Wine/European	Desconocido			Human, clinical	Unknown	2			
+SACE_YAN	Mosaic region 3	YJM456	M3. Mosaic region 3	Norteamerica	USA	California, USA	Human, clinical	Unknown	2	36.8	-119.4	region
+SACE_YAP	Mosaic region 3	YJM541	M3. Mosaic region 3	Norteamerica	USA	California, USA	Human, clinical	Unknown	2	36.8	-119.4	region
+SACE_YAQ	Mosaic region 3	YJM554	M3. Mosaic region 3	Norteamerica	USA	California, USA	Human, clinical	Unknown	2	36.8	-119.4	region
+SACE_YAR	Mosaic region 3	YJM555	M3. Mosaic region 3	Norteamerica	USA	California, USA	Human, clinical	Unknown	2	36.8	-119.4	region
+SACE_YAT	Mosaic region 3	YJM681	M3. Mosaic region 3	Norteamerica	USA	California, USA	Human, clinical	Unknown	2	36.8	-119.4	region
+SACE_YAU	Mosaic region 3	YJM682	M3. Mosaic region 3	Norteamerica	USA	Texas, USA	Human, clinical	Unknown	2	31.0	-99.9	region
+SACE_YAV	Mosaic region 3	YJM683	M3. Mosaic region 3	Norteamerica	USA	Texas, USA	Human, clinical	Unknown	2	31.0	-99.9	region
+SACE_YAW	Mosaic region 3	YJM689	M3. Mosaic region 3	Norteamerica	USA	Texas, USA	Human, clinical	Unknown	2	31.0	-99.9	region
+SACE_YAX		YJM693		Norteamerica	USA	Texas, USA	Human, clinical	Unknown	2	31.0	-99.9	region
+SACE_YAY	Wine/European (subclade 2)	YJM969	1. Wine/European (subclade 2)	Europa	Italy	Italy	Human, clinical	Unknown	2	41.9	12.6	pais
+SACE_YAZ	Wine/European (subclade 2)	YJM972	1. Wine/European (subclade 2)	Europa	Italy	Italy	Human, clinical	Unknown	2	41.9	12.6	pais
+SACE_YBA	Wine/European (subclade 2)	YJM975	1. Wine/European (subclade 2)	Europa	Italy	Italy	Human, clinical	Vagina	2	41.9	12.6	pais
+SACE_YBB	Wine/European (subclade 2)	YJM978	1. Wine/European (subclade 2)	Europa	Italy	Italy	Human, clinical	Vagina	2	41.9	12.6	pais
+SACE_YBE	Wine/European (subclade 2)	YJM987	1. Wine/European (subclade 2)	Europa	Italy	Italy	Human, clinical	Unknown	2	41.9	12.6	pais
+SACE_YBF	Wine/European (subclade 2)	YJM980	1. Wine/European (subclade 2)	Europa	Italy	Italy	Human, clinical	Unknown	2	41.9	12.6	pais
+SACE_YBG	Wine/European (subclade 2)	YJM993	1. Wine/European (subclade 2)	Europa	Italy	Italy	Human, clinical	Unknown	2	41.9	12.6	pais
+SACE_YBH	Wine/European (subclade 2)	YJM996	1. Wine/European (subclade 2)	Europa	Italy	Italy	Human, clinical	Unknown	2	41.9	12.6	pais
+SACE_YBJ	Mosaic region 3	YJM1190	M3. Mosaic region 3	Norteamerica	USA	Michigan, USA	Human, clinical	Unknown	2	44.3	-85.6	region
+SACE_YBK	Mosaic region 3	YJM1199	M3. Mosaic region 3	Norteamerica	USA	Michigan, USA	Human, clinical	Unknown	2	44.3	-85.6	region
+SACE_YBL	Mosaic region 3	YJM1202	M3. Mosaic region 3	Norteamerica	USA	Michigan, USA	Human, clinical	Unknown	2	44.3	-85.6	region
+SACE_YBM	Mosaic region 3	YJM1208	M3. Mosaic region 3	Norteamerica	USA	Michigan, USA	Human, clinical	Unknown	2	44.3	-85.6	region
+SACE_YBN	Wine/European	YJM1242	1. Wine/European	Norteamerica	USA	Illinois, USA	Fruit	Unknown	2	39.8	-98.6	region
+SACE_YBO	Wine/European	YJM1244	1. Wine/European	Asia	Indonesia	Indonesia	Fruit	Unknown	2	-0.8	113.9	pais
+SACE_YBP	African palm wine	YJM1248	13. African palm wine	Africa	West Africa	West Africa	Wine	Unknown	2	9.0	-2.0	pais
+SACE_YBQ		YJM1250		Desconocido			Nature	Sugar cane	2			
+SACE_YBR	Alpechin	YJM1252	2. Alpechin	Europa	Spain	Spain	Industrial	Alpechin (waste from olive oil production)	2	40.4	-3.7	pais
+SACE_YBS	North American oak	YJM1273	23. North American oak	Norteamerica	USA	Pennsylvania, USA	Tree	Quercus sp.	2	41.2	-77.2	region
+SACE_YBT	Mosaic region 3	YJM1304	M3. Mosaic region 3	Norteamerica	USA	Texas, USA	Human, clinical	Unknown	2	31.0	-99.9	region
+SACE_YBU	Mosaic region 3	YJM1307	M3. Mosaic region 3	Norteamerica	USA	Washington DC, USA	Human, clinical	Unknown	2	39.8	-98.6	region
+SACE_YBV		YJM1311		Norteamerica	USA	Michigan, USA	Human, clinical	Unknown	2	44.3	-85.6	region
+SACE_YBW		YJM1326		Norteamerica	USA	Minnesota, USA	Human, clinical	Unknown	2	39.8	-98.6	region
+SACE_YBX	Wine/European	YJM1332	1. Wine/European	Europa	Italy	Italy	Wine	Unknown	2	41.9	12.6	pais
+SACE_YBY	Wine/European	YJM1336	1. Wine/European	Europa	Italy	Italy	Wine	Unknown	2	41.9	12.6	pais
+SACE_YBZ	Mosaic region 3	YJM1338	M3. Mosaic region 3	Norteamerica	USA	Maryland, USA	Fruit	Sour fig	2	39.8	-98.6	region
+SACE_YCA	Wine/European	YJM1341	1. Wine/European	Africa	South Africa	South Africa	Wine	Unknown	2	-30.6	22.9	pais
+SACE_YCB		YJM1342		Africa	South Africa	South Africa	Soil	Unknown	2	-30.6	22.9	pais
+SACE_YCC	Mosaic region 2	YJM1355	M2. Mosaic region 2	Norteamerica	USA	Illinois, USA	Industrial	Molasses	2	39.8	-98.6	region
+SACE_YCD	Wine/European	YJM1356	1. Wine/European	Desconocido			Cider	Cider	2			
+SACE_YCE	Mosaic region 3	YJM1381	M3. Mosaic region 3	Sudamerica	Trinidad	Trinidad	Distillery	Rum fermentation	2	10.69	-61.22	pais
+SACE_YCF	Mosaic region 2	YJM1383	M2. Mosaic region 2	Asia	Philippines	Philippines	Fruit	Coconut	2	12.9	121.8	pais
+SACE_YCG		YJM1385		Norteamerica	USA	Maryland, USA	Industrial	Sugar refinery	2	39.8	-98.6	region
+SACE_YCH	Mosaic region 3	YJM1386	M3. Mosaic region 3	Norteamerica	Jamaica	Jamaica	Nature	Sugar cane	2	18.1	-77.3	pais
+SACE_YCI	Mosaic region 1	YJM1387	M1. Mosaic region 1	Asia	Japan	Japan	Wine	Unknown	2	36.2	138.3	pais
+SACE_YCJ	Asian fermentation	YJM1388	26. Asian fermentation	Asia	Malaya	Malaya	Unknown	Fermented tapioca	2	4.21	101.98	region
+SACE_YCK	Asian fermentation	YJM1389	26. Asian fermentation	Asia	Thailand	Thailand	Industrial	Sewage	2	15.9	101.0	pais
+SACE_YCL		YJM1399		Desconocido			Tree	Wild cherry tree	2			
+SACE_YCM	Asian islands	YJM1400	24. Asian islands	Asia	Philippines	Philippines	Fruit	Guava	2	12.9	121.8	pais
+SACE_YCN		YJM1401		Asia	Philippines	Philippines	Fruit	Papaya	2	12.9	121.8	pais
+SACE_YCO		YJM1402		Desconocido			Wine	Wine	2			
+SACE_YCP	Wine/European	YJM1415	1. Wine/European	Europa	France	France	Wine	Wine	2	46.2	2.2	pais
+SACE_YCQ	Wine/European	YJM1417	1. Wine/European	Desconocido			Cider	Cider	2			
+SACE_YCR	Far East Asia	YJM1418	18. Far East Asia	Asia	Japan	Japan	Tree	Quercus sp.	2	36.2	138.3	pais
+SACE_YCS	Mosaic region 3	YJM1419	M3. Mosaic region 3	Desconocido			Unknown	Bagasse	2			
+SACE_YCT	Mosaic region 2	YJM1433	M2. Mosaic region 2	Europa	France	France	Wine	Wine	2	46.2	2.2	pais
+SACE_YCU	North American oak	YJM1434	23. North American oak	Norteamerica	USA	Pennsylvania, USA	Tree	Oak	2	41.2	-77.2	region
+SACE_YCV	African palm wine	YJM1439	13. African palm wine	Africa	West Africa	West Africa	Beer	Ginger beer	2	9.0	-2.0	pais
+SACE_YCW		YJM1443		Norteamerica	Bahamas	Bahamas	Fruit	Fruit	2	25.03	-77.4	localidad
+SACE_YCX		YJM1444		Norteamerica	Hawaii	Hawaii	Nature	Cladode	2	19.9	-155.58	localidad
+SACE_YCY	Malaysian	YJM1447	19. Malaysian	Asia	Malaysia	Malaysia	Tree	Bertam Palm	2	4.2	101.9	pais
+SACE_YCZ	Mosaic region 2	YJM1450	M2. Mosaic region 2	Norteamerica	USA	Kansas, USA	Human, clinical	Clinical	2	39.8	-98.6	region
+SACE_YDA	Asian fermentation	YJM1460	26. Asian fermentation	Europa	UK	Newcastle, UK	Palm wine	Palm Wine	2	55.4	-3.4	region
+SACE_YDB		YJM1463		Africa	Africa	Africa	Unknown	White Tecc	2	0.0	20.0	continente
+SACE_YDC	Wine/European	YJM1477	1. Wine/European	Africa	Ethiopia	Ethiopia	Beer	Blatz beer	2	9.1	40.5	pais
+SACE_YDD	Mosaic beer	YJM1478	7. Mosaic beer	Norteamerica	USA	Missouri, USA	Fermentation	Kefyr	2	37.96	-91.8	region
+SACE_YDE	Asian islands	YJM1479	24. Asian islands	Asia	Phillipines	Phillipines	Palm wine	Coconut tuba	2	12.88	121.77	pais
+SACE_YDF	Wine/European	YJM1526	1. Wine/European	Desconocido			Human, clinical	Clinical (throat)	2			
+SACE_YDG	Mosaic region 3	YJM1527	M3. Mosaic region 3	Norteamerica	USA	California, USA	Fruit	Prune	2	36.8	-119.4	region
+SACE_YDH	Mosaic region 3	YJM1549	M3. Mosaic region 3	Europa	Netherlands	Netherlands	Fermentation	Fermenting fruit juice	2	52.1	5.3	pais
+SACE_YDI		YJM1573		Asia	India	India	Unknown	Fermented food	2	20.6	79.0	pais
+SACE_YDJ	Wine/European	YJM1574	1. Wine/European	Desconocido			Wine	wine/European	2			
+SACE_YDK	Asian fermentation	YJM1592	26. Asian fermentation	Asia	Thailand	Thailand	Industrial	Sewage	2	15.9	101.0	pais
+SACE_YDL	Mosaic region 3	YJM1615	M3. Mosaic region 3	Norteamerica	USA	California, USA	Human, clinical	Clinical	2	36.8	-119.4	region
+SACE_YDM	Alpechin	YJM1078	2. Alpechin	Europa	Portugal	Portugal	Human, clinical	Clinical	2	39.4	-8.2	pais
+SACE_YDN	Mosaic region 3	YJM1083	M3. Mosaic region 3	Norteamerica	USA	North Carolina, USA	Human, clinical	Clinical	2	39.8	-98.6	region
+SACE_YDO	Wine/European	YJM1129	1. Wine/European	Norteamerica	USA	Ohio, USA	Distillery	Non-Clinical, segregant of NRRL Y-53 (=NRRL Y-567)	2	40.4	-82.8	region
