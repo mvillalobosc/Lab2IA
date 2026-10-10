@@ -1,179 +1,102 @@
-<!-- YeastForest research code — bilingual README / README bilingüe -->
+# YeastForest: R workflow for phylogenetic forests
 
-**Languages / Idiomas:** [English](#english) · [Español](#español)
+R scripts used in the manuscript *Gene-tree discordance across yeast genomes: phylogenetic forests of Saccharomyces cerevisiae and Saccharomyces eubayanus* (Villalobos-Cid, López Neilaf, Sáez Arias, Salinas, Cubillos, Villarreal and Kessi-Pérez). From a VCF and a gene annotation, the workflow builds one neighbour-joining tree per gene and a genome-wide reference tree with the same isolates, compares every pair of trees and measures how often each branch recurs across the forest.
 
----
+The results for both species can be explored in the YeastForest viewer: <https://mvillalobosc.diinf.usach.cl/YeastForest/>
 
-<a id="english"></a>
+## What the workflow computes
 
-# YeastForest — phylogenetic forest analysis (R)
+- **Gene trees and reference tree.** Genetic distances are mean absolute differences in normalised allele dosage (ALT copies divided by the ploidy declared in GT), so haploid, diploid and polyploid calls are handled without phasing. Each tree is an unrooted neighbour-joining tree; internal branches of length 1e-10 or less are collapsed.
+- **Forest support.** For each branch, the percentage of the other gene trees that contain the same bipartition. This is the gene concordance factor (Baum 2007; Minh et al. 2020) computed for every branch of every tree. It is not bootstrap support.
+- **Tree comparison.** Normalised Robinson-Foulds distance, RF(A,B) = (sA + sB - 2c)/(sA + sB), and directional concordance, C(A <- B) = 100 c/sA, for every pair of trees, including the reference.
+- **Groups and tests.** MST-kNN groups of gene trees (package `mstknnclust`), GO/KEGG enrichment for *S. cerevisiae*, permutation tests for the chromosomal position of the groups, resolution and SNP filters, recurrent branches absent from the reference, and the comparison with an earlier alignment-based forest.
 
-**R analysis workflow for comparing gene trees across population genomic datasets.**
+## Folder layout
 
-This directory hosts the analytical code associated with the research manuscript **“Gene-tree discordance across yeast genomes: phylogenetic forests of *Saccharomyces cerevisiae* and *Saccharomyces eubayanus*.”** It is intended to support the construction, comparison and interpretation of phylogenetic forests from variant calls and genomic annotations.
-
-- **R code:** [YeastForest_code](https://github.com/mvillalobosc/Lab2IA/tree/main/YeastForest_code)
-- **Interactive results viewer:** [YeastForest](https://mvillalobosc.diinf.usach.cl/YeastForest/)
-
-> **Repository scope:** this is the **analysis-code repository**, not the source repository for the YeastForest web application. The public web interface currently presents the two yeast forests studied in the paper. The R workflow is designed around VCF genotypes and gene annotations and may be adapted to other adequately sampled populations; that broader applicability has not yet been experimentally validated across additional species.
-
-## Research questions
-
-The analyses examine (i) which phylogenetic relationships are recovered across genes, (ii) how gene-tree topologies vary along chromosomes, and (iii) whether groups of similar gene trees are associated with chromosomal proximity or biological function. They also evaluate the impact of SNP number and tree resolution on these patterns.
-
-## Study datasets
-
-| Species | Isolates | Annotated chromosomal ORFs/genes considered | Gene trees constructed |
-| --- | ---: | ---: | ---: |
-| *S. cerevisiae* | 1,011 | 6,613 | 5,903 |
-| *S. eubayanus* | 471 | 5,320 | 3,589 |
-
-The *S. cerevisiae* panel is based on Peter et al. (2018). The *S. eubayanus* call set combines previously published isolates and genomic datasets described in the accompanying manuscript. Data-use conditions and original sources should be checked before redistributing any genotype files.
-
-## Inputs and data preparation
-
-The analytical workflow uses:
-
-1. **Variant Call Format (VCF)** genotypes for the isolates in a population panel.
-2. **Gene/ORF annotation**, including genomic coordinates and identifiers consistent with the VCF reference assembly.
-3. **Optional isolate metadata**, such as population, lineage or sampling information, for interpretation and visualisation.
-4. **Optional functional annotation** (e.g., Gene Ontology or KEGG mappings) for enrichment analyses when suitable annotation is available.
-
-As described in the manuscript, retained variants are biallelic SNPs with `FILTER=PASS` or a missing filter value, at least 90% genotype call completeness, and at least two distinct normalised alternative-allele dosages. An ORF cannot receive a distance-based tree if there are no retained SNPs or if at least one isolate pair has no jointly called SNP within that ORF. Every inferred tree uses the same set of isolates as its species-wide reference; incomplete distances are not imputed.
-
-## Analysis overview
-
-The workflow described in the manuscript comprises:
-
-1. **Forest construction:** pairwise mean absolute differences in normalised allele dose; a genome-wide neighbour-joining reference tree and one tree per annotated ORF with a valid distance matrix; collapse of unresolved internal branches.
-2. **Topological comparison:** normalised Robinson–Foulds distances, directional bipartition concordance and forest support (recurrence of a branch across other ORF trees).
-3. **Topological grouping:** MST-kNN clustering of gene trees and identification of group medoids.
-4. **Chromosomal analyses:** group concentration, adjacency permutations, filtering by resolution/SNP count and recurrent reference-absent bipartitions.
-5. **Functional analyses where annotation permits:** Gene Ontology/KEGG enrichment with false-discovery-rate control.
-6. **Outputs for exploration:** Newick trees, distance and concordance data, group assignments and analytical summaries, as generated by the relevant scripts.
-
-These are methodological stages, **not claims about filenames or a verified execution order**. Follow the actual scripts and their header instructions when configuring paths and running analyses.
-
-## R environment
-
-The manuscript documents the use of **R**, `ape`, `Rcpp`, `VariantAnnotation`, `data.table`, `Matrix` and `mstknnclust`. Install packages from their appropriate CRAN, Bioconductor or developer distribution channels. Additional requirements, file paths, execution entry points and compatible package versions should be checked against the scripts before running them.
-
-Example installation for the commonly available CRAN/Bioconductor dependencies:
-
-```r
-install.packages(c("ape", "Rcpp", "data.table", "Matrix", "BiocManager"))
-BiocManager::install("VariantAnnotation")
+```
+YeastForest_code/
+  Bosque_cerevisiae/
+    bosque_SCerevisiae.R       forest of S. cerevisiae
+    clusters_SCerevisiae.R     MST-kNN groups and GO/KEGG enrichment
+    publicar_bosque.R          analyses A, B, D and F of the paper
+    DATA/                      inputs: 1011Matrix.gvcf.gz and SGD_features.tab
+    Arboles/                   alignment-based trees, one <ORF>.nwk per gene (analysis F only)
+  Bosque_eubayanus/
+    bosque_Eubayanus.R         forest of S. eubayanus
+    grupos_Eubayanus.R         MST-kNN groups (no enrichment)
+    publicar_bosque.R          analyses A, B and D of the paper (same file as above)
+    DATA/                      inputs: filtered_eub.recode.vcf.bgz and gene_result.txt
+  cepas_cerevisiae.tsv         isolate and population (Peter et al. 2018)
+  cepas_eubayanus.tsv          isolate, lineage and geographic/ecological metadata
+  preparar_app.R               data files of the YeastForest viewer
+  figuras_MER.R                Figures 1 to 5 and the numbers reported in the text
+  LICENSE
 ```
 
-Install `mstknnclust` from its documented distribution source. Large-scale analyses may require substantial RAM and execution time because the distance matrices and all-pairs tree comparisons grow with the number of isolates and genes.
+The `DATA/` and `Arboles/` folders are not part of this repository; see the input data section below.
 
-## Reproduction checklist
+## Running the workflow
 
-- Obtain the appropriate original genotype calls and matching genome annotation.
-- Record the reference assembly, sample order/identifiers, filtering settings and software versions.
-- Confirm that the same isolate set is retained in the reference and every gene tree.
-- Inspect the scripts to configure input paths, output directories and execution order.
-- Preserve intermediate logs and document which datasets are excluded owing to missing calls or insufficient SNPs.
-- Check inferred tree resolution before interpreting tree similarity or functional enrichment.
+Each script writes its results next to itself. The forest scripts read `DATA/` relative to the working directory, so run every script from its own folder:
 
-**Important:** the names of executable scripts and exact commands have not been independently checked against the live GitHub directory for this README. Add a validated, copy-and-run example after confirming the current repository contents; do not assume that the methodological stage names correspond to filenames.
+```
+cd Bosque_cerevisiae
+Rscript bosque_SCerevisiae.R
+Rscript clusters_SCerevisiae.R
+Rscript publicar_bosque.R
 
-## Interpreting forest support
+cd ../Bosque_eubayanus
+Rscript bosque_Eubayanus.R
+Rscript grupos_Eubayanus.R
+Rscript publicar_bosque.R
 
-Forest support is the percentage of other gene trees containing a given unrooted bipartition. It is **not bootstrap support** or the probability that a branch is correct; linked genes are not independent observations. A reference-absent bipartition is not necessarily incompatible with the reference, especially if polytomies are present.
-
-## Data, citation and reuse
-
-The complete manuscript, bibliographic references and input-data provenance describe the analyses and their limitations. For the 1,011-isolate *S. cerevisiae* dataset, see Peter et al. (2018) and the [1002 Genomes resource](http://1002genomes.u-strasbg.fr/files/). The associated manuscript citation should be updated once published. Data and software used to support journal submission should also have a stable archival record (for example, Zenodo or Dryad) with a permanent identifier.
-
-**Software licence:** consult the licence file of the GitHub repository. If no licence is present, public availability does not automatically grant redistribution or modification rights.
-
-**Contact:** Manuel Villalobos-Cid — manuel.villalobos@usach.cl
-
----
-
-<a id="español"></a>
-
-# YeastForest — análisis de bosques filogenéticos (R)
-
-**Flujo de análisis en R para comparar árboles filogenéticos entre genes de conjuntos de datos genómicos poblacionales.**
-
-Este directorio contiene el código de análisis asociado al manuscrito **«Gene-tree discordance across yeast genomes: phylogenetic forests of *Saccharomyces cerevisiae* and *Saccharomyces eubayanus*»**. Su propósito es apoyar la construcción, comparación e interpretación de bosques filogenéticos a partir de variantes genómicas y anotaciones de genes.
-
-- **Código R:** [YeastForest_code](https://github.com/mvillalobosc/Lab2IA/tree/main/YeastForest_code)
-- **Visualizador de resultados:** [YeastForest](https://mvillalobosc.diinf.usach.cl/YeastForest/)
-
-> **Alcance del repositorio:** aquí se publica el **código de análisis**, no el código fuente de la aplicación web YeastForest. El visualizador público presenta los dos bosques de levaduras estudiados en el artículo. El flujo R utiliza genotipos VCF y anotaciones génicas y puede adaptarse a otras poblaciones con datos adecuados; esa generalización aún no se ha validado experimentalmente en especies adicionales.
-
-## Preguntas de investigación
-
-Los análisis examinan (i) qué relaciones filogenéticas se recuperan entre genes, (ii) cómo cambian las topologías a lo largo de los cromosomas y (iii) si los grupos de árboles similares se asocian con la proximidad cromosómica o la función biológica. También evalúan el efecto del número de SNP y de la resolución filogenética.
-
-## Conjuntos de datos
-
-| Especie | Aislados | ORF/genes cromosómicos considerados | Árboles construidos |
-| --- | ---: | ---: | ---: |
-| *S. cerevisiae* | 1.011 | 6.613 | 5.903 |
-| *S. eubayanus* | 471 | 5.320 | 3.589 |
-
-El panel de *S. cerevisiae* proviene de Peter et al. (2018). El conjunto de variantes de *S. eubayanus* combina aislados y conjuntos genómicos previamente publicados, detallados en el manuscrito. Deben revisarse las fuentes y condiciones de uso originales antes de redistribuir los genotipos.
-
-## Entradas y preparación de datos
-
-El flujo requiere:
-
-1. **Genotipos Variant Call Format (VCF)** de los aislados del panel poblacional.
-2. **Anotaciones de genes/ORF**, con identificadores y coordenadas que correspondan al ensamblaje de referencia del VCF.
-3. **Metadatos opcionales de los aislados**, como población, linaje o procedencia, para facilitar la interpretación y visualización.
-4. **Anotaciones funcionales opcionales** (p. ej., Gene Ontology o KEGG), cuando estén disponibles y sean adecuadas para el análisis de enriquecimiento.
-
-Según el manuscrito, se conservan SNP bialélicos con `FILTER=PASS` o filtro ausente, genotipos llamados en al menos el 90 % de los aislados y al menos dos dosis alternativas normalizadas diferentes. No se construye un árbol para un ORF sin SNP retenidos o con al menos un par de aislados sin SNP llamados en común dentro del ORF. Todos los árboles utilizan los mismos aislados que la referencia de su especie; no se imputan distancias incompletas.
-
-## Etapas del análisis
-
-El procedimiento descrito en el manuscrito incluye:
-
-1. **Construcción del bosque:** diferencias absolutas medias de las dosis alélicas normalizadas; árbol de referencia genómico por neighbour-joining y un árbol por ORF con matriz de distancias válida; colapso de ramas internas no resueltas.
-2. **Comparación topológica:** distancias de Robinson–Foulds normalizadas, concordancia direccional de biparticiones y soporte del bosque (recurrencia de cada rama en otros árboles).
-3. **Agrupamiento topológico:** MST-kNN para agrupar árboles y obtener medoides.
-4. **Análisis cromosómicos:** concentración por cromosoma, permutaciones de adyacencia, filtrado por resolución/número de SNP y búsqueda de biparticiones recurrentes ausentes de la referencia.
-5. **Análisis funcionales cuando existen anotaciones:** enriquecimiento Gene Ontology/KEGG con control de la tasa de falsos descubrimientos.
-6. **Resultados para exploración:** árboles Newick, distancias y concordancias, grupos y resúmenes analíticos, según los archivos producidos por los scripts.
-
-Estas son etapas metodológicas, **no nombres de archivos ni un orden de ejecución verificado**. Para configurar rutas y ejecutar los análisis se deben consultar los scripts y sus instrucciones.
-
-## Entorno R
-
-El manuscrito documenta el uso de **R**, `ape`, `Rcpp`, `VariantAnnotation`, `data.table`, `Matrix` y `mstknnclust`. Las dependencias deben instalarse desde sus canales apropiados de CRAN, Bioconductor o el repositorio de sus desarrolladores. Los paquetes adicionales, rutas, scripts de entrada y versiones compatibles deben contrastarse con el código antes de ejecutarlo.
-
-Ejemplo para las dependencias habituales de CRAN/Bioconductor:
-
-```r
-install.packages(c("ape", "Rcpp", "data.table", "Matrix", "BiocManager"))
-BiocManager::install("VariantAnnotation")
+cd ..
+Rscript preparar_app.R
+Rscript figuras_MER.R
 ```
 
-Instalar `mstknnclust` desde su fuente de distribución documentada. Los análisis masivos pueden necesitar bastante memoria y tiempo, pues las matrices de distancias y las comparaciones entre árboles crecen con el número de aislados y genes.
+The scripts can also be run with `source()` or as RStudio Jobs. Settings are at the top of each script, in the `CONFIG` list where there is one. The forest scripts save their progress in a hidden folder and resume from the last batch if a run is interrupted. Setting the environment variable `PHYLO_LIBRARY_ONLY=1` loads the functions of a forest or cluster script without running it.
 
-## Comprobaciones para reproducibilidad
+The *S. cerevisiae* forest (1,011 isolates, 6,613 ORFs) was computed on a server. The number of parallel processes is set with `workers` in `CONFIG`.
 
-- Obtener los genotipos originales y la anotación del ensamblaje correspondiente.
-- Registrar ensamblaje de referencia, identificadores y orden de las muestras, filtros y versiones de software.
-- Confirmar que todos los árboles utilizan el mismo conjunto de aislados.
-- Revisar los scripts para configurar rutas de entrada, directorios de salida y orden de ejecución.
-- Conservar los registros intermedios y documentar los genes excluidos por datos faltantes o escasez de SNP.
-- Evaluar la resolución filogenética antes de interpretar similitudes topológicas o enriquecimientos funcionales.
+## Input data
 
-**Importante:** no fue posible comprobar directamente los nombres de los scripts ejecutables ni sus comandos en el directorio actual de GitHub. Se debe agregar un ejemplo de ejecución verificado contra el contenido real del repositorio; no se debe asumir que las etapas metodológicas corresponden a nombres de archivos.
+- ***S. cerevisiae* genotypes:** `1011Matrix.gvcf.gz`, the genotype matrix of the 1,011 isolates of Peter et al. (2018), available at <http://1002genomes.u-strasbg.fr/files/>.
+- ***S. cerevisiae* annotation:** `SGD_features.tab`, the chromosomal features file of the Saccharomyces Genome Database (<https://www.yeastgenome.org>).
+- ***S. eubayanus* genotypes:** `filtered_eub.recode.vcf.bgz`, the variant call set of 471 isolates on the CBS 12357 assembly (GCA_003327605.1). It will be deposited in Zenodo with the derived forests, the isolate metadata, the alignment-based forest of analysis F and an archived release of this code.
+- ***S. eubayanus* annotation:** `gene_result.txt`, the tabular gene list of NCBI Gene (Send to > File > Tabular). Its coordinates refer to the FM1318 assembly (GCF_001298625.1), so `bosque_Eubayanus.R` downloads both genomes from NCBI into `DATA/` on its first run and locates each gene on CBS 12357 by sequence. Genes that cannot be located unambiguously are listed in `Eubayanus_genes_sin_ubicar.tsv` with the reason.
 
-## Interpretación del soporte del bosque
+Other species can be analysed by changing `CONFIG` in a forest script: the VCF, the annotation (`SGD_features.tab`, a GFF3 or a table with chromosome, start, end and gene ID) and, if chromosome names differ between them, a chromosome map.
 
-El soporte del bosque es el porcentaje de otros árboles que contienen una misma bipartición no enraizada. **No equivale a soporte bootstrap** ni a la probabilidad de que una rama sea correcta; además, los genes ligados no son observaciones independientes. Una bipartición ausente de la referencia no necesariamente es incompatible con ella, especialmente si contiene politomías.
+## Main output files
 
-## Datos, citas y reutilización
+File and column names keep the Spanish names used during the project.
 
-El manuscrito describe las fuentes bibliográficas, la procedencia de los datos y las limitaciones de los análisis. Para el conjunto de 1.011 aislados de *S. cerevisiae*, véase Peter et al. (2018) y el [recurso 1002 Genomes](http://1002genomes.u-strasbg.fr/files/). La referencia del manuscrito debe actualizarse una vez publicado. Los datos y el software asociados al envío editorial también deben contar con un depósito archivístico estable (p. ej., Zenodo o Dryad) y un identificador permanente.
+| File | Content |
+| --- | --- |
+| `<prefix>_arboles.nwk` | line 1 is the reference tree, then one tree per gene; node labels hold the forest support |
+| `<prefix>_resumen.tsv` | one row per tree: SNPs, resolution, mean support, RF to the reference; genes without a tree carry the reason |
+| `<prefix>_RF.csv.gz` | normalised RF distances, all against all |
+| `<prefix>_concordancia.csv.gz` | directional concordance: % of the branches of the row tree present in the column tree |
+| `<prefix>_distancias_geneticas.csv.gz` | genetic distances between isolates used by the reference tree |
+| `<prefix>_clusters.tsv`, `<prefix>_clusters_resumen.tsv` | MST-kNN group of each gene tree and summary per group |
+| `<prefix>_enriquecimiento.tsv` | every GO/KEGG enrichment test (*S. cerevisiae*) |
+| `<prefix>_pub_A_*`, `_pub_B_*`, `_pub_D_*`, `_pub_F_*` | tables of the analyses A, B, D and F reported in the paper |
+| `data/` | data files of the YeastForest viewer |
+| `figs/` | Figures 1 to 5, supporting tables and `cifras.tsv` with the numbers of the text |
 
-**Licencia:** consultar la licencia del repositorio GitHub. Si no hay una licencia, el acceso público no implica automáticamente permiso para redistribuir o modificar el código.
+The prefix is `SCerevisiae` or `Eubayanus`. Spanish words in the file names: arboles = trees, resumen = summary, concordancia = concordance, distancias geneticas = genetic distances, enriquecimiento = enrichment, cepas = strains.
 
-**Contacto:** Manuel Villalobos-Cid — manuel.villalobos@usach.cl
+## Requirements
+
+R with the CRAN packages `ape`, `data.table`, `Matrix`, `Rcpp`, `digest`, `R.utils`, `igraph`, `mstknnclust`, `jsonlite`, `Rtsne` and `uwot`, and the Bioconductor packages `VariantAnnotation`, `Rsamtools`, `GenomicRanges`, `GenomeInfoDb`, `IRanges`, `SummarizedExperiment`, `S4Vectors`, `Biostrings`, `AnnotationDbi`, `org.Sc.sgd.db`, `GO.db` and `KEGGREST`. The scripts try to install missing packages. The KEGG pathways and the NCBI genomes are downloaded, so those steps need internet access. The C++ distance functions are compiled with Rcpp, which requires a C++ compiler.
+
+## Licence and contact
+
+MIT licence (see `LICENSE`). Manuel Villalobos-Cid, Departamento de Ingeniería Informática, Universidad de Santiago de Chile: manuel.villalobos@usach.cl
+
+## References
+
+- Baum DA (2007) Concordance trees, concordance factors, and the exploration of reticulate genealogy. *Taxon* 56: 417-426.
+- Minh BQ, Hahn MW, Lanfear R (2020) New methods to calculate concordance factors for phylogenomic datasets. *Molecular Biology and Evolution* 37: 2727-2733.
+- Peter J, De Chiara M, Friedrich A, et al. (2018) Genome evolution across 1,011 *Saccharomyces cerevisiae* isolates. *Nature* 556: 339-344.
