@@ -1,13 +1,13 @@
 # =============================================================================
-# CIFRAS Y FIGURAS DEL MANUSCRITO PARA MOLECULAR ECOLOGY RESOURCES
-# Manuel: deja este archivo junto a preparar_app.R y a las carpetas
-# Bosque_cerevisiae y Bosque_eubayanus, y ejecutalo con source("figuras_MER.R")
-# cuando ya esten los grupos (clusters_SCerevisiae.R, grupos_Eubayanus.R), las
-# tablas de publicar_bosque.R en las dos carpetas y la carpeta data/ de
-# preparar_app.R. Lee esos datos y escribe en figs/ las Figuras 1 a 5 (.pdf y
-# .png), las tablas de apoyo y cifras.tsv con todos los numeros que usa el texto.
-# Figuras en base R. La Figura 6 son capturas de YeastForest y no sale de aqui.
-# Fecha: 2026-10-10.
+# NUMBERS AND FIGURES OF THE MANUSCRIPT FOR MOLECULAR ECOLOGY RESOURCES
+# Place this file next to preparar_app.R and the folders
+# Bosque_cerevisiae and Bosque_eubayanus, and run it with source("figuras_MER.R")
+# once the groups (clusters_SCerevisiae.R, grupos_Eubayanus.R), the
+# tables of publicar_bosque.R in both folders and the data/ folder of
+# preparar_app.R are ready. It reads those data and writes to figs/ Figures 1 to 5 (.pdf and
+# .png), the supporting tables and cifras.tsv with every number used in the text.
+# Figures in base R. Figure 6 shows screenshots of YeastForest and is not produced here.
+# Date: 2026-10-10.
 # =============================================================================
 local({ pk <- c("data.table", "jsonlite", "ape", "igraph"); falta <- pk[!vapply(pk, requireNamespace, logical(1), quietly = TRUE)]
         if (length(falta)) install.packages(falta, repos = "https://cloud.r-project.org") })
@@ -19,10 +19,10 @@ script_dir <- function() {
   getwd()
 }
 BASE <- script_dir()
-APP <- file.path(BASE, "data")                                   # data/ de YeastForest (preparar_app.R)
-PUB <- list(cer = file.path(BASE, "Bosque_cerevisiae"), eub = file.path(BASE, "Bosque_eubayanus"))   # resultados del bosque y tablas *_pub_*
+APP <- file.path(BASE, "data")                                   # data/ of YeastForest (preparar_app.R)
+PUB <- list(cer = file.path(BASE, "Bosque_cerevisiae"), eub = file.path(BASE, "Bosque_eubayanus"))   # forest results and *_pub_* tables
 GENES_EUB <- c(file.path(PUB$eub, "gene_result.txt"), file.path(BASE, "gene_result_eubayanus.txt"),
-               "~/EvolutiveEubayanus/DATA/gene_result.txt")   # coordenadas de los genes de eubayanus: la primera que exista
+               file.path(PUB$eub, "DATA", "gene_result.txt"))   # coordinates of the eubayanus genes: the first file that exists
 PREF <- list(cer = "SCerevisiae", eub = "Eubayanus")
 OUT <- file.path(BASE, "figs"); dir.create(OUT, showWarnings = FALSE)
 cifras <- list(); cifra <- function(k, v) cifras[[k]] <<- v
@@ -40,7 +40,7 @@ res <- list(cer = fread(file.path(PUB$cer, "SCerevisiae_resumen.tsv")), eub = fr
 pubt <- function(k, s) fread(file.path(PUB[[k]], paste0(PREF[[k]], "_pub_", s)))
 
 # -----------------------------------------------------------------------------
-# 1. Cifras de resumen (Tabla 1)
+# 1. Summary numbers (Table 1)
 # -----------------------------------------------------------------------------
 ref_tree <- lapply(c(cer = "cerevisiae", eub = "eubayanus"), function(e) read.tree(text = leer_js(file.path(APP, e, "arboles", "REF_TOTAL.js"))))
 for (k in c("cer", "eub")) {
@@ -48,11 +48,11 @@ for (k in c("cer", "eub")) {
   sup <- suppressWarnings(as.numeric(ref_tree[[k]]$node.label)); sup <- sup[!is.na(sup)]
   cifra(paste0(k, "_cepas"), length(ref_tree[[k]]$tip.label)); cifra(paste0(k, "_orfs_anotados"), nrow(rs) - 1L)
   cifra(paste0(k, "_orfs_arbol"), nrow(g)); cifra(paste0(k, "_pct_arbol"), round(100 * nrow(g) / (nrow(rs) - 1L)))
-  cifra(paste0(k, "_sin_arbol_sin_snps"), sum(grepl("Menos de", rs$reason))); cifra(paste0(k, "_sin_arbol_pares"), sum(grepl("compartidos", rs$reason)))
+  cifra(paste0(k, "_sin_arbol_sin_snps"), sum(grepl("Menos de|Fewer than", rs$reason))); cifra(paste0(k, "_sin_arbol_pares"), sum(grepl("compartidos|shared SNPs", rs$reason)))
   cifra(paste0(k, "_snps_ref"), r$n_snps); cifra(paste0(k, "_splits_ref"), r$n_splits)
   cifra(paste0(k, "_snps_mediana"), median(g$n_snps)); cifra(paste0(k, "_snps_q1"), quantile(g$n_snps, .25)); cifra(paste0(k, "_snps_q3"), quantile(g$n_snps, .75))
   cifra(paste0(k, "_resol_mediana"), round(100 * median(g$resolucion))); cifra(paste0(k, "_rf_ref_mediana"), round(median(g$rf_ref), 3))
-  cifra(paste0(k, "_propios_en_ref_mediana"), round(median(g$propios_en_ref, na.rm = TRUE), 1))   # % de las ramas de un arbol de ORF que estan en la referencia
+  cifra(paste0(k, "_propios_en_ref_mediana"), round(median(g$propios_en_ref, na.rm = TRUE), 1))   # % of the branches of an ORF tree that are in the reference
   cifra(paste0(k, "_pct_rf1"), round(100 * mean(g$rf_ref >= 0.9999), 1)); cifra(paste0(k, "_n_rf1"), sum(g$rf_ref >= 0.9999))
   cifra(paste0(k, "_respaldo_mediana"), round(median(g$respaldo_medio), 2)); cifra(paste0(k, "_respaldo_ref"), round(r$respaldo_medio, 2))
   cifra(paste0(k, "_ref_ramas_5"), sum(sup >= 5)); cifra(paste0(k, "_ref_ramas_25"), sum(sup >= 25)); cifra(paste0(k, "_ref_ramas_50"), sum(sup >= 50)); cifra(paste0(k, "_ref_ramas_0"), sum(sup == 0))
@@ -66,9 +66,9 @@ for (k in c("cer", "eub")) {
 cifra("cer_clusters_enriquecidos", sum(sp$cer$G$clusters$enriquecido == "si"))
 cifra("cer_terminos_fdr05", sum(sp$cer$G$enriquecimiento$fdr < 0.05))
 cifra("eub_sin_ubicar", nrow(fread(file.path(PUB$eub, "Eubayanus_genes_sin_ubicar.tsv"))))
-# k del primer paso de MST-kNN: el menor k que conecta el grafo kNN de todos los arboles,
-# con tope floor(ln n), con el mismo desempate que mstknnclust (order() por fila sobre la
-# matriz RF en el orden del archivo, sin REF_TOTAL).
+# k of the first MST-kNN step: the smallest k that connects the kNN graph of all trees,
+# capped at floor(ln n), with the same tie-breaking as mstknnclust (order() by row over the
+# RF matrix in file order, without REF_TOTAL).
 k_primer_nivel <- function(f) {
   x <- fread(f); ids <- x[[1]]; m <- as.matrix(x[, -1, with = FALSE]); rm(x)
   keep <- ids != "REF_TOTAL"; m <- m[keep, keep]; n <- nrow(m); diag(m) <- Inf; tope <- max(1L, floor(log(n)))
@@ -86,7 +86,7 @@ for (k in c("cer", "eub")) {
 }
 
 # -----------------------------------------------------------------------------
-# 2. Posiciones genomicas y ligamiento de los grupos
+# 2. Genomic positions and linkage of the groups
 # -----------------------------------------------------------------------------
 pos_cer <- {
   g <- sp$cer$genes; m <- regmatches(g$orf, regexec("^Y([A-P])([LR])([0-9]{3})[WC]", g$orf)); ok <- lengths(m) == 4L
@@ -94,14 +94,14 @@ pos_cer <- {
 }
 pos_eub <- {
   f_genes <- Filter(file.exists, path.expand(GENES_EUB))[1]
-  if (is.na(f_genes)) stop("No encuentro gene_result.txt de S. eubayanus; revisa GENES_EUB al comienzo del script")
+  if (is.na(f_genes)) stop("gene_result.txt of S. eubayanus not found; check GENES_EUB at the top of the script")
   x <- fread(f_genes, quote = "\"", colClasses = "character")
   sym <- x$Symbol; id <- ifelse(is.na(sym) | !nzchar(sym), x$GeneID, sym); dup <- id %in% id[duplicated(id)]; id[dup] <- paste0(id[dup], "_", x$GeneID[dup])
   roman <- c("I","II","III","IV","V","VI","VII","VIII","IX","X","XI","XII","XIII","XIV","XV","XVI")
   d <- data.table(orf = id, chr = match(x$chromosome, roman), pos = suppressWarnings(as.numeric(x$start_position_on_the_genomic_accession)))[!is.na(chr) & !is.na(pos)]
   d[orf %in% sp$eub$genes$orf][order(chr, pos)]
 }
-# a) vecinos contiguos en el mismo grupo vs. azar (permutacion de la etiqueta de grupo)
+# a) contiguous neighbours in the same group vs. chance (permutation of the group label)
 ligamiento_adyacente <- function(pos, genes, B = 1000L, semilla = 2026L) {
   set.seed(semilla)
   d <- merge(pos, genes[, .(orf, cluster)], by = "orf")[order(chr, pos)]
@@ -112,7 +112,7 @@ ligamiento_adyacente <- function(pos, genes, B = 1000L, semilla = 2026L) {
 }
 lig <- list(cer = ligamiento_adyacente(pos_cer, sp$cer$genes), eub = ligamiento_adyacente(pos_eub, sp$eub$genes))
 for (k in c("cer", "eub")) { cifra(paste0(k, "_ady_obs"), round(100 * lig[[k]]$obs, 1)); cifra(paste0(k, "_ady_esp"), round(100 * lig[[k]]$esperado, 1)); cifra(paste0(k, "_ady_razon"), round(lig[[k]]$razon, 1)); cifra(paste0(k, "_ady_p"), lig[[k]]$p) }
-# b) por grupo: fraccion en el brazo dominante y prueba de permutacion (grupos con >= 10 ORFs)
+# b) per group: fraction on the dominant arm and permutation test (groups with >= 10 ORFs)
 ligamiento_grupos <- function(pos, genes, B = 2000L, semilla = 2026L) {
   set.seed(semilla)
   d <- merge(pos, genes[, .(orf, cluster)], by = "orf")
@@ -131,7 +131,7 @@ ligg <- list(cer = ligamiento_grupos(pos_cer, sp$cer$genes), eub = ligamiento_gr
 for (k in c("cer", "eub")) { ligg[[k]][, fdr := p.adjust(p_perm, "BH")]; ligg[[k]][, ligado := fdr < 0.05 & pct_brazo >= 50]
   cifra(paste0(k, "_grupos_probados"), nrow(ligg[[k]])); cifra(paste0(k, "_grupos_ligados"), sum(ligg[[k]]$ligado)); cifra(paste0(k, "_orfs_en_ligados"), sum(ligg[[k]][ligado == TRUE, orfs])) }
 fwrite(ligg$cer, file.path(OUT, "ligamiento_grupos_cerevisiae.tsv"), sep = "\t"); fwrite(ligg$eub, file.path(OUT, "ligamiento_grupos_eubayanus.tsv"), sep = "\t")
-# enriquecidos y ligados
+# enriched and linked groups
 enr_cl <- sp$cer$G$clusters[sp$cer$G$clusters$enriquecido == "si", ]
 mejor <- as.data.table(sp$cer$G$enriquecimiento)[fdr < 0.05][order(fdr)][, .SD[1L], by = cluster]
 tabla2 <- merge(data.table(cluster = enr_cl$id, orfs = enr_cl$tamano, rf_ref = enr_cl$rf_ref), mejor[, .(cluster, base, descripcion, k, n, fdr)], by = "cluster")
@@ -141,7 +141,7 @@ fwrite(tabla2, file.path(OUT, "tabla2_enriquecidos.tsv"), sep = "\t")
 cifra("cer_enriquecidos_ligados", sum(tabla2$ligado, na.rm = TRUE)); cifra("cer_enriquecidos_no_ligados", sum(!tabla2$ligado, na.rm = TRUE))
 
 # -----------------------------------------------------------------------------
-# 3. Confundente de resolucion (A, B) y conflicto (D), comparacion con bosque anterior (F)
+# 3. Resolution as a confounder (A, B), conflict (D) and comparison with the earlier forest (F)
 # -----------------------------------------------------------------------------
 A <- list(cer = pubt("cer", "A_resolucion_pruebas.tsv"), eub = pubt("eub", "A_resolucion_pruebas.tsv"))
 Ag <- list(cer = pubt("cer", "A_resolucion_por_grupo.tsv"), eub = pubt("eub", "A_resolucion_por_grupo.tsv"))
@@ -156,18 +156,18 @@ for (k in c("cer", "eub")) {
 }
 cifra("cer_ari_snps30", round(B$cer[umbral_snps == 30 & umbral_resolucion == 0, ari_vs_completo], 2)); cifra("cer_ari_snps100", round(B$cer[umbral_snps == 100 & umbral_resolucion == 0, ari_vs_completo], 2))
 cifra("eub_ari_snps10", round(B$eub[umbral_snps == 10 & umbral_resolucion == 0, ari_vs_completo], 2)); cifra("eub_ari_snps30", round(B$eub[umbral_snps == 30 & umbral_resolucion == 0, ari_vs_completo], 2))
-# donde queda G1 con resolucion >= 0.25 (cerevisiae)
+# where G1 ends up with resolution >= 0.25 (cerevisiae)
 mb <- pubt("cer", "B_umbrales_miembros.tsv")[umbral_snps == 0 & umbral_resolucion == 0.25]
 g1 <- mb[cluster_completo == 1]; cifra("cer_G1_sobrevive_res25", nrow(g1)); cifra("cer_G1_mayor_destino_pct", if (nrow(g1)) round(100 * max(table(g1$cluster)) / nrow(g1)) else NA)
-# mecanismo del grupo ribosomal: los 15 vecinos mas cercanos (RF) de cada arbol, que la app guarda en vecinos.js
-# (una lista por arbol, en el orden de arboles.js, indices base 0). Si los vecinos de G1 son arboles poco
-# resueltos, G1 se arma por baja resolucion y no por historia compartida.
+# mechanism of the ribosomal group: the 15 nearest neighbours (RF) of each tree, stored by the app in vecinos.js
+# (one list per tree, in the order of arboles.js, 0-based indices). If the neighbours of G1 are poorly
+# resolved trees, G1 is formed by low resolution and not by a shared history.
 V <- leer_js(file.path(APP, "cerevisiae", "vecinos.js"), simplificar = FALSE)$vecinos
 A_cer <- sp$cer$A; stopifnot(length(V) == nrow(A_cer)); bajo <- A_cer$resolucion < 0.25
 frac_bajo <- vapply(seq_along(V), function(i) { nb <- vapply(V[[i]], function(v) v[[1]], 0) + 1; nb <- nb[A_cer$id[nb] != "REF_TOTAL"]; mean(bajo[nb]) }, 0)
 cifra("cer_pct_resol25_bosque", round(100 * mean(sp$cer$genes$resolucion < 0.25)))
 for (g in c(1L, 2L, 6L)) cifra(paste0("cer_G", g, "_vecinos_resol25"), round(100 * median(frac_bajo[A_cer$id != "REF_TOTAL" & A_cer$cluster %in% g])))
-# conflicto
+# conflict
 D <- list(cer = pubt("cer", "D_conflicto_por_orf.tsv"), eub = pubt("eub", "D_conflicto_por_orf.tsv"))
 Dr <- list(cer = pubt("cer", "D_conflicto_ramas.tsv"), eub = pubt("eub", "D_conflicto_ramas.tsv"))
 Ds <- list(cer = pubt("cer", "D_conflicto_resumen.tsv"), eub = pubt("eub", "D_conflicto_resumen.tsv"))
@@ -176,19 +176,19 @@ for (k in c("cer", "eub")) {
   cifra(paste0(k, "_conf_orfs"), Ds[[k]]$orfs_en_conflicto); cifra(paste0(k, "_conf_pct"), round(100 * Ds[[k]]$orfs_en_conflicto / Ds[[k]]$orfs))
   cifra(paste0(k, "_conf_tramos_obs"), Ds[[k]]$tramos_observados); cifra(paste0(k, "_conf_tramos_esp"), round(Ds[[k]]$tramos_esperados_media, 1)); cifra(paste0(k, "_conf_tramos_p"), round(Ds[[k]]$p_empirico_tramos, 2))
   cifra(paste0(k, "_orfs_con_respaldada"), Ds[[k]]$orfs_con_ramas_respaldadas)
-  # biparticiones en conflicto distintas, ordenadas por cuantos ORFs las tienen
+  # distinct bipartitions in conflict, ordered by how many ORFs carry them
   Dr[[k]][, clave := vapply(strsplit(cepas, ";", fixed = TRUE), function(z) paste(sort(z), collapse = ";"), "")]
   r <- Dr[[k]][, .(orfs = .N, respaldo = respaldo[1L], cepas_lado_menor = cepas_lado_menor[1L], grupo_dominante = grupo_dominante[1L], pct_dominante = pct_grupo_dominante[1L], grupos_presentes = grupos_presentes[1L], cepas = clave[1L]), by = clave][order(-orfs)]
   cifra(paste0(k, "_conf_biparticiones_distintas"), nrow(r)); top_conf[[k]] <- r[1:min(10L, nrow(r))]
   fwrite(top_conf[[k]][, .(orfs, respaldo, cepas_lado_menor, grupo_dominante, pct_dominante, grupos_presentes, cepas)], file.path(OUT, paste0("conflicto_top_", k, ".tsv")), sep = "\t")
 }
-# Cada biparticion en conflicto por separado.
-# (a) Relacion con la referencia: el menor clado de la referencia (un lado de alguna de sus biparticiones)
-#     que contiene a todas sus cepas; si sobra 1 o 2 cepas, la biparticion es ese clado sin uno o dos miembros.
-# (b) Tramos: ORFs contiguos (>= 3) que llevan esa biparticion, contra 1.000 permutaciones dentro de cada
-#     cromosoma, con FDR de Benjamini-Hochberg sobre las biparticiones de la especie. El conteo de publicar_bosque.R
-#     (etapa D) junta todas las biparticiones; en cerevisiae dos tercios de los ORFs llevan alguna y ese conteo
-#     agrupado no distingue tramos, por eso aqui se prueba una por una.
+# Each bipartition in conflict on its own.
+# (a) Relation with the reference: the smallest clade of the reference (one side of one of its bipartitions)
+#     that contains all its strains; if 1 or 2 strains are left over, the bipartition is that clade without one or two members.
+# (b) Runs: contiguous ORFs (>= 3) that carry that bipartition, against 1,000 permutations within each
+#     chromosome, with Benjamini-Hochberg FDR over the bipartitions of the species. The count of publicar_bosque.R
+#     (stage D) pools all bipartitions; in cerevisiae two thirds of the ORFs carry one and that pooled
+#     count does not separate runs, so here they are tested one by one.
 set.seed(2026L)
 conf_bip <- list()
 for (k in c("cer", "eub")) {
@@ -212,20 +212,20 @@ for (k in c("cer", "eub")) {
   cifra(paste0(k, "_conf_bip_crom_min"), min(conf_bip[[k]]$cromosomas)); cifra(paste0(k, "_conf_bip_crom_max"), max(conf_bip[[k]]$cromosomas))
   cifra(paste0(k, "_conf_bip_clado_ref_max"), max(conf_bip[[k]]$clado_ref_menor))
 }
-# bosque anterior
+# earlier forest
 Fr <- pubt("cer", "F_bosque_anterior_resumen.tsv"); Fo <- pubt("cer", "F_bosque_anterior_por_orf.tsv")[is.na(motivo) | motivo == ""]
 cifra("F_orfs", Fr$orfs_comparados); cifra("F_rf_mediana", round(Fr$rf_anterior_vs_nuevo_mediana, 2)); cifra("F_rho_snps", round(Fr$rho_rf_vs_snps, 2)); cifra("F_rho_ref", round(Fr$rho_rf_referencia_anterior_vs_nuevo, 2))
 cifra("F_rf_q1", round(Fr$rf_anterior_vs_nuevo_q1, 2)); cifra("F_rf_q3", round(Fr$rf_anterior_vs_nuevo_q3, 2))
 cifra("F_rf_mediana_snps500", round(median(Fo[n_snps >= 500, rf_anterior_vs_nuevo]), 2)); cifra("F_rf_mediana_snps50", round(median(Fo[n_snps < 50, rf_anterior_vs_nuevo]), 2))
 
 # -----------------------------------------------------------------------------
-# 4. FIGURAS
+# 4. FIGURES
 # -----------------------------------------------------------------------------
 COL <- list(cer = "#ea7600", eub = "#2e6fb0", teal = "#00a499", rojo = "#c8102e", gris = "#9aa5af", oro = "#eaaa00", verde = "#2e8b3d", purp = "#7e5ea8")
 pdfpng <- function(nombre, w, h, fn) { for (dev in c("pdf", "png")) { f <- file.path(OUT, paste0(nombre, ".", dev)); if (dev == "pdf") cairo_pdf(f, width = w, height = h) else png(f, width = w, height = h, units = "in", res = 300); par(family = "sans"); fn(); dev.off() } }
 panel <- function(l, x = 0.02, y = 0.98) mtext(l, side = 3, adj = -0.12, line = 0.6, font = 2, cex = 1.1)
 
-# ---- Fig 1: esquema del metodo
+# ---- Fig 1: scheme of the method
 pdfpng("Fig1_esquema", 7.2, 3.6, function() {
   par(mar = c(0, 0, 0, 0)); plot(0, 0, type = "n", xlim = c(0, 100), ylim = c(0, 50), axes = FALSE, xlab = "", ylab = "")
   caja <- function(x, y, w, h, t, col = "#f6f7f9", bord = "#8a929b", cex = 0.72) { rect(x, y, x + w, y + h, col = col, border = bord, lwd = 1.2); text(x + w / 2, y + h / 2, t, cex = cex) }
@@ -244,7 +244,7 @@ pdfpng("Fig1_esquema", 7.2, 3.6, function() {
   segments(16, 24, 84, 24, lwd = 1.2, col = "#555d66"); flecha(84, 24, 84, 20.3); flecha(49, 24, 49, 20.3); flecha(16, 24, 16, 20.3)
 })
 
-# ---- Fig 2: mapa genomico de los grupos en las dos especies + estadistico de adyacencia
+# ---- Fig 2: genomic map of the groups in both species + adjacency statistic
 mapa_genoma <- function(pos, genes, ligg, titulo, etiquetar = 10L) {
   d <- merge(pos, genes[, .(orf, cluster)], by = "orf")[order(chr, pos)]; d[, idx := seq_len(.N), by = chr]
   pal <- c("#c8102e", "#2e6fb0", "#2e8b3d", "#7e5ea8", "#ea7600", "#00a499", "#eaaa00", "#8a2043", "#59a8d2", "#5e7a46", "#b35a00", "#a06ab4", "#159c88", "#c56a6e", "#4a5fa6", "#8a9a34", "#e39a00", "#35673b", "#d98ba0", "#6e82be")
@@ -256,10 +256,10 @@ mapa_genoma <- function(pos, genes, ligg, titulo, etiquetar = 10L) {
   for (ch in 1:nchr) {
     t <- d[chr == ch]; y <- nchr + 1 - ch
     rect(t$idx - 1, y - 0.38, t$idx, y + 0.38, col = ifelse(is.na(t$cluster), "#e4e7ea", colc[as.character(t$cluster)]), border = NA)
-    # centromero (primer ORF del brazo derecho); el brazo derecho del XVI no tiene arboles
+    # centromere (first ORF of the right arm); the right arm of XVI has no trees
     if ("brazo" %in% names(t) && any(t$brazo == "R")) { cen <- t[brazo == "R", min(idx)]; points(cen - 0.5, y, pch = 21, bg = "white", col = "#1b2127", cex = 0.55, lwd = 0.7) }
   }
-  # etiqueta de los bloques ligados mas grandes, en el centro de su tramo dominante
+  # label of the largest linked blocks, at the centre of their dominant run
   lg <- ligg[ligado == TRUE][order(-orfs)][seq_len(min(etiquetar, sum(ligg$ligado)))]
   for (i in seq_len(nrow(lg))) {
     k <- lg$cluster[i]; t <- d[cluster == k]; ch <- as.integer(names(which.max(table(t$chr)))); tt <- t[chr == ch]
@@ -281,31 +281,31 @@ pdfpng("Fig2_mapa_genoma", 7.2, 7.6, function() {
   text(bp, rbind(c(lig$cer$esperado, lig$cer$obs), c(lig$eub$esperado, lig$eub$obs)) * 100, sprintf("%.1f", rbind(c(lig$cer$esperado, lig$cer$obs), c(lig$eub$esperado, lig$eub$obs)) * 100), pos = 3, cex = 0.6)
   panel("C")
 })
-# ---- Fig 3: resolucion y grupos
+# ---- Fig 3: resolution and groups
 pdfpng("Fig3_resolucion", 7.2, 5.6, function() {
   layout(matrix(1:4, 2, byrow = TRUE)); par(mar = c(3.2, 3.4, 1.6, 0.6), mgp = c(1.7, 0.4, 0), cex.axis = 0.7, cex.lab = 0.78)
   g <- sp$cer$genes
-  # A: SNPs vs RF a la referencia, G1 resaltado
+  # A: SNPs vs RF to the reference, G1 highlighted
   plot(g$n_snps, g$rf_ref, log = "x", pch = 16, cex = 0.25, col = adjustcolor("#9aa5af", 0.5), xlab = "SNPs within the ORF", ylab = "RF distance to the reference tree")
   points(g[cluster == 1, n_snps], g[cluster == 1, rf_ref], pch = 16, cex = 0.3, col = adjustcolor(COL$rojo, 0.6))
   legend("bottomleft", bty = "n", cex = 0.65, pch = 16, col = c(COL$rojo, "#9aa5af"), legend = c("G1 (498 ORFs, ribosome-enriched)", "other ORFs"))
   legend("topright", bty = "n", cex = 0.65, legend = sprintf("Spearman rho = %.2f", cifras$cer_rho_snps_rfref)); panel("A")
-  # B: resolucion por grupo (12 mayores) cerevisiae
+  # B: resolution per group (12 largest), cerevisiae
   top <- sp$cer$G$clusters$id[order(-sp$cer$G$clusters$tamano)][1:12]
   bx <- g[cluster %in% top]; bx[, cluster := factor(cluster, levels = top)]
   boxplot(resolucion ~ cluster, bx, outline = FALSE, col = ifelse(top == 1, adjustcolor(COL$rojo, 0.5), "#eceff2"), border = "#555d66", xlab = "MST-kNN group (12 largest, S. cerevisiae)", ylab = "Tree resolution (internal branches / max)", names = paste0("G", top), las = 2, cex.axis = 0.6)
   text(par("usr")[2], par("usr")[4], sprintf("Kruskal-Wallis eta2 = %.2f", cifras$cer_eta2_resol), adj = c(1.05, 1.6), cex = 0.65); panel("B")
-  # C: ARI vs umbral de resolucion, dos especies (umbral de SNPs 0)
+  # C: ARI vs resolution threshold, both species (SNP threshold 0)
   plot(0, 0, type = "n", xlim = c(0, 0.25), ylim = c(0, 1), xlab = "Minimum resolution required to enter the clustering", ylab = "Adjusted Rand index vs. full clustering")
   for (k in c("cer", "eub")) { b <- B[[k]][umbral_snps == 0][order(umbral_resolucion)]; lines(b$umbral_resolucion, b$ari_vs_completo, type = "b", pch = 16, col = COL[[k]], lwd = 1.6) }
   legend("bottomleft", bty = "n", cex = 0.7, lwd = 1.6, pch = 16, col = c(COL$cer, COL$eub), legend = c("S. cerevisiae", "S. eubayanus")); panel("C")
-  # D: ARI vs umbral de SNPs
+  # D: ARI vs SNP threshold
   plot(0, 0, type = "n", xlim = c(0, 100), ylim = c(0, 1), xlab = "Minimum SNPs per ORF required to enter the clustering", ylab = "Adjusted Rand index vs. full clustering")
   for (k in c("cer", "eub")) { b <- B[[k]][umbral_resolucion == 0][order(umbral_snps)]; lines(b$umbral_snps, b$ari_vs_completo, type = "b", pch = 16, col = COL[[k]], lwd = 1.6) }
   legend("topright", bty = "n", cex = 0.7, lwd = 1.6, pch = 16, col = c(COL$cer, COL$eub), legend = c("S. cerevisiae", "S. eubayanus")); panel("D")
 })
 
-# ---- Fig 4: conflicto con la referencia
+# ---- Fig 4: conflict with the reference
 pdfpng("Fig4_conflicto", 7.2, 5.4, function() {
   layout(matrix(c(1, 2, 3, 3), 2, byrow = TRUE), heights = c(1.15, 1)); par(mgp = c(1.7, 0.4, 0), cex.axis = 0.68, cex.lab = 0.76)
   for (k in c("cer", "eub")) {
@@ -326,7 +326,7 @@ pdfpng("Fig4_conflicto", 7.2, 5.4, function() {
   legend("topright", bty = "n", cex = 0.7, fill = c(COL$cer, COL$eub), border = NA, legend = c(sprintf("S. cerevisiae (%d branches)", length(sup$cer)), sprintf("S. eubayanus (%d branches)", length(sup$eub))))
   mtext("C", side = 3, line = 0.9, adj = -0.06, font = 2, cex = 1.1)
 })
-# ---- Fig 5: comparacion con el bosque anterior y entre especies
+# ---- Fig 5: comparison with the earlier forest and between species
 pdfpng("Fig5_validacion", 7.2, 3.2, function() {
   layout(matrix(1:3, 1)); par(mar = c(3.4, 3.4, 2.4, 0.6), mgp = c(1.7, 0.4, 0), cex.axis = 0.7, cex.lab = 0.78)
   plot(Fo$n_snps, Fo$rf_anterior_vs_nuevo, log = "x", pch = 16, cex = 0.25, col = adjustcolor("#555d66", 0.35), xlab = "SNPs within the ORF", ylab = "RF: alignment-based vs. VCF-based tree")
@@ -339,7 +339,7 @@ pdfpng("Fig5_validacion", 7.2, 3.2, function() {
 })
 
 # -----------------------------------------------------------------------------
-# 5. Guardar cifras
+# 5. Save the numbers
 # -----------------------------------------------------------------------------
 cif <- data.table(clave = names(cifras), valor = vapply(cifras, function(v) as.character(v), ""))
 fwrite(cif, file.path(OUT, "cifras.tsv"), sep = "\t")

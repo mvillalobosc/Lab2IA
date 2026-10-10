@@ -1,57 +1,57 @@
 # =============================================================================
-# CLUSTERS DE ORFs POR TOPOLOGIA (MST-kNN) Y ENRIQUECIMIENTO: S. cerevisiae
-# Manuel: deja este archivo en la carpeta donde estan los resultados del bosque
-# (SCerevisiae_RF.csv.gz y SCerevisiae_resumen.tsv) y ejecutalo con
-# source("clusters_SCerevisiae_2026-10-04.R") o como Job.
-# Fecha: 2026-10-04. No crea carpetas ni archivos temporales.
+# ORF CLUSTERS BY TOPOLOGY (MST-kNN) AND FUNCTIONAL ENRICHMENT: S. cerevisiae
+# Place this file in the folder that holds the forest results
+# (SCerevisiae_RF.csv.gz and SCerevisiae_resumen.tsv) and run it with
+# source("clusters_SCerevisiae.R"), with Rscript or as an RStudio Job.
+# Date: 2026-10-04. It creates no folders or temporary files.
 # =============================================================================
-# QUE HACE
-# 1. Lee la matriz RF normalizada del bosque (todos vs todos) y agrupa los
-#    arboles de ORFs con MST-kNN (mstknnclust::mst.knn). El NJ global
-#    (REF_TOTAL) no entra al clustering porque no es un gen; su RF a cada
-#    cluster queda en el resumen.
-# 2. mst.knn deja fuera de la solucion los objetos que quedan solos (con RF hay
-#    muchos empates y pasa seguido). Aqui cada uno vuelve como cluster de 1 ORF.
-# 3. Los arboles sin ramas internas no tienen topologia que agrupar y su RF
-#    entre ellos es 0/0 (indefinida). No entran a MST-kNN y quedan como
-#    clusters de 1 ORF, marcados. Ningun ORF con arbol queda fuera de la tabla.
-# 4. Enriquecimiento de cada cluster con 2 o mas genes anotados: prueba
-#    hipergeometrica de una cola (exceso de genes con el termino) contra GO
-#    (BP, MF y CC, cada gen con los ancestros de sus terminos, org.Sc.sgd.db) y
-#    rutas KEGG de S. cerevisiae (KEGGREST, organismo 'sce').
-#    Universo de cada base = ORFs del bosque con al menos una anotacion en ella.
-#    Se prueban terminos con 5 a 500 genes en el universo y con al menos un gen
-#    en el cluster. FDR de Benjamini-Hochberg sobre todas las pruebas de cada
-#    base. Un cluster de 1 gen no se prueba: no hay grupo, solo ese gen.
+# WHAT IT DOES
+# 1. Reads the normalised RF matrix of the forest (all against all) and groups
+#    the ORF trees with MST-kNN (mstknnclust::mst.knn). The genome-wide NJ
+#    (REF_TOTAL) is not clustered because it is not a gene; its RF to each
+#    cluster is kept in the summary.
+# 2. mst.knn leaves out of the solution the objects that end up alone (with RF
+#    there are many ties and this happens often). Here each one returns as a 1-ORF cluster.
+# 3. Trees without internal branches have no topology to group and their RF
+#    to each other is 0/0 (undefined). They do not enter MST-kNN and remain as
+#    flagged 1-ORF clusters. No ORF with a tree is left out of the table.
+# 4. Enrichment of each cluster with 2 or more annotated genes: one-sided
+#    hypergeometric test (excess of genes with the term) against GO
+#    (BP, MF and CC, each gene with the ancestors of its terms, org.Sc.sgd.db) and
+#    S. cerevisiae KEGG pathways (KEGGREST, organism 'sce').
+#    Universe of each database = forest ORFs with at least one annotation in it.
+#    Terms with 5 to 500 genes in the universe and at least one gene in the
+#    cluster are tested. Benjamini-Hochberg FDR over all the tests of each
+#    database. A 1-gene cluster is not tested: there is no group, only that gene.
 #
-# RESULTADOS (en la misma carpeta de este script)
-#   SCerevisiae_clusters.tsv           un ORF por fila: cluster, tamano, origen
-#   SCerevisiae_clusters_resumen.tsv   un cluster por fila: tamano, RF media
-#                                      dentro del cluster y al NJ global, y si
-#                                      tiene terminos enriquecidos y cuales
-#   SCerevisiae_enriquecimiento.tsv    cada prueba: cluster, base, termino,
-#                                      k de n en el cluster vs K de N, p y FDR
+# OUTPUT (in the same folder as this script)
+#   SCerevisiae_clusters.tsv           one ORF per row: cluster, size, origin
+#   SCerevisiae_clusters_resumen.tsv   one cluster per row: size, mean RF
+#                                      within the cluster and to the genome-wide NJ,
+#                                      and whether it has enriched terms and which
+#   SCerevisiae_enriquecimiento.tsv    each test: cluster, database, term,
+#                                      k of n in the cluster vs K of N, p and FDR
 # =============================================================================
 
 # -----------------------------------------------------------------------------
-# 0. CONFIGURACION
+# 0. CONFIGURATION
 # -----------------------------------------------------------------------------
 CONFIG <- list(
-  species = "SCerevisiae",          # prefijo de los archivos del bosque y de salida
-  forest_dir = NULL,                # NULL = misma carpeta de este script
+  species = "SCerevisiae",          # prefix of the forest and output files
+  forest_dir = NULL,                # NULL = the folder of this script
   install_packages = TRUE,
-  suggested_k = NULL,               # NULL: mst.knn elige k (el menor que conecta, tope floor(log(n)))
+  suggested_k = NULL,               # NULL: mst.knn chooses k (the smallest that connects, capped at floor(log(n)))
   databases = c("GO_BP", "GO_MF", "GO_CC", "KEGG"),
-  min_term_size = 5L,               # genes del universo con el termino
+  min_term_size = 5L,               # genes of the universe with the term
   max_term_size = 500L,
   fdr = 0.05,
-  gene_ids = "sgd",                 # "sgd": los ORFs del bosque ya son nombres sistematicos de SGD
-  annotation = NULL,                # solo si gene_ids = "ortologos"
-  orthologs_file = NULL             # solo si gene_ids = "ortologos"
+  gene_ids = "sgd",                 # "sgd": the forest ORFs are already SGD systematic names
+  annotation = NULL,                # only if gene_ids = "ortologos"
+  orthologs_file = NULL             # only if gene_ids = "ortologos"
 )
 
 # -----------------------------------------------------------------------------
-# 1. DEPENDENCIAS Y UTILIDADES
+# 1. DEPENDENCIES AND UTILITIES
 # -----------------------------------------------------------------------------
 ensure_packages <- function(install = TRUE) {
   cran <- c("data.table", "igraph", "mstknnclust", "R.utils")
@@ -65,7 +65,7 @@ ensure_packages <- function(install = TRUE) {
     BiocManager::install(missing(bioc), ask = FALSE, update = FALSE)
   }
   absent <- missing(c(cran, bioc))
-  if (length(absent)) stop("Faltan paquetes: ", paste(absent, collapse = ", "))
+  if (length(absent)) stop("Missing packages: ", paste(absent, collapse = ", "))
 }
 
 logmsg <- function(...) {
@@ -79,7 +79,7 @@ resolve_file <- function(folder, file) {
 }
 write_tsv <- function(x, file) data.table::fwrite(x, file, sep = "\t", na = "NA")
 
-# Carpeta de este script: source(), Rscript o, en Jobs de RStudio, getwd().
+# Folder of this script: source(), Rscript or, in RStudio Jobs, getwd().
 script_dir <- function() {
   for (i in rev(seq_len(sys.nframe()))) {
     f <- sys.frame(i)$ofile
@@ -91,66 +91,66 @@ script_dir <- function() {
   getwd()
 }
 
-# Muestra cada aviso en el registro en el momento.
+# Shows each warning in the log as it happens.
 with_logged_warnings <- function(expr) {
   seen <- character()
   withCallingHandlers(expr, warning = function(w) {
     msg <- conditionMessage(w)
-    if (!msg %in% seen) { seen <<- c(seen, msg); logmsg("AVISO: ", msg) }
+    if (!msg %in% seen) { seen <<- c(seen, msg); logmsg("WARNING: ", msg) }
     invokeRestart("muffleWarning")
   })
 }
 
 # -----------------------------------------------------------------------------
-# 2. RESULTADOS DEL BOSQUE
+# 2. FOREST RESULTS
 # -----------------------------------------------------------------------------
 read_forest <- function(dir, name) {
   f_rf <- file.path(dir, paste0(name, "_RF.csv.gz"))
   f_res <- file.path(dir, paste0(name, "_resumen.tsv"))
-  for (f in c(f_rf, f_res)) if (!file.exists(f)) stop("No encuentro ", f,
-    ". Deja este script en la carpeta de los resultados del bosque o indica forest_dir.")
+  for (f in c(f_rf, f_res)) if (!file.exists(f)) stop("File not found: ", f,
+    ". Place this script in the folder of the forest results or set forest_dir.")
   res <- data.table::fread(f_res, colClasses = list(character = c("tree_id", "orf", "status", "reason")))
   x <- data.table::fread(f_rf, header = TRUE, check.names = FALSE)
   rf <- as.matrix(x[, -1L, with = FALSE])
   dimnames(rf) <- list(as.character(x[[1L]]), names(x)[-1L])
   rm(x)
   if (!identical(rownames(rf), colnames(rf)))
-    stop("La matriz RF no trae los mismos arboles en filas y columnas.")
+    stop("The RF matrix does not list the same trees in rows and columns.")
   list(rf = rf, res = res)
 }
 
 # -----------------------------------------------------------------------------
-# 3. MST-kNN SOBRE LA RF Y RESCATE DE LOS ORFs QUE QUEDAN SOLOS
+# 3. MST-kNN ON THE RF AND RECOVERY OF THE ORFs LEFT ALONE
 # -----------------------------------------------------------------------------
 cluster_trees <- function(rf, res, cfg) {
   genes <- res[tree_id != "REF_TOTAL" & status == "ok"]
   missing_rows <- setdiff(genes$tree_id, rownames(rf))
-  if (length(missing_rows)) stop(length(missing_rows), " arboles del resumen no estan en la matriz RF (ej. ",
+  if (length(missing_rows)) stop(length(missing_rows), " summary trees are not in the RF matrix (e.g. ",
                                  missing_rows[1L], ").")
   no_splits <- genes[n_splits == 0L, tree_id]
   ids <- setdiff(genes$tree_id, no_splits)
-  logmsg("Arboles de ORFs: ", fmt_n(nrow(genes)), " | entran a MST-kNN: ", fmt_n(length(ids)),
-         " | sin ramas internas: ", fmt_n(length(no_splits)))
+  logmsg("ORF trees: ", fmt_n(nrow(genes)), " | entering MST-kNN: ", fmt_n(length(ids)),
+         " | without internal branches: ", fmt_n(length(no_splits)))
   D <- rf[ids, ids, drop = FALSE]
   diag(D) <- 0
-  if (anyNA(D)) stop("Hay RF indefinidas entre arboles con ramas internas; revisar la matriz.")
+  if (anyNA(D)) stop("There are undefined RF values between trees with internal branches; check the matrix.")
   cl <- integer()
   if (length(ids) >= 2L) {
-    logmsg("MST-kNN sobre ", fmt_n(length(ids)), " arboles (puede tardar con miles)")
+    logmsg("MST-kNN on ", fmt_n(length(ids)), " trees (may take a while with thousands)")
     msgs <- utils::capture.output(r <- if (is.null(cfg$suggested_k)) mstknnclust::mst.knn(D)
                                        else mstknnclust::mst.knn(D, cfg$suggested_k))
-    # Si todo sale suelto, mst.knn arma un solo grupo con todos: se descarta.
+    # If everything comes out unconnected, mst.knn builds a single group with all: it is discarded.
     if (!any(grepl("Only singletons", msgs))) cl <- r$cluster
   }
   member <- data.table::data.table(tree_id = names(cl), raw = as.integer(cl), origen = "MST-kNN")
   solos <- setdiff(ids, member$tree_id)
-  if (length(solos)) logmsg("mst.knn dejo fuera ", fmt_n(length(solos)),
-                            " arboles que quedaron solos: vuelven como clusters de 1 ORF")
+  if (length(solos)) logmsg("mst.knn left out ", fmt_n(length(solos)),
+                            " trees that ended up alone: they return as 1-ORF clusters")
   extra <- function(x, why) data.table::data.table(tree_id = x, raw = rep(NA_integer_, length(x)),
                                                    origen = rep(why, length(x)))
   member <- data.table::rbindlist(list(member, extra(solos, "solo en MST-kNN"),
                                        extra(no_splits, "sin ramas internas (RF indefinida)")))
-  # Cada solitario recibe su propio numero; luego se numera por tamano.
+  # Each singleton gets its own number; clusters are then numbered by size.
   free <- is.na(member$raw)
   member$raw[free] <- max(c(0L, member$raw), na.rm = TRUE) + seq_len(sum(free))
   member[, tamano_cluster := .N, by = raw]
@@ -163,13 +163,13 @@ cluster_trees <- function(rf, res, cfg) {
                   by = "tree_id", sort = FALSE)
   data.table::setorder(member, cluster, pos)
   if (nrow(member) != nrow(genes) || anyDuplicated(member$tree_id))
-    stop("La tabla de clusters no cubre exactamente los ORFs del bosque.")
+    stop("The cluster table does not cover exactly the ORFs of the forest.")
   member[, c("raw", "pos") := NULL]
   data.table::setcolorder(member, c("tree_id", "orf", "cluster", "tamano_cluster", "origen"))
   member
 }
 
-# RF media dentro de cada cluster (pares distintos) y al NJ global.
+# Mean RF within each cluster (distinct pairs) and to the genome-wide NJ.
 cluster_rf <- function(member, rf) {
   member[, .(RF_media_dentro = if (.N < 2L) NA_real_ else {
               m <- rf[tree_id, tree_id, drop = FALSE]; mean(m[upper.tri(m)], na.rm = TRUE) },
@@ -177,7 +177,7 @@ cluster_rf <- function(member, rf) {
 }
 
 # -----------------------------------------------------------------------------
-# 4. ANOTACIONES: GO (org.Sc.sgd.db + GO.db) Y KEGG (KEGGREST)
+# 4. ANNOTATIONS: GO (org.Sc.sgd.db + GO.db) AND KEGG (KEGGREST)
 # -----------------------------------------------------------------------------
 sgd_valid_orfs <- function() AnnotationDbi::keys(org.Sc.sgd.db::org.Sc.sgd.db, keytype = "ORF")
 
@@ -206,13 +206,13 @@ kegg_pathways <- function(orfs) {
 sgd_annotations <- function(orfs, cfg) {
   out <- list()
   if (any(grepl("^GO_", cfg$databases))) {
-    logmsg("Anotaciones GO desde org.Sc.sgd.db")
+    logmsg("GO annotations from org.Sc.sgd.db")
     out$go <- sgd_go(orfs)
   }
   if ("KEGG" %in% cfg$databases) {
-    logmsg("Rutas KEGG de S. cerevisiae desde KEGG (requiere internet)")
+    logmsg("S. cerevisiae KEGG pathways from KEGG (requires internet)")
     out$kegg <- tryCatch(kegg_pathways(orfs), error = function(e) {
-      logmsg("AVISO: no pude descargar KEGG (", conditionMessage(e), "); sigo sin KEGG."); NULL })
+      logmsg("WARNING: could not download KEGG (", conditionMessage(e), "); continuing without KEGG."); NULL })
   }
   ann <- data.table::rbindlist(out, use.names = TRUE)
   if (nrow(ann)) ann <- ann[database %in% cfg$databases]
@@ -220,9 +220,9 @@ sgd_annotations <- function(orfs, cfg) {
 }
 
 # -----------------------------------------------------------------------------
-# 5. ORTOLOGOS EN S. cerevisiae (solo cuando los genes no son ORFs de SGD)
+# 5. ORTHOLOGUES IN S. cerevisiae (only when the genes are not SGD ORFs)
 # -----------------------------------------------------------------------------
-# Nombre estandar de SGD -> ORF, solo nombres que apuntan a un unico ORF.
+# SGD standard name -> ORF, only names that point to a single ORF.
 sgd_name_table <- function() {
   db <- org.Sc.sgd.db::org.Sc.sgd.db
   kt <- intersect(c("GENENAME", "COMMON"), AnnotationDbi::keytypes(db))
@@ -233,10 +233,10 @@ sgd_name_table <- function() {
   x[, n := data.table::uniqueN(orf), by = name][n == 1L, .(name, orf)]
 }
 
-# Texto de la anotacion por gen: GFF (atributos por locus_tag, como en el bosque)
-# o tabla (gene_result.txt de NCBI: GeneID, Symbol, Aliases, descripcion).
+# Annotation text per gene: GFF (attributes by locus_tag, as in the forest)
+# or table (NCBI gene_result.txt: GeneID, Symbol, Aliases, description).
 annotation_text <- function(path) {
-  if (!file.exists(path)) stop("No existe la anotacion: ", path)
+  if (!file.exists(path)) stop("Annotation not found: ", path)
   txt <- readLines(path, warn = FALSE)
   dec <- function(x) vapply(x, function(s) tryCatch(utils::URLdecode(s), error = function(e) s),
                             "", USE.NAMES = FALSE)
@@ -251,7 +251,7 @@ annotation_text <- function(path) {
       out[rx > 0] <- dec(sub(paste0("^;?", key, "="), "", regmatches(a, rx)))
       out
     }
-    # Misma etiqueta que usa el bosque: locus_tag, si no Name, si no ID.
+    # Same label as the forest: locus_tag, otherwise Name, otherwise ID.
     loc <- get_attr("locus_tag"); nm <- get_attr("Name"); id <- get_attr("ID")
     key <- ifelse(!is.na(loc), loc, ifelse(!is.na(nm), nm, id))
     names_ <- paste(get_attr("gene"), get_attr("Name"), get_attr("gene_synonym"), get_attr("product"))
@@ -259,7 +259,7 @@ annotation_text <- function(path) {
   } else {
     x <- data.table::fread(path, quote = "\"", colClasses = "character")
     need <- c("GeneID", "Symbol")
-    if (!all(need %in% names(x))) stop("La anotacion no es GFF ni trae GeneID y Symbol: ", path)
+    if (!all(need %in% names(x))) stop("The annotation is neither a GFF nor a table with GeneID and Symbol: ", path)
     extra <- intersect(c("Aliases", "description", "other_designations"), names(x))
     dt <- data.table::data.table(gene = x$GeneID,
       text = do.call(paste, c(list(x$Symbol), lapply(extra, function(k) x[[k]]))),
@@ -273,7 +273,7 @@ map_orthologs <- function(genes, cfg, folder) {
   valid <- sgd_valid_orfs()
   if (!is.null(cfg$orthologs_file)) {
     o <- data.table::fread(resolve_file(folder, cfg$orthologs_file), colClasses = "character")
-    if (ncol(o) < 2L) stop("orthologs_file necesita dos columnas: gen y ORF de SGD.")
+    if (ncol(o) < 2L) stop("orthologs_file needs two columns: gene and SGD ORF.")
     o <- unique(o[, 1:2]); data.table::setnames(o, c("gene", "orf_sgd"))
     o <- o[orf_sgd %in% valid][, if (.N == 1L) .SD, by = gene]
     j <- match(map$gene, o$gene)
@@ -281,16 +281,16 @@ map_orthologs <- function(genes, cfg, folder) {
   }
   if (!is.null(cfg$annotation) && anyNA(map$orf_sgd)) {
     at <- annotation_text(resolve_file(folder, cfg$annotation))
-    logmsg("  ORFs del bosque que aparecen en la anotacion: ", fmt_n(sum(genes %in% at$gene)),
-           " de ", fmt_n(length(genes)))
+    logmsg("  Forest ORFs found in the annotation: ", fmt_n(sum(genes %in% at$gene)),
+           " of ", fmt_n(length(genes)))
     at <- at[gene %in% map$gene[is.na(map$orf_sgd)]]
-    # Nombre sistematico de S. cerevisiae escrito en la anotacion (YAL001C, Q0045...).
+    # S. cerevisiae systematic name written in the annotation (YAL001C, Q0045...).
     sys <- regmatches(at$text, gregexpr("\\b(Y[A-P][LR][0-9]{3}[WC](-[A-Z])?|Q[0-9]{4})\\b", at$text))
     at[, por_sistematico := vapply(sys, function(z) {
       z <- intersect(unique(z), valid); if (length(z) == 1L) z else NA_character_ }, "")]
-    # Nombre estandar (gene=, Name=, producto tipo Emp46p) -> ORF unico en SGD.
+    # Standard name (gene=, Name=, product such as Emp46p) -> single ORF in SGD.
     nt <- sgd_name_table()
-    # Solo palabras con forma de nombre de gen de levadura (EMP46, MAL11, EMP46p).
+    # Only words shaped like yeast gene names (EMP46, MAL11, EMP46p).
     at[, por_nombre := vapply(strsplit(toupper(gsub("[^A-Za-z0-9-]+", " ", names)), " +"),
       function(z) { z <- sub("P$", "", z[grepl("^[A-Z]{3}[0-9]+P?$", z)])
                     o <- unique(nt$orf[match(unique(z), nt$name, nomatch = 0L)])
@@ -302,7 +302,7 @@ map_orthologs <- function(genes, cfg, folder) {
     map[s, `:=`(orf_sgd = at$por_nombre[j[s]], como = "nombre de gen en la anotacion")]
   }
   n_ok <- sum(!is.na(map$orf_sgd))
-  logmsg("Genes llevados a un ORF de S. cerevisiae: ", fmt_n(n_ok), " de ", fmt_n(nrow(map)),
+  logmsg("Genes mapped to an S. cerevisiae ORF: ", fmt_n(n_ok), " of ", fmt_n(nrow(map)),
          " (", sprintf("%.1f", 100*n_ok/max(1, nrow(map))), "%)",
          if (n_ok) paste0(" | ", paste(sprintf("%s: %s", names(table(map$como)), table(map$como)),
                                        collapse = " | ")))
@@ -310,7 +310,7 @@ map_orthologs <- function(genes, cfg, folder) {
 }
 
 # -----------------------------------------------------------------------------
-# 6. ENRIQUECIMIENTO: HIPERGEOMETRICA DE UNA COLA Y BENJAMINI-HOCHBERG POR BASE
+# 6. ENRICHMENT: ONE-SIDED HYPERGEOMETRIC TEST AND BENJAMINI-HOCHBERG PER DATABASE
 # -----------------------------------------------------------------------------
 enrich_clusters <- function(member, ann, cfg) {
   out <- list()
@@ -330,8 +330,8 @@ enrich_clusters <- function(member, ann, cfg) {
     hits[, `:=`(fdr = stats::p.adjust(p, "BH"), razon = (k/n)/(K/N_univ), base = db)]
     desc <- unique(ann[database == db, .(term, description)], by = "term")
     hits[, descripcion := desc$description[match(term, desc$term)]]
-    logmsg("  ", db, ": universo ", fmt_n(N_univ), " genes | terminos probables ", fmt_n(nrow(tsize)),
-           " | pruebas ", fmt_n(nrow(hits)), " | con FDR < ", cfg$fdr, ": ", fmt_n(sum(hits$fdr < cfg$fdr)))
+    logmsg("  ", db, ": universe ", fmt_n(N_univ), " genes | testable terms ", fmt_n(nrow(tsize)),
+           " | tests ", fmt_n(nrow(hits)), " | with FDR < ", cfg$fdr, ": ", fmt_n(sum(hits$fdr < cfg$fdr)))
     out[[db]] <- hits
   }
   res <- data.table::rbindlist(out, use.names = TRUE)
@@ -342,7 +342,7 @@ enrich_clusters <- function(member, ann, cfg) {
 }
 
 summarize_clusters <- function(member, enr, rfc, cfg, ann) {
-  # Un cluster se puede probar si en alguna base tiene 2 o mas genes anotados.
+  # A cluster can be tested if it has 2 or more annotated genes in some database.
   per_db <- unique(ann[, .(gene, database)])[member[, .(gene, cluster)], on = "gene", nomatch = 0L]
   testable <- unique(per_db[, .N, by = .(cluster, database)][N >= 2L, cluster])
   s <- member[, .(tamano = .N, origen = origen[1L],
@@ -363,7 +363,7 @@ summarize_clusters <- function(member, enr, rfc, cfg, ann) {
 }
 
 # -----------------------------------------------------------------------------
-# 7. EJECUCION
+# 7. RUN
 # -----------------------------------------------------------------------------
 run_clusters <- function(cfg = CONFIG) {
   started <- Sys.time(); name <- cfg$species
@@ -371,44 +371,44 @@ run_clusters <- function(cfg = CONFIG) {
   forest_dir <- if (is.null(cfg$forest_dir)) out_dir else normalizePath(path.expand(cfg$forest_dir))
   files <- stats::setNames(file.path(out_dir, paste0(name, c("_clusters.tsv", "_clusters_resumen.tsv",
                            "_enriquecimiento.tsv"))), c("clusters", "resumen", "enriquecimiento"))
-  logmsg(name, " | bosque en ", forest_dir, " | resultados en ", out_dir)
+  logmsg(name, " | forest in ", forest_dir, " | results in ", out_dir)
   with_logged_warnings({
-    logmsg("PREPARACION: comprobando/instalando paquetes requeridos")
+    logmsg("SETUP: checking/installing the required packages")
     ensure_packages(cfg$install_packages)
     data.table::setDTthreads(0L)
     f <- read_forest(forest_dir, name)
     member <- cluster_trees(f$rf, f$res, cfg)
     rfc <- cluster_rf(member, f$rf)
     n_cl <- data.table::uniqueN(member$cluster)
-    logmsg("Clusters: ", fmt_n(n_cl), " | con 2 o mas ORFs: ", fmt_n(sum(table(member$cluster) >= 2L)),
-           " | de 1 ORF: ", fmt_n(sum(table(member$cluster) == 1L)))
-    # La unidad de la prueba es el gen del bosque; sus anotaciones vienen de su ORF de SGD.
+    logmsg("Clusters: ", fmt_n(n_cl), " | with 2 or more ORFs: ", fmt_n(sum(table(member$cluster) >= 2L)),
+           " | with 1 ORF: ", fmt_n(sum(table(member$cluster) == 1L)))
+    # The unit of the test is the forest gene; its annotations come from its SGD ORF.
     if (identical(cfg$gene_ids, "sgd")) {
       member[, orf_sgd := orf]
     } else {
-      logmsg("Ortologos en S. cerevisiae")
+      logmsg("Orthologues in S. cerevisiae")
       map <- map_orthologs(member$orf, cfg, out_dir)
       member[, `:=`(orf_sgd = map$orf_sgd[match(orf, map$gene)], como_se_mapeo = map$como[match(orf, map$gene)])]
     }
     write_tsv(member, files[["clusters"]])
-    logmsg("Guardado ", basename(files[["clusters"]]))
-    if (all(is.na(member$orf_sgd))) stop("Ningun gen se pudo llevar a un ORF de S. cerevisiae: la anotacion",
-      " no trae nombres de SGD. Los clusters quedaron guardados; para el enriquecimiento indica en",
-      " orthologs_file una tabla de dos columnas (gen, ORF de SGD).")
+    logmsg("Saved ", basename(files[["clusters"]]))
+    if (all(is.na(member$orf_sgd))) stop("No gene could be mapped to an S. cerevisiae ORF: the annotation",
+      " has no SGD names. The clusters were saved; for the enrichment, give in",
+      " orthologs_file a two-column table (gene, SGD ORF).")
     member[, gene := orf]
     ann_sgd <- sgd_annotations(unique(stats::na.omit(member$orf_sgd)), cfg)
-    if (!nrow(ann_sgd)) stop("Ningun gen tiene anotaciones en las bases pedidas; no hay enriquecimiento que probar.")
+    if (!nrow(ann_sgd)) stop("No gene has annotations in the requested databases; there is no enrichment to test.")
     ann <- merge(member[!is.na(orf_sgd), .(gene, orf_sgd)], ann_sgd, by.x = "orf_sgd", by.y = "gene",
                  allow.cartesian = TRUE)[, orf_sgd := NULL]
-    logmsg("Enriquecimiento por cluster")
+    logmsg("Enrichment per cluster")
     enr <- enrich_clusters(member[, .(gene, cluster)], ann, cfg)
     summ <- summarize_clusters(member, enr, rfc, cfg, ann)
     write_tsv(summ, files[["resumen"]])
     write_tsv(enr, files[["enriquecimiento"]])
-    logmsg("Clusters probados: ", fmt_n(sum(summ$enriquecido %in% c("si", "no"))),
-           " | con algun termino FDR < ", cfg$fdr, ": ", fmt_n(sum(summ$enriquecido == "si")))
+    logmsg("Clusters tested: ", fmt_n(sum(summ$enriquecido %in% c("si", "no"))),
+           " | with some term at FDR < ", cfg$fdr, ": ", fmt_n(sum(summ$enriquecido == "si")))
   })
-  logmsg("TERMINADO ", name, " | tiempo total ",
+  logmsg("FINISHED ", name, " | total time ",
          format(round(difftime(Sys.time(), started, units = "mins"), 1)))
   for (f in files) logmsg("  ", basename(f))
   invisible(files)
@@ -417,10 +417,10 @@ run_clusters <- function(cfg = CONFIG) {
 if (Sys.getenv("PHYLO_LIBRARY_ONLY") != "1") RESULTADOS_CLUSTERS <- run_clusters(CONFIG)
 
 # =============================================================================
-# LECTURA DE RESULTADOS EN R (ejemplo)
+# READING THE RESULTS IN R (example)
 # cl  <- data.table::fread("SCerevisiae_clusters.tsv")
 # res <- data.table::fread("SCerevisiae_clusters_resumen.tsv")
 # enr <- data.table::fread("SCerevisiae_enriquecimiento.tsv")
-# res[enriquecido == "si"]                 # clusters con terminos enriquecidos
-# enr[fdr < 0.05][order(cluster, fdr)]     # los terminos de cada uno
+# res[enriquecido == "si"]                 # clusters with enriched terms
+# enr[fdr < 0.05][order(cluster, fdr)]     # the terms of each one
 # =============================================================================
