@@ -1,0 +1,964 @@
+isolate	Population
+AAA	Wine/European
+AAB	Mosaic beer
+AAC	Ale beer
+AAD	Sake
+AAE	Wine/European (subclade 4)
+AAG	Mosaic region 3
+AAI	Wine/European
+AAK	Wine/European (subclade 4)
+AAL	Mixed origin
+AAM	Mixed origin
+AAN	Mixed origin
+AAP	Mixed origin
+AAQ	Mosaic beer
+AAR	Mosaic beer
+AAS	Mosaic region 3
+AAT	Mosaic region 3
+AAV	Mosaic region 3
+ABA	Mosaic region 3
+ABB	Asian fermentation
+ABC	Mosaic region 3
+ABD	Mosaic region 3
+ABE	Wine/European
+ABF	Mosaic region 3
+ABG	Mosaic region 3
+ABH	Mosaic region 3
+ABI	Mosaic region 3
+ABK	Mosaic region 3
+ABM	Alpechin
+ABP	Wine/European
+ABQ	Wine/European
+ABR	Wine/European
+ABS	Wine/European
+ABT	Wine/European
+ABV	Mixed origin
+ACA	Mosaic region 3
+ACB	Mosaic region 3
+ACC	Ecuadorean
+ACD	North American oak
+ACF	Wine/European
+ACG	Mosaic region 1
+ACH	Mosaic region 1
+ACI	Mosaic region 3
+ACK	Asian fermentation
+ACL	Mosaic region 3
+ACM	Asian fermentation
+ACN	Mosaic region 3
+ACP	Wine/European (subclade 1)
+ACQ	Far East Asia
+ACR	Wine/European
+ACS	Mosaic region 1
+ACT	Wine/European
+ACV	Wine/European
+ADA	Mosaic region 3
+ADB	Wine/European
+ADC	Wine/European
+ADD	Wine/European (subclade 2)
+ADF	African palm wine
+ADH	Asian fermentation
+ADI	Wine/European (subclade 2)
+ADK	Mosaic region 3
+ADL	Mixed origin
+ADM	Mixed origin
+ADN	Sake
+ADP	Mixed origin
+ADQ	Sake
+ADR	Wine/European
+ADS	Wine/European
+ADT	Mosaic region 3
+ADV	African palm wine
+AEA	Mosaic beer
+AEB	Ale beer
+AEC	Ale beer
+AEE	Mosaic region 3
+AEF	Sake
+AEG	Brazilian bioethanol
+AEH	Brazilian bioethanol
+AEI	Mosaic region 3
+AEK	Wine/European (subclade 4)
+AEL	Mosaic region 3
+AEM	Mixed origin
+AEN	African beer
+AEP	Asian fermentation
+AEQ	Mosaic beer
+AER	Mosaic region 2
+AES	Wine/European (subclade 4)
+AET	Wine/European (subclade 4)
+AEV	Mixed origin
+AFA	Mosaic beer
+AFB	Mosaic beer
+AFC	Mixed origin
+AFD	Brazilian bioethanol
+AFE	Mixed origin
+AFF	Mixed origin
+AFG	Mosaic region 3
+AFH	Asian fermentation
+AFI	Wine/European (subclade 4)
+AFK	Asian islands
+AFL	African beer
+AFM	Sake
+AFN	Sake
+AFP	Mosaic beer
+AFQ	Mosaic region 2
+AFR	Brazilian bioethanol
+AFT	Mixed origin
+AFV	Wine/European (subclade 4)
+AGA	Wine/European
+AGB	Ale beer
+AGE	Mixed origin
+AGF	Wine/European
+AGG	Asian fermentation
+AGH	Wine/European
+AGI	Wine/European
+AGK	Mixed origin
+AGL	Wine/European
+AGM	Brazilian bioethanol
+AGN	Mosaic region 1
+AGP	Mosaic region 3
+AGR	Asian islands
+AGS	Wine/European
+AGT	Mosaic region 3
+AGV	Wine/European
+AHA	Mosaic region 3
+AHC	Brazilian bioethanol
+AHD	Wine/European
+AHE	Wine/European
+AHF	Mosaic region 1
+AHG	Wine/European
+AHH	Asian islands
+AHI	Wine/European
+AHK	Wine/European (subclade 4)
+AHL	Alpechin
+AHM	Alpechin
+AHN	Wine/European
+AHP	Wine/European (subclade 4)
+AHQ	Asian fermentation
+AHR	Wine/European
+AHS	African palm wine
+AHT	Wine/European
+AHV	Mixed origin
+AIA	Wine/European (subclade 4)
+AIB	Wine/European (subclade 4)
+AIC	Wine/European (subclade 4)
+AID	Alpechin
+AIE	Alpechin
+AIF	Wine/European
+AIG	Mosaic beer
+AII	Wine/European
+AIK	Wine/European
+AIL	Wine/European
+AIM	Wine/European
+AIN	Wine/European
+AIP	Wine/European (subclade 4)
+AIQ	Wine/European
+AIR	Wine/European
+AIT	Wine/European
+AKB	African palm wine
+AKC	African palm wine
+AKD	African palm wine
+AKE	African palm wine
+AKG	African palm wine
+AKH	African palm wine
+AKI	Mosaic region 3
+AKL	Asian fermentation
+AKM	Malaysian
+AKN	North American oak
+AKP	Wine/European
+AKQ	Mosaic region 3
+AKR	Asian fermentation
+AKS	Mosaic region 3
+AKT	Mixed origin
+AKV	Wine/European
+ALA	Asian fermentation
+ALB	Asian fermentation
+ALC	Asian fermentation
+ALD	French dairy
+ALE	Wine/European
+ALG	Mosaic region 3
+ALH	Asian fermentation
+ALK	Asian fermentation
+ALL	Wine/European
+ALM	Wine/European
+ALN	Mixed origin
+ALP	Mixed origin
+ALQ	Wine/European (subclade 1)
+ALR	Mosaic region 3
+ALS	Wine/European (subclade 1)
+ALT	Wine/European (subclade 1)
+ALV	Mixed origin
+AMA	Wine/European (subclade 1)
+AMG	Mixed origin
+AMH	Taiwanese
+AMI	Mixed origin
+AMK	Mixed origin
+AML	Mixed origin
+AMN	Mixed origin
+AMP	Mosaic region 1
+AMQ	Mixed origin
+AMR	Wine/European
+AMS	Wine/European
+AMT	Wine/European (subclade 3)
+ANA	Mosaic region 3
+ANC	North American oak
+AND	North American oak
+ANE	North American oak
+ANF	North American oak
+ANG	North American oak
+ANH	North American oak
+ANI	North American oak
+ANK	North American oak
+ANL	African beer
+ANM	African beer
+ANN	West African cocoa
+ANP	Mixed origin
+ANQ	Wine/European
+ANR	Sake
+ANS	Sake
+ANT	Sake
+ANV	Sake
+APA	Sake
+APC	Sake
+APD	Sake
+APE	Sake
+APF	Sake
+APG	Brazilian bioethanol
+APH	Brazilian bioethanol
+API	Mixed origin
+APK	Mixed origin
+APL	Mixed origin
+APM	Mixed origin
+APN	Mixed origin
+APP	Mosaic beer
+APQ	African palm wine
+APR	African palm wine
+APS	Wine/European
+APT	Wine/European
+APV	Wine/European
+AQA	Alpechin
+AQB	Wine/European
+AQC	Wine/European (subclade 4)
+AQD	Alpechin
+AQE	Wine/European (subclade 4)
+AQG	Mosaic beer
+AQH	Mosaic beer
+AQI	Mixed origin
+AQM	French dairy
+AQN	Sake
+AQP	Wine/European (subclade 4)
+AQQ	Wine/European
+AQR	Wine/European
+AQS	Asian fermentation
+AQT	Ale beer
+ARA	Mosaic region 3
+ARB	Mosaic region 3
+ARC	Wine/European
+ARE	Mosaic beer
+ARG	Asian islands
+ARH	Asian islands
+ARI	Asian islands
+ARK	Wine/European
+ARL	Wine/European
+ARM	Sake
+ARN	French dairy
+ARP	Sake
+ARQ	Wine/European
+ARR	French dairy
+ARS	French dairy
+ART	Wine/European (subclade 4)
+ARV	Wine/European
+ASA	Wine/European (subclade 4)
+ASB	Mosaic beer
+ASC	African beer
+ASD	Wine/European
+ASE	Wine/European
+ASG	Wine/European
+ASH	Ale beer
+ASL	Mixed origin
+ASN	French dairy
+ASP	Mixed origin
+ASR	Wine/European
+ASS	Wine/European
+AST	Mosaic region 1
+ASV	Mosaic region 1
+ATA	Wine/European
+ATB	Mosaic region 3
+ATC	Mosaic region 3
+ATD	Mosaic region 3
+ATE	Mosaic region 3
+ATH	Wine/European
+ATM	Wine/European
+ATN	Wine/European
+ATP	African palm wine
+ATQ	Alpechin
+ATR	Mixed origin
+ATS	Mixed origin
+ATV	Ale beer
+AVB	Alpechin
+AVC	Sake
+AVD	Sake
+AVH	Wine/European
+AVI	North American oak
+AVK	Wine/European
+AVL	Sake
+AVM	Sake
+AVN	African beer
+AVP	African beer
+AVQ	African beer
+AVR	African beer
+AVS	African beer
+AVT	African beer
+AVV	African palm wine
+BAA	African palm wine
+BAB	African palm wine
+BAC	African palm wine
+BAD	African palm wine
+BAE	African palm wine
+BAF	African palm wine
+BAG	CHNII
+BAH	CHNII
+BAI	Far East Asia
+BAK	Far East Asia
+BAL	CHNI
+BAM	CHNIII
+BAN	CHN V
+BAP	CHN V
+BAQ	CHNIII
+BAR	Wine/European
+BAS	Wine/European
+BAT	Wine/European
+BAV	Wine/European
+BBA	Wine/European
+BBB	Wine/European
+BBC	Mixed origin
+BBD	Mixed origin
+BBE	Mixed origin
+BBF	Mixed origin
+BBG	Ale beer
+BBH	Wine/European (subclade 1)
+BBI	Wine/European (subclade 1)
+BBK	Wine/European (subclade 1)
+BBL	Mosaic region 3
+BBP	Mixed origin
+BBQ	Mediterranean oak
+BBS	Mediterranean oak
+BBT	Mosaic region 3
+BBV	Wine/European
+BCA	Wine/European (subclade 3)
+BCB	French Guiana human
+BCC	French Guiana human
+BCD	French Guiana human
+BCE	French Guiana human
+BCF	French Guiana human
+BCG	French Guiana human
+BCH	French Guiana human
+BCI	French Guiana human
+BCK	French Guiana human
+BCL	French Guiana human
+BCM	French Guiana human
+BCN	French Guiana human
+BCP	French Guiana human
+BCQ	French Guiana human
+BCR	Mixed origin
+BCS	Mixed origin
+BCT	Mixed origin
+BCV	Mosaic region 2
+BDA	Mosaic region 2
+BDB	Mosaic region 2
+BDC	Mosaic region 3
+BDD	Mosaic region 2
+BDE	Mosaic region 2
+BDF	Mosaic region 3
+BDG	Mosaic region 3
+BDH	Mosaic region 2
+BDI	Mosaic region 2
+BDK	Mosaic region 2
+BDL	Mixed origin
+BDM	Mosaic region 3
+BDN	African beer
+BDP	French Guiana human
+BDQ	French Guiana human
+BDR	French Guiana human
+BDS	French Guiana human
+BDT	French Guiana human
+BDV	French Guiana human
+BEA	French Guiana human
+BEB	French Guiana human
+BEC	French Guiana human
+BED	French Guiana human
+BEE	French Guiana human
+BEF	Asian fermentation
+BEH	Asian fermentation
+BEI	African beer
+BEK	African beer
+BEM	African beer
+BEN	African beer
+BEP	Wine/European (subclade 1)
+BEQ	Wine/European
+BER	Wine/European
+BES	Wine/European
+BET	Wine/European
+BEV	Wine/European
+BFB	Wine/European (subclade 1)
+BFC	Wine/European
+BFD	Wine/European (subclade 1)
+BFE	Mixed origin
+BFG	Mixed origin
+BFH	French dairy
+BFK	Wine/European
+BFM	Mixed origin
+BFN	French dairy
+BFP	Mediterranean oak
+BFQ	Wine/European
+BFR	Wine/European
+BFS	French dairy
+BFT	French dairy
+BFV	French dairy
+BGA	French dairy
+BGB	French dairy
+BGC	French dairy
+BGD	French dairy
+BGE	French dairy
+BGF	French dairy
+BGG	French dairy
+BGH	French dairy
+BGI	French dairy
+BGK	French dairy
+BGL	French dairy
+BGM	French dairy
+BGN	French dairy
+BGP	French dairy
+BGQ	French dairy
+BGR	French dairy
+BGS	French dairy
+BGT	French dairy
+BGV	French dairy
+BHA	African beer
+BHB	Wine/European
+BHC	Wine/European
+BHD	Mosaic region 1
+BHE	Mosaic region 1
+BHF	Wine/European
+BHG	Mosaic region 2
+BHH	Mosaic region 2
+BHI	Mosaic region 2
+BHK	Mosaic region 1
+BHL	Mosaic region 1
+BHM	Mosaic region 1
+BHN	Wine/European
+BHP	Asian fermentation
+BHQ	Asian fermentation
+BHR	Asian fermentation
+BHS	Asian fermentation
+BHT	Mosaic region 1
+BHV	Wine/European
+BIA	Wine/European
+BIB	Wine/European
+BIC	Wine/European
+BID	Wine/European
+BIE	Mosaic region 3
+BIF	Wine/European
+BIG	Wine/European
+BIH	Wine/European
+BII	Wine/European
+BIK	Wine/European
+BIL	Wine/European
+BIM	Wine/European
+BIN	Wine/European
+BIP	Wine/European
+BIQ	Wine/European
+BIR	Wine/European
+BIS	Wine/European
+BIT	Wine/European
+BKA	Wine/European
+BKC	Wine/European
+BKD	Wine/European
+BKE	Wine/European
+BKF	Wine/European
+BKG	Wine/European
+BKH	Wine/European
+BKI	Wine/European
+BKK	Wine/European
+BKL	Wine/European
+BKM	Wine/European
+BKN	Wine/European
+BKP	Wine/European
+BKQ	Wine/European
+BKR	Wine/European
+BKS	Wine/European
+BKT	Wine/European
+BLA	Wine/European
+BLB	Wine/European
+BLC	Wine/European
+BLD	Wine/European
+BLE	Wine/European
+BLF	Wine/European
+BLG	Wine/European
+BLH	Wine/European
+BLI	Wine/European
+BLK	Wine/European
+BLL	Wine/European
+BLM	Wine/European
+BLN	Wine/European
+BLP	Wine/European
+BLQ	Wine/European
+BLR	Wine/European
+BLS	Wine/European
+BLT	Wine/European
+BLV	Wine/European
+BMA	Malaysian
+BMB	Malaysian
+BMC	Malaysian
+BMD	Mosaic region 3
+BME	French dairy
+BMF	Mosaic region 3
+BMG	Mixed origin
+BMH	Wine/European (subclade 2)
+BMI	Wine/European (subclade 2)
+BMK	Wine/European (subclade 2)
+BML	Mixed origin
+BMM	Mixed origin
+BMN	Wine/European (subclade 3)
+BMQ	Mosaic region 3
+BMR	French Guiana human
+BMV	French Guiana human
+BNA	French Guiana human
+BNB	French Guiana human
+BNC	French Guiana human
+BND	French Guiana human
+BNE	Wine/European
+BNF	Wine/European
+BNG	Wine/European
+BNH	Wine/European
+BNI	Wine/European
+BNK	Wine/European
+BNL	Wine/European
+BNM	Wine/European
+BNN	Wine/European
+BNP	Wine/European
+BNQ	Wine/European
+BNR	Wine/European
+BNT	Wine/European
+BNV	Wine/European
+BPA	Mosaic region 3
+BPB	Wine/European
+BPC	Wine/European
+BPF	Wine/European
+BPG	Wine/European
+BPH	Wine/European
+BPK	Wine/European
+BPL	Wine/European (subclade 4)
+BPM	Wine/European
+BPP	Wine/European
+BPQ	Wine/European (subclade 1)
+BPR	Wine/European (subclade 4)
+BPT	Wine/European
+BPV	Wine/European
+BQA	Wine/European (subclade 1)
+BQB	Wine/European
+BQC	Wine/European
+BQE	Wine/European
+BQG	Wine/European
+BQH	Wine/European
+BQI	Wine/European
+BQM	Wine/European
+BQN	Wine/European (subclade 1)
+BQP	Wine/European
+BQQ	Wine/European
+BQR	Wine/European
+BQS	Wine/European
+BQT	Wine/European
+BRA	Wine/European
+BRB	Wine/European
+BRC	Wine/European (subclade 1)
+BRD	Wine/European
+BRE	Wine/European
+BRF	Wine/European
+BRG	Asian fermentation
+BRH	Wine/European
+BRK	Alpechin
+BRL	Mosaic region 3
+BRM	Mosaic beer
+BRP	Ale beer
+BRQ	Ale beer
+BRV	Mosaic region 3
+BSA	Wine/European
+BSB	Wine/European
+BSC	Wine/European
+BSD	Wine/European
+BSE	Wine/European
+BSG	Wine/European
+BSI	Ale beer
+BSK	Mosaic region 3
+BSL	Wine/European
+BSM	Wine/European
+BSN	Wine/European
+BSP	Wine/European
+BSR	Wine/European
+BSS	Wine/European
+BST	Wine/European
+BTA	Mosaic region 3
+BTB	Mosaic region 3
+BTC	Mixed origin
+BTD	Mixed origin
+BTE	Mixed origin
+BTF	Mixed origin
+BTG	Mediterranean oak
+BTH	Wine/European
+BTI	Mosaic region 3
+BTL	Wine/European
+BTN	Wine/European
+BTP	Wine/European
+BTR	Wine/European
+BTS	Sake
+BTT	Brazilian bioethanol
+BTV	Brazilian bioethanol
+BVA	Brazilian bioethanol
+BVB	Brazilian bioethanol
+BVC	Brazilian bioethanol
+BVD	Brazilian bioethanol
+BVE	Brazilian bioethanol
+BVF	Brazilian bioethanol
+BVG	Brazilian bioethanol
+BVH	Brazilian bioethanol
+BVK	Wine/European
+BVM	Wine/European
+BVT	Wine/European (subclade 4)
+BVV	Wine/European (subclade 4)
+CAA	Wine/European (subclade 4)
+CAB	Wine/European (subclade 4)
+CAC	Wine/European (subclade 4)
+CAD	Wine/European (subclade 4)
+CAE	Wine/European
+CAF	Wine/European
+CAH	Wine/European
+CAI	Wine/European
+CAK	Wine/European
+CAL	Wine/European
+CAM	Wine/European (subclade 4)
+CAN	Wine/European (subclade 4)
+CAP	Wine/European (subclade 4)
+CAQ	Wine/European (subclade 4)
+CAR	Wine/European (subclade 4)
+CAS	Wine/European (subclade 4)
+CAT	Wine/European (subclade 4)
+CAV	Wine/European (subclade 4)
+CBA	Wine/European
+CBB	Wine/European (subclade 4)
+CBC	Wine/European (subclade 4)
+CBD	Wine/European (subclade 4)
+CBE	Wine/European (subclade 4)
+CBF	Mixed origin
+CBG	Wine/European
+CBH	Wine/European
+CBI	Wine/European (subclade 1)
+CBK	Mosaic region 3
+CBL	Mosaic region 3
+CBM	Mosaic region 3
+CBN	Mosaic beer
+CBR	Ale beer
+CCC	Ecuadorean
+CCD	Ecuadorean
+CCE	Ecuadorean
+CCF	Ecuadorean
+CCG	Ecuadorean
+CCH	Ecuadorean
+CCI	Ecuadorean
+CCL	Mediterranean oak
+CCM	Wine/European (subclade 1)
+CCN	Far East Asia
+CCQ	Far East Asia
+CCR	Far East Asia
+CCS	Far East Asia
+CCT	Asian islands
+CCV	Asian islands
+CDA	Asian islands
+CDC	Mosaic region 3
+CDD	Mosaic region 3
+CDE	Mosaic region 3
+CDF	Far East Russian
+CDG	Far East Russian
+CDH	Far East Russian
+CDI	Far East Russian
+CDK	Mosaic region 3
+CDL	Far East Asia
+CDM	Mosaic region 2
+CDR	Mixed origin
+CDS	Wine/European
+CDT	Alpechin
+CDV	Wine/European
+CEA	Wine/European
+CEB	Wine/European
+CEC	Wine/European
+CED	Wine/European
+CEE	Wine/European
+CEF	Wine/European
+CEG	Taiwanese
+CEI	Taiwanese
+CEK	Asian fermentation
+CEL	Asian fermentation
+CEM	Mosaic region 3
+CEN	Mosaic region 3
+CEQ	Mosaic region 3
+CER	African beer
+CES	African beer
+CET	African beer
+CEV	Asian fermentation
+CFA	African palm wine
+CFB	Wine/European
+CFC	Ale beer
+CFD	Ale beer
+CFE	Wine/European
+CFF	Mosaic beer
+CFG	Ale beer
+CFH	Ale beer
+CFI	Mixed origin
+CFM	Ale beer
+CFN	Mixed origin
+CFP	Mixed origin
+CFQ	Wine/European
+CFR	Wine/European
+CFS	Wine/European
+CFT	Mosaic region 2
+CFV	Wine/European
+CGB	Mosaic region 3
+CGC	Ale beer
+CGD	Alpechin
+CGE	Alpechin
+CGG	Asian fermentation
+CGI	Asian fermentation
+CGK	Asian fermentation
+CGL	Asian fermentation
+CGN	Asian fermentation
+CGP	Asian fermentation
+CGQ	Asian fermentation
+CGR	Asian fermentation
+CGS	Wine/European
+CGT	Wine/European (subclade 1)
+CGV	Wine/European
+CHA	Wine/European
+CHB	Wine/European
+CHC	Wine/European
+CHD	Wine/European
+CHE	Wine/European
+CHF	Wine/European
+CHG	Mixed origin
+CHH	Mixed origin
+CHI	Mixed origin
+CHK	Mixed origin
+CHL	Mixed origin
+CHM	Asian fermentation
+CHN	Mosaic region 3
+CHP	Mosaic region 3
+CHQ	Mosaic region 3
+CHR	Mixed origin
+CHS	Mosaic region 3
+CHT	Mosaic region 3
+CHV	Mosaic region 1
+CIA	Wine/European
+CIB	Wine/European
+CIC	Mosaic region 3
+CID	Mosaic region 3
+CIE	Mixed origin
+CIF	Mosaic region 3
+CIG	Mosaic region 3
+CIH	Mosaic region 3
+CII	Mosaic region 3
+CIK	Mosaic region 3
+CIL	Mosaic region 3
+CIM	Wine/European (subclade 3)
+CIN	Wine/European (subclade 3)
+CIP	Wine/European (subclade 3)
+CIQ	Wine/European (subclade 3)
+CIR	Wine/European (subclade 3)
+CIS	Wine/European (subclade 3)
+CIT	Wine/European (subclade 3)
+CIV	Wine/European (subclade 3)
+CKA	Mosaic region 3
+CKB	Wine/European (subclade 3)
+CKC	Wine/European (subclade 3)
+CKD	Wine/European (subclade 3)
+CKE	Wine/European (subclade 3)
+CKF	Wine/European (subclade 3)
+CKG	Wine/European (subclade 3)
+CKH	Wine/European (subclade 3)
+CKI	Wine/European (subclade 3)
+CKK	Mixed origin
+CKL	Wine/European (subclade 3)
+CKM	Wine/European (subclade 3)
+CKN	Mosaic region 3
+CKP	Wine/European (subclade 3)
+CKQ	Wine/European (subclade 3)
+CKS	Mixed origin
+CKT	Wine/European (subclade 3)
+CKV	French dairy
+CLA	Mixed origin
+CLB	Mediterranean oak
+CLC	Mediterranean oak
+CLD	Mediterranean oak
+CLG	Mosaic region 3
+CLH	Wine/European
+CLI	Sake
+CLK	Sake
+CLL	Sake
+CLM	Sake
+CLN	Sake
+CLP	Sake
+CLQ	Sake
+CLR	Sake
+CLS	Sake
+CLT	Sake
+CLV	Sake
+CMB	Sake
+CMC	Sake
+CMD	Sake
+CME	Sake
+CMF	Sake
+CMG	Mosaic region 3
+CMH	Sake
+CMI	Sake
+CMK	Sake
+CML	Sake
+CMM	Sake
+CMN	Sake
+CMP	Ecuadorean
+CMQ	Ecuadorean
+CMT	Brazilian bioethanol
+CNB	Brazilian bioethanol
+CNC	Mosaic region 3
+CNE	Brazilian bioethanol
+CNF	Brazilian bioethanol
+CNG	Brazilian bioethanol
+CNH	Brazilian bioethanol
+CNI	Brazilian bioethanol
+CNK	Brazilian bioethanol
+CNL	Brazilian bioethanol
+CNM	Brazilian bioethanol
+CNN	Brazilian bioethanol
+CNP	Brazilian bioethanol
+CNQ	Brazilian bioethanol
+CNR	Brazilian bioethanol
+CNS	Brazilian bioethanol
+CNT	Brazilian bioethanol
+CNV	Brazilian bioethanol
+CPB	Mosaic region 1
+CPC	Mosaic region 3
+CPD	Mosaic beer
+CPE	Wine/European
+CPF	Wine/European
+CPG	Alpechin
+CPI	Mexican agave
+CPK	Mexican agave
+CPL	Mexican agave
+CPM	Mexican agave
+CPN	Mexican agave
+CPQ	Mexican agave
+CPR	Mexican agave
+CPS	African palm wine
+CPT	African palm wine
+CQA	African palm wine
+CQB	African palm wine
+CQC	West African cocoa
+CQD	West African cocoa
+CQE	West African cocoa
+CQF	West African cocoa
+CQG	West African cocoa
+CQH	West African cocoa
+CQI	West African cocoa
+CQK	West African cocoa
+CQL	West African cocoa
+CQM	West African cocoa
+CQN	West African cocoa
+CQP	West African cocoa
+CQQ	Sake
+CQR	Sake
+CQT	Wine/European
+CQV	Wine/European
+CRA	Wine/European
+CRB	Wine/European
+CRC	Wine/European
+CRD	Wine/European
+CRE	Mosaic region 3
+CRG	Wine/European
+CRH	Wine/European
+CRI	Wine/European
+CRK	Wine/European
+CRL	Wine/European
+SACE_GAL	African palm wine
+SACE_GAP	Wine/European
+SACE_GAV	Mosaic region 3
+SACE_MAA	Mosaic region 2
+SACE_MAB	Mosaic region 3
+SACE_MAL	Malaysian
+SACE_YAA	Wine/European
+SACE_YAB	Mosaic beer
+SACE_YAC	African palm wine
+SACE_YAD	Wine/European
+SACE_YAE	Alpechin
+SACE_YAF	Wine/European (subclade 4)
+SACE_YAG	Mosaic beer
+SACE_YAK	Mosaic region 3
+SACE_YAL	Mosaic region 3
+SACE_YAM	Wine/European
+SACE_YAN	Mosaic region 3
+SACE_YAP	Mosaic region 3
+SACE_YAQ	Mosaic region 3
+SACE_YAR	Mosaic region 3
+SACE_YAT	Mosaic region 3
+SACE_YAU	Mosaic region 3
+SACE_YAV	Mosaic region 3
+SACE_YAW	Mosaic region 3
+SACE_YAY	Wine/European (subclade 2)
+SACE_YAZ	Wine/European (subclade 2)
+SACE_YBA	Wine/European (subclade 2)
+SACE_YBB	Wine/European (subclade 2)
+SACE_YBE	Wine/European (subclade 2)
+SACE_YBF	Wine/European (subclade 2)
+SACE_YBG	Wine/European (subclade 2)
+SACE_YBH	Wine/European (subclade 2)
+SACE_YBJ	Mosaic region 3
+SACE_YBK	Mosaic region 3
+SACE_YBL	Mosaic region 3
+SACE_YBM	Mosaic region 3
+SACE_YBN	Wine/European
+SACE_YBO	Wine/European
+SACE_YBP	African palm wine
+SACE_YBR	Alpechin
+SACE_YBS	North American oak
+SACE_YBT	Mosaic region 3
+SACE_YBU	Mosaic region 3
+SACE_YBX	Wine/European
+SACE_YBY	Wine/European
+SACE_YBZ	Mosaic region 3
+SACE_YCA	Wine/European
+SACE_YCC	Mosaic region 2
+SACE_YCD	Wine/European
+SACE_YCE	Mosaic region 3
+SACE_YCF	Mosaic region 2
+SACE_YCH	Mosaic region 3
+SACE_YCI	Mosaic region 1
+SACE_YCJ	Asian fermentation
+SACE_YCK	Asian fermentation
+SACE_YCM	Asian islands
+SACE_YCP	Wine/European
+SACE_YCQ	Wine/European
+SACE_YCR	Far East Asia
+SACE_YCS	Mosaic region 3
+SACE_YCT	Mosaic region 2
+SACE_YCU	North American oak
+SACE_YCV	African palm wine
+SACE_YCY	Malaysian
+SACE_YCZ	Mosaic region 2
+SACE_YDA	Asian fermentation
+SACE_YDC	Wine/European
+SACE_YDD	Mosaic beer
+SACE_YDE	Asian islands
+SACE_YDF	Wine/European
+SACE_YDG	Mosaic region 3
+SACE_YDH	Mosaic region 3
+SACE_YDJ	Wine/European
+SACE_YDK	Asian fermentation
+SACE_YDL	Mosaic region 3
+SACE_YDM	Alpechin
+SACE_YDN	Mosaic region 3
+SACE_YDO	Wine/European

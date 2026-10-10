@@ -1,0 +1,472 @@
+isolate	Lineage	Country	Locality	Host	Substrate	Continent
+10B	Admix	Chile	Valdivia	Quercus robur	Bark	South America
+1200_Ch	Admix	Chile	Chiloe	N. antarctica	Bark	South America
+1201_Ch	Admix	Chile	Chiloe	N. antarctica	Bark	South America
+467	Admix	Chile	Coyhaique	N. pumilio	Bark	South America
+8D	Admix	Chile	Valdivia	Quercus robur	Bark	South America
+AA3	PA	Chile	Alto Bio Bio	N. pumilio	Bark	South America
+AA4	PA	Chile	Alto Bio Bio	N. pumilio	Bark	South America
+ABFM5L	Admix	China	Himalayan	Oak	Bark	Asia
+C12	PB4	Chile	Valdivia	N. antarctica	Bark	South America
+CDFM21L	Admix	China	Himalayan	Oak	Bark	Asia
+CL1001.1	PB1	Chile	Torres del Paine	N. pumilio	Bark	South America
+CL1002.1	PB1	Chile	Torres del Paine	N. pumilio	Bark	South America
+CL1003.1	PB1	Chile	Torres del Paine	N. pumilio	Bark	South America
+CL1004.1	PB1	Chile	Torres del Paine	N. pumilio	Bark	South America
+CL1005.1	PB1	Chile	Torres del Paine	N. pumilio	Bark	South America
+CL1006.1	PB1	Chile	Torres del Paine	N. pumilio	Bark	South America
+CL1007.1	Admix	Chile	Torres del Paine	N. pumilio	Bark	South America
+CL1008.1	PB1	Chile	Torres del Paine	N. pumilio	Bark	South America
+CL1009.1	PB1	Chile	Torres del Paine	N. pumilio	Bark	South America
+CL1010.1	Admix	Chile	Torres del Paine	N. pumilio	Bark	South America
+CL1101.1	PB2	Chile	Nahuelbuta	N. pumilio	Bark	South America
+CL1104.1	PB3	Chile	Choshuenco	N. pumilio	Bark	South America
+CL1106.1	Admix	Chile	Nahuelbuta	N. pumilio	Bark	South America
+CL1108.1	PB2	Chile	Nahuelbuta	N. pumilio	Bark	South America
+CL1109.1	PB2	Chile	Nahuelbuta	N. pumilio	Bark	South America
+CL1110.1	PB3	Chile	Choshuenco	N. pumilio	Bark	South America
+CL1111.1	Admix	Chile	Nahuelbuta	N. pumilio	Bark	South America
+CL1112.1	Admix	Chile	Nahuelbuta	N. pumilio	Bark	South America
+CL204.3	PB3	Chile	Villarrica	N. pumilio	Bark	South America
+CL210.1	Admix	Chile	Villarrica	N. pumilio	Bark	South America
+CL211.3	PB3	Chile	Villarrica	N. pumilio	Bark	South America
+CL212.2	PB3	Chile	Villarrica	N. pumilio	Bark	South America
+CL215.1	PB3	Chile	Villarrica	N. pumilio	Bark	South America
+CL216.1	PB3	Chile	Villarrica	N. pumilio	Bark	South America
+CL218.1	PB3	Chile	Villarrica	N. pumilio	Bark	South America
+CL220.3	PB3	Chile	Villarrica	N. pumilio	Bark	South America
+CL221.1	PB3	Chile	Villarrica	N. pumilio	Bark	South America
+CL248.1	PB2	Chile	Villarrica	N. pumilio	Bark	South America
+CL444.2	PB1	Chile	Coyhaique	N. dombeyi	Bark	South America
+CL446.2	PB1	Chile	Coyhaique	N. dombeyi	Bark	South America
+CL447.3	PB1	Chile	Coyhaique	N. dombeyi	Bark	South America
+CL448.1	PB1	Chile	Coyhaique	N. dombeyi	Bark	South America
+CL449.1	PB1	Chile	Coyhaique	N. dombeyi	Bark	South America
+CL450.1	PB1	Chile	Coyhaique	N. pumilio	Bark	South America
+CL451.4	Admix	Chile	Coyhaique	N. pumilio	Bark	South America
+CL467.2	PB1	Chile	Coyhaique	N. dombeyi	Bark	South America
+CL471.2	PB1	Chile	Coyhaique	N. antarctica	Bark	South America
+CL601.1	PB3	Chile	Puyehue	N. pumilio	Bark	South America
+CL604.1	PB3	Chile	Puyehue	N. pumilio	Bark	South America
+CL605.1	Admix	Chile	V Osorno	N. pumilio	Bark	South America
+CL606.1	Admix	Chile	V Osorno	N. pumilio	Bark	South America
+CL607.1	PB3	Chile	Puyehue	N. pumilio	Bark	South America
+CL608.1	PB3	Chile	Puyehue	N. pumilio	Bark	South America
+CL609.1	Admix	Chile	Puyehue	N. pumilio	Bark	South America
+CL610.1	PB3	Chile	Puyehue	N. pumilio	Bark	South America
+CL611.1	PB3	Chile	Puyehue	N. pumilio	Bark	South America
+CL619.1	Admix	Chile	V Osorno	N. pumilio	Bark	South America
+CL620.1	PB3	Chile	V Osorno	N. pumilio	Bark	South America
+CL621.1	Admix	Chile	V Osorno	N. pumilio	Bark	South America
+CL701.1	PB2	Chile	Talca	N. pumilio	Bark	South America
+CL702.1	PB2	Chile	Talca	N. pumilio	Bark	South America
+CL703.2	PB2	Chile	Talca	N. pumilio	Bark	South America
+CL704.2	PB2	Chile	Talca	N. pumilio	Bark	South America
+CL705.1	PB2	Chile	Talca	N. pumilio	Bark	South America
+CL706.2	PB2	Chile	Talca	N. pumilio	Bark	South America
+CL710.1	PB2	Chile	Talca	N. pumilio	Bark	South America
+CL711.2	PB2	Chile	Talca	N. pumilio	Bark	South America
+CL715.1	PB2	Chile	Talca	N. pumilio	Bark	South America
+CL801.1	PB1	Chile	Karukinka	N. pumilio	Bark	South America
+CL803.1	Admix	Chile	Karukinka	N. pumilio	Bark	South America
+CL804.1	Admix	Chile	Karukinka	N. pumilio	Bark	South America
+CL807.1	PB1	Chile	Karukinka	N. pumilio	Bark	South America
+CL810.1	Admix	Chile	Karukinka	N. pumilio	Bark	South America
+CL812.1	Admix	Chile	Karukinka	N. pumilio	Bark	South America
+CL813.1	PB1	Chile	Magallanes	N. pumilio	Bark	South America
+CL814.1	PB1	Chile	Magallanes	N. pumilio	Bark	South America
+CL815.1	PB1	Chile	Magallanes	N. pumilio	Bark	South America
+CL816.1	PB1	Chile	Karukinka	N. pumilio	Bark	South America
+CL817.1	PB1	Chile	Magallanes	N. pumilio	Bark	South America
+CL821.1	Admix	Chile	Karukinka	N. pumilio	Bark	South America
+CL824.1	PB1	Chile	Karukinka	N. pumilio	Bark	South America
+CL835.1	PB1	Chile	Magallanes	N. pumilio	Bark	South America
+CL902.1	PB3	Chile	Choshuenco	N. pumilio	Bark	South America
+CL903.1	PB3	Chile	Choshuenco	N. pumilio	Bark	South America
+CL904.1	PB3	Chile	Choshuenco	N. pumilio	Bark	South America
+CL905.1	PB3	Chile	Choshuenco	N. pumilio	Bark	South America
+CL906.1	PB3	Chile	Choshuenco	N. pumilio	Bark	South America
+CL907.1	PB3	Chile	Choshuenco	N. pumilio	Bark	South America
+CL909.1	PB3	Chile	Choshuenco	N. pumilio	Bark	South America
+CL910.1	PB2	Chile	Nahuelbuta	N. pumilio	Bark	South America
+CL915.1	PB2	Chile	Nahuelbuta	N. pumilio	Bark	South America
+CL916.1	PB3	Chile	Choshuenco	N. pumilio	Bark	South America
+CO02	PB1	Chile	Coyhaique	N. pumilio	Bark	South America
+CO03	PB1	Chile	Coyhaique	N. pumilio	Bark	South America
+CO04	PB1	Chile	Coyhaique	N. pumilio	Bark	South America
+CO05	PB1	Chile	Coyhaique	N. pumilio	Bark	South America
+CO06	PB1	Chile	Coyhaique	N. pumilio	Bark	South America
+CO07	PB1	Chile	Coyhaique	N. pumilio	Bark	South America
+CO08	PB1	Chile	Coyhaique	N. pumilio	Bark	South America
+CO09	PB1	Chile	Coyhaique	N. pumilio	Bark	South America
+CO10	PB1	Chile	Coyhaique	N. pumilio	Bark	South America
+CO100	PB3	Chile	Villarrica	N. pumilio	Bark	South America
+CO101	PB3	Chile	Villarrica	N. pumilio	Bark	South America
+CO102	PB3	Chile	Villarrica	N. pumilio	Bark	South America
+CO103	PB3	Chile	Villarrica	N. pumilio	Bark	South America
+CO104	PB2	Chile	Villarrica	N. pumilio	Bark	South America
+CO105	PB2	Chile	Villarrica	N. pumilio	Bark	South America
+CO106	PB3	Chile	Villarrica	N. pumilio	Bark	South America
+CO107	PB3	Chile	Villarrica	N. pumilio	Bark	South America
+CO108	PB2	Chile	Villarrica	N. pumilio	Bark	South America
+CO109	PB2	Chile	Villarrica	N. pumilio	Bark	South America
+CO11	PB1	Chile	Coyhaique	N. pumilio	Bark	South America
+CO110	PB2	Chile	Villarrica	N. pumilio	Bark	South America
+CO111	PB3	Chile	Villarrica	N. pumilio	Bark	South America
+CO112	PB3	Chile	Villarrica	N. pumilio	Bark	South America
+CO113	PB3	Chile	Villarrica	N. pumilio	Bark	South America
+CO114	PB2	Chile	Villarrica	N. pumilio	Bark	South America
+CO115	PB3	Chile	Villarrica	N. pumilio	Bark	South America
+CO116	PB3	Chile	Villarrica	N. pumilio	Bark	South America
+CO118	PB3	Chile	Villarrica	N. pumilio	Bark	South America
+CO119	PB3	Chile	Villarrica	N. pumilio	Bark	South America
+CO120	PB3	Chile	Villarrica	N. pumilio	Bark	South America
+CO121	PB3	Chile	Villarrica	N. pumilio	Bark	South America
+CO122	PB2	Chile	Villarrica	N. pumilio	Bark	South America
+CO123	PB2	Chile	Villarrica	N. pumilio	Bark	South America
+CO124	PB3	Chile	Villarrica	N. pumilio	Bark	South America
+CO125	PB3	Chile	Villarrica	N. pumilio	Bark	South America
+CO126	PB2	Chile	Villarrica	N. pumilio	Bark	South America
+CO127	PB3	Chile	Villarrica	N. pumilio	Bark	South America
+CO128	PB3	Chile	Villarrica	N. pumilio	Bark	South America
+CO129	PB3	Chile	Villarrica	N. pumilio	Bark	South America
+CO130	PB3	Chile	Antillanca	N. pumilio	Bark	South America
+CO131	Admix	Chile	Antillanca	N. pumilio	Bark	South America
+CO132	PB3	Chile	Antillanca	N. pumilio	Bark	South America
+CO133	Admix	Chile	Antillanca	N. pumilio	Bark	South America
+CO134	Admix	Chile	Antillanca	N. pumilio	Bark	South America
+CO135	PB3	Chile	Antillanca	N. pumilio	Bark	South America
+CO136	PB3	Chile	Antillanca	N. pumilio	Bark	South America
+CO137	Admix	Chile	Antillanca	N. pumilio	Bark	South America
+CO138	Admix	Chile	Antillanca	N. pumilio	Bark	South America
+CO139	PB3	Chile	Antillanca	N. pumilio	Bark	South America
+CO140	PB3	Chile	Antillanca	N. pumilio	Bark	South America
+CO141	PB3	Chile	Antillanca	N. pumilio	Bark	South America
+CO142	PB3	Chile	Antillanca	N. pumilio	Bark	South America
+CO143	Admix	Chile	Antillanca	N. pumilio	Bark	South America
+CO144	PB3	Chile	Antillanca	N. pumilio	Bark	South America
+CO145	PB3	Chile	Antillanca	N. pumilio	Bark	South America
+CO146	PB5	Chile	Antillanca	N. pumilio	Bark	South America
+CO147	PB3	Chile	Antillanca	N. pumilio	Bark	South America
+CO148	Admix	Chile	Antillanca	N. pumilio	Bark	South America
+CO149	PB5	Chile	Antillanca	N. pumilio	Bark	South America
+CO150	PB5	Chile	Antillanca	N. pumilio	Bark	South America
+CO151	PB3	Chile	Antillanca	N. pumilio	Bark	South America
+CO152	PB3	Chile	Antillanca	N. pumilio	Bark	South America
+CO153	PB3	Chile	Antillanca	N. pumilio	Bark	South America
+CO154	Admix	Chile	Antillanca	N. pumilio	Bark	South America
+CO155	PB3	Chile	Antillanca	N. pumilio	Bark	South America
+CO156	PB3	Chile	Antillanca	N. pumilio	Bark	South America
+CO157	PB3	Chile	Antillanca	N. pumilio	Bark	South America
+CO16	PB2	Chile	Chillan	N. pumilio	Bark	South America
+CO17	PB2	Chile	Chillan	N. pumilio	Bark	South America
+CO18	PB2	Chile	Chillan	N. pumilio	Bark	South America
+CO19	PB2	Chile	Chillan	N. pumilio	Bark	South America
+CO20	PB2	Chile	Chillan	N. pumilio	Bark	South America
+CO21	PB2	Chile	Chillan	N. pumilio	Bark	South America
+CO22	PB2	Chile	Chillan	N. pumilio	Bark	South America
+CO23	PB2	Chile	Chillan	N. pumilio	Bark	South America
+CO24	PB2	Chile	Chillan	N. pumilio	Bark	South America
+CO25	PB2	Chile	Chillan	N. pumilio	Bark	South America
+CO26	PB2	Chile	Chillan	N. pumilio	Bark	South America
+CO27	PB2	Chile	Chillan	N. pumilio	Bark	South America
+CO28	PB2	Chile	Chillan	N. pumilio	Bark	South America
+CO40	PB2	Chile	Chillan	N. pumilio	Bark	South America
+CO41	PB2	Chile	Chillan	N. pumilio	Bark	South America
+CO42	PB2	Chile	Chillan	N. pumilio	Bark	South America
+CO43	PB2	Chile	Chillan	N. pumilio	Bark	South America
+CO44	PB2	Chile	Chillan	N. pumilio	Bark	South America
+CO45	PB2	Chile	Chillan	N. pumilio	Bark	South America
+CO46	PB2	Chile	Chillan	N. pumilio	Bark	South America
+CO47	PB2	Chile	Chillan	N. pumilio	Bark	South America
+CO49	PB2	Chile	Chillan	N. pumilio	Bark	South America
+CO50	PB2	Chile	Chillan	N. pumilio	Bark	South America
+CO51	PB2	Chile	Chillan	N. pumilio	Bark	South America
+CO52	PB2	Chile	Chillan	N. pumilio	Bark	South America
+CO53	PB2	Chile	Chillan	N. pumilio	Bark	South America
+CO54	PB2	Chile	Chillan	N. pumilio	Bark	South America
+CO55	PB2	Chile	Chillan	N. pumilio	Bark	South America
+CO56	PB2	Chile	Chillan	N. pumilio	Bark	South America
+CO57	PB2	Chile	Chillan	N. pumilio	Bark	South America
+CO59	PB2	Chile	Chillan	N. pumilio	Bark	South America
+CO60	PB2	Chile	Chillan	N. pumilio	Bark	South America
+CO61	PB3	Chile	Villarrica	N. pumilio	Bark	South America
+CO62	PB3	Chile	Villarrica	N. pumilio	Bark	South America
+CO66	PB3	Chile	Villarrica	N. pumilio	Bark	South America
+CO69	PB3	Chile	Villarrica	N. pumilio	Bark	South America
+CO72	PB3	Chile	Villarrica	N. pumilio	Bark	South America
+CO75	PB2	Chile	Villarrica	N. pumilio	Bark	South America
+CO76	PB2	Chile	Villarrica	N. pumilio	Bark	South America
+CO79	PB3	Chile	Villarrica	N. pumilio	Bark	South America
+CO80	PB2	Chile	Villarrica	N. pumilio	Bark	South America
+CO84	PB3	Chile	Villarrica	N. pumilio	Bark	South America
+CO85	PB3	Chile	Villarrica	N. pumilio	Bark	South America
+CO86	PB3	Chile	Villarrica	N. pumilio	Bark	South America
+CO89	PB2	Chile	Villarrica	N. pumilio	Bark	South America
+CO92	PB3	Chile	Villarrica	N. pumilio	Bark	South America
+CO95	PB2	Chile	Villarrica	N. pumilio	Bark	South America
+CO97	PB3	Chile	Villarrica	N. pumilio	Bark	South America
+CO98	PB3	Chile	Villarrica	N. pumilio	Bark	South America
+CO99	PB3	Chile	Villarrica	N. pumilio	Bark	South America
+LV1	Admix	Chile	Lago Verde	N. pumilio	Bark	South America
+NR1	PB4	Chile	Ñielol	N. antarctica	Bark	South America
+NR2	PB4	Chile	Ñielol	N. antarctica	Bark	South America
+NR3	PB4	Chile	Ñielol	N. antarctica	Bark	South America
+NR4	PB4	Chile	Ñielol	N. antarctica	Bark	South America
+NR5	PB4	Chile	Ñielol	N. antarctica	Bark	South America
+NR6	PB4	Chile	Ñielol	N. antarctica	Bark	South America
+NR7	PB4	Chile	Ñielol	N. antarctica	Bark	South America
+NR8	PB4	Chile	Ñielol	N. antarctica	Bark	South America
+P1C1	Admix	New Zealand	Kaimanawa Forest Park	Unknown	Unknown	Oceania
+PT1	PB1	Chile	Puerto Tranquilo	N. pumilio	Bark	South America
+PT2	PB1	Chile	Puerto Tranquilo	N. pumilio	Bark	South America
+PT3	Admix	Chile	Puerto Tranquilo	N. pumilio	Bark	South America
+PT4	PB1	Chile	Puerto Tranquilo	N. pumilio	Bark	South America
+PT5	Admix	Chile	Puerto Tranquilo	N. pumilio	Bark	South America
+QC18	PA	Argentina	Nahuel Huapi	Quercus robur	Bark	South America
+S13_HH	PB3	Chile	Huilo-Huilo	N. pumilio	Bark	South America
+UCD646	Admix	Ireland	Ireland	Quercus robur	Bark	Europe
+UCD650	Admix	Ireland	Ireland	Quercus robur	Bark	Europe
+VO1	Admix	Chile	Villa O'Higgins	N. pumilio	Bark	South America
+VO2	PB1	Chile	Villa O'Higgins	N. pumilio	Bark	South America
+VO3	PB1	Chile	Villa O'Higgins	N. pumilio	Bark	South America
+yHAB100	Admix	Argentina	Alerces	N. dombeyi	Bark	South America
+yHAB101	PA	Argentina	Alerces	N. antarctica	Bark	South America
+yHAB102	PA	Argentina	Alerces	N. antarctica	Bark	South America
+yHAB103	PA	Argentina	Alerces	N. antarctica	Bark	South America
+yHAB104	PA	Argentina	Alerces	N. antarctica	Bark	South America
+yHAB105	Admix	Argentina	Tierra del Fuego	N. pumilio	Bark	South America
+yHAB106	Admix	Argentina	Glaciares	N. pumilio	Bark	South America
+yHAB108	Admix	Argentina	Glaciares	N. pumilio	Bark	South America
+yHAB109	Admix	Argentina	Glaciares	N. pumilio	Bark	South America
+yHAB110	Admix	Argentina	Lanin	N. antarctica	Bark	South America
+yHAB111	Admix	Argentina	Lanin	N. obliqua	Bark	South America
+yHAB112	Admix	Argentina	Tierra del Fuego	N. antarctica	Bark	South America
+yHAB113	Admix	Argentina	Tierra del Fuego	N. pumilio	Bark	South America
+yHAB114	PB6	Argentina	Tierra del Fuego	N. pumilio	Bark	South America
+yHAB115	PB6	Argentina	Tierra del Fuego	N. pumilio	Bark	South America
+yHAB116	Admix	Argentina	Glaciares	N. pumilio	Bark	South America
+yHAB117	Admix	Argentina	Glaciares	N. pumilio	Bark	South America
+yHAB118	PB6	Argentina	Tierra del Fuego	N. antarctica	Soil	South America
+yHAB119	Admix	Argentina	Lanin	N. obliqua	Soil	South America
+yHAB120	PB6	Argentina	Tierra del Fuego	N. pumilio	Soil	South America
+yHAB121	Admix	Argentina	Lanin	N. antarctica	Bark	South America
+yHAB122	PB6	Argentina	Tierra del Fuego	N. antarctica	Soil	South America
+yHAB124	PB2	Argentina	Nahuel Huapi	N. pumilio	Leaves	South America
+yHAB125	PB2	Argentina	Nahuel Huapi	N. pumilio	Leaves	South America
+yHAB126	PB2	Argentina	Nahuel Huapi	N. pumilio	Bark	South America
+yHAB47	Admix	Netherlands	Netherlands	brewing strain	Unknown	Europe
+yHAB489	Admix	Argentina	Santa Cruz	N. antarctica	Fungi	South America
+yHAB491	Admix	Argentina	Tierra del Fuego	N. pumilio	Bark	South America
+yHAB505	Admix	Argentina	Nahuel Huapi	N. pumilio	Bark	South America
+yHAB54	PB5	Argentina	Nahuel Huapi	N. antarctica	Soil	South America
+yHAB55	PB5	Argentina	Nahuel Huapi	N. antarctica	Fungi	South America
+yHAB56	Admix	Argentina	Nahuel Huapi	N. pumilio	Bark	South America
+yHAB564	Admix	Argentina	Área Lago La Plata	N. pumilio	Bark	South America
+yHAB565	Admix	Argentina	Área Lago La Plata	N. pumilio	Bark	South America
+yHAB566	PB1	Argentina	Área Lago La Plata	N. pumilio	Bark	South America
+yHAB567	PA	Argentina	Nahuel Huapi	N. antarctica	Bark	South America
+yHAB568	PA	Argentina	Nahuel Huapi	N. antarctica	Fungi	South America
+yHAB569	PA	Argentina	Nahuel Huapi	N. antarctica	Bark	South America
+yHAB57	PB5	Argentina	Nahuel Huapi	N. antarctica	Fungi	South America
+yHAB570	Admix	Chile	Nahuelbuta	N. pumilio	Bark	South America
+yHAB571	Admix	Chile	Nahuelbuta	N. pumilio	Bark	South America
+yHAB572	Admix	Chile	Nahuelbuta	N. pumilio	Bark	South America
+yHAB573	Admix	Chile	Nahuelbuta	N. pumilio	Bark	South America
+yHAB574	PA	Argentina	Nahuel Huapi	N. antarctica	Bark	South America
+yHAB576	PB4	Chile	Nielol	N. dombeyi	Bark	South America
+yHAB577	PA	Argentina	Nahuel Huapi	N. antarctica	Bark	South America
+yHAB578	Admix	Argentina	Nahuel Huapi	N. antarctica	Bark	South America
+yHAB58	Admix	Argentina	Nahuel Huapi	Discaria chacaye	Bark	South America
+yHAB59	PB5	Argentina	Nahuel Huapi	N. antarctica	Bark	South America
+yHAB61	Admix	Argentina	Nahuel Huapi	N. antarctica	Fungi	South America
+yHAB62	PB5	Argentina	Nahuel Huapi	N. antarctica	Fungi	South America
+yHAB63	PA	Argentina	Nahuel Huapi	N. antarctica	Fungi	South America
+yHAB64	Admix	Argentina	Nahuel Huapi	N. antarctica	Bark	South America
+yHAB65	PB5	Argentina	Nahuel Huapi	N. antarctica	Fungi	South America
+yHAB66	PB2	Argentina	Nahuel Huapi	N. pumilio	Bark	South America
+yHAB67	PB2	Argentina	Nahuel Huapi	N. pumilio	Bark	South America
+yHAB68	PB5	Argentina	Nahuel Huapi	N. antarctica	Fungi	South America
+yHAB69	Admix	Argentina	Nahuel Huapi	N. antarctica	Bark	South America
+yHAB70	Admix	Argentina	Nahuel Huapi	N. antarctica	Bark	South America
+yHAB71	Admix	Argentina	Nahuel Huapi	N. antarctica	Bark	South America
+yHAB73	Admix	Argentina	Nahuel Huapi	N. antarctica	Bark	South America
+yHAB74	PB2	Argentina	Nahuel Huapi	N. pumilio	Bark	South America
+yHAB75	PB5	Argentina	Nahuel Huapi	N. dombeyi	Fungi	South America
+yHAB76	PA	Argentina	Nahuel Huapi	N. antarctica	Bark	South America
+yHAB77	PB5	Argentina	Nahuel Huapi	N. antarctica	Fungi	South America
+yHAB78	Admix	Argentina	Nahuel Huapi	N. antarctica	Soil	South America
+yHAB79	PA	Argentina	Lanin	N. antarctica	Bark	South America
+yHAB80	PB6	Argentina	Tierra del Fuego	N. antarctica	Fungi	South America
+yHAB81	PB6	Argentina	Tierra del Fuego	N. antarctica	Fungi	South America
+yHAB82	PB6	Argentina	Tierra del Fuego	N. betuloides	Fungi	South America
+yHAB83	PB6	Argentina	Tierra del Fuego	N. betuloides	Fungi	South America
+yHAB84	PB6	Argentina	Tierra del Fuego	N. betuloides	Fungi	South America
+yHAB85	Admix	Argentina	Tierra del Fuego	N. betuloides	Fungi	South America
+yHAB86	PB6	Argentina	Tierra del Fuego	N. pumilio	Bark	South America
+yHAB87	PB1	Argentina	Glaciares	N. pumilio	Bark	South America
+yHAB88	PB1	Argentina	Glaciares	N. pumilio	Bark	South America
+yHAB89	Admix	Argentina	Glaciares	N. pumilio	Bark	South America
+yHAB90	Admix	Argentina	Glaciares	N. pumilio	Bark	South America
+yHAB91	Admix	Argentina	Glaciares	N. pumilio	Bark	South America
+yHAB92	PB6	Argentina	Tierra del Fuego	N. antarctica	Fungi	South America
+yHAB93	Admix	Argentina	Lanin	N. antarctica	Bark	South America
+yHAB94	PA	Argentina	Lanin	N. antarctica	Bark	South America
+yHAB95	PA	Argentina	Lanin	N. antarctica	Bark	South America
+yHAB96	PB1	Argentina	Glaciares	N. pumilio	Bark	South America
+yHAB97	Admix	Argentina	Alerces	N. dombeyi	Bark	South America
+yHAB99	Admix	Argentina	Alerces	N. dombeyi	Bark	South America
+yHCT100	PB2	Argentina	Nahuel Huapi	N. pumilio	Soil	South America
+yHCT101	Admix	Argentina	Nahuel Huapi	Quercus robur	Exudate	South America
+yHCT102	Admix	Argentina	Tierra del Fuego	N. pumilio	Bark	South America
+yHCT103	PA	Argentina	Nahuel Huapi	N. antarctica	Soil	South America
+yHCT104	PA	Argentina	Nahuel Huapi	N. antarctica	Soil	South America
+yHCT105	PB3	Argentina	Nahuel Huapi	N. pumilio	Soil	South America
+yHCT106	Admix	Argentina	Glaciares	N. antarctica	Soil	South America
+yHCT107	PB2	Argentina	Lanin	N. antarctica	Bark	South America
+yHCT108	PB5	Argentina	Nahuel Huapi	N. antarctica	Fungi	South America
+yHCT112	PB6	Argentina	Tierra del Fuego	N. antarctica	Bark	South America
+yHCT113	PB6	Argentina	Tierra del Fuego	N. antarctica	Soil	South America
+yHCT114	PA	Argentina	Lanin	N. obliqua	Seed	South America
+yHCT115	PB3	Argentina	Nahuel Huapi	N. dombeyi	Soil	South America
+yHCT116	Admix	Argentina	Glaciares	N. pumilio	Bark	South America
+yHCT117	PB2	Argentina	Nahuel Huapi	N. pumilio	Fungi	South America
+yHCT119	PB2	Argentina	Nahuel Huapi	N. dombeyi	Fungi	South America
+yHCT120	PB5	Argentina	Nahuel Huapi	N. antarctica	Soil	South America
+yHCT129	Admix	Argentina	Nahuel Huapi	N. antarctica	Bark	South America
+yHCT160	Admix	Argentina	Nahuel Huapi	N. antarctica	Bark	South America
+yHCT46	PA	Argentina	Lanin	N. antarctica	Bark	South America
+yHCT47	Admix	Argentina	Glaciares	N. pumilio	Bark	South America
+yHCT48	PB1	Argentina	Glaciares	N. pumilio	Bark	South America
+yHCT49	Admix	Argentina	Glaciares	N. pumilio	Bark	South America
+yHCT50	PB1	Argentina	Glaciares	N. pumilio	Bark	South America
+yHCT51	Admix	Argentina	Glaciares	N. pumilio	Bark	South America
+yHCT52	Admix	Argentina	Tierra del Fuego	N. pumilio	Bark	South America
+yHCT53	Admix	Argentina	Lanin	N. antarctica	Bark	South America
+yHCT54	PB6	Argentina	Tierra del Fuego	N. betuloides	Fungi	South America
+yHCT55	PB6	Argentina	Tierra del Fuego	N. betuloides	Fungi	South America
+yHCT56	Admix	Argentina	Tierra del Fuego	N. betuloides	Fungi	South America
+yHCT57	Admix	Argentina	Tierra del Fuego	N. pumilio	Fungi	South America
+yHCT58	Admix	Argentina	Tierra del Fuego	N. betuloides	Fungi	South America
+yHCT59	PB6	Argentina	Tierra del Fuego	N. antarctica	Fungi	South America
+yHCT60	PB6	Argentina	Tierra del Fuego	N. antarctica	Fungi	South America
+yHCT61	PB5	Argentina	Nahuel Huapi	N. antarctica	Fungi	South America
+yHCT62	Admix	Argentina	Nahuel Huapi	N. dombeyi	Fungi	South America
+yHCT63	Admix	Argentina	Lanin	N. antarctica	Bark	South America
+yHCT64	PB1	Argentina	Perito Moreno	N. pumilio	Bark	South America
+yHCT66	Admix	Argentina	Tierra del Fuego	N. antarctica	Bark	South America
+yHCT68	PA	Argentina	Alerces	N. antarctica	Bark	South America
+yHCT69	Admix	Argentina	Alerces	N. dombeyi	Bark	South America
+yHCT70	PB2	Argentina	Lanin	N. obliqua	Bark	South America
+yHCT71	PB2	Argentina	Lanin	N. antarctica	Bark	South America
+yHCT72	PA	Argentina	Lanin	N. antarctica	Bark	South America
+yHCT75	PB1	Argentina	Glaciares	N. pumilio	Fungi	South America
+yHCT76	Admix	Argentina	Nahuel Huapi	N. antarctica	Bark	South America
+yHCT81	Admix	Denmark	Carlsberg brewery	brewing strain	Unknown	Europe
+yHCT87	PB5	Argentina	Nahuel Huapi	N. antarctica	Bark	South America
+yHCT88	PB2	Argentina	Nahuel Huapi	N. pumilio	Bark	South America
+yHCT89	PB2	Argentina	Nahuel Huapi	N. pumilio	Bark	South America
+yHCT90	PA	Argentina	Nahuel Huapi	N. antarctica	Bark	South America
+yHCT91	PB2	Argentina	Nahuel Huapi	N. dombeyi	Fungi	South America
+yHCT92	Admix	Argentina	Nahuel Huapi	N. antarctica	Fungi	South America
+yHCT93	PB5	Argentina	Nahuel Huapi	N. dombeyi	Fungi	South America
+yHCT94	PB5	Argentina	Nahuel Huapi	N. antarctica	Bark	South America
+yHCT95	PB5	Argentina	Nahuel Huapi	N. antarctica	Soil	South America
+yHCT96	Admix	Argentina	Nahuel Huapi	N. antarctica	Bark	South America
+yHCT97	PB2	Argentina	Nahuel Huapi	N. pumilio	Bark	South America
+yHCT98	Admix	Argentina	Nahuel Huapi	N. pumilio	Bark	South America
+yHCT99	PA	Argentina	Nahuel Huapi	N. antarctica	Bark	South America
+yHDPN421	NoAm	Canada	Oak Point Provincial Park, New Brunswick	Quercus rubra	Bark	North America
+yHDPN422	NoAm	Canada	Oak Point Provincial Park, New Brunswick	Quercus rubra	Bark	North America
+yHDPN423	NoAm	Canada	Oak Point Provincial Park, New Brunswick	Quercus rubra	Bark	North America
+yHDPN424	NoAm	Canada	Oak Point Provincial Park, New Brunswick	Quercus rubra	Bark	North America
+yHKB201	NoAm	USA	Winston-Salem, NC	Diospyros	Soil	North America
+yHKB210	NoAm	USA	Winston-Salem, NC	Fagus grandifolia	Bark	North America
+yHKB218	NoAm	USA	Devils Fork State Park, SC	Pine	Soil	North America
+yHKB242	NoAm	USA	Devils Fork State Park, SC	Quercus rubra	Soil	North America
+yHKB246	NoAm	USA	Devils Fork State Park, SC	Pine	Soil	North America
+yHKB251	NoAm	USA	Winston-Salem, NC	Diospyros	Soil	North America
+yHKB268	NoAm	USA	Devils Fork State Park, SC	Pine	Soil	North America
+yHKB35	Admix	USA	Winston-Salem, NC	Juniperus virginiana	Bark	North America
+yHKS210	NoAm	USA	Winston-Salem, NC	Fagus grandifolia	Bark	North America
+yHKS211	NoAm	USA	Sheboygan, WI	Fagus grandifolia	Bark	North America
+yHKS212	NoAm	USA	Sheboygan, WI	Acer saccharum	Bark	North America
+yHKS509	Admix	USA	Monroe, WA	Cedrus sp	Soil	North America
+yHKS576	NoAm	USA	Devils Fork State Park, SC	Acer saccharum	Bark	North America
+yHKS689	NoAm	USA	Sheboygan, WI	Acer saccharum	Bark	North America
+yHKS694	NoAm	USA	Sheboygan, WI	Acer saccharum	Bark	North America
+yHKS810	NoAm	USA	Winston-Salem, NC	Diospyros	Soil	North America
+yHKS812	NoAm	USA	Winston-Salem, NC	Acer saccharum	Soil	North America
+yHQL1481	NoAm	USA	Winston-Salem, NC	Diospyros	Soil	North America
+yHQL1621	NoAm	USA	Winston-Salem, NC	Diospyros	Soil	North America
+yHQL2247	Admix	Argentina	Mirador lado derecho	N. pumilio	Bark	South America
+yHQL2248	PB2	Argentina	Mirador lado izquierdo	N. pumilio	Bark	South America
+yHQL2249	Admix	Argentina	Mirador lado izquierdo	N. pumilio	Bark	South America
+yHQL2250	PB2	Argentina	Camino mirador	N. pumilio	Bark	South America
+yHQL2251	PA	Argentina	Estancia Esperanza	N. antarctica	Bark	South America
+yHQL2252	Admix	Argentina	Estancia El Desafío	N. pumilio	Bark	South America
+yHQL2253	PB3	Argentina	Estancia El Desafío	N. pumilio	Bark	South America
+yHQL2254	Admix	Argentina	Motoco	N. pumilio	Bark	South America
+yHQL2255	Admix	Argentina	Motoco	N. pumilio	Bark	South America
+yHQL2256	Admix	Argentina	Orilla Oeste	N. pumilio	Bark	South America
+yHQL2257	Admix	Argentina	Orilla Oeste	N. pumilio	Bark	South America
+yHQL2258	PA	Argentina	Orilla Oeste	N. pumilio	Bark	South America
+yHQL2259	PA	Argentina	Ñirihuau	N. antarctica	Bark	South America
+yHQL2260	PA	Argentina	Ñirihuau	N. antarctica	Bark	South America
+yHQL2261	PA	Argentina	Ñirihuau	N. antarctica	Bark	South America
+yHQL2262	PA	Argentina	Ñirihuau	N. antarctica	Bark	South America
+yHQL2263	PA	Argentina	Arroyo del medio	N. antarctica	Bark	South America
+yHQL2264	PA	Argentina	Arroyo del medio	N. antarctica	Bark	South America
+yHQL2265	PB2	Chile	Arroyo del medio	N. antarctica	Bark	South America
+yHQL2266	Admix	Chile	Nahuelbuta	N. pumilio	Bark	South America
+yHQL2267	Admix	Chile	Nahuelbuta	N. pumilio	Bark	South America
+yHQL2268	Admix	Chile	Nahuelbuta	N. antarctica	Bark	South America
+yHQL2270	Admix	Argentina	Nahuelbuta	N. glauca	Fungi	South America
+yHQL2271	Admix	Argentina	Ñirihuau	C. darwinii	Fungi	South America
+yHQL2272	Admix	Argentina	Ñirihuau	C. darwinii	Fungi	South America
+yHQL2273	PB3	Argentina	Ñirihuau	C. darwinii	Leaves	South America
+yHQL2274	Admix	Argentina	Frey	C. darwinii	Leaves	South America
+yHQL2275	Admix	Argentina	Motoco	N. pumilio	Leaves	South America
+yHQL2276	Admix	Argentina	Bahía Arenal	N. pumilio	Leaves	South America
+yHQL2277	Admix	Argentina	Bahía Arenal	N. pumilio	Leaves	South America
+yHQL2278	Admix	Argentina	Orilla Oeste	N. pumilio	Leaves	South America
+yHQL2279	Admix	Argentina	Orilla Oeste	N. pumilio	Leaves	South America
+yHQL2280	Admix	Argentina	Orilla Oeste	N. pumilio	Leaves	South America
+yHQL2281	Admix	Argentina	Lago La Plata Chico	N. pumilio	Leaves	South America
+yHQL2282	Admix	Argentina	Lago La Plata Chico	N. pumilio	Bark	South America
+yHQL2283	PA	Argentina	Lago La Plata Chico	N. pumilio	Bark	South America
+yHQL2284	Admix	Argentina	Bariloche City	Quercus robur	Bark	South America
+yHQL2285	Admix	Argentina	Bariloche City	Quercus robur	Bark	South America
+yHQL2286	PA	Argentina	Bariloche City	Quercus robur	Bark	South America
+yHQL2287	PA	Argentina	Bariloche City	Quercus robur	Bark	South America
+yHQL2288	PA	Argentina	Bariloche City	Quercus robur	Bark	South America
+yHQL2289	Admix	Argentina	Bariloche City	Quercus robur	Bark	South America
+yHQL2290	PA	Argentina	Bariloche City	Quercus robur	Bark	South America
+yHQL2291	PA	Argentina	Bariloche City	Quercus robur	Bark	South America
+yHQL2292	PA	Argentina	Bariloche City	Quercus robur	Bark	South America
+yHQL705	PA	Argentina	Caviahue	A. araucana	Seed	South America
+yHQL708	PA	Argentina	Caviahue	A. araucana	Seed	South America
+yHQL709	PA	Argentina	Lanin	A. araucana	Seed	South America
+yHQL714	PA	Argentina	Caviahue	A. araucana	Seed	South America
+yHQL715	PA	Argentina	Caviahue	A. araucana	Seed	South America
+yHQL717	PA	Argentina	Lanin	A. araucana	Seed	South America
+yHQL726	PB2	Argentina	Lanin	N. antarctica	Bark	South America
+yHQL727	PA	Argentina	Caviahue	A. araucana	Bark	South America
+yHQL729	PA	Argentina	Caviahue	A. araucana	Seed	South America
+yHQL730	PA	Argentina	Caviahue	A. araucana	Bark	South America
+yHQL732	PB2	Argentina	Lanin	N. antarctica	Bark	South America
+yHQL733	PB2	Argentina	Lanin	N. antarctica	Bark	South America
+yHQL736	PB2	Argentina	Lanin	N. antarctica	Bark	South America
+yHQL738	PB2	Argentina	Lanin	N. antarctica	Bark	South America
+yHQL740	PA	Argentina	Caviahue	A. araucana	Seed	South America
+yHQL743	PB2	Argentina	Lanin	N. antarctica	Bark	South America
+yHQL744	PB2	Argentina	Lanin	N. antarctica	Bark	South America
+yHQL747	PB2	Argentina	Lanin	N. antarctica	Bark	South America
+yHQL751	PA	Argentina	Caviahue	A. araucana	Bark	South America
+yHQL754	PA	Argentina	Caviahue	A. araucana	Seed	South America
+yHQL755	PA	Argentina	Caviahue	A. araucana	Seed	South America
+yHQL756	PA	Argentina	Caviahue	A. araucana	Seed	South America
+yHQL758	PB2	Argentina	Lanin	N. antarctica	Bark	South America
+yHQL775	PA	Argentina	Caviahue	A. araucana	Seed	South America
+yHRVM107	Admix	USA	Durham, NC	Quercus robur	Bark	North America
+yHRVM108	Admix	USA	Durham, NC	Quercus robur	Soil	North America
