@@ -76,7 +76,8 @@ function renderPerfilPubs(dv) {
       const q = String(r.QUARTILE || '').toUpperCase();
       const qBadge = /^Q[1-4]$/.test(q) ? `<span class="q-badge q-${q.toLowerCase()}">${q}</span>` : '';
       const tipo = r.TIPO_DOCUMENTO === 'Article' ? 'Revista' : (r.TIPO_DOCUMENTO === 'Conference paper' ? 'Conferencia' : (r.TIPO_DOCUMENTO || ''));
-      return [titulo, int0(r.ANO) || '', r.FUENTE || '', tipo, qBadge, num(r.SJR) ? nf(num(r.SJR)) : '', int0(r.CITADO_POR)];
+      return [titulo, int0(r.ANO) || '', r.FUENTE || '', tipo, insigniaIndexacion(r), qBadge,
+              num(r.SJR) ? nf(num(r.SJR)) : '', int0(r.CITADO_POR)];
     });
   $(sel).DataTable({
     data: rows,
@@ -85,14 +86,45 @@ function renderPerfilPubs(dv) {
       { title: 'Año', className: 'dt-num' },
       { title: 'Fuente' },
       { title: 'Tipo' },
+      { title: 'Dónde está', className: 'dt-idx' },
       { title: 'Q', className: 'dt-num' },
       { title: 'SJR', className: 'dt-num' },
       { title: 'Citas', className: 'dt-num' }
     ],
     order: [[1, 'desc']], pageLength: 10, scrollX: true,
-    dom: 'Bfrtip', buttons: [{ extend: 'csv', text: '↓ CSV', className: 'dt-button' }],
+    dom: 'Bfrtip', buttons: [{ extend: 'csv', text: '↓ CSV', className: 'dt-button', filename: () => nombreExport('tabla') }],
     language: dtLang()
   });
+}
+
+/* Muestra en qué está indexada cada publicación, y sobre todo EN QUÉ
+   COLECCIÓN de Web of Science.
+
+   Esto existe porque la pregunta obvia al ver la tabla era: por qué una
+   conferencia aparece con registro en WoS. La respuesta es que Web of
+   Science indexa también las actas de congreso, en el Conference
+   Proceedings Citation Index, o CPCI. Una acta puede tener registro en
+   WoS y no contar como WoS en reporte institucional, porque para eso se
+   piden las colecciones de revista: SCI-EXPANDED, SSCI, A&HCI o ESCI.
+
+   Sin esta columna las dos cosas se veían iguales. */
+function insigniaIndexacion(r) {
+  const cols = String(r.WOS_COLECCION || '').split(';').map(s => s.trim()).filter(Boolean);
+  const enScopus = /scopus\.com/i.test(String(r.LINK || '')) || !!String(r.AUTORES_ID || '').trim();
+  const partes = [];
+
+  if (cols.length) {
+    const esRevista = r.WOS === 'SI';
+    const titulo = esRevista
+      ? 'Con registro en Web of Science, en una colección de revista: cuenta como WoS'
+      : 'Con registro en Web of Science, pero en ' + cols.join(' y ') +
+        '. CPCI son actas de congreso y BKCI libros, así que no cuentan como WoS en reporte institucional';
+    partes.push('<span class="ix ' + (esRevista ? 'ix-wos' : 'ix-cpci') + '" title="' +
+                titulo.replace(/"/g,'&quot;') + '">' + cols.join(' · ') + '</span>');
+  }
+  if (enScopus) partes.push('<span class="ix ix-scopus" title="Con registro en Scopus">Scopus</span>');
+  if (!partes.length) partes.push('<span class="ix ix-nada" title="Sin registro en Web of Science ni en Scopus">—</span>');
+  return partes.join(' ');
 }
 
 /* ---------- C. Top coautores ---------- */

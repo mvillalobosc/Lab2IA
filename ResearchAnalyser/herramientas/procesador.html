@@ -1,0 +1,3467 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Procesador bibliométrico · DIINF USACH</title>
+<style>
+:root{
+  --usach-teal:#00A499; --teal-2:#007A72; --teal-bg:#E7F6F4; --teal-soft:#BFE8E4;
+  --usach-orange:#EA7600; --orange-bg:#FFF2E5;
+  --gris:#394049; --ink:#1F2933; --ink-soft:#394049;
+  --muted:#68737D; --faint:#96A0A8;
+  --line:#DDE5EA; --line-soft:#EEF3F6;
+  --bg:#F5F7FA; --surface:#fff; --soft:#F9FBFC;
+  --rojo:#C8102E; --rojo-bg:#FCEBEB;
+  --radius:10px; --radius-sm:8px;
+  --shadow-xs:0 1px 2px rgba(33,38,43,.05);
+  --shadow-sm:0 8px 22px rgba(33,38,43,.06);
+}
+*{box-sizing:border-box;}
+html,body{margin:0;}
+body{
+  background:var(--bg); color:var(--ink);
+  font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
+  font-size:15px; line-height:1.5; -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3{margin:0;font-weight:700;line-height:1.15;}
+code,kbd{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.86em;}
+.wrap{width:min(1220px,calc(100% - 40px));margin:0 auto;}
+
+/* cabecera */
+.top{height:4px;background:var(--usach-teal);}
+header{background:var(--surface);border-bottom:1px solid var(--line);}
+.hrow{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;padding:20px 0 18px;flex-wrap:wrap;}
+.kicker{font-size:.68rem;font-weight:800;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);}
+h1{font-size:1.5rem;margin-top:4px;}
+.sub{font-size:.86rem;color:var(--muted);margin-top:4px;}
+.badge{
+  display:inline-flex;align-items:center;gap:7px;background:var(--teal-bg);
+  color:var(--teal-2);border-radius:999px;padding:6px 13px;
+  font-size:.76rem;font-weight:700;
+}
+
+/* pasos */
+.pasos{display:flex;gap:6px;flex-wrap:wrap;padding:0 0 16px;}
+.paso{
+  display:flex;align-items:center;gap:9px;background:var(--soft);
+  border:1px solid var(--line);border-radius:999px;padding:7px 14px;
+  font-size:.8rem;color:var(--muted);
+}
+.paso b{
+  display:grid;place-items:center;width:20px;height:20px;border-radius:50%;
+  background:var(--line);color:var(--muted);font-size:.72rem;
+}
+.paso.on{background:var(--teal-bg);border-color:var(--teal-soft);color:var(--teal-2);font-weight:600;}
+.paso.on b{background:var(--teal-2);color:#fff;}
+.paso.done b{background:var(--usach-teal);color:#fff;}
+
+main{padding:22px 0 60px;}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px;margin-bottom:16px;}
+.card-h{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:14px;flex-wrap:wrap;}
+.card-h h2{font-size:1.05rem;}
+.card-h p{margin:4px 0 0;font-size:.84rem;color:var(--muted);max-width:78ch;}
+
+.btn{
+  display:inline-flex;align-items:center;gap:9px;background:var(--surface);
+  border:1px solid var(--line);border-radius:var(--radius-sm);
+  padding:9px 16px;font-family:inherit;font-size:.88rem;font-weight:600;
+  color:var(--ink-soft);cursor:pointer;box-shadow:var(--shadow-xs);
+}
+.btn:hover{border-color:var(--usach-teal);color:var(--teal-2);}
+.btn:disabled{opacity:.45;cursor:not-allowed;}
+.btn.p{background:var(--teal-2);border-color:var(--teal-2);color:#fff;}
+.btn.p:hover{background:#00635C;border-color:#00635C;color:#fff;}
+.btn.warn{border-color:var(--usach-orange);color:#A15200;}
+.btn.warn:hover{background:var(--orange-bg);}
+.acciones{display:flex;gap:9px;flex-wrap:wrap;}
+
+.aviso{border-radius:var(--radius-sm);padding:13px 16px;font-size:.85rem;line-height:1.5;margin:12px 0 0;}
+.aviso.i{background:var(--teal-bg);color:#00554F;}
+.aviso.w{background:var(--orange-bg);color:#7A3E00;}
+.aviso.e{background:var(--rojo-bg);color:#8A0C20;}
+.aviso b{font-weight:700;}
+.aviso code{background:rgba(0,0,0,.06);padding:1px 5px;border-radius:4px;}
+
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:16px;}
+.kpi{background:var(--soft);border:1px solid var(--line-soft);border-radius:var(--radius-sm);padding:13px 15px;}
+.kpi .k{font-size:.68rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--faint);}
+.kpi .v{font-size:1.6rem;font-weight:800;line-height:1;margin-top:7px;font-variant-numeric:tabular-nums;}
+.kpi .s{font-size:.76rem;color:var(--muted);margin-top:5px;}
+.kpi.ok .v{color:var(--teal-2);}
+.kpi.mal .v{color:var(--rojo);}
+
+table{width:100%;border-collapse:collapse;font-size:.85rem;}
+th{
+  text-align:left;font-size:.68rem;font-weight:800;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--faint);padding:0 10px 9px 0;
+  border-bottom:1px solid var(--line);white-space:nowrap;
+}
+td{padding:9px 10px 9px 0;border-bottom:1px solid var(--line-soft);vertical-align:middle;}
+tbody tr:hover{background:var(--soft);}
+td.n,th.n{text-align:right;padding-right:0;font-variant-numeric:tabular-nums;}
+.tabla-wrap{overflow-x:auto;}
+
+.pill{display:inline-block;padding:2px 9px;border-radius:999px;font-size:.72rem;font-weight:700;white-space:nowrap;}
+.pill.si{background:var(--teal-bg);color:var(--teal-2);}
+.pill.no{background:var(--rojo-bg);color:#8A0C20;}
+.pill.tibio{background:var(--orange-bg);color:#A15200;}
+.pill.gris{background:var(--line-soft);color:var(--muted);}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.8rem;color:var(--ink-soft);}
+.chk{width:16px;height:16px;accent-color:var(--usach-teal);cursor:pointer;}
+
+.filtros{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:14px;}
+.filtros select,.filtros input[type=search]{
+  height:36px;border:1px solid var(--line);border-radius:var(--radius-sm);
+  background:var(--surface);padding:0 11px;font-family:inherit;font-size:.86rem;color:var(--ink);
+}
+.filtros input[type=search]{min-width:220px;}
+.seg{display:inline-flex;gap:3px;background:var(--soft);border:1px solid var(--line);border-radius:999px;padding:3px;}
+.seg button{background:none;border:0;border-radius:999px;padding:6px 13px;font-family:inherit;font-size:.8rem;color:var(--muted);cursor:pointer;}
+.seg button.on{background:var(--teal-2);color:#fff;font-weight:600;}
+
+pre.salida{
+  background:#21262B;color:#E4E8EC;border-radius:var(--radius-sm);
+  padding:16px 18px;overflow:auto;font-size:.8rem;line-height:1.55;
+  max-height:420px;margin:0;
+}
+pre.salida .c{color:#8A9199;}
+pre.salida .s{color:#7FD1CB;}
+pre.salida .k{color:#F0B36B;}
+
+details.ayuda{margin-top:12px;border-top:1px solid var(--line-soft);padding-top:12px;}
+details.ayuda summary{cursor:pointer;font-size:.83rem;font-weight:600;color:var(--teal-2);}
+details.ayuda div{font-size:.83rem;color:var(--muted);line-height:1.55;margin-top:10px;}
+details.ayuda code{background:var(--line-soft);padding:1px 5px;border-radius:4px;color:var(--ink-soft);}
+
+/* barra de avance */
+.barra{height:6px;background:var(--line-soft);border-radius:999px;overflow:hidden;}
+.barra-in{height:100%;width:0;background:var(--usach-teal);transition:width .25s ease;}
+.barra-lbl{font-size:.78rem;color:var(--muted);margin:7px 0 14px;font-variant-numeric:tabular-nums;}
+
+/* registro */
+.log{
+  background:#21262B;border-radius:var(--radius-sm);padding:14px 16px;
+  font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.78rem;line-height:1.65;
+  max-height:300px;overflow-y:auto;color:#E4E8EC;
+}
+.log .lg-h{color:#7A828A;margin-right:8px;}
+.log .lg-ok{color:#7FD1CB;}
+.log .lg-w{color:#F0B36B;}
+.log .lg-e{color:#F09595;}
+
+/* panel de clasificación */
+.ollama{margin-top:18px;border-top:1px solid var(--line);padding-top:18px;}
+.ollama-h{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;}
+.ollama-h h3{font-size:.95rem;}
+.ollama-h p{margin:4px 0 0;font-size:.83rem;color:var(--muted);max-width:70ch;}
+.ollama-campos{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-top:14px;}
+.ollama-campos label{display:flex;flex-direction:column;gap:5px;font-size:.72rem;font-weight:700;
+  letter-spacing:.05em;text-transform:uppercase;color:var(--faint);}
+.ollama-campos input,.ollama-campos select{
+  height:36px;border:1px solid var(--line);border-radius:var(--radius-sm);background:var(--surface);
+  padding:0 10px;font-family:inherit;font-size:.86rem;font-weight:400;text-transform:none;
+  letter-spacing:0;color:var(--ink);
+}
+
+.sjr-zona{cursor:pointer;border:2px dashed var(--line);border-radius:var(--radius-sm);padding:22px;text-align:center;
+  font-size:.86rem;color:var(--faint);margin:12px 0;transition:all .15s;}
+.sjr-zona.sobre{border-color:var(--usach-teal);background:var(--teal-bg);color:var(--teal-2);}
+.sjr-zona.lleno{border-style:solid;border-color:var(--teal-soft);background:var(--teal-bg);color:var(--teal-2);}
+.anios{display:flex;flex-wrap:wrap;gap:6px;}
+.anios .anio{display:inline-block;padding:5px 11px;border:1px solid var(--line);border-radius:999px;
+  font-size:.79rem;color:var(--ink-soft);text-decoration:none;font-variant-numeric:tabular-nums;}
+.anios .anio:hover{border-color:var(--usach-teal);color:var(--teal-2);background:var(--teal-bg);}
+.explica{margin-top:14px;padding-top:14px;border-top:1px solid var(--line-soft);}
+.explica p{margin:0 0 9px;font-size:.84rem;color:var(--muted);line-height:1.55;}
+.explica p:last-child{margin-bottom:0;}
+.explica b{color:var(--ink-soft);font-weight:600;}
+.explica .mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.79rem;
+  background:var(--soft);padding:1px 5px;border-radius:4px;color:var(--ink-soft);}
+.oll-linea{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-top:9px;}
+.oll-linea span{font-size:.84rem;color:var(--ink-soft);font-variant-numeric:tabular-nums;}
+.cat-caja{margin-top:14px;padding:14px 16px;background:var(--soft);border:1px solid var(--line-soft);border-radius:var(--radius-sm);}
+.cat-titulo{font-size:.68rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--faint);margin-bottom:10px;}
+.cat-caja table{width:auto;}
+.cat-caja td{border:0;padding:5px 0;font-size:.85rem;}
+.cat-caja select{height:32px;border:1px solid var(--line);border-radius:6px;background:var(--surface);padding:0 9px;font-family:inherit;font-size:.83rem;}
+.cat-nota{margin:10px 0 0;font-size:.8rem;color:var(--muted);line-height:1.5;}
+.aud-caja{margin-top:16px;padding:16px 18px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-sm);}
+.aud-titulo{font-size:.68rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--faint);}
+.aud-nota{margin:9px 0 0;font-size:.83rem;color:var(--muted);line-height:1.55;}
+.aud-item{padding:13px 0;border-top:1px solid var(--line-soft);}
+.aud-item:first-child{border-top:0;}
+.aud-t{font-size:.87rem;font-weight:600;color:var(--ink);line-height:1.35;}
+.aud-r{font-size:.8rem;color:var(--muted);margin-top:5px;line-height:1.5;}
+.aud-a{display:flex;gap:7px;flex-wrap:wrap;align-items:center;margin-top:9px;}
+.aud-a .et{font-size:.75rem;background:var(--teal-bg);color:var(--teal-2);padding:3px 9px;border-radius:999px;font-weight:600;}
+.aud-a .et.oc{background:var(--line-soft);color:var(--ink-soft);}
+.aud-b{display:flex;gap:6px;margin-top:10px;}
+.aud-b button{border:1px solid var(--line);background:var(--surface);border-radius:7px;padding:5px 13px;
+  font-family:inherit;font-size:.8rem;cursor:pointer;color:var(--ink-soft);}
+.aud-b button.si.on{background:var(--teal-2);border-color:var(--teal-2);color:#fff;}
+.aud-b button.no.on{background:var(--rojo);border-color:var(--rojo);color:#fff;}
+.aud-b button.dud.on{background:var(--usach-orange);border-color:var(--usach-orange);color:#fff;}
+.oculto{display:none !important;}
+footer{border-top:1px solid var(--line);padding:18px 0 40px;font-size:.8rem;color:var(--faint);}
+
+@media (max-width:820px){
+  .hrow{flex-direction:column;align-items:flex-start;}
+  .kpis{grid-template-columns:1fr 1fr;}
+}
+</style>
+</head>
+<body>
+<div class="top"></div>
+<header>
+  <div class="wrap">
+    <div class="hrow">
+      <div>
+        <div class="kicker">Universidad de Santiago de Chile · DIINF</div>
+        <h1>Procesador bibliométrico</h1>
+        <p class="sub">Elige la carpeta, marca a los académicos y genera la base. Todo en el navegador.</p>
+      </div>
+      <div style="text-align:right;">
+        <div id="estado_api" class="badge"></div>
+        <div id="version" style="font-size:.7rem;color:var(--faint);margin-top:6px;">versión 2026-07-26 23:14</div>
+      </div>
+    </div>
+    <div class="pasos" id="pasos">
+      <div class="paso on" data-p="1"><b>1</b> Elegir carpeta BD</div>
+      <div class="paso" data-p="2"><b>2</b> Revisar académicos</div>
+      <div class="paso" data-p="3"><b>3</b> Seleccionar</div>
+      <div class="paso" data-p="4"><b>4</b> Procesar</div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- PASO 1 -->
+  <section class="card" id="c_carpeta">
+    <div class="card-h">
+      <div>
+        <h2>1 · Carpeta BD</h2>
+        <p>Elige la carpeta <code>BD</code>, la que tiene dentro <code>BASE</code> y una subcarpeta por unidad.
+           Todo se lee en tu computador, nada sale de aquí.</p>
+      </div>
+      <div class="acciones">
+        <button class="btn p" id="btn_carpeta">Elegir carpeta BD</button>
+        <button class="btn" id="btn_input">Elegir sin permisos de escritura</button>
+      </div>
+    </div>
+    <input type="file" id="input_dir" webkitdirectory directory multiple class="oculto">
+    <div id="aviso_carpeta"></div>
+    <details class="ayuda">
+      <summary>Cómo tienen que estar las carpetas</summary>
+      <div>
+<pre style="margin:0;background:var(--soft);padding:12px;border-radius:6px;color:var(--ink-soft);">BD/
+  BASE/
+    lista_academicos.xlsx        (o .csv)
+    SJR_revistas_1999_2025.xlsx
+  DIINF/
+    SCOPUS/   Scopus - Villalobos - 55114462200.csv
+    WOS/      WOS - 55114462200 - AFK-0866-2022.xlsx
+  CBIOT/
+  BIOMEDICA/</pre>
+        <p style="margin:10px 0 0;">El número que va al final del nombre es el número de Scopus del académico, y es
+        con eso que sé de quién es cada archivo. Si también se lo pones a los archivos de Web of Science, no tengo
+        que adivinar comparando nombres de personas, que es donde se equivoca.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- PASO 2 -->
+  <section class="card oculto" id="c_diagnostico">
+    <div class="card-h">
+      <div><h2>2 · Diagnóstico</h2>
+        <p>Qué encontré en el disco y qué le falta a cada académico.</p></div>
+      <div class="acciones"><button class="btn" id="btn_recargar">Volver a leer</button></div>
+    </div>
+    <div class="kpis" id="kpis"></div>
+    <div id="avisos"></div>
+  </section>
+
+  <!-- PASO 2 · BASE SJR -->
+  <section class="card" id="c_sjr">
+    <div class="card-h">
+      <div><h2>2 · Base SJR</h2>
+        <p>Los cuartiles y las categorías salen de Scimago. Si ya tienes el archivo en
+           <code>BD/BASE</code>, salta este paso.</p></div>
+      <div class="acciones">
+        <button class="btn" id="btn_sjr_directo">Intentar descarga directa</button>
+        <button class="btn p" id="btn_sjr_guardar">Guardar base</button>
+      </div>
+    </div>
+    <div class="filtros">
+      <label style="font-size:.84rem;color:var(--muted);">Desde
+        <input type="number" id="sjr_desde" value="1999" min="1999" max="2030"
+               style="width:82px;height:36px;border:1px solid var(--line);border-radius:8px;padding:0 9px;margin-left:6px;font-family:inherit;"></label>
+      <label style="font-size:.84rem;color:var(--muted);">Hasta
+        <input type="number" id="sjr_hasta" value="2025" min="1999" max="2030"
+               style="width:82px;height:36px;border:1px solid var(--line);border-radius:8px;padding:0 9px;margin-left:6px;font-family:inherit;"></label>
+      <span style="flex:1"></span>
+      <button class="btn" id="btn_sjr_archivos">Elegir archivos bajados</button>
+    </div>
+    <div id="sjr_resumen" style="font-size:.85rem;color:var(--muted);margin-bottom:10px;"></div>
+    <div id="sjr_estado"></div>
+    <div class="sjr-zona" id="sjr_zona">
+      Arrastra aquí los archivos que bajes de Scimago, o haz clic para elegirlos
+    </div>
+    <div id="sjr_enlaces" class="anios"></div>
+    <input type="file" id="input_sjr" multiple class="oculto">
+    <details class="ayuda">
+      <summary>Cómo bajarla</summary>
+      <div>
+        <p>Scimago entrega un año por vez. Primero prueba <b>Intentar descarga directa</b>: si el
+           navegador lo permite, baja todos los años solo.</p>
+        <p>Si no lo permite, y es lo más probable, haz clic en los años de arriba. Cada uno abre la
+           descarga de Scimago. Después suéltalos en el recuadro o usa <b>Elegir archivos bajados</b>.</p>
+        <p>Al final, <b>Guardar base</b> los une en un solo <code>SJR_revistas_&lt;desde&gt;_&lt;hasta&gt;.csv</code>
+           dentro de <code>BD/BASE</code>. Con eso ya no necesitas R para nada.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- PASO 3 -->
+  <section class="card oculto" id="c_academicos">
+    <div class="card-h">
+      <div><h2>3 · Académicos</h2>
+        <p>Marca los que quieres procesar. Los que no tienen CSV de Scopus no se pueden procesar.</p></div>
+    </div>
+    <div class="filtros">
+      <select id="f_unidad"></select>
+      <input type="search" id="f_buscar" placeholder="Buscar por nombre o ID">
+      <div class="seg" id="f_estado">
+        <button class="on" data-v="todos">Todos</button>
+        <button data-v="listos">Listos</button>
+        <button data-v="problemas">Con problemas</button>
+      </div>
+      <span style="flex:1"></span>
+      <button class="btn" id="btn_todos">Marcar todos los listos</button>
+      <button class="btn" id="btn_ninguno">Desmarcar</button>
+    </div>
+    <div class="tabla-wrap"><table id="tabla">
+      <thead><tr>
+        <th style="width:34px"></th><th>Carpeta</th><th>Académico</th><th>Unidad según el índice</th>
+        <th>N° Scopus</th><th>Años en la unidad</th><th>Tiene su CSV</th><th>Archivo de Web of Science</th><th class="n">Se encontró</th>
+      </tr></thead>
+      <tbody></tbody>
+    </table></div>
+    <div id="conteo_sel" class="aviso i" style="margin-top:14px;"></div>
+    <div class="acciones" style="margin-top:14px;">
+      <button class="btn p" id="btn_procesar">Procesar</button>
+      <button class="btn" id="btn_previo">Ya tengo un BD_papers.csv</button>
+      <button class="btn warn" id="btn_renombrar">Arreglar nombres de Web of Science</button>
+      <input type="file" id="input_previo" accept=".csv" class="oculto">
+    </div>
+    <div class="explica">
+      <p><b>Procesar.</b> Lee los archivos y arma la base. Es lo único obligatorio, los otros dos
+         botones son opcionales.</p>
+      <p><b>Ya tengo un BD_papers.csv.</b> Si le das el archivo que hoy usa tu app, se copian de ahí
+         las áreas temáticas que ya estaban asignadas a cada publicación. Así no hay que volver a
+         calcularlas con el modelo de lenguaje, que es la parte lenta: horas contra minutos.</p>
+      <p><b>Arreglar nombres de Web of Science.</b> A los archivos que bajaste de Web of Science les
+         agrega adelante el número de Scopus del académico, o sea deja
+         <span class="mono">WOS - Perez - AFK-0866-2022.xlsx</span> como
+         <span class="mono">WOS - 55114462200 - AFK-0866-2022.xlsx</span>. Con eso cada archivo queda
+         amarrado a su persona por número y no por nombre, que es donde se equivoca cuando hay
+         apellidos parecidos. Necesita Chrome o Edge y haber abierto la carpeta con el primer botón.</p>
+    </div>
+    <div id="aviso_previo"></div>
+  </section>
+
+  <!-- PASO 4 · PROCESO -->
+  <section class="card oculto" id="c_proceso">
+    <div class="card-h">
+      <div><h2>Proceso</h2>
+        <p>Lee los CSV de Scopus, los cruza con las descargas de Web of Science y con la base SJR,
+           calcula la marca WoS, deduce los países, reutiliza las clasificaciones de la base anterior
+           y deduplica.</p></div>
+    </div>
+    <div class="barra"><div class="barra-in" id="barra_in"></div></div>
+    <div class="barra-lbl" id="barra_txt">0%</div>
+    <div class="log" id="log"></div>
+  </section>
+
+  <!-- PASO 5 · RESULTADO -->
+  <section class="card oculto" id="c_resultado">
+    <div class="card-h">
+      <div><h2>Resultado</h2>
+        <p>Ya está la base. Descárgala, o escríbela directo en la carpeta si abriste con permisos.</p></div>
+      <div class="acciones">
+        <button class="btn p" id="btn_csv">Descargar BD_papers.csv</button>
+        <button class="btn" id="btn_js">Descargar data.js</button>
+        <button class="btn" id="btn_escribir">Escribir en BD/SALIDA</button>
+      </div>
+    </div>
+    <div class="kpis" id="kpis_res"></div>
+    <div id="aviso_res"></div>
+
+    <div class="ollama">
+      <div class="ollama-h">
+        <div>
+          <h3>Clasificación de áreas</h3>
+          <p>Solo para las publicaciones que no venían en la base anterior. Se le pide al modelo salida
+             JSON, así que no hay bucle de reintentos, y van varias en paralelo.</p>
+        </div>
+        <div class="acciones">
+          <button class="btn" id="btn_probar_ollama">Probar conexión</button>
+          <button class="btn" id="btn_comparar">Comparar modelos</button>
+          <button class="btn warn" id="btn_ollama">Clasificar con Ollama</button>
+        </div>
+      </div>
+      <div class="ollama-campos">
+        <label>Servidor        <label>Servidor
+          <input type="text" id="ollama_url" value="http://localhost:11434">
+        </label>
+        <label>Modelo
+          <input type="text" id="ollama_modelo" value="llama3.1:8b">
+        </label>
+        <label>Por llamada
+          <input type="number" id="ollama_lote" min="1" max="10" value="3">
+        </label>
+        <label>En paralelo
+          <input type="number" id="ollama_paralelo" value="4" min="1" max="12">
+        </label>
+      </div>
+      <div id="catalogos_por_unidad"></div>
+      <div id="auditoria" class="oculto">
+        <div class="aud-caja">
+          <div class="aud-titulo">Revisar si la clasificación está bien</div>
+          <p class="aud-nota">Yo puedo verificar que la etiqueta exista en el catálogo, pero no puedo
+             verificar que sea la correcta. Eso lo tienes que juzgar tú. Acá se toma una muestra al azar
+             de las ya clasificadas y marcas cada una. Al final sale la tasa de error medida, no supuesta,
+             y puedes bajar el detalle de las que marcaste mal.</p>
+          <div class="acciones" style="margin:12px 0;">
+            <label style="font-size:.84rem;color:var(--muted);">Cuántas revisar
+              <input type="number" id="aud_n" min="5" max="100" value="20"
+                style="width:74px;height:34px;border:1px solid var(--line);border-radius:7px;padding:0 9px;margin-left:7px;font-family:inherit;"></label>
+            <button class="btn" id="btn_auditar">Tomar muestra</button>
+            <button class="btn" id="btn_aud_csv">Descargar lo marcado mal</button>
+          </div>
+          <div id="aud_resumen"></div>
+          <div id="aud_lista"></div>
+        </div>
+      </div>
+      <div id="ollama_estado"></div>
+      <div id="ollama_avance" class="oculto">
+        <div class="barra" style="margin-top:14px;"><div class="barra-in" id="oll_barra"></div></div>
+        <div class="oll-linea">
+          <span id="oll_texto">Preparando…</span>
+          <button class="btn" id="btn_detener_ollama">Detener</button>
+        </div>
+      </div>
+      <div class="aviso w" style="margin-top:12px;">
+        <b>Para que el navegador pueda hablarle a Ollama</b> hay que levantarlo permitiendo el origen:
+        <code>OLLAMA_ORIGINS="*" ollama serve</code>. Si no, el navegador bloquea la petición y verás
+        un error de red en el registro.
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="wrap">
+  Procesador bibliométrico · Depto. de Ingeniería Informática · versión 2026-07-26 23:14 · funciona sin conexión y sin librerías externas
+</footer>
+
+<script>
+/* ==================================================================
+   Preparador de datos · sin librerías, todo en el navegador
+   ================================================================== */
+
+const $  = s => document.querySelector(s);
+const $$ = s => [...document.querySelectorAll(s)];
+
+const S = { raiz:null, escritura:false, arbol:null, indice:null, academicos:[],
+            unidades:{}, correspondencia:{}, avisos:[], filtro:{unidad:'', buscar:'', estado:'todos'} };
+
+/* ---------- lector de xlsx sin dependencias ----------
+   Un .xlsx es un ZIP con XML adentro. Se descomprime con
+   DecompressionStream, que es API nativa del navegador. */
+async function inflateRaw(bytes){
+  const ds = new DecompressionStream('deflate-raw');
+  const st = new Blob([bytes]).stream().pipeThrough(ds);
+  return new Uint8Array(await new Response(st).arrayBuffer());
+}
+const u16 = (b,o) => b[o] | (b[o+1]<<8);
+const u32 = (b,o) => (b[o] | (b[o+1]<<8) | (b[o+2]<<16) | (b[o+3]<<24)) >>> 0;
+
+async function abrirZip(buffer){
+  const b = new Uint8Array(buffer);
+  let eocd = -1;
+  for (let i=b.length-22; i>=0 && i>b.length-65558; i--)
+    if (u32(b,i) === 0x06054b50) { eocd = i; break; }
+  if (eocd < 0) throw new Error('El archivo no parece un xlsx válido');
+  const n = u16(b, eocd+10);
+  let p = u32(b, eocd+16);
+  const arch = {}, dec = new TextDecoder();
+  for (let k=0; k<n; k++){
+    if (u32(b,p) !== 0x02014b50) break;
+    const metodo = u16(b,p+10), comp = u32(b,p+20);
+    const nl = u16(b,p+28), el = u16(b,p+30), cl = u16(b,p+32), off = u32(b,p+42);
+    const nombre = dec.decode(b.subarray(p+46, p+46+nl));
+    const lnl = u16(b,off+26), lel = u16(b,off+28);
+    const ini = off + 30 + lnl + lel;
+    arch[nombre] = { metodo, datos: b.subarray(ini, ini+comp) };
+    p += 46 + nl + el + cl;
+  }
+  return {
+    nombres: () => Object.keys(arch),
+    texto: async nom => {
+      const e = arch[nom]; if (!e) return null;
+      const crudo = e.metodo === 0 ? e.datos : await inflateRaw(e.datos);
+      return new TextDecoder().decode(crudo);
+    }
+  };
+}
+const desesc = s => s.replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&quot;/g,'"')
+  .replace(/&apos;/g,"'").replace(/&#(\d+);/g,(m,d)=>String.fromCharCode(+d)).replace(/&amp;/g,'&');
+function colIdx(ref){
+  const m = /^([A-Z]+)/.exec(ref); if (!m) return 0;
+  let n = 0; for (const ch of m[1]) n = n*26 + (ch.charCodeAt(0)-64);
+  return n-1;
+}
+async function leerXlsx(buffer){
+  const zip = await abrirZip(buffer);
+  const ss = await zip.texto('xl/sharedStrings.xml');
+  const shared = [];
+  if (ss) for (const si of ss.match(/<si[\s>][\s\S]*?<\/si>|<si\/>/g) || [])
+    shared.push(desesc((si.match(/<t[^>]*>([\s\S]*?)<\/t>/g)||[]).map(t=>t.replace(/<[^>]+>/g,'')).join('')));
+  const hojas = zip.nombres().filter(x=>/^xl\/worksheets\/sheet\d+\.xml$/.test(x))
+                             .sort((a,b)=>a.localeCompare(b,undefined,{numeric:true}));
+  if (!hojas.length) throw new Error('El xlsx no tiene hojas');
+  const xml = await zip.texto(hojas[0]);
+  const filas = [];
+  for (const f of xml.match(/<row[\s>][\s\S]*?<\/row>|<row[^>]*\/>/g) || []){
+    const cs = [];
+    for (const c of f.match(/<c[\s>][\s\S]*?<\/c>|<c[^>]*\/>/g) || []){
+      const ref = (/r="([A-Z]+\d+)"/.exec(c)||[,''])[1];
+      const tipo = (/t="([^"]+)"/.exec(c)||[,''])[1];
+      let v = '';
+      if (tipo === 'inlineStr')
+        v = desesc((c.match(/<t[^>]*>([\s\S]*?)<\/t>/g)||[]).map(t=>t.replace(/<[^>]+>/g,'')).join(''));
+      else {
+        const mv = /<v>([\s\S]*?)<\/v>/.exec(c);
+        v = mv ? desesc(mv[1]) : '';
+        if (tipo === 's') v = shared[+v] ?? '';
+      }
+      cs[colIdx(ref)] = v;
+    }
+    for (let i=0;i<cs.length;i++) if (cs[i]===undefined) cs[i]='';
+    filas.push(cs);
+  }
+  if (!filas.length) return { cabecera:[], filas:[] };
+  const cab = filas[0].map(x=>String(x).trim());
+  return { cabecera: cab, filas: filas.slice(1)
+    .filter(f=>f.some(x=>String(x).trim()!==''))
+    .map(f=>{ const o={}; cab.forEach((h,i)=>o[h]=f[i]??''); return o; }) };
+}
+
+
+/* ==================================================================
+   LECTOR DE EXCEL ANTIGUO BINARIO (.xls)
+   ==================================================================
+   Es el formato que exporta Web of Science cuando eliges Excel. No es un
+   ZIP como el xlsx, es un contenedor OLE de los noventa con registros
+   BIFF8 adentro. Se lee en dos capas:
+
+     1. El contenedor OLE, que es un sistema de archivos en miniatura con
+        su tabla de sectores. De ahí se saca el flujo llamado "Workbook".
+     2. Los registros BIFF, que son tripletas de tipo, largo y datos. Los
+        textos viven en una tabla compartida, la SST, y las celdas la
+        referencian por índice.
+
+   Sin librerías. Escrito para leer las descargas de Web of Science, o
+   sea una sola hoja con texto y números.
+   ================================================================== */
+
+/* ---------- capa 1: contenedor OLE ---------- */
+function abrirOle(buffer){
+  const b = new Uint8Array(buffer);
+  const dv = new DataView(buffer);
+  const FIRMA = [0xD0,0xCF,0x11,0xE0,0xA1,0xB1,0x1A,0xE1];
+  for (let i = 0; i < 8; i++)
+    if (b[i] !== FIRMA[i]) throw new Error('no es un Excel antiguo válido');
+
+  const tamSector = 1 << dv.getUint16(0x1E, true);
+  const tamMini   = 1 << dv.getUint16(0x20, true);
+  const nFat      = dv.getUint32(0x2C, true);
+  const dirIni    = dv.getUint32(0x30, true);
+  const corte     = dv.getUint32(0x38, true);
+  const miniIni   = dv.getUint32(0x3C, true);
+  const difatIni  = dv.getUint32(0x44, true);
+  const nDifat    = dv.getUint32(0x48, true);
+
+  const desplazamiento = s => (s + 1) * tamSector;
+
+  /* lista de sectores que forman la FAT */
+  const sectoresFat = [];
+  for (let i = 0; i < 109 && sectoresFat.length < nFat; i++){
+    const s = dv.getUint32(0x4C + i*4, true);
+    if (s === 0xFFFFFFFF) break;
+    sectoresFat.push(s);
+  }
+  let d = difatIni, vueltas = 0;
+  while (d !== 0xFFFFFFFF && sectoresFat.length < nFat && vueltas++ < 10000){
+    const base = desplazamiento(d);
+    const porSector = tamSector / 4 - 1;
+    for (let i = 0; i < porSector; i++){
+      const s = dv.getUint32(base + i*4, true);
+      if (s !== 0xFFFFFFFF) sectoresFat.push(s);
+    }
+    d = dv.getUint32(base + porSector*4, true);
+  }
+
+  /* la FAT completa */
+  const fat = new Uint32Array(sectoresFat.length * (tamSector/4));
+  sectoresFat.forEach((s, k) => {
+    const base = desplazamiento(s);
+    for (let i = 0; i < tamSector/4; i++)
+      fat[k*(tamSector/4) + i] = dv.getUint32(base + i*4, true);
+  });
+
+  const cadena = (inicio, fatUsada) => {
+    const out = []; let s = inicio, n = 0;
+    while (s !== 0xFFFFFFFE && s !== 0xFFFFFFFF && s < fatUsada.length && n++ < 1e6){
+      out.push(s); s = fatUsada[s];
+    }
+    return out;
+  };
+
+  const leerPorFat = (inicio, tam) => {
+    const trozos = cadena(inicio, fat);
+    const out = new Uint8Array(trozos.length * tamSector);
+    trozos.forEach((s, k) => out.set(b.subarray(desplazamiento(s), desplazamiento(s)+tamSector), k*tamSector));
+    return tam ? out.subarray(0, tam) : out;
+  };
+
+  /* directorio */
+  const dir = leerPorFat(dirIni);
+  const entradas = [];
+  for (let p = 0; p + 128 <= dir.length; p += 128){
+    const tipo = dir[p + 0x42];
+    if (tipo !== 2 && tipo !== 5) continue;
+    const largoNombre = dir[p+0x40] | (dir[p+0x41] << 8);
+    let nombre = '';
+    for (let i = 0; i < largoNombre - 2; i += 2)
+      nombre += String.fromCharCode(dir[p+i] | (dir[p+i+1] << 8));
+    const dvd = new DataView(dir.buffer, dir.byteOffset + p, 128);
+    entradas.push({ nombre, tipo,
+      inicio: dvd.getUint32(0x74, true),
+      tam: dvd.getUint32(0x78, true) });
+  }
+
+  /* mini FAT y su flujo, que vive en la entrada raíz */
+  let miniFat = null, miniFlujo = null;
+  const raiz = entradas.find(e => e.tipo === 5);
+  if (raiz && miniIni !== 0xFFFFFFFF){
+    const mf = leerPorFat(miniIni);
+    miniFat = new Uint32Array(mf.buffer, mf.byteOffset, Math.floor(mf.length/4));
+    miniFlujo = leerPorFat(raiz.inicio, raiz.tam);
+  }
+
+  const leerFlujo = e => {
+    if (e.tam >= corte || e.tipo === 5) return leerPorFat(e.inicio, e.tam);
+    if (!miniFat || !miniFlujo) throw new Error('el archivo usa sectores chicos y no pude armarlos');
+    const trozos = cadena(e.inicio, miniFat);
+    const out = new Uint8Array(trozos.length * tamMini);
+    trozos.forEach((s, k) => out.set(miniFlujo.subarray(s*tamMini, s*tamMini+tamMini), k*tamMini));
+    return out.subarray(0, e.tam);
+  };
+
+  return { entradas, leerFlujo };
+}
+
+/* ---------- capa 2: registros BIFF ---------- */
+function leerXlsBinario(buffer){
+  const ole = abrirOle(buffer);
+  const entrada = ole.entradas.find(e => /^Workbook$/i.test(e.nombre))
+               || ole.entradas.find(e => /^Book$/i.test(e.nombre));
+  if (!entrada) throw new Error('no encontré la hoja de cálculo dentro del archivo');
+
+  const flujo = ole.leerFlujo(entrada);
+  const dv = new DataView(flujo.buffer, flujo.byteOffset, flujo.length);
+
+  /* recorrer los registros */
+  const registros = [];
+  for (let p = 0; p + 4 <= flujo.length; ){
+    const tipo = dv.getUint16(p, true), largo = dv.getUint16(p+2, true);
+    if (p + 4 + largo > flujo.length) break;
+    registros.push({ tipo, ini: p+4, largo });
+    p += 4 + largo;
+  }
+
+  /* --- tabla de textos compartidos (SST) --- */
+  const textos = [];
+  const iSst = registros.findIndex(r => r.tipo === 0x00FC);
+  if (iSst >= 0){
+    /* la SST puede seguir en registros CONTINUE, y un texto puede quedar
+       partido entre dos. Al cruzar el corte hay un byte que dice si lo
+       que sigue viene en 8 o en 16 bits. */
+    const bloques = [registros[iSst]];
+    for (let k = iSst+1; k < registros.length && registros[k].tipo === 0x003C; k++)
+      bloques.push(registros[k]);
+
+    let bi = 0, p = bloques[0].ini + 8;   /* saltar cstTotal y cstUnique */
+    const finBloque = () => bloques[bi].ini + bloques[bi].largo;
+    const siguienteBloque = () => { bi++; if (bi >= bloques.length) return false; p = bloques[bi].ini; return true; };
+    const quedan = () => finBloque() - p;
+    const u8  = () => flujo[p++];
+    const u16 = () => { const v = dv.getUint16(p, true); p += 2; return v; };
+    const u32 = () => { const v = dv.getUint32(p, true); p += 4; return v; };
+
+    const cstUnique = dv.getUint32(bloques[0].ini + 4, true);
+    for (let n = 0; n < cstUnique; n++){
+      if (quedan() < 3 && !siguienteBloque()) break;
+      const cch = u16();
+      const grbit = u8();
+      let alto = (grbit & 0x01) !== 0;
+      const rico = (grbit & 0x08) !== 0;
+      const ext  = (grbit & 0x04) !== 0;
+      const cRun = rico ? u16() : 0;
+      const cbExt = ext ? u32() : 0;
+
+      let s = '', leidos = 0;
+      while (leidos < cch){
+        if (quedan() <= 0){
+          if (!siguienteBloque()) break;
+          alto = u8() !== 0;          /* el byte de continuación */
+        }
+        const cabe = alto ? Math.floor(quedan()/2) : quedan();
+        const cuantos = Math.min(cch - leidos, Math.max(cabe, 0));
+        if (cuantos <= 0){ if (!siguienteBloque()) break; alto = u8() !== 0; continue; }
+        for (let i = 0; i < cuantos; i++)
+          s += String.fromCharCode(alto ? u16() : u8());
+        leidos += cuantos;
+      }
+      /* saltar el formato rico y los datos extendidos */
+      let porSaltar = cRun*4 + cbExt;
+      while (porSaltar > 0){
+        const hay = Math.min(porSaltar, Math.max(quedan(), 0));
+        p += hay; porSaltar -= hay;
+        if (porSaltar > 0 && !siguienteBloque()) break;
+      }
+      textos.push(s);
+    }
+  }
+
+  /* --- texto suelto, no compartido --- */
+  const textoEn = (pos, ancho16) => {
+    const cch = ancho16 ? dv.getUint16(pos, true) : flujo[pos];
+    const desp = ancho16 ? 2 : 1;
+    const grbit = flujo[pos + desp];
+    const alto = (grbit & 0x01) !== 0;
+    let s = '', q = pos + desp + 1;
+    for (let i = 0; i < cch; i++){
+      s += String.fromCharCode(alto ? dv.getUint16(q, true) : flujo[q]);
+      q += alto ? 2 : 1;
+    }
+    return s;
+  };
+
+  /* --- número codificado RK --- */
+  const deRk = rk => {
+    const entero = (rk & 2) !== 0;
+    let v;
+    if (entero) v = rk >> 2;
+    else {
+      const tmp = new DataView(new ArrayBuffer(8));
+      tmp.setUint32(4, rk & 0xFFFFFFFC, true);
+      tmp.setUint32(0, 0, true);
+      v = tmp.getFloat64(0, true);
+    }
+    return (rk & 1) !== 0 ? v/100 : v;
+  };
+
+  /* --- celdas de la primera hoja --- */
+  const celdas = new Map();   /* "fila,col" -> valor */
+  let maxFila = -1, maxCol = -1;
+  const poner = (f, c, v) => {
+    celdas.set(f + ',' + c, v);
+    if (f > maxFila) maxFila = f;
+    if (c > maxCol) maxCol = c;
+  };
+
+  /* la hoja empieza en el primer BOF de tipo worksheet */
+  let inicioHoja = registros.findIndex(r =>
+    r.tipo === 0x0809 && r.largo >= 4 && dv.getUint16(r.ini+2, true) === 0x0010);
+  if (inicioHoja < 0) inicioHoja = 0;
+
+  let pendienteFormula = null;
+  for (let k = inicioHoja; k < registros.length; k++){
+    const r = registros[k];
+    if (r.tipo === 0x000A && k > inicioHoja) break;      /* EOF de la hoja */
+    const o = r.ini;
+    switch (r.tipo){
+      case 0x00FD: {                                     /* LABELSST */
+        const isst = dv.getUint32(o+6, true);
+        poner(dv.getUint16(o, true), dv.getUint16(o+2, true), textos[isst] ?? '');
+        break; }
+      case 0x0204:                                       /* LABEL */
+        poner(dv.getUint16(o, true), dv.getUint16(o+2, true), textoEn(o+6, true));
+        break;
+      case 0x0203:                                       /* NUMBER */
+        poner(dv.getUint16(o, true), dv.getUint16(o+2, true), dv.getFloat64(o+6, true));
+        break;
+      case 0x027E:                                       /* RK */
+        poner(dv.getUint16(o, true), dv.getUint16(o+2, true), deRk(dv.getUint32(o+6, true)));
+        break;
+      case 0x00BD: {                                     /* MULRK */
+        const fila = dv.getUint16(o, true), c1 = dv.getUint16(o+2, true);
+        const n = Math.floor((r.largo - 6) / 6);
+        for (let i = 0; i < n; i++)
+          poner(fila, c1 + i, deRk(dv.getUint32(o + 4 + i*6 + 2, true)));
+        break; }
+      case 0x0006: {                                     /* FORMULA */
+        const fila = dv.getUint16(o, true), col = dv.getUint16(o+2, true);
+        if (flujo[o+12] === 0xFF && flujo[o+13] === 0xFF){
+          const clase = flujo[o+6];
+          if (clase === 0) pendienteFormula = [fila, col];       /* el texto viene aparte */
+          else if (clase === 1) poner(fila, col, flujo[o+8] ? 'TRUE' : 'FALSE');
+          else if (clase === 3) poner(fila, col, '');
+        } else poner(fila, col, dv.getFloat64(o+6, true));
+        break; }
+      case 0x0207:                                       /* STRING */
+        if (pendienteFormula){
+          poner(pendienteFormula[0], pendienteFormula[1], textoEn(o, true));
+          pendienteFormula = null;
+        }
+        break;
+    }
+  }
+
+  if (maxFila < 0) throw new Error('el archivo no tiene celdas con datos');
+
+  /* --- armar cabecera y filas --- */
+  const valor = (f, c) => {
+    const v = celdas.get(f + ',' + c);
+    if (v === undefined || v === null) return '';
+    if (typeof v === 'number')
+      return Number.isInteger(v) ? String(v) : String(v).replace('.', ',');
+    return String(v);
+  };
+  const cabecera = [];
+  for (let c = 0; c <= maxCol; c++) cabecera.push(valor(0, c).trim());
+  const filas = [];
+  for (let f = 1; f <= maxFila; f++){
+    let vacia = true;
+    const o = {};
+    cabecera.forEach((h, c) => {
+      const v = valor(f, c);
+      if (v !== '') vacia = false;
+      if (h) o[h] = v;
+    });
+    if (!vacia) filas.push(o);
+  }
+  return { cabecera, filas };
+}
+
+
+/* ---------- lector universal de tablas ----------
+   Web of Science y Scopus exportan en varios formatos y no siempre en el
+   que dice la extensión. Un archivo llamado .xls puede ser:
+     - un xlsx de verdad, que es un ZIP
+     - un Excel antiguo binario
+     - una tabla HTML con extensión .xls, que es lo que hace WoS a veces
+     - texto separado por tabulaciones
+   Esta función mira los primeros bytes y decide, en vez de confiar en el
+   nombre. Antes solo sabía abrir xlsx y el error decía "el archivo no
+   parece un xlsx válido" sin siquiera nombrar el archivo. */
+async function leerTabla(entrada, nombre){
+  const buffer = await bytesDe(entrada);
+  const bytes = new Uint8Array(buffer);
+  const nom = nombre || entrada.nombre || 'el archivo';
+
+  const empiezaCon = (...cs) => cs.every((c,i) => bytes[i] === c);
+
+  /* xlsx: es un ZIP, empieza con PK */
+  if (empiezaCon(0x50, 0x4B)){
+    try { return await leerXlsx(buffer); }
+    catch(e){ throw new Error(`${nom}: parece un xlsx pero no pude abrirlo (${e.message})`); }
+  }
+
+  /* Excel antiguo binario, que es lo que exporta Web of Science cuando
+     eliges Excel. Se lee con el lector de OLE y BIFF de más arriba. */
+  if (empiezaCon(0xD0, 0xCF, 0x11, 0xE0)){
+    try { return leerXlsBinario(buffer); }
+    catch(e){ throw new Error(`${nom}: es un Excel antiguo y no pude leerlo (${e.message}). ` +
+      `Como alternativa, ábrelo y guárdalo como CSV.`); }
+  }
+
+  /* Lo demás se trata como texto */
+  let texto;
+  try { texto = new TextDecoder('utf-8', {fatal:false}).decode(bytes).replace(/^\uFEFF/,''); }
+  catch(e){ throw new Error(`${nom}: no pude leerlo como texto`); }
+
+  if (!texto.trim()) throw new Error(`${nom} está vacío`);
+
+  /* tabla HTML, que es como WoS exporta a veces cuando pides Excel */
+  if (/<table[\s>]/i.test(texto.slice(0, 4000)) || /^\s*<(!doctype|html)/i.test(texto)){
+    const filas = leerTablaHtml(texto);
+    if (!filas.length) throw new Error(`${nom} es un HTML pero no le encontré una tabla`);
+    const cab = filas[0].map(x => String(x).trim());
+    return { cabecera: cab, filas: filas.slice(1)
+      .filter(f => f.some(x => String(x).trim() !== ''))
+      .map(f => { const o = {}; cab.forEach((c,i) => o[c] = f[i] ?? ''); return o; }) };
+  }
+
+  /* texto delimitado: tabulación, punto y coma, coma o barra */
+  const r = leerCsv(texto);
+  if (!r.cabecera.length || r.cabecera.length === 1)
+    throw new Error(`${nom}: no le encuentro columnas. ` +
+      `Se esperaba un xlsx, un CSV o un texto separado por tabulaciones.`);
+  return r;
+}
+
+/* Saca las filas de la primera tabla de un HTML */
+function leerTablaHtml(texto){
+  const tabla = (texto.match(/<table[\s\S]*?<\/table>/i) || [])[0];
+  if (!tabla) return [];
+  const desHtml = s => s
+    .replace(/<br\s*\/?>/gi, ' ')
+    .replace(/<[^>]+>/g, '')
+    .replace(/&nbsp;/gi, ' ')
+    .replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&quot;/g,'"')
+    .replace(/&#(\d+);/g, (m,d) => String.fromCharCode(+d))
+    .replace(/&amp;/g,'&')
+    .trim();
+  const out = [];
+  for (const tr of tabla.match(/<tr[\s\S]*?<\/tr>/gi) || []){
+    const celdas = (tr.match(/<t[hd][\s\S]*?<\/t[hd]>/gi) || []).map(desHtml);
+    if (celdas.length) out.push(celdas);
+  }
+  return out;
+}
+
+/* ---------- lector de csv, para quien prefiera guardar el índice así ---------- */
+function leerCsv(texto){
+  /* El separador se detecta contando en la primera línea. Se incluye la
+     barra vertical porque es la que usan BD_papers.csv y la base SJR que
+     arma esta misma herramienta. */
+  const linea = texto.split('\n')[0];
+  const cuenta = c => (linea.split(c).length - 1);
+  /* El tabulador va primero porque Web of Science exporta así por
+     defecto cuando eliges "Tab delimited". */
+  const sep = [['\t', cuenta('\t')], ['|', cuenta('|')], [';', cuenta(';')], [',', cuenta(',')]]
+    .sort((a,b) => b[1] - a[1])[0][0];
+  const filas = [];
+  let campo='', fila=[], q=false;
+  for (let i=0;i<texto.length;i++){
+    const ch = texto[i];
+    if (q){
+      if (ch === '"' && texto[i+1] === '"'){ campo+='"'; i++; }
+      else if (ch === '"') q = false;
+      else campo += ch;
+    } else if (ch === '"') q = true;
+    else if (ch === sep){ fila.push(campo); campo=''; }
+    else if (ch === '\n'){ fila.push(campo); filas.push(fila); fila=[]; campo=''; }
+    else if (ch !== '\r') campo += ch;
+  }
+  if (campo !== '' || fila.length) { fila.push(campo); filas.push(fila); }
+  const utiles = filas.filter(f=>f.some(x=>String(x).trim()!==''));
+  if (!utiles.length) return { cabecera:[], filas:[] };
+  const cab = utiles[0].map(x=>x.trim());
+  return { cabecera: cab, filas: utiles.slice(1)
+    .map(f=>{ const o={}; cab.forEach((h,i)=>o[h]=(f[i]??'').trim()); return o; }) };
+}
+
+/* ---------- utilidades ---------- */
+const norm = s => (s||'').toString().normalize('NFD').replace(/[\u0300-\u036f]/g,'')
+  .toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
+const esc = s => String(s??'').replace(/[&<>"']/g, m =>
+  ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+
+/* La carpeta es la verdad.
+   Antes había una función que adivinaba el nombre de la carpeta a partir
+   del texto de SESION, con una lista escrita a mano: DIINF, CBIOT,
+   BIOMEDICA. Si tu carpeta se llama ICBM y no BIOMEDICA, esa función
+   marcaba TODOS sus archivos como mal ubicados, que es un falso positivo
+   tonto: los archivos estaban perfectos, el que no sabía era el código.
+
+   Ahora la unidad de cada publicación sale de la carpeta donde está su
+   CSV, y la correspondencia entre carpeta y SESION se APRENDE de los
+   datos. Lo que sí se revisa, porque son problemas de verdad:
+     - una carpeta que mezcle académicos de dos SESION distintas
+     - un mismo SCOPUS_ID con CSV en dos carpetas a la vez
+     - un académico del índice sin CSV en ninguna parte */
+
+/* Sugiere qué catálogo de áreas usar, solo para preseleccionar el
+   desplegable. No decide nada ni bloquea. */
+function catalogoSugerido(sesion){
+  const s = M.norm(sesion || '');
+  if (/inform|comput/.test(s)) return 'DIINF';
+  if (/biotecnolog|cbiot/.test(s)) return 'CBIOT';
+  if (/biomed/.test(s)) return 'BIOMEDICA';
+  return '';
+}
+
+const idsDe = txt => String(txt||'').split(';').map(x=>x.trim()).filter(Boolean);
+const anosDe = txt => (String(txt||'').match(/\b(19|20)\d{2}\b/g) || []);
+
+/* ==================================================================
+   Lectura de la carpeta
+   ================================================================== */
+const TIENE_FS = 'showDirectoryPicker' in window;
+$('#estado_api').innerHTML = TIENE_FS
+  ? 'Navegador con permisos de escritura'
+  : 'Solo lectura: usa Chrome o Edge para renombrar';
+
+async function leerConFS(){
+  const dir = await window.showDirectoryPicker({ mode:'readwrite' });
+  S.raiz = dir; S.escritura = true;
+  const arbol = { nombre:dir.name, dirs:{}, archivos:{} };
+  async function recorrer(handle, nodo, prof){
+    if (prof > 3) return;
+    for await (const [nombre, h] of handle.entries()){
+      if (h.kind === 'directory'){
+        nodo.dirs[nombre] = { nombre, handle:h, dirs:{}, archivos:{} };
+        await recorrer(h, nodo.dirs[nombre], prof+1);
+      } else {
+        nodo.archivos[nombre] = { nombre, handle:h };
+      }
+    }
+  }
+  await recorrer(dir, arbol, 0);
+  return arbol;
+}
+
+function leerConInput(files){
+  const arbol = { nombre:'BD', dirs:{}, archivos:{} };
+  for (const f of files){
+    const partes = f.webkitRelativePath.split('/');
+    partes.shift();                       // la carpeta elegida
+    const nombre = partes.pop();
+    let nodo = arbol;
+    for (const p of partes){
+      nodo.dirs[p] = nodo.dirs[p] || { nombre:p, dirs:{}, archivos:{} };
+      nodo = nodo.dirs[p];
+    }
+    nodo.archivos[nombre] = { nombre, file:f };
+  }
+  S.raiz = null; S.escritura = false;
+  return arbol;
+}
+
+async function bytesDe(entrada){
+  if (entrada.file) return await entrada.file.arrayBuffer();
+  const f = await entrada.handle.getFile();
+  return await f.arrayBuffer();
+}
+async function textoDe(entrada){
+  const b = await bytesDe(entrada);
+  return new TextDecoder('utf-8').decode(b);
+}
+
+/* ==================================================================
+   Análisis
+   ================================================================== */
+async function analizar(arbol){
+  S.arbol = arbol; S.avisos = []; S.unidades = {}; S.academicos = []; S.indice = null;
+
+  const base = arbol.dirs['BASE'] || arbol.dirs['base'];
+  if (!base){
+    S.avisos.push({t:'e', h:'No encontré la carpeta BASE',
+      d:'Dentro de la carpeta que elegiste tiene que haber una subcarpeta llamada ' +
+        '<span class="mono">BASE</span>, con el listado de académicos y el listado de revistas de Scimago adentro.' +
+        '<br><br>¿Elegiste la carpeta correcta? Tiene que ser la que contiene BASE y una carpeta por unidad.'});
+  }
+
+  /* --- índice de académicos --- */
+  if (base){
+    const nombres = Object.keys(base.archivos);
+    const cand = nombres.find(n => /lista_academicos\.(xlsx|csv)$/i.test(n))
+              || nombres.find(n => /academic/i.test(n) && /\.(xlsx|csv)$/i.test(n));
+    if (!cand){
+      S.avisos.push({t:'e', h:'No encontré el listado de académicos',
+        d:'Es el Excel donde está cada persona con su número de Scopus. Sin él no puedo saber de quién es cada archivo.' +
+          '<br><br><b>Qué hacer:</b> ponlo en <span class="mono">BD/BASE</span> con el nombre ' +
+          '<span class="mono">lista_academicos.xlsx</span>.<br><br>En esa carpeta encontré: ' +
+          (nombres.length ? nombres.map(esc).join(', ') : 'nada') });
+    } else {
+      try {
+        const ent = base.archivos[cand];
+        S.indice = /\.csv$/i.test(cand)
+          ? leerCsv(await textoDe(ent))
+          : await leerTabla(ent, cand);
+        S.indice.archivo = cand;
+        const faltan = ['UNIVERSIDAD','SESION','NOMBRE_AUTOR','SCOPUS_ID']
+          .filter(c => !S.indice.cabecera.includes(c));
+        if (faltan.length)
+          S.avisos.push({t:'e', h:'Al índice de académicos le faltan columnas que necesito',
+            d:'Sin ellas no puedo saber de quién es cada publicación, así que no se puede procesar nada.' +
+               '<br><br>Faltan: <span class="mono">' + faltan.map(esc).join('</span>, <span class="mono">') +
+               '</span><br>Las que sí tiene: ' + S.indice.cabecera.map(esc).join(', ') +
+               '<br><br><b>Qué hacer:</b> agrégalas al Excel con esos nombres exactos.'});
+        for (const c of ['WoS_ID','ANOS'])
+          if (!S.indice.cabecera.includes(c))
+            S.avisos.push({t:'w', h:'El índice no tiene la columna <code>'+c+'</code>',
+              d: c === 'ANOS'
+                ? 'Es la que dice desde cuándo cada persona está en la unidad. Sin ella, todas las publicaciones quedan marcadas como externas y la app las esconde en el filtro que trae por defecto.'
+                : 'No es indispensable. Sirve para identificar a la persona en Web of Science, pero se puede trabajar sin ella.'});
+      } catch(e){
+        S.avisos.push({t:'e', h:'No pude leer el índice', d: esc(e.message)});
+      }
+    }
+
+    /* --- base SJR --- */
+    const sjr = Object.keys(base.archivos).filter(n => /^SJR_revistas.*\.(xlsx|csv)$/i.test(n));
+    if (!sjr.length)
+      S.avisos.push({t:'e', h:'No encontré la base SJR',
+        d:'Es el listado de revistas de Scimago, de donde salen los cuartiles y las categorías de cada ' +
+           'publicación. Sin ella se puede procesar, pero todo queda sin cuartil.<br><br><b>Qué hacer:</b> ármala en ' +
+           'el paso 2, que la baja sola.'});
+    else {
+      const anos = sjr.map(n => (n.match(/(\d{4})\D+(\d{4})/) || [])[2]).filter(Boolean).map(Number);
+      const ultimo = anos.length ? Math.max(...anos) : null;
+      const esperado = new Date().getFullYear() - 1;
+      if (ultimo && ultimo < esperado)
+        S.avisos.push({t:'w', h:'La base SJR podría estar atrasada',
+          d:'Llega hasta ' + ultimo + ', así que las publicaciones más nuevas se van a quedar con el cuartil de ese ' +
+             'año.<br><br><b>Qué hacer:</b> agrega ' + esperado + ' en el paso 2, toma un minuto.'});
+    }
+  }
+
+  /* --- unidades en el disco --- */
+  for (const [nombre, nodo] of Object.entries(arbol.dirs)){
+    if (/^base$/i.test(nombre)) continue;
+    const scopus = nodo.dirs['SCOPUS'] || nodo.dirs['Scopus'] || nodo.dirs['scopus'];
+    if (!scopus) continue;
+    const wos = nodo.dirs['WOS'] || nodo.dirs['WoS'] || nodo.dirs['wos'];
+    const csvs = Object.keys(scopus.archivos).filter(n => /\.csv$/i.test(n));
+    /* Web of Science exporta en varios formatos: xlsx, xls, texto separado
+       por tabulaciones y CSV. Se aceptan todos. */
+    const xlss = wos ? Object.keys(wos.archivos).filter(n => /\.(xlsx|xls|csv|txt|tsv)$/i.test(n)) : [];
+    S.unidades[nombre.toUpperCase()] = {
+      unidad: nombre.toUpperCase(), carpeta: nombre,
+      nodoScopus: scopus, nodoWos: wos || null, csvs, xlss
+    };
+    if (!wos)
+      S.avisos.push({t:'w',
+        h: 'La carpeta ' + esc(nombre) + ' no tiene una subcarpeta WOS',
+        d: 'Se puede procesar igual, pero sin los datos de Web of Science ninguna de esas publicaciones va a contar ' +
+           'como WoS, aunque lo sea.<br><br><b>Qué hacer:</b> si tienes las descargas de Web of Science, crea una ' +
+           'carpeta llamada <span class="mono">WOS</span> dentro de ' + esc(nombre) + ' y ponlas ahí.'});
+    const malos = csvs.filter(n => !/ - \d+\.csv$/i.test(n));
+    if (malos.length)
+      S.avisos.push({t:'e',
+        h: 'En la carpeta ' + esc(nombre) + ' hay ' + malos.length + ' archivo(s) con el nombre mal puesto',
+        d: 'No sé de quién son, porque el número de Scopus va en el nombre del archivo y estos no lo traen. ' +
+           'Los voy a ignorar.<br><br><b>Qué hacer:</b> renómbralos para que terminen en un guion, un espacio y el ' +
+           'número de Scopus de la persona, como <span class="mono">Scopus - Perez - 55114462200.csv</span>.' +
+           '<br><br>Son: ' + malos.slice(0,6).map(esc).join('<br>') +
+           (malos.length > 6 ? '<br>y ' + (malos.length - 6) + ' más' : '')});
+  }
+  if (!Object.keys(S.unidades).length)
+    S.avisos.push({t:'e', h:'No encontré ninguna unidad',
+      d:'Busco carpetas que tengan una subcarpeta <span class="mono">SCOPUS</span> adentro, y no vi ninguna. ' +
+        'El nombre de la carpeta da igual, puede ser DIINF, ICBM o lo que uses.' +
+        '<br><br>Así tiene que verse: <span class="mono">BD / DIINF / SCOPUS</span> y ' +
+        '<span class="mono">BD / DIINF / WOS</span>.'});
+
+  /* --- cruzar académicos con archivos --- */
+  if (S.indice){
+    const porUnidad = {};
+    for (const [u, info] of Object.entries(S.unidades)){
+      porUnidad[u] = {
+        csv: new Map(info.csvs.map(n => {
+          const m = / - (\d+)\.csv$/i.exec(n); return [m ? m[1] : '@'+n, n];
+        })),
+        wosPorId: new Map(),
+        wosNombres: info.xlss
+      };
+      for (const n of info.xlss)
+        for (const id of (n.match(/\d{8,}/g) || []))
+          porUnidad[u].wosPorId.set(id, n);
+    }
+
+    const enVariasCarpetas = [];
+
+    for (const fila of S.indice.filas){
+      const ids = idsDe(fila.SCOPUS_ID);
+      const anos = anosDe(fila.ANOS);
+      const lista = ids.length ? ids : [''];
+      for (const id of lista){
+        /* la unidad es la carpeta donde vive el CSV */
+        const carpetasConCsv = id
+          ? Object.entries(porUnidad).filter(([,m]) => m.csv.has(id)).map(([u]) => u)
+          : [];
+        if (carpetasConCsv.length > 1)
+          enVariasCarpetas.push({ nombre: fila.NOMBRE_AUTOR, id, carpetas: carpetasConCsv });
+
+        let unidad = carpetasConCsv[0] || '';
+        let archivoCsv = unidad ? porUnidad[unidad].csv.get(id) : '';
+
+        /* sin CSV: al menos ubicarlo por su archivo de WoS, si hay */
+        if (!unidad && id)
+          for (const [u, m] of Object.entries(porUnidad))
+            if (m.wosPorId.has(id)){ unidad = u; break; }
+
+        const mm = unidad ? porUnidad[unidad] : null;
+        let archivoWos = '', cruce = 'ninguno';
+        if (mm){
+          if (id && mm.wosPorId.has(id)){ archivoWos = mm.wosPorId.get(id); cruce = 'id'; }
+          else {
+            const k = M.norm(fila.NOMBRE_AUTOR);
+            const tk = k.split(' ').filter(t => t.length >= 3);
+            let mejor = 0, cuales = [];
+            for (const n of mm.wosNombres){
+              const nn = M.norm(n);
+              const p = nn.includes(k) ? 99 : tk.filter(t => nn.includes(t)).length;
+              if (p > mejor){ mejor = p; cuales = [n]; }
+              else if (p === mejor && p > 0) cuales.push(n);
+            }
+            if (mejor >= 99){ archivoWos = cuales[0]; cruce = 'nombre'; }
+            else if (mejor >= 2){ archivoWos = cuales[0]; cruce = cuales.length > 1 ? 'ambiguo' : 'nombre'; }
+            else if (mejor === 1 && cuales.length === 1){ archivoWos = cuales[0]; cruce = 'debil'; }
+            else if (mejor === 1) cruce = 'ambiguo';
+          }
+        }
+        S.academicos.push({
+          unidad, nombre: fila.NOMBRE_AUTOR || '(sin nombre)',
+          sesion: fila.SESION || '', scopusId: id, wosId: fila.WoS_ID || '',
+          anos: anos.length, archivoCsv, archivoWos, cruce,
+          sel: !!archivoCsv
+        });
+      }
+    }
+
+    /* correspondencia aprendida entre carpeta y SESION */
+    S.correspondencia = {};
+    for (const a of S.academicos){
+      if (!a.unidad || !a.archivoCsv) continue;
+      S.correspondencia[a.unidad] = S.correspondencia[a.unidad] || {};
+      const s = a.sesion || '(sin SESION)';
+      S.correspondencia[a.unidad][s] = (S.correspondencia[a.unidad][s] || 0) + 1;
+    }
+    const mezcladas = Object.entries(S.correspondencia).filter(([,v]) => Object.keys(v).length > 1);
+    if (mezcladas.length)
+      S.avisos.push({t:'w',
+        h: 'Hay ' + mezcladas.length + ' carpeta(s) donde conviven académicos de distintas unidades',
+        d: 'No es un error necesariamente, puede ser que así los tengas ordenados. Solo para que sepas: cada ' +
+           'publicación se va a etiquetar con la unidad que dice el índice, no con el nombre de la carpeta.' +
+           '<br><br>' + mezcladas.map(([u,v]) => 'La carpeta <b>' + esc(u) + '</b> tiene ' +
+             Object.entries(v).map(([s,n]) => n + ' de ' + esc(s)).join(' y ')).join('<br>')});
+
+    if (enVariasCarpetas.length)
+      S.avisos.push({t:'e',
+        h: 'El archivo de ' + enVariasCarpetas.length + ' académico(s) está repetido en dos carpetas',
+        d: 'El mismo archivo de Scopus aparece en más de una unidad, así que sus publicaciones se contarían dos veces.' +
+           '<br><br><b>Qué hacer:</b> deja el archivo solo en la carpeta de la unidad que le corresponde y borra la copia.' +
+           '<br><br>' + enVariasCarpetas.slice(0,6).map(x =>
+             '<b>' + esc(x.nombre) + '</b> está en ' + x.carpetas.map(esc).join(' y también en ')).join('<br>')});
+
+    const sinCsv = S.academicos.filter(a => !a.archivoCsv);
+    if (sinCsv.length)
+      S.avisos.push({t:'w',
+        h: sinCsv.length + ' académico(s) del índice no tienen su archivo de Scopus',
+        d: 'Sin ese archivo no hay nada que procesar de esa persona, así que queda fuera del resultado.' +
+           '<br><br><b>Qué hacer:</b> entra a Scopus, exporta sus publicaciones y guarda el CSV en la carpeta de su ' +
+           'unidad, con el nombre terminado en un guion y su número de Scopus. Por ejemplo ' +
+           '<span class="mono">Scopus - Perez - 55114462200.csv</span>.<br><br>Son: ' +
+           sinCsv.slice(0,8).map(a => esc(a.nombre) + (a.scopusId ? ' (' + a.scopusId + ')' : '')).join(' · ') +
+           (sinCsv.length > 8 ? ' y ' + (sinCsv.length - 8) + ' más' : '')});
+
+    const sinAnos = S.academicos.filter(a => a.anos === 0);
+    if (sinAnos.length)
+      S.avisos.push({t:'w',
+        h: 'De ' + sinAnos.length + ' académico(s) no sé desde cuándo están en la unidad',
+        d: 'La columna de años del índice está vacía para ellos. Como no puedo saber si una publicación la hicieron ' +
+           'estando en la unidad o antes, todas quedan marcadas como externas, y la app las esconde en el filtro que ' +
+           'trae por defecto.<br><br><b>Qué hacer:</b> en el índice, escribe en la columna de años los años en que ' +
+           'estuvieron, separados por coma. Por ejemplo <span class="mono">2015, 2016, 2017</span>.<br><br>Son: ' +
+           sinAnos.slice(0,8).map(a => esc(a.nombre)).join(' · ') +
+           (sinAnos.length > 8 ? ' y ' + (sinAnos.length - 8) + ' más' : '')});
+
+    const porNombre = S.academicos.filter(a => a.archivoWos && a.cruce !== 'id');
+    if (porNombre.length)
+      S.avisos.push({t:'w',
+        h: 'A ' + porNombre.length + ' académico(s) su archivo de Web of Science se lo asigné adivinando por el nombre',
+        d: 'Sus archivos no traen el número de Scopus, así que los emparejé comparando el nombre de la persona con el ' +
+           'nombre del archivo. Puede equivocarse si hay apellidos parecidos, y entonces a alguien le quedarían las ' +
+           'publicaciones de otro.<br><br><b>Qué hacer:</b> mira en la tabla de abajo la columna ' +
+           '"Archivo de Web of Science" de estas personas y confirma que sea el suyo. Si quieres que deje de adivinar, ' +
+           'aprieta <b>Arreglar nombres de Web of Science</b> en el paso 4.<br><br>Son: ' +
+           porNombre.slice(0,8).map(a => esc(a.nombre)).join(' · ') +
+           (porNombre.length > 8 ? ' y ' + (porNombre.length - 8) + ' más' : '')});
+
+    const ambiguos = S.academicos.filter(a => a.cruce === 'ambiguo');
+    if (ambiguos.length)
+      S.avisos.push({t:'e',
+        h: 'A ' + ambiguos.length + ' académico(s) no les pude asignar su archivo de Web of Science',
+        d: 'Hay varios archivos que podrían ser de esa persona y preferí no arriesgarme a darle el de otro. ' +
+           'Sus publicaciones van a quedar sin la información de Web of Science, o sea sin contar como WoS aunque lo sean.' +
+           '<br><br><b>Qué hacer:</b> aprieta <b>Arreglar nombres de Web of Science</b> en el paso 4, o renombra esos ' +
+           'archivos a mano poniéndoles el número de Scopus de la persona.<br><br>Son: ' +
+           ambiguos.slice(0,8).map(a => esc(a.nombre)).join(' · ')});
+  }
+}
+
+/* ==================================================================
+   BASE SJR · descargar de SCImago y armarla sin R
+   ==================================================================
+   SCImago no ofrece un archivo consolidado: hay que pedir un año por
+   vez al endpoint journalrank.php?out=xls&year=YYYY, que devuelve un CSV
+   separado por punto y coma disfrazado de xls.
+
+   Dos caminos, en este orden:
+
+     1. Descarga directa con fetch. Puede fallar por CORS, porque
+        scimagojr no manda la cabecera que autoriza a una página a leer su
+        respuesta. Se intenta igual, porque si funciona es un clic.
+
+     2. Si falla, se abren los enlaces. Una descarga por navegación no
+        pasa por CORS, así que el navegador los baja sin problema. Después
+        sueltas los archivos acá y la herramienta los une.
+   ================================================================== */
+
+
+function sjrEstado(html, tipo){
+  $('#sjr_estado').innerHTML = `<div class="aviso ${tipo||'i'}">${html}</div>`;
+}
+function pintarSjr(){
+  const desde = +$('#sjr_desde').value || 1999;
+  const hasta = +$('#sjr_hasta').value || (new Date().getFullYear() - 1);
+  const faltan = [];
+  for (let a = hasta; a >= desde; a--) if (!SJR.anios.has(String(a))) faltan.push(a);
+
+  $('#sjr_resumen').innerHTML = SJR.mapa.size
+    ? `<b>${SJR.mapa.size.toLocaleString('es-CL')}</b> revistas cargadas, de ${SJR.anios.size} año(s).` +
+      (faltan.length ? ` Faltan ${faltan.length}: ${faltan.slice(0,12).join(', ')}${faltan.length>12?'…':''}` : ' Están todos.')
+    : `Todavía no has cargado nada. Faltan ${faltan.length} años.`;
+
+  $('#sjr_enlaces').innerHTML = faltan.length
+    ? faltan.map(a => `<a href="${SJR_URL(a)}" target="_blank" rel="noopener" class="anio">${a}</a>`).join('')
+    : '';
+  $('#btn_sjr_guardar').disabled = !SJR.mapa.size;
+  $('#sjr_zona').classList.toggle('lleno', SJR.mapa.size > 0);
+}
+
+
+/* ==================================================================
+   Pintar
+   ================================================================== */
+function pintarKpis(){
+  const a = S.academicos;
+  const conCsv = a.filter(x => x.archivoCsv).length;
+  const conWos = a.filter(x => x.archivoWos).length;
+  const porId  = a.filter(x => x.cruce === 'id').length;
+  const probl  = a.filter(x => !x.archivoCsv || x.cruce === 'ambiguo' || x.anos === 0).length;
+  const unidades = Object.keys(S.unidades).length;
+  const csvsTotal = Object.values(S.unidades).reduce((s,u)=>s+u.csvs.length,0);
+  $('#kpis').innerHTML = `
+    <div class="kpi"><div class="k">Carpetas</div><div class="v">${unidades}</div>
+      <div class="s">${Object.entries(S.correspondencia||{}).map(([u,v]) =>
+        u+' → '+Object.keys(v)[0].slice(0,22)).join(' · ') || Object.keys(S.unidades).join(', ') || 'ninguna'}</div></div>
+    <div class="kpi"><div class="k">Académicos</div><div class="v">${a.length}</div>
+      <div class="s">en ${esc(S.indice?.archivo || 'el índice')}</div></div>
+    <div class="kpi ${conCsv === a.length ? 'ok' : 'mal'}"><div class="k">Con CSV Scopus</div>
+      <div class="v">${conCsv}</div><div class="s">de ${a.length} · ${csvsTotal} archivos en disco</div></div>
+    <div class="kpi ${conWos ? 'ok' : ''}"><div class="k">Con descarga de WoS</div>
+      <div class="v">${conWos}</div><div class="s">${porId} amarrados por número, ${conWos-porId} por nombre</div></div>
+    <div class="kpi ${probl ? 'mal' : 'ok'}"><div class="k">Con problemas</div>
+      <div class="v">${probl}</div><div class="s">${probl ? 'revisa los avisos' : 'todo en orden'}</div></div>`;
+}
+
+function pintarAvisos(){
+  const orden = { e:0, w:1, i:2 };
+  const av = [...S.avisos].sort((x,y)=>orden[x.t]-orden[y.t]);
+  $('#avisos').innerHTML = av.length
+    ? av.map(v => `<div class="aviso ${v.t}"><b>${v.h}</b><br>${v.d}</div>`).join('')
+    : '<div class="aviso i"><b>Todo en orden.</b> No encontré problemas en las carpetas ni en el índice.</div>';
+}
+
+function pintarFiltroUnidad(){
+  const us = [...new Set(S.academicos.map(a=>a.unidad).filter(Boolean))].sort();
+  $('#f_unidad').innerHTML = '<option value="">Todas las unidades</option>' +
+    us.map(u=>`<option value="${esc(u)}">${esc(u)}</option>`).join('');
+}
+
+function visibles(){
+  const f = S.filtro;
+  return S.academicos.filter(a => {
+    if (f.unidad && a.unidad !== f.unidad) return false;
+    if (f.buscar){
+      const q = norm(f.buscar);
+      if (!norm(a.nombre).includes(q) && !a.scopusId.includes(f.buscar.trim())) return false;
+    }
+    const problema = !a.archivoCsv || a.cruce === 'ambiguo' || a.anos === 0;
+    if (f.estado === 'listos' && problema) return false;
+    if (f.estado === 'problemas' && !problema) return false;
+    return true;
+  });
+}
+
+const PILL_CRUCE = {
+  id:      ['si',   'por número Scopus'],
+  nombre:  ['tibio','por nombre'],
+  debil:   ['tibio','por un apellido'],
+  ambiguo: ['no',   'hay varios, no se usa'],
+  ninguno: ['gris', 'no hay archivo']
+};
+
+function pintarTabla(){
+  const filas = visibles();
+  $('#tabla tbody').innerHTML = filas.map((a,i) => {
+    const idx = S.academicos.indexOf(a);
+    const [cl, txt] = PILL_CRUCE[a.cruce] || PILL_CRUCE.ninguno;
+    return `<tr>
+      <td><input type="checkbox" class="chk" data-i="${idx}" ${a.sel?'checked':''} ${a.archivoCsv?'':'disabled'}></td>
+      <td>${a.unidad ? esc(a.unidad) : '<span class="pill gris">sin ubicar</span>'}</td>
+      <td>${esc(a.nombre)}</td>
+      <td style="font-size:.8rem;color:var(--muted);">${esc((a.sesion||'—').slice(0,34))}</td>
+      <td class="mono">${esc(a.scopusId || '—')}</td>
+      <td>${a.anos ? a.anos : '<span class="pill no">sin años</span>'}</td>
+      <td>${a.archivoCsv ? '<span class="pill si">sí</span>' : '<span class="pill no">falta</span>'}</td>
+      <td>${a.archivoWos ? `<span class="mono" title="${esc(a.archivoWos)}">${esc(a.archivoWos.slice(0,26))}${a.archivoWos.length>26?'…':''}</span>` : '<span class="pill gris">—</span>'}</td>
+      <td class="n"><span class="pill ${cl}">${txt}</span></td>
+    </tr>`;
+  }).join('') || '<tr><td colspan="9" style="padding:20px 0;color:var(--muted);">Nada que mostrar con este filtro.</td></tr>';
+  pintarConteo();
+}
+
+function pintarConteo(){
+  const sel = S.academicos.filter(a=>a.sel);
+  const us = [...new Set(sel.map(a=>a.unidad))];
+  $('#conteo_sel').innerHTML = sel.length
+    ? `<b>${sel.length}</b> académico(s) marcado(s), de ${us.length === 1 ? 'la carpeta ' + esc(us[0]) : 'las carpetas ' + us.map(esc).join(', ')}. Se procesan todos juntos, de una vez.`
+    : 'Marca al menos un académico para poder procesar.';
+}
+
+/* ==================================================================
+   Salida
+   ================================================================== */
+
+
+
+
+
+
+/* ==================================================================
+   Acciones
+   ================================================================== */
+function descargar(nombre, texto){
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([texto], {type:'text/plain;charset=utf-8'}));
+  a.download = nombre;
+  a.click();
+  setTimeout(()=>URL.revokeObjectURL(a.href), 2000);
+}
+
+async function renombrarWos(){
+  const objetivo = S.academicos.filter(a => a.archivoWos && a.cruce !== 'id' && a.scopusId);
+  if (!objetivo.length) return;
+  const lista = objetivo.slice(0,10).map(a =>
+    `  ${a.archivoWos}\n    → WOS - ${a.scopusId} - ${a.wosId || 'SIN-ID'}.xlsx`).join('\n');
+  if (!confirm(`Se van a renombrar ${objetivo.length} archivo(s) de WoS para incluir el SCOPUS_ID.\n\n` +
+              lista + (objetivo.length>10 ? `\n  ... y ${objetivo.length-10} más` : '') +
+              '\n\n¿Continuar?')) return;
+
+  let ok = 0, err = [];
+  for (const a of objetivo){
+    try {
+      const info = S.unidades[a.unidad];
+      if (!info || !info.nodoWos) throw new Error('sin carpeta WOS');
+      const ext = (a.archivoWos.match(/\.[a-z]+$/i) || ['.xlsx'])[0];
+      const nuevo = `WOS - ${a.scopusId} - ${a.wosId || 'SIN-ID'}${ext}`;
+      if (nuevo === a.archivoWos){ ok++; continue; }
+      const h = await info.nodoWos.handle.getFileHandle(a.archivoWos);
+      if (h.move) { await h.move(nuevo); }
+      else {
+        const datos = await (await h.getFile()).arrayBuffer();
+        const nh = await info.nodoWos.handle.getFileHandle(nuevo, {create:true});
+        const w = await nh.createWritable(); await w.write(datos); await w.close();
+        await info.nodoWos.handle.removeEntry(a.archivoWos);
+      }
+      ok++;
+    } catch(e){ err.push(a.archivoWos + ': ' + e.message); }
+  }
+  alert(`Renombrados ${ok} de ${objetivo.length}.` + (err.length ? `\n\nErrores:\n` + err.slice(0,5).join('\n') : ''));
+  await recargar();
+}
+
+async function recargar(){
+  if (S.raiz){
+    const arbol = { nombre:S.raiz.name, dirs:{}, archivos:{} };
+    async function rec(h, n, p){
+      if (p > 3) return;
+      for await (const [nom, hh] of h.entries()){
+        if (hh.kind === 'directory'){ n.dirs[nom] = {nombre:nom, handle:hh, dirs:{}, archivos:{}}; await rec(hh, n.dirs[nom], p+1); }
+        else n.archivos[nom] = {nombre:nom, handle:hh};
+      }
+    }
+    await rec(S.raiz, arbol, 0);
+    await analizar(arbol);
+  } else if (S.arbol){
+    await analizar(S.arbol);
+  } else return;
+  mostrarTodo();
+}
+
+function paso(n){
+  $$('#pasos .paso').forEach(p => {
+    const k = +p.dataset.p;
+    p.classList.toggle('on', k === n);
+    p.classList.toggle('done', k < n);
+  });
+}
+
+function mostrarTodo(){
+  pintarKpis(); pintarAvisos(); pintarFiltroUnidad(); pintarTabla();
+  $('#c_diagnostico').classList.remove('oculto');
+  $('#c_sjr').classList.remove('oculto');
+  pintarSjr();
+  $('#c_academicos').classList.toggle('oculto', !S.academicos.length);
+    paso(S.academicos.length ? 3 : 2);
+}
+
+/* ---------- eventos ---------- */
+$('#btn_carpeta').onclick = async () => {
+  if (!TIENE_FS){
+    $('#aviso_carpeta').innerHTML = '<div class="aviso w"><b>Tu navegador no tiene la API de carpetas.</b> Usa el segundo botón, o abre esto en Chrome o Edge si quieres renombrar archivos.</div>';
+    return;
+  }
+  try {
+    $('#aviso_carpeta').innerHTML = '<div class="aviso i">Leyendo la carpeta…</div>';
+    const arbol = await leerConFS();
+    await analizar(arbol);
+    $('#aviso_carpeta').innerHTML = `<div class="aviso i"><b>Carpeta leída con permisos de escritura.</b> ${Object.keys(S.unidades).length} unidad(es), ${S.academicos.length} académico(s).</div>`;
+    mostrarTodo();
+  } catch(e){
+    if (e.name === 'AbortError') { $('#aviso_carpeta').innerHTML = ''; return; }
+    $('#aviso_carpeta').innerHTML = `<div class="aviso e"><b>No pude leer la carpeta.</b> ${esc(e.message)}</div>`;
+  }
+};
+
+$('#btn_input').onclick = () => $('#input_dir').click();
+$('#input_dir').onchange = async e => {
+  const files = [...e.target.files];
+  if (!files.length) return;
+  try {
+    $('#aviso_carpeta').innerHTML = '<div class="aviso i">Leyendo la carpeta…</div>';
+    const arbol = leerConInput(files);
+    await analizar(arbol);
+    $('#aviso_carpeta').innerHTML = `<div class="aviso w"><b>Carpeta leída en modo solo lectura.</b> ${Object.keys(S.unidades).length} unidad(es), ${S.academicos.length} académico(s). Para renombrar archivos usa el primer botón en Chrome o Edge.</div>`;
+    mostrarTodo();
+  } catch(err){
+    $('#aviso_carpeta').innerHTML = `<div class="aviso e"><b>No pude leer la carpeta.</b> ${esc(err.message)}</div>`;
+  }
+};
+
+$('#btn_recargar').onclick = recargar;
+$('#f_unidad').onchange = e => { S.filtro.unidad = e.target.value; pintarTabla(); };
+$('#f_buscar').oninput  = e => { S.filtro.buscar = e.target.value; pintarTabla(); };
+$$('#f_estado button').forEach(b => b.onclick = () => {
+  $$('#f_estado button').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on'); S.filtro.estado = b.dataset.v; pintarTabla();
+});
+$('#tabla').addEventListener('change', e => {
+  const c = e.target.closest('.chk'); if (!c) return;
+  S.academicos[+c.dataset.i].sel = c.checked;
+  pintarConteo();
+});
+$('#btn_todos').onclick   = () => { visibles().forEach(a => { if (a.archivoCsv) a.sel = true; }); pintarTabla(); };
+$('#btn_ninguno').onclick = () => { visibles().forEach(a => a.sel = false); pintarTabla(); };
+
+
+const AREAS_POR_UNIDAD = {"DIINF": ["(1) Algorithms and Complexity","(2) Architecture and Organization","(3) Artificial Intelligence","(4) Data Management","(5) Foundations of Programming Languages","(6) Graphics and Interactive Techniques","(7) Human-Computer Interaction","(8) Mathematical and Statistical Foundations","(9) Networking and Communication","(10) Operating Systems","(11) Parallel and Distributed Computing","(12) Security","(13) Society, Ethics and Professionalism","(14) Software Development Fundamentals","(15) Software Engineering","(16) Specialized Platform Development","(17) Systems Fundamentals","(18) It does not belong to the computer science field"],"CBIOT": ["(1) Medical Biotechnology","(2) Pharmaceutical Biotechnology","(3) Agricultural Biotechnology","(4) Food Biotechnology","(5) Industrial Biotechnology","(6) Environmental Biotechnology","(7) Marine Biotechnology","(8) Microbial Biotechnology","(9) Plant Biotechnology","(10) Animal Biotechnology","(11) Genetic Engineering and Synthetic Biology","(12) Bioinformatics and Computational Biotechnology","(13) Omics and Molecular Biotechnology","(14) Bioprocess and Fermentation Technology","(15) Enzyme and Protein Biotechnology","(16) Biomaterials and Tissue Biotechnology","(17) Nanobiotechnology","(18) It does not belong to the biotechnology field"],"BIOMEDICA": ["(1) Biomechanics","(2) Biofluid","(3) Bionics","(4) Rehabilitation Engineering","(5) Orthopaedic Bioengineering","(6) Biomedical Electronics","(7) Biomechatronics","(8) Bioinstrumentation","(9) Medical Imaging","(10) Systems Physiology","(11) Neural Engineering","(12) Bioinformatics","(13) Clinical Engineering","(14) Biomaterials","(15) Cellular and Tissue Engineering","(16) Genetic Engineering","(18) It does not belong to the bioengineering field"]};
+const PREFIJO_AREA = {DIINF:"DIINF", CBIOT:"CBIOT", BIOMEDICA:"BIOMED"};
+const AREAS_OCDE = ["6.1.A Matemáticas", "6.1.B Computación y Ciencias de la Información", "6.1.C Ciencias Físicas", "6.1.D Ciencias Químicas", "6.1.E Ciencias de la Tierra y Medioambientales", "6.1.F Ciencias Biológicas", "6.1.G Otras Ciencias Naturales", "6.2.A Ingeniería Civil", "6.2.B Ingeniería Eléctrica, Electrónica e Informática", "6.2.C Ingeniería Mecánica", "6.2.D Ingeniería Química", "6.2.E Ingeniería de los Materiales", "6.2.F Ingeniería Médica", "6.2.G Ingeniería Ambiental", "6.2.H Biotecnología Ambiental", "6.2.I Biotecnología Industrial", "6.2.J Nanotecnología", "6.2.K Otras Ingeniería y Tecnologías", "6.3.A Medicina Básica", "6.3.B Medicina Clínica", "6.3.C Ciencias de la Salud", "6.3.D Biotecnología en Salud", "6.3.E Otras Ciencias Médicas", "6.4.A Agricultura, Silvicultura y Pesca", "6.4.B Ciencias Animales y Lácteos", "6.4.C Ciencias Veterinarias", "6.4.D Biotecnología Agrícola", "6.4.E Otras Ciencias Agrícolas", "6.5.A Psicología", "6.5.B Economía y Negocios", "6.5.C Ciencias de la Educación", "6.5.D Sociología", "6.5.E Leyes", "6.5.F Ciencias Políticas", "6.5.G Geografía Social y Económica", "6.5.H Periodismo y Comunicaciones", "6.5.I Otras Ciencias Sociales", "6.6.A Historia y Arqueología", "6.6.B Idiomas y Literatura", "6.6.C Filosofía, Ética y Religión", "6.6.D Arte, Historia del Arte, Arquitectura, Música, Cine, Radio y TV", "6.6.E Otras Humanidades"];
+const DISCIPLINA_OCDE = {"6.1": "6.1 Ciencias Naturales", "6.2": "6.2 Ingeniería y Tecnología", "6.3": "6.3 Ciencias Médicas y de la Salud", "6.4": "6.4 Ciencias Agrícolas", "6.5": "6.5 Ciencias Sociales", "6.6": "6.6 Humanidades"};
+const AREAS_ODS = ["(00) No claramente asociado a un ODS", "(01) Fin de la pobreza", "(02) Hambre cero", "(03) Salud y bienestar", "(04) Educación de calidad", "(05) Igualdad de género", "(06) Agua limpia y saneamiento", "(07) Energía asequible y no contaminante", "(08) Trabajo decente y crecimiento económico", "(09) Industria, innovación e infraestructura", "(10) Reducción de las desigualdades", "(11) Ciudades y comunidades sostenibles", "(12) Producción y consumo responsables", "(13) Acción por el clima", "(14) Vida submarina", "(15) Vida de ecosistemas terrestres", "(16) Paz, justicia e instituciones sólidas", "(17) Alianzas para lograr los objetivos"];
+
+/* ==================================================================
+   MOTOR DEL PIPELINE · todo en el navegador, sin R
+   ==================================================================
+   Reimplementa, paso por paso, lo que hacían los scripts de R:
+     011  limpiar y renombrar columnas de Scopus
+     012  asociar metadatos del índice
+     013  anotar WOS_Science_Index desde las descargas de WoS
+     014  cruzar con SJR por ISSN
+     015  extraer países de las afiliaciones
+     016  consolidar la marca WoS con las dos salvaguardas
+     017  reutilizar clasificaciones de una corrida anterior
+     03   filiación y deduplicación
+   ================================================================== */
+
+const M = {};
+
+/* ---------- utilidades ---------- */
+M.norm = s => (s||'').toString().normalize('NFD').replace(/[\u0300-\u036f]/g,'')
+  .toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
+M.normTit = s => (s||'').toString().normalize('NFD').replace(/[\u0300-\u036f]/g,'')
+  .toLowerCase().replace(/[^a-z0-9]/g,'');
+M.normIssn = s => {
+  const x = String(s||'').replace(/[^0-9Xx]/g,'').toUpperCase();
+  return x.length === 7 ? '0'+x : x;
+};
+M.int0 = v => { const n = parseInt(v,10); return isNaN(n) ? 0 : n; };
+/* Solo se quita lo que rompe el formato: la barra vertical, que es el
+   separador, y los saltos de línea. Las comillas simples se conservan:
+   quitarlas cambiaba el texto, "Prompt's Evolution" quedaba "Prompts
+   Evolution". Las dobles también se conservan porque el archivo se
+   escribe sin comillas de campo. */
+M.limpiar = v => String(v ?? '').replace(/\|/g,'/').replace(/[\r\n]+/g,' ').trim();
+
+/* ---------- 011 · renombrar columnas de Scopus ---------- */
+M.MAPA_SCOPUS = {
+  'Authors':'AUTORES', 'Author(s) ID':'AUTORES_ID', 'Author.s..ID':'AUTORES_ID',
+  'Title':'TITULO', 'Year':'ANO', 'Source title':'FUENTE', 'Volume':'VOLUMEN',
+  'Page start':'PAG_COMIENZO', 'Page end':'PAG_FINAL', 'Cited by':'CITADO_POR',
+  'DOI':'DOI', 'Link':'LINK', 'Affiliations':'AFILIACIÓN_AUTOR',
+  'Authors with affiliations':'AFILIACIÓN_AUTORES', 'Abstract':'RESUMEN',
+  'Author Keywords':'AUTOR_PALABRAS_CLAVES', 'Index Keywords':'INDEX_PALABRAS_CLAVES',
+  'ISSN':'ISSN', 'Language of Original Document':'IDIOMA', 'Document Type':'TIPO_DOCUMENTO'
+};
+M.COLS_SALIDA = [
+  'UNIVERSIDAD','SESION','NOMBRE_AUTOR','SCOPUS_ID','WOS_ID','FIALIACION_SESION','WOS',
+  'AUTORES','AUTORES_ID','TITULO','WOS_Science_Index','WOS_COLECCION','ANO','FUENTE',
+  'SJR','QUARTILE','VOLUMEN','PAG_COMIENZO','PAG_FINAL','CITADO_POR','DOI','LINK',
+  'AFILIACIÓN_AUTOR','AFILIACIÓN_AUTORES','PAISES_AUTORES','RESUMEN',
+  'AUTOR_PALABRAS_CLAVES','INDEX_PALABRAS_CLAVES','ISSN','IDIOMA','TIPO_DOCUMENTO',
+  'AREA_COMPUTACION','CODIGO_AREA_COMPUTACION','NOMBRE_AREA_COMPUTACION',
+  'AREA_OCDE','CODIGO_OCDE','DISCIPLINA_OCDE','SUBDISCIPLINA_OCDE',
+  'AREA_ODS_ANID','CODIGO_ODS_ANID','NOMBRE_ODS_ANID',
+  'CATEGORIAS','AREAS','URL_FOTO_ACADEMICO','URL_FOTO_DEPARTAMENTO'
+];
+
+M.limpiarYRenombrar = filas => filas.map(f => {
+  const o = {};
+  for (const [k,v] of Object.entries(f)){
+    const destino = M.MAPA_SCOPUS[k];
+    if (destino) o[destino] = M.limpiar(v);
+  }
+  o.ANO = String(M.int0(o.ANO) || '');
+  o.CITADO_POR = String(M.int0(o.CITADO_POR));
+  return o;
+});
+
+/* ---------- 012 · metadatos del índice ---------- */
+M.agregarDesdeIndice = (filas, fila) => filas.map(f => Object.assign(f, {
+  UNIVERSIDAD: M.limpiar(fila.UNIVERSIDAD),
+  SESION: M.limpiar(fila.SESION),
+  NOMBRE_AUTOR: M.limpiar(fila.NOMBRE_AUTOR),
+  SCOPUS_ID: fila.__id,
+  WOS_ID: M.limpiar(fila.WoS_ID || ''),
+  FIALIACION_SESION: 'NO',
+  WOS: 'NO',
+  URL_FOTO_ACADEMICO: M.limpiar(fila.URL_FOTO_ACADEMICO || ''),
+  URL_FOTO_DEPARTAMENTO: M.limpiar(fila.URL_FOTO_DEPARTAMENTO || '')
+}));
+
+/* ---------- 013 · anotar desde la descarga de WoS ---------- */
+M.COLS_WOS = {
+  titulo: ['Article Title','Title','TI'],
+  index:  ['Web of Science Index','WoS Index','Index'],
+  resumen:['Abstract','AB'],
+  tipo:   ['Document Type','DT'],
+  issn:   ['ISSN','SN'],
+  idioma: ['Language','LA'],
+  ano:    ['Publication Year','PY','Year'],
+  doi:    ['DOI','DI'],
+  fuente: ['Source Title','SO'],
+  citas:  ['Times Cited, All Databases','Times Cited','TC'],
+  autores:['Authors','AU'],
+  kwAutor:['Author Keywords','DE'],
+  kwIndex:['Keywords Plus','ID']
+};
+M.detectarColsWos = cabecera => {
+  const out = {};
+  for (const [clave, opciones] of Object.entries(M.COLS_WOS)){
+    out[clave] = opciones.find(o => cabecera.includes(o)) ||
+                 cabecera.find(c => opciones.some(o => M.norm(c) === M.norm(o))) || null;
+  }
+  return out;
+};
+M.anotarWos = (filas, wosFilas, wosCabecera, wosId) => {
+  if (!wosFilas || !wosFilas.length) return { filas, agregadas: 0, cruzadas: 0 };
+  const c = M.detectarColsWos(wosCabecera);
+  if (!c.titulo) return { filas, agregadas: 0, cruzadas: 0 };
+
+  const porTitulo = new Map();
+  for (const w of wosFilas){
+    const k = M.normTit(w[c.titulo]);
+    if (k && !porTitulo.has(k)) porTitulo.set(k, w);
+  }
+  let cruzadas = 0;
+  const usados = new Set();
+  for (const f of filas){
+    const k = M.normTit(f.TITULO);
+    const w = porTitulo.get(k);
+    if (!w) continue;
+    usados.add(k); cruzadas++;
+    f.WOS_Science_Index = M.limpiar(c.index ? w[c.index] : '');
+    if (wosId) f.WOS_ID = wosId;
+    const rellenar = (campo, col) => {
+      if (col && (!f[campo] || !String(f[campo]).trim())) f[campo] = M.limpiar(w[col]);
+    };
+    rellenar('RESUMEN', c.resumen);
+    rellenar('IDIOMA', c.idioma);
+    rellenar('ISSN', c.issn);
+    rellenar('AUTOR_PALABRAS_CLAVES', c.kwAutor);
+    rellenar('INDEX_PALABRAS_CLAVES', c.kwIndex);
+    if (c.citas && M.int0(f.CITADO_POR) === 0) f.CITADO_POR = String(M.int0(w[c.citas]));
+  }
+  /* publicaciones que están en WoS y no en la exportación de Scopus */
+  let agregadas = 0;
+  const base = filas[0] || {};
+  for (const [k, w] of porTitulo){
+    if (usados.has(k)) continue;
+    const nueva = {
+      UNIVERSIDAD: base.UNIVERSIDAD, SESION: base.SESION,
+      NOMBRE_AUTOR: base.NOMBRE_AUTOR, SCOPUS_ID: base.SCOPUS_ID,
+      WOS_ID: wosId || base.WOS_ID, FIALIACION_SESION:'NO', WOS:'NO',
+      URL_FOTO_ACADEMICO: base.URL_FOTO_ACADEMICO,
+      URL_FOTO_DEPARTAMENTO: base.URL_FOTO_DEPARTAMENTO,
+      TITULO: M.limpiar(w[c.titulo]),
+      WOS_Science_Index: M.limpiar(c.index ? w[c.index] : ''),
+      ANO: String(M.int0(c.ano ? w[c.ano] : '')),
+      DOI: M.limpiar(c.doi ? w[c.doi] : ''),
+      FUENTE: M.limpiar(c.fuente ? w[c.fuente] : ''),
+      AUTORES: M.limpiar(c.autores ? w[c.autores] : ''),
+      RESUMEN: M.limpiar(c.resumen ? w[c.resumen] : ''),
+      TIPO_DOCUMENTO: M.mapaTipoWos(c.tipo ? w[c.tipo] : ''),
+      ISSN: M.normIssn(c.issn ? w[c.issn] : ''),
+      IDIOMA: M.limpiar(c.idioma ? w[c.idioma] : ''),
+      AUTOR_PALABRAS_CLAVES: M.limpiar(c.kwAutor ? w[c.kwAutor] : ''),
+      INDEX_PALABRAS_CLAVES: M.limpiar(c.kwIndex ? w[c.kwIndex] : ''),
+      CITADO_POR: String(M.int0(c.citas ? w[c.citas] : 0))
+    };
+    filas.push(nueva); agregadas++;
+  }
+  return { filas, agregadas, cruzadas };
+};
+M.mapaTipoWos = t => {
+  const s = M.norm(t);
+  if (!s) return '';
+  if (s.includes('proceedings') || s.includes('meeting')) return 'Conference paper';
+  if (s.includes('review')) return 'Review';
+  if (s.includes('book chapter') || s.includes('chapter')) return 'Book chapter';
+  if (s.includes('editorial')) return 'Editorial';
+  if (s.includes('letter')) return 'Letter';
+  if (s.includes('article')) return 'Article';
+  return t;
+};
+
+/* ---------- 014 · cruzar con SJR ---------- */
+M.prepararSjr = filas => {
+  const orden = [...filas].sort((a,b) => M.int0(b.year) - M.int0(a.year));
+  const mapa = new Map();
+  for (const r of orden){
+    for (const parte of String(r.issn||'').split(/[,;|/\s]+/)){
+      const k = M.normIssn(parte);
+      if (k && !mapa.has(k)) mapa.set(k, r);
+    }
+  }
+  return mapa;
+};
+M.anotarSjr = (filas, mapaSjr) => {
+  for (const f of filas){
+    let hit = null;
+    for (const parte of String(f.ISSN||'').split(/[,;|/\s]+/)){
+      const k = M.normIssn(parte);
+      if (k && mapaSjr.has(k)){ hit = mapaSjr.get(k); break; }
+    }
+    f.SJR = hit ? M.limpiar(hit.sjr) : '0';
+    let q = hit ? M.limpiar(hit.sjr_best_quartile) : '';
+    f.QUARTILE = (!q || q === '-') ? 'Sin clasificación' : q;
+    let cat = hit ? M.limpiar(hit.categories).replace(/\s*\(Q[1-4]\)/g,'') : '';
+    f.CATEGORIAS = cat || 'Sin clasificación';
+    let ar = hit ? M.limpiar(hit.areas) : '';
+    f.AREAS = ar || 'Sin clasificación';
+    f.ISSN = M.normIssn(f.ISSN);
+  }
+  return filas;
+};
+
+/* ---------- 015 · países ----------
+   countrycode en R hace calce por expresión regular, así que
+   "University of Chile" le devuelve Chile. Un calce exacto contra el
+   último trozo de la afiliación se pierde esos casos, que en Scopus son
+   frecuentes. Se hace en dos pasadas: primero exacto, y si falla se
+   busca el nombre del país como palabra dentro del trozo, quedándose
+   con el nombre más largo que calce.
+
+   TRAMPAS lista los casos donde el nombre de un país aparece dentro de
+   un topónimo que no es ese país. "New Mexico" no es México. */
+/* Tabla de países embebida (antes M.PAISES quedaba en null y la columna
+   PAISES_AUTORES salía vacía). Clave normalizada -> nombre canónico, con los
+   mismos nombres en inglés que entiende el mapa de la app (COUNTRY_COORDS),
+   más variantes de Scopus/WoS, siglas y nombres en español. */
+M.PAISES = new Map([["afghanistan", "Afghanistan"], ["albania", "Albania"], ["algeria", "Algeria"], ["andorra", "Andorra"], ["angola", "Angola"], ["antigua and barbuda", "Antigua and Barbuda"], ["argentina", "Argentina"], ["armenia", "Armenia"], ["australia", "Australia"], ["austria", "Austria"], ["azerbaijan", "Azerbaijan"], ["bahamas", "Bahamas"], ["bahrain", "Bahrain"], ["bangladesh", "Bangladesh"], ["barbados", "Barbados"], ["belarus", "Belarus"], ["belgium", "Belgium"], ["belize", "Belize"], ["benin", "Benin"], ["bhutan", "Bhutan"], ["bolivia", "Bolivia"], ["bosnia and herzegovina", "Bosnia and Herzegovina"], ["botswana", "Botswana"], ["brazil", "Brazil"], ["brunei", "Brunei"], ["bulgaria", "Bulgaria"], ["burkina faso", "Burkina Faso"], ["burundi", "Burundi"], ["cabo verde", "Cabo Verde"], ["cambodia", "Cambodia"], ["cameroon", "Cameroon"], ["canada", "Canada"], ["central african republic", "Central African Republic"], ["chad", "Chad"], ["chile", "Chile"], ["china", "China"], ["colombia", "Colombia"], ["comoros", "Comoros"], ["congo", "Congo"], ["costa rica", "Costa Rica"], ["croatia", "Croatia"], ["cuba", "Cuba"], ["cyprus", "Cyprus"], ["czech republic", "Czech Republic"], ["denmark", "Denmark"], ["djibouti", "Djibouti"], ["dominica", "Dominica"], ["dominican republic", "Dominican Republic"], ["ecuador", "Ecuador"], ["egypt", "Egypt"], ["el salvador", "El Salvador"], ["equatorial guinea", "Equatorial Guinea"], ["eritrea", "Eritrea"], ["estonia", "Estonia"], ["eswatini", "Eswatini"], ["ethiopia", "Ethiopia"], ["fiji", "Fiji"], ["finland", "Finland"], ["france", "France"], ["gabon", "Gabon"], ["gambia", "Gambia"], ["georgia", "Georgia"], ["germany", "Germany"], ["ghana", "Ghana"], ["greece", "Greece"], ["grenada", "Grenada"], ["guatemala", "Guatemala"], ["guinea", "Guinea"], ["guinea bissau", "Guinea-Bissau"], ["guyana", "Guyana"], ["haiti", "Haiti"], ["honduras", "Honduras"], ["hungary", "Hungary"], ["iceland", "Iceland"], ["india", "India"], ["indonesia", "Indonesia"], ["iran", "Iran"], ["iraq", "Iraq"], ["ireland", "Ireland"], ["israel", "Israel"], ["italy", "Italy"], ["jamaica", "Jamaica"], ["japan", "Japan"], ["jordan", "Jordan"], ["kazakhstan", "Kazakhstan"], ["kenya", "Kenya"], ["kiribati", "Kiribati"], ["kuwait", "Kuwait"], ["kyrgyzstan", "Kyrgyzstan"], ["laos", "Laos"], ["latvia", "Latvia"], ["lebanon", "Lebanon"], ["lesotho", "Lesotho"], ["liberia", "Liberia"], ["libya", "Libya"], ["liechtenstein", "Liechtenstein"], ["lithuania", "Lithuania"], ["luxembourg", "Luxembourg"], ["madagascar", "Madagascar"], ["malawi", "Malawi"], ["malaysia", "Malaysia"], ["maldives", "Maldives"], ["mali", "Mali"], ["malta", "Malta"], ["marshall islands", "Marshall Islands"], ["mauritania", "Mauritania"], ["mauritius", "Mauritius"], ["mexico", "Mexico"], ["micronesia", "Micronesia"], ["moldova", "Moldova"], ["monaco", "Monaco"], ["mongolia", "Mongolia"], ["montenegro", "Montenegro"], ["morocco", "Morocco"], ["mozambique", "Mozambique"], ["myanmar", "Myanmar"], ["namibia", "Namibia"], ["nauru", "Nauru"], ["nepal", "Nepal"], ["netherlands", "Netherlands"], ["new zealand", "New Zealand"], ["nicaragua", "Nicaragua"], ["niger", "Niger"], ["nigeria", "Nigeria"], ["north korea", "North Korea"], ["north macedonia", "North Macedonia"], ["norway", "Norway"], ["oman", "Oman"], ["pakistan", "Pakistan"], ["palau", "Palau"], ["panama", "Panama"], ["papua new guinea", "Papua New Guinea"], ["paraguay", "Paraguay"], ["peru", "Peru"], ["philippines", "Philippines"], ["poland", "Poland"], ["portugal", "Portugal"], ["qatar", "Qatar"], ["romania", "Romania"], ["russia", "Russia"], ["rwanda", "Rwanda"], ["saint kitts and nevis", "Saint Kitts and Nevis"], ["saint lucia", "Saint Lucia"], ["saint vincent and the grenadines", "Saint Vincent and the Grenadines"], ["samoa", "Samoa"], ["san marino", "San Marino"], ["sao tome and principe", "Sao Tome and Principe"], ["saudi arabia", "Saudi Arabia"], ["senegal", "Senegal"], ["serbia", "Serbia"], ["seychelles", "Seychelles"], ["sierra leone", "Sierra Leone"], ["singapore", "Singapore"], ["slovakia", "Slovakia"], ["slovenia", "Slovenia"], ["solomon islands", "Solomon Islands"], ["somalia", "Somalia"], ["south africa", "South Africa"], ["south korea", "South Korea"], ["south sudan", "South Sudan"], ["spain", "Spain"], ["sri lanka", "Sri Lanka"], ["sudan", "Sudan"], ["suriname", "Suriname"], ["sweden", "Sweden"], ["switzerland", "Switzerland"], ["syria", "Syria"], ["taiwan", "Taiwan"], ["tajikistan", "Tajikistan"], ["tanzania", "Tanzania"], ["thailand", "Thailand"], ["timor leste", "Timor-Leste"], ["togo", "Togo"], ["tonga", "Tonga"], ["trinidad and tobago", "Trinidad and Tobago"], ["tunisia", "Tunisia"], ["turkey", "Turkey"], ["turkmenistan", "Turkmenistan"], ["tuvalu", "Tuvalu"], ["uganda", "Uganda"], ["ukraine", "Ukraine"], ["united arab emirates", "United Arab Emirates"], ["united kingdom", "United Kingdom"], ["united states", "United States"], ["uruguay", "Uruguay"], ["uzbekistan", "Uzbekistan"], ["vanuatu", "Vanuatu"], ["venezuela", "Venezuela"], ["vietnam", "Vietnam"], ["yemen", "Yemen"], ["zambia", "Zambia"], ["zimbabwe", "Zimbabwe"], ["hong kong sar china", "Hong Kong SAR China"], ["united states of america", "United States"], ["usa", "United States"], ["u s a", "United States"], ["us", "United States"], ["estados unidos", "United States"], ["eeuu", "United States"], ["ee uu", "United States"], ["uk", "United Kingdom"], ["u k", "United Kingdom"], ["great britain", "United Kingdom"], ["england", "United Kingdom"], ["scotland", "United Kingdom"], ["wales", "United Kingdom"], ["northern ireland", "United Kingdom"], ["reino unido", "United Kingdom"], ["inglaterra", "United Kingdom"], ["escocia", "United Kingdom"], ["russian federation", "Russia"], ["rusia", "Russia"], ["viet nam", "Vietnam"], ["republic of korea", "South Korea"], ["korea republic of", "South Korea"], ["korea", "South Korea"], ["corea del sur", "South Korea"], ["corea", "South Korea"], ["democratic people s republic of korea", "North Korea"], ["czechia", "Czech Republic"], ["republica checa", "Czech Republic"], ["iran islamic republic of", "Iran"], ["hong kong", "Hong Kong SAR China"], ["hong kong sar", "Hong Kong SAR China"], ["taiwan province of china", "Taiwan"], ["taiwan roc", "Taiwan"], ["republic of china", "Taiwan"], ["turkiye", "Turkey"], ["turquia", "Turkey"], ["macedonia", "North Macedonia"], ["republic of north macedonia", "North Macedonia"], ["brunei darussalam", "Brunei"], ["syrian arab republic", "Syria"], ["lao people s democratic republic", "Laos"], ["bolivia plurinational state of", "Bolivia"], ["venezuela bolivarian republic of", "Venezuela"], ["tanzania united republic of", "Tanzania"], ["moldova republic of", "Moldova"], ["congo democratic republic of the", "Congo"], ["democratic republic of the congo", "Congo"], ["congo the democratic republic of the", "Congo"], ["cape verde", "Cabo Verde"], ["swaziland", "Eswatini"], ["burma", "Myanmar"], ["east timor", "Timor-Leste"], ["the netherlands", "Netherlands"], ["netherlands the", "Netherlands"], ["holland", "Netherlands"], ["paises bajos", "Netherlands"], ["holanda", "Netherlands"], ["uae", "United Arab Emirates"], ["emiratos arabes unidos", "United Arab Emirates"], ["espana", "Spain"], ["brasil", "Brazil"], ["alemania", "Germany"], ["francia", "France"], ["italia", "Italy"], ["suiza", "Switzerland"], ["suecia", "Sweden"], ["japon", "Japan"], ["belgica", "Belgium"], ["irlanda", "Ireland"], ["polonia", "Poland"], ["grecia", "Greece"], ["noruega", "Norway"], ["dinamarca", "Denmark"], ["finlandia", "Finland"], ["nueva zelanda", "New Zealand"], ["sudafrica", "South Africa"], ["hungria", "Hungary"], ["rumania", "Romania"], ["egipto", "Egypt"], ["marruecos", "Morocco"], ["arabia saudita", "Saudi Arabia"], ["singapur", "Singapore"], ["republica dominicana", "Dominican Republic"], ["luxemburgo", "Luxembourg"], ["croacia", "Croatia"], ["eslovenia", "Slovenia"], ["eslovaquia", "Slovakia"], ["lituania", "Lithuania"], ["letonia", "Latvia"], ["ucrania", "Ukraine"], ["etiopia", "Ethiopia"], ["kenia", "Kenya"], ["argelia", "Algeria"], ["tunez", "Tunisia"], ["irak", "Iraq"], ["tailandia", "Thailand"], ["malasia", "Malaysia"], ["filipinas", "Philippines"], ["catar", "Qatar"], ["libano", "Lebanon"], ["jordania", "Jordan"], ["kazajistan", "Kazakhstan"]]);
+M.TRAMPAS = [
+  ['new mexico', 'mexico'],
+  ['mexico state university', 'mexico'],
+  ['new england', 'england'],
+  ['new south wales', 'wales'],
+  ['south australia', 'australia'],
+  ['western australia', 'australia']
+];
+
+M.paisDeBloque = bloque => {
+  const partes = String(bloque).split(',').map(x => x.trim()).filter(Boolean);
+  if (!partes.length) return null;
+  const ultimo = partes[partes.length - 1];
+  const k = M.norm(ultimo);
+
+  /* 1) calce exacto */
+  if (M.PAISES.has(k)) return M.PAISES.get(k);
+
+  /* 2) el país como palabra dentro del trozo, el nombre más largo gana */
+  let mejor = null, largo = 0;
+  for (const [nk, canon] of M.PAISES){
+    if (nk.length <= largo) continue;
+    if (!new RegExp('(^| )' + nk.replace(/[.*+?^${}()|[\]\\]/g,'\\$&') + '( |$)').test(k)) continue;
+    const trampa = M.TRAMPAS.some(([frase, pais]) => nk === pais && k.includes(frase));
+    if (trampa) continue;
+    mejor = canon; largo = nk.length;
+  }
+  return mejor;
+};
+
+M.paisesDe = texto => {
+  if (!texto || !M.PAISES) return '';
+  const out = [];
+  for (const bloque of String(texto).split(';')){
+    const p = M.paisDeBloque(bloque);
+    if (p && !out.includes(p)) out.push(p);
+  }
+  return out.join(', ');
+};
+M.agregarPaises = filas => {
+  for (const f of filas) f.PAISES_AUTORES = M.paisesDe(f['AFILIACIÓN_AUTORES']);
+  return filas;
+};
+
+/* ---------- 016 · consolidar la marca WoS ---------- */
+M.SIGLAS = [
+  ['SCI-EXPANDED','(sci-expanded)'], ['SSCI','(ssci)'], ['A&HCI','(a&hci)'],
+  ['ESCI','(esci)'], ['BKCI','(bkci-s)'], ['BKCI','(bkci-ssh)'],
+  ['CPCI','(cpci-s)'], ['CPCI','(cpci-ssh)'], ['IC','(ic)'], ['CCR','(ccr-expanded)']
+];
+M.ORDEN_COL = ['SCI-EXPANDED','SSCI','A&HCI','ESCI','BKCI','CPCI','IC','CCR'];
+M.REVISTA = new Set(['SCI-EXPANDED','SSCI','A&HCI','ESCI']);
+M.TIPOS_ACTAS = new Set(['Conference paper','Conference review','Book chapter','Book']);
+
+M.coleccionesDe = txt => {
+  const s = String(txt||'').toLowerCase();
+  const out = new Set();
+  for (const [sig, pat] of M.SIGLAS) if (s.includes(pat)) out.add(sig);
+  return out;
+};
+
+M.consolidarWos = filas => {
+  const n = filas.length;
+  const propias = filas.map(f => M.coleccionesDe(f.WOS_Science_Index));
+  const issn = filas.map(f => M.normIssn(f.ISSN));
+  const fuente = filas.map(f => M.norm(f.FUENTE));
+  const esActa = filas.map(f => M.TIPOS_ACTAS.has(String(f.TIPO_DOCUMENTO||'').trim()));
+
+  /* salvaguarda 1: ISSN de serie, o sea con más de una fuente distinta */
+  const fuentesPorIssn = new Map();
+  for (let i=0;i<n;i++){
+    const k = issn[i]; if (!k) continue;
+    if (!fuentesPorIssn.has(k)) fuentesPorIssn.set(k, new Set());
+    fuentesPorIssn.get(k).add(fuente[i]);
+  }
+  const series = new Set([...fuentesPorIssn].filter(([,v]) => v.size > 1).map(([k]) => k));
+
+  const mapa = new Map();
+  for (let i=0;i<n;i++){
+    const k = issn[i];
+    if (!k || !propias[i].size) continue;
+    if (!mapa.has(k)) mapa.set(k, new Set());
+    for (const c of propias[i]) mapa.get(k).add(c);
+  }
+
+  let heredadas = 0, conPropia = 0, si = 0, actasSi = 0;
+  for (let i=0;i<n;i++){
+    let ef = propias[i];
+    if (ef.size) conPropia++;
+    else {
+      const k = issn[i];
+      if (k && !series.has(k) && mapa.has(k)){
+        ef = new Set(mapa.get(k));
+        if (esActa[i]) for (const r of M.REVISTA) ef.delete(r);   /* salvaguarda 2 */
+        if (ef.size) heredadas++;
+      } else ef = new Set();
+    }
+    filas[i].WOS_COLECCION = M.ORDEN_COL.filter(x => ef.has(x)).join('; ');
+    const esWos = [...ef].some(x => M.REVISTA.has(x));
+    filas[i].WOS = esWos ? 'SI' : 'NO';
+    if (esWos){ si++; if (esActa[i]) actasSi++; }
+  }
+  return { filas, conPropia, heredadas, series: series.size, si, actasSi,
+           issnConocidos: mapa.size, sinEvidencia: n - conPropia - heredadas };
+};
+
+/* ---------- 03 · filiación y deduplicación ---------- */
+M.aniosDe = txt => new Set((String(txt||'').match(/\b(19|20)\d{2}\b/g) || []).map(Number));
+
+M.filiacionYDedup = (filas, indice) => {
+  /* años por SCOPUS_ID + universidad normalizada */
+  const anios = new Map();
+  for (const fila of indice){
+    const set = M.aniosDe(fila.ANOS);
+    for (const id of String(fila.SCOPUS_ID||'').split(';').map(x=>x.trim()).filter(Boolean)){
+      anios.set(id + '||' + M.norm(fila.UNIVERSIDAD), set);
+    }
+  }
+  for (const f of filas){
+    const set = anios.get(f.SCOPUS_ID + '||' + M.norm(f.UNIVERSIDAD));
+    const a = M.int0(f.ANO);
+    f.FIALIACION_SESION = (set && a && set.has(a)) ? 'SI' : 'NO';
+  }
+  /* dedup por autor + universidad + unidad + publicación, prefiriendo WOS = SI */
+  const puntaje = f => {
+    let p = 0;
+    for (const c of ['RESUMEN','AFILIACIÓN_AUTORES','AUTOR_PALABRAS_CLAVES','INDEX_PALABRAS_CLAVES',
+                     'ISSN','IDIOMA','FUENTE','AUTORES','DOI','WOS_Science_Index'])
+      if (String(f[c]||'').trim()) p++;
+    return p;
+  };
+  const doiOk = d => {
+    const s = String(d||'').trim().toLowerCase();
+    return (!s || ['na','n/a','#n/a','null','-'].includes(s)) ? '' : s;
+  };
+  /* Primera pasada: clave por DOI cuando hay, por título cuando no. */
+  const grupos = new Map();
+  filas.forEach((f, i) => {
+    const d = doiOk(f.DOI);
+    const pub = d ? 'doi:' + d : 'tit:' + M.norm(f.TITULO);
+    const k = [M.norm(f.NOMBRE_AUTOR), M.norm(f.UNIVERSIDAD), M.norm(f.SESION), pub].join('||');
+    if (!grupos.has(k)) grupos.set(k, []);
+    grupos.get(k).push(i);
+  });
+  const mejorDe = idxs => {
+    if (idxs.length === 1) return idxs[0];
+    return [...idxs].sort((a,b) => {
+      const wa = filas[a].WOS === 'SI' ? 1 : 0, wb = filas[b].WOS === 'SI' ? 1 : 0;
+      if (wa !== wb) return wb - wa;
+      const pa = puntaje(filas[a]), pb = puntaje(filas[b]);
+      if (pa !== pb) return pb - pa;
+      return a - b;
+    })[0];
+  };
+  let conservar = [...grupos.values()].map(mejorDe);
+
+  /* Segunda pasada.
+     El mismo trabajo puede entrar dos veces: una desde Scopus con DOI y
+     otra desde WoS sin DOI. Con la clave de arriba quedan en grupos
+     distintos, "doi:..." y "tit:...", así que sobreviven los dos. En la
+     base actual hay 79 casos así, 81 filas de más.
+
+     Se funde la fila sin DOI dentro de la que sí tiene, exigiendo mismo
+     autor, misma unidad, mismo título y MISMO AÑO. El año es la
+     salvaguarda: hay títulos repetidos que son reediciones legítimas,
+     como un capítulo publicado en 2013 y otra vez en 2020 con otro DOI,
+     y esos deben quedar los dos. */
+  const conDoi = new Map();
+  for (const i of conservar){
+    if (!doiOk(filas[i].DOI)) continue;
+    const k = [M.norm(filas[i].NOMBRE_AUTOR), M.norm(filas[i].UNIVERSIDAD),
+               M.norm(filas[i].SESION), M.norm(filas[i].TITULO), M.int0(filas[i].ANO)].join('||');
+    if (!conDoi.has(k)) conDoi.set(k, i);
+  }
+  let fundidas = 0;
+  conservar = conservar.filter(i => {
+    if (doiOk(filas[i].DOI)) return true;
+    const k = [M.norm(filas[i].NOMBRE_AUTOR), M.norm(filas[i].UNIVERSIDAD),
+               M.norm(filas[i].SESION), M.norm(filas[i].TITULO), M.int0(filas[i].ANO)].join('||');
+    const j = conDoi.get(k);
+    if (j === undefined) return true;
+    /* la que se queda hereda lo que la otra tenga y a ella le falte */
+    for (const c of ['WOS_Science_Index','RESUMEN','AFILIACIÓN_AUTOR','AFILIACIÓN_AUTORES',
+                     'AUTOR_PALABRAS_CLAVES','INDEX_PALABRAS_CLAVES','ISSN','IDIOMA','AUTORES'])
+      if (!String(filas[j][c]||'').trim() && String(filas[i][c]||'').trim())
+        filas[j][c] = filas[i][c];
+    if (M.int0(filas[i].CITADO_POR) > M.int0(filas[j].CITADO_POR))
+      filas[j].CITADO_POR = filas[i].CITADO_POR;
+    fundidas++;
+    return false;
+  });
+
+  conservar.sort((a,b) => a-b);
+  const out = conservar.map(i => filas[i]);
+  return { filas: out, quitadas: filas.length - out.length, fundidas };
+};
+
+/* ---------- 017 · reutilizar clasificaciones ---------- */
+M.COLS_CLASIF = [
+  'AREA_COMPUTACION','CODIGO_AREA_COMPUTACION','NOMBRE_AREA_COMPUTACION',
+  'AREA_OCDE','CODIGO_OCDE','DISCIPLINA_OCDE','SUBDISCIPLINA_OCDE',
+  'AREA_ODS_ANID','CODIGO_ODS_ANID','NOMBRE_ODS_ANID'
+];
+M.normDoi = d => String(d||'').trim().toLowerCase().replace(/^https?:\/\/(dx\.)?doi\.org\//,'');
+
+M.reusarClasificaciones = (filas, previo) => {
+  const cols = M.COLS_CLASIF.filter(c => previo.length && c in previo[0]);
+  if (!cols.length) { filas.forEach(f => f.__pendiente = true); return { porDoi:0, porTitulo:0, pendientes: filas.length, cols:[] }; }
+  const utiles = previo.filter(p => cols.some(c => {
+    const v = String(p[c]||'').trim();
+    return v && v !== 'Sin clasificación';
+  }));
+  const mDoi = new Map(), mTit = new Map();
+  for (const p of utiles){
+    const d = M.normDoi(p.DOI); if (d && !mDoi.has(d)) mDoi.set(d, p);
+    const t = M.normTit(p.TITULO); if (t && !mTit.has(t)) mTit.set(t, p);
+  }
+  let porDoi = 0, porTitulo = 0, pendientes = 0;
+  for (const f of filas){
+    const d = M.normDoi(f.DOI), t = M.normTit(f.TITULO);
+    let src = null;
+    if (d && mDoi.has(d)){ src = mDoi.get(d); porDoi++; }
+    else if (t && mTit.has(t)){ src = mTit.get(t); porTitulo++; }
+    if (src){ for (const c of cols) f[c] = String(src[c] ?? ''); f.__pendiente = false; }
+    else { f.__pendiente = true; pendientes++; }
+  }
+  return { porDoi, porTitulo, pendientes, cols };
+};
+
+/* ---------- escritura ---------- */
+M.aCsv = filas => {
+  const cab = M.COLS_SALIDA;
+  const lineas = [cab.join('|')];
+  for (const f of filas)
+    lineas.push(cab.map(c => M.limpiar(f[c] ?? '')).join('|'));
+  return lineas.join('\r\n') + '\r\n';
+};
+M.aDataJs = csv =>
+  'window.PAPERS_CSV = ' +
+  JSON.stringify(csv.replace(/\r\n/g,'\n'))
+    .replace(/</g,'\\u003C').replace(/>/g,'\\u003E') + ';\n';
+
+/* ==================================================================
+   BASE SJR
+   ================================================================== */
+const SJR = { mapa:new Map(), anios:new Set() };
+
+const SJR_URL = a => `https://www.scimagojr.com/journalrank.php?out=xls&year=${a}`;
+
+const COLS_SJR_NECESARIAS = ['issn','sjr','sjr_best_quartile','categories','areas'];
+
+/* Parte una línea respetando las comillas */
+function partirLinea(linea, sep){
+  const out = []; let campo = '', q = false;
+  for (let i = 0; i < linea.length; i++){
+    const ch = linea[i];
+    if (q){
+      if (ch === '"' && linea[i+1] === '"'){ campo += '"'; i++; }
+      else if (ch === '"') q = false;
+      else campo += ch;
+    } else if (ch === '"') q = true;
+    else if (ch === sep){ out.push(campo); campo = ''; }
+    else campo += ch;
+  }
+  out.push(campo);
+  return out;
+}
+
+function detectarSep(linea){
+  const c = ch => linea.split(ch).length - 1;
+  return [[';', c(';')], ['|', c('|')], [',', c(',')], ['\t', c('\t')]]
+    .sort((a,b) => b[1] - a[1])[0][0];
+}
+
+/* clean_names, como lo hacía janitor en R */
+function limpiarNombre(x){
+  return String(x||'').trim().toLowerCase()
+    .replace(/%/g,'percent_').replace(/[^a-z0-9]+/g,'_')
+    .replace(/_+/g,'_').replace(/^_|_$/g,'').replace(/_\d{4}$/,'_year');
+}
+
+/* Lee un archivo de revistas por trozos y devuelve el mapa por ISSN.
+   onAvance recibe los MB leídos, para mover la barra. */
+async function leerBaseSjr(file, onAvance){
+  const anioNombre = (String(file.name||'').match(/\b(19|20)\d{2}\b/g) || []);
+  const unicoAnioNombre = anioNombre.length === 1 ? anioNombre[0] : '';
+
+  const mapa = new Map();
+  const anios = new Set();
+  let cab = null, sep = ';', idx = {}, iAnio = -1;
+  let filas = 0, ignoradas = 0, resto = '', leidos = 0;
+
+  const lector = file.stream().pipeThrough(new TextDecoderStream('utf-8'));
+  for await (const trozo of lector){
+    leidos += trozo.length;
+    if (onAvance) onAvance(leidos);
+    const texto = resto + trozo;
+    const lineas = texto.split('\n');
+    resto = lineas.pop();
+    for (const cruda of lineas) procesar(cruda);
+  }
+  if (resto.trim()) procesar(resto);
+
+  function procesar(cruda){
+    const linea = cruda.replace(/\r$/,'').replace(/^\uFEFF/,'');
+    if (!linea.trim()) return;
+    if (!cab){
+      sep = detectarSep(linea);
+      cab = partirLinea(linea, sep).map(limpiarNombre);
+      cab.forEach((c,i) => { if (!(c in idx)) idx[c] = i; });
+      iAnio = 'year' in idx ? idx.year : -1;
+      const faltan = COLS_SJR_NECESARIAS.filter(c => !(c in idx));
+      if (faltan.length)
+        throw new Error('le faltan columnas: ' + faltan.join(', ') +
+          '. Tiene: ' + cab.slice(0,8).join(', ') + (cab.length > 8 ? '…' : ''));
+      return;
+    }
+    const c = partirLinea(linea, sep);
+    if (c.length < cab.length){ ignoradas++; return; }
+
+    let anio = iAnio >= 0 ? String(c[iAnio]||'').trim() : '';
+    if (!/^(19|20)\d\d$/.test(anio)){
+      /* respaldo: el último campo que parezca un año */
+      anio = '';
+      for (let k = c.length - 1; k >= 0; k--)
+        if (/^(19|20)\d\d$/.test(String(c[k]).trim())){ anio = String(c[k]).trim(); break; }
+      if (!anio) anio = unicoAnioNombre;
+    }
+    if (!anio){ ignoradas++; return; }
+    anios.add(anio);
+    filas++;
+
+    const n = +anio;
+    const datos = {
+      sjr: (c[idx.sjr]||'').trim(),
+      q:   (c[idx.sjr_best_quartile]||'').trim(),
+      cat: (c[idx.categories]||'').trim(),
+      ar:  (c[idx.areas]||'').trim(),
+      anio: n
+    };
+    for (const parte of String(c[idx.issn]||'').split(/[,;|/\s]+/)){
+      const k = M.normIssn(parte);
+      if (!k) continue;
+      const previo = mapa.get(k);
+      if (!previo || n > previo.anio) mapa.set(k, datos);
+    }
+  }
+
+  if (!cab) throw new Error('el archivo está vacío');
+  if (!filas) throw new Error('no encontré filas con año válido');
+  return { mapa, filas, ignoradas, anios,
+           desde: Math.min(...[...anios].map(Number)),
+           hasta: Math.max(...[...anios].map(Number)) };
+}
+
+/* El cruce usa el mapa directamente */
+M.anotarSjrConMapa = (filas, mapa) => {
+  for (const f of filas){
+    let hit = null;
+    for (const parte of String(f.ISSN||'').split(/[,;|/\s]+/)){
+      const k = M.normIssn(parte);
+      if (k && mapa.has(k)){ hit = mapa.get(k); break; }
+    }
+    f.SJR = hit ? hit.sjr : '0';
+    const q = hit ? hit.q : '';
+    f.QUARTILE = (!q || q === '-') ? 'Sin clasificación' : q;
+    f.CATEGORIAS = (hit && hit.cat ? hit.cat.replace(/\s*\(Q[1-4]\)/g,'') : '') || 'Sin clasificación';
+    f.AREAS = (hit && hit.ar) || 'Sin clasificación';
+    f.ISSN = M.normIssn(f.ISSN);
+  }
+  return filas;
+};
+
+/* Guardar: una fila por ISSN, no 768 mil */
+function armarCsvDesdeMapa(mapa, desde, hasta){
+  const L = ['issn|sjr|sjr_best_quartile|categories|areas|year'];
+  for (const [k, v] of mapa)
+    L.push([k, v.sjr, v.q, v.cat, v.ar, v.anio].map(x => String(x).replace(/\|/g,'/')).join('|'));
+  return { csv: L.join('\r\n') + '\r\n', filas: L.length - 1, desde, hasta };
+}
+
+/* ---------- descarga directa ---------- */
+async function bajarAnio(a){
+  const r = await fetch(SJR_URL(a), { mode:'cors' });
+  if (!r.ok) throw new Error('HTTP ' + r.status);
+  const texto = await r.text();
+  return leerBaseSjr(new File([texto], 'scimago ' + a + '.csv'));
+}
+
+async function descargarSjrDirecto(){
+  const desde = +$('#sjr_desde').value || 1999;
+  const hasta = +$('#sjr_hasta').value || (new Date().getFullYear() - 1);
+  $('#btn_sjr_directo').disabled = true;
+  sjrEstado('Probando con el año ' + hasta + '…', 'i');
+  try {
+    const r = await bajarAnio(hasta);
+    fundirEnSjr(r);
+    sjrEstado(`Funciona. ${hasta}: ${r.filas.toLocaleString('es-CL')} revistas. Bajando el resto…`, 'ok');
+  } catch(e){
+    $('#btn_sjr_directo').disabled = false;
+    sjrEstado('No se puede bajar directamente desde el navegador: <b>' + esc(e.message) + '</b>.<br>' +
+      'Es lo esperable, Scimago no autoriza a otras páginas a leer su respuesta.<br><br>' +
+      '<b>Qué hacer:</b> haz clic en los años de abajo, uno por uno. Cada uno abre la descarga de Scimago. ' +
+      'Después suelta los archivos en el recuadro.', 'w');
+    pintarSjr();
+    return;
+  }
+  const fallidos = [];
+  for (let a = hasta - 1; a >= desde; a--){
+    try {
+      await new Promise(r => setTimeout(r, 600));
+      fundirEnSjr(await bajarAnio(a));
+      sjrEstado(`Bajados ${SJR.anios.size} años. Último: ${a}.`, 'i');
+    } catch(e){ fallidos.push(a); }
+    pintarSjr();
+  }
+  $('#btn_sjr_directo').disabled = false;
+  sjrEstado(`Listo: ${SJR.anios.size} año(s).` +
+    (fallidos.length ? ` No pude con ${fallidos.join(', ')}, bájalos con los enlaces.` : ''),
+    fallidos.length ? 'w' : 'ok');
+  pintarSjr();
+}
+
+/* ---------- juntar lo leído con lo que ya había ---------- */
+function fundirEnSjr(r){
+  for (const [k, v] of r.mapa){
+    const previo = SJR.mapa.get(k);
+    if (!previo || v.anio > previo.anio) SJR.mapa.set(k, v);
+  }
+  for (const a of r.anios) SJR.anios.add(a);
+}
+
+/* ---------- recibir archivos ---------- */
+async function recibirArchivosSjr(files){
+  const lineas = [];
+  let ok = 0;
+  $('#btn_sjr_archivos').disabled = true;
+  for (const f of files){
+    const mb = (f.size/1048576).toFixed(0);
+    sjrEstado(`Leyendo <b>${esc(f.name)}</b>${f.size > 20*1048576 ? ' (' + mb + ' MB, puede tardar un rato)' : ''}…`, 'i');
+    try {
+      const r = await leerBaseSjr(f, leidos => {
+        if (f.size > 20*1048576)
+          $('#sjr_resumen').textContent =
+            `Leyendo ${f.name}: ${(leidos/1048576).toFixed(0)} de ${mb} MB…`;
+      });
+      fundirEnSjr(r);
+      lineas.push(`<b>${esc(f.name)}</b> → ${r.filas.toLocaleString('es-CL')} revistas, ` +
+                  (r.anios.size === 1 ? 'año ' + r.desde : `años ${r.desde} a ${r.hasta}`));
+      ok++;
+    } catch(e){
+      lineas.push(`<b>${esc(f.name)}</b> → no pude leerlo: ${esc(e.message)}`);
+    }
+  }
+  $('#btn_sjr_archivos').disabled = false;
+  sjrEstado(lineas.join('<br>'), ok === files.length ? 'ok' : (ok ? 'w' : 'e'));
+  pintarSjr();
+}
+
+/* ---------- guardar ---------- */
+async function guardarSjr(){
+  if (!SJR.mapa.size) return;
+  const anios = [...SJR.anios].map(Number);
+  const a = armarCsvDesdeMapa(SJR.mapa, Math.min(...anios), Math.max(...anios));
+  const nombre = `SJR_revistas_${a.desde}_${a.hasta}.csv`;
+  if (S.escritura && S.raiz){
+    try {
+      const dir = await S.raiz.getDirectoryHandle('BASE', {create:true});
+      const hh = await dir.getFileHandle(nombre, {create:true});
+      const w = await hh.createWritable(); await w.write(a.csv); await w.close();
+      sjrEstado(`Guardado en <b>BASE/${nombre}</b>: una fila por revista, ${a.filas.toLocaleString('es-CL')} en total, ` +
+                `con el cuartil del año más nuevo de cada una.<br><br>Aprieta <b>Volver a leer</b> para que lo tome.`, 'ok');
+      return;
+    } catch(e){ /* si no puedo escribir, lo descargo */ }
+  }
+  descargar(nombre, a.csv);
+  sjrEstado(`Descargado <b>${nombre}</b> con ${a.filas.toLocaleString('es-CL')} revistas.<br><br>` +
+            `<b>Qué hacer:</b> muévelo a la carpeta BASE y aprieta <b>Volver a leer</b>.`, 'ok');
+}
+
+
+/* ==================================================================
+   Orquestación y proceso
+   ================================================================== */
+const P = { previo:null, resultado:null, log:[], corriendo:false };
+
+function logear(t, tipo){
+  P.log.push({t, tipo: tipo||'i', hora: new Date().toLocaleTimeString('es-CL')});
+  if (P.log.length > 400) P.log.splice(0, P.log.length - 400);
+  const el = $('#log');
+  if (el){
+    el.innerHTML = P.log.map(l =>
+      `<div class="lg-${l.tipo}"><span class="lg-h">${l.hora}</span> ${l.t}</div>`).join('');
+    el.scrollTop = el.scrollHeight;
+  }
+}
+function avance(hecho, total, texto){
+  const pct = total ? Math.round(hecho/total*100) : 0;
+  $('#barra_in').style.width = pct + '%';
+  $('#barra_txt').textContent = texto ? `${texto} · ${pct}%` : pct + '%';
+}
+
+/* ---------- cargar la base anterior, tolerando el desfase de columnas ---------- */
+async function cargarPrevio(entrada){
+  const texto = await textoDe(entrada);
+  const L = texto.split(/\r?\n/).filter(x => x.trim());
+  if (L.length < 2) throw new Error('El archivo no tiene filas');
+  const cab = L[0].split('|');
+  const iAC = cab.indexOf('AREA_COMPUTACION');
+  const tieneTres = cab.includes('CODIGO_AREA_COMPUTACION') && cab.includes('NOMBRE_AREA_COMPUTACION');
+  const destino = tieneTres ? cab
+    : [...cab.slice(0, iAC+1), 'CODIGO_AREA_COMPUTACION', 'NOMBRE_AREA_COMPUTACION', ...cab.slice(iAC+1)];
+  let desfasadas = 0;
+  const filas = L.slice(1).map(l => {
+    let c = l.split('|');
+    if (c.length === destino.length - 2 && !tieneTres){
+      /* fila normal de una unidad que solo escribía una columna de área */
+      c = [...c.slice(0, iAC+1), '', '', ...c.slice(iAC+1)];
+    } else if (c.length > destino.length){
+      const cola = 4;
+      c = [...c.slice(0, destino.length - cola), ...c.slice(-cola)];
+    } else if (c.length === destino.length && !tieneTres){
+      desfasadas++;   /* trae las dos columnas extra, ya calza con destino */
+    }
+    while (c.length < destino.length) c.push('');
+    const o = {}; destino.forEach((k,i) => o[k] = (c[i]||'').trim());
+    return o;
+  });
+  return { filas, columnas: destino.length, desfasadas, tieneTres };
+}
+
+/* ---------- proceso completo ---------- */
+async function procesar(){
+  if (P.corriendo) return;
+  P.corriendo = true; P.log = [];
+  $('#c_proceso').classList.remove('oculto');
+  $('#btn_procesar').disabled = true;
+  paso(4);
+
+  try {
+    const sel = S.academicos.filter(a => a.sel && a.archivoCsv);
+    if (!sel.length) throw new Error('No hay académicos seleccionados con CSV de Scopus');
+    const unidades = [...new Set(sel.map(a => a.unidad))];
+    logear(`Procesando ${sel.length} académico(s) de ${unidades.length} carpeta(s): ${unidades.join(', ')}`);
+
+    /* 1 · base SJR */
+    logear('Leyendo el listado de revistas…');
+    const base = S.arbol.dirs['BASE'] || S.arbol.dirs['base'];
+    let mapaSjr = SJR.mapa;
+    if (!mapaSjr.size){
+      const nom = Object.keys(base ? base.archivos : {})
+        .filter(x => /^SJR_revistas.*\.(csv|xlsx|xls)$/i.test(x)).sort().reverse()[0];
+      if (!nom) throw new Error('Falta el listado de revistas de Scimago. Ármalo en el paso 2.');
+      const ent = base.archivos[nom];
+      const archivo = ent.file || await ent.handle.getFile();
+      const r = await leerBaseSjr(archivo, leidos => avance(leidos, archivo.size, 'leyendo ' + nom));
+      mapaSjr = r.mapa;
+      logear(`${nom}: ${r.filas.toLocaleString('es-CL')} filas, ` +
+             `${r.mapa.size.toLocaleString('es-CL')} revistas distintas, años ${r.desde} a ${r.hasta}.`, 'ok');
+    } else {
+      logear(`Uso las ${mapaSjr.size.toLocaleString('es-CL')} revistas que cargaste en el paso 2.`, 'ok');
+    }
+
+    /* 2 · por académico */
+    let todo = [];
+    let k = 0;
+    for (const a of sel){
+      k++;
+      avance(k-1, sel.length, a.nombre);
+      const info = S.unidades[a.unidad];
+      const entrada = info.nodoScopus.archivos[a.archivoCsv];
+      let filas = M.limpiarYRenombrar(leerCsv(await textoDe(entrada)).filas);
+      const fila = S.indice.filas.find(f =>
+        String(f.SCOPUS_ID||'').split(';').map(x=>x.trim()).includes(a.scopusId));
+      fila.__id = a.scopusId;
+      filas = M.agregarDesdeIndice(filas, fila);
+      let msg = `${a.nombre}: ${filas.length} publicaciones en Scopus`;
+      if (a.archivoWos && info.nodoWos){
+        let w;
+        try {
+          w = await leerTabla(info.nodoWos.archivos[a.archivoWos], a.archivoWos);
+        } catch(err){
+          logear(`${a.nombre}: no pude leer su archivo de Web of Science. ${err.message} ` +
+                 `Sigo con el resto, pero sus publicaciones van a quedar sin los datos de WoS.`, 'w');
+          w = null;
+        }
+        if (w) {
+        const wid = (/ - ([A-Za-z0-9-;. ]+)\.(xlsx|xls|csv|txt|tsv)$/i.exec(a.archivoWos) || [,''])[1].trim();
+        const r = M.anotarWos(filas, w.filas, w.cabecera, wid);
+        filas = r.filas;
+        msg += `, ${r.cruzadas} de ellas también están en su descarga de Web of Science`;
+        if (r.agregadas) msg += `, y ${r.agregadas} solo aparecían en Web of Science`;
+        if (a.cruce !== 'id') msg += ` (su archivo se encontró por el nombre, conviene revisarlo)`;
+        }
+      } else msg += ', sin descarga de Web of Science';
+      filas = M.anotarSjrConMapa(filas, mapaSjr);
+      filas = M.agregarPaises(filas);
+      todo = todo.concat(filas);
+      logear(msg);
+    }
+    avance(sel.length, sel.length, 'consolidando');
+
+    /* 3 · consolidar WoS */
+    const cons = M.consolidarWos(todo);
+    logear(`De las ${todo.length} publicaciones: ${cons.conPropia} aparecen en la descarga de Web of ` +
+           `Science del propio académico, ${cons.heredadas} se resolvieron porque su revista está ` +
+           `identificada en otra publicación, y ${cons.sinEvidencia} quedaron sin información de WoS.`);
+    logear(`Cuentan como WoS ${cons.si} de ${todo.length}` +
+           (cons.actasSi ? `. Incluye ${cons.actasSi} acta(s) de congreso que la propia descarga de WoS marca en un índice de revista` : ''), 'ok');
+
+    /* 4 · clasificaciones */
+    if (P.previo){
+      const r = M.reusarClasificaciones(todo, P.previo.filas);
+      logear(`Áreas copiadas del archivo que me diste: ${r.porDoi} calzaron por DOI y ${r.porTitulo} por título. ` +
+             (r.pendientes ? `Quedan ${r.pendientes} sin área.` : 'No quedó ninguna sin área.'),
+             r.pendientes ? 'w' : 'ok');
+    } else {
+      todo.forEach(f => f.__pendiente = true);
+      logear(`No cargaste un BD_papers.csv, así que las ${todo.length} publicaciones quedan sin área temática. ` +
+             `Se pueden agregar después.`, 'w');
+    }
+
+    /* 5 · filiación y dedup */
+    const dd = M.filiacionYDedup(todo, S.indice.filas);
+    const conFil = dd.filas.filter(f => f.FIALIACION_SESION === 'SI').length;
+    logear(`${conFil} publicaciones se hicieron mientras la persona estaba en la unidad y ` +
+           `${dd.filas.length - conFil} son de antes o de otra parte. ` +
+           `Se juntaron ${dd.quitadas} que estaban repetidas por venir de Scopus y de WoS a la vez.`);
+
+    P.resultado = dd.filas;
+    avance(1, 1, 'listo');
+    logear(`Listo: ${dd.filas.length} filas, ${M.COLS_SALIDA.length} columnas.`, 'ok');
+    pintarResultado();
+    $('#c_resultado').classList.remove('oculto');
+  } catch(e){
+    logear('Error: ' + e.message, 'e');
+    avance(0,1,'falló');
+  } finally {
+    P.corriendo = false;
+    $('#btn_procesar').disabled = false;
+  }
+}
+
+/* ---------- resumen del resultado ---------- */
+function pintarResultado(){
+  const f = P.resultado;
+  const cuenta = (fn) => f.filter(fn).length;
+  const pendientes = cuenta(x => x.__pendiente);
+  const col = {};
+  for (const x of f) for (const c of String(x.WOS_COLECCION||'').split(';').map(s=>s.trim()).filter(Boolean))
+    col[c] = (col[c]||0)+1;
+  $('#kpis_res').innerHTML = `
+    <div class="kpi"><div class="k">Publicaciones</div><div class="v">${f.length}</div>
+      <div class="s">${[...new Set(f.map(x=>x.NOMBRE_AUTOR))].length} académicos</div></div>
+    <div class="kpi ok"><div class="k">Cuentan como WoS</div><div class="v">${cuenta(x=>x.WOS==='SI')}</div>
+      <div class="s">${Object.entries(col).map(([k,v])=>k+' '+v).join(' · ') || 'sin colecciones'}</div></div>
+    <div class="kpi"><div class="k">Hechas en la unidad</div><div class="v">${cuenta(x=>x.FIALIACION_SESION==='SI')}</div>
+      <div class="s">${cuenta(x=>x.FIALIACION_SESION==='NO')} de antes o de otra parte</div></div>
+    <div class="kpi"><div class="k">Con cuartil</div><div class="v">${cuenta(x=>x.QUARTILE!=='Sin clasificación')}</div>
+      <div class="s">Q1: ${cuenta(x=>x.QUARTILE==='Q1')}</div></div>
+    <div class="kpi ${pendientes?'mal':'ok'}"><div class="k">Sin área temática</div><div class="v">${pendientes}</div>
+      <div class="s">${pendientes?'se pueden agregar después':'todas tienen área'}</div></div>`;
+  $('#btn_ollama').disabled = !pendientes;
+  pintarCatalogos();
+  const yaClasificadas = (P.resultado || []).filter(f =>
+    String(f.AREA_COMPUTACION || '').trim() && !f.__pendiente).length;
+  $('#auditoria').classList.toggle('oculto', yaClasificadas < 5);
+  $('#aviso_res').innerHTML = pendientes
+    ? `<div class="aviso w"><b>${pendientes} publicación(es) quedaron sin área temática.</b>
+       El resto del archivo está completo, así que puedes bajarlo y usarlo igual. Si quieres las áreas,
+       abajo se calculan con un modelo local. Puedes bajar el archivo en cualquier momento, incluso a medio
+       clasificar, y seguir después.</div>`
+    : `<div class="aviso i"><b>Todas tienen su área temática.</b> Se copiaron del BD_papers.csv que cargaste,
+       así que no hizo falta calcular nada.</div>`;
+}
+
+/* ---------- descargas y escritura ---------- */
+function descargar(nombre, texto){
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([texto], {type:'text/plain;charset=utf-8'}));
+  a.download = nombre; a.click();
+  setTimeout(()=>URL.revokeObjectURL(a.href), 3000);
+}
+async function escribirEnCarpeta(){
+  if (!S.escritura || !S.raiz) return;
+  try {
+    const csv = M.aCsv(P.resultado);
+    const dir = await S.raiz.getDirectoryHandle('SALIDA', {create:true});
+    for (const [nombre, contenido] of [['BD_papers.csv', csv], ['data.js', M.aDataJs(csv)]]){
+      const h = await dir.getFileHandle(nombre, {create:true});
+      const w = await h.createWritable(); await w.write(contenido); await w.close();
+    }
+    logear('Escritos BD/SALIDA/BD_papers.csv y BD/SALIDA/data.js', 'ok');
+    alert('Listo.\n\nSe escribieron en BD/SALIDA:\n  BD_papers.csv\n  data.js\n\nCopia data.js a publicaciones/data/ de la app.');
+  } catch(e){ logear('No pude escribir: ' + e.message, 'e'); }
+}
+
+/* ---------- Ollama ---------- */
+/* ---------- Ollama ----------
+   Al abrir este archivo con doble clic, la página no tiene origen y el
+   navegador manda Origin: null. Ollama rechaza eso por defecto y el error
+   que llega es un "Failed to fetch" pelado, que no dice nada. Por eso
+   ahora se prueba la conexión ANTES de empezar, y si falla se explica qué
+   comando correr en vez de reventar mil veces. */
+
+async function probarOllama(silencioso){
+  const url = ($('#ollama_url').value.trim() || 'http://localhost:11434').replace(/\/$/,'');
+  const poner = (html, tipo) => { $('#ollama_estado').innerHTML = `<div class="aviso ${tipo}">${html}</div>`; };
+  try {
+    const r = await fetch(url + '/api/tags', { method:'GET' });
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    const j = await r.json();
+    const modelos = (j.models || []).map(m => m.name);
+    OLLAMA.modelos = modelos;
+    const elegido = $('#ollama_modelo').value.trim();
+    const hay = modelos.some(m => m === elegido || m.split(':')[0] === elegido.split(':')[0]);
+    poner(`<b>Conectado.</b> Ollama responde y tiene ${modelos.length} modelo(s): ` +
+      modelos.slice(0,8).map(esc).join(', ') + (modelos.length > 8 ? '…' : '') +
+      (hay ? '' : `<br><br><b>Ojo:</b> el modelo que escribiste, <span class="mono">${esc(elegido)}</span>, ` +
+        `no está en esa lista. Usa uno de los de arriba o bájalo con ` +
+        `<span class="mono">ollama pull ${esc(elegido)}</span>.`),
+      hay ? 'ok-i' : 'w');
+    return { ok: true, modelos, modeloExiste: hay };
+  } catch(e){
+    poner(`<b>No pude conectarme a Ollama en ${esc(url)}.</b><br><br>` +
+      `Ollama solo acepta peticiones de <span class="mono">127.0.0.1</span> y ` +
+      `<span class="mono">0.0.0.0</span>. Esta página la abriste con doble clic, así que para el ` +
+      `navegador viene de "ningún sitio" y Ollama la rechaza. Hay que autorizarla.<br><br>` +
+
+      `<b>Si usas la app de escritorio de Ollama en Windows, que es lo normal:</b><br>` +
+      `1. Abre PowerShell y corre:` +
+      `<div class="mono" style="display:block;padding:9px;margin:7px 0;background:var(--soft);border-radius:6px;">` +
+      `setx OLLAMA_ORIGINS "null"</div>` +
+      `2. Sal de Ollama <b>de verdad</b>: clic derecho en su icono de la bandeja, abajo a la derecha ` +
+      `junto al reloj, y elige Quit. Cerrar la ventana no basta.<br>` +
+      `3. Vuelve a abrir Ollama desde el menú Inicio.<br>` +
+      `4. Vuelve acá y aprieta <b>Probar conexión</b>.<br><br>` +
+      `El paso 2 es el que casi todos se saltan: la variable solo la toman los procesos nuevos.<br><br>` +
+
+      `<b>Por qué "null" y no "*":</b> con asterisco cualquier página web que visites podría hablarle a ` +
+      `tu Ollama. Con <span class="mono">null</span> autorizas solo a páginas abiertas como archivo, ` +
+      `que es este caso. Si igual no funciona, prueba con ` +
+      `<span class="mono">setx OLLAMA_ORIGINS "*"</span> y repite los pasos 2 a 4.<br><br>` +
+
+      `<b>Para comprobar que quedó:</b> abre una PowerShell <i>nueva</i> y corre ` +
+      `<span class="mono">echo $env:OLLAMA_ORIGINS</span>. Si no muestra nada, la variable no se guardó.<br><br>` +
+
+      `<b>Si no quieres pelear con esto:</b> las áreas temáticas son lo único que necesita el modelo. ` +
+      `Baja el <b>data.js</b> igual, que las otras 44 columnas están completas, y las áreas las agregas ` +
+      `otro día.`, 'e');
+    return { ok:false };
+  }
+}
+
+const OLLAMA = { modelos: [], detener: false, mostroEjemplo: false, rechazosMostrados: 0, ultimoError: '' };
+
+/* ---------- revisar la clasificación a mano ----------
+   Puedo verificar que la etiqueta exista en el catálogo. No puedo
+   verificar que sea la correcta: eso requiere leer el paper y saber del
+   tema. Así que en vez de decir "confía", esto toma una muestra al azar,
+   te la muestra con el título y el resumen, y tú marcas. Al final sale
+   una tasa de error medida sobre tus datos.
+
+   El muestreo es al azar simple, sin reemplazo, para que la tasa sea
+   representativa del total y no de las primeras filas. */
+
+const AUD = { muestra: [], juicios: new Map() };
+
+function tomarMuestraAuditoria(){
+  const clasificadas = (P.resultado || []).filter(f =>
+    String(f.AREA_COMPUTACION || '').trim() && !f.__pendiente);
+  if (clasificadas.length < 5){
+    $('#aud_resumen').innerHTML =
+      '<div class="aviso w">Todavía no hay suficientes publicaciones clasificadas para revisar.</div>';
+    return;
+  }
+  const n = Math.max(5, Math.min(100, +$('#aud_n').value || 20));
+  /* al azar sin reemplazo */
+  const idx = clasificadas.map((_, i) => i);
+  for (let i = idx.length - 1; i > 0; i--){
+    const j = Math.floor(Math.random() * (i + 1));
+    [idx[i], idx[j]] = [idx[j], idx[i]];
+  }
+  AUD.muestra = idx.slice(0, Math.min(n, clasificadas.length)).map(i => clasificadas[i]);
+  AUD.juicios = new Map();
+  pintarAuditoria();
+}
+
+function pintarAuditoria(){
+  const total = AUD.muestra.length;
+  $('#aud_lista').innerHTML = AUD.muestra.map((f, k) => {
+    const j = AUD.juicios.get(k) || '';
+    return `<div class="aud-item">
+      <div class="aud-t">${esc(String(f.TITULO || '').slice(0, 180))}</div>
+      <div class="aud-r">${esc(String(f.RESUMEN || '(sin resumen)').replace(/\s+/g,' ').slice(0, 320))}…</div>
+      <div class="aud-a">
+        <span class="et">${esc(f.AREA_COMPUTACION || '—')}</span>
+        <span class="et oc">${esc(f.AREA_OCDE || '—')}</span>
+        <span class="et oc">${esc(f.AREA_ODS_ANID || '—')}</span>
+      </div>
+      <div class="aud-b" data-k="${k}">
+        <button class="si${j==='si'?' on':''}" data-v="si">Está bien</button>
+        <button class="no${j==='no'?' on':''}" data-v="no">Está mal</button>
+        <button class="dud${j==='dud'?' on':''}" data-v="dud">No estoy seguro</button>
+      </div>
+    </div>`;
+  }).join('');
+
+  $$('#aud_lista .aud-b button').forEach(b => {
+    b.onclick = () => {
+      const k = +b.parentElement.dataset.k;
+      AUD.juicios.set(k, b.dataset.v);
+      pintarAuditoria();
+    };
+  });
+
+  const bien = [...AUD.juicios.values()].filter(v => v === 'si').length;
+  const mal  = [...AUD.juicios.values()].filter(v => v === 'no').length;
+  const dud  = [...AUD.juicios.values()].filter(v => v === 'dud').length;
+  const juzgadas = bien + mal + dud;
+
+  if (!juzgadas){
+    $('#aud_resumen').innerHTML =
+      `<div class="aviso i">Muestra de <b>${total}</b> publicaciones tomadas al azar entre las clasificadas. ` +
+      `Marca cada una y al final sale la tasa.</div>`;
+    return;
+  }
+
+  const base = bien + mal;
+  const tasa = base ? mal / base : 0;
+  /* margen de error aproximado, para no leer una muestra chica como si
+     fuera exacta */
+  const margen = base ? 1.96 * Math.sqrt(tasa * (1 - tasa) / base) : 0;
+  const pctTxt = (x) => (x * 100).toFixed(0) + '%';
+
+  const pendientes = (P.resultado || []).length;
+  let tono = 'i';
+  if (base >= 10 && tasa > 0.2) tono = 'e';
+  else if (base >= 10 && tasa > 0.1) tono = 'w';
+
+  $('#aud_resumen').innerHTML =
+    `<div class="aviso ${tono}"><b>Revisadas ${juzgadas} de ${total}</b>` +
+    (dud ? `, ${dud} sin decidir` : '') + `.<br><br>` +
+    (base
+      ? `Bien ${bien}, mal ${mal}. <b>Tasa de error: ${pctTxt(tasa)}</b>` +
+        (base >= 10 ? ` (más o menos ${pctTxt(margen)}, por el tamaño de la muestra)` : ', muestra muy chica todavía para confiar en el número') +
+        `.<br><br>Si eso se mantiene en el total, de las ${pendientes.toLocaleString('es-CL')} publicaciones ` +
+        `habría del orden de ${Math.round(tasa * pendientes).toLocaleString('es-CL')} mal clasificadas.` +
+        (tasa > 0.2 ? `<br><br><b>Con ese error no conviene usar estas áreas.</b> Prueba con otro modelo desde ` +
+                      `<b>Comparar modelos</b>, o clasifica a mano las que importen.` : '')
+      : 'Marca al menos una como bien o mal para calcular la tasa.') +
+    `</div>`;
+}
+
+function descargarAuditoria(){
+  const malas = AUD.muestra.filter((f, k) => AUD.juicios.get(k) === 'no');
+  if (!malas.length){
+    $('#aud_resumen').innerHTML +=
+      '<div class="aviso i">No marcaste ninguna como mal, así que no hay nada que bajar.</div>';
+    return;
+  }
+  const cab = ['TITULO','SESION','AREA_COMPUTACION','CODIGO_AREA_COMPUTACION','AREA_OCDE','AREA_ODS_ANID','DOI'];
+  const L = [cab.join('|')];
+  for (const f of malas) L.push(cab.map(c => String(f[c] ?? '').replace(/\|/g,'/')).join('|'));
+  descargar('clasificaciones_marcadas_mal.csv', L.join('\r\n') + '\r\n');
+}
+
+/* ---------- catálogo de especialidades por unidad ----------
+   Cada unidad tiene su propio listado: el DIINF usa las especialidades de
+   computación, Cbiot las de biotecnología, Biomédica las suyas. Antes esto
+   era UN desplegable para toda la corrida, así que si seleccionabas
+   académicos de varias unidades, todas las publicaciones se clasificaban
+   contra el mismo listado. Eso está mal y era un error de diseño mío.
+
+   Ahora el listado se decide por publicación, según la unidad que dice el
+   índice. La tabla de abajo muestra qué entendió de cada unidad y deja
+   corregirlo a mano si se equivocó.
+
+   OCDE y ODS no dependen de la unidad: se aplican a todas por igual. */
+
+const CAT_NOMBRE = {
+  DIINF: 'Computación, especialidades ACM',
+  CBIOT: 'Biotecnología',
+  BIOMEDICA: 'Biomédica'
+};
+
+/* SESION normalizada -> clave de catálogo elegida */
+const CATALOGOS = {};
+
+function unidadesDelResultado(){
+  const cuenta = {};
+  for (const f of (P.resultado || [])){
+    const s = String(f.SESION || '(sin unidad)').trim();
+    cuenta[s] = (cuenta[s] || 0) + 1;
+  }
+  return cuenta;
+}
+
+function pintarCatalogos(){
+  const cuenta = unidadesDelResultado();
+  const claves = Object.keys(cuenta);
+  if (!claves.length){ $('#catalogos_por_unidad').innerHTML = ''; return; }
+
+  /* preseleccionar lo que se pueda deducir del nombre de la unidad */
+  for (const s of claves)
+    if (!(s in CATALOGOS)) CATALOGOS[s] = catalogoSugerido(s) || 'DIINF';
+
+  const opciones = clave => Object.keys(CAT_NOMBRE).map(k =>
+    `<option value="${k}"${k === clave ? ' selected' : ''}>${esc(CAT_NOMBRE[k])}</option>`).join('');
+
+  $('#catalogos_por_unidad').innerHTML =
+    '<div class="cat-caja"><div class="cat-titulo">Qué listado de especialidades usar en cada unidad</div>' +
+    '<table><tbody>' +
+    claves.sort().map(s =>
+      `<tr><td>${esc(s)}</td>` +
+      `<td class="n" style="padding-right:14px;">${cuenta[s].toLocaleString('es-CL')} public.</td>` +
+      `<td><select data-sesion="${esc(s)}" class="cat-sel">${opciones(CATALOGOS[s])}</select></td></tr>`).join('') +
+    '</tbody></table>' +
+    '<p class="cat-nota">Lo deduje del nombre de cada unidad. Si me equivoqué, cámbialo acá. ' +
+    'Las áreas OCDE y los objetivos ODS son los mismos para todas, no dependen de la unidad.</p></div>';
+
+  $$('#catalogos_por_unidad .cat-sel').forEach(sel => {
+    sel.onchange = () => { CATALOGOS[sel.dataset.sesion] = sel.value; };
+  });
+}
+
+/* Qué listado le corresponde a una publicación */
+function catalogoDe(f){
+  const s = String(f.SESION || '(sin unidad)').trim();
+  return CATALOGOS[s] || catalogoSugerido(s) || 'DIINF';
+}
+
+/* ---------- negociar qué acepta este Ollama ----------
+   No todas las versiones aceptan los mismos parámetros. El "think", que
+   sirve para que qwen3 no razone al vuelo, es reciente: las versiones
+   anteriores rechazan la llamada completa con un error 400. Eso me pasó:
+   /api/tags respondía bien, y todas las de /api/generate fallaban.
+
+   Así que antes de empezar se prueba una llamada mínima y se va sacando
+   lo que moleste, de lo mejor a lo más básico. Lo que quede se usa para
+   toda la corrida. */
+function cuerpoParaOllama(modelo, prompt, temp, tope, opc){
+  /* keep_alive mantiene el modelo en memoria entre llamadas. Sin esto
+     Ollama lo descarga a los 5 minutos y la siguiente llamada vuelve a
+     pagar la carga completa. */
+  const c = { model: modelo, prompt, stream:false, keep_alive: '30m',
+              options:{ temperature: temp, num_predict: tope } };
+  if (opc && opc.formato) c.format = 'json';
+  if (opc && opc.think === false) c.think = false;
+  return c;
+}
+
+async function negociarOpciones(url, modelo){
+  const intentos = [
+    { think:false, formato:true,  nombre:'con salida JSON y sin razonamiento' },
+    { think:null,  formato:true,  nombre:'con salida JSON' },
+    { think:false, formato:false, nombre:'sin salida JSON y sin razonamiento' },
+    { think:null,  formato:false, nombre:'básico, sin salida JSON' }
+  ];
+  for (const it of intentos){
+    const cuerpo = { model: modelo, prompt: 'Responde {"ok":1}', stream:false,
+                     options:{ temperature:0, num_predict: 16 } };
+    if (it.formato) cuerpo.format = 'json';
+    if (it.think === false) cuerpo.think = false;
+    try {
+      const control = new AbortController();
+      const corte = setTimeout(() => control.abort(), 240000);
+      const r = await fetch(url + '/api/generate', {
+        method:'POST', headers:{'Content-Type':'application/json'},
+        signal: control.signal, body: JSON.stringify(cuerpo)
+      });
+      clearTimeout(corte);
+      if (r.ok){ await r.json(); return { ...it, ok:true }; }
+      /* 4xx quiere decir que no le gustó algo del cuerpo: se prueba el siguiente */
+      if (r.status >= 400 && r.status < 500){
+        let detalle = '';
+        try { detalle = (await r.json()).error || ''; } catch(e){}
+        logear(`Tu Ollama rechazó la llamada ${it.nombre} (HTTP ${r.status}` +
+               (detalle ? ': ' + esc(String(detalle).slice(0,90)) : '') + '). Pruebo más simple.', 'w');
+        continue;
+      }
+      return { ...it, ok:false, error: 'HTTP ' + r.status };
+    } catch(e){
+      return { ...it, ok:false, error: e.name === 'AbortError' ? 'no contestó en 4 minutos' : e.message };
+    }
+  }
+  return { ok:false, error: 'ninguna combinación de parámetros funcionó' };
+}
+
+/* ---------- comparar modelos ----------
+   No hay forma de saber de antemano cuál de tus modelos conviene: depende
+   de tu máquina y de tus textos. Esto prueba cada uno con una muestra
+   chica y mide tres cosas que sí importan:
+
+     cuánto tarda por publicación
+     cuántas contesta en el formato pedido, o sea eligiendo de la lista
+     en cuántas coincide con los demás modelos
+
+   La muestra no se guarda: se trabaja sobre copias, así que comparar no
+   deja publicaciones a medio clasificar. */
+async function compararModelos(){
+  const prueba = await probarOllama();
+  if (!prueba.ok) return;
+  const modelos = prueba.modelos;
+  if (!modelos.length){ sjrEstado; return; }
+
+  const pend = P.resultado ? P.resultado.filter(f => f.__pendiente) : [];
+  if (pend.length < 3){
+    $('#ollama_estado').innerHTML =
+      '<div class="aviso w">Necesito al menos 3 publicaciones sin área para comparar.</div>';
+    return;
+  }
+  const N = Math.min(15, pend.length);
+  const muestra = pend.slice(0, N);
+  const url = ($('#ollama_url').value.trim() || 'http://localhost:11434').replace(/\/$/,'');
+  const lote = Math.max(1, Math.min(10, +$('#ollama_lote').value || 5));
+
+  $('#btn_comparar').disabled = true;
+  $('#ollama_avance').classList.remove('oculto');
+  const filas = [];
+
+  for (const modelo of modelos){
+    $('#oll_texto').textContent = `Probando ${modelo} con ${N} publicaciones…`;
+    $('#oll_barra').style.width = Math.round(filas.length/modelos.length*100) + '%';
+    const opcModelo = await negociarOpciones(url, modelo);
+    if (!opcModelo.ok){
+      filas.push({ modelo, seg:0, porUna:0, ok:0, mal:N, error: opcModelo.error||'no genera', areas:[] });
+      continue;
+    }
+    const copias = muestra.map(f => ({ TITULO:f.TITULO, RESUMEN:f.RESUMEN, SESION:f.SESION, __pendiente:true }));
+    const grupos = [];
+    for (let i = 0; i < copias.length; i += lote) grupos.push(copias.slice(i, i+lote));
+
+    const t0 = Date.now();
+    let ok = 0, mal = 0, error = '';
+    for (const g of grupos){
+      const control = new AbortController();
+      const corte = setTimeout(() => control.abort(), 180000);
+      try {
+        const r = await fetch(url + '/api/generate', {
+          method:'POST', headers:{'Content-Type':'application/json'}, signal: control.signal,
+          body: JSON.stringify(cuerpoParaOllama(modelo, construirPromptLote(g), 0,
+            60 + 70*g.length, opcModelo))
+        });
+        clearTimeout(corte);
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        const j = await r.json();
+        const res = aplicarRespuestaLote(g, j.response);
+        ok += res.ok; mal += res.mal;
+      } catch(e){
+        clearTimeout(corte);
+        mal += g.length;
+        error = e.name === 'AbortError' ? 'pasó de 3 minutos' : e.message;
+      }
+    }
+    const seg = (Date.now() - t0) / 1000;
+    filas.push({ modelo, seg, porUna: seg/N, ok, mal, error,
+                 areas: copias.map(c => c.AREA_COMPUTACION || '') });
+  }
+
+  /* coincidencia entre modelos, sobre las que todos contestaron */
+  const buenos = filas.filter(f => f.ok > 0);
+  let acuerdo = null;
+  if (buenos.length >= 2){
+    let comparables = 0, iguales = 0;
+    for (let i = 0; i < N; i++){
+      const vals = buenos.map(f => f.areas[i]).filter(Boolean);
+      if (vals.length < 2) continue;
+      comparables++;
+      if (vals.every(v => v === vals[0])) iguales++;
+    }
+    if (comparables) acuerdo = { iguales, comparables };
+  }
+
+  const mejor = [...filas].sort((a,b) =>
+    (b.ok - a.ok) || (a.porUna - b.porUna))[0];
+
+  $('#oll_barra').style.width = '100%';
+  $('#oll_texto').textContent = `Comparación lista, ${N} publicaciones por modelo.`;
+
+  const est = f => {
+    const pct = Math.round(f.ok/N*100);
+    if (!f.ok) return '<span class="pill no">no sirvió</span>';
+    if (pct >= 95) return '<span class="pill si">' + pct + '% bien</span>';
+    if (pct >= 70) return '<span class="pill tibio">' + pct + '% bien</span>';
+    return '<span class="pill no">' + pct + '% bien</span>';
+  };
+
+  $('#ollama_estado').innerHTML =
+    '<div class="aviso i"><b>Comparación con ' + N + ' publicaciones de las tuyas</b>' +
+    '<table style="margin-top:12px;"><thead><tr><th>Modelo</th><th>Formato</th>' +
+    '<th class="n">Por publicación</th><th class="n">Las ' + P.resultado.filter(f=>f.__pendiente).length.toLocaleString('es-CL') + ' tardarían</th></tr></thead><tbody>' +
+    filas.map(f => '<tr><td>' + esc(f.modelo) + (f.modelo === mejor.modelo ? ' <span class="pill si">recomendado</span>' : '') +
+      '</td><td>' + est(f) + (f.error ? ' <span style="font-size:.78rem;opacity:.7">' + esc(f.error) + '</span>' : '') +
+      '</td><td class="n">' + f.porUna.toFixed(1) + ' s</td>' +
+      '<td class="n">' + (f.ok ? relojLargo(f.porUna * P.resultado.filter(x=>x.__pendiente).length) : '—') + '</td></tr>').join('') +
+    '</tbody></table>' +
+    (acuerdo ? '<p style="margin:12px 0 0;font-size:.84rem;">Los modelos que funcionaron coincidieron en ' +
+      acuerdo.iguales + ' de ' + acuerdo.comparables + ' publicaciones. ' +
+      (acuerdo.iguales / acuerdo.comparables > 0.7
+        ? 'Se parecen bastante, así que conviene el más rápido de los que contestan bien.'
+        : 'Difieren harto, así que conviene el más grande de los que contestan bien, aunque tarde más.') + '</p>' : '') +
+    '<p style="margin:10px 0 0;font-size:.84rem;">Escribe el que elijas en el campo Modelo y aprieta ' +
+    '<b>Clasificar con Ollama</b>. Esta prueba no guardó nada: trabajó sobre copias.</p></div>';
+
+  $('#btn_comparar').disabled = false;
+}
+
+function relojLargo(seg){
+  seg = Math.max(0, Math.round(seg));
+  const h = Math.floor(seg/3600), m = Math.floor((seg%3600)/60);
+  if (h) return h + ' h ' + String(m).padStart(2,'0') + ' min';
+  if (m) return m + ' min';
+  return seg + ' s';
+}
+
+async function clasificarConOllama(){
+  if (!P.resultado || !P.resultado.some(f => f.__pendiente)) return;
+
+  const prueba = await probarOllama();
+  if (!prueba.ok) return;
+
+  const url = ($('#ollama_url').value.trim() || 'http://localhost:11434').replace(/\/$/,'');
+  const modelo = $('#ollama_modelo').value.trim() || 'llama3.1:8b';
+  const loteBase = Math.max(1, Math.min(10, +$('#ollama_lote').value || 5));
+  const paralelo = Math.max(1, Math.min(12, +$('#ollama_paralelo').value || 4));
+  /* La espera se ajusta sola. Empieza en 6 minutos, y después de las
+     primeras respuestas se fija en cuatro veces la más lenta que se haya
+     visto, con un piso de 3 minutos y un techo de 15. Antes eran 3
+     minutos fijos y en máquinas lentas se abandonaban llamadas que
+     iban a contestar bien. */
+  let esperaMax = 360000;
+  let masLenta = 0;
+  const ajustarEspera = ms => {
+    if (ms > masLenta) masLenta = ms;
+    esperaMax = Math.min(900000, Math.max(180000, Math.round(masLenta * 4)));
+  };
+
+  const totalInicial = P.resultado.filter(f => f.__pendiente).length;
+
+  /* Antes de gastar horas, averiguar qué parámetros acepta este servidor.
+     Esta primera llamada además carga el modelo en memoria, que la primera
+     vez puede tardar varios minutos, así que se le da tiempo de sobra. */
+  logear('Probando qué acepta tu Ollama y cargando el modelo en memoria. ' +
+         'La primera vez esto puede tardar varios minutos.');
+  $('#oll_texto').textContent = 'Cargando el modelo en memoria, la primera vez tarda…';
+  const opc = await negociarOpciones(url, modelo);
+  if (!opc.ok){
+    logear(`No pude hacer ni una clasificación de prueba: ${esc(opc.error||'sin detalle')}. ` +
+           `Ollama contesta la lista de modelos pero no genera. ` +
+           `Si el modelo es muy grande para tu memoria, prueba uno más chico.`, 'e');
+    $('#ollama_estado').innerHTML =
+      '<div class="aviso e"><b>Ollama responde, pero no logra generar.</b><br><br>' +
+      'Falló con: ' + esc(opc.error||'sin detalle') + '<br><br>' +
+      '<b>Qué hacer:</b> prueba con un modelo más chico en el campo Modelo, o aprieta ' +
+      '<b>Comparar modelos</b> para ver cuál de los tuyos funciona.</div>';
+    return;
+  }
+  logear(`Tu Ollama acepta llamadas ${opc.nombre}. Uso eso.`, 'ok');
+
+  if (totalInicial > 500 && !P.previo){
+    if (!confirm(`Hay ${totalInicial.toLocaleString('es-CL')} publicaciones sin área temática y no cargaste ` +
+        `un BD_papers.csv.\n\nSi cargas el que ya usa tu app, la mayoría se resuelve copiando de ahí en ` +
+        `segundos.\n\n¿Seguir igual?`)) return;
+  }
+
+  /* Las rondas. Reintentar con los mismos parámetros no sirve: con
+     temperature 0 el modelo contesta exactamente lo mismo. Cada ronda
+     cambia algo para darle otra oportunidad real:
+
+       1. varias por llamada, pidiendo la etiqueta por número
+       2. de a una, sin las otras publicaciones alrededor confundiéndolo
+       3. de a una y pidiendo la etiqueta completa, con algo de
+          temperatura para que no repita la misma respuesta mala
+
+     Pedir el número es lo primero porque es tres veces menos texto que
+     generar: 76 tokens en vez de 233 por llamada de cinco. En una
+     máquina sin GPU eso es la diferencia entre 20 y 60 segundos. */
+  const RONDAS = [
+    { lote: loteBase, temp: 0,   numeros: true,  nombre: 'primera pasada' },
+    { lote: 1,        temp: 0,   numeros: true,  nombre: 'de a una' },
+    { lote: 1,        temp: 0.4, numeros: false, nombre: 'con las etiquetas completas' }
+  ];
+
+  /* dejar constancia de qué listado se usa en cada unidad */
+  const porCat = {};
+  for (const f of P.resultado.filter(x => x.__pendiente)){
+    const c = catalogoDe(f);
+    porCat[c] = (porCat[c] || 0) + 1;
+  }
+  logear('Listado de especialidades por unidad: ' +
+         Object.entries(porCat).map(([c,n]) =>
+           `${CAT_NOMBRE[c] || c} para ${n.toLocaleString('es-CL')}`).join(' · ') +
+         '. Las áreas OCDE y los ODS son los mismos para todas.');
+  logear(`Le pido las etiquetas por número en vez de escribirlas completas: es tres veces menos ` +
+         `texto que generar, y por lo tanto bastante más rápido.`);
+  logear(`Clasificando ${totalInicial.toLocaleString('es-CL')} publicación(es) con ${modelo}, ` +
+         `${loteBase} por llamada y ${paralelo} llamadas a la vez. Si quedan sin resolver, ` +
+         `hay ${RONDAS.length - 1} rondas más de reintento.`);
+
+  OLLAMA.detener = false;
+  OLLAMA.mostroEjemplo = false;
+  OLLAMA.rechazosMostrados = 0;
+  OLLAMA.ultimoError = '';
+  $('#btn_ollama').disabled = true;
+  $('#ollama_avance').classList.remove('oculto');
+
+  const t0 = Date.now();
+  let hechasTotal = 0, listasTotal = 0, cortado = false;
+  let fallidas = 0, noEntendidas = 0, avisoProyeccion = false;
+  let ultimoLog = Date.now(), ultimoPct = 0;
+  let rondaActual = 0, pendientesRonda = totalInicial;
+
+  const reloj = seg => {
+    seg = Math.max(0, Math.round(seg));
+    const hh = Math.floor(seg/3600), mm = Math.floor((seg%3600)/60), ss = seg%60;
+    if (hh) return `${hh} h ${String(mm).padStart(2,'0')} min`;
+    if (mm) return `${mm} min`;
+    return `${ss} s`;
+  };
+
+  const pintarAvance = estado => {
+    const faltan = P.resultado.filter(f => f.__pendiente).length;
+    const hechas = totalInicial - faltan;
+    const pct = Math.round(hechas / totalInicial * 100);
+    $('#oll_barra').style.width = pct + '%';
+    const t = (Date.now() - t0) / 1000;
+    let txt = `${hechas.toLocaleString('es-CL')} de ${totalInicial.toLocaleString('es-CL')} · ${pct}%`;
+    if (rondaActual > 0) txt += ` · ronda ${rondaActual} de ${RONDAS.length}, ${RONDAS[rondaActual-1].nombre}`;
+    if (hechasTotal >= 3)
+      txt += ` · llevo ${reloj(t)}` + (faltan ? `, faltan unos ${reloj(t/Math.max(hechasTotal,1)*faltan)}` : '');
+    else if (estado) txt += ` · ${estado}`;
+    if (fallidas) txt += ` · ${fallidas} sin respuesta` + (OLLAMA.ultimoError ? ` (${OLLAMA.ultimoError})` : '');
+    $('#oll_texto').textContent = txt;
+
+    const ahora = Date.now();
+    if (hechas > 0 && faltan > 0 && (ahora - ultimoLog > 20000 || pct - ultimoPct >= 5)){
+      ultimoLog = ahora; ultimoPct = pct;
+      logear(txt);
+    }
+    if (typeof console !== 'undefined' && console.info)
+      console.info(`[áreas] ronda ${rondaActual} · ${hechas}/${totalInicial} · sin respuesta ${fallidas}`);
+  };
+
+  const unGrupo = async (grupo, cfg) => {
+    if (cortado || OLLAMA.detener) return;
+    const control = new AbortController();
+    const corte = setTimeout(() => control.abort(), esperaMax);
+    const tLlamada = Date.now();
+    try {
+      const r = await fetch(url + '/api/generate', {
+        method:'POST', headers:{'Content-Type':'application/json'}, signal: control.signal,
+        body: JSON.stringify(cuerpoParaOllama(modelo, construirPromptLote(grupo, cfg), cfg.temp,
+          cfg.numeros ? 40 + 30*grupo.length : 60 + 70*grupo.length, opc))
+      });
+      clearTimeout(corte);
+      if (!r.ok){
+        let detalle = '';
+        try { detalle = (await r.json()).error || ''; } catch(e2){}
+        throw new Error('Ollama respondió HTTP ' + r.status +
+          (detalle ? ': ' + String(detalle).slice(0,90) : '') +
+          (r.status === 404 ? `. El modelo "${modelo}" no está instalado.` : ''));
+      }
+      const j = await r.json();
+      ajustarEspera(Date.now() - tLlamada);
+      const res = aplicarRespuestaLote(grupo, j.response);
+      listasTotal += res.ok; noEntendidas += res.mal;
+      OLLAMA.seguidasMal = 0;
+      if (!OLLAMA.mostroEjemplo && res.ok){
+        OLLAMA.mostroEjemplo = true;
+        const f = grupo.find(x => !x.__pendiente);
+        if (f) logear(`Primera lista: "${String(f.TITULO||'').slice(0,60)}" → ` +
+                      `${f.AREA_COMPUTACION} · ${f.AREA_OCDE} · ${f.AREA_ODS_ANID}`, 'ok');
+      }
+    } catch(e){
+      clearTimeout(corte);
+      fallidas += grupo.length;
+      OLLAMA.seguidasMal = (OLLAMA.seguidasMal || 0) + 1;
+      const msg = e.name === 'AbortError'
+        ? `una llamada pasó de ${Math.round(esperaMax/60000)} minutos sin contestar y la abandoné. ` +
+          `Si tu máquina es lenta, baja "Por llamada" a 1 o usa un modelo más chico`
+        : e.message;
+      OLLAMA.ultimoError = String(msg).slice(0,60);
+      if (OLLAMA.seguidasMal <= 2) logear('Ollama: ' + msg, 'e');
+      if (OLLAMA.seguidasMal >= 5 && !cortado){
+        cortado = true;
+        logear('Corté después de 5 llamadas seguidas sin respuesta.', 'e');
+        await probarOllama();
+      }
+    }
+    hechasTotal += grupo.length;
+    pintarAvance();
+
+    if (!avisoProyeccion && hechasTotal >= 10 && !cortado){
+      avisoProyeccion = true;
+      const est = (Date.now()-t0)/1000/hechasTotal * totalInicial;
+      logear(`Al ritmo de ahora la primera pasada tarda unos ${reloj(est)}. ` +
+             `Después vienen las rondas de reintento con lo que quede.`,
+             est > 7200 ? 'w' : 'i');
+    }
+  };
+
+  pintarAvance('la primera llamada carga el modelo en memoria, puede tardar un rato');
+
+  for (let ri = 0; ri < RONDAS.length && !cortado && !OLLAMA.detener; ri++){
+    const cfg = RONDAS[ri];
+    const pend = P.resultado.filter(f => f.__pendiente);
+    if (!pend.length) break;
+    rondaActual = ri + 1;
+    pendientesRonda = pend.length;
+
+    if (ri > 0)
+      logear(`Ronda ${rondaActual}: quedaron ${pend.length.toLocaleString('es-CL')} sin clasificar, ` +
+             `las reintento ${cfg.nombre}.`, 'w');
+
+    /* Los grupos se arman POR UNIDAD, porque el listado de especialidades
+       va dentro del prompt y tiene que ser el de esa unidad. Antes se
+       cortaba la lista en trozos sin mirar de quién era cada publicación. */
+    const porUnidad = {};
+    for (const f of pend){
+      const c = catalogoDe(f);
+      (porUnidad[c] = porUnidad[c] || []).push(f);
+    }
+    const grupos = [];
+    for (const lista of Object.values(porUnidad))
+      for (let i = 0; i < lista.length; i += cfg.lote) grupos.push(lista.slice(i, i+cfg.lote));
+
+    for (let i = 0; i < grupos.length && !cortado && !OLLAMA.detener; i += paralelo){
+      await Promise.all(grupos.slice(i, i+paralelo).map(g => unGrupo(g, cfg)));
+      if (i % (paralelo*4) === 0) pintarResultado();
+    }
+
+    const despues = P.resultado.filter(f => f.__pendiente).length;
+    logear(`Ronda ${rondaActual} lista: recuperé ${(pendientesRonda - despues).toLocaleString('es-CL')} ` +
+           `de ${pendientesRonda.toLocaleString('es-CL')}.`, despues ? 'i' : 'ok');
+  }
+
+  const quedan = P.resultado.filter(f => f.__pendiente).length;
+  const total = (Date.now() - t0) / 1000;
+  $('#oll_barra').style.width = '100%';
+  $('#oll_texto').textContent =
+    `${OLLAMA.detener ? 'Detenido' : 'Terminado'}. ${(totalInicial-quedan).toLocaleString('es-CL')} de ` +
+    `${totalInicial.toLocaleString('es-CL')} clasificadas en ${reloj(total)}.`;
+
+  logear((OLLAMA.detener ? 'Detuviste la clasificación. ' : 'Clasificación terminada. ') +
+         `${(totalInicial-quedan).toLocaleString('es-CL')} de ${totalInicial.toLocaleString('es-CL')} ` +
+         `quedaron con área, en ${reloj(total)}. ` +
+         (quedan ? `${quedan.toLocaleString('es-CL')} no las pude resolver ni después de ${RONDAS.length} ` +
+                   `rondas. Apretando el botón otra vez las vuelve a intentar.`
+                 : 'Ninguna quedó sin área.'),
+         quedan ? 'w' : 'ok');
+  $('#btn_ollama').disabled = false;
+  pintarResultado();
+}
+
+/* Un solo pedido para varias publicaciones.
+
+   El catálogo de especialidades, áreas OCDE y objetivos ODS pesa unos
+   800 tokens, y antes se mandaba completo en cada una de las miles de
+   llamadas. Con grupos de 5 y el resumen recortado a 600 caracteres, el
+   modelo procesa alrededor de un tercio del texto para el mismo
+   resultado. */
+function construirPromptLote(grupo, cfg){
+  cfg = cfg || {};
+  /* El grupo es homogéneo por construcción: se arma juntando solo
+     publicaciones de la misma unidad, porque el listado de especialidades
+     va escrito dentro del prompt. */
+  const marco = catalogoDe(grupo[0]);
+  const areas = AREAS_POR_UNIDAD[marco] || AREAS_POR_UNIDAD.DIINF;
+
+  const textos = grupo.map((f, i) =>
+    `[${i+1}] Título: ${String(f.TITULO||'').slice(0,160)}\n` +
+    `    Resumen: ${String(f.RESUMEN||'').replace(/\s+/g,' ').slice(0,600)}`).join('\n\n');
+
+  /* Modo de última ronda: pedir solo el número o el código. Reproducir una
+     etiqueta larga palabra por palabra es donde más se equivocan los
+     modelos chicos; elegir un número les sale bien casi siempre. */
+  if (cfg.numeros){
+    const numeroDe = a => (/^\((\d+)\)/.exec(a)||[,'?'])[1];
+    return `Clasifica esta publicación científica eligiendo por número o código.
+
+${textos}
+
+ESPECIALIDAD, elige un número:
+${areas.map(a => numeroDe(a) + ' = ' + a.replace(/^\(\d+\)\s*/,'')).join('\n')}
+
+AREA OCDE, elige un código:
+${AREAS_OCDE.map(a => a.replace(/^([\d.]+[A-Za-z]?)\s*/, '$1 = ')).join('\n')}
+
+ODS, elige un número:
+${AREAS_ODS.map(a => numeroDe(a) + ' = ' + a.replace(/^\(\d+\)\s*/,'')).join('\n')}
+
+Tienes que elegir obligatoriamente uno de cada lista, el que más se acerque.
+Responde SOLO este JSON y nada más:
+{"r":[{"n":1,"especialidad":"<numero>","ocde":"<codigo>","ods":"<numero>"}]}`;
+  }
+
+  return `Clasifica estas ${grupo.length} publicaciones científicas.
+
+${textos}
+
+Para CADA una elige exactamente una opción de cada lista, copiada tal cual como está escrita.
+Tienes que elegir obligatoriamente una de cada lista, la que más se acerque.
+
+Especialidades:
+${areas.map(a => '- ' + a).join('\n')}
+
+Áreas OCDE:
+${AREAS_OCDE.map(a => '- ' + a).join('\n')}
+
+Objetivos ODS:
+${AREAS_ODS.map(a => '- ' + a).join('\n')}
+
+Responde SOLO este JSON, con un objeto por publicación y nada más:
+{"r":[${grupo.map((f,i) => `{"n":${i+1},"especialidad":"...","ocde":"...","ods":"..."}`).join(',')}]}`;
+}
+
+/* Reparte la respuesta del grupo entre sus publicaciones. Lo que no
+   venga, o venga con una etiqueta que no está en el catálogo, queda
+   pendiente y se reintenta apretando el botón otra vez. */
+function aplicarRespuestaLote(grupo, texto){
+  let j;
+  try { j = JSON.parse(String(texto).replace(/```json|```/g,'').trim()); }
+  catch(e){ return { ok:0, mal:grupo.length }; }
+
+  let arr = Array.isArray(j) ? j : (j.r || j.resultados || j.publicaciones || null);
+  if (!arr){
+    const primera = Object.values(j).find(v => Array.isArray(v));
+    arr = primera || (j.especialidad ? [j] : null);
+  }
+  if (!arr) return { ok:0, mal:grupo.length };
+
+  let ok = 0;
+  const rechazadas = [];
+  arr.forEach((item, i) => {
+    if (!item || typeof item !== 'object') return;
+    const k = Number.isInteger(+item.n) ? (+item.n - 1) : i;
+    const f = grupo[k];
+    if (!f || !f.__pendiente) return;
+    if (aplicarRespuesta(f, JSON.stringify(item))){ f.__pendiente = false; ok++; }
+    else rechazadas.push(item);
+  });
+  /* Mostrar las primeras que se rechazan, con lo que contestó el modelo
+     tal cual. Sin esto no hay forma de saber por qué se rechazan. */
+  if (rechazadas.length && OLLAMA.rechazosMostrados < 3){
+    for (const r of rechazadas.slice(0, 3 - OLLAMA.rechazosMostrados)){
+      OLLAMA.rechazosMostrados++;
+      logear('El modelo contestó algo que no está en la lista: ' +
+             'especialidad "' + esc(String(r.especialidad ?? '(nada)').slice(0,60)) + '", ' +
+             'OCDE "' + esc(String(r.ocde ?? '(nada)').slice(0,50)) + '", ' +
+             'ODS "' + esc(String(r.ods ?? '(nada)').slice(0,50)) + '"', 'w');
+    }
+  }
+  return { ok, mal: grupo.length - ok };
+}
+
+/* ---------- calzar lo que contesta el modelo con el catálogo ----------
+   Antes esto exigía que la etiqueta viniera idéntica, y por eso se
+   rechazaba la mayoría: si el modelo contesta "Artificial Intelligence"
+   sin el "(3)" delante, o solo "6.1.B", o "ODS 9", la respuesta era
+   buena y yo la botaba.
+
+   Ahora se intenta en cascada, de lo más estricto a lo más flexible, y
+   solo se rechaza si de verdad no se parece a nada de la lista. */
+function calzarEtiqueta(valor, catalogo){
+  const v = String(valor ?? '').trim();
+  if (!v) return null;
+
+  /* 1. idéntica */
+  let hit = catalogo.find(a => a === v);
+  if (hit) return hit;
+
+  /* 2. idéntica ignorando acentos, mayúsculas y puntuación */
+  const nv = M.norm(v);
+  hit = catalogo.find(a => M.norm(a) === nv);
+  if (hit) return hit;
+
+  /* 3. por el número entre paréntesis del catálogo: "(3)" o "3" o "ODS 9" */
+  const num = (v.match(/\b(\d{1,2})\b/) || [])[1];
+  if (num){
+    const conNumero = catalogo.filter(a => /^\(\d+\)/.test(a));
+    hit = conNumero.find(a => +(/^\((\d+)\)/.exec(a)[1]) === +num);
+    /* solo se acepta el número si el resto del texto no contradice */
+    if (hit){
+      const resto = M.norm(v.replace(/^\D*\d{1,2}\D*/, ''));
+      const nombre = M.norm(hit.replace(/^\(\d+\)\s*/, ''));
+      if (!resto || nombre.includes(resto) || resto.includes(nombre)) return hit;
+    }
+  }
+
+  /* 4. por el código OCDE: 6.1.B */
+  const cod = (v.match(/\b\d\.\d\.[A-Za-z]\b/) || [])[0];
+  if (cod){
+    hit = catalogo.find(a => a.toUpperCase().startsWith(cod.toUpperCase()));
+    if (hit) return hit;
+  }
+
+  /* 5. sin el prefijo, comparando solo el nombre */
+  const soloNombre = M.norm(v.replace(/^\(\d+\)\s*/, '').replace(/^\d\.\d\.[A-Za-z]\s*/, ''));
+  if (soloNombre){
+    hit = catalogo.find(a => M.norm(a.replace(/^\(\d+\)\s*/, '').replace(/^\d\.\d\.[A-Za-z]\s*/, '')) === soloNombre);
+    if (hit) return hit;
+  }
+
+  /* 6. uno contiene al otro, quedándose con el calce más largo */
+  if (soloNombre.length >= 5){
+    let mejor = null, largo = 0;
+    for (const a of catalogo){
+      const na = M.norm(a.replace(/^\(\d+\)\s*/, '').replace(/^\d\.\d\.[A-Za-z]\s*/, ''));
+      if (na.length < 5) continue;
+      if (na === soloNombre || na.includes(soloNombre) || soloNombre.includes(na)){
+        const cuanto = Math.min(na.length, soloNombre.length);
+        if (cuanto > largo){ mejor = a; largo = cuanto; }
+      }
+    }
+    if (mejor) return mejor;
+  }
+
+  return null;
+}
+
+/* Devuelve true si logró asignar la especialidad. Si no, la fila queda
+   pendiente y se reintenta apretando el botón otra vez. */
+function aplicarRespuesta(f, texto){
+  let j;
+  try { j = JSON.parse(String(texto).replace(/```json|```/g,'').trim()); }
+  catch(e){ return false; }
+
+  const marco = catalogoDe(f);
+  const areas = AREAS_POR_UNIDAD[marco] || AREAS_POR_UNIDAD.DIINF;
+
+  const esp = calzarEtiqueta(j.especialidad ?? j.area ?? j.especialidad_area, areas);
+  if (esp){
+    f.AREA_COMPUTACION = esp;
+    const n = (/^\((\d+)\)/.exec(esp)||[,''])[1];
+    f.CODIGO_AREA_COMPUTACION = n ? `${PREFIJO_AREA[marco]||marco}-${String(n).padStart(2,'0')}` : '';
+    f.NOMBRE_AREA_COMPUTACION = esp.replace(/^\(\d+\)\s*/,'');
+  }
+
+  const oc = calzarEtiqueta(j.ocde ?? j.area_ocde ?? j.OCDE, AREAS_OCDE);
+  if (oc){
+    f.AREA_OCDE = oc;
+    f.CODIGO_OCDE = (/^([\d.]+[A-Za-z]?)/.exec(oc)||[,''])[1];
+    f.DISCIPLINA_OCDE = DISCIPLINA_OCDE[f.CODIGO_OCDE.slice(0,3)] || '';
+    f.SUBDISCIPLINA_OCDE = oc.replace(/^[\d.]+[A-Za-z]?\s*/,'');
+  }
+
+  const od = calzarEtiqueta(j.ods ?? j.ODS ?? j.objetivo, AREAS_ODS);
+  if (od){
+    f.AREA_ODS_ANID = od;
+    const n = (/^\((\d+)\)/.exec(od)||[,''])[1];
+    f.CODIGO_ODS_ANID = n ? 'ODS-' + String(n).padStart(2,'0') : '';
+    f.NOMBRE_ODS_ANID = od.replace(/^\(\d+\)\s*/,'');
+  }
+
+  return !!esp;
+}
+
+
+
+/* ---------- eventos del procesador ---------- */
+$('#btn_procesar').onclick = procesar;
+$('#btn_renombrar').onclick = renombrarWos;
+$('#btn_previo').onclick   = () => $('#input_previo').click();
+$('#input_previo').onchange = async e => {
+  const f = e.target.files[0]; if (!f) return;
+  try {
+    P.previo = await cargarPrevio({ file: f });
+    $('#aviso_previo').innerHTML = `<div class="aviso i"><b>Base anterior cargada:</b> ${P.previo.filas.length} filas, ${P.previo.columnas} columnas` +
+      (P.previo.desfasadas ? `, ${P.previo.desfasadas} con el desfase de columnas ya corregido` : '') +
+      '. Las clasificaciones de áreas se van a reutilizar.</div>';
+  } catch(err){
+    $('#aviso_previo').innerHTML = `<div class="aviso e"><b>No pude leer la base anterior.</b> ${esc(err.message)}</div>`;
+  }
+};
+$('#btn_csv').onclick      = () => descargar('BD_papers.csv', M.aCsv(P.resultado));
+$('#btn_js').onclick       = () => descargar('data.js', M.aDataJs(M.aCsv(P.resultado)));
+$('#btn_escribir').onclick = escribirEnCarpeta;
+$('#btn_ollama').onclick   = clasificarConOllama;
+$('#btn_probar_ollama').onclick = () => probarOllama();
+$('#btn_comparar').onclick = () => compararModelos();
+$('#btn_auditar').onclick = () => tomarMuestraAuditoria();
+$('#btn_aud_csv').onclick = () => descargarAuditoria();
+$('#ollama_lote').oninput = () => {};
+$('#btn_detener_ollama').onclick = () => { OLLAMA.detener = true; $('#oll_texto').textContent = 'Deteniendo, espero las que están en curso…'; };
+
+/* ---------- base SJR ---------- */
+$('#btn_sjr_directo').onclick  = descargarSjrDirecto;
+$('#btn_sjr_guardar').onclick  = guardarSjr;
+$('#btn_sjr_archivos').onclick = () => $('#input_sjr').click();
+$('#input_sjr').onchange = e => {
+  const f = [...e.target.files];
+  e.target.value = '';
+  if (f.length) recibirArchivosSjr(f);
+};
+$('#sjr_desde').oninput = pintarSjr;
+$('#sjr_hasta').oninput = pintarSjr;
+(() => {
+  const z = $('#sjr_zona');
+  ['dragenter','dragover'].forEach(ev => z.addEventListener(ev, e => {
+    e.preventDefault(); e.stopPropagation(); z.classList.add('sobre'); }));
+  ['dragleave','dragend'].forEach(ev => z.addEventListener(ev, e => {
+    e.preventDefault(); e.stopPropagation(); z.classList.remove('sobre'); }));
+  z.addEventListener('drop', e => {
+    e.preventDefault(); e.stopPropagation(); z.classList.remove('sobre');
+    const f = [...(e.dataTransfer && e.dataTransfer.files || [])];
+    if (f.length) recibirArchivosSjr(f); else sjrEstado('No llegó ningún archivo en el arrastre.', 'w');
+  });
+  /* que soltar fuera del recuadro no abra el archivo en el navegador */
+  ['dragover','drop'].forEach(ev => document.addEventListener(ev, e => {
+    if (!z.contains(e.target)) e.preventDefault(); }));
+})();
+$('#sjr_hasta').value = new Date().getFullYear() - 1;
+try { pintarSjr(); } catch(e){ console.error('pintarSjr', e); }
+$('#sjr_zona').addEventListener('click', () => $('#input_sjr').click());
+
+/* ---------- comprobación de cableado ----------
+   Recorre los controles de la interfaz y avisa por consola si alguno
+   quedó sin acción. Metí una sección entera de botones muertos por no
+   revisar esto, así que ahora se revisa solo. */
+(() => {
+  const debenTener = ['btn_carpeta','btn_input','btn_recargar','btn_todos','btn_ninguno',
+    'btn_sjr_directo','btn_sjr_guardar','btn_sjr_archivos','btn_procesar','btn_previo',
+    'btn_renombrar','btn_csv','btn_js','btn_escribir','btn_ollama',
+    'input_dir','input_previo','input_sjr','f_unidad','f_buscar','sjr_desde','sjr_hasta'];
+  const muertos = debenTener.filter(id => {
+    const el = document.getElementById(id);
+    if (!el) return true;
+    return !(el.onclick || el.onchange || el.oninput);
+  });
+  if (muertos.length) console.error('Controles sin acción:', muertos.join(', '));
+  else console.info('Interfaz: los ' + debenTener.length + ' controles tienen acción.');
+})();
+
+/* ---------- red de seguridad del cableado ----------
+   Cada control ya quedó conectado arriba. Esto solo verifica que sea
+   cierto y lo muestra EN PANTALLA si algo falta, porque una vez entregué
+   una sección entera de botones muertos y nadie se enteró hasta que la
+   apretaste. */
+(() => {
+  const debenFuncionar = [
+    ['btn_carpeta','Elegir carpeta BD'], ['btn_input','Elegir sin permisos'],
+    ['input_dir','selector de carpeta'], ['btn_recargar','Volver a leer'],
+    ['btn_sjr_directo','Intentar descarga directa'], ['btn_sjr_guardar','Guardar base'],
+    ['btn_sjr_archivos','Elegir archivos bajados'], ['input_sjr','selector de archivos SJR'],
+    ['sjr_desde','año desde'], ['sjr_hasta','año hasta'],
+    ['f_unidad','filtro de carpeta'], ['f_buscar','buscador'],
+    ['btn_todos','Marcar todos'], ['btn_ninguno','Desmarcar'],
+    ['btn_procesar','Procesar'], ['btn_previo','Ya tengo un BD_papers.csv'],
+    ['input_previo','selector de BD_papers'], ['btn_renombrar','Arreglar nombres de WoS'],
+    ['btn_csv','Descargar BD_papers.csv'], ['btn_js','Descargar data.js'],
+    ['btn_escribir','Escribir en la carpeta'], ['btn_ollama','Clasificar pendientes'], ['btn_probar_ollama','Probar conexión'], ['btn_comparar','Comparar modelos'], ['btn_detener_ollama','Detener'], ['ollama_lote','Por llamada'], ['btn_auditar','Tomar muestra'], ['btn_aud_csv','Descargar lo marcado mal']
+  ];
+  const malos = debenFuncionar.filter(([id]) => {
+    const el = document.getElementById(id);
+    return !el || !(el.onclick || el.onchange || el.oninput);
+  });
+  if (malos.length){
+    const d = document.createElement('div');
+    d.className = 'aviso e';
+    d.style.cssText = 'margin:16px auto;width:min(1220px,calc(100% - 40px));';
+    d.innerHTML = '<b>Hay ' + malos.length + ' control(es) que no van a responder:</b><br>' +
+      malos.map(([id,nombre]) => '· ' + nombre + ' <span style="opacity:.6">(' + id + ')</span>').join('<br>') +
+      '<br><br>Avísame y lo arreglo.';
+    document.querySelector('main').prepend(d);
+    console.error('Controles muertos:', malos.map(m=>m[0]));
+  } else {
+    console.info('Los ' + debenFuncionar.length + ' controles están conectados.');
+  }
+})();
+
+</script>
+
+</body>
+</html>

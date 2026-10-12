@@ -1,10 +1,10 @@
-@font-face{font-family:Inter;font-weight:400;font-display:swap;src:url("../shared/fonts/inter-latin-400-normal.woff2") format("woff2");}
-@font-face{font-family:Inter;font-weight:500;font-display:swap;src:url("../shared/fonts/inter-latin-500-normal.woff2") format("woff2");}
-@font-face{font-family:Inter;font-weight:600;font-display:swap;src:url("../shared/fonts/inter-latin-600-normal.woff2") format("woff2");}
-@font-face{font-family:Inter;font-weight:700;font-display:swap;src:url("../shared/fonts/inter-latin-700-normal.woff2") format("woff2");}
-@font-face{font-family:Inter;font-weight:800;font-display:swap;src:url("../shared/fonts/inter-latin-800-normal.woff2") format("woff2");}
-@font-face{font-family:"Space Grotesk";font-weight:500;font-display:swap;src:url("../shared/fonts/space-grotesk-latin-500-normal.woff2") format("woff2");}
-@font-face{font-family:"Space Grotesk";font-weight:700;font-display:swap;src:url("../shared/fonts/space-grotesk-latin-700-normal.woff2") format("woff2");}
+@font-face{font-family:Inter;font-weight:400;font-display:swap;src:url("fonts/inter-latin-400-normal.woff2") format("woff2");}
+@font-face{font-family:Inter;font-weight:500;font-display:swap;src:url("fonts/inter-latin-500-normal.woff2") format("woff2");}
+@font-face{font-family:Inter;font-weight:600;font-display:swap;src:url("fonts/inter-latin-600-normal.woff2") format("woff2");}
+@font-face{font-family:Inter;font-weight:700;font-display:swap;src:url("fonts/inter-latin-700-normal.woff2") format("woff2");}
+@font-face{font-family:Inter;font-weight:800;font-display:swap;src:url("fonts/inter-latin-800-normal.woff2") format("woff2");}
+@font-face{font-family:"Space Grotesk";font-weight:500;font-display:swap;src:url("fonts/space-grotesk-latin-500-normal.woff2") format("woff2");}
+@font-face{font-family:"Space Grotesk";font-weight:700;font-display:swap;src:url("fonts/space-grotesk-latin-700-normal.woff2") format("woff2");}
 
 :root{
   --usach-purple:#8C4799;
@@ -873,7 +873,7 @@ table.dataTable tbody tr:hover{background:#FAF4FC;}
 .ana-hit b a{color:var(--accent-2);}
 .ana-hit span{display:block;margin-top:3px;color:var(--muted);font-size:.8rem;}
 
-/* --- Asistente Leo USACH --- */
+/* --- Asistente local --- */
 .chat-shell{display:grid;grid-template-columns:300px minmax(0,1fr);gap:16px;align-items:start;}
 .chat-side{display:flex;flex-direction:column;gap:12px;padding:16px;border:1px solid var(--line);border-radius:var(--radius);background:#fff;box-shadow:var(--shadow-sm);}
 .chat-illo{display:flex;gap:12px;align-items:center;}

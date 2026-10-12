@@ -1,42 +1,59 @@
 /* ============================================================
    ASISTENTE BIBLIOMÉTRICO LOCAL
-   Chat sin API: responde con reglas y búsquedas sobre el CSV activo.
+   La comprensión de la pregunta vive en ../asistente.js (motor
+   compartido con el módulo de tesis). Este archivo solo le dice
+   al motor cómo leer los campos de las publicaciones y cómo
+   dibujar cada tipo de respuesta. Sin API ni servidor.
    ============================================================ */
 
-const ChatLocal = { wired: false, asked: false };
+const ChatLocal = { wired: false, asked: false, engine: null };
 
 const CHAT_PROMPTS = {
   es: [
     '¿Cuáles son las publicaciones más citadas?',
-    'Muéstrame todas las publicaciones sobre inteligencia artificial',
-    'Publicaciones Q1 desde 2020',
+    'Publicaciones Q1 de Villalobos desde 2020',
+    'Cuántas publicaciones sobre inteligencia artificial hay en WoS',
     '¿Quiénes son los autores más productivos?',
-    '¿Cuáles son los temas principales?',
     'Coautores de Manuel Villalobos',
-    '¿Qué significan las áreas ACM?',
-    'Define las áreas biomédicas'
+    'Compara a Bonacic con Parada',
+    'Publicaciones por año en actas de congreso',
+    'Países de colaboración',
+    '¿En qué revistas se publica más?',
+    '¿Qué significan las áreas ACM?'
   ],
   en: [
     'Which are the most cited publications?',
-    'Show me all publications about artificial intelligence',
-    'Q1 publications since 2020',
+    'Q1 publications by Villalobos since 2020',
+    'How many publications about artificial intelligence are in WoS',
     'Who are the most productive authors?',
-    'What are the main research topics?',
     'Coauthors of Manuel Villalobos',
-    'What do ACM areas mean?',
-    'Define biomedical areas'
+    'Compare Bonacic with Parada',
+    'Conference papers by year',
+    'Collaboration countries',
+    'Which journals are most frequent?',
+    'What do ACM areas mean?'
   ],
   pt: [
     'Quais são as publicações mais citadas?',
-    'Mostre todas as publicações sobre inteligência artificial',
-    'Publicações Q1 desde 2020',
+    'Publicações Q1 de Villalobos desde 2020',
+    'Quantas publicações sobre inteligência artificial há na WoS',
     'Quem são os autores mais produtivos?',
-    'Quais são os principais temas?',
     'Coautores de Manuel Villalobos',
-    'O que significam as áreas ACM?',
-    'Defina as áreas biomédicas'
+    'Compare Bonacic com Parada',
+    'Publicações por ano em anais de congresso',
+    'Países de colaboração',
+    'Em que revistas se publica mais?',
+    'O que significam as áreas ACM?'
   ]
 };
+
+/* Textos propios de este módulo (el motor trae los suyos) */
+const CHAT_UI = {
+  es: { greet1: 'Puedo explorar <b>{n}</b> publicaciones únicas del filtro activo.', greet2: 'Combino condiciones en una misma pregunta: <b>persona</b>, <b>años</b>, <b>cuartil</b>, <b>WoS o Scopus</b>, <b>tipo de documento</b>, <b>tema</b> y <b>país</b>. Por ejemplo: “cuántas publicaciones Q1 tiene Villalobos entre 2020 y 2023”, “coautores de Bonacic”, “publicaciones por año sobre salud”, “compara a X con Y” o “revistas más frecuentes”.', pubs: 'publicaciones', unique: 'publicaciones únicas', cites: 'citas', perPub: 'citas por publicación', hIndex: 'índice h', q1: 'Q1', q1pct: 'de Q1', years: 'periodo', authors: 'académicos(as)', wos: 'en WoS', scopus: 'en Scopus', both: 'en ambas', journal: 'artículos de revista', conf: 'actas', byAuthor: 'Publicaciones por académico(a)', citesByAuthor: 'Citas acumuladas', byYear: 'Publicaciones por año', citesByYear: 'Citas por año de publicación', sources: 'Revistas y fuentes más frecuentes', countries: 'Países de coautoría (sin Chile)', intl: 'con coautoría internacional', noCountries: 'No hay países de coautoría registrados en estas publicaciones.', coauth: 'Coautores(as) más frecuentes de', coauthTitle: 'Coautorías', unranked: 'Sin cuartil', coauthExt: 'Coautores(as) externos más frecuentes', coauthInt: 'Coautoría dentro de la unidad', noCoauth: 'No encontré coautorías registradas para', quartiles: 'Distribución por cuartil', specialties: 'Especialidades', applications: 'Aplicaciones', keywords: 'Palabras clave', more: '…y {n} publicaciones más. Pide “todas” o agrega una condición para acotar.', compare: 'Comparación dentro del filtro consultado', period: 'periodo', topArea: 'Especialidad frecuente', records: 'registros', tryAlso: 'Prueba con', noPubs: 'No encontré publicaciones para esa consulta.', suggest: ['Publicaciones Q1 desde 2020', 'Coautores de Villalobos', 'Publicaciones sobre optimización'] },
+  en: { greet1: 'I can explore <b>{n}</b> unique publications in the active filter.', greet2: 'I combine conditions in one question: <b>person</b>, <b>years</b>, <b>quartile</b>, <b>WoS or Scopus</b>, <b>document type</b>, <b>topic</b> and <b>country</b>. For example: “how many Q1 publications does Villalobos have between 2020 and 2023”, “coauthors of Bonacic”, “publications by year about health”, “compare X with Y” or “most frequent journals”.', pubs: 'publications', unique: 'unique publications', cites: 'citations', perPub: 'citations per publication', hIndex: 'h-index', q1: 'Q1', q1pct: 'Q1 share', years: 'period', authors: 'academics', wos: 'in WoS', scopus: 'in Scopus', both: 'in both', journal: 'journal articles', conf: 'proceedings', byAuthor: 'Publications per academic', citesByAuthor: 'Accumulated citations', byYear: 'Publications per year', citesByYear: 'Citations by publication year', sources: 'Most frequent journals and sources', countries: 'Co-authorship countries (excluding Chile)', intl: 'with international co-authorship', noCountries: 'No co-authorship countries are recorded for these publications.', coauth: 'Most frequent co-authors of', coauthTitle: 'Co-authorships', unranked: 'No quartile', coauthExt: 'Most frequent external co-authors', coauthInt: 'Co-authorship within the unit', noCoauth: 'No co-authorships recorded for', quartiles: 'Distribution by quartile', specialties: 'Specialties', applications: 'Applications', keywords: 'Keywords', more: '…and {n} more publications. Ask for “all” or add a condition to narrow it down.', compare: 'Comparison within the queried filter', period: 'period', topArea: 'Frequent specialty', records: 'records', tryAlso: 'Try', noPubs: 'No publications found for that query.', suggest: ['Q1 publications since 2020', 'Coauthors of Villalobos', 'Publications about optimization'] },
+  pt: { greet1: 'Posso explorar <b>{n}</b> publicações únicas do filtro ativo.', greet2: 'Combino condições numa mesma pergunta: <b>pessoa</b>, <b>anos</b>, <b>quartil</b>, <b>WoS ou Scopus</b>, <b>tipo de documento</b>, <b>tema</b> e <b>país</b>. Por exemplo: “quantas publicações Q1 tem Villalobos entre 2020 e 2023”, “coautores de Bonacic”, “publicações por ano sobre saúde”, “compare X com Y” ou “revistas mais frequentes”.', pubs: 'publicações', unique: 'publicações únicas', cites: 'citações', perPub: 'citações por publicação', hIndex: 'índice h', q1: 'Q1', q1pct: 'de Q1', years: 'período', authors: 'acadêmicos(as)', wos: 'na WoS', scopus: 'na Scopus', both: 'em ambas', journal: 'artigos de revista', conf: 'anais', byAuthor: 'Publicações por acadêmico(a)', citesByAuthor: 'Citações acumuladas', byYear: 'Publicações por ano', citesByYear: 'Citações por ano de publicação', sources: 'Revistas e fontes mais frequentes', countries: 'Países de coautoria (sem Chile)', intl: 'com coautoria internacional', noCountries: 'Não há países de coautoria registrados nessas publicações.', coauth: 'Coautores(as) mais frequentes de', coauthTitle: 'Coautorias', unranked: 'Sem quartil', coauthExt: 'Coautores(as) externos mais frequentes', coauthInt: 'Coautoria dentro da unidade', noCoauth: 'Não encontrei coautorias registradas para', quartiles: 'Distribuição por quartil', specialties: 'Especialidades', applications: 'Aplicações', keywords: 'Palavras-chave', more: '…e mais {n} publicações. Peça “todas” ou acrescente uma condição para delimitar.', compare: 'Comparação dentro do filtro consultado', period: 'período', topArea: 'Especialidade frequente', records: 'registros', tryAlso: 'Tente', noPubs: 'Não encontrei publicações para essa consulta.', suggest: ['Publicações Q1 desde 2020', 'Coautores de Villalobos', 'Publicações sobre otimização'] }
+};
+const cu = () => CHAT_UI[S.lang] || CHAT_UI.es;
 
 const AREA_DEFINITIONS = {
   'artificial intelligence': 'Área de computación dedicada a sistemas que aprenden, razonan, predicen o toman decisiones a partir de datos, reglas o modelos. Incluye aprendizaje automático, visión, lenguaje natural y sistemas inteligentes.',
@@ -54,6 +71,8 @@ const AREA_DEFINITIONS = {
   'architecture and organization': 'Estudia cómo se estructuran los computadores y sus componentes: procesadores, memoria, instrucciones, rendimiento y organización interna.',
   'security': 'Área dedicada a proteger sistemas, datos y comunicaciones frente a accesos no autorizados, ataques, vulnerabilidades y riesgos.',
   'mathematical and statistical foundations': 'Base matemática y estadística de la computación: probabilidad, inferencia, optimización, álgebra, modelos y análisis cuantitativo.',
+  'foundations of programming languages': 'Estudia el diseño, la semántica y la implementación de los lenguajes de programación: tipos, compiladores, intérpretes y paradigmas.',
+  'systems fundamentals': 'Principios comunes a los sistemas computacionales: rendimiento, confiabilidad, paralelismo, virtualización y evaluación de sistemas.',
   'it does not belong to the computer science field': 'La publicación fue clasificada como fuera del campo principal de computación. Puede estar relacionada con otra disciplina, aunque use herramientas computacionales.',
 
   'systems physiology': 'Área biomédica que estudia cómo funcionan sistemas del cuerpo humano o animal, integrando señales, órganos, regulación y respuestas fisiológicas.',
@@ -69,85 +88,94 @@ const AREA_DEFINITIONS = {
   'bionics': 'Integra biología e ingeniería para crear sistemas artificiales que imitan, reemplazan o mejoran funciones biológicas.',
   'biomedical electronics': 'Diseño de circuitos, sensores y sistemas electrónicos usados en medición, diagnóstico, monitoreo o intervención biomédica.',
   'biofluid': 'Estudia el comportamiento de fluidos biológicos, como sangre, aire en vías respiratorias u otros flujos relevantes para sistemas vivos.',
+  'biomaterials': 'Materiales diseñados para interactuar con sistemas biológicos: implantes, andamios, recubrimientos y dispositivos compatibles con el cuerpo.',
+  'biomechatronics': 'Integra mecánica, electrónica y control con el cuerpo humano: exoesqueletos, prótesis activas y sistemas de asistencia al movimiento.',
+  'orthopaedic bioengineering': 'Aplica la ingeniería al sistema musculoesquelético: implantes, fijaciones, huesos, articulaciones y su comportamiento mecánico.',
   'it does not belong to the bioengineering field': 'La publicación fue clasificada como fuera del campo principal de bioingeniería o ingeniería biomédica.',
   'it does not belong to bioengineering field': 'La publicación fue clasificada como fuera del campo principal de bioingeniería o ingeniería biomédica.'
 };
-
-const AREA_DEFINITION_RE = /\b(define|definir|definiciones?|definicion(?:es)?|definición(?:es)?|descripciones?|descripcion(?:es)?|descripción(?:es)?|describe|significa|significan|que es|qué es|decicion(?:es)?|decisión(?:es)?|area acm|areas acm|áreas acm|biomedica|biomédica|biomedicas|biomédicas|bioingenier)\b/;
 const BIOMED_AREA_KEYS = new Set([
   'systems physiology', 'neural engineering', 'medical imaging', 'clinical engineering',
   'rehabilitation engineering', 'bioinformatics', 'bioinstrumentation', 'genetic engineering',
   'cellular and tissue engineering', 'biomechanics', 'bionics', 'biomedical electronics',
-  'biofluid', 'it does not belong to the bioengineering field',
-  'it does not belong to bioengineering field'
+  'biofluid', 'biomaterials', 'biomechatronics', 'orthopaedic bioengineering',
+  'it does not belong to the bioengineering field', 'it does not belong to bioengineering field'
 ]);
-
-const CHAT_BILINGUAL_TERMS = {
-  'ia': ['artificial intelligence', 'inteligencia artificial', 'ai'],
-  'ai': ['artificial intelligence', 'inteligencia artificial', 'ia'],
-  'inteligencia artificial': ['artificial intelligence', 'ai'],
-  'artificial intelligence': ['inteligencia artificial', 'ia'],
-  'aprendizaje automatico': ['machine learning', 'ml'],
-  'aprendizaje automático': ['machine learning', 'ml'],
-  'machine learning': ['aprendizaje automatico', 'aprendizaje automático', 'ml'],
-  'aprendizaje profundo': ['deep learning', 'neural networks', 'redes neuronales'],
-  'deep learning': ['aprendizaje profundo', 'redes neuronales', 'neural networks'],
-  'redes neuronales': ['neural networks', 'deep learning'],
-  'neural networks': ['redes neuronales', 'aprendizaje profundo'],
-  'procesamiento de lenguaje natural': ['natural language processing', 'nlp'],
-  'procesamiento del lenguaje natural': ['natural language processing', 'nlp'],
-  'natural language processing': ['procesamiento de lenguaje natural', 'procesamiento del lenguaje natural', 'nlp'],
-  'nlp': ['natural language processing', 'procesamiento de lenguaje natural'],
-  'mineria de datos': ['data mining'],
-  'minería de datos': ['data mining'],
-  'data mining': ['mineria de datos', 'minería de datos'],
-  'ciencia de datos': ['data science'],
-  'data science': ['ciencia de datos'],
-  'analitica de datos': ['data analytics', 'analytics'],
-  'analítica de datos': ['data analytics', 'analytics'],
-  'data analytics': ['analitica de datos', 'analítica de datos'],
-  'vision computacional': ['computer vision'],
-  'visión computacional': ['computer vision'],
-  'computer vision': ['vision computacional', 'visión computacional'],
-  'interaccion humano computador': ['human-computer interaction', 'hci'],
-  'interacción humano computador': ['human-computer interaction', 'hci'],
-  'human-computer interaction': ['interaccion humano computador', 'interacción humano computador', 'hci'],
-  'hci': ['human-computer interaction', 'interaccion humano computador'],
-  'ingenieria de software': ['software engineering'],
-  'ingeniería de software': ['software engineering'],
-  'software engineering': ['ingenieria de software', 'ingeniería de software'],
-  'educacion': ['education'],
-  'educación': ['education'],
-  'education': ['educacion', 'educación'],
-  'estudiantes': ['students', 'student'],
-  'students': ['estudiantes', 'student'],
-  'student engagement': ['compromiso estudiantil', 'participacion estudiantil', 'participación estudiantil'],
-  'compromiso estudiantil': ['student engagement'],
-  'participacion estudiantil': ['student engagement'],
-  'participación estudiantil': ['student engagement'],
-  'engajamento estudantil': ['student engagement', 'compromiso estudiantil'],
-  'salud': ['health'],
-  'health': ['salud'],
-  'biomedica': ['biomedical', 'biomédica'],
-  'biomédica': ['biomedical', 'biomedica'],
-  'biomedical': ['biomedica', 'biomédica'],
-  'imagenes medicas': ['medical imaging'],
-  'imágenes médicas': ['medical imaging'],
-  'medical imaging': ['imagenes medicas', 'imágenes médicas'],
-  'bioinformatica': ['bioinformatics'],
-  'bioinformática': ['bioinformatics'],
-  'bioinformatics': ['bioinformatica', 'bioinformática']
+/* Nombres en español y portugués de las áreas, para poder preguntar "define seguridad" */
+const AREA_ALIAS = {
+  'inteligencia artificial': 'artificial intelligence', 'inteligencia artificial generativa': 'artificial intelligence',
+  'algoritmos y complejidad': 'algorithms and complexity', 'algoritmos': 'algorithms and complexity', 'complejidad': 'algorithms and complexity',
+  'computacion paralela y distribuida': 'parallel and distributed computing', 'computacion paralela': 'parallel and distributed computing', 'sistemas distribuidos': 'parallel and distributed computing',
+  'redes y comunicacion': 'networking and communication', 'redes': 'networking and communication', 'redes de computadores': 'networking and communication',
+  'desarrollo de plataformas especializadas': 'specialized platform development', 'plataformas especializadas': 'specialized platform development',
+  'interaccion humano computador': 'human-computer interaction', 'interaccion humano-computador': 'human-computer interaction', 'hci': 'human-computer interaction',
+  'sistemas operativos': 'operating systems',
+  'sociedad etica y profesionalismo': 'society, ethics and professionalism', 'etica': 'society, ethics and professionalism', 'sociedad': 'society, ethics and professionalism',
+  'gestion de datos': 'data management', 'bases de datos': 'data management',
+  'fundamentos de desarrollo de software': 'software development fundamentals', 'desarrollo de software': 'software development fundamentals',
+  'graficos y tecnicas interactivas': 'graphics and interactive techniques', 'graficos': 'graphics and interactive techniques', 'visualizacion': 'graphics and interactive techniques',
+  'ingenieria de software': 'software engineering', 'engenharia de software': 'software engineering',
+  'arquitectura y organizacion': 'architecture and organization', 'arquitectura de computadores': 'architecture and organization',
+  'seguridad': 'security', 'seguranca': 'security', 'ciberseguridad': 'security',
+  'fundamentos matematicos y estadisticos': 'mathematical and statistical foundations', 'matematicas': 'mathematical and statistical foundations', 'estadistica': 'mathematical and statistical foundations',
+  'lenguajes de programacion': 'foundations of programming languages', 'fundamentos de sistemas': 'systems fundamentals',
+  'fisiologia de sistemas': 'systems physiology', 'fisiologia': 'systems physiology',
+  'ingenieria neural': 'neural engineering', 'neuroingenieria': 'neural engineering',
+  'imagenes medicas': 'medical imaging', 'imagenologia': 'medical imaging',
+  'ingenieria clinica': 'clinical engineering', 'ingenieria de rehabilitacion': 'rehabilitation engineering', 'rehabilitacion': 'rehabilitation engineering',
+  'bioinformatica': 'bioinformatics', 'bioinstrumentacion': 'bioinstrumentation', 'ingenieria genetica': 'genetic engineering',
+  'ingenieria celular y de tejidos': 'cellular and tissue engineering', 'ingenieria de tejidos': 'cellular and tissue engineering',
+  'biomecanica': 'biomechanics', 'bionica': 'bionics', 'electronica biomedica': 'biomedical electronics', 'biofluidos': 'biofluid',
+  'biomateriales': 'biomaterials', 'biomecatronica': 'biomechatronics', 'bioingenieria ortopedica': 'orthopaedic bioengineering'
 };
 
-function chatNorm(s) {
-  return String(s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim();
+/* Equivalencias ES/EN/PT propias de este módulo (se suman a las del motor) */
+const CHAT_BILINGUAL_TERMS = {
+  'student engagement': ['compromiso estudiantil', 'participacion estudiantil', 'engajamento estudantil'],
+  'compromiso estudiantil': ['student engagement'],
+  'fuera del area': ['does not belong'],
+  'fuera del campo': ['does not belong'],
+  'no pertenece': ['does not belong'],
+  'sin clasificacion': ['sin clasificacion', 'does not belong']
+};
+
+/* Países: nombre canónico del mapa de la app más nombres en español y portugués */
+const CHAT_PAISES_ALIAS = {
+  'estados unidos': 'United States', 'eeuu': 'United States', 'ee uu': 'United States', 'usa': 'United States', 'norteamerica': 'United States',
+  'reino unido': 'United Kingdom', 'inglaterra': 'United Kingdom', 'escocia': 'United Kingdom', 'uk': 'United Kingdom', 'gran bretana': 'United Kingdom',
+  'espana': 'Spain', 'espanha': 'Spain', 'brasil': 'Brazil', 'alemania': 'Germany', 'alemanha': 'Germany', 'francia': 'France', 'franca': 'France',
+  'italia': 'Italy', 'mexico': 'Mexico', 'peru': 'Peru', 'canada': 'Canada', 'suiza': 'Switzerland', 'suica': 'Switzerland', 'suecia': 'Sweden',
+  'japon': 'Japan', 'japao': 'Japan', 'belgica': 'Belgium', 'paises bajos': 'Netherlands', 'holanda': 'Netherlands', 'irlanda': 'Ireland',
+  'polonia': 'Poland', 'grecia': 'Greece', 'noruega': 'Norway', 'dinamarca': 'Denmark', 'finlandia': 'Finland', 'nueva zelanda': 'New Zealand',
+  'nova zelandia': 'New Zealand', 'sudafrica': 'South Africa', 'africa do sul': 'South Africa', 'corea del sur': 'South Korea', 'corea': 'South Korea',
+  'coreia do sul': 'South Korea', 'rusia': 'Russia', 'russia': 'Russia', 'turquia': 'Turkey', 'egipto': 'Egypt', 'egito': 'Egypt', 'marruecos': 'Morocco',
+  'marrocos': 'Morocco', 'arabia saudita': 'Saudi Arabia', 'singapur': 'Singapore', 'singapura': 'Singapore', 'hong kong': 'Hong Kong SAR China',
+  'republica checa': 'Czech Republic', 'chequia': 'Czech Republic', 'hungria': 'Hungary', 'iran': 'Iran', 'pakistan': 'Pakistan', 'malasia': 'Malaysia',
+  'tailandia': 'Thailand', 'vietnam': 'Vietnam', 'filipinas': 'Philippines', 'emiratos arabes unidos': 'United Arab Emirates', 'croacia': 'Croatia',
+  'eslovenia': 'Slovenia', 'rumania': 'Romania', 'ucrania': 'Ukraine', 'luxemburgo': 'Luxembourg', 'lituania': 'Lithuania', 'letonia': 'Latvia',
+  'republica dominicana': 'Dominican Republic', 'puerto rico': 'United States', 'escandinavia': 'Sweden', 'taiwan': 'Taiwan', 'china': 'China',
+  'india': 'India', 'australia': 'Australia', 'austria': 'Austria', 'portugal': 'Portugal', 'argentina': 'Argentina', 'colombia': 'Colombia',
+  'ecuador': 'Ecuador', 'uruguay': 'Uruguay', 'chile': 'Chile', 'cuba': 'Cuba', 'panama': 'Panama', 'paraguay': 'Paraguay', 'bolivia': 'Bolivia',
+  'venezuela': 'Venezuela', 'costa rica': 'Costa Rica', 'israel': 'Israel', 'nigeria': 'Nigeria', 'kenia': 'Kenya', 'etiopia': 'Ethiopia',
+  'argelia': 'Algeria', 'tunez': 'Tunisia', 'libano': 'Lebanon', 'jordania': 'Jordan', 'catar': 'Qatar', 'indonesia': 'Indonesia',
+  'bangladesh': 'Bangladesh', 'nepal': 'Nepal', 'sri lanka': 'Sri Lanka', 'kazajistan': 'Kazakhstan', 'estonia': 'Estonia', 'islandia': 'Iceland',
+  'eslovaquia': 'Slovakia', 'serbia': 'Serbia', 'bulgaria': 'Bulgaria', 'chipre': 'Cyprus', 'malta': 'Malta'
+};
+let CHAT_PAISES = null;
+function chatPaises() {
+  if (CHAT_PAISES) return CHAT_PAISES;
+  const n = Asistente.norm;
+  const lista = [];
+  Object.keys(window.COUNTRY_COORDS || {}).forEach(k => lista.push([n(k), k === 'USA' ? 'United States' : k]));
+  Object.keys(window.COUNTRY_ALIAS || {}).forEach(k => lista.push([n(k), k]));
+  Object.entries(CHAT_PAISES_ALIAS).forEach(([a, c]) => lista.push([n(a), c]));
+  CHAT_PAISES = lista.filter(([a]) => a.length > 2);
+  return CHAT_PAISES;
 }
-function chatEsc(s) {
-  return String(s ?? '').replace(/[&<>"']/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m]));
-}
-function chatRows() {
-  return byIndex(base(), S.chatIndex || 'Todas');
-}
+
+function chatNorm(s) { return Asistente.norm(s); }
+function chatEsc(s) { return Asistente.esc(s); }
+function chatRows() { return byIndex(base(), S.chatIndex || 'Todas'); }
 function uniquePubs(rows) {
   const map = new Map();
   rows.forEach(r => {
@@ -160,135 +188,45 @@ function uniquePubs(rows) {
   });
   return [...map.values()];
 }
-function chatLimit(q, fallback = 10) {
-  const m = chatNorm(q).match(/\b(\d{1,2})\b/);
-  return m ? Math.max(1, Math.min(30, parseInt(m[1], 10))) : fallback;
-}
-function chatYearFilter(rows, q) {
-  const s = chatNorm(q);
-  const years = [...s.matchAll(/\b(19|20)\d{2}\b/g)].map(m => parseInt(m[0], 10));
-  if (s.includes('desde') && years.length) return rows.filter(r => int0(r.ANO) >= years[0]);
-  if ((s.includes('hasta') || s.includes('antes')) && years.length) return rows.filter(r => int0(r.ANO) <= years[0]);
-  if (years.length >= 2) return rows.filter(r => int0(r.ANO) >= Math.min(...years) && int0(r.ANO) <= Math.max(...years));
-  if (years.length === 1) return rows.filter(r => int0(r.ANO) === years[0]);
-  return rows;
-}
-const CHAT_AUTHOR_STOP = new Set([
-  'publicacion', 'publicaciones', 'paper', 'papers', 'articulo', 'articulos',
-  'coautor', 'coautores', 'coautoria', 'coautorias', 'autor', 'autores',
-  'academico', 'academica', 'academicos', 'academicas', 'profesor', 'profesora',
-  'busca', 'buscar', 'buscame', 'muestra', 'mostrar', 'lista', 'listar',
-  'dame', 'sobre', 'con', 'del', 'de', 'la', 'el', 'los', 'las', 'para',
-  'top', 'citas', 'citadas', 'q1', 'wos', 'scopus', 'desde', 'hasta',
-  'compara', 'comparar', 'comparacion', 'versus'
-]);
-function chatNameTokens(q) {
-  return chatNorm(q)
-    .replace(/[^a-z0-9\s]/g, ' ')
-    .split(/\s+/)
-    .filter(t => t.length > 2 && !CHAT_AUTHOR_STOP.has(t));
-}
-function chatAuthorCandidates(q, rows) {
-  const nq = chatNorm(q);
-  const qTokens = uniq(chatNameTokens(q));
-  if (!qTokens.length) return [];
-  const authors = uniq(rows.map(r => r.NOMBRE_AUTOR).filter(Boolean));
-  return authors.map(name => {
-    const na = chatNorm(name);
-    const aTokens = na.split(/\s+/).filter(Boolean);
-    let score = 0;
-    if (nq.includes(na)) score += 130;
-    qTokens.forEach(t => {
-      if (aTokens.includes(t)) {
-        score += 28;
-        if (aTokens[0] === t) score += 52;
-        if (aTokens[aTokens.length - 1] === t) score += 28;
-      } else if (aTokens.some(a => a.startsWith(t) || t.startsWith(a))) {
-        score += 16;
-      }
-    });
-    for (let i = 0; i < qTokens.length - 1; i++) {
-      const pair = `${qTokens[i]} ${qTokens[i + 1]}`;
-      if (na.includes(pair) || nq.includes(pair)) score += 24;
-    }
-    const exactMatches = qTokens.filter(t => aTokens.includes(t)).length;
-    return { name, score, exactMatches };
-  }).filter(x => x.score > 0)
-    .sort((a, b) => b.score - a.score || b.exactMatches - a.exactMatches || a.name.localeCompare(b.name));
-}
-function chatFindAuthors(q, rows) {
-  const c = chatAuthorCandidates(q, rows);
-  if (!c.length) return [];
-  const qTokens = uniq(chatNameTokens(q));
-  const top = c[0].score;
-  if (qTokens.length === 1) {
-    const strong = c.filter(x => x.score >= Math.max(70, top - 8));
-    if (strong.length) return strong.map(x => x.name).slice(0, 4);
-    return c.length === 1 ? [c[0].name] : c.filter(x => x.score === top).map(x => x.name).slice(0, 4);
-  }
-  return c.filter(x => x.score >= 55).map(x => x.name).slice(0, 4);
-}
-function answerAuthorAmbiguity(authors) {
-  return `<p>Encontré más de un académico(a) compatible con ese nombre. Para evitar mezclar publicaciones, escribe el nombre más completo:</p>
-    <div class="chat-pubs">${authors.slice(0, 6).map(a => `<article class="chat-pub"><div class="chat-pub-title">${chatEsc(titleCase(a))}</div></article>`).join('')}</div>`;
-}
-function chatText(r) {
+/* Texto normalizado de cada fila, calculado una sola vez */
+const CHAT_TEXTO = new WeakMap();
+function chatTexto(r) {
+  let p = CHAT_TEXTO.get(r);
+  if (p) return p;
+  const n = chatNorm;
   const vals = HEADERS && HEADERS.length ? HEADERS.map(h => r[h]) : Object.values(r || {});
-  return chatNorm(vals.join(' '));
-}
-function chatSearchParts(r) {
-  const vals = HEADERS && HEADERS.length ? HEADERS.map(h => r[h]) : Object.values(r || {});
-  return {
-    title: chatNorm(r.TITULO),
-    abstract: chatNorm(r.RESUMEN),
-    keywords: chatNorm([r.AUTOR_PALABRAS_CLAVES, r.INDEX_PALABRAS_CLAVES].join(' ')),
-    areas: chatNorm([r.AREA_COMPUTACION, r.CATEGORIAS, r.AREAS, r.FUENTE].join(' ')),
-    all: chatNorm(vals.join(' '))
+  p = {
+    titulo: n(r.TITULO),
+    claves: n([r.AUTOR_PALABRAS_CLAVES, r.INDEX_PALABRAS_CLAVES].join(' ; ')),
+    resumen: n(r.RESUMEN),
+    areas: n([r.AREA_COMPUTACION, r.CATEGORIAS, r.AREAS, r.FUENTE, r.AREA_OCDE, r.DISCIPLINA_OCDE, r.SUBDISCIPLINA_OCDE, r.NOMBRE_ODS_ANID].join(' ; ')),
+    todo: n(vals.join(' ; '))
   };
+  CHAT_TEXTO.set(r, p);
+  return p;
 }
-function cleanAreaName(s) {
-  return String(s || '').replace(/^\(\d+\)\s*/, '').replace(/[.;:]+$/g, '').trim();
+function chatPaisesDe(r) {
+  return String(r.PAISES_AUTORES || '').split(/[;,]/).map(x => x.trim()).filter(Boolean).map(x => x === 'USA' ? 'United States' : x);
 }
-function areaKey(s) {
-  return chatNorm(cleanAreaName(s));
+function chatPersonas() {
+  return uniq(DATA.filter(r => r.UNIVERSIDAD === S.uni && r.SESION === S.sec).map(r => r.NOMBRE_AUTOR).filter(Boolean));
 }
-function areaDefinitionFor(s) {
-  return AREA_DEFINITIONS[areaKey(s)] || null;
-}
+function chatOrden(a, b) { return int0(b.ANO) - int0(a.ANO) || int0(b.CITADO_POR) - int0(a.CITADO_POR); }
+const nombreCorto = s => titleCase(s).replace(/\.([a-záéíóúñü])/g, (m, c) => '.' + c.toUpperCase());
+function pct(n, t) { return t ? Math.round(n * 100 / t) + '%' : '0%'; }
+function fmtK(n) { return Number(n || 0).toLocaleString(S.lang === 'en' ? 'en-GB' : S.lang === 'pt' ? 'pt-BR' : 'es-CL'); }
+
+function cleanAreaName(s) { return String(s || '').replace(/^\(\d+\)\s*/, '').replace(/[.;:]+$/g, '').trim(); }
+function areaKey(s) { return chatNorm(cleanAreaName(s)); }
+function areaDefinitionFor(s) { return AREA_DEFINITIONS[areaKey(s)] || null; }
 function areaDisplayName(s) {
   const clean = cleanAreaName(s);
-  if (areaKey(clean).startsWith('it does not belong')) return 'Fuera del campo de bioingeniería';
+  const k = areaKey(clean);
+  if (k.startsWith('it does not belong')) return k.includes('computer') ? 'Fuera del campo de computación' : 'Fuera del campo de bioingeniería';
   return titleCase(clean);
 }
-function areaKind(s) {
-  const k = areaKey(s);
-  if (BIOMED_AREA_KEYS.has(k)) return 'Biomédica';
-  return 'ACM / Computación';
-}
-function chatExtractSearch(q) {
-  let s = chatNorm(q);
-  s = s.replace(/\b(publicaciones?|papers?|articulos?|artículos?|publications?|articles?|sobre|about|de|do|da|dos|das|del|la|el|los|las|the|a|an|in|em|any|qualquer|en|con|with|que|qué|dame|muestra|show|busca|buscar|buscame|búscame|search|procura|procurar|lista|listar|list|top|mas|más|most|citadas?|cited|q1|wos|scopus|desde|since|hasta|until|entre|between|anos|años|years?|keyword|keywords|key words|palavra chave|palavras chave|palabra clave|palabras clave|termino|término|term|campo|campos|field|fields|base|database|bd|csv|subarea|subárea|subareas|subáreas|subsubarea|subsubárea|subsubareas|subsubáreas)\b/g, ' ');
-  s = s.replace(/\b(19|20)\d{2}\b/g, ' ').replace(/\d+/g, ' ').replace(/\s+/g, ' ').trim();
-  const alias = { ia: 'inteligencia artificial', ai: 'artificial intelligence', ml: 'machine learning' };
-  return alias[s] || s;
-}
-function chatSearchTerms(q) {
-  const term = chatExtractSearch(q);
-  const terms = new Set();
-  const add = v => {
-    const n = chatNorm(v);
-    if (n && n.length > 1) terms.add(n);
-  };
-  add(term);
-  Object.entries(CHAT_BILINGUAL_TERMS).forEach(([key, vals]) => {
-    const nk = chatNorm(key);
-    if (term === nk || term.includes(nk) || chatNorm(q).includes(nk)) {
-      add(key);
-      vals.forEach(add);
-    }
-  });
-  return [...terms];
-}
+function areaKind(s) { return BIOMED_AREA_KEYS.has(areaKey(s)) ? 'Biomédica' : 'ACM / Computación'; }
+
 function chatKpis(rows) {
   const pubs = uniquePubs(rows);
   const cites = pubs.reduce((s, r) => s + int0(r.CITADO_POR), 0);
@@ -296,10 +234,13 @@ function chatKpis(rows) {
   return { pubs, total: pubs.length, authors: uniq(rows.map(r => r.NOMBRE_AUTOR)).length, cites, topArea };
 }
 
+/* ---------- piezas de respuesta ---------- */
 function pubListHTML(rows, limit) {
   const all = uniquePubs(rows);
-  const pubs = (limit && limit < all.length) ? all.slice(0, limit) : all;
-  if (!pubs.length) return '<div class="chat-empty">No encontré publicaciones para esa consulta.</div>';
+  const cap = Math.min(limit || all.length, 60);
+  const pubs = all.slice(0, cap);
+  if (!pubs.length) return `<div class="chat-empty">${chatEsc(cu().noPubs)}</div>`;
+  const rest = all.length - pubs.length;
   return `<div class="chat-pubs">${pubs.map(r => {
     const link = paperLink(r);
     const q = String(r.QUARTILE || '').toUpperCase();
@@ -309,205 +250,244 @@ function pubListHTML(rows, limit) {
       <div class="chat-pub-title">${link ? `<a href="${chatEsc(link)}" target="_blank" rel="noopener">${chatEsc(r.TITULO || '-')}</a>` : chatEsc(r.TITULO || '-')}</div>
       <div class="chat-pub-meta">${chatEsc(r.ANO || '')} · ${chatEsc(r.FUENTE || '')}</div>
       <div class="chat-pub-tags">
-        ${badge}<span>${chatEsc(r.WOS === 'SI' ? 'WoS' : 'Scopus')}</span><span>${int0(r.CITADO_POR)} citas</span><span>${chatEsc(autores)}</span>
+        ${badge}<span>${chatEsc(tr(PROC_ETIQUETA[procedencia(r)]))}</span><span>${int0(r.CITADO_POR)} ${chatEsc(cu().cites)}</span><span>${chatEsc(autores)}</span>
       </div>
     </article>`;
-  }).join('')}</div>`;
-}
-
-function answerHelp(rows) {
-  const k = chatKpis(rows);
-  return `<p>Puedo ayudarte a explorar <b>${k.total}</b> publicaciones únicas del filtro activo.</p>
-    <p>Prueba preguntas como: <b>top citadas</b>, <b>publicaciones Q1</b>, <b>coautores de un autor</b>, <b>autores más productivos</b>, <b>temas principales</b> o <b>publicaciones sobre IA desde 2020</b>.</p>`;
-}
-
-function answerTopics(rows) {
-  const areas = kwFold(rows, 'AREA_COMPUTACION', 'title').slice(0, 8);
-  const appTop = kwFold(rows, 'AREAS', 'title').filter(([k]) => k.toLowerCase() !== 'computer science').slice(0, 8);
-  const kwTop = kwFold(rows, 'INDEX_PALABRAS_CLAVES', 'title').slice(0, 10);
-  return `<p>Los temas dominantes del filtro activo se concentran en estas líneas:</p>
-    ${miniBars('Especialidades', areas)}
-    ${miniBars('Aplicaciones', appTop)}
-    ${miniBars('Palabras clave', kwTop)}`;
-}
-
-function answerAreaDefinitions(rows, q) {
-  const nq = chatNorm(q);
-  const all = sortEnt(countBy(rows.map(r => r.AREA_COMPUTACION).filter(Boolean))).map(([area, n]) => ({ area, n, def: areaDefinitionFor(area), kind: areaKind(area) }));
-  const glossary = Object.keys(AREA_DEFINITIONS).map(area => ({ area, n: 0, def: AREA_DEFINITIONS[area], kind: areaKind(area) }));
-  let selected = all.filter(x => x.def);
-
-  const specific = selected.filter(x => {
-    const k = areaKey(x.area);
-    return nq.includes(k) || k.split(/\s+/).some(w => w.length > 5 && nq.includes(w));
-  });
-  if (specific.length) selected = specific;
-  else if (nq.includes('biomed') || nq.includes('bioingenier') || nq.includes('biomedical')) selected = selected.filter(x => x.kind === 'Biomédica');
-  else if (nq.includes('acm') || nq.includes('computacion') || nq.includes('computación') || nq.includes('computer science')) selected = selected.filter(x => x.kind === 'ACM / Computación');
-
-  if (!selected.length && (nq.includes('biomed') || nq.includes('bioingenier') || nq.includes('biomedical'))) {
-    selected = glossary.filter(x => x.kind === 'Biomédica');
-  } else if (!selected.length && (nq.includes('acm') || nq.includes('computacion') || nq.includes('computación') || nq.includes('computer science'))) {
-    selected = glossary.filter(x => x.kind === 'ACM / Computación');
-  } else if (!selected.length) {
-    selected = glossary.filter(x => {
-      const k = areaKey(x.area);
-      return nq.includes(k) || k.split(/\s+/).some(w => w.length > 5 && nq.includes(w));
-    });
-  }
-
-  selected = selected.slice(0, 14);
-  if (!selected.length) return '<p>No encontré esa área en el glosario local. Prueba con “define Artificial Intelligence”, “qué significan las áreas ACM” o “áreas biomédicas”.</p>';
-  const fromFilter = selected.some(x => x.n > 0);
-  return `<p>${fromFilter ? 'Estas son definiciones breves de las áreas que aparecen en el filtro activo:' : 'Estas son definiciones generales del glosario local:'}</p>
-    <div class="area-defs">${selected.map(x => `
-      <div class="area-def">
-        <div class="area-def-head"><b>${chatEsc(areaDisplayName(x.area))}</b><span>${x.kind}${x.n ? ` · ${x.n} registros` : ''}</span></div>
-        <p>${chatEsc(x.def)}</p>
-      </div>`).join('')}</div>`;
+  }).join('')}${rest > 0 ? `<div class="chat-more">${chatEsc(cu().more.replace('{n}', fmtK(rest)))}</div>` : ''}</div>`;
 }
 
 function miniBars(title, pairs) {
   if (!pairs.length) return '';
-  const max = pairs[0][1] || 1;
-  return `<div class="chat-mini"><div class="chat-mini-title">${title}</div>${pairs.map(([k, v]) =>
-    `<div class="chat-mini-row"><span>${chatEsc(k)}</span><b>${v}</b><i style="width:${Math.max(8, v / max * 100)}%"></i></div>`
+  const max = Math.max(...pairs.map(p => p[1])) || 1;
+  return `<div class="chat-bars"><b>${chatEsc(title)}</b>${pairs.map(([k, v]) =>
+    `<div class="chat-bar"><span class="chat-bar-l">${chatEsc(k)}</span><span class="chat-bar-track"><i style="width:${Math.max(6, v / max * 100)}%"></i></span><span class="chat-bar-v">${fmtK(v)}</span></div>`
   ).join('')}</div>`;
 }
+function kpiPills(items) {
+  return `<div class="chat-context chat-metrics">${items.filter(Boolean).map(([v, l, wide]) => `<div class="chat-kpi${wide ? ' wide' : ''}"><b>${chatEsc(v)}</b><span>${chatEsc(l)}</span></div>`).join('')}</div>`;
+}
 
-function answerTopCited(rows, q) {
+function answerHelp(rows) {
+  const k = chatKpis(rows); const u = cu();
+  return `<p>${u.greet1.replace('{n}', fmtK(k.total))}</p><p>${u.greet2}</p>`;
+}
+
+function answerAreaDefinitions(rows, q) {
   const nq = chatNorm(q);
-  const all = /\b(todas|todos|all|completa|completo)\b/.test(nq);
-  const lim = all ? Infinity : chatLimit(q, 10);
-  const pubs = uniquePubs(chatYearFilter(rows, q)).sort((a, b) => int0(b.CITADO_POR) - int0(a.CITADO_POR)).slice(0, lim);
-  return `<p>${all ? 'Publicaciones ordenadas por citas' : 'Estas son las <b>'+pubs.length+'</b> publicaciones más citadas'} del filtro consultado.</p>${pubListHTML(pubs)}`;
+  if (/\b(citad\w*|cuant\w*|how many|quant\w*|por ano|by year|per year|top|ranking|quien|quienes|who|quem|compara\w*|compare|coautor\w*|coauthor\w*|cited|list\w*|muestra\w*|lista\w*)\b/.test(nq)) return null;
+  const all = sortEnt(countBy(rows.map(r => r.AREA_COMPUTACION).filter(Boolean))).map(([area, n]) => ({ area, n, def: areaDefinitionFor(area), kind: areaKind(area) }));
+  const glossary = Object.keys(AREA_DEFINITIONS).map(area => ({ area, n: 0, def: AREA_DEFINITIONS[area], kind: areaKind(area) }));
+  const mencionada = k => nq.includes(k) || k.split(/\s+/).some(w => w.length > 5 && new RegExp('\\b' + w).test(nq));
+  const aliasHit = Object.keys(AREA_ALIAS).filter(a => new RegExp('\\b' + a + '\\b').test(nq)).sort((a, b) => b.length - a.length)[0];
+  const quiere = x => mencionada(areaKey(x.area)) || (aliasHit && areaKey(x.area) === AREA_ALIAS[aliasHit]);
+  const biomed = /biomed|bioingenier|biomedical|bioengineering/.test(nq);
+  const acm = /\bacm\b|computacion|computer science|computacao/.test(nq);
+
+  let selected = all.filter(x => x.def && quiere(x));
+  if (!selected.length && biomed) selected = (all.some(x => x.kind === 'Biomédica' && x.def) ? all : glossary).filter(x => x.def && x.kind === 'Biomédica');
+  if (!selected.length && acm) selected = (all.some(x => x.kind === 'ACM / Computación' && x.def) ? all : glossary).filter(x => x.def && x.kind === 'ACM / Computación');
+  if (!selected.length) selected = glossary.filter(quiere);
+  if (!selected.length) return null;   /* no es una pregunta del glosario: el motor sigue con otra intención */
+
+  selected = selected.slice(0, 18);
+  const fromFilter = selected.some(x => x.n > 0);
+  return `<p>${fromFilter ? 'Definiciones breves de las áreas que aparecen en el filtro activo:' : 'Definiciones generales del glosario local:'}</p>
+    <div class="area-defs">${selected.map(x => `
+      <div class="area-def">
+        <div class="area-def-head"><b>${chatEsc(areaDisplayName(x.area))}</b><span>${x.kind}${x.n ? ` · ${fmtK(x.n)} ${chatEsc(cu().records)}` : ''}</span></div>
+        <p>${chatEsc(x.def)}</p>
+      </div>`).join('')}</div>`;
 }
 
-function answerQ1(rows, q) {
-  const pubs = chatYearFilter(rows, q).filter(r => String(r.QUARTILE).toUpperCase() === 'Q1')
-    .sort((a, b) => int0(b.ANO) - int0(a.ANO) || int0(b.CITADO_POR) - int0(a.CITADO_POR));
-  return `<p>Encontré <b>${uniquePubs(pubs).length}</b> publicaciones Q1 en el filtro consultado.</p>${pubListHTML(pubs)}`;
+function answerTopics(rows) {
+  const u = cu();
+  const areas = kwFold(rows, 'AREA_COMPUTACION', 'title').slice(0, 8);
+  const appTop = kwFold(rows, 'AREAS', 'title').filter(([k]) => k.toLowerCase() !== 'computer science').slice(0, 8);
+  const kwTop = kwFold(rows, 'INDEX_PALABRAS_CLAVES', 'title').slice(0, 10);
+  return miniBars(u.specialties, areas) + miniBars(u.applications, appTop) + miniBars(u.keywords, kwTop);
 }
 
-function answerAuthors(rows) {
-  const ranked = sortEnt(countBy(rows.map(r => r.NOMBRE_AUTOR).filter(Boolean))).slice(0, 12);
-  return `<p>Ranking por registros de autor-publicación dentro del filtro activo:</p>${miniBars('Académicos(as)', ranked.map(([a, n]) => [titleCase(a), n]))}`;
+function answerRanking(rows, c, limit) {
+  const u = cu();
+  const porAutor = new Map();
+  rows.forEach(r => { if (!porAutor.has(r.NOMBRE_AUTOR)) porAutor.set(r.NOMBRE_AUTOR, []); porAutor.get(r.NOMBRE_AUTOR).push(r); });
+  const stats = [...porAutor.entries()].map(([a, rs]) => { const p = uniquePubs(rs); return [titleCase(a), p.length, p.reduce((s, r) => s + int0(r.CITADO_POR), 0)]; });
+  const pubs = stats.sort((x, y) => y[1] - x[1] || y[2] - x[2]).slice(0, limit).map(([a, n]) => [a, n]);
+  const cites = [...stats].sort((x, y) => y[2] - x[2]).slice(0, Math.min(limit, 8)).map(([a, , ci]) => [a, ci]);
+  return miniBars(u.byAuthor, pubs) + miniBars(u.citesByAuthor, cites);
 }
 
-function answerAuthor(rows, author, q) {
-  const da = chatYearFilter(rows.filter(r => r.NOMBRE_AUTOR === author), q);
-  const pubs = uniquePubs(da);
-  const cites = pubs.reduce((s, r) => s + int0(r.CITADO_POR), 0);
-  const q1 = uniquePubs(da.filter(r => String(r.QUARTILE).toUpperCase() === 'Q1')).length;
-  const all = [...pubs].sort((a, b) => int0(b.CITADO_POR) - int0(a.CITADO_POR));
-  return `<p><b>${titleCase(author)}</b> registra <b>${pubs.length}</b> publicaciones únicas, <b>${cites}</b> citas y <b>${q1}</b> publicaciones Q1 en el filtro consultado.</p>${pubListHTML(all)}`;
+function answerTopCited(rows, limit) {
+  const pubs = uniquePubs(rows).sort((a, b) => int0(b.CITADO_POR) - int0(a.CITADO_POR));
+  return pubListHTML(pubs, limit);
 }
 
 function answerCoauthors(rows, author) {
-  const da = rows.filter(r => r.NOMBRE_AUTOR === author);
-  const me = String((da[0] || {}).SCOPUS_ID || '').trim();
-  const co = new Map();
-  da.forEach(r => pairAuthors(r).forEach(p => {
-    if (!p.id || p.id === me) return;
-    const name = p.name || p.id;
-    co.set(name, (co.get(name) || 0) + 1);
-  }));
-  const ranked = sortEnt(co).slice(0, 15).map(([a, n]) => [titleCase(a), n]);
-  if (!ranked.length) return `<p>No encontré coautorías registradas para <b>${titleCase(author)}</b> en el filtro activo.</p>`;
-  return `<p>Principales coautores(as) de <b>${titleCase(author)}</b>:</p>${miniBars('Coautorías', ranked)}`;
+  const u = cu();
+  const idsUnidad = new Set(DATA.map(r => String(r.SCOPUS_ID || '').trim()).filter(Boolean));
+  if (author) {
+    const da = rows.filter(r => r.NOMBRE_AUTOR === author);
+    const me = new Set(da.map(r => String(r.SCOPUS_ID || '').trim()).filter(Boolean));
+    const co = new Map();
+    uniquePubs(da).forEach(r => pairAuthors(r).forEach(p => {
+      if (!p.id || me.has(p.id)) return;
+      const name = p.name || p.id;
+      co.set(name, (co.get(name) || 0) + 1);
+    }));
+    const ranked = sortEnt(co).slice(0, 15).map(([a, n]) => [nombreCorto(a), n]);
+    if (!ranked.length) return `<p>${chatEsc(u.noCoauth)} <b>${chatEsc(titleCase(author))}</b>.</p>`;
+    return `<p>${chatEsc(u.coauth)} <b>${chatEsc(titleCase(author))}</b>:</p>${miniBars(u.coauthTitle, ranked)}`;
+  }
+  /* sin persona: coautoría general del conjunto */
+  const pubs = uniquePubs(rows);
+  const ext = new Map(); const pares = new Map();
+  pubs.forEach(r => {
+    pairAuthors(r).forEach(p => { if (p.id && !idsUnidad.has(p.id)) ext.set(p.name || p.id, (ext.get(p.name || p.id) || 0) + 1); });
+    const au = [...(r._autoresUnidad || [])].sort();
+    for (let i = 0; i < au.length; i++) for (let j = i + 1; j < au.length; j++) { const k = titleCase(au[i]) + ' + ' + titleCase(au[j]); pares.set(k, (pares.get(k) || 0) + 1); }
+  });
+  return miniBars(u.coauthInt, sortEnt(pares).slice(0, 10)) + miniBars(u.coauthExt, sortEnt(ext).slice(0, 12).map(([a, n]) => [nombreCorto(a), n]));
 }
 
-function answerCompare(rows, authors) {
-  const cards = authors.slice(0, 2).map(a => {
-    const da = rows.filter(r => r.NOMBRE_AUTOR === a);
+function answerCompare(rows, a, b) {
+  const u = cu();
+  const cards = [a, b].map(x => {
+    const da = rows.filter(r => r.NOMBRE_AUTOR === x);
     const pubs = uniquePubs(da);
     const cites = pubs.reduce((s, r) => s + int0(r.CITADO_POR), 0);
-    const q1 = uniquePubs(da.filter(r => String(r.QUARTILE).toUpperCase() === 'Q1')).length;
+    const q1 = pubs.filter(r => String(r.QUARTILE).toUpperCase() === 'Q1').length;
     const years = da.map(r => int0(r.ANO)).filter(y => y > 1900);
-    const span = years.length ? `${Math.min(...years)}-${Math.max(...years)}` : '-';
+    const span = years.length ? `${Math.min(...years)}–${Math.max(...years)}` : '-';
     const topArea = sortEnt(countBy(da.map(r => titleCase(stripParen(r.AREA_COMPUTACION).trim())).filter(Boolean)))[0] || ['-', 0];
     return `<div class="chat-compare-card">
-      <h4>${titleCase(a)}</h4>
-      <div><b>${pubs.length}</b><span>publicaciones únicas</span></div>
-      <div><b>${cites}</b><span>citas</span></div>
-      <div><b>${q1}</b><span>Q1</span></div>
-      <div><b>${span}</b><span>periodo</span></div>
-      <p>Especialidad frecuente: <b>${chatEsc(topArea[0])}</b> (${topArea[1]} registros).</p>
+      <h4>${chatEsc(titleCase(x))}</h4>
+      <div><b>${fmtK(pubs.length)}</b><span>${chatEsc(u.unique)}</span></div>
+      <div><b>${fmtK(cites)}</b><span>${chatEsc(u.cites)}</span></div>
+      <div><b>${fmtK(hIndex(pubs.map(r => int0(r.CITADO_POR))))}</b><span>${chatEsc(u.hIndex)}</span></div>
+      <div><b>${fmtK(q1)}</b><span>Q1</span></div>
+      <div><b>${span}</b><span>${chatEsc(u.period)}</span></div>
+      <p>${chatEsc(u.topArea)}: <b>${chatEsc(topArea[0])}</b> (${fmtK(topArea[1])} ${chatEsc(u.records)}).</p>
     </div>`;
   }).join('');
-  return `<p>Comparación dentro del filtro activo:</p><div class="chat-compare">${cards}</div>`;
+  return `<p>${chatEsc(u.compare)}:</p><div class="chat-compare">${cards}</div>`;
 }
 
-function answerNotBelong(rows, q) {
-  const lim = chatLimit(q, 15);
-  const hits = rows.filter(r => {
-    const t = chatNorm([r.AREA_COMPUTACION, r.CATEGORIAS, r.AREAS].join(' '));
-    return t.includes('does not belong') || t.includes('no pertenece') || t.includes('sin clasificacion');
-  }).sort((a, b) => int0(b.ANO) - int0(a.ANO));
-  return `<p>Encontré <b>${uniquePubs(hits).length}</b> publicaciones clasificadas como fuera del área, sin clasificación o equivalentes.</p>${pubListHTML(hits)}`;
+function answerEvolution(rows) {
+  const u = cu();
+  const pubs = uniquePubs(rows);
+  const porAnio = new Map(), citas = new Map();
+  pubs.forEach(r => { const y = int0(r.ANO); if (!y) return; porAnio.set(y, (porAnio.get(y) || 0) + 1); citas.set(y, (citas.get(y) || 0) + int0(r.CITADO_POR)); });
+  const anios = [...porAnio.keys()].sort((a, b) => a - b);
+  return miniBars(u.byYear, anios.map(y => [String(y), porAnio.get(y)])) + miniBars(u.citesByYear, anios.map(y => [String(y), citas.get(y)]));
 }
 
-function answerSearch(rows, q) {
-  const terms = chatSearchTerms(q);
-  const term = terms[0] || '';
-  if (!term) return answerHelp(rows);
-  const toks = terms.flatMap(t => t.split(/\s+/)).filter(t => t.length > 2);
-  const uniqToks = uniq(toks);
-  const fieldHits = { keywords: 0, title: 0, abstract: 0, areas: 0, all: 0 };
-  const scored = chatYearFilter(rows, q).map(r => {
-    const p = chatSearchParts(r);
-    let score = 0;
-    terms.forEach(t => {
-      if (p.keywords.includes(t)) { score += 8; fieldHits.keywords++; }
-      if (p.title.includes(t)) { score += 5; fieldHits.title++; }
-      if (p.abstract.includes(t)) { score += 3; fieldHits.abstract++; }
-      if (p.areas.includes(t)) { score += 2; fieldHits.areas++; }
-      if (p.all.includes(t)) { score += 1; fieldHits.all++; }
-    });
-    score += uniqToks.reduce((s, t) => s + (p.keywords.includes(t) ? 3 : 0) + (p.title.includes(t) ? 2 : 0) + (p.all.includes(t) ? 1 : 0), 0);
-    return { r, score };
-  }).filter(x => x.score > 0).sort((a, b) => b.score - a.score || int0(b.r.CITADO_POR) - int0(a.r.CITADO_POR)).map(x => x.r);
-  const n = uniquePubs(scored).length;
-  const labels = {
-    es: { keywords:'palabras clave', title:'título', abstract:'resumen', areas:'áreas/subáreas', all:'otros campos', tried:'También probé equivalentes', searched:'Busqué', inWord:'en', allFields:'todos los campos de la BD', fields:'Campos con coincidencias', found:'Encontré', pubs:'publicaciones únicas' },
-    en: { keywords:'keywords', title:'title', abstract:'abstract', areas:'areas/subareas', all:'other fields', tried:'I also tried equivalents', searched:'I searched for', inWord:'in', allFields:'all database fields', fields:'Fields with matches', found:'Found', pubs:'unique publications' },
-    pt: { keywords:'palavras-chave', title:'título', abstract:'resumo', areas:'áreas/subáreas', all:'outros campos', tried:'Também testei equivalentes', searched:'Busquei', inWord:'em', allFields:'todos os campos da base', fields:'Campos com correspondências', found:'Encontrei', pubs:'publicações únicas' }
-  }[S.lang] || {};
-  const hitList = Object.entries(fieldHits)
-    .filter(([,v]) => v > 0)
-    .sort((a,b) => b[1] - a[1])
-    .slice(0, 5)
-    .map(([k,v]) => `${labels[k] || k} (${v})`)
-    .join(', ');
-  const extra = terms.length > 1 ? ` <span class="chat-note">${labels.tried}: ${terms.slice(1, 5).map(chatEsc).join(', ')}.</span>` : '';
-  const where = hitList ? `<br><span class="chat-note"><b>${labels.fields}:</b> ${chatEsc(hitList)}.</span>` : '';
-  return `<p>${labels.searched} <b>${chatEsc(term)}</b> ${labels.inWord} <b>${labels.allFields}</b>.${extra} ${labels.found} <b>${n}</b> ${labels.pubs}.${where}</p>${pubListHTML(scored)}`;
+function answerSources(rows, limit) {
+  const u = cu();
+  const pubs = uniquePubs(rows);
+  const m = new Map();
+  pubs.forEach(r => { const f = String(r.FUENTE || '').trim(); if (f) m.set(f, (m.get(f) || 0) + 1); });
+  return miniBars(u.sources, sortEnt(m).slice(0, limit).map(([k, v]) => [titleCase(k), v]));
+}
+
+function answerCountries(rows, limit) {
+  const u = cu();
+  const pubs = uniquePubs(rows);
+  const m = new Map(); let intl = 0;
+  pubs.forEach(r => { const ps = uniq(chatPaisesDe(r)); if (ps.some(p => p !== 'Chile')) intl++; ps.forEach(p => { if (p !== 'Chile') m.set(p, (m.get(p) || 0) + 1); }); });
+  if (!m.size) return `<p>${chatEsc(u.noCountries)}</p>`;
+  return `<p><b>${fmtK(intl)}</b> ${chatEsc(u.pubs)} (${pct(intl, pubs.length)}) ${chatEsc(u.intl)}.</p>` + miniBars(u.countries, sortEnt(m).slice(0, limit));
+}
+
+function answerQuartiles(rows) {
+  const u = cu();
+  const pubs = uniquePubs(rows);
+  const m = countBy(pubs.map(r => { const q = String(r.QUARTILE || '').toUpperCase(); return /^Q[1-4]$/.test(q) ? q : u.unranked; }));
+  const orden = ['Q1', 'Q2', 'Q3', 'Q4'];
+  const pairs = [...m.entries()].sort((a, b) => (orden.indexOf(a[0]) + 1 || 9) - (orden.indexOf(b[0]) + 1 || 9));
+  return miniBars(u.quartiles, pairs.map(([k, v]) => [k + ' (' + pct(v, pubs.length) + ')', v]));
+}
+
+function answerMetrics(rows, c) {
+  const u = cu();
+  const pubs = uniquePubs(rows);
+  const cites = pubs.reduce((s, r) => s + int0(r.CITADO_POR), 0);
+  const q1 = pubs.filter(r => String(r.QUARTILE).toUpperCase() === 'Q1').length;
+  const years = pubs.map(r => int0(r.ANO)).filter(y => y > 1900);
+  const w = pubs.filter(tieneWos).length, s = pubs.filter(tieneScopus).length;
+  const art = pubs.filter(r => r.TIPO_DOCUMENTO === 'Article').length, conf = pubs.filter(r => r.TIPO_DOCUMENTO === 'Conference paper').length;
+  const items = [
+    [fmtK(cites), u.cites],
+    [pubs.length ? (cites / pubs.length).toFixed(1) : '0', u.perPub],
+    [fmtK(hIndex(pubs.map(r => int0(r.CITADO_POR)))), u.hIndex],
+    [fmtK(q1) + ' (' + pct(q1, pubs.length) + ')', u.q1],
+    [years.length ? Math.min(...years) + '–' + Math.max(...years) : '-', u.years],
+    c.personas.length !== 1 ? [fmtK(uniq(rows.map(r => r.NOMBRE_AUTOR)).length), u.authors] : null,
+    [fmtK(art) + ' / ' + fmtK(conf), u.journal + ' / ' + u.conf],
+    [pct(w, pubs.length) + ' / ' + pct(s, pubs.length), u.wos + ' / ' + u.scopus]
+  ];
+  return kpiPills(items);
+}
+
+function answerShortSummary(rows, c) {
+  const u = cu();
+  const pubs = uniquePubs(rows);
+  const cites = pubs.reduce((s, r) => s + int0(r.CITADO_POR), 0);
+  const q1 = pubs.filter(r => String(r.QUARTILE).toUpperCase() === 'Q1').length;
+  const years = pubs.map(r => int0(r.ANO)).filter(y => y > 1900);
+  const parts = [fmtK(cites) + ' ' + u.cites, fmtK(q1) + ' Q1', years.length ? Math.min(...years) + '–' + Math.max(...years) : ''];
+  if (c.personas.length !== 1) parts.push(fmtK(uniq(rows.map(r => r.NOMBRE_AUTOR)).length) + ' ' + u.authors);
+  return `<p class="chat-note">${parts.filter(Boolean).map(chatEsc).join(' · ')}</p>` + pubListHTML(pubs.sort(chatOrden), 5);
+}
+
+function answerSuggestions() {
+  const u = cu();
+  return `<p class="chat-note">${chatEsc(u.tryAlso)}: ${u.suggest.map(s => `<b>${chatEsc(s)}</b>`).join(' · ')}.</p>`;
+}
+
+/* ---------- el motor configurado para publicaciones ---------- */
+function chatEngine() {
+  if (ChatLocal.engine) return ChatLocal.engine;
+  ChatLocal.engine = Asistente.crear({
+    modulo: 'publicaciones',
+    lang: () => S.lang,
+    filas: chatRows,
+    personas: chatPersonas,
+    nombre: titleCase,
+    dePersona: (r, name) => r.NOMBRE_AUTOR === name,
+    clave: llave,
+    anio: r => int0(r.ANO),
+    cuartil: r => String(r.QUARTILE || '').toUpperCase(),
+    wos: tieneWos,
+    scopus: tieneScopus,
+    tipo: r => { const t = String(r.TIPO_DOCUMENTO || '').trim(); return t === 'Article' ? 'revista' : t === 'Conference paper' ? 'actas' : 'otro'; },
+    paises: chatPaises,
+    paisesDe: chatPaisesDe,
+    texto: chatTexto,
+    orden: chatOrden,
+    unico: uniquePubs,
+    sinonimos: CHAT_BILINGUAL_TERMS,
+    ayuda: () => answerHelp(chatRows()),
+    definir: q => answerAreaDefinitions(chatRows(), q),
+    comparar: answerCompare,
+    coautores: answerCoauthors,
+    lista: (rows, limit) => pubListHTML(rows, limit),
+    listaTop: answerTopCited,
+    ranking: answerRanking,
+    temas: answerTopics,
+    evolucion: answerEvolution,
+    fuentes: answerSources,
+    paisesResumen: answerCountries,
+    cuartiles: answerQuartiles,
+    metricas: answerMetrics,
+    resumenCorto: answerShortSummary,
+    sugerencias: answerSuggestions
+  });
+  return ChatLocal.engine;
 }
 
 function localAnswer(q) {
-  let rows = chatRows();
-  const nq = chatNorm(q);
-  if (!rows.length && AREA_DEFINITION_RE.test(nq)) return answerAreaDefinitions([], q);
-  if (!rows.length) return '<p>No hay datos para el filtro activo.</p>';
-  if (!nq || /\b(ayuda|hola|que puedes|qué puedes|como funciona|cómo funciona)\b/.test(nq)) return answerHelp(rows);
-  if (nq.includes('wos') || nq.includes('web of science')) rows = rows.filter(r => r.WOS === 'SI');
-  if (nq.includes('scopus')) rows = rows.filter(r => r.WOS === 'NO');
-
-  const authors = chatFindAuthors(q, rows);
-  const searchIntent = /\b(busca|buscar|buscame|búscame|search|procura|procurar|muestra|lista|listar|publicaciones? sobre|papers? sobre|articulos? sobre|artículos? sobre|keyword|keywords|palabra clave|palabras clave|termino|término|campo|campos|field|fields|base|bd|csv|subarea|subárea|subsubarea|subsubárea)\b/.test(nq);
-  const compareIntent = /\b(compara|comparar|comparacion|comparación|versus| vs )\b/.test(nq);
-  if (AREA_DEFINITION_RE.test(nq)) return answerAreaDefinitions(rows, q);
-  if (compareIntent && authors.length >= 2) return answerCompare(rows, authors);
-  if (!compareIntent && authors.length > 1) return answerAuthorAmbiguity(authors);
-  if (nq.includes('coautor') && authors.length) return answerCoauthors(rows, authors[0]);
-  if (nq.includes('no pertenece') || nq.includes('fuera del area') || nq.includes('fuera del área') || nq.includes('does not belong')) return answerNotBelong(rows, q);
-  if (searchIntent && !authors.length) return answerSearch(rows, q);
-  if (/\b(tema|temas|lineas|líneas|area|área|areas|áreas|palabras clave|resume|resumen)\b/.test(nq)) return answerTopics(rows);
-  if (/\b(top|mas citad|más citad|citas|citadas)\b/.test(nq)) return answerTopCited(rows, q);
-  if (/\b(q1|quartil 1|cuartil 1)\b/.test(nq)) return answerQ1(rows, q);
-  if (/\b(autores|academicos|académicos|productivos|productivas|ranking)\b/.test(nq) && !authors.length) return answerAuthors(rows);
-  if (authors.length) return answerAuthor(rows, authors[0], q);
-  return answerSearch(rows, q);
+  try { return chatEngine().responder(q); }
+  catch (e) { console.error('asistente', e); return `<p>${chatEsc(cu().noPubs)}</p>`; }
 }
 
 function addChatMessage(role, html) {
@@ -523,12 +503,12 @@ function addChatMessage(role, html) {
 function renderChatContext() {
   const el = document.getElementById('chat_context');
   if (!el) return;
-  const k = chatKpis(chatRows());
+  const k = chatKpis(chatRows()); const u = cu();
   el.innerHTML = `
-    <div class="chat-kpi"><b>${k.total}</b><span>publicaciones únicas</span></div>
-    <div class="chat-kpi"><b>${k.authors}</b><span>académicos(as)</span></div>
-    <div class="chat-kpi"><b>${k.cites.toLocaleString('es')}</b><span>citas acumuladas</span></div>
-    <div class="chat-kpi wide"><b>${chatEsc(k.topArea[0])}</b><span>especialidad más frecuente (${k.topArea[1]})</span></div>`;
+    <div class="chat-kpi"><b>${fmtK(k.total)}</b><span>${chatEsc(u.unique)}</span></div>
+    <div class="chat-kpi"><b>${fmtK(k.authors)}</b><span>${chatEsc(u.authors)}</span></div>
+    <div class="chat-kpi"><b>${fmtK(k.cites)}</b><span>${chatEsc(u.cites)}</span></div>
+    <div class="chat-kpi wide"><b>${chatEsc(k.topArea[0])}</b><span>${chatEsc(u.topArea.toLowerCase())} (${fmtK(k.topArea[1])})</span></div>`;
 }
 
 /* ============================================================

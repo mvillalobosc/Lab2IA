@@ -9,6 +9,7 @@ function renderSummaryCards(){
   const pre = countWhere(rows, r => PREGRADO.includes(clean(r.PREGRADO)));
   const pos = countWhere(rows, r => POSGRADO.includes(clean(r.POSGRADO)));
   const coguia = countWhere(rows, r => valid(r["PROFESOR COGUIA"]));
+  const conEnlace = countWhere(rows, r => tieneEnlace(r));
   const topYear = topCounts(rows, r => yearOf(r)?.toString(), 1)[0];
   const topGuide = topCounts(rows, r => clean(r["PROFESOR GUIA"]), 1)[0];
   const topArea = topCounts(rows, r => cleanDomain(r.AREA_CONOCIMIENTO), 1)[0];
@@ -22,6 +23,9 @@ function renderSummaryCards(){
     {k:tt("card.topYear","Año más activo"), h:"card.topYear", v:topYear ? topYear.name : "—", s:topYear ? `${fmt(topYear.value)} ${S("works")}` : S("noData"), icon:"fa-calendar-days", cls:"teal"},
     {k:tt("card.topGuide","Guía con más trabajos"), h:"card.topGuide", v:topGuide ? fmt(topGuide.value) : "—", s:topGuide ? compactName(topGuide.name) : S("noData"), icon:"fa-chalkboard-user", cls:"orange"},
     {k:tt("card.topArea","Área dominante"), h:"card.topArea", v:topArea ? fmt(topArea.value) : "—", s:topArea ? topArea.name : S("noData"), icon:"fa-diagram-project", cls:""},
+    {k:tt("card.link","En el repositorio"), h:"card.link", v:fmt(conEnlace),
+     s:total ? `${pct(percent(conEnlace,total))}, faltan ${fmt(total-conEnlace)}` : S("noData"),
+     icon:"fa-link", cls:(total && conEnlace/total < 0.9) ? "orange" : "teal"},
   ];
 
   el("summary_cards").innerHTML = cards.map(c => `

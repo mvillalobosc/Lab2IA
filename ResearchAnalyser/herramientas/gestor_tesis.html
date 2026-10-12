@@ -1,0 +1,1123 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gestor de tesis · DIINF USACH</title>
+<style>
+:root{
+  --usach-teal:#00A499; --teal-2:#007A72; --teal-bg:#E7F6F4; --teal-soft:#BFE8E4;
+  --usach-orange:#EA7600; --orange-bg:#FFF2E5;
+  --ink:#1F2933; --ink-soft:#394049; --muted:#68737D; --faint:#96A0A8;
+  --line:#DDE5EA; --line-soft:#EEF3F6;
+  --bg:#F5F7FA; --surface:#fff; --soft:#F9FBFC;
+  --rojo:#C8102E; --rojo-bg:#FCEBEB;
+  --radius:10px; --radius-sm:8px;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;}
+body{
+  background:var(--bg); color:var(--ink);
+  font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
+  font-size:15px; line-height:1.5; -webkit-font-smoothing:antialiased;
+}
+h1,h2{margin:0;font-weight:700;line-height:1.15;}
+.wrap{width:min(1500px,calc(100% - 32px));margin:0 auto;}
+.top{height:4px;background:var(--usach-teal);}
+
+header{background:var(--surface);border-bottom:1px solid var(--line);}
+.hrow{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;padding:18px 0 16px;flex-wrap:wrap;}
+.kicker{font-size:.68rem;font-weight:800;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);}
+h1{font-size:1.4rem;margin-top:4px;}
+.sub{font-size:.85rem;color:var(--muted);margin-top:3px;}
+#version{font-size:.7rem;color:var(--faint);text-align:right;}
+
+main{padding:18px 0 60px;}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;margin-bottom:14px;}
+.card-h{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;margin-bottom:12px;flex-wrap:wrap;}
+.card-h h2{font-size:1rem;}
+.card-h p{margin:3px 0 0;font-size:.83rem;color:var(--muted);max-width:80ch;}
+
+.btn{
+  display:inline-flex;align-items:center;gap:8px;background:var(--surface);
+  border:1px solid var(--line);border-radius:var(--radius-sm);
+  padding:8px 14px;font-family:inherit;font-size:.86rem;font-weight:600;
+  color:var(--ink-soft);cursor:pointer;
+}
+.btn:hover{border-color:var(--usach-teal);color:var(--teal-2);}
+.btn:disabled{opacity:.45;cursor:not-allowed;}
+.btn.p{background:var(--teal-2);border-color:var(--teal-2);color:#fff;}
+.btn.p:hover{background:#00635C;color:#fff;}
+.btn.warn{border-color:var(--usach-orange);color:#A15200;}
+.acciones{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+
+.aviso{border-radius:var(--radius-sm);padding:11px 14px;font-size:.84rem;line-height:1.5;margin-top:10px;}
+.aviso.i{background:var(--teal-bg);color:#00554F;}
+.aviso.w{background:var(--orange-bg);color:#7A3E00;}
+.aviso.e{background:var(--rojo-bg);color:#8A0C20;}
+
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-bottom:14px;}
+.kpi{background:var(--soft);border:1px solid var(--line-soft);border-radius:var(--radius-sm);padding:11px 13px;cursor:pointer;}
+.kpi:hover{border-color:var(--usach-teal);}
+.kpi.on{border-color:var(--teal-2);background:var(--teal-bg);}
+.kpi .k{font-size:.66rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--faint);}
+.kpi .v{font-size:1.5rem;font-weight:800;line-height:1;margin-top:6px;font-variant-numeric:tabular-nums;}
+.kpi.falta .v{color:var(--usach-orange);}
+.kpi.ok .v{color:var(--teal-2);}
+
+.barra-filtros{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin-bottom:12px;}
+.barra-filtros input[type=search],.barra-filtros select{
+  height:34px;border:1px solid var(--line);border-radius:7px;background:var(--surface);
+  padding:0 10px;font-family:inherit;font-size:.85rem;color:var(--ink);
+}
+.barra-filtros input[type=search]{min-width:220px;}
+.alcance{
+  position:sticky;top:0;z-index:40;margin:0 0 12px;padding:8px 13px;
+  background:rgba(255,255,255,.95);border:1px solid var(--line);border-radius:8px;
+  font-size:.79rem;color:var(--muted);
+}
+.alcance b{color:var(--teal-2);}
+
+/* La rejilla */
+.rejilla-caja{overflow:auto;max-height:66vh;border:1px solid var(--line);border-radius:var(--radius-sm);}
+table.rejilla{width:100%;border-collapse:separate;border-spacing:0;font-size:.83rem;}
+table.rejilla th{
+  position:sticky;top:0;z-index:5;background:var(--soft);
+  text-align:left;font-size:.66rem;font-weight:800;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--faint);padding:9px 8px;
+  border-bottom:1px solid var(--line);white-space:nowrap;
+}
+table.rejilla td{padding:0;border-bottom:1px solid var(--line-soft);vertical-align:middle;}
+table.rejilla tbody tr:hover{background:var(--soft);}
+.celda{padding:7px 8px;line-height:1.35;}
+.celda.fija{color:var(--ink-soft);}
+.celda.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap;}
+.celda.titulo{max-width:340px;}
+
+td.edit{padding:0;}
+td.edit input,td.edit select{
+  width:100%;border:0;background:transparent;padding:7px 8px;
+  font-family:inherit;font-size:.83rem;color:var(--ink);
+}
+td.edit input:focus,td.edit select:focus{
+  outline:2px solid var(--usach-teal);outline-offset:-2px;background:#fff;
+}
+td.edit input.vacio{background:var(--orange-bg);}
+td.edit input.malo{background:var(--rojo-bg);}
+td.edit select{cursor:pointer;}
+.ver{display:inline-block;padding:0 6px;color:var(--teal-2);text-decoration:none;font-size:.9rem;}
+.ver.off{color:var(--line);pointer-events:none;}
+
+.pie-rejilla{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-top:10px;font-size:.8rem;color:var(--muted);flex-wrap:wrap;}
+
+.zona-pegar{
+  border:2px dashed var(--line);border-radius:var(--radius-sm);padding:14px;
+  font-size:.83rem;color:var(--faint);margin-top:12px;
+}
+.zona-pegar textarea{
+  width:100%;min-height:78px;border:1px solid var(--line);border-radius:7px;
+  padding:8px 10px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.78rem;
+  color:var(--ink);resize:vertical;
+}
+
+.barra{height:7px;background:var(--line-soft);border-radius:999px;overflow:hidden;}
+.barra-in{height:100%;width:0;background:var(--usach-teal);transition:width .25s;}
+.oll-linea{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:8px;}
+.oll-linea span{font-size:.82rem;color:var(--ink-soft);font-variant-numeric:tabular-nums;}
+.log{background:#21262B;border-radius:var(--radius-sm);padding:11px 13px;max-height:190px;overflow:auto;
+     font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.76rem;line-height:1.6;margin-top:11px;}
+.log>div{color:#C6CCD2;}
+.log .h{color:#6C757D;margin-right:7px;}
+.log .ok{color:#7FD1CB;} .log .w{color:#F0B36B;} .log .e{color:#F09595;}
+
+.campos{display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end;margin:12px 0;}
+.campos label{display:flex;flex-direction:column;gap:4px;font-size:.72rem;font-weight:700;
+  letter-spacing:.06em;text-transform:uppercase;color:var(--faint);}
+.campos input{height:34px;border:1px solid var(--line);border-radius:7px;padding:0 10px;
+  font-family:inherit;font-size:.85rem;color:var(--ink);}
+
+.oculto{display:none !important;}
+footer{border-top:1px solid var(--line);padding:16px 0 40px;font-size:.78rem;color:var(--faint);}
+</style>
+</head>
+<body>
+<div class="top"></div>
+<header>
+  <div class="wrap">
+    <div class="hrow">
+      <div>
+        <div class="kicker">Universidad de Santiago de Chile · DIINF</div>
+        <h1>Gestor de tesis</h1>
+        <p class="sub">Completa enlaces y áreas como en una planilla, y guarda para la app</p>
+      </div>
+      <div id="version"></div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- CARGAR -->
+  <section class="card" id="c_cargar">
+    <div class="card-h">
+      <div><h2>1 · Cargar las tesis</h2>
+        <p>El <code>data.js</code> de la carpeta <code>tesis/data</code>, o el Excel, o un CSV.</p></div>
+      <div class="acciones">
+        <button class="btn p" id="btn_archivo">Elegir archivo</button>
+        <button class="btn" id="btn_carpeta">Elegir carpeta tesis</button>
+      </div>
+    </div>
+    <input type="file" id="input_archivo" class="oculto">
+    <div id="aviso_carga"></div>
+  </section>
+
+  <!-- EDITAR -->
+  <section class="card oculto" id="c_editar">
+    <p class="alcance" id="alcance"></p>
+    <div class="kpis" id="kpis"></div>
+    <div class="barra-filtros">
+      <input type="search" id="f_buscar" placeholder="Buscar por estudiante, título o profesor">
+      <select id="f_anio"></select>
+      <select id="f_estado">
+        <option value="">Todas</option>
+        <option value="sin_enlace">Sin enlace</option>
+        <option value="sin_resumen">Sin resumen</option>
+        <option value="sin_area">Sin área</option>
+        <option value="incompleta">Ficha incompleta</option>
+      </select>
+      <span style="flex:1"></span>
+      <span id="conteo" style="font-size:.82rem;color:var(--muted);"></span>
+    </div>
+    <div class="rejilla-caja">
+      <table class="rejilla" id="rejilla">
+        <thead><tr id="cabecera"></tr></thead>
+        <tbody id="cuerpo"></tbody>
+      </table>
+    </div>
+    <div class="pie-rejilla">
+      <span id="pie_info"></span>
+      <div class="acciones">
+        <button class="btn" id="btn_pegar_toggle">Pegar enlaces en bloque</button>
+        <button class="btn p" id="btn_guardar">Guardar</button>
+      </div>
+    </div>
+    <div class="zona-pegar oculto" id="zona_pegar">
+      Pega dos columnas desde Excel: en la primera el nombre del estudiante o el título, en la segunda el
+      enlace o solo el número del repositorio. Una tesis por línea, separadas por tabulación.
+      <textarea id="txt_pegar" placeholder="JUAN PEREZ SOTO&#9;1226582910006116&#10;MARIA LOPEZ DIAZ&#9;https://repositorio.usach.cl/handle/123456789/1234"></textarea>
+      <div class="acciones" style="margin-top:9px;">
+        <button class="btn p" id="btn_pegar_aplicar">Aplicar</button>
+        <button class="btn" id="btn_pegar_cerrar">Cerrar</button>
+      </div>
+      <div id="aviso_pegar"></div>
+    </div>
+  </section>
+
+  <!-- AREAS CON OLLAMA -->
+  <section class="card oculto" id="c_areas">
+    <div class="card-h">
+      <div><h2>2 · Áreas con Ollama</h2>
+        <p>Clasifica las tesis que no tienen área, usando los catálogos que ya están en tus datos.</p></div>
+      <div class="acciones">
+        <button class="btn" id="btn_probar">Probar conexión</button>
+        <button class="btn warn" id="btn_clasificar">Clasificar las que faltan</button>
+      </div>
+    </div>
+    <div class="campos">
+      <label>Servidor<input id="oll_url" value="http://localhost:11434" style="min-width:200px;"></label>
+      <label>Modelo<input id="oll_modelo" value="llama3.1:8b" style="min-width:150px;"></label>
+      <label>Por llamada<input id="oll_lote" type="number" min="1" max="10" value="3" style="width:74px;"></label>
+      <label>En paralelo<input id="oll_par" type="number" min="1" max="12" value="4" style="width:74px;"></label>
+    </div>
+    <div id="oll_estado"></div>
+    <div id="oll_avance" class="oculto">
+      <div class="barra"><div class="barra-in" id="oll_barra"></div></div>
+      <div class="oll-linea"><span id="oll_texto"></span><button class="btn" id="btn_detener">Detener</button></div>
+    </div>
+    <div class="log oculto" id="log"></div>
+  </section>
+
+  <!-- GUARDAR -->
+  <section class="card oculto" id="c_guardar">
+    <div class="card-h">
+      <div><h2>3 · Guardar</h2>
+        <p><code>data.js</code> es el archivo que va en <code>tesis/data</code> de la app.</p></div>
+      <div class="acciones">
+        <button class="btn p" id="btn_datajs">Descargar data.js</button>
+        <button class="btn" id="btn_csv">Descargar CSV</button>
+        <button class="btn" id="btn_escribir">Escribir en la carpeta</button>
+      </div>
+    </div>
+    <div id="aviso_guardar"></div>
+  </section>
+
+</main>
+
+<footer class="wrap">
+  Gestor de tesis · Depto. de Ingeniería Informática · funciona sin conexión y sin librerías externas
+</footer>
+<script>
+/* ==================================================================
+   GESTOR DE TESIS
+   ==================================================================
+   Un archivo, sin librerías. Lee el data.js de la app, el Excel o un CSV,
+   deja editar como planilla, clasifica áreas con Ollama y devuelve el
+   data.js listo para volver a la app.
+   ================================================================== */
+
+const $  = s => document.querySelector(s);
+const $$ = s => [...document.querySelectorAll(s)];
+const esc = s => String(s ?? '').replace(/[&<>"']/g, m =>
+  ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+const miles = n => Number(n || 0).toLocaleString('es-CL');
+const norm = s => String(s ?? '').normalize('NFD').replace(/[\u0300-\u036f]/g,'')
+  .toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
+
+const G = {
+  raiz: null, escritura: false, nodoTesis: null,
+  cabecera: [], filas: [], academicos: null,
+  catalogos: {}, filtro: { buscar:'', anio:'', estado:'' },
+  cambios: 0, nombreOrigen: ''
+};
+
+/* ---------- CSV, respetando comillas y saltos de línea ---------- */
+function parseCsv(texto, sep){
+  const t = String(texto).replace(/^\uFEFF/,'');
+  if (!sep){
+    const l1 = t.split('\n')[0];
+    const c = ch => l1.split(ch).length - 1;
+    sep = [['|',c('|')],[';',c(';')],['\t',c('\t')],[',',c(',')]].sort((a,b)=>b[1]-a[1])[0][0];
+  }
+  const filas = [];
+  let campo = '', fila = [], q = false;
+  for (let i = 0; i < t.length; i++){
+    const ch = t[i];
+    if (q){
+      if (ch === '"' && t[i+1] === '"'){ campo += '"'; i++; }
+      else if (ch === '"') q = false;
+      else campo += ch;
+    } else if (ch === '"') q = true;
+    else if (ch === sep){ fila.push(campo); campo = ''; }
+    else if (ch === '\n'){ fila.push(campo); filas.push(fila); fila = []; campo = ''; }
+    else if (ch !== '\r') campo += ch;
+  }
+  if (campo !== '' || fila.length){ fila.push(campo); filas.push(fila); }
+  const utiles = filas.filter(f => f.some(x => String(x).trim() !== ''));
+  if (!utiles.length) return { cabecera: [], filas: [] };
+  const cab = utiles[0].map(x => String(x).replace(/^\uFEFF/,'').trim());
+  return { cabecera: cab, filas: utiles.slice(1).map(f => {
+    const o = {}; cab.forEach((h,i) => o[h] = (f[i] ?? '').trim()); return o;
+  })};
+}
+
+/* ---------- escribir CSV en el mismo formato que espera la app ---------- */
+function aCsv(cabecera, filas){
+  const celda = v => {
+    const s = String(v ?? '');
+    return /[",\n\r]/.test(s) ? '"' + s.replace(/"/g,'""') + '"' : s;
+  };
+  const L = [cabecera.map(celda).join(',')];
+  for (const f of filas) L.push(cabecera.map(c => celda(f[c] ?? '')).join(','));
+  return L.join('\n') + '\n';
+}
+
+function aDataJs(memorias, academicos){
+  const enc = s => JSON.stringify(s).replace(/</g,'\\u003C').replace(/>/g,'\\u003E');
+  let out = '/* Datos empaquetados por el Gestor de tesis. Se puede volver a editar\n' +
+            '   con la misma herramienta y regenerar este archivo. */\n';
+  out += 'window.MEMORIAS_CSV = ' + enc(memorias) + ';\n';
+  if (academicos) out += 'window.ACADEMICOS_CSV = ' + enc(academicos) + ';\n';
+  return out;
+}
+
+/* ---------- xlsx, que es un ZIP con XML ---------- */
+async function inflateRaw(bytes){
+  const ds = new DecompressionStream('deflate-raw');
+  const st = new Blob([bytes]).stream().pipeThrough(ds);
+  return new Uint8Array(await new Response(st).arrayBuffer());
+}
+const u16 = (b,o) => b[o] | (b[o+1]<<8);
+const u32 = (b,o) => (b[o] | (b[o+1]<<8) | (b[o+2]<<16) | (b[o+3]<<24)) >>> 0;
+
+async function abrirZip(buffer){
+  const b = new Uint8Array(buffer);
+  let eocd = -1;
+  for (let i = b.length-22; i >= 0 && i > b.length-65558; i--)
+    if (u32(b,i) === 0x06054b50){ eocd = i; break; }
+  if (eocd < 0) throw new Error('no parece un xlsx');
+  const n = u16(b, eocd+10);
+  let p = u32(b, eocd+16);
+  const arch = {}, dec = new TextDecoder();
+  for (let k = 0; k < n; k++){
+    if (u32(b,p) !== 0x02014b50) break;
+    const metodo = u16(b,p+10), comp = u32(b,p+20);
+    const nl = u16(b,p+28), el = u16(b,p+30), cl = u16(b,p+32), off = u32(b,p+42);
+    const nombre = dec.decode(b.subarray(p+46, p+46+nl));
+    const lnl = u16(b,off+26), lel = u16(b,off+28);
+    const ini = off + 30 + lnl + lel;
+    arch[nombre] = { metodo, datos: b.subarray(ini, ini+comp) };
+    p += 46 + nl + el + cl;
+  }
+  return {
+    nombres: () => Object.keys(arch),
+    texto: async nom => {
+      const e = arch[nom]; if (!e) return null;
+      return new TextDecoder().decode(e.metodo === 0 ? e.datos : await inflateRaw(e.datos));
+    }
+  };
+}
+const desesc = s => s.replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&quot;/g,'"')
+  .replace(/&apos;/g,"'").replace(/&#(\d+);/g,(m,d)=>String.fromCharCode(+d)).replace(/&amp;/g,'&');
+const colIdx = ref => {
+  const m = /^([A-Z]+)/.exec(ref); if (!m) return 0;
+  let n = 0; for (const ch of m[1]) n = n*26 + (ch.charCodeAt(0)-64);
+  return n-1;
+};
+async function leerXlsx(buffer){
+  const zip = await abrirZip(buffer);
+  const ss = await zip.texto('xl/sharedStrings.xml');
+  const shared = [];
+  if (ss) for (const si of ss.match(/<si[\s>][\s\S]*?<\/si>|<si\/>/g) || [])
+    shared.push(desesc((si.match(/<t[^>]*>([\s\S]*?)<\/t>/g)||[]).map(t=>t.replace(/<[^>]+>/g,'')).join('')));
+  const hojas = zip.nombres().filter(x=>/^xl\/worksheets\/sheet\d+\.xml$/.test(x))
+                             .sort((a,b)=>a.localeCompare(b,undefined,{numeric:true}));
+  if (!hojas.length) throw new Error('el xlsx no tiene hojas');
+  const xml = await zip.texto(hojas[0]);
+  const filas = [];
+  for (const f of xml.match(/<row[\s>][\s\S]*?<\/row>|<row[^>]*\/>/g) || []){
+    const cs = [];
+    for (const c of f.match(/<c[\s>][\s\S]*?<\/c>|<c[^>]*\/>/g) || []){
+      const ref = (/r="([A-Z]+\d+)"/.exec(c)||[,''])[1];
+      const tipo = (/t="([^"]+)"/.exec(c)||[,''])[1];
+      let v = '';
+      if (tipo === 'inlineStr')
+        v = desesc((c.match(/<t[^>]*>([\s\S]*?)<\/t>/g)||[]).map(t=>t.replace(/<[^>]+>/g,'')).join(''));
+      else {
+        const mv = /<v>([\s\S]*?)<\/v>/.exec(c);
+        v = mv ? desesc(mv[1]) : '';
+        if (tipo === 's') v = shared[+v] ?? '';
+      }
+      cs[colIdx(ref)] = v;
+    }
+    for (let i=0;i<cs.length;i++) if (cs[i]===undefined) cs[i]='';
+    filas.push(cs);
+  }
+  if (!filas.length) return { cabecera:[], filas:[] };
+  const cab = filas[0].map(x=>String(x).trim());
+  return { cabecera: cab, filas: filas.slice(1)
+    .filter(f=>f.some(x=>String(x).trim()!==''))
+    .map(f=>{ const o={}; cab.forEach((h,i)=>o[h]=String(f[i]??'').trim()); return o; })};
+}
+
+/* ---------- lector universal, decide por los primeros bytes ---------- */
+async function leerArchivo(file){
+  const buf = await file.arrayBuffer();
+  const b = new Uint8Array(buf);
+  const nom = file.name || 'el archivo';
+
+  if (b[0] === 0x50 && b[1] === 0x4B){
+    try { return { ...(await leerXlsx(buf)), origen: nom }; }
+    catch(e){ throw new Error(`${nom}: parece un xlsx y no pude abrirlo (${e.message})`); }
+  }
+  if (b[0] === 0xD0 && b[1] === 0xCF)
+    throw new Error(`${nom} es un Excel antiguo binario. Ábrelo y guárdalo como .xlsx o como CSV.`);
+
+  const texto = new TextDecoder('utf-8').decode(b);
+
+  /* data.js de la app: trae el CSV dentro de una cadena JavaScript */
+  if (/window\.\w*MEMORIAS\w*_CSV\s*=/.test(texto)){
+    const saca = re => {
+      const m = re.exec(texto);
+      if (!m) return null;
+      try { return JSON.parse(m[1]); } catch(e){ return null; }
+    };
+    const mem = saca(/window\.MEMORIAS_CSV\s*=\s*("(?:[^"\\]|\\.)*")/);
+    const aca = saca(/window\.ACADEMICOS_CSV\s*=\s*("(?:[^"\\]|\\.)*")/);
+    if (!mem) throw new Error(`${nom}: encontré MEMORIAS_CSV y no pude leer su contenido`);
+    const r = parseCsv(mem, ',');
+    return { ...r, academicos: aca, origen: nom };
+  }
+
+  const r = parseCsv(texto);
+  if (r.cabecera.length < 3)
+    throw new Error(`${nom}: no le encuentro columnas. Se esperaba un data.js, un xlsx o un CSV.`);
+  return { ...r, origen: nom };
+}
+
+
+/* ==================================================================
+   La rejilla editable
+   ==================================================================
+   Columnas que se editan: el enlace y las tres de área. El resto se
+   muestra fijo, porque el objetivo es completar lo que falta, no
+   reescribir los datos de cada tesis.
+   ================================================================== */
+
+const COL_ENLACE = 'ENLACE';
+const COLS_AREA = ['AREA_APLICACION', 'AREA_CONOCIMIENTO', 'AREA_SWEBOK'];
+
+/* Los catálogos NO se inventan: se sacan de los valores que ya están en
+   los datos, así que si mañana cambias la taxonomía, la herramienta la
+   toma sola. */
+function armarCatalogos(){
+  G.catalogos = {};
+  for (const c of COLS_AREA){
+    if (!G.cabecera.includes(c)) continue;
+    const vals = [...new Set(G.filas.map(f => String(f[c] || '').trim()).filter(Boolean))];
+    /* orden por el número entre paréntesis cuando lo tienen */
+    vals.sort((a,b) => {
+      const na = +(/^\((\d+)\)/.exec(a) || [,999])[1];
+      const nb = +(/^\((\d+)\)/.exec(b) || [,999])[1];
+      return na - nb || a.localeCompare(b, 'es');
+    });
+    G.catalogos[c] = vals;
+  }
+}
+
+const enlaceValido = v => /^https?:\/\/\S+$/i.test(String(v || '').trim());
+
+/* Un número suelto del repositorio se convierte en la dirección completa.
+   Los enlaces que ya tienes son casi todos de esta forma, así que pegar
+   solo el número es lo más rápido. */
+function normalizarEnlace(v){
+  const s = String(v || '').trim();
+  if (!s) return '';
+  if (/^https?:\/\//i.test(s)) return s;
+  if (/^\d{10,}$/.test(s))
+    return 'https://usach.primo.exlibrisgroup.com/discovery/delivery/56USACH_INST:REPOSITORIO/' + s;
+  if (/^\d+\/\d+$/.test(s) || /^handle\//i.test(s))
+    return 'https://repositorio.usach.cl/handle/' + s.replace(/^handle\//i,'');
+  if (/^www\./i.test(s)) return 'https://' + s;
+  return s;
+}
+
+const sinArea = f => COLS_AREA.some(c => G.cabecera.includes(c) && !String(f[c]||'').trim());
+const incompleta = f => ['TITULO','ANIO PUBLICACION','PROFESOR GUIA']
+  .some(c => G.cabecera.includes(c) && !String(f[c]||'').trim());
+
+function visibles(){
+  const q = norm(G.filtro.buscar);
+  return G.filas.filter((f, i) => {
+    if (G.filtro.anio && String(f['ANIO PUBLICACION']||'').trim() !== G.filtro.anio) return false;
+    const e = G.filtro.estado;
+    if (e === 'sin_enlace' && enlaceValido(f[COL_ENLACE])) return false;
+    if (e === 'sin_resumen' && String(f.RESUMEN||'').trim()) return false;
+    if (e === 'sin_area' && !sinArea(f)) return false;
+    if (e === 'incompleta' && !incompleta(f)) return false;
+    if (q){
+      const heno = norm([f.ESTUDIANTE, f.TITULO, f['PROFESOR GUIA'], f['PROFESOR COGUIA']].join(' '));
+      if (!heno.includes(q)) return false;
+    }
+    return true;
+  });
+}
+
+function pintarKpis(){
+  const t = G.filas.length;
+  const conEnlace = G.filas.filter(f => enlaceValido(f[COL_ENLACE])).length;
+  const conResumen = G.filas.filter(f => String(f.RESUMEN||'').trim()).length;
+  const conArea = G.filas.filter(f => !sinArea(f)).length;
+  const incom = G.filas.filter(f => incompleta(f)).length;
+
+  const tarjeta = (k, v, sub, clase, filtro) =>
+    `<div class="kpi ${clase}${G.filtro.estado===filtro?' on':''}" data-filtro="${filtro||''}">
+       <div class="k">${k}</div><div class="v">${miles(v)}</div>
+       <div class="s" style="font-size:.74rem;color:var(--muted);margin-top:4px;">${sub}</div></div>`;
+
+  $('#kpis').innerHTML =
+    tarjeta('Tesis', t, 'en total', '', '') +
+    tarjeta('Sin enlace', t - conEnlace, `${miles(conEnlace)} ya tienen`, t-conEnlace?'falta':'ok', 'sin_enlace') +
+    tarjeta('Sin resumen', t - conResumen, `${miles(conResumen)} ya tienen`, t-conResumen?'falta':'ok', 'sin_resumen') +
+    tarjeta('Sin área', t - conArea, `${miles(conArea)} ya tienen`, t-conArea?'falta':'ok', 'sin_area') +
+    tarjeta('Ficha incompleta', incom, 'sin título, año o guía', incom?'falta':'ok', 'incompleta');
+
+  $$('#kpis .kpi').forEach(k => k.onclick = () => {
+    const f = k.dataset.filtro;
+    G.filtro.estado = (G.filtro.estado === f) ? '' : f;
+    $('#f_estado').value = G.filtro.estado;
+    pintarTodo();
+  });
+}
+
+function pintarAlcance(){
+  const t = G.filas.length, v = visibles().length;
+  const partes = [];
+  if (G.filtro.anio) partes.push('año ' + G.filtro.anio);
+  if (G.filtro.estado) partes.push($('#f_estado').selectedOptions[0].textContent.toLowerCase());
+  if (G.filtro.buscar) partes.push('buscando "' + G.filtro.buscar + '"');
+  $('#alcance').innerHTML =
+    `Mostrando <b>${miles(v)}</b> de ${miles(t)} tesis` +
+    (partes.length ? ' · ' + partes.join(' · ') : ' · sin filtros') +
+    (G.cambios ? ` · <b>${miles(G.cambios)}</b> cambio(s) sin guardar` : '');
+}
+
+const COLS_FIJAS = [
+  ['ESTUDIANTE', 'Estudiante', 'fija'],
+  ['ANIO PUBLICACION', 'Año', 'num'],
+  ['TITULO', 'Título', 'titulo'],
+  ['PROFESOR GUIA', 'Guía', 'fija']
+];
+
+function pintarRejilla(){
+  const filas = visibles();
+  const tope = 400;
+  const muestra = filas.slice(0, tope);
+
+  $('#cabecera').innerHTML =
+    COLS_FIJAS.filter(c => G.cabecera.includes(c[0])).map(c => `<th>${c[1]}</th>`).join('') +
+    `<th style="min-width:280px;">Enlace</th><th style="width:30px;"></th>` +
+    COLS_AREA.filter(c => G.cabecera.includes(c))
+      .map(c => `<th style="min-width:190px;">${c.replace('AREA_','Área ').toLowerCase()}</th>`).join('');
+
+  $('#cuerpo').innerHTML = muestra.map(f => {
+    const i = G.filas.indexOf(f);
+    const enl = String(f[COL_ENLACE] || '');
+    const claseEnl = !enl.trim() ? 'vacio' : (enlaceValido(enl) ? '' : 'malo');
+    const fijas = COLS_FIJAS.filter(c => G.cabecera.includes(c[0]))
+      .map(([c,, cls]) => `<td><div class="celda ${cls}">${esc(String(f[c]||'').slice(0,150))}</div></td>`).join('');
+    const areas = COLS_AREA.filter(c => G.cabecera.includes(c)).map(c => {
+      const val = String(f[c] || '');
+      const ops = ['<option value=""></option>'].concat(
+        (G.catalogos[c] || []).map(o =>
+          `<option value="${esc(o)}"${o===val?' selected':''}>${esc(o)}</option>`));
+      if (val && !(G.catalogos[c]||[]).includes(val))
+        ops.push(`<option value="${esc(val)}" selected>${esc(val)}</option>`);
+      return `<td class="edit"><select data-i="${i}" data-c="${esc(c)}">${ops.join('')}</select></td>`;
+    }).join('');
+    return `<tr>${fijas}
+      <td class="edit"><input class="${claseEnl}" data-i="${i}" data-c="${COL_ENLACE}"
+        value="${esc(enl)}" placeholder="pega el enlace o solo el número del repositorio"></td>
+      <td><a class="ver ${enlaceValido(enl)?'':'off'}" href="${enlaceValido(enl)?esc(enl):'#'}"
+        target="_blank" rel="noopener" title="Abrir">↗</a></td>
+      ${areas}</tr>`;
+  }).join('') || `<tr><td colspan="9"><div class="celda" style="color:var(--muted);padding:18px;">Nada que mostrar con este filtro.</div></td></tr>`;
+
+  $('#pie_info').textContent = filas.length > tope
+    ? `Mostrando las primeras ${tope} de ${miles(filas.length)}. Filtra para ver el resto.`
+    : `${miles(filas.length)} tesis en pantalla.`;
+  $('#conteo').textContent = `${miles(filas.length)} de ${miles(G.filas.length)}`;
+
+  /* editar una celda */
+  $$('#cuerpo input[data-c], #cuerpo select[data-c]').forEach(el => {
+    const guardar = () => {
+      const i = +el.dataset.i, c = el.dataset.c;
+      let v = el.value;
+      if (c === COL_ENLACE){
+        const antes = v;
+        v = normalizarEnlace(v);
+        if (v !== antes) el.value = v;
+        el.className = !v.trim() ? 'vacio' : (enlaceValido(v) ? '' : 'malo');
+        const a = el.closest('tr').querySelector('.ver');
+        if (a){ a.href = enlaceValido(v) ? v : '#'; a.className = 'ver ' + (enlaceValido(v)?'':'off'); }
+      }
+      if (String(G.filas[i][c] ?? '') === v) return;
+      G.filas[i][c] = v;
+      G.cambios++;
+      pintarKpis(); pintarAlcance();
+    };
+    el.addEventListener('change', guardar);
+    if (el.tagName === 'INPUT'){
+      el.addEventListener('blur', guardar);
+      el.addEventListener('keydown', e => {
+        if (e.key === 'Enter'){
+          guardar();
+          const tds = $$('#cuerpo input[data-c="' + COL_ENLACE + '"]');
+          const k = tds.indexOf(el);
+          if (k >= 0 && tds[k+1]) tds[k+1].focus();
+        }
+      });
+    }
+  });
+}
+
+function pintarFiltroAnio(){
+  const anios = [...new Set(G.filas.map(f => String(f['ANIO PUBLICACION']||'').trim())
+    .filter(a => /^\d{4}$/.test(a)))].sort().reverse();
+  $('#f_anio').innerHTML = '<option value="">Todos los años</option>' +
+    anios.map(a => `<option value="${a}"${G.filtro.anio===a?' selected':''}>${a}</option>`).join('');
+}
+
+function pintarTodo(){
+  pintarKpis(); pintarAlcance(); pintarRejilla();
+}
+
+/* ---------- pegar en bloque desde Excel ---------- */
+function aplicarPegado(){
+  const texto = $('#txt_pegar').value;
+  const lineas = texto.split('\n').map(l => l.replace(/\r$/,'')).filter(l => l.trim());
+  if (!lineas.length){ $('#aviso_pegar').innerHTML = '<div class="aviso w">No pegaste nada.</div>'; return; }
+
+  /* índice por estudiante y por título, para poder pegar con cualquiera */
+  const porClave = new Map();
+  G.filas.forEach((f, i) => {
+    for (const c of ['ESTUDIANTE','TITULO']){
+      const k = norm(f[c]);
+      if (k && !porClave.has(k)) porClave.set(k, i);
+    }
+  });
+
+  let ok = 0; const noEncontrados = [], malos = [];
+  for (const l of lineas){
+    const partes = l.split('\t').length > 1 ? l.split('\t') : l.split(/\s{2,}|;/);
+    if (partes.length < 2){ malos.push(l.slice(0,60)); continue; }
+    const clave = norm(partes[0]);
+    const enl = normalizarEnlace(partes.slice(1).join(' ').trim());
+    const i = porClave.get(clave);
+    if (i === undefined){ noEncontrados.push(partes[0].slice(0,44)); continue; }
+    if (!enlaceValido(enl)){ malos.push(l.slice(0,60)); continue; }
+    if (String(G.filas[i][COL_ENLACE] ?? '') !== enl){ G.filas[i][COL_ENLACE] = enl; G.cambios++; }
+    ok++;
+  }
+
+  $('#aviso_pegar').innerHTML =
+    `<div class="aviso ${ok ? (noEncontrados.length||malos.length ? 'w' : 'i') : 'e'}">` +
+    `<b>${ok} enlace(s) puestos.</b>` +
+    (noEncontrados.length ? `<br>No encontré a: ${noEncontrados.slice(0,6).map(esc).join(' · ')}` +
+      (noEncontrados.length>6 ? ` y ${noEncontrados.length-6} más` : '') : '') +
+    (malos.length ? `<br>No pude leer ${malos.length} línea(s): ${esc(malos[0])}` : '') +
+    '</div>';
+  pintarTodo();
+}
+
+
+/* ==================================================================
+   Áreas con Ollama
+   ==================================================================
+   Mismo enfoque que en el procesador de publicaciones, con lo aprendido:
+
+     se negocia qué parámetros acepta el servidor antes de empezar
+     se pide la etiqueta por NÚMERO, que es mucho menos texto que generar
+     el calce con el catálogo es tolerante: número suelto, sin acentos,
+       sin el prefijo, o contenido dentro del nombre
+     hay rondas de reintento, cambiando la estrategia en cada una
+     lo que el modelo no resuelva queda pendiente, no se inventa
+   ================================================================== */
+
+const OLL = { detener:false, modelos:[], seguidasMal:0 };
+
+function logear(t, tipo){
+  $('#log').classList.remove('oculto');
+  const d = document.createElement('div');
+  d.innerHTML = `<span class="h">${new Date().toLocaleTimeString('es-CL')}</span><span class="${tipo||''}">${t}</span>`;
+  $('#log').appendChild(d);
+  $('#log').scrollTop = $('#log').scrollHeight;
+}
+
+function cuerpoOllama(modelo, prompt, temp, tope, opc){
+  const c = { model: modelo, prompt, stream:false, keep_alive:'30m',
+              options:{ temperature: temp, num_predict: tope } };
+  if (opc && opc.formato) c.format = 'json';
+  if (opc && opc.think === false) c.think = false;
+  return c;
+}
+
+async function probarOllama(){
+  const url = ($('#oll_url').value.trim() || 'http://localhost:11434').replace(/\/$/,'');
+  const poner = (h, t) => $('#oll_estado').innerHTML = `<div class="aviso ${t}">${h}</div>`;
+  try {
+    const r = await fetch(url + '/api/tags');
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    const j = await r.json();
+    OLL.modelos = (j.models || []).map(m => m.name);
+    const eleg = $('#oll_modelo').value.trim();
+    const hay = OLL.modelos.some(m => m === eleg || m.split(':')[0] === eleg.split(':')[0]);
+    poner(`<b>Conectado.</b> ${OLL.modelos.length} modelo(s): ${OLL.modelos.map(esc).join(', ')}` +
+      (hay ? '' : `<br><br><b>Ojo:</b> <span style="font-family:monospace">${esc(eleg)}</span> no está en la lista.`),
+      hay ? 'i' : 'w');
+    return { ok:true };
+  } catch(e){
+    poner(`<b>No pude conectarme a Ollama en ${esc(url)}.</b><br><br>` +
+      `Este archivo se abre con doble clic, así que Ollama lo rechaza por defecto. En PowerShell:` +
+      `<div style="font-family:monospace;padding:8px;margin:8px 0;background:var(--soft);border-radius:6px;">setx OLLAMA_ORIGINS "*"</div>` +
+      `Después sal de Ollama desde el icono de la bandeja, ábrelo de nuevo y vuelve a probar.<br><br>` +
+      `Las áreas son opcionales: puedes guardar los enlaces igual.`, 'e');
+    return { ok:false };
+  }
+}
+
+async function negociar(url, modelo){
+  const intentos = [
+    { think:false, formato:true,  nombre:'con salida JSON y sin razonamiento' },
+    { think:null,  formato:true,  nombre:'con salida JSON' },
+    { think:false, formato:false, nombre:'sin salida JSON' },
+    { think:null,  formato:false, nombre:'básico' }
+  ];
+  for (const it of intentos){
+    try {
+      const ctl = new AbortController();
+      const corte = setTimeout(() => ctl.abort(), 300000);
+      const r = await fetch(url + '/api/generate', {
+        method:'POST', headers:{'Content-Type':'application/json'}, signal: ctl.signal,
+        body: JSON.stringify(cuerpoOllama(modelo, 'Responde {"ok":1}', 0, 16, it))
+      });
+      clearTimeout(corte);
+      if (r.ok){ await r.json(); return { ...it, ok:true }; }
+      if (r.status >= 400 && r.status < 500){
+        let det = ''; try { det = (await r.json()).error || ''; } catch(e){}
+        logear(`Tu Ollama rechazó la llamada ${it.nombre} (HTTP ${r.status}` +
+               (det ? ': ' + esc(String(det).slice(0,70)) : '') + '). Pruebo más simple.', 'w');
+        continue;
+      }
+      return { ok:false, error:'HTTP ' + r.status };
+    } catch(e){
+      return { ok:false, error: e.name === 'AbortError' ? 'no contestó en 5 minutos' : e.message };
+    }
+  }
+  return { ok:false, error:'ninguna combinación funcionó' };
+}
+
+/* ---------- calce tolerante contra el catálogo ---------- */
+function calzar(valor, catalogo){
+  const v = String(valor ?? '').trim();
+  if (!v) return null;
+  let hit = catalogo.find(a => a === v);                       if (hit) return hit;
+  const nv = norm(v);
+  hit = catalogo.find(a => norm(a) === nv);                    if (hit) return hit;
+  const num = (v.match(/\b(\d{1,2})\b/) || [])[1];
+  if (num){
+    hit = catalogo.find(a => +(/^\((\d+)\)/.exec(a) || [,-1])[1] === +num);
+    if (hit){
+      const resto = norm(v.replace(/^\D*\d{1,2}\D*/, ''));
+      const nombre = norm(hit.replace(/^\(\d+\)\s*/, ''));
+      if (!resto || nombre.includes(resto) || resto.includes(nombre)) return hit;
+    }
+  }
+  const solo = norm(v.replace(/^\(\d+\)\s*/, ''));
+  if (solo){
+    hit = catalogo.find(a => norm(a.replace(/^\(\d+\)\s*/, '')) === solo);
+    if (hit) return hit;
+    if (solo.length >= 5){
+      let mejor = null, largo = 0;
+      for (const a of catalogo){
+        const na = norm(a.replace(/^\(\d+\)\s*/, ''));
+        if (na.length < 5) continue;
+        if (na.includes(solo) || solo.includes(na)){
+          const cuanto = Math.min(na.length, solo.length);
+          if (cuanto > largo){ mejor = a; largo = cuanto; }
+        }
+      }
+      if (mejor) return mejor;
+    }
+  }
+  return null;
+}
+
+const CLAVE_COL = { AREA_APLICACION:'aplicacion', AREA_CONOCIMIENTO:'conocimiento', AREA_SWEBOK:'swebok' };
+
+function promptLote(grupo, cfg){
+  const cols = COLS_AREA.filter(c => G.cabecera.includes(c) && (G.catalogos[c]||[]).length);
+  const textos = grupo.map((f, i) =>
+    `[${i+1}] Título: ${String(f.TITULO||'').slice(0,180)}\n` +
+    `    Resumen: ${String(f.RESUMEN||'(sin resumen)').replace(/\s+/g,' ').slice(0,600)}\n` +
+    `    Palabras clave: ${String(f.KEYWORDS||'').slice(0,160)}`).join('\n\n');
+
+  const num = a => (/^\((\d+)\)/.exec(a) || [,'?'])[1];
+  const listas = cols.map(c =>
+    `${c.replace('AREA_','ÁREA ')}, elige un número:\n` +
+    G.catalogos[c].map(a => num(a) + ' = ' + a.replace(/^\(\d+\)\s*/,'')).join('\n')).join('\n\n');
+
+  const claves = cols.map(c => `"${CLAVE_COL[c]}":"<numero>"`).join(',');
+
+  return `Clasifica estas ${grupo.length} tesis de ingeniería.
+
+${textos}
+
+Para CADA una elige obligatoriamente un número de cada lista, el que más se acerque.
+
+${listas}
+
+Responde SOLO este JSON y nada más:
+{"r":[${grupo.map((f,i) => `{"n":${i+1},${claves}}`).join(',')}]}`;
+}
+
+function aplicarLote(grupo, texto){
+  let j;
+  try { j = JSON.parse(String(texto).replace(/```json|```/g,'').trim()); }
+  catch(e){ return { ok:0 }; }
+  let arr = Array.isArray(j) ? j : (j.r || j.resultados || Object.values(j).find(v => Array.isArray(v)));
+  if (!arr) arr = j.aplicacion || j.conocimiento ? [j] : null;
+  if (!arr) return { ok:0 };
+
+  let ok = 0;
+  arr.forEach((item, i) => {
+    if (!item || typeof item !== 'object') return;
+    const k = Number.isInteger(+item.n) ? (+item.n - 1) : i;
+    const f = grupo[k];
+    if (!f) return;
+    let puso = false;
+    for (const c of COLS_AREA){
+      if (!G.cabecera.includes(c) || !(G.catalogos[c]||[]).length) continue;
+      if (String(f[c]||'').trim()) continue;          /* no se pisa lo que ya tenías */
+      const hit = calzar(item[CLAVE_COL[c]], G.catalogos[c]);
+      if (hit){ f[c] = hit; G.cambios++; puso = true; }
+    }
+    if (puso) ok++;
+  });
+  return { ok };
+}
+
+async function clasificarAreas(){
+  const pend = G.filas.filter(f => sinArea(f) &&
+    (String(f.TITULO||'').trim() || String(f.RESUMEN||'').trim()));
+  if (!pend.length){
+    $('#oll_estado').innerHTML = '<div class="aviso i">Todas las tesis con título ya tienen sus áreas.</div>';
+    return;
+  }
+  if (!(await probarOllama()).ok) return;
+
+  const url = ($('#oll_url').value.trim() || 'http://localhost:11434').replace(/\/$/,'');
+  const modelo = $('#oll_modelo').value.trim() || 'llama3.1:8b';
+  const loteBase = Math.max(1, Math.min(10, +$('#oll_lote').value || 3));
+  const paralelo = Math.max(1, Math.min(12, +$('#oll_par').value || 4));
+
+  logear('Probando qué acepta tu Ollama y cargando el modelo. La primera vez tarda.');
+  const opc = await negociar(url, modelo);
+  if (!opc.ok){
+    logear('No pude hacer ni una clasificación de prueba: ' + esc(opc.error||''), 'e');
+    $('#oll_estado').innerHTML =
+      `<div class="aviso e"><b>Ollama responde pero no genera.</b><br>Falló con: ${esc(opc.error||'')}` +
+      `<br><br>Prueba con un modelo más chico.</div>`;
+    return;
+  }
+  logear(`Tu Ollama acepta llamadas ${opc.nombre}.`, 'ok');
+
+  const RONDAS = [
+    { lote: loteBase, temp: 0,   nombre:'primera pasada' },
+    { lote: 1,        temp: 0,   nombre:'de a una' },
+    { lote: 1,        temp: 0.4, nombre:'de a una, con otra semilla' }
+  ];
+
+  OLL.detener = false; OLL.seguidasMal = 0;
+  $('#btn_clasificar').disabled = true;
+  $('#oll_avance').classList.remove('oculto');
+
+  const total = pend.length;
+  let hechas = 0, listas = 0, fallidas = 0, ronda = 0, cortado = false;
+  const t0 = Date.now();
+  let esperaMax = 360000, masLenta = 0;
+
+  const reloj = s => {
+    s = Math.max(0, Math.round(s));
+    const h = Math.floor(s/3600), m = Math.floor((s%3600)/60);
+    return h ? `${h} h ${String(m).padStart(2,'0')} min` : (m ? `${m} min` : `${s} s`);
+  };
+  const avance = estado => {
+    const faltan = G.filas.filter(f => sinArea(f) && pend.includes(f)).length;
+    const hec = total - faltan;
+    const pct = Math.round(hec / total * 100);
+    $('#oll_barra').style.width = pct + '%';
+    const t = (Date.now()-t0)/1000;
+    let txt = `${miles(hec)} de ${miles(total)} · ${pct}%`;
+    if (ronda > 1) txt += ` · ronda ${ronda} de ${RONDAS.length}`;
+    if (hechas >= 3) txt += ` · llevo ${reloj(t)}` + (faltan ? `, faltan unos ${reloj(t/hechas*faltan)}` : '');
+    else if (estado) txt += ` · ${estado}`;
+    if (fallidas) txt += ` · ${fallidas} sin respuesta`;
+    $('#oll_texto').textContent = txt;
+  };
+  avance('la primera llamada carga el modelo, puede tardar');
+
+  const unGrupo = async (grupo, cfg) => {
+    if (cortado || OLL.detener) return;
+    const ctl = new AbortController();
+    const corte = setTimeout(() => ctl.abort(), esperaMax);
+    const t1 = Date.now();
+    try {
+      const r = await fetch(url + '/api/generate', {
+        method:'POST', headers:{'Content-Type':'application/json'}, signal: ctl.signal,
+        body: JSON.stringify(cuerpoOllama(modelo, promptLote(grupo, cfg), cfg.temp,
+          40 + 30*grupo.length, opc))
+      });
+      clearTimeout(corte);
+      if (!r.ok){
+        let det = ''; try { det = (await r.json()).error || ''; } catch(e2){}
+        throw new Error('HTTP ' + r.status + (det ? ': ' + String(det).slice(0,70) : ''));
+      }
+      masLenta = Math.max(masLenta, Date.now()-t1);
+      esperaMax = Math.min(900000, Math.max(180000, masLenta*4));
+      const j = await r.json();
+      const res = aplicarLote(grupo, j.response);
+      listas += res.ok;
+      OLL.seguidasMal = 0;
+    } catch(e){
+      clearTimeout(corte);
+      fallidas += grupo.length; OLL.seguidasMal++;
+      const msg = e.name === 'AbortError'
+        ? `una llamada pasó de ${Math.round(esperaMax/60000)} minutos y la abandoné`
+        : e.message;
+      if (OLL.seguidasMal <= 2) logear('Ollama: ' + esc(msg), 'e');
+      if (OLL.seguidasMal >= 5 && !cortado){
+        cortado = true;
+        logear('Corté después de 5 llamadas seguidas sin respuesta.', 'e');
+        await probarOllama();
+      }
+    }
+    hechas += grupo.length;
+    avance();
+    pintarKpis(); pintarAlcance();
+  };
+
+  for (let ri = 0; ri < RONDAS.length && !cortado && !OLL.detener; ri++){
+    const cfg = RONDAS[ri];
+    const quedan = pend.filter(f => sinArea(f));
+    if (!quedan.length) break;
+    ronda = ri + 1;
+    if (ri > 0) logear(`Ronda ${ronda}: quedaron ${miles(quedan.length)}, las reintento ${cfg.nombre}.`, 'w');
+    const grupos = [];
+    for (let i = 0; i < quedan.length; i += cfg.lote) grupos.push(quedan.slice(i, i+cfg.lote));
+    for (let i = 0; i < grupos.length && !cortado && !OLL.detener; i += paralelo)
+      await Promise.all(grupos.slice(i, i+paralelo).map(g => unGrupo(g, cfg)));
+  }
+
+  const faltan = pend.filter(f => sinArea(f)).length;
+  $('#oll_barra').style.width = '100%';
+  $('#oll_texto').textContent =
+    `${OLL.detener ? 'Detenido' : 'Listo'}. ${miles(total-faltan)} de ${miles(total)} clasificadas en ${reloj((Date.now()-t0)/1000)}.`;
+  logear(`${OLL.detener ? 'Detuviste' : 'Terminó'}. ${miles(total-faltan)} de ${miles(total)} quedaron con área.` +
+         (faltan ? ` Faltan ${miles(faltan)}, el mismo botón sigue con esas.` : ''), faltan ? 'w' : 'ok');
+  $('#btn_clasificar').disabled = false;
+  pintarTodo();
+}
+
+/* ==================================================================
+   Guardar
+   ================================================================== */
+function descargar(nombre, texto){
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([texto], {type:'text/plain;charset=utf-8'}));
+  a.download = nombre; a.click();
+  setTimeout(() => URL.revokeObjectURL(a.href), 3000);
+}
+
+const csvActual = () => aCsv(G.cabecera, G.filas);
+
+async function escribirEnCarpeta(){
+  if (!G.escritura || !G.nodoTesis){
+    $('#aviso_guardar').innerHTML =
+      '<div class="aviso w">Para escribir en la carpeta hay que abrirla con <b>Elegir carpeta tesis</b>, en Chrome o Edge.</div>';
+    return;
+  }
+  try {
+    const dir = await G.nodoTesis.getDirectoryHandle('data', {create:true});
+    const h = await dir.getFileHandle('data.js', {create:true});
+    const w = await h.createWritable();
+    await w.write(aDataJs(csvActual(), G.academicos));
+    await w.close();
+    G.cambios = 0; pintarAlcance();
+    $('#aviso_guardar').innerHTML =
+      '<div class="aviso i"><b>Guardado en tesis/data/data.js.</b> Recarga la app para verlo.</div>';
+  } catch(e){
+    $('#aviso_guardar').innerHTML = `<div class="aviso e">No pude escribir: ${esc(e.message)}</div>`;
+  }
+}
+
+
+/* ==================================================================
+   Carga y eventos
+   ================================================================== */
+
+const TIENE_FS = 'showDirectoryPicker' in window;
+
+async function cargarDesdeArchivo(file){
+  $('#aviso_carga').innerHTML = '<div class="aviso i">Leyendo…</div>';
+  try {
+    const r = await leerArchivo(file);
+    if (!r.cabecera.includes('ESTUDIANTE') && !r.cabecera.includes('TITULO'))
+      throw new Error('no parece el archivo de tesis: no encontré las columnas ESTUDIANTE ni TITULO');
+    G.cabecera = r.cabecera;
+    G.filas = r.filas;
+    G.academicos = r.academicos || G.academicos;
+    G.nombreOrigen = r.origen || file.name;
+    G.cambios = 0;
+    armarCatalogos();
+    const faltanArea = COLS_AREA.filter(c => !G.cabecera.includes(c));
+    $('#aviso_carga').innerHTML =
+      `<div class="aviso i"><b>${esc(G.nombreOrigen)}</b>: ${miles(G.filas.length)} tesis, ${G.cabecera.length} columnas.` +
+      (faltanArea.length ? `<br>No trae ${faltanArea.join(', ')}, así que esas áreas no se pueden editar.` : '') +
+      '</div>';
+    $('#c_editar').classList.remove('oculto');
+    $('#c_areas').classList.remove('oculto');
+    $('#c_guardar').classList.remove('oculto');
+    pintarFiltroAnio(); pintarTodo();
+  } catch(e){
+    $('#aviso_carga').innerHTML = `<div class="aviso e"><b>No pude leerlo.</b> ${esc(e.message)}</div>`;
+  }
+}
+
+async function elegirCarpeta(){
+  if (!TIENE_FS){
+    $('#aviso_carga').innerHTML =
+      '<div class="aviso w">Tu navegador no puede abrir carpetas. Usa <b>Elegir archivo</b>, que funciona igual, ' +
+      'solo que el resultado se descarga en vez de guardarse en la carpeta.</div>';
+    return;
+  }
+  try {
+    const dir = await window.showDirectoryPicker({ mode:'readwrite' });
+    G.raiz = dir; G.escritura = true; G.nodoTesis = dir;
+    /* buscar data/data.js dentro */
+    let datos = null;
+    for await (const [nombre, h] of dir.entries()){
+      if (h.kind === 'directory' && /^data$/i.test(nombre)){
+        for await (const [n2, h2] of h.entries())
+          if (/^data\.js$/i.test(n2)) datos = h2;
+      }
+      if (h.kind === 'file' && /^data\.js$/i.test(nombre)) datos = h;
+    }
+    if (!datos) throw new Error('no encontré data/data.js dentro de esa carpeta. ¿Elegiste la carpeta tesis?');
+    await cargarDesdeArchivo(await datos.getFile());
+  } catch(e){
+    if (e.name === 'AbortError') return;
+    $('#aviso_carga').innerHTML = `<div class="aviso e">${esc(e.message)}</div>`;
+  }
+}
+
+/* ---------- eventos, uno por uno y con comprobación al final ---------- */
+const CONTROLES = [
+  ['btn_archivo',      'click',  () => $('#input_archivo').click()],
+  ['input_archivo',    'change', e => { const f = e.target.files[0]; e.target.value=''; if (f) cargarDesdeArchivo(f); }],
+  ['btn_carpeta',      'click',  () => elegirCarpeta()],
+  ['f_buscar',         'input',  e => { G.filtro.buscar = e.target.value; pintarTodo(); }],
+  ['f_anio',           'change', e => { G.filtro.anio = e.target.value; pintarTodo(); }],
+  ['f_estado',         'change', e => { G.filtro.estado = e.target.value; pintarTodo(); }],
+  ['btn_pegar_toggle', 'click',  () => $('#zona_pegar').classList.toggle('oculto')],
+  ['btn_pegar_aplicar','click',  () => aplicarPegado()],
+  ['btn_pegar_cerrar', 'click',  () => $('#zona_pegar').classList.add('oculto')],
+  ['btn_guardar',      'click',  () => { $('#c_guardar').scrollIntoView({behavior:'smooth'}); }],
+  ['btn_probar',       'click',  () => probarOllama()],
+  ['btn_clasificar',   'click',  () => clasificarAreas()],
+  ['btn_detener',      'click',  () => { OLL.detener = true; $('#oll_texto').textContent = 'Deteniendo…'; }],
+  ['btn_datajs',       'click',  () => { descargar('data.js', aDataJs(csvActual(), G.academicos)); G.cambios = 0; pintarAlcance(); }],
+  ['btn_csv',          'click',  () => { descargar('memorias.csv', csvActual()); }],
+  ['btn_escribir',     'click',  () => escribirEnCarpeta()]
+];
+
+const problemas = [];
+for (const [id, ev, fn] of CONTROLES){
+  const el = document.getElementById(id);
+  if (!el){ problemas.push(id); continue; }
+  el.addEventListener(ev, e => {
+    try { fn(e); }
+    catch(err){ console.error(id, err); alert('Algo falló en este control.\n\n' + err.message); }
+  });
+}
+
+document.getElementById('version').textContent = 'versión 2026-07-27 00:20';
+
+if (problemas.length){
+  const d = document.createElement('div');
+  d.className = 'aviso e';
+  d.style.cssText = 'margin:14px auto;width:min(1500px,calc(100% - 32px));';
+  d.innerHTML = '<b>Estos controles no van a responder:</b> ' + problemas.join(', ');
+  document.querySelector('main').prepend(d);
+  console.error('controles muertos:', problemas);
+} else {
+  console.info('Los ' + CONTROLES.length + ' controles están conectados.');
+}
+
+/* avisar antes de perder cambios */
+window.addEventListener('beforeunload', e => {
+  if (G.cambios){ e.preventDefault(); e.returnValue = ''; }
+});
+
+</script>
+</body>
+</html>

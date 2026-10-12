@@ -4,16 +4,16 @@
    Teal #00A499 · Naranja #EA7600 · Gris #394049
    ============================================================ */
 
-@font-face{font-family:Inter;font-weight:400;font-display:swap;src:url("../shared/fonts/inter-latin-400-normal.woff2") format("woff2");}
-@font-face{font-family:Inter;font-weight:500;font-display:swap;src:url("../shared/fonts/inter-latin-500-normal.woff2") format("woff2");}
-@font-face{font-family:Inter;font-weight:600;font-display:swap;src:url("../shared/fonts/inter-latin-600-normal.woff2") format("woff2");}
-@font-face{font-family:Inter;font-weight:700;font-display:swap;src:url("../shared/fonts/inter-latin-700-normal.woff2") format("woff2");}
-@font-face{font-family:Inter;font-weight:800;font-display:swap;src:url("../shared/fonts/inter-latin-800-normal.woff2") format("woff2");}
-@font-face{font-family:"Space Grotesk";font-weight:400;font-display:swap;src:url("../shared/fonts/space-grotesk-latin-400-normal.woff2") format("woff2");}
-@font-face{font-family:"Space Grotesk";font-weight:500;font-display:swap;src:url("../shared/fonts/space-grotesk-latin-500-normal.woff2") format("woff2");}
-@font-face{font-family:"Space Grotesk";font-weight:600;font-display:swap;src:url("../shared/fonts/space-grotesk-latin-600-normal.woff2") format("woff2");}
-@font-face{font-family:"Space Grotesk";font-weight:700;font-display:swap;src:url("../shared/fonts/space-grotesk-latin-700-normal.woff2") format("woff2");}
-@font-face{font-family:Fraunces;font-weight:400;font-style:italic;font-display:swap;src:url("../shared/fonts/fraunces-latin-400-italic.woff2") format("woff2");}
+@font-face{font-family:Inter;font-weight:400;font-display:swap;src:url("fonts/inter-latin-400-normal.woff2") format("woff2");}
+@font-face{font-family:Inter;font-weight:500;font-display:swap;src:url("fonts/inter-latin-500-normal.woff2") format("woff2");}
+@font-face{font-family:Inter;font-weight:600;font-display:swap;src:url("fonts/inter-latin-600-normal.woff2") format("woff2");}
+@font-face{font-family:Inter;font-weight:700;font-display:swap;src:url("fonts/inter-latin-700-normal.woff2") format("woff2");}
+@font-face{font-family:Inter;font-weight:800;font-display:swap;src:url("fonts/inter-latin-800-normal.woff2") format("woff2");}
+@font-face{font-family:"Space Grotesk";font-weight:400;font-display:swap;src:url("fonts/space-grotesk-latin-400-normal.woff2") format("woff2");}
+@font-face{font-family:"Space Grotesk";font-weight:500;font-display:swap;src:url("fonts/space-grotesk-latin-500-normal.woff2") format("woff2");}
+@font-face{font-family:"Space Grotesk";font-weight:600;font-display:swap;src:url("fonts/space-grotesk-latin-600-normal.woff2") format("woff2");}
+@font-face{font-family:"Space Grotesk";font-weight:700;font-display:swap;src:url("fonts/space-grotesk-latin-700-normal.woff2") format("woff2");}
+@font-face{font-family:Fraunces;font-weight:400;font-style:italic;font-display:swap;src:url("fonts/fraunces-latin-400-italic.woff2") format("woff2");}
 
 :root{
   --usach-teal:#00A499;
@@ -1960,3 +1960,244 @@ table.dataTable tbody tr:hover td{background:#F2FBF9;}
 .chat-kpi{ display:flex; align-items:baseline; gap:7px; padding:5px 10px; border-radius:10px; }
 .chat-kpi b{ font-size:.95rem; color:var(--ink); }
 .chat-kpi span{ font-size:.75rem; }
+
+
+/* ============================================================
+   PARCHE · Analizador Bibliométrico DIINF USACH
+   Pegar al final de styles.css.
+
+   Solo lo necesario para la segunda fila de filtros y su línea de
+   estado. No cambia colores, tipografías, radios ni tarjetas.
+   ============================================================ */
+
+/* segunda fila de filtros: misma grilla y mismos componentes que la
+   primera, así las etiquetas quedan alineadas entre filas */
+.filters-2{
+  grid-template-columns:minmax(220px,1.3fr) minmax(240px,1.35fr) minmax(300px,1.2fr);
+  padding:0 0 8px;
+}
+
+/* línea de estado: dice cuántas publicaciones deja ver el filtro */
+.filter-summary{
+  margin:0 0 16px;
+  font-size:.8rem;
+  color:var(--muted);
+  line-height:1.5;
+}
+.filter-summary b{ color:var(--ink-soft); font-weight:700; }
+
+/* ---------- móvil ----------
+   Estas reglas van después de los @media del archivo, así que hay que
+   repetir los breakpoints originales o la grilla se queda en tres
+   columnas en el teléfono. */
+
+.more-filters{ display:none; }
+
+@media (max-width:1100px){
+  .filters-2{ grid-template-columns:1fr 1fr; }
+}
+
+@media (max-width:760px){
+  /* seis selectores apilados son un muro antes del primer dato:
+     los tres nuevos quedan detrás de un botón */
+  .filters-2{ grid-template-columns:1fr; gap:12px; display:none; }
+  .filters-2.open{ display:grid; }
+  .more-filters{
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+    width:100%;
+    justify-content:center;
+    min-height:44px;
+    margin:0 0 12px;
+    padding:10px 16px;
+    border:1px solid var(--line);
+    border-radius:999px;
+    background:#fff;
+    color:var(--emerald-2);
+    font-family:inherit;
+    font-size:.85rem;
+    font-weight:700;
+    box-shadow:var(--shadow-xs);
+  }
+  .more-filters .chev{ font-size:.65rem; transition:transform .18s; }
+  .more-filters[aria-expanded="true"] .chev{ transform:rotate(90deg); }
+
+  .filter-summary{ font-size:.78rem; }
+}
+
+
+/* ---------- opciones avanzadas ---------- */
+.adv-row{ display:flex; justify-content:flex-start; padding:0 0 10px; }
+.adv-toggle{
+  display:inline-flex; align-items:center; gap:9px;
+  background:#fff; border:1px solid var(--line); border-radius:999px;
+  padding:9px 16px; font-family:inherit; font-size:.82rem; font-weight:700;
+  color:var(--emerald-2); cursor:pointer; box-shadow:var(--shadow-xs);
+}
+.adv-toggle:hover{ border-color:var(--emerald); }
+.adv-toggle .chev{ font-size:.65rem; transition:transform .18s; }
+.adv-toggle[aria-expanded="true"] .chev{ transform:rotate(90deg); }
+.adv-panel{
+  display:none; margin:0 0 14px; padding:16px 18px;
+  background:var(--emerald-bg); border:1px solid var(--emerald-soft);
+  border-radius:var(--radius);
+}
+.adv-panel.open{ display:block; }
+.adv-panel .field{ max-width:340px; }
+.adv-note{ margin:12px 0 0; font-size:.78rem; color:var(--muted); line-height:1.5; max-width:74ch; }
+@media (max-width:760px){
+  .adv-row{ padding-bottom:12px; }
+  .adv-toggle{ width:100%; justify-content:center; min-height:44px; }
+  .adv-panel .field{ max-width:none; }
+}
+
+
+/* ---------- casillas de colecciones ---------- */
+/* Todo va bajo .col-checks para superar a .field label del CSS base,
+   que es (0,1,1) y aplica display:block, mayúsculas, letter-spacing y
+   peso 800. Con .col-check a secas, (0,1,0), las casillas nunca eran
+   flex y la caja quedaba pegada al texto. */
+.col-checks .cc-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(210px,1fr));
+  gap:7px 14px;
+  max-width:560px;
+}
+.col-checks .col-check{
+  display:flex;
+  align-items:center;
+  gap:11px;
+  margin:0;
+  padding:10px 13px;
+  min-height:44px;
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:var(--radius-sm);
+  font-size:.85rem;
+  font-weight:500;
+  letter-spacing:0;
+  text-transform:none;
+  color:var(--ink-soft);
+  cursor:pointer;
+}
+.col-checks .col-check:hover{ border-color:var(--emerald); }
+.col-checks .col-check input{
+  accent-color:var(--emerald);
+  width:16px; height:16px;
+  margin:0; flex-shrink:0; cursor:pointer;
+}
+.col-checks .col-check:has(input:checked){ border-color:var(--emerald); background:var(--surface-teal); }
+.col-checks .col-check:has(input:checked) .cc-t{ font-weight:700; color:var(--emerald-2); }
+.col-checks .cc-t{ flex:1; }
+.col-checks .cc-n{
+  font-variant-numeric:tabular-nums;
+  color:var(--faint);
+  font-size:.8rem;
+  font-weight:600;
+  margin-left:8px;
+}
+.col-checks .col-check.vacia{ opacity:.5; }
+
+/* tiquet: dice que la colección cuenta como WoS, no que esté filtrada */
+.cc-tick{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:19px; height:19px; flex-shrink:0;
+  border-radius:50%;
+  background:var(--surface-teal);
+  color:var(--emerald-2);
+  font-size:.62rem;
+}
+.col-check:not(.es-wos) .cc-tick{ background:transparent; }
+.col-checks .cc-leyenda{
+  display:flex; align-items:center; gap:8px;
+  margin:13px 0 0;
+  font-size:.76rem; color:var(--muted);
+  text-transform:none; letter-spacing:0; font-weight:400;
+}
+.cc-acts{ display:flex; gap:8px; flex-wrap:wrap; margin-top:14px; }
+.cc-act{
+  background:#fff; border:1px solid var(--line); border-radius:999px;
+  padding:8px 15px; font-family:inherit; font-size:.78rem; font-weight:700;
+  color:var(--emerald-2); cursor:pointer;
+}
+.cc-act:hover{ border-color:var(--emerald); }
+.sel-hint{
+  margin:12px 0 0; font-size:.76rem; color:var(--muted); line-height:1.45;
+  max-width:46ch; text-transform:none; letter-spacing:0;
+}
+.field label .row-help-dot{ margin-left:7px; vertical-align:baseline; }
+@media (max-width:760px){
+  .col-checks .cc-grid{ grid-template-columns:1fr; max-width:none; }
+  .col-checks .col-check{ min-height:48px; }
+  .cc-act{ flex:1; min-height:44px; }
+}
+
+
+/* fila que relaciona el perfil con el filtro activo */
+.prod-row.prod-scope{
+  margin-top:4px; padding-top:9px;
+  border-top:1px dashed var(--line);
+}
+.prod-row.prod-scope .k{ color:var(--emerald-2); font-weight:700; }
+.prod-row.prod-scope .v{ font-variant-numeric:tabular-nums; }
+
+
+/* Insignias de dónde está indexada cada publicación.
+   El color distingue lo que cuenta como WoS de lo que solo tiene
+   registro: verde para colecciones de revista, ámbar para actas y
+   libros, gris para Scopus. */
+td.dt-idx{ white-space:nowrap; }
+.ix{
+  display:inline-block; padding:2px 7px; margin:1px 2px 1px 0;
+  border-radius:999px; font-size:.68rem; font-weight:700;
+  letter-spacing:.02em; cursor:help;
+}
+.ix-wos{ background:#E7F6F4; color:#007A72; }
+.ix-cpci{ background:#FFF2E5; color:#A15200; }
+.ix-scopus{ background:#EEF3F6; color:#68737D; }
+.ix-nada{ background:transparent; color:#96A0A8; font-weight:400; }
+
+
+/* La fila que importa para reporte, destacada, y la de detalle indentada */
+.prod-row.prod-destaca .k{ font-weight:700; color:var(--ink); }
+.prod-row.prod-destaca .v{ font-weight:800; color:var(--teal-2); }
+.prod-row.prod-sub{ padding-top:0; }
+.prod-row.prod-sub .k{ padding-left:12px; font-size:.78rem; color:var(--faint); }
+.prod-row.prod-sub .v{ font-size:.8rem; color:var(--muted); }
+
+
+/* Periodo y regla activa, bajo el titulo de Produccion en la ficha */
+.pl-sub{
+  font-size:.72rem; color:var(--faint); margin:-6px 0 8px;
+  font-variant-numeric:tabular-nums; letter-spacing:.02em;
+}
+
+
+/* Atajos de periodo. "Ultimos 5 anos" es el que pide ANID. */
+.atajos-periodo{ display:flex; gap:6px; margin-top:9px; flex-wrap:wrap; }
+.atajos-periodo .ap{
+  border:1px solid var(--line); background:var(--surface); border-radius:999px;
+  padding:4px 11px; font-family:inherit; font-size:.75rem; color:var(--ink-soft); cursor:pointer;
+}
+.atajos-periodo .ap:hover{ border-color:var(--usach-teal); color:var(--teal-2); background:var(--teal-bg); }
+
+
+/* La barra de alcance queda fija arriba al bajar por la pagina.
+   Antes vivia sobre las pestanas y desaparecia al hacer scroll, asi que
+   los numeros de cada panel se leian sin saber de que periodo ni de que
+   unidad eran. Ese fue el origen de la confusion entre 5, 7 y 16
+   publicaciones WoS del mismo academico. */
+.filter-summary{
+  position:sticky; top:0; z-index:40;
+  margin:0 0 14px; padding:9px 14px;
+  background:rgba(255,255,255,.94);
+  backdrop-filter:saturate(140%) blur(6px);
+  border:1px solid var(--line); border-radius:8px;
+  font-size:.79rem; color:var(--muted); line-height:1.45;
+  box-shadow:0 1px 2px rgba(33,38,43,.05);
+}
+.filter-summary b{ color:var(--teal-2); }
+@media (max-width:760px){
+  .filter-summary{ font-size:.74rem; padding:8px 11px; }
+}

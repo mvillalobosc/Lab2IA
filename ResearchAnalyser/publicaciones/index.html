@@ -3,113 +3,59 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Analizador Bibliométrico · USACH</title>
-<link rel="icon" href="../shared/img/logo2.png" type="image/png">
-<link rel="stylesheet" href="../shared/lib/fa.min.css">
-<link rel="stylesheet" href="../shared/lib/datatables.min.css">
-<link rel="stylesheet" href="../shared/lib/dt-buttons.min.css">
-<link rel="stylesheet" href="../shared/lib/leaflet.css">
-<link rel="stylesheet" href="styles.css">
-</head>
-<body>
-
-<div id="overlay" class="overlay">
+<title>ResearchAnalyser · Publicaciones · USACH</title>
+<link rel="icon" href="IMG/logo2.png" type="image/png">
+<link rel="stylesheet" href="lib/fa.min.css">
+<link rel="stylesheet" href="lib/datatables.min.css">
+<link rel="stylesheet" href="lib/dt-buttons.min.css">
+<link rel="stylesheet" href="lib/leaflet.css">
+<link rel="stylesheet" href="interface.css?v=20261011-usach">
+<link rel="stylesheet" href="summary.css?v=20261011-usach">
+<link rel="stylesheet" href="../institutional.css?v=20261011-usach"><link rel="stylesheet" href="../academic-tools.css?v=20261011-comparaciones"><link rel="stylesheet" href="../theme.css?v=20261012-asistente"></head>
+<body data-module="publicaciones"><div id="overlay" class="overlay">
   <div class="ov-card">
     <div class="ov-spin"></div>
     <div class="ov-t" id="ov-t">Procesando</div>
     <div class="ov-s" id="ov-s">Un momento…</div>
   </div>
-</div>
-
-<div id="help_modal" class="help-modal" aria-hidden="true">
+</div><div id="help_modal" class="help-modal" aria-hidden="true">
   <div class="help-card" role="dialog" aria-modal="true" aria-labelledby="help_title">
     <button class="help-close" id="help_close" type="button" aria-label="Cerrar ayuda"><i class="fa-solid fa-xmark"></i></button>
     <div class="help-kicker"><i class="fa-solid fa-circle-question"></i> Ayuda</div>
     <h3 id="help_title">Indicador</h3>
     <p id="help_body"></p>
   </div>
-</div>
-
-<!-- ============ MASTHEAD ============ -->
-<header class="masthead">
-  <div class="masthead-inner">
-    <div class="brand-row">
+</div><header class="masthead"><div class="brand-row">
       <div class="brand-left">
-        <img src="../shared/img/logo.png" class="brand-logo" alt="USACH · DIINF">
+        <img src="IMG/logo.png" class="brand-logo" alt="USACH · DIINF">
         <div class="brand-rule"></div>
         <div class="brand-titles">
           <div class="brand-kicker" data-i18n="brand.kicker">Universidad de Santiago de Chile</div>
-          <div class="brand-title" data-i18n="brand.title">Analizador Bibliométrico</div>
-          <div class="brand-sub" data-i18n-html="brand.sub">Producción científica indexada · Web of Science &amp; Scopus</div>
+          <div class="brand-title" data-i18n="ui.brand">ResearchAnalyser</div>
+          <div class="brand-sub" data-i18n-html="ui.brandSub">Producción científica</div>
         </div>
       </div>
-      <div class="brand-actions">
-        <a class="selector-back" href="../index.html"><i class="fa-solid fa-arrow-left"></i> Volver al inicio</a>
+      <div class="brand-actions"><nav class="module-switcher" aria-label="Módulos"><a href="../publicaciones/index.html#resumen" aria-current="page" class="module-pill module-publications"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Publicaciones</a><a href="../tesis/index.html#resumen" class="module-pill module-theses"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i> <span data-i18n="ui.moduleTheses">Tesis y memorias</span></a></nav>
+        
         <div class="lang-switch" id="lang_switch" aria-label="Idioma">
           <button type="button" data-lang="es" class="on"><span class="flag flag-cl"></span><span>ESP</span></button>
           <button type="button" data-lang="pt"><span class="flag flag-br"></span><span>POR</span></button>
           <button type="button" data-lang="en"><span class="flag flag-en"></span><span>ENG</span></button>
         </div>
-        <span class="brand-badge"><i class="fa-solid fa-building-columns"></i> v16</span>
-      </div>
-    </div>
-
-    <div class="filters">
-      <div class="field">
-        <label data-i18n="filter.university">Universidad</label>
-        <div class="sel"><select id="f_uni"></select></div>
-      </div>
-      <div class="field">
-        <label data-i18n="filter.unit">Unidad académica</label>
-        <div class="sel"><select id="f_sec"></select></div>
-      </div>
-      <div class="field year-field">
-        <label data-i18n="filter.period">Periodo de publicación</label>
-        <div class="ywrap">
-          <span class="ychip" id="y_lo">2018</span>
-          <div class="range-stack">
-            <div class="range-track"></div>
-            <div class="range-fill" id="y_fill"></div>
-            <input type="range" id="y_min">
-            <input type="range" id="y_max">
-          </div>
-          <span class="ychip" id="y_hi">2025</span>
-        </div>
-      </div>
-    </div>
-
-    <nav class="tabs" id="tabs">
-      <button data-tab="resumen" class="active"><i class="fa-solid fa-chart-pie ti"></i><span data-i18n="tab.summary">Resumen</span></button>
-      <button data-tab="indicadores"><i class="fa-solid fa-list-ol ti"></i><span data-i18n="tab.indicators">Indicadores</span></button>
-      <button data-tab="perfiles"><i class="fa-solid fa-user-pen ti"></i><span data-i18n="tab.profiles">Perfiles</span></button>
-      <button data-tab="analitica"><i class="fa-solid fa-chart-line ti"></i><span data-i18n="tab.analytics">Analítica</span></button>
-      <button data-tab="dominio"><i class="fa-solid fa-diagram-project ti"></i><span data-i18n="tab.domain">Dominio</span></button>
-      <button data-tab="asistente"><i class="fa-solid fa-comments ti"></i><span data-i18n="tab.assistant">Asistente</span></button>
-    </nav>
-  </div>
-</header>
-
-<main class="wrap">
+        
+      <button class="btn btn-ghost" type="button" id="assistant_link"><i class="fa-solid fa-comments" aria-hidden="true"></i><span data-i18n="ui.assistant">Asistente</span></button><button class="icon-btn" type="button" id="directory_open" aria-label="Todas las herramientas"><i class="fa-solid fa-compass" aria-hidden="true"></i></button></div>
+    </div></header><div class="workspace-shell"><aside class="workspace-sidebar"><a class="module-home" href="../index.html"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i><span data-i18n="ui.allModules">Módulos y herramientas</span></a><div class="nav-caption" data-i18n="ui.science">Producción científica</div><nav id="main_nav" aria-label="Navegación principal"><button type="button" class="nav-link" data-route="resumen"><i class="fa-solid fa-chart-pie" aria-hidden="true"></i><span data-i18n="ui.summary">summary</span></button><button type="button" class="nav-link" data-route="publicaciones"><i class="fa-solid fa-file-lines" aria-hidden="true"></i><span data-i18n="ui.papers">papers</span></button><button type="button" class="nav-link" data-route="perfiles"><i class="fa-solid fa-users" aria-hidden="true"></i><span data-i18n="ui.people">people</span></button><button type="button" class="nav-link" data-tool-route="analisis" data-tool-view="comparison"><i class="fa-solid fa-user-group" aria-hidden="true"></i><span data-i18n="ui.compareAcademics">Comparar académicos</span></button><button type="button" class="nav-link" data-tool-route="analisis" data-tool-view="domain"><i class="fa-solid fa-layer-group" aria-hidden="true"></i><span data-i18n="ui.areaAccess">Áreas y evolución</span></button><button type="button" class="nav-link" data-route="analisis"><i class="fa-solid fa-chart-line" aria-hidden="true"></i><span data-i18n="ui.analysis">analysis</span></button><button type="button" class="nav-link" data-route="informes"><i class="fa-solid fa-file-lines" aria-hidden="true"></i><span data-i18n="ui.reports">reports</span></button></nav><div class="sidebar-bottom"><button class="nav-link" type="button" id="directory_side"><i class="fa-solid fa-compass" aria-hidden="true"></i><span data-i18n="ui.allTools">Todas las herramientas</span></button><button class="nav-link" type="button" onclick="descargarBaseDatos()"><i class="fa-solid fa-database" aria-hidden="true"></i><span data-i18n="ui.fullData">Base completa</span></button></div></aside><div class="workspace-area"><div class="context-bar"><div class="context-copy"><span class="context-label" data-i18n="ui.currentScope">Consulta activa</span><div id="scope_chips" aria-live="polite"></div></div><button class="btn btn-ghost" type="button" id="scope_open"><i class="fa-solid fa-sliders" aria-hidden="true"></i><span data-i18n="ui.editFilters">Cambiar filtros</span></button></div><main class="workspace-content"><p class="filter-summary" id="filter_summary"></p><nav id="analysis_nav" class="subnav analysis-nav" aria-label="Herramientas de análisis"><button type="button" class="subnav-button" data-analysis-view="indicators"><span data-i18n="ui.indicators">indicators</span></button><button type="button" class="subnav-button" data-analysis-view="insights"><span data-i18n="ui.insights">insights</span></button><button type="button" class="subnav-button" data-analysis-view="comparison"><span data-i18n="ui.comparison">comparison</span></button><button type="button" class="subnav-button" data-analysis-view="domain"><span data-i18n="ui.areas">areas</span></button><button type="button" class="subnav-button" data-analysis-view="opportunities"><span data-i18n="ui.opportunities">opportunities</span></button></nav>
 
   <!-- ===== RESUMEN ===== -->
   <section id="p-resumen" class="panel active">
-    <div class="panel-head">
+    <div class="panel-head overview-topline">
       <div>
-        <div class="panel-kicker">Panorama general</div>
-        <h2 class="panel-title">Vista general de la producción</h2>
-        <p class="panel-desc">Síntesis de publicaciones, citas, indexación, colaboración y áreas dominantes para el filtro activo.</p>
+        <span class="overview-breadcrumb" data-i18n="ui.science">Producción científica</span><span class="overview-breadcrumb-divider" aria-hidden="true">/</span><span class="overview-breadcrumb-current" data-i18n="ui.summary">Resumen</span>
       </div>
-      <div class="export-group"><button class="btn btn-primary" onclick="exportarInforme('Resumen')"><i class="fa-solid fa-file-lines"></i> <span data-i18n="report.html">Reporte HTML</span></button><button class="btn btn-ghost" onclick="exportarInformeCSV('Resumen')"><i class="fa-solid fa-file-csv"></i> CSV</button></div>
+      <div class="export-group"><button class="btn btn-primary" onclick="exportarInforme(&#x27;Resumen&#x27;)"><i class="fa-solid fa-file-lines"></i> <span data-i18n="report.html">Reporte HTML</span></button><button class="btn btn-ghost" onclick="exportarInformeCSV(&#x27;Resumen&#x27;)"><i class="fa-solid fa-file-csv"></i> CSV</button></div>
     </div>
-    <div class="student-hero">
-      <div>
-        <div class="student-hero-kicker"><i class="fa-solid fa-star"></i> Lectura guiada</div>
-        <h3>Un tablero académico fácil de leer</h3>
-        <p>Las métricas están organizadas para que el estudiantado pueda entender producción, impacto, colaboración y áreas sin perderse en siglas.</p>
-      </div>
-      <img src="../shared/img/publicaciones-academica.webp" alt="Ilustración manga académica">
-    </div>
-    <div class="summary-grid" id="summary"></div>
+    
+    <div class="research-overview" id="summary"></div>
   </section>
 
   <!-- ===== INDICADORES ===== -->
@@ -120,7 +66,7 @@
         <h2 class="panel-title">Indicadores bibliométricos</h2>
         <p class="panel-desc">Las siglas y encabezados de las tablas muestran ayuda al pasar el cursor; también puedes hacer clic para ver una explicación más amigable.</p>
       </div>
-      <div class="export-group"><button class="btn btn-primary" onclick="exportarInforme('Indicadores')"><i class="fa-solid fa-file-lines"></i> <span data-i18n="report.html">Reporte HTML</span></button><button class="btn btn-ghost" onclick="exportarInformeCSV('Indicadores')"><i class="fa-solid fa-file-csv"></i> CSV</button></div>
+      <div class="export-group"><button class="btn btn-primary" onclick="exportarInforme(&#x27;Indicadores&#x27;)"><i class="fa-solid fa-file-lines"></i> <span data-i18n="report.html">Reporte HTML</span></button><button class="btn btn-ghost" onclick="exportarInformeCSV(&#x27;Indicadores&#x27;)"><i class="fa-solid fa-file-csv"></i> CSV</button></div>
     </div>
     <div class="assist-box"><i class="fa-solid fa-circle-question"></i><span data-i18n-html="assist.ind"><b>Institucional</b> resume la unidad completa. <b>Por académico(a)</b> calcula rendimiento y colaboración por persona, siempre dentro de la afiliación seleccionada.</span></div>
     <div class="controls">
@@ -131,14 +77,6 @@
           <button data-v="Académicos" data-i18n="control.byAcademic">Por académico(a)</button>
         </div>
       </div>
-      <div class="control">
-        <label>Indexación</label>
-        <div class="seg" id="ind_index">
-          <button data-v="Todas" class="on" data-i18n="control.all">Todas</button>
-          <button data-v="Web of Science">WoS</button>
-          <button data-v="Scopus">Scopus</button>
-        </div>
-      </div>
     </div>
     <div class="section-label"><span class="num">i.</span><h3>Rendimiento</h3></div>
     <div class="card"><table id="t_rend" class="display" style="width:100%"></table></div>
@@ -147,14 +85,14 @@
   </section>
 
   <!-- ===== PERFILES ===== -->
-  <section id="p-perfiles" class="panel">
+  <section id="p-perfiles" class="panel" data-route-panel="perfiles">
     <div class="panel-head">
       <div>
         <div class="panel-kicker">Análisis por autor o unidad</div>
         <h2 class="panel-title">Perfiles de producción</h2>
         <p class="panel-desc">Explora la unidad o un académico(a), con trayectoria, coautorías, fuentes, temas e internacionalización.</p>
       </div>
-      <div class="export-group"><button class="btn btn-primary" onclick="exportarInforme('Perfiles')"><i class="fa-solid fa-file-lines"></i> <span data-i18n="report.html">Reporte HTML</span></button><button class="btn btn-ghost" onclick="exportarInformeCSV('Perfiles')"><i class="fa-solid fa-file-csv"></i> CSV</button></div>
+      <div class="export-group"><button class="btn btn-primary" onclick="exportarInforme(&#x27;Perfiles&#x27;)"><i class="fa-solid fa-file-lines"></i> <span data-i18n="report.html">Reporte HTML</span></button><button class="btn btn-ghost" onclick="exportarInformeCSV(&#x27;Perfiles&#x27;)"><i class="fa-solid fa-file-csv"></i> CSV</button></div>
     </div>
     <div class="assist-box"><i class="fa-solid fa-user-check"></i><span data-i18n-html="assist.perfil">En <b>Por autor(a)</b>, las publicaciones del perfil corresponden al autor seleccionado solo cuando aparecen asociadas a la universidad y unidad filtradas.</span></div>
     <div class="controls">
@@ -169,82 +107,50 @@
         <label data-i18n="control.academic">Académico(a)</label>
         <div id="perf_autor_wrap"></div>
       </div>
-      <div class="control">
-        <label>Indexación</label>
-        <div class="seg" id="perf_index">
-          <button data-v="Todas" class="on" data-i18n="control.all">Todas</button>
-          <button data-v="Web of Science">WoS</button>
-          <button data-v="Scopus">Scopus</button>
-        </div>
-      </div>
-    </div>
+    </div><nav id="profile_nav" class="subnav" aria-label="Secciones del perfil"><button class="subnav-button" type="button" data-profile-view="overview"><span data-i18n="ui.overview">overview</span></button><button class="subnav-button" type="button" data-profile-view="publications"><span data-i18n="ui.papers">papers</span></button><button class="subnav-button" type="button" data-profile-view="topics"><span data-i18n="ui.topics">topics</span></button><button class="subnav-button" type="button" data-profile-view="collaboration"><span data-i18n="ui.collaboration">collaboration</span></button><button class="subnav-button" type="button" data-profile-view="similarity"><span data-i18n="ui.similarity">similarity</span></button></nav>
 
-    <div class="profile-hero" style="margin-bottom:22px;">
+    
+
+    <!-- ===== Bloque individual (solo "por autor(a)") ===== -->
+    <div id="perfil-individual"><div class="profile-view" data-profile-panel="overview"><div class="profile-hero" style="margin-bottom:22px;">
       <div class="profile-card" id="profile_card"></div>
       <div class="viz" style="margin:0;display:flex;flex-direction:column;">
         <div class="viz-head"><h4>Frecuencia anual de publicaciones</h4></div>
         <div id="v_anios" style="flex:1;min-height:380px;"></div>
       </div>
-    </div>
-
-    <!-- ===== Bloque individual (solo "por autor(a)") ===== -->
-    <div id="perfil-individual" style="display:none;">
-      <div id="perfil_metrics" class="pm-grid"></div>
-
-      <div class="viz">
-        <div class="viz-head"><h4>Trayectoria académica</h4><span class="hint">producción anual y citas acumuladas</span></div>
-        <div id="perfil_trayectoria" style="height:360px;"></div>
-      </div>
-
-      <div class="viz-grid">
-        <div class="viz" style="margin:0;">
+    </div><div id="perfil_metrics" class="pm-grid"></div><div class="viz" style="margin:0;">
           <div class="viz-head"><h4>Distribución</h4><span class="hint">por cuartil y tipo</span></div>
           <div id="perfil_dist" style="height:300px;"></div>
-        </div>
-        <div class="viz" style="margin:0;">
-          <div class="viz-head"><h4>Principales coautores(as)</h4></div>
-          <div id="perfil_coautores" class="co-list"></div>
-        </div>
-      </div>
-
-      <div class="viz">
-        <div class="viz-head"><h4>Publicaciones</h4><span class="hint">clic en el título para abrir el paper</span></div>
-        <table id="perfil_pubs_table" class="display" style="width:100%"></table>
-      </div>
-
-      <div class="viz-grid">
-        <div class="viz" style="margin:0;">
-          <div class="viz-head"><h4>Revistas y fuentes</h4></div>
-          <div id="perfil_revistas"></div>
-        </div>
-        <div class="viz" style="margin:0;">
+        </div><div class="viz" style="margin:0;">
           <div class="viz-head"><h4>Detalles</h4></div>
           <div id="perfil_extra"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="viz">
+        </div><div class="viz">
+        <div class="viz-head"><h4>Trayectoria académica</h4><span class="hint">producción anual y citas acumuladas</span></div>
+        <div id="perfil_trayectoria" style="height:360px;"></div>
+      </div></div><div class="profile-view" data-profile-panel="publications"><div class="viz" style="margin:0;">
+          <div class="viz-head"><h4>Revistas y fuentes</h4></div>
+          <div id="perfil_revistas"></div>
+        </div><div class="viz">
+        <div class="viz-head"><h4>Publicaciones</h4><span class="hint">clic en el título para abrir el paper</span></div>
+        <table id="perfil_pubs_table" class="display" style="width:100%"></table>
+      </div><div class="viz">
+      <div class="viz-head"><h4>Fuentes más frecuentes</h4><span class="hint">Top 20</span></div>
+      <div id="v_fuentes" style="height:560px;"></div>
+    </div></div><div class="profile-view" data-profile-panel="topics"><div class="viz">
       <div class="viz-head"><h4>Flujo de áreas</h4><span class="hint">Especialidad → Aplicación</span></div>
       <div class="area-framework-note">
         <i class="fa-solid fa-circle-info"></i>
         <span data-i18n-html="note.acmFramework">En Informática, las especialidades se leen como áreas ACM/IEEE/AAAI. Para otras carreras, se deben usar áreas propias de la disciplina.</span>
       </div>
       <div id="v_sankey" style="height:520px;"></div>
-    </div>
-
-    <div class="viz">
+    </div><div class="viz">
       <div class="viz-head"><h4 id="v_words_title">Palabras clave más frecuentes</h4></div>
       <div class="compare-sel" id="compare_sel"></div>
       <div id="v_words" style="height:560px;"></div>
-    </div>
-
-    <div class="viz">
-      <div class="viz-head"><h4>Fuentes más frecuentes</h4><span class="hint">Top 20</span></div>
-      <div id="v_fuentes" style="height:560px;"></div>
-    </div>
-
-    <div class="viz">
+    </div></div><div class="profile-view" data-profile-panel="collaboration"><div class="viz" style="margin:0;">
+          <div class="viz-head"><h4>Principales coautores(as)</h4></div>
+          <div id="perfil_coautores" class="co-list"></div>
+        </div><div class="viz">
       <div class="viz-head"><h4>Red de coautorías</h4><span class="hint">clic en un nodo o enlace para ver la frecuencia · arrastra los nodos</span></div>
       <div class="network-tools" aria-label="Seleccionar académico en la red de coautorías">
         <div class="network-search">
@@ -258,34 +164,47 @@
         <span id="red_search_status" class="network-status"></span>
       </div>
       <div id="v_red" style="height:640px;"></div>
-    </div>
-
-    <div class="viz">
+    </div><div class="viz">
+      <div class="viz-head"><h4>Colaboración internacional</h4><span class="hint">países coautores</span></div>
+      <div id="map"></div>
+    </div></div><div class="profile-view" data-profile-panel="similarity"><div class="viz">
       <div class="viz-head"><h4>Similitud temática entre académicos(as)</h4><span class="hint">agrupamiento jerárquico</span></div>
       <div class="viz-grid">
         <div><div class="card-head" style="margin-bottom:8px;"><span class="dot"></span><h4 style="font-size:.95rem;">Distancia euclidiana</h4></div><div id="v_dendro1" style="height:440px;"></div></div>
         <div><div class="card-head" style="margin-bottom:8px;"><span class="dot amber"></span><h4 style="font-size:.95rem;">Correlación</h4></div><div id="v_dendro2" style="height:440px;"></div></div>
       </div>
-    </div>
+    </div></div></div>
 
-    <div class="viz">
-      <div class="viz-head"><h4>Colaboración internacional</h4><span class="hint">países coautores</span></div>
-      <div id="map"></div>
-    </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
   </section>
 
   <!-- ===== ANALÍTICA ===== -->
-  <section id="p-analitica" class="panel">
+  <section id="p-analitica" class="panel" data-route-panel="analisis">
     <div class="panel-head">
       <div>
         <div class="panel-kicker">Analítica comparativa</div>
         <h2 class="panel-title">Hallazgos, comparación y oportunidades</h2>
         <p class="panel-desc">Detecta patrones automáticos, compara académicos con chi-cuadrado y encuentra colaboraciones temáticamente plausibles.</p>
       </div>
-      <div class="export-group"><button class="btn btn-primary" onclick="exportarInforme('Analítica')"><i class="fa-solid fa-file-lines"></i> <span data-i18n="report.html">Reporte HTML</span></button><button class="btn btn-ghost" onclick="exportarInformeCSV('Analítica')"><i class="fa-solid fa-file-csv"></i> CSV</button></div>
+      <div class="export-group"><button class="btn btn-primary" onclick="exportarInforme(&#x27;Analítica&#x27;)"><i class="fa-solid fa-file-lines"></i> <span data-i18n="report.html">Reporte HTML</span></button><button class="btn btn-ghost" onclick="exportarInformeCSV(&#x27;Analítica&#x27;)"><i class="fa-solid fa-file-csv"></i> CSV</button></div>
     </div>
 
-    <div class="analytics-grid">
+    
+
+    
+
+    
+  <div class="analytics-view" data-analytics-panel="insights"><div class="analytics-grid">
       <div class="viz" style="margin:0;">
         <div class="viz-head"><h4>Hallazgos automáticos</h4><span class="hint">lectura rápida del filtro activo</span></div>
         <div id="ana_insights" class="insight-list"></div>
@@ -299,9 +218,7 @@
         </div>
         <div id="ana_search_results" class="ana-results"></div>
       </div>
-    </div>
-
-    <div class="viz">
+    </div></div><div class="analytics-view" data-analytics-panel="comparison"><div class="viz">
       <div class="viz-head"><h4>Comparador χ² entre académicos(as)</h4><span class="hint">residuos positivos = sobre-representación</span></div>
       <div class="chi-help">
         <i class="fa-solid fa-circle-info"></i>
@@ -326,13 +243,10 @@
       <div id="ana_chi_legend" class="ana-legend"></div>
       <div id="ana_chi_plot" style="height:430px;"></div>
       <div class="card" style="margin-top:14px;"><table id="ana_chi_table" class="display" style="width:100%"></table></div>
-    </div>
-
-    <div class="viz">
+    </div></div><div class="analytics-view" data-analytics-panel="opportunities"><div class="viz">
       <div class="viz-head"><h4>Oportunidades de colaboración</h4><span class="hint">similitud temática sin coautoría registrada</span></div>
       <div id="ana_opportunities" class="opportunity-list"></div>
-    </div>
-  </section>
+    </div></div></section>
 
   <!-- ===== ASISTENTE LOCAL ===== -->
   <section id="p-asistente" class="panel">
@@ -345,18 +259,10 @@
     <div class="chat-shell">
       <aside class="chat-side">
         <div class="chat-illo">
-          <img src="../shared/img/leo-usach-chat.webp" alt="Leoncito USACH, asesor bibliométrico">
+          
           <div>
-            <b data-i18n="chat.advisor">Asesor Leo USACH</b>
+            <b data-i18n="chat.advisor">Asistente bibliométrico</b>
             <span data-i18n="chat.advisorDesc">Consulta publicaciones, áreas, autores y cualquier campo de la base.</span>
-          </div>
-        </div>
-        <div class="chat-side-block">
-          <label class="chat-label" data-i18n="filter.indexing">Indexación</label>
-          <div class="seg" id="chat_index">
-            <button data-v="Todas" class="on" data-i18n="control.all">Todas</button>
-            <button data-v="Web of Science">WoS</button>
-            <button data-v="Scopus">Scopus</button>
           </div>
         </div>
         <button class="btn btn-ghost chat-clear" id="chat_clear" type="button"><i class="fa-solid fa-trash-can"></i> <span data-i18n="chat.clear">Limpiar chat</span></button>
@@ -385,7 +291,7 @@
         <h2 class="panel-title">Análisis de dominio</h2>
         <p class="panel-desc">Revisa la presencia temporal de áreas, subáreas y palabras clave por académico(a).</p>
       </div>
-      <div class="export-group"><button class="btn btn-primary" onclick="exportarInforme('Dominio')"><i class="fa-solid fa-file-lines"></i> <span data-i18n="report.html">Reporte HTML</span></button><button class="btn btn-ghost" onclick="exportarInformeCSV('Dominio')"><i class="fa-solid fa-file-csv"></i> CSV</button></div>
+      <div class="export-group"><button class="btn btn-primary" onclick="exportarInforme(&#x27;Dominio&#x27;)"><i class="fa-solid fa-file-lines"></i> <span data-i18n="report.html">Reporte HTML</span></button><button class="btn btn-ghost" onclick="exportarInformeCSV(&#x27;Dominio&#x27;)"><i class="fa-solid fa-file-csv"></i> CSV</button></div>
     </div>
     <div class="assist-box"><i class="fa-solid fa-magnifying-glass-chart"></i><span data-i18n-html="assist.dominio">Selecciona el dominio y luego un término; el gráfico muestra qué autores lo usan y en qué años aparece.</span></div>
     <div class="controls">
@@ -418,34 +324,69 @@
   </section>
 
   <!-- ===== FOOTER ===== -->
-  <footer class="foot">
+  
+<section id="p-publicaciones" class="panel" data-route-panel="publicaciones" aria-labelledby="catalogue_title"><div class="panel-head"><div><div class="panel-kicker" data-i18n="ui.catalogueKicker">Catálogo de investigación</div><h2 class="panel-title" id="catalogue_title" data-i18n="ui.papers">Publicaciones</h2><p class="panel-desc" data-i18n="ui.catalogueDesc">Consulta todas las publicaciones del filtro activo y abre su información completa.</p></div><button class="btn btn-ghost" type="button" id="catalogue_csv"><i class="fa-solid fa-file-csv" aria-hidden="true"></i> CSV</button></div><div class="catalogue-search"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i><label class="sr-only" for="catalogue_query" data-i18n="ui.search">Buscar</label><input id="catalogue_query" type="search" autocomplete="off" data-i18n-placeholder="ui.searchPlaceholder" placeholder="Buscar por título, autores, DOI, resumen, áreas o palabras clave"></div><div class="catalogue-toolbar" id="catalogue_filters"><div class="control"><label for="catalogue_author" data-i18n="ui.author">Académico(a)</label><select id="catalogue_author"></select></div><div class="control"><label for="catalogue_quartile" data-i18n="ui.quartile">Cuartil</label><select id="catalogue_quartile"></select></div><div class="control"><label for="catalogue_mode" data-i18n="ui.countMode">Unidad de consulta</label><select id="catalogue_mode"><option value="papers" data-i18n="ui.uniqueWorks">Publicaciones únicas</option><option value="records" data-i18n="ui.authorRecords">Registros por académico(a)</option></select></div><div class="control"><label for="catalogue_sort" data-i18n="ui.sort">Orden</label><select id="catalogue_sort"><option value="recent" data-i18n="ui.recent">Más recientes</option><option value="cites" data-i18n="ui.cited">Más citadas</option><option value="title" data-i18n="ui.alphabetic">Título A–Z</option></select></div></div><div class="catalogue-status"><span id="catalogue_count" aria-live="polite"></span><div class="seg" id="catalogue_layout"><button type="button" data-layout="list" class="on" data-i18n="ui.list">Lista</button><button type="button" data-layout="table" data-i18n="ui.table">Tabla</button></div></div><p class="count-note" data-i18n="ui.countNote">Una publicación puede estar asociada a varios académicos. El catálogo permite consultar los trabajos únicos o los registros individuales; los indicadores conservan las reglas de conteo de la base original.</p><div id="catalogue_list"></div><div id="catalogue_table_wrap" class="catalogue-table-wrap"><table id="catalogue_table" class="display" style="width:100%"></table></div><div class="catalogue-pager" id="catalogue_pager"></div></section><section id="p-informes" class="panel" data-route-panel="informes" aria-labelledby="reports_title"><div class="panel-head"><div><div class="panel-kicker" data-i18n="ui.reportKicker">Resultados para compartir</div><h2 class="panel-title" id="reports_title" data-i18n="ui.reports">Informes</h2><p class="panel-desc" data-i18n="ui.reportsDesc">Genera los informes completos y las tablas CSV con el contexto seleccionado.</p></div></div><div class="report-builder card"><div class="controls"><div class="control"><label for="report_kind" data-i18n="ui.reportKind">Contenido del informe</label><select id="report_kind"><option value="Resumen" data-i18n="ui.summary">Resumen</option><option value="Indicadores" data-i18n="ui.indicators">Indicadores</option><option value="Perfiles" data-i18n="ui.people">Perfiles de producción</option><option value="Analítica" data-i18n="ui.insights">Hallazgos y oportunidades</option><option value="Dominio" data-i18n="ui.areas">Áreas y temas</option></select></div><div class="control"><label for="report_scope" data-i18n="ui.reportScope">Alcance</label><select id="report_scope"><option value="unit" data-i18n="control.institutional">Institucional</option><option value="author" data-i18n="control.byAuthor">Por autor(a)</option></select></div><div class="control" id="report_author_box"><label for="report_author" data-i18n="ui.author">Académico(a)</label><select id="report_author"></select></div></div><div id="report_context" class="report-context"></div><div class="export-group"><button class="btn btn-primary" type="button" id="report_html"><i class="fa-solid fa-file-lines" aria-hidden="true"></i><span data-i18n="report.html">Reporte HTML</span></button><button class="btn btn-ghost" type="button" id="report_csv"><i class="fa-solid fa-file-csv" aria-hidden="true"></i> CSV</button></div></div><div class="report-options"><div class="card"><h3 data-i18n="ui.reportTables">Tablas y resultados detallados</h3><p data-i18n="ui.reportTablesHint">Cada tabla de indicadores, publicaciones o comparaciones conserva su exportación CSV.</p><button class="btn btn-ghost" type="button" data-route="analisis" data-i18n="ui.goAnalysis">Abrir análisis</button></div><div class="card"><h3 data-i18n="ui.fullData">Base completa</h3><p data-i18n="ui.fullDataHint">Descarga el archivo original con todas sus columnas y registros.</p><button class="btn btn-ghost" type="button" onclick="descargarBaseDatos()"><i class="fa-solid fa-lock" aria-hidden="true"></i><span data-i18n="ui.downloadData">Descargar base</span></button></div></div></section><footer class="foot">
     <div>¿Consultas? ¿Alguna publicación suya no aparece?
       <a href="mailto:manuel.villalobos@usach.cl">manuel.villalobos@usach.cl</a></div>
-    <div class="dl-link" onclick="descargarBaseDatos()"><i class="fa-solid fa-file-csv"></i> Descargar base de datos (CSV)</div>
-    <div class="foot-meta">Datos actualizados al 2 de julio de 2026 · Desarrollado por Manuel Villalobos Cid · Universidad de Santiago de Chile</div>
+    <button class="dl-link" onclick="descargarBaseDatos()" type="button"><i class="fa-solid fa-file-csv"></i> Descargar base de datos (CSV)</button>
+    <div class="foot-meta">Datos actualizados al 12 de octubre de 2026 · Desarrollado por Manuel Villalobos Cid · Universidad de Santiago de Chile</div>
     <div class="foot-ref">M. Villalobos-Cid, P. Cabezas-Carvajal, C. Ilabaca and L. Chourio-Acevedo,
       <i>"A Web-Based Tool to Explore Research Production Focused on Student Engagement,"</i>
       2025 44th International Conference of the Chilean Computer Science Society (SCCC), Valparaiso, Chile, 2025, pp. 1-8, doi:
       <a href="https://doi.org/10.1109/SCCC67219.2025.11420777" target="_blank">10.1109/SCCC67219.2025.11420777</a></div>
-  </footer>
-</main>
-
-<script src="../shared/lib/jquery.min.js"></script>
-<script src="../shared/lib/datatables.min.js"></script>
-<script src="../shared/lib/dt-buttons.min.js"></script>
-<script src="../shared/lib/dt-buttons-html5.min.js"></script>
-<script src="../shared/lib/plotly.min.js"></script>
-<script src="../shared/lib/leaflet.js"></script>
-<script src="../shared/lib/vis-network.min.js"></script>
-<script src="../shared/lib/pako.min.js"></script>
-<script src="data/data.js"></script>
-<script src="app_clave.js"></script>
-<script src="app.js"></script>
-<script src="app_viz.js"></script>
-<script src="app_profile.js"></script>
-<script src="app_chat.js"></script>
-<script src="app_analytics.js"></script>
-<script src="app_init.js"></script>
-<script src="app_i18n_ext.js"></script>
-</body>
+  </footer></main><div id="app_error" class="app-error" role="alert" hidden></div></div></div><dialog id="scope_dialog" class="scope-dialog" aria-labelledby="scope_title"><div class="dialog-heading"><div><div class="panel-kicker" data-i18n="ui.sharedScope">Contexto compartido</div><h2 id="scope_title" data-i18n="ui.scope">Filtros de consulta</h2></div><button class="icon-btn" type="button" data-close="scope_dialog" aria-label="Cerrar"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button></div><p class="scope-hint" data-i18n="ui.scopeHint">Estos filtros se aplican a todas las vistas, tablas e informes.</p><div class="filters">
+      <div class="field">
+        <label data-i18n="filter.university">Universidad</label>
+        <div class="sel"><select id="f_uni"></select></div>
+      </div>
+      <div class="field">
+        <label data-i18n="filter.unit">Unidad académica</label>
+        <div class="sel"><select id="f_sec"></select></div>
+      </div>
+      <div class="field year-field">
+        <label data-i18n="filter.period">Periodo de publicación</label>
+        <div class="ywrap">
+          <span class="ychip" id="y_lo">2018</span>
+          <div class="range-stack">
+            <div class="range-track"></div>
+            <div class="range-fill" id="y_fill"></div>
+            <input type="range" id="y_min">
+            <input type="range" id="y_max">
+          </div>
+          <span class="ychip" id="y_hi">2025</span>
+        </div>
+          <div class="atajos-periodo">
+            <button type="button" class="ap" data-desde="-4">Últimos 5 años</button>
+            <button type="button" class="ap" data-desde="-9">Últimos 10 años</button>
+            <button type="button" class="ap" data-todo="1">Todo</button>
+          </div>
+      </div>
+    </div><button class="more-filters" id="more_filters" type="button" aria-expanded="false" aria-controls="filters_2" hidden>
+      <i class="fa-solid fa-sliders"></i> <span data-i18n="filter.more">Más filtros</span> <i class="fa-solid fa-chevron-right chev"></i>
+    </button><div class="filters filters-2 open" id="filters_2">
+      <div class="field">
+        <label data-i18n="filter.affiliation">Filiación considerada</label>
+        <div class="sel"><select id="f_afil"></select></div>
+      </div>
+      <div class="field">
+        <label data-i18n="filter.indexing">Indexación</label>
+        <div class="sel"><select id="f_idx"></select></div>
+      </div>
+      <div class="field">
+        <label data-i18n="filter.doctype">Tipo de documento</label>
+        <div class="sel"><select id="f_tipo"></select></div>
+      </div>
+    </div><div class="adv-row">
+      <button class="adv-toggle" id="adv_toggle" type="button" aria-expanded="false" aria-controls="adv_panel">
+        <i class="fa-solid fa-sliders"></i> <span data-i18n="filter.advanced">Opciones avanzadas</span> <i class="fa-solid fa-chevron-right chev"></i>
+      </button>
+    </div><div class="adv-panel" id="adv_panel">
+      <div class="field">
+        <label data-i18n="filter.collection">Colección de Web of Science</label>
+        <div class="col-checks" id="f_col" role="group" aria-describedby="f_col_hint"></div>
+        <p class="sel-hint" id="f_col_hint" data-i18n="filter.colHint">Sin selección se muestran todas.</p>
+      </div>
+      <p class="adv-note" data-i18n="filter.collectionNote">Una publicación puede pertenecer a más de una colección. CPCI son actas de congreso y BKCI libros: pertenecen a la Core Collection pero no se cuentan como WoS en reporte institucional.</p>
+    </div><div class="dialog-actions"><button class="btn btn-ghost" type="button" id="scope_reset" data-i18n="ui.resetFilters">Restablecer filtros</button><button class="btn btn-primary" type="button" data-close="scope_dialog" data-i18n="ui.applyScope">Ver resultados</button></div></dialog><dialog id="tools_dialog" class="tools-dialog" aria-labelledby="tools_title"><div class="dialog-heading"><div><div class="panel-kicker" data-i18n="ui.science">Producción científica</div><h2 id="tools_title" data-i18n="ui.allTools">Todas las herramientas</h2></div><button class="icon-btn" type="button" data-close="tools_dialog" aria-label="Cerrar"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button></div><div id="tools_directory" class="tools-directory"></div></dialog><dialog id="publication_dialog" class="publication-dialog" aria-labelledby="publication_title"><div class="dialog-heading"><div class="panel-kicker" data-i18n="ui.paperDetail">Ficha de publicación</div><button class="icon-btn" type="button" data-close="publication_dialog" aria-label="Cerrar"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button></div><div id="publication_detail"></div></dialog><script src="lib/jquery.min.js"></script><script src="lib/datatables.min.js"></script><script src="lib/dt-buttons.min.js"></script><script src="lib/dt-buttons-html5.min.js"></script><script src="lib/plotly.min.js"></script><script src="lib/leaflet.js"></script><script src="lib/vis-network.min.js"></script><script src="data/data.js"></script><script src="app_clave.js"></script><script src="app.js"></script><script src="app_viz.js"></script><script src="app_profile.js"></script><script src="../asistente.js?v=20261012"></script><script src="app_chat.js?v=20261012"></script><script src="app_analytics.js"></script><script src="app_init.js"></script><script src="app_i18n_ext.js"></script><script src="../institutional.js?v=20261011-usach"></script><script src="../theme.js?v=20261011-atlas"></script><script src="../academic-tools.js?v=20261011-comparaciones"></script><script src="interface.js?v=20261011-comparaciones"></script></body>
 </html>
+
