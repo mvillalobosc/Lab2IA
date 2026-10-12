@@ -36,7 +36,11 @@ function initSlider(){
   const lo=ys.length?Math.min(...ys):1990, hi=ys.length?Math.max(...ys):2025;
   const mn=document.getElementById('y_min'), mx=document.getElementById('y_max');
   mn.min=mx.min=lo; mn.max=mx.max=hi;
-  S.yMin=Math.max(lo,hi-5); S.yMax=hi; mn.value=S.yMin; mx.value=S.yMax;
+  /* Periodo por defecto: los últimos cinco años hasta el año en curso (2021–2026 en 2026),
+     acotado a los años que realmente hay en la base. Lo que esté fechado después del año
+     en curso (en prensa) queda fuera hasta que se amplíe el periodo con el control. */
+  const hoy=new Date().getFullYear();
+  S.yMax=Math.min(hi,Math.max(lo,hoy)); S.yMin=Math.min(S.yMax,Math.max(lo,hoy-5)); mn.value=S.yMin; mx.value=S.yMax;
   syncSlider();
 }
 function syncSlider(){

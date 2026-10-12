@@ -128,7 +128,15 @@ function bindEvents(){
   const dl = el("dl_base"); if(dl) dl.addEventListener("click", descargarBaseDatos);
 }
 
+/* Los nombres de personas se comparan como texto exacto en toda la app, así que una misma persona
+   escrita de dos formas ("Héctor Rojas Pescio" y "HÉCTOR ROJAS PESCIO") aparecería dos veces en
+   rankings y perfiles. Al cargar se dejan en mayúsculas, sin espacios dobles ni de borde. */
+const CAMPOS_PERSONA = ["PROFESOR GUIA", "PROFESOR COGUIA", "ESTUDIANTE"];
+function normalizarPersona(v){
+  return clean(v).replace(/\s+/g, " ").toLocaleUpperCase("es-CL");
+}
 function bootstrapData(memorias, academicos){
+  memorias.forEach(r => CAMPOS_PERSONA.forEach(k => { if(k in r) r[k] = normalizarPersona(r[k]); }));
   state.data = memorias.map(r => ({...r, "__year": yearOf(r)}));
   state.academics = academicos;
   const years = state.data.map(yearOf).filter(Boolean);
@@ -138,8 +146,12 @@ function bootstrapData(memorias, academicos){
     el(id).min = min;
     el(id).max = max;
   });
-  el("y_min").value = min;
-  el("y_max").value = max;
+  /* Periodo por defecto: los últimos cinco años hasta el año en curso, acotado a los años
+     de la base. El botón "Todo el periodo" del diálogo de filtros vuelve al rango completo. */
+  const hoy = new Date().getFullYear();
+  const hiDef = Math.min(max, Math.max(min, hoy));
+  el("y_min").value = Math.min(hiDef, Math.max(min, hoy - 5));
+  el("y_max").value = hiDef;
 
   const institutions = [...new Set(state.data.map(r => clean(r.UNIVERSIDAD)).filter(Boolean))].sort((a,b) => a.localeCompare(b, "es"));
   el("f_institucion").innerHTML = institutions.map(u => `<option value="${u.replace(/"/g,"&quot;")}">${prettyOrg(u)}</option>`).join("");

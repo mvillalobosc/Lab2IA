@@ -1171,9 +1171,13 @@ async function analizar(arbol){
         wosPorId: new Map(),
         wosNombres: info.xlss
       };
+      /* una persona puede tener más de un archivo de WoS (un ResearcherID por perfil), así que
+         cada número apunta a una lista de archivos */
       for (const n of info.xlss)
-        for (const id of (n.match(/\d{8,}/g) || []))
-          porUnidad[u].wosPorId.set(id, n);
+        for (const id of (n.match(/\d{8,}/g) || [])){
+          if (!porUnidad[u].wosPorId.has(id)) porUnidad[u].wosPorId.set(id, []);
+          porUnidad[u].wosPorId.get(id).push(n);
+        }
     }
 
     const enVariasCarpetas = [];
@@ -1199,9 +1203,12 @@ async function analizar(arbol){
             if (m.wosPorId.has(id)){ unidad = u; break; }
 
         const mm = unidad ? porUnidad[unidad] : null;
-        let archivoWos = '', cruce = 'ninguno';
+        /* archivosWos: todos los archivos de WoS de la persona. Si el nombre completo aparece en
+           varios (dos ResearcherID, por ejemplo), se usan todos; antes se tomaba solo el primero y
+           las publicaciones del otro perfil quedaban sin su marca de WoS. */
+        let archivosWos = [], cruce = 'ninguno';
         if (mm){
-          if (id && mm.wosPorId.has(id)){ archivoWos = mm.wosPorId.get(id); cruce = 'id'; }
+          if (id && mm.wosPorId.has(id)){ archivosWos = mm.wosPorId.get(id).slice(); cruce = 'id'; }
           else {
             const k = M.norm(fila.NOMBRE_AUTOR);
             const tk = k.split(' ').filter(t => t.length >= 3);
@@ -1212,16 +1219,16 @@ async function analizar(arbol){
               if (p > mejor){ mejor = p; cuales = [n]; }
               else if (p === mejor && p > 0) cuales.push(n);
             }
-            if (mejor >= 99){ archivoWos = cuales[0]; cruce = 'nombre'; }
-            else if (mejor >= 2){ archivoWos = cuales[0]; cruce = cuales.length > 1 ? 'ambiguo' : 'nombre'; }
-            else if (mejor === 1 && cuales.length === 1){ archivoWos = cuales[0]; cruce = 'debil'; }
+            if (mejor >= 99){ archivosWos = cuales; cruce = 'nombre'; }
+            else if (mejor >= 2){ archivosWos = [cuales[0]]; cruce = cuales.length > 1 ? 'ambiguo' : 'nombre'; }
+            else if (mejor === 1 && cuales.length === 1){ archivosWos = [cuales[0]]; cruce = 'debil'; }
             else if (mejor === 1) cruce = 'ambiguo';
           }
         }
         S.academicos.push({
           unidad, nombre: fila.NOMBRE_AUTOR || '(sin nombre)',
           sesion: fila.SESION || '', scopusId: id, wosId: fila.WoS_ID || '',
-          anos: anos.length, archivoCsv, archivoWos, cruce,
+          anos: anos.length, archivoCsv, archivosWos, archivoWos: archivosWos.join(' + '), cruce,
           sel: !!archivoCsv
         });
       }
@@ -1452,32 +1459,39 @@ function descargar(nombre, texto){
 async function renombrarWos(){
   const objetivo = S.academicos.filter(a => a.archivoWos && a.cruce !== 'id' && a.scopusId);
   if (!objetivo.length) return;
-  const lista = objetivo.slice(0,10).map(a =>
-    `  ${a.archivoWos}\n    → WOS - ${a.scopusId} - ${a.wosId || 'SIN-ID'}.xlsx`).join('\n');
-  if (!confirm(`Se van a renombrar ${objetivo.length} archivo(s) de WoS para incluir el SCOPUS_ID.\n\n` +
-              lista + (objetivo.length>10 ? `\n  ... y ${objetivo.length-10} más` : '') +
+  /* cada archivo conserva su ResearcherID (lo último después del guion), así dos perfiles de la
+     misma persona no chocan en el nombre nuevo */
+  const pares = [];
+  for (const a of objetivo)
+    for (const viejo of (a.archivosWos || [a.archivoWos])){
+      const ext = (viejo.match(/\.[a-z]+$/i) || ['.xlsx'])[0];
+      const rid = (viejo.replace(/\.[a-z]+$/i,'').split(' - ').pop() || '').trim();
+      const idWos = /^[A-Za-z]{1,3}-\d{4}-\d{4}$/.test(rid) ? rid : (a.wosId || 'SIN-ID');
+      pares.push({ a, viejo, nuevo: `WOS - ${a.scopusId} - ${idWos}${ext}` });
+    }
+  const lista = pares.slice(0,10).map(p => `  ${p.viejo}\n    → ${p.nuevo}`).join('\n');
+  if (!confirm(`Se van a renombrar ${pares.length} archivo(s) de WoS para incluir el SCOPUS_ID.\n\n` +
+              lista + (pares.length>10 ? `\n  ... y ${pares.length-10} más` : '') +
               '\n\n¿Continuar?')) return;
 
   let ok = 0, err = [];
-  for (const a of objetivo){
+  for (const { a, viejo, nuevo } of pares){
     try {
       const info = S.unidades[a.unidad];
       if (!info || !info.nodoWos) throw new Error('sin carpeta WOS');
-      const ext = (a.archivoWos.match(/\.[a-z]+$/i) || ['.xlsx'])[0];
-      const nuevo = `WOS - ${a.scopusId} - ${a.wosId || 'SIN-ID'}${ext}`;
-      if (nuevo === a.archivoWos){ ok++; continue; }
-      const h = await info.nodoWos.handle.getFileHandle(a.archivoWos);
+      if (nuevo === viejo){ ok++; continue; }
+      const h = await info.nodoWos.handle.getFileHandle(viejo);
       if (h.move) { await h.move(nuevo); }
       else {
         const datos = await (await h.getFile()).arrayBuffer();
         const nh = await info.nodoWos.handle.getFileHandle(nuevo, {create:true});
         const w = await nh.createWritable(); await w.write(datos); await w.close();
-        await info.nodoWos.handle.removeEntry(a.archivoWos);
+        await info.nodoWos.handle.removeEntry(viejo);
       }
       ok++;
-    } catch(e){ err.push(a.archivoWos + ': ' + e.message); }
+    } catch(e){ err.push(viejo + ': ' + e.message); }
   }
-  alert(`Renombrados ${ok} de ${objetivo.length}.` + (err.length ? `\n\nErrores:\n` + err.slice(0,5).join('\n') : ''));
+  alert(`Renombrados ${ok} de ${pares.length}.` + (err.length ? `\n\nErrores:\n` + err.slice(0,5).join('\n') : ''));
   await recargar();
 }
 
@@ -2367,22 +2381,31 @@ async function procesar(){
       fila.__id = a.scopusId;
       filas = M.agregarDesdeIndice(filas, fila);
       let msg = `${a.nombre}: ${filas.length} publicaciones en Scopus`;
-      if (a.archivoWos && info.nodoWos){
-        let w;
-        try {
-          w = await leerTabla(info.nodoWos.archivos[a.archivoWos], a.archivoWos);
-        } catch(err){
-          logear(`${a.nombre}: no pude leer su archivo de Web of Science. ${err.message} ` +
-                 `Sigo con el resto, pero sus publicaciones van a quedar sin los datos de WoS.`, 'w');
-          w = null;
+      const archivosWos = a.archivosWos || (a.archivoWos ? [a.archivoWos] : []);
+      if (archivosWos.length && info.nodoWos){
+        let cruzadas = 0, agregadas = 0, leidos = 0; const soloWos = [];
+        for (const nombreWos of archivosWos){
+          let w;
+          try {
+            w = await leerTabla(info.nodoWos.archivos[nombreWos], nombreWos);
+          } catch(err){
+            logear(`${a.nombre}: no pude leer su archivo de Web of Science ${nombreWos}. ${err.message} ` +
+                   `Sigo con el resto, pero esas publicaciones van a quedar sin los datos de WoS.`, 'w');
+            continue;
+          }
+          const wid = (/ - ([A-Za-z0-9-;. ]+)\.(xlsx|xls|csv|txt|tsv)$/i.exec(nombreWos) || [,''])[1].trim();
+          const antes = filas.length;
+          const r = M.anotarWos(filas, w.filas, w.cabecera, wid);
+          filas = r.filas; cruzadas += r.cruzadas; agregadas += r.agregadas; leidos++;
+          for (const f of filas.slice(antes)) soloWos.push(`${f.ANO} · ${String(f.TITULO).slice(0,70)}`);
         }
-        if (w) {
-        const wid = (/ - ([A-Za-z0-9-;. ]+)\.(xlsx|xls|csv|txt|tsv)$/i.exec(a.archivoWos) || [,''])[1].trim();
-        const r = M.anotarWos(filas, w.filas, w.cabecera, wid);
-        filas = r.filas;
-        msg += `, ${r.cruzadas} de ellas también están en su descarga de Web of Science`;
-        if (r.agregadas) msg += `, y ${r.agregadas} solo aparecían en Web of Science`;
-        if (a.cruce !== 'id') msg += ` (su archivo se encontró por el nombre, conviene revisarlo)`;
+        if (leidos){
+          msg += `, ${cruzadas} de ellas también están en ${leidos > 1 ? 'sus ' + leidos + ' descargas' : 'su descarga'} de Web of Science`;
+          if (agregadas) msg += `, y ${agregadas} solo aparecían en Web of Science`;
+          if (a.cruce !== 'id') msg += ` (su archivo se encontró por el nombre, conviene revisarlo)`;
+          /* las que solo vienen de WoS se listan: si el perfil de WoS trae trabajos de otra persona
+             con el mismo apellido, aquí se ve y se pueden sacar del archivo */
+          if (soloWos.length) msg += `. Solo en WoS: ` + soloWos.slice(0,6).join(' · ') + (soloWos.length > 6 ? ` y ${soloWos.length-6} más` : '');
         }
       } else msg += ', sin descarga de Web of Science';
       filas = M.anotarSjrConMapa(filas, mapaSjr);
