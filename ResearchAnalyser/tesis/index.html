@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Analizador de Memorias DIINF · USACH</title>
-  <link rel="icon" href="../shared/img/logo2.png" type="image/png">
-  <link rel="stylesheet" href="../shared/lib/fa.min.css">
-  <link rel="stylesheet" href="../shared/lib/datatables.min.css">
+  <title>ResearchAnalyser · Tesis y memorias · USACH</title>
+  <link rel="icon" href="IMG/logo2.png" type="image/png">
+  <link rel="stylesheet" href="../publicaciones/lib/fa.min.css">
+  <link rel="stylesheet" href="../publicaciones/lib/datatables.min.css">
   <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+<link rel="stylesheet" href="../publicaciones/interface.css?v=20261011-usach"><link rel="stylesheet" href="interface.css?v=20261011-usach"><link rel="stylesheet" href="../institutional.css?v=20261011-usach"><link rel="stylesheet" href="../academic-tools.css?v=20261011-comparaciones"><link rel="stylesheet" href="../theme.css?v=20261012-asistente"></head>
+<body data-module="tesis">
   <div id="overlay" class="overlay">
     <div class="ov-card">
       <div class="ov-spin"></div>
@@ -18,99 +18,49 @@
     </div>
   </div>
 
-  <div id="help_modal" class="help-modal" aria-hidden="true">
-    <div class="help-card" role="dialog" aria-modal="true" aria-labelledby="help_title">
+  <dialog id="help_modal" class="thesis-help-dialog" aria-labelledby="help_title">
+    <div class="help-card">
       <button class="help-close" id="help_close" type="button" aria-label="Cerrar ayuda"><i class="fa-solid fa-xmark"></i></button>
       <div class="help-kicker"><i class="fa-solid fa-circle-question"></i> <span data-i18n="help.kicker">Ayuda</span></div>
       <h3 id="help_title">Indicador</h3>
       <p id="help_body"></p>
     </div>
-  </div>
+  </dialog>
 
-  <header class="masthead">
-    <div class="masthead-inner">
-      <div class="brand-row">
+  <header class="masthead"><div class="brand-row">
         <div class="brand-left">
-          <img src="../shared/img/logo.png" class="brand-logo" alt="USACH · DIINF">
+          <img src="IMG/logo.png" class="brand-logo" alt="USACH · DIINF">
           <div class="brand-rule"></div>
           <div class="brand-titles">
             <div class="brand-kicker" data-i18n="brand.kicker">Universidad de Santiago de Chile</div>
-            <div class="brand-title" data-i18n="brand.title">Analizador de Memorias DIINF</div>
-            <div class="brand-sub" data-i18n="brand.sub">Trabajos de título · pregrado, posgrado, guías, co-guías y dominios temáticos</div>
+            <div class="brand-title">ResearchAnalyser</div>
+            <div class="brand-sub" data-i18n="ui.moduleTheses">Tesis y memorias</div>
           </div>
         </div>
-        <div class="brand-actions">
-          <a class="selector-back" href="../index.html"><i class="fa-solid fa-arrow-left"></i> Volver al inicio</a>
+        <div class="brand-actions"><nav class="module-switcher" aria-label="Módulos"><a href="../publicaciones/index.html#resumen" class="module-pill module-publications"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Publicaciones</a><a href="../tesis/index.html#resumen" aria-current="page" class="module-pill module-theses"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i> <span data-i18n="ui.moduleTheses">Tesis y memorias</span></a></nav>
+          
           <div class="lang-switch" id="lang_switch" aria-label="Idioma">
             <button type="button" data-lang="es" class="on"><span class="flag flag-cl"></span><span>ESP</span></button>
             <button type="button" data-lang="pt"><span class="flag flag-br"></span><span>POR</span></button>
             <button type="button" data-lang="en"><span class="flag flag-en"></span><span>ENG</span></button>
           </div>
-          <span class="brand-badge"><i class="fa-solid fa-graduation-cap"></i> v2</span>
-        </div>
-      </div>
-
-      <div class="filters">
-        <div class="field">
-          <label for="f_institucion" data-i18n="filter.institution">Institución</label>
-          <div class="sel"><select id="f_institucion"></select></div>
-        </div>
-        <div class="field">
-          <label for="f_departamento" data-i18n="filter.department">Departamento</label>
-          <div class="sel"><select id="f_departamento"></select></div>
-        </div>
-        <div class="field year-field">
-          <label data-i18n="filter.period">Periodo de publicación</label>
-          <div class="ywrap">
-            <span class="ychip" id="y_lo">2015</span>
-            <div class="range-stack">
-              <div class="range-track"></div>
-              <div class="range-fill" id="y_fill"></div>
-              <input type="range" id="y_min" min="2015" max="2025" value="2015">
-              <input type="range" id="y_max" min="2015" max="2025" value="2025">
-            </div>
-            <span class="ychip" id="y_hi">2025</span>
-          </div>
-        </div>
-      </div>
-
-      <nav class="tabs" id="tabs">
-        <button data-tab="resumen" class="active"><i class="fa-solid fa-chart-pie ti"></i><span data-i18n="tab.summary">Resumen</span></button>
-        <button data-tab="indicadores"><i class="fa-solid fa-list-ol ti"></i><span data-i18n="tab.indicators">Indicadores</span></button>
-        <button data-tab="perfiles"><i class="fa-solid fa-user-pen ti"></i><span data-i18n="tab.profiles">Perfiles</span></button>
-        <button data-tab="analitica"><i class="fa-solid fa-chart-line ti"></i><span data-i18n="tab.analytics">Analítica</span></button>
-        <button data-tab="dominio"><i class="fa-solid fa-diagram-project ti"></i><span data-i18n="tab.domain">Dominio</span></button>
-        <button data-tab="asistente"><i class="fa-solid fa-comments ti"></i><span data-i18n="tab.assistant">Asistente</span></button>
-      </nav>
-    </div>
-  </header>
-
-  <main class="wrap">
+          
+        <button class="btn btn-ghost" type="button" id="assistant_link"><i class="fa-solid fa-comments" aria-hidden="true"></i><span data-i18n="ui.assistant">Asistente</span></button><button class="icon-btn" type="button" id="directory_open" aria-label="Todas las herramientas"><i class="fa-solid fa-compass" aria-hidden="true"></i></button></div>
+      </div></header><div class="workspace-shell"><aside class="workspace-sidebar"><a class="module-home" href="../index.html"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i><span data-i18n="ui.allModules">Módulos y herramientas</span></a><div class="nav-caption" data-i18n="ui.training">Formación e investigación</div><nav id="main_nav" aria-label="Navegación principal"><button type="button" class="nav-link" data-route="resumen"><i class="fa-solid fa-chart-pie" aria-hidden="true"></i><span data-i18n="ui.summary">Resumen</span></button><button type="button" class="nav-link" data-route="registros"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i><span data-i18n="ui.records">Tesis y memorias</span></button><button type="button" class="nav-link" data-route="perfiles"><i class="fa-solid fa-users" aria-hidden="true"></i><span data-i18n="ui.people">Académicos y unidad</span></button><button type="button" class="nav-link" data-tool-route="analisis" data-tool-view="comparison"><i class="fa-solid fa-user-group" aria-hidden="true"></i><span data-i18n="ui.compareAcademics">Comparar académicos</span></button><button type="button" class="nav-link" data-tool-route="analisis" data-tool-view="domain"><i class="fa-solid fa-layer-group" aria-hidden="true"></i><span data-i18n="ui.areaAccess">Áreas y evolución</span></button><button type="button" class="nav-link" data-route="analisis"><i class="fa-solid fa-chart-line" aria-hidden="true"></i><span data-i18n="ui.analysis">Análisis</span></button><button type="button" class="nav-link" data-route="informes"><i class="fa-solid fa-file-lines" aria-hidden="true"></i><span data-i18n="ui.reports">Informes</span></button></nav><div class="sidebar-bottom"><button class="nav-link" type="button" id="directory_side"><i class="fa-solid fa-compass" aria-hidden="true"></i><span data-i18n="ui.allTools">Todas las herramientas</span></button><button class="nav-link" type="button" onclick="descargarBaseDatos()"><i class="fa-solid fa-database" aria-hidden="true"></i><span data-i18n="ui.fullData">Base completa</span></button></div></aside><div class="workspace-area"><div class="context-bar"><div class="context-copy"><span class="context-label" data-i18n="ui.currentScope">Consulta activa</span><div id="scope_chips" aria-live="polite"></div></div><button class="btn btn-ghost" type="button" id="scope_open"><i class="fa-solid fa-sliders" aria-hidden="true"></i><span data-i18n="ui.editFilters">Cambiar filtros</span></button></div><main class="workspace-content"><nav id="analysis_nav" class="subnav" aria-label="Herramientas de análisis" hidden><button type="button" class="subnav-button" data-analysis-view="indicators" data-i18n="tab.indicators">Indicadores</button><button type="button" class="subnav-button" data-analysis-view="insights" data-i18n="ui.insights">Hallazgos</button><button type="button" class="subnav-button" data-analysis-view="comparison" data-i18n="ui.comparison">Comparaciones</button><button type="button" class="subnav-button" data-analysis-view="domain" data-i18n="ui.areas">Áreas</button><button type="button" class="subnav-button" data-analysis-view="opportunities" data-i18n="ui.collaborationSearch">Colaboración y búsqueda</button></nav>
     <section id="p-resumen" class="panel active">
-      <div class="panel-head">
-        <div>
-          <div class="panel-kicker" data-i18n="resumen.kicker">Panorama general</div>
-          <h2 class="panel-title" data-i18n="resumen.title">Vista general de trabajos de título</h2>
-          <p class="panel-desc" data-i18n="resumen.desc">Síntesis del periodo activo: volumen, programas, participación de guías, co-guías y áreas dominantes.</p>
-        </div>
+      <div class="panel-head overview-topline">
+        <div><span class="overview-breadcrumb" data-i18n="ui.training">Formación e investigación</span><span class="overview-breadcrumb-divider" aria-hidden="true">/</span><span class="overview-breadcrumb-current" data-i18n="ui.summary">Resumen</span></div>
         <div class="export-group">
-          <button class="btn btn-primary" onclick="exportarInforme('Resumen')"><i class="fa-solid fa-file-lines"></i> <span data-i18n="report.html">Reporte HTML</span></button>
-          <button class="btn btn-ghost" onclick="exportarInformeCSV('Resumen')"><i class="fa-solid fa-file-csv"></i> CSV</button>
+          <button class="btn btn-primary" onclick="exportarInforme(&#x27;Resumen&#x27;)"><i class="fa-solid fa-file-lines"></i> <span data-i18n="report.html">Reporte HTML</span></button>
+          <button class="btn btn-ghost" onclick="exportarInformeCSV(&#x27;Resumen&#x27;)"><i class="fa-solid fa-file-csv"></i> CSV</button>
         </div>
       </div>
 
-      <div class="student-hero">
-        <div>
-          <div class="student-hero-kicker"><i class="fa-solid fa-star"></i> Lectura guiada</div>
-          <h3>La memoria como señal académica</h3>
-          <p>La app ordena trabajos de título para mirar volumen, trayectorias de profesores guía, programas y dominios temáticos sin depender de Shiny.</p>
-        </div>
-        <img src="../shared/img/tesis-academica.webp" alt="Ilustración académica">
-      </div>
+      
 
-      <div class="summary-grid" id="summary_cards"></div>
+      <div class="thesis-overview" id="summary_cards"></div>
 
-      <div class="viz-grid">
+      <div class="viz-grid thesis-summary-charts">
         <div class="viz">
           <div class="viz-head"><h4 data-i18n="resumen.annualTitle">Frecuencia anual</h4><span class="hint" data-i18n="resumen.annualHint">trabajos por año</span></div>
           <div id="chart_anios" class="plot"></div>
@@ -121,7 +71,7 @@
         </div>
       </div>
 
-      <div class="viz-grid">
+      <div class="viz-grid thesis-summary-charts">
         <div class="viz">
           <div class="viz-head"><h4 data-i18n="resumen.areaKnowTitle">Áreas de conocimiento</h4><span class="hint" data-i18n="resumen.areaKnowHint">top 10 con filtros actuales</span></div>
           <div id="chart_area_conocimiento" class="plot"></div>
@@ -134,15 +84,15 @@
     </section>
 
     <section id="p-indicadores" class="panel">
-      <div class="panel-head">
+      <div class="panel-head" data-preserved-head="true">
         <div>
           <div class="panel-kicker" data-i18n="indicadores.kicker">Métricas detalladas</div>
           <h2 class="panel-title" data-i18n="indicadores.title">Indicadores de memorias</h2>
           <p class="panel-desc" data-i18n="indicadores.desc">Cálculo institucional o por académico(a), siguiendo la lógica de la app original en R.</p>
         </div>
         <div class="export-group">
-          <button class="btn btn-primary" onclick="exportarInforme('Indicadores')"><i class="fa-solid fa-file-lines"></i> <span data-i18n="report.html">Reporte HTML</span></button>
-          <button class="btn btn-ghost" onclick="exportarInformeCSV('Indicadores')"><i class="fa-solid fa-file-csv"></i> CSV</button>
+          <button class="btn btn-primary" onclick="exportarInforme(&#x27;Indicadores&#x27;)"><i class="fa-solid fa-file-lines"></i> <span data-i18n="report.html">Reporte HTML</span></button>
+          <button class="btn btn-ghost" onclick="exportarInformeCSV(&#x27;Indicadores&#x27;)"><i class="fa-solid fa-file-csv"></i> CSV</button>
         </div>
       </div>
       <div class="assist-box"><i class="fa-solid fa-circle-question"></i><span data-i18n-html="indicadores.assist"><b>Departamento</b> resume la unidad completa. <b>Por académico(a)</b> muestra una tabla con una fila por persona: trabajos guiados, co-guiados, total, pregrado, posgrado y áreas distintas dentro del periodo activo.</span></div>
@@ -159,15 +109,15 @@
     </section>
 
     <section id="p-perfiles" class="panel">
-      <div class="panel-head">
+      <div class="panel-head" data-preserved-head="true">
         <div>
           <div class="panel-kicker" data-i18n="perfiles.kicker">Análisis por unidad o persona</div>
           <h2 class="panel-title" data-i18n="perfiles.title">Perfiles de guía académica</h2>
           <p class="panel-desc" data-i18n="perfiles.desc">Explora la producción del departamento o de un académico(a), con trayectoria, programas, co-guías y relaciones.</p>
         </div>
         <div class="export-group">
-          <button class="btn btn-primary" onclick="exportarInforme('Perfiles')"><i class="fa-solid fa-file-lines"></i> <span data-i18n="report.html">Reporte HTML</span></button>
-          <button class="btn btn-ghost" onclick="exportarInformeCSV('Perfiles')"><i class="fa-solid fa-file-csv"></i> CSV</button>
+          <button class="btn btn-primary" onclick="exportarInforme(&#x27;Perfiles&#x27;)"><i class="fa-solid fa-file-lines"></i> <span data-i18n="report.html">Reporte HTML</span></button>
+          <button class="btn btn-ghost" onclick="exportarInformeCSV(&#x27;Perfiles&#x27;)"><i class="fa-solid fa-file-csv"></i> CSV</button>
         </div>
       </div>
       <div class="controls">
@@ -182,15 +132,15 @@
           <label for="perf_academico" data-i18n="control.academic">Académico(a)</label>
           <div class="sel"><select id="perf_academico"></select></div>
         </div>
-      </div>
-      <div class="profile-hero">
+      </div><nav id="profile_nav" class="subnav" aria-label="Secciones del perfil"><button class="subnav-button" type="button" data-profile-view="overview" data-i18n="ui.overview">Panorama</button><button class="subnav-button" type="button" data-profile-view="topics" data-i18n="ui.programsAreas">Programas y áreas</button><button class="subnav-button" type="button" data-profile-view="collaboration" data-i18n="ui.collaboration">Co-guías y temas</button><button class="subnav-button" type="button" data-profile-view="records" data-i18n="ui.records">Trabajos del perfil</button></nav>
+      <div class="profile-hero" data-profile-section="overview">
         <div class="profile-card" id="profile_card"></div>
         <div class="viz">
           <div class="viz-head"><h4 data-i18n="perfiles.annualTitle">Frecuencia anual</h4><span class="hint" data-i18n="perfiles.annualHint">trabajos del perfil activo</span></div>
           <div id="perfil_anios" class="plot tall"></div>
         </div>
       </div>
-      <div class="viz-grid">
+      <div class="viz-grid" data-profile-section="overview">
         <div class="viz">
           <div class="viz-head"><h4 data-i18n="perfiles.programsTitle">Programas</h4><span class="hint" data-i18n="perfiles.programsHint">distribución por carrera o posgrado</span></div>
           <div id="perfil_programas" class="plot"></div>
@@ -200,11 +150,11 @@
           <div id="perfil_guia_coguia" class="plot"></div>
         </div>
       </div>
-      <div class="viz">
+      <div class="viz" data-profile-section="topics">
         <div class="viz-head"><h4 data-i18n="perfiles.sankeyTitle">Flujo programa → especialidad → aplicación</h4><span class="hint" data-i18n="perfiles.sankeyHint">Sankey con filtros actuales</span></div>
         <div id="perfil_sankey" class="plot sankey"></div>
       </div>
-      <div class="viz-grid">
+      <div class="viz-grid" data-profile-section="collaboration">
         <div class="viz">
           <div class="viz-head"><h4 data-i18n="perfiles.netTitle">Relaciones guía/co-guía</h4><span class="hint" data-i18n="perfiles.netHint">clic en un nodo o enlace para ver la frecuencia · arrastra los nodos</span></div>
           <div class="network-tools" aria-label="Buscar académico(a) en la red">
@@ -224,29 +174,29 @@
         </div>
       </div>
 
-    </section>
+    <section data-profile-section="records"><div class="viz"><div class="viz-head"><h4 data-i18n="ui.profileRecords">Trabajos del perfil activo</h4><button type="button" class="btn btn-ghost" id="profile_csv"><i class="fa-solid fa-file-csv" aria-hidden="true"></i> CSV</button></div><div class="table-scroll"><table id="profile_records" class="detail-table"></table></div></div></section></section>
 
     <section id="p-analitica" class="panel">
-      <div class="panel-head">
+      <div class="panel-head" data-preserved-head="true">
         <div>
           <div class="panel-kicker" data-i18n="analitica.kicker">Lectura automática</div>
-          <h2 class="panel-title" data-i18n="analitica.title">Analítica con filtros actuales</h2>
-          <p class="panel-desc" data-i18n="analitica.desc">Hallazgos calculados en el navegador, comparación entre académicos(as), oportunidades de colaboración, alerta de continuidad y buscador global.</p>
+          <h2 class="panel-title" id="analysis_title">Analítica con filtros actuales</h2>
+          <p class="panel-desc" id="analysis_desc">Hallazgos calculados en el navegador, comparación entre académicos(as), oportunidades de colaboración, alerta de continuidad y buscador global.</p>
         </div>
         <div class="export-group">
-          <button class="btn btn-primary" onclick="exportarInforme('Analítica')"><i class="fa-solid fa-file-lines"></i> <span data-i18n="report.html">Reporte HTML</span></button>
-          <button class="btn btn-ghost" onclick="exportarInformeCSV('Analítica')"><i class="fa-solid fa-file-csv"></i> CSV</button>
+          <button class="btn btn-primary" onclick="exportarInforme(&#x27;Analítica&#x27;)"><i class="fa-solid fa-file-lines"></i> <span data-i18n="report.html">Reporte HTML</span></button>
+          <button class="btn btn-ghost" onclick="exportarInformeCSV(&#x27;Analítica&#x27;)"><i class="fa-solid fa-file-csv"></i> CSV</button>
         </div>
       </div>
 
-      <div class="viz">
+      <div class="viz" data-analysis-section="insights">
         <div class="viz-head"><h4 data-i18n="ana.insightsTitle">Hallazgos automáticos</h4><span class="hint" data-i18n="ana.insightsHint">se recalculan con los filtros</span></div>
         <div id="ana_insights" class="insight-grid"></div>
       </div>
 
-      <div id="ana_continuity"></div>
+      <div id="ana_continuity" data-analysis-section="insights"></div>
 
-      <div class="viz-grid">
+      <div class="viz-grid" data-analysis-section="opportunities">
         <div class="viz">
           <div class="viz-head"><h4 data-i18n="ana.oppTitle">Oportunidades de colaboración</h4><span class="hint" data-i18n="ana.oppHint">afinidad temática sin co-guía registrada</span></div>
           <div id="ana_opportunities" class="opportunity-list"></div>
@@ -261,7 +211,7 @@
         </div>
       </div>
 
-      <div class="viz compare-block">
+      <div class="viz compare-block" data-analysis-section="comparison">
         <div class="viz-head"><h4 data-i18n="compare.title">Comparación entre académicos(as)</h4><span class="hint" data-i18n="compare.hint">qué distingue el perfil temático de cada quién</span></div>
         <div class="assist-box"><i class="fa-solid fa-circle-info"></i><span data-i18n-html="compare.assist"><b>Cómo leer:</b> compara cómo dos académicos(as) reparten sus trabajos en la variable elegida. También puedes comparar a alguien contra el <b>resto del departamento</b>. Barras a la derecha = términos sobre-representados en A; a la izquierda = sobre-representados en B. χ² y p son referenciales.</span></div>
         <div class="controls">
@@ -277,7 +227,7 @@
         </div>
         <div id="cmp_summary" class="compare-summary"></div>
         <div id="cmp_legend" class="ana-legend"></div>
-        <div id="cmp_plot" class="plot" style="height:430px;"></div>
+        <div id="cmp_plot" class="plot comparison-plot"></div>
         <div class="card table-card" style="margin-top:14px;"><table id="cmp_table" class="display" style="width:100%"></table></div>
       </div>
     </section>
@@ -285,16 +235,16 @@
     <section id="p-asistente" class="panel">
       <div class="panel-head">
         <div>
-          <h2 class="panel-title" data-i18n="asistente.title">Asistente Leo USACH</h2>
+          <h2 class="panel-title" data-i18n="asistente.title">Asistente de memorias</h2>
         </div>
       </div>
 
       <div class="chat-shell">
         <aside class="chat-side">
           <div class="chat-illo">
-            <img src="../shared/img/leo-usach-chat.webp" alt="Leo USACH, asistente de memorias" onerror="this.src='../shared/img/tesis-chat.webp'">
+            
             <div>
-              <b>Leo USACH</b>
+              <b data-i18n="chat.advisor">Asistente de memorias</b>
               <span data-i18n="chat.leoDesc">Pregunta por académicos(as), áreas, temas, co-guías o años.</span>
             </div>
           </div>
@@ -317,15 +267,15 @@
     </section>
 
     <section id="p-dominio" class="panel">
-      <div class="panel-head">
+      <div class="panel-head" data-preserved-head="true">
         <div>
           <div class="panel-kicker" data-i18n="dominio.kicker">Análisis de dominio</div>
           <h2 class="panel-title" data-i18n="dominio.title">Áreas y aparición temporal</h2>
           <p class="panel-desc" data-i18n="dominio.desc">Selecciona un dominio y revisa qué académicos aparecen asociados a esa categoría por año.</p>
         </div>
         <div class="export-group">
-          <button class="btn btn-primary" onclick="exportarInforme('Dominio')"><i class="fa-solid fa-file-lines"></i> <span data-i18n="report.html">Reporte HTML</span></button>
-          <button class="btn btn-ghost" onclick="exportarInformeCSV('Dominio')"><i class="fa-solid fa-file-csv"></i> CSV</button>
+          <button class="btn btn-primary" onclick="exportarInforme(&#x27;Dominio&#x27;)"><i class="fa-solid fa-file-lines"></i> <span data-i18n="report.html">Reporte HTML</span></button>
+          <button class="btn btn-ghost" onclick="exportarInformeCSV(&#x27;Dominio&#x27;)"><i class="fa-solid fa-file-csv"></i> CSV</button>
         </div>
       </div>
       <div class="assist-box"><i class="fa-solid fa-circle-info"></i><span>Marco de áreas · <a href="#" onclick="showAreaHelp();return false;">Conocimiento (ACM/IEEE)</a> · <a href="#" onclick="showAppAreaHelp();return false;">Aplicación</a> · <a href="#" onclick="showSwebokHelp();return false;">SWEBOK</a>. Haz clic para ver la referencia y los enlaces oficiales.</span></div>
@@ -353,19 +303,20 @@
       </div>
     </section>
 
-  </main>
-
-  <footer class="foot">
+  <section id="p-registros" class="panel"><div class="panel-head"><div><div class="panel-kicker" data-i18n="ui.catalogueKicker">Colección académica</div><h2 class="panel-title" data-i18n="ui.records">Tesis y memorias</h2><p class="panel-desc" data-i18n="ui.catalogueDesc">Encuentra un trabajo por título, estudiante, guía, resumen o área. Abre su ficha para consultar todos los campos.</p></div><div class="export-group"><button class="btn btn-ghost" id="catalogue_csv" type="button"><i class="fa-solid fa-file-csv" aria-hidden="true"></i> CSV</button></div></div><label class="catalogue-search"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i><span class="sr-only" data-i18n="ui.searchRecords">Buscar trabajos</span><input type="search" id="catalogue_search" autocomplete="off" data-i18n-placeholder="ui.searchPlaceholder" placeholder="Título, estudiante, guía, tema…"></label><div class="catalogue-toolbar" id="catalogue_filters"><div class="control"><label for="catalogue_program" data-i18n="ui.program">Programa</label><select id="catalogue_program"></select></div><div class="control"><label for="catalogue_years" data-i18n="ui.yearScope">Año del trabajo</label><select id="catalogue_years"><option value="period" data-i18n="ui.activePeriod">Periodo activo</option><option value="undated" data-i18n="ui.undated">Sin año registrado</option><option value="all" data-i18n="ui.withUndated">Periodo activo + sin año</option></select></div><div class="control"><label for="catalogue_sort" data-i18n="ui.sort">Orden</label><select id="catalogue_sort"><option value="recent" data-i18n="ui.recent">Más recientes</option><option value="old" data-i18n="ui.oldest">Más antiguos</option><option value="title" data-i18n="ui.byTitle">Por título</option></select></div><div class="control"><label data-i18n="ui.view">Vista</label><div id="catalogue_view" class="seg"><button type="button" class="on" data-cat-view="list" data-i18n="ui.list">Listado</button><button type="button" data-cat-view="table" data-i18n="ui.table">Tabla</button></div></div></div><div id="catalogue_status" class="catalogue-status" aria-live="polite"></div><div id="catalogue_list" class="catalogue-papers thesis-catalogue"></div><div class="catalogue-table-wrap table-scroll" id="catalogue_table_wrap" hidden><table id="catalogue_table" class="detail-table"></table></div><div id="catalogue_pager" class="catalogue-pager"></div></section><section id="p-informes" class="panel"><div class="panel-head"><div><div class="panel-kicker" data-i18n="ui.export">Exportación</div><h2 class="panel-title" data-i18n="ui.reports">Informes</h2><p class="panel-desc" data-i18n="ui.reportDesc">Genera los informes originales con la consulta y el perfil activos.</p></div></div><div class="card report-builder"><div id="report_context" class="report-context"></div><div class="control"><label for="report_kind" data-i18n="ui.reportKind">Contenido del informe</label><select id="report_kind"><option value="Resumen" data-i18n="tab.summary">Resumen</option><option value="Indicadores" data-i18n="tab.indicators">Indicadores</option><option value="Perfiles" data-i18n="tab.profiles">Perfiles</option><option value="Analítica" data-i18n="tab.analytics">Analítica</option><option value="Dominio" data-i18n="tab.domain">Dominio</option></select></div><div class="report-options"><div><h3 data-i18n="ui.reportHTML">Informe para compartir</h3><p data-i18n="ui.reportHTMLDesc">Documento HTML con las tablas y el detalle del análisis seleccionado.</p><button id="report_html" type="button" class="btn btn-primary"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> HTML</button></div><div><h3 data-i18n="ui.reportCSV">Datos para analizar</h3><p data-i18n="ui.reportCSVDesc">Descarga el CSV original de la vista seleccionada.</p><button id="report_csv" type="button" class="btn btn-ghost"><i class="fa-solid fa-file-csv" aria-hidden="true"></i> CSV</button></div></div></div></section><footer class="foot">
     <div class="dl-link" id="dl_base"><i class="fa-solid fa-file-csv"></i> <span data-i18n="footer.download">Descargar base de datos (CSV)</span></div>
     <div class="foot-meta" data-i18n="footer.meta">Trabajos de título 2015–2025 · Universidad de Santiago de Chile · Departamento de Ingeniería Informática · versión v2 - Base de datos actualizada hasta 01 de julio de 2026</div>
     <div class="foot-ref" data-i18n="footer.credits">Desarrollado por Manuel Villalobos-Cid y Valentina Cares Cárdenas · DIINF · USACH</div>
-  </footer>
+  </footer></main></div></div>
 
-  <script src="../shared/lib/jquery.min.js"></script>
-  <script src="../shared/lib/datatables.min.js"></script>
-  <script src="../shared/lib/plotly.min.js"></script>
-  <script src="../shared/lib/vis-network.min.js"></script>
-  <script src="../shared/lib/pako.min.js"></script>
+  
+
+  
+
+  <script src="../publicaciones/lib/jquery.min.js"></script>
+  <script src="../publicaciones/lib/datatables.min.js"></script>
+  <script src="../publicaciones/lib/plotly.min.js"></script>
+  <script src="../publicaciones/lib/vis-network.min.js"></script>
   <script src="data/data.js"></script>
   <script src="app_clave.js"></script>
 <script src="app.js"></script>
@@ -376,7 +327,45 @@
   <script src="app_wordcloud.js"></script>
   <script src="app_compare.js"></script>
   <script src="app_analytics.js"></script>
-  <script src="app_chat.js"></script>
+  <script src="../asistente.js?v=20261012"></script>
+  <script src="app_chat.js?v=20261012"></script>
   <script src="app_i18n.js"></script>
-</body>
+<nav class="tabs" id="tabs" hidden>
+        <button data-tab="resumen" class="active"><i class="fa-solid fa-chart-pie ti"></i><span data-i18n="tab.summary">Resumen</span></button>
+        <button data-tab="indicadores"><i class="fa-solid fa-list-ol ti"></i><span data-i18n="tab.indicators">Indicadores</span></button>
+        <button data-tab="perfiles"><i class="fa-solid fa-user-pen ti"></i><span data-i18n="tab.profiles">Perfiles</span></button>
+        <button data-tab="analitica"><i class="fa-solid fa-chart-line ti"></i><span data-i18n="tab.analytics">Analítica</span></button>
+        <button data-tab="dominio"><i class="fa-solid fa-diagram-project ti"></i><span data-i18n="tab.domain">Dominio</span></button>
+        <button data-tab="asistente"><i class="fa-solid fa-comments ti"></i><span data-i18n="tab.assistant">Asistente</span></button>
+      </nav><dialog id="scope_dialog" class="scope-dialog" aria-labelledby="scope_title"><div class="dialog-heading"><h2 id="scope_title" data-i18n="ui.editFilters">Cambiar filtros</h2><button class="icon-btn" type="button" data-close="scope_dialog" aria-label="Cerrar"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button></div><p class="scope-hint" data-i18n="ui.scopeHint">La consulta se aplica a todo el módulo: resumen, trabajos, perfiles, análisis e informes.</p><div class="filters">
+        <div class="field">
+          <label for="f_institucion" data-i18n="filter.institution">Institución</label>
+          <div class="sel"><select id="f_institucion"></select></div>
+        </div>
+        <div class="field">
+          <label for="f_departamento" data-i18n="filter.department">Departamento</label>
+          <div class="sel"><select id="f_departamento"></select></div>
+        </div>
+        <div class="field">
+          <label for="f_enlace" data-i18n="filter.link">Enlace al repositorio</label>
+          <div class="sel"><select id="f_enlace">
+            <option value="" data-i18n="filter.link.all">Todas</option>
+            <option value="si" data-i18n="filter.link.yes">Solo con enlace</option>
+            <option value="no" data-i18n="filter.link.no">Solo sin enlace</option>
+          </select></div>
+        </div>
+        <div class="field year-field">
+          <label data-i18n="filter.period">Periodo de publicación</label>
+          <div class="ywrap">
+            <span class="ychip" id="y_lo">2015</span>
+            <div class="range-stack">
+              <div class="range-track"></div>
+              <div class="range-fill" id="y_fill"></div>
+              <input type="range" id="y_min" min="2015" max="2025" value="2015">
+              <input type="range" id="y_max" min="2015" max="2025" value="2025">
+            </div>
+            <span class="ychip" id="y_hi">2025</span>
+          </div>
+        </div>
+      </div><div class="dialog-actions"><button class="btn btn-ghost" type="button" id="scope_reset" data-i18n="ui.fullPeriod">Todo el periodo</button><button class="btn btn-primary" type="button" data-close="scope_dialog" data-i18n="ui.done">Listo</button></div></dialog><dialog class="tools-dialog" id="tools_dialog" aria-labelledby="tools_title"><div class="dialog-heading"><h2 id="tools_title" data-i18n="ui.allTools">Todas las herramientas</h2><button class="icon-btn" type="button" data-close="tools_dialog" aria-label="Cerrar"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button></div><div id="tools_directory" class="tools-directory"></div></dialog><dialog class="publication-dialog" id="thesis_dialog" aria-labelledby="thesis_title"><div class="dialog-heading"><div><div class="panel-kicker" data-i18n="ui.recordDetail">Ficha del trabajo</div><h2 id="thesis_title"></h2></div><button class="icon-btn" type="button" data-close="thesis_dialog" aria-label="Cerrar"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button></div><div id="thesis_detail"></div></dialog><script src="../institutional.js?v=20261011-usach"></script><script src="../theme.js?v=20261011-atlas"></script><script src="../academic-tools.js?v=20261011-comparaciones"></script><script src="interface.js?v=20261011-comparaciones"></script></body>
 </html>

@@ -1,0 +1,35 @@
+/* USACH, Manual de Normas Gráficas 2S-2024, p. 8.
+   Principal HEX values are preserved. Dark tints serve small text and controls. */
+:root{--usach-gray:#394049;--usach-teal:#00A499;--usach-orange:#E77500;--usach-red:#C8102E;--usach-yellow:#EAAA00;--usach-purple:#8C4799;--usach-blue:#498BCA}
+body[data-module="publicaciones"]{--module-color:var(--usach-teal);--module-ink:#006F67;--module-bg:#EAF7F5;--module-line:#BFE8E4;--emerald:var(--usach-teal);--emerald-2:#006F67;--amber:var(--usach-orange)}
+body[data-module="tesis"]{--module-color:var(--usach-orange);--module-ink:#984A00;--module-bg:#FFF4EB;--module-line:#F4CFAC;--emerald:var(--usach-orange);--emerald-2:#984A00;--emerald-bg:#FFF4EB;--emerald-soft:#F4CFAC;--amber:var(--usach-teal);--surface-teal:#EAF7F5;--surface-orange:#FFF4EB;--focus:0 0 0 3px #984A0025}
+body[data-module]{--ink:#282F36;--ink-soft:var(--usach-gray);--muted:#5F6C75;--line:#DFE5E9;--line-soft:#EDF1F3;--bg:#F5F7F8;--surface-soft:#F8FAFB}
+body[data-module] .masthead{border-top:3px solid var(--module-color)}
+.module-switcher{display:flex;align-items:center;gap:4px;padding:3px;border:1px solid var(--line);border-radius:7px;background:#F8FAFB;flex-shrink:0}
+.module-pill{display:flex;align-items:center;gap:6px;padding:6px 8px;font-size:10px;line-height:1.5;border-radius:4px;color:#5F6C75;white-space:nowrap}
+.module-pill:hover{background:#fff;text-decoration:none;color:#394049}
+.module-publications[aria-current="page"]{background:#EAF7F5;color:#006F67;font-weight:600;box-shadow:0 1px 2px #3940490A}
+.module-theses[aria-current="page"]{background:#FFF4EB;color:#984A00;font-weight:600;box-shadow:0 1px 2px #3940490A}
+.module-publications i{color:#006F67}.module-theses i{color:#984A00}
+body[data-module] .btn-primary:hover{background:var(--module-ink);filter:brightness(.92)}
+body[data-module] .nav-caption{color:var(--module-ink)}
+body[data-module] .module-home:hover{color:var(--module-ink)}
+body[data-module] .workspace-sidebar{top:88px;min-height:calc(100vh - 88px)}
+body[data-module="publicaciones"] .research-overview{--overview-dark:var(--usach-gray);--overview-mint:#BFE8E4}
+body[data-module="publicaciones"] .research-overview .overview-hero{background:var(--usach-gray);box-shadow:0 10px 25px #39404912}
+body[data-module="publicaciones"] .research-overview .overview-hero::before{height:4px;background:var(--usach-teal)}
+body[data-module="publicaciones"] .research-overview .overview-hero::after{border-color:#FFFFFF18;box-shadow:0 0 0 42px #FFFFFF06,0 0 0 85px #FFFFFF05,0 0 0 128px #FFFFFF04}
+body[data-module="publicaciones"] .research-overview .overview-eyebrow{color:#BFE8E4}
+body[data-module="publicaciones"] .research-overview .overview-unit{color:#FFF}
+body[data-module="publicaciones"] .research-overview .overview-intro{color:#D8DFE3}
+body[data-module="publicaciones"] .research-overview .overview-hero-link{border-color:#FFFFFF40;background:#FFFFFF08}
+body[data-module="publicaciones"] .research-overview .overview-hero-link:hover{border-color:#00A499;background:#FFFFFF12}
+body[data-module="publicaciones"] .research-overview .overview-period{color:#D8DFE3}
+body[data-module="publicaciones"] .research-overview .overview-total .stat-unit{color:#D8DFE3}
+body[data-module="publicaciones"] .research-overview .overview-total .stat-eyebrow{color:#BFE8E4}
+body[data-module="publicaciones"] .research-overview .overview-hero-metric{border-color:#FFFFFF30}
+body[data-module="publicaciones"] .research-overview .overview-collaboration{background:#EAF7F5;border-color:#BFE8E4}
+@media(max-width:1100px){body[data-module] .workspace-sidebar{top:76px;min-height:calc(100vh - 76px)}.module-pill{padding:5px 6px;font-size:9px}}
+@media(max-width:850px){body[data-module] .workspace-sidebar{position:static;min-height:0}.module-pill{font-size:10px}}
+@media(max-width:600px){.module-switcher{margin-right:auto}.module-pill{padding:5px 7px}.module-pill i{display:none}.brand-actions{justify-content:flex-end}.module-switcher a{min-height:30px}}
+@media print{.module-switcher{display:none}}

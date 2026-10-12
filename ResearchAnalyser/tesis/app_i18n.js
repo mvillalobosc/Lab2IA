@@ -17,6 +17,11 @@ const SWEBOK_HELP = `Áreas del SWEBOK (Software Engineering Body of Knowledge):
 /* ---------- Diccionario de idiomas ---------- */
 const I18N = {
   es: {
+    "filter.link": "Enlace al repositorio",
+    "filter.link.all": "Todas",
+    "filter.link.yes": "Solo con enlace",
+    "filter.link.no": "Solo sin enlace",
+    "card.link": "En el repositorio",
     "brand.kicker": "Universidad de Santiago de Chile",
     "brand.title": "Analizador de Memorias DIINF",
     "brand.sub": "Trabajos de título · pregrado, posgrado, guías, co-guías y dominios temáticos",
@@ -55,7 +60,7 @@ const I18N = {
     "dominio.domainLabel": "Dominio", "dominio.categoryLabel": "Categoría",
     "dominio.timelineTitle": "Presencia por académico(a) y año", "dominio.timelineHint": "intensidad según frecuencia",
     "dominio.rankingTitle": "Ranking del dominio activo", "dominio.rankingHint": "categorías más frecuentes",
-    "asistente.kicker": "Chat local", "asistente.title": "Asistente Leo USACH",
+    "asistente.kicker": "Chat local", "asistente.title": "Asistente de memorias",
     "asistente.desc": "Consulta la base de memorias sin API, sin servidor y sin costo. Las respuestas se calculan en tu navegador con los filtros actuales.",
     "asistente.assist": "Modo local: no usa servicios externos. Trabaja sólo con los datos cargados y respeta institución, departamento y periodo activos.",
     "chat.placeholder": "Pregunta por guías, temas, áreas, años o comparaciones...",
@@ -71,6 +76,11 @@ const I18N = {
     "pstat.guided": "Guiadas", "pstat.coguia": "Co-guías", "pstat.pre": "Pregrado", "pstat.pos": "Posgrado"
   },
   pt: {
+    "filter.link": "Link do repositório",
+    "filter.link.all": "Todas",
+    "filter.link.yes": "Somente com link",
+    "filter.link.no": "Somente sem link",
+    "card.link": "No repositório",
     "brand.kicker": "Universidade de Santiago do Chile",
     "brand.title": "Analisador de Trabalhos DIINF",
     "brand.sub": "Trabalhos de conclusão · graduação, pós-graduação, orientadores, co-orientadores e domínios temáticos",
@@ -109,7 +119,7 @@ const I18N = {
     "dominio.domainLabel": "Domínio", "dominio.categoryLabel": "Categoria",
     "dominio.timelineTitle": "Presença por acadêmico(a) e ano", "dominio.timelineHint": "intensidade conforme frequência",
     "dominio.rankingTitle": "Ranking do domínio ativo", "dominio.rankingHint": "categorias mais frequentes",
-    "asistente.kicker": "Chat local", "asistente.title": "Assistente Leo USACH",
+    "asistente.kicker": "Chat local", "asistente.title": "Assistente de trabalhos",
     "asistente.desc": "Consulte a base de trabalhos sem API, sem servidor e sem custo. As respostas são calculadas no seu navegador com o filtro ativo.",
     "asistente.assist": "Modo local: não usa serviços externos. Trabalha apenas com os dados carregados e respeita instituição, departamento e período ativos.",
     "chat.placeholder": "Pergunte por orientadores, temas, áreas, anos ou comparações...",
@@ -125,6 +135,11 @@ const I18N = {
     "pstat.guided": "Orientadas", "pstat.coguia": "Co-orientações", "pstat.pre": "Graduação", "pstat.pos": "Pós-graduação"
   },
   en: {
+    "filter.link": "Repository link",
+    "filter.link.all": "All",
+    "filter.link.yes": "With link only",
+    "filter.link.no": "Without link only",
+    "card.link": "In the repository",
     "brand.kicker": "University of Santiago, Chile",
     "brand.title": "DIINF Theses Analyzer",
     "brand.sub": "Final projects · undergraduate, graduate, advisors, co-advisors and thematic domains",
@@ -163,7 +178,7 @@ const I18N = {
     "dominio.domainLabel": "Domain", "dominio.categoryLabel": "Category",
     "dominio.timelineTitle": "Presence by academic and year", "dominio.timelineHint": "intensity by frequency",
     "dominio.rankingTitle": "Active domain ranking", "dominio.rankingHint": "most frequent categories",
-    "asistente.kicker": "Local chat", "asistente.title": "Leo USACH Assistant",
+    "asistente.kicker": "Local chat", "asistente.title": "Thesis assistant",
     "asistente.desc": "Query the thesis database with no API, no server and no cost. Answers are computed in your browser with the active filter.",
     "asistente.assist": "Local mode: no external services. It works only with the loaded data and respects the active institution, department and period.",
     "chat.placeholder": "Ask about advisors, topics, areas, years or comparisons...",
@@ -263,20 +278,23 @@ Object.assign(I18N.en, {
 });
 
 Object.assign(I18N.es, {
+  "chat.advisor":"Asistente de memorias",
   "chat.leoDesc":"Pregunta por académicos(as), áreas, temas, co-guías o años.",
   "chat.quickQuestions":"Preguntas rápidas","chat.clear":"Limpiar chat","chat.send":"Enviar"
 });
 Object.assign(I18N.pt, {
   "chat.kpi.works":"trabalhos no filtro","chat.kpi.guiding":"acadêmicos(as) orientando","chat.kpi.programs":"programas","chat.kpi.topArea":"área mais frequente",
-  "chat.greeting1":"Olá, sou o <b>Leo USACH</b> 🦁. Posso explorar <b>{n}</b> trabalhos de conclusão do filtro ativo.",
+  "chat.greeting1":"Posso explorar <b>{n}</b> trabalhos de conclusão do filtro ativo.",
   "chat.greeting2":"Pergunte por: <b>trabalhos orientados por um(a) acadêmico(a)</b>, <b>co-orientações de alguém</b>, <b>trabalhos sobre um tema</b>, <b>áreas mais frequentes</b>, <b>orientadores com mais trabalhos</b>, <b>trabalhos de um ano</b>, <b>comparar dois acadêmicos(as)</b> ou <b>o que significa uma área</b>. (Leo responde em espanhol.)",
+  "chat.advisor":"Assistente de trabalhos de conclusão",
   "chat.leoDesc":"Pergunte por acadêmicos(as), áreas, temas, co-orientações ou anos.",
   "chat.quickQuestions":"Perguntas rápidas","chat.clear":"Limpar chat","chat.send":"Enviar"
 });
 Object.assign(I18N.en, {
   "chat.kpi.works":"works in the filter","chat.kpi.guiding":"academics advising","chat.kpi.programs":"programs","chat.kpi.topArea":"most frequent area",
-  "chat.greeting1":"Hi, I'm <b>Leo USACH</b> 🦁. I can explore <b>{n}</b> final projects in the active filter.",
+  "chat.greeting1":"I can explore <b>{n}</b> final projects in the active filter.",
   "chat.greeting2":"Ask me about: <b>works advised by an academic</b>, <b>someone's co-advising</b>, <b>works on a topic</b>, <b>most frequent areas</b>, <b>advisors with most works</b>, <b>works from a year</b>, <b>compare two academics</b> or <b>what an area means</b>. (Leo answers in Spanish.)",
+  "chat.advisor":"Theses assistant",
   "chat.leoDesc":"Ask about academics, areas, topics, co-advising or years.",
   "chat.quickQuestions":"Quick questions","chat.clear":"Clear chat","chat.send":"Send"
 });

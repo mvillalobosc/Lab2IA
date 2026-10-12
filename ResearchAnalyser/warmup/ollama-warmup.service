@@ -1,0 +1,15 @@
+[Unit]
+Description=Warmup del Asistente IA (ResearchAnalyser) en Ollama
+After=ollama.service network-online.target
+Wants=ollama.service network-online.target
+
+[Service]
+Type=oneshot
+# Espera breve a que Ollama termine de levantar
+ExecStartPre=/bin/sleep 8
+# AJUSTA la ruta a donde dejes la carpeta warmup/
+ExecStart=/var/www/html/ResearchAnalyser/warmup/warmup.sh
+RemainAfterExit=no
+
+[Install]
+WantedBy=multi-user.target

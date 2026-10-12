@@ -19,8 +19,47 @@ function perfilCtx() {
 }
 
 /* ---------- Ficha ---------- */
+/* Qué regla se está usando para "cuenta como WoS".
+   Esto existe porque un mismo académico puede tener 16, 7 o 5 según el
+   periodo, y la ficha mostraba el número sin decir de cuál. ANID pide los
+   últimos cinco años, así que 2021-2025 da 5 donde 2020-2024 da 7 y el
+   total da 16. Los tres son correctos y responden preguntas distintas. */
+function reglaActiva() {
+  const sel = (typeof S !== 'undefined' && Array.isArray(S.col)) ? S.col : [];
+  const REV = ['SCI-EXPANDED', 'SSCI', 'A&HCI', 'ESCI'];
+  const revSel = sel.filter(c => REV.includes(c));
+  if (!sel.length) return '';
+  if (revSel.length && revSel.length < REV.length)
+    return ' · solo ' + revSel.join(', ');
+  return ' · con filtro de colección';
+}
+
 function renderFicha(dv) {
-  const total = dv.length, wos = dv.filter(r => r.WOS === 'SI').length, sco = total - wos;
+  const total = dv.length;
+  const enFiltro = base().length;
+
+  /* Dos preguntas distintas que antes se mostraban como una sola, y por
+     eso una ficha podía decir "6 WoS" cuando en realidad solo una contaba:
+
+       cuenta   : está en una colección de revista de Web of Science,
+                  o sea SCI-EXPANDED, SSCI, A&HCI o ESCI. Es lo que se
+                  reporta institucionalmente.
+       registro : existe en Web of Science, en cualquier colección. WoS
+                  también indexa actas de congreso en el CPCI y libros
+                  en el BKCI, así que este número es siempre mayor o
+                  igual que el anterior.
+
+     La diferencia entre los dos son las actas y los libros. */
+  const cnt = {
+    cuenta: dv.filter(r => r.WOS === 'SI').length,
+    registro: dv.filter(r => tieneWos(r)).length,
+    scopus: dv.filter(r => tieneScopus(r)).length,
+    soloActas: dv.filter(r => tieneWos(r) && r.WOS !== 'SI').length,
+    /* Marcadas SI sin registro propio: se resolvieron porque su revista
+       aparece identificada en otra publicación de la base. Sin esta fila
+       la cuenta no cierra y parece un error. */
+    porRevista: dv.filter(r => r.WOS === 'SI' && !tieneWos(r)).length
+  };
   const pct = n => total ? (n / total * 100).toFixed(1) : '0';
   let foto = S.perfSel === 'Institucionales' ? (dv[0] || {}).URL_FOTO_DEPARTAMENTO : (dv[0] || {}).URL_FOTO_ACADEMICO;
   const nombre = S.perfSel === 'Institucionales' ? `${S.sec}` : titleCase(S.perfAutor || '');
@@ -59,10 +98,13 @@ function renderFicha(dv) {
     <div style="font-family:'Fraunces';font-weight:600;font-size:1.05rem;line-height:1.25;margin-bottom:2px;">${nombre}</div>
     <div style="font-size:.78rem;color:var(--muted);">${S.perfSel === 'Institucionales' ? 'Unidad académica' : 'Académico(a)'}</div>
     <div class="prod-list">
-      <div class="pl-h">Producción</div>
-      <div class="prod-row"><span class="k">Total</span><span class="v">${total}</span></div>
-      <div class="prod-row"><span class="k">Web of Science</span><span class="v">${wos}<span class="vp">${pct(wos)}%</span></span></div>
-      <div class="prod-row"><span class="k">Scopus</span><span class="v">${sco}<span class="vp">${pct(sco)}%</span></span></div>
+      <div class="pl-h">Producción · ${S.yMin}-${S.yMax}${reglaActiva()}</div>
+      <div class="prod-row"><span class="k">Publicaciones</span><span class="v">${total}</span></div>
+      <div class="prod-row prod-destaca"${helpAttrs('profile.cuenta')}><span class="k">En WoS</span><span class="v">${cnt.cuenta}</span></div>
+      <div class="prod-row"><span class="k">En Scopus</span><span class="v">${cnt.scopus}</span></div>
+      ${S.perfSel !== 'Institucionales' && total !== enFiltro
+        ? `<div class="prod-row prod-scope"><span class="k">${tr('profile.ofFilter')}</span><span class="v">${total} / ${enFiltro}</span></div>`
+        : ''}
       ${ids}
     </div>`;
 }
@@ -388,8 +430,18 @@ function plotDendro(id, rows, metodo, resaltado) {
 function plotMapa(rows) {
   if (!_map) {
     _map = L.map('map', { scrollWheelZoom: false, zoomControl: true }).setView([15, -30], 2);
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',
-      { attribution: '© OpenStreetMap · © CARTO', subdomains: 'abcd', maxZoom: 18 }).addTo(_map);
+    // CARTO pasó a exigir clave de API para sus mapas base (las teselas llegan con "API KEY REQUIRED").
+    // Se usa el fondo gris claro de Esri, que no pide clave, y si fallara se cambia solo a OpenStreetMap.
+    const esri = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}',
+      { attribution: 'Tiles © Esri · HERE, Garmin, © OpenStreetMap contributors', maxZoom: 16 });
+    let cambiado = false;
+    esri.on('tileerror', () => {
+      if (cambiado) return; cambiado = true;
+      _map.removeLayer(esri);
+      L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+        { attribution: '© OpenStreetMap contributors', maxZoom: 18 }).addTo(_map);
+    });
+    esri.addTo(_map);
   }
   if (_mapLayer) { _map.removeLayer(_mapLayer); _mapLayer = null; }
   const conteo = new Map();

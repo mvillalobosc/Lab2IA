@@ -16,12 +16,12 @@ function renderProfileCard(rows){
   const co = state.profileMode === "academico" ? countWhere(state.filtered, r => clean(r["PROFESOR COGUIA"]) === selected) : countWhere(rows, r => valid(r["PROFESOR COGUIA"]));
   const info = state.academics.find(a => clean(a.ACADEMICO) === selected);
   const isDept = state.profileMode === "departamento";
-  const img = isDept ? "../shared/img/tesis-chat.webp" : (info?.IMAGEN || "../shared/img/tesis-academica.webp");
+  const img = isDept ? "IMG/logo2.png" : (info?.IMAGEN || "IMG/logo2.png");
   const name = isDept ? "Departamento de Ingeniería Informática" : compactName(selected);
   const mail = isDept ? "Trabajos de título del periodo activo" : clean(info?.CORREO || "Sin correo informado");
 
   el("profile_card").innerHTML = `
-    <img class="profile-avatar" src="${img}" alt="${name}" onerror="this.src='../shared/img/tesis-academica.webp'">
+    <img class="profile-avatar" src="${img}" alt="${name}" onerror="this.src='IMG/logo2.png'">
     <div class="profile-name">${name}</div>
     <div class="profile-mail">${mail}</div>
     <div class="profile-stats">
@@ -37,7 +37,7 @@ function renderGuidePie(){
   const selected = el("perf_academico").value;
   if(state.profileMode !== "academico" || !selected){
     Plotly.react("perfil_guia_coguia", [], plotLayout({
-      annotations: [{text:"Elige un académico(a) para ver guía/co-guía", showarrow:false, x:.5, y:.5, font:{size:16, color:C.gray}}],
+      annotations: [{text:"Elige un académico(a) para ver guía/co-guía", showarrow:false, x:.5, y:.5, xref:"paper", yref:"paper", xanchor:"center", font:{size:15, color:C.gray}}],
       xaxis:{visible:false}, yaxis:{visible:false}
     }), plotConfig());
     return;

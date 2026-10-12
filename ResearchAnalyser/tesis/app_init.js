@@ -110,6 +110,7 @@ function bindEvents(){
   ["y_min", "y_max"].forEach(id => el(id).addEventListener("input", applyFilters));
   el("f_institucion").addEventListener("change", () => { populateDepartamentos(); applyFilters(); });
   el("f_departamento").addEventListener("change", applyFilters);
+  el("f_enlace").addEventListener("change", applyFilters);
   ["dom_tipo", "dom_clave"].forEach(id => el(id).addEventListener("change", renderDomain));
   el("perf_academico").addEventListener("change", renderProfile);
 

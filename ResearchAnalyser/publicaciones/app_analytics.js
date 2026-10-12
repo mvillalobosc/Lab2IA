@@ -284,7 +284,7 @@ function drawAnaTable(rows){
   if (!rows.length) return;
   const cols = Object.keys(rows[0]).map(k => ({ title:k, data:k }));
   $(sel).DataTable({ data:rows, columns:cols, dom:'Bfrtip',
-    buttons:[{ extend:'csv', text:'↓ CSV', className:'dt-button' }],
+    buttons:[{ extend:'csv', text:'↓ CSV', className:'dt-button', filename: () => nombreExport('tabla') }],
     pageLength:10, order:[[4,'desc']], language:dtLang(), scrollX:true });
 }
 

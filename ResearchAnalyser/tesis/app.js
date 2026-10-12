@@ -184,6 +184,14 @@ function allAcademics(){
   return [...s].sort((a,b) => a.localeCompare(b, "es"));
 }
 
+/* Un enlace sirve si es una dirección web de verdad. En los datos hay
+   celdas con texto que no es un enlace, así que no basta con que no esté
+   vacía. */
+function tieneEnlace(row){
+  const v = clean(row.ENLACE || "");
+  return /^https?:\/\//i.test(v);
+}
+
 function applyFilters(){
   const yMin = Number(el("y_min").value);
   const yMax = Number(el("y_max").value);
@@ -191,6 +199,7 @@ function applyFilters(){
   const hi = Math.max(yMin, yMax);
   const inst = el("f_institucion").value;
   const dep = el("f_departamento").value;
+  const enl = el("f_enlace") ? el("f_enlace").value : "";
   state.years = [lo, hi];
 
   state.filtered = state.data.filter(row => {
@@ -198,6 +207,12 @@ function applyFilters(){
     if(!y || y < lo || y > hi) return false;
     if(inst && clean(row.UNIVERSIDAD) !== inst) return false;
     if(dep && clean(row.DEPARTAMENTO) !== dep) return false;
+    /* Enlace al repositorio. De 898 memorias, 790 tienen enlace. Las que
+       faltan son casi todas del último año, que aún no están publicadas
+       en el repositorio, más algunas fichas que quedaron a medio llenar.
+       Este filtro sirve para listarlas y salir a buscarlas. */
+    if(enl === "si" && !tieneEnlace(row)) return false;
+    if(enl === "no" && tieneEnlace(row)) return false;
     return true;
   });
 

@@ -42,6 +42,7 @@ let S = {
   perfSel: 'Institucionales', perfAutor: null, perfIndex: 'Todas',
   domDoc: 'Todos', domDom: 'Áreas de especialidad', domPalabra: null,
   chatIndex: 'Todas',
+  afil: 'unidad', idx: 'todas', tipo: 'todos', col: [],
   lang: (() => { try { return localStorage.getItem('biblio_lang') || 'es'; } catch(e) { return 'es'; } })()
 };
 let _map = null, _mapLayer = null, _net = null;
@@ -69,7 +70,38 @@ const I18N = {
     'chat.title': 'Asistente bibliométrico',
     'chat.desc': 'Consulta la base filtrada sin API, sin servidor y sin costo. Las respuestas se calculan en tu navegador.',
     'chat.localNote': 'Modo local: no usa Gemini ni ChatGPT. Trabaja sólo con el CSV cargado por la app y respeta universidad, unidad, periodo y afiliación efectiva.',
-    'chat.advisor': 'Asesor Leo USACH',
+    'filter.more': 'Más filtros',
+    'filter.advanced': 'Opciones avanzadas',
+    'filter.colHint': 'Sin selección se muestran todas.',
+    'filter.collection': 'Colección de Web of Science',
+    'filter.collectionNote': 'Una publicación puede pertenecer a más de una colección. CPCI son actas de congreso y BKCI libros: pertenecen a la Core Collection pero no se cuentan como WoS en reporte institucional.',
+    'filter.col.tickNote': 'Cuenta como WoS en reporte institucional',
+    'filter.col.pickJournals': 'Marcar las de revista',
+    'filter.col.clear': 'Limpiar selección',
+    'filter.col.scie': 'SCI-EXPANDED',
+    'filter.col.ssci': 'SSCI',
+    'filter.col.ahci': 'A&HCI',
+    'filter.col.esci': 'ESCI',
+    'filter.col.cpci': 'CPCI, actas',
+    'filter.col.bkci': 'BKCI, libros',
+    'filter.col.none': 'Sin colección WoS',
+    'filter.affiliation': 'Filiación considerada',
+    'filter.doctype': 'Tipo de documento',
+    'filter.afil.unit': 'Solo la unidad',
+    'filter.afil.all': 'Toda la trayectoria',
+    'filter.afil.ext': 'Solo externas',
+    'filter.idx.all': 'Todas',
+    'filter.idx.both': 'Con registro en WoS y en Scopus',
+    'filter.idx.scopus': 'Solo con registro en Scopus',
+    'filter.idx.wos': 'Solo con registro en WoS',
+    'filter.idx.none': 'Sin registro',
+    'profile.ofFilter': 'Del filtro activo',
+    'filter.type.all': 'Todos',
+    'filter.type.journal': 'Artículos de revista',
+    'filter.type.conf': 'Actas de congreso',
+    'filter.type.other': 'Otros documentos',
+    'filter.showing': 'Mostrando {n} de {total} publicaciones de la unidad',
+    'chat.advisor': 'Asistente bibliométrico',
     'chat.advisorDesc': 'Consulta publicaciones, áreas, autores y cualquier campo de la base.',
     'chat.clear': 'Limpiar chat',
     'chat.quick': 'Preguntas rápidas',
@@ -116,7 +148,38 @@ const I18N = {
     'chat.title': 'Bibliometric assistant',
     'chat.desc': 'Query the filtered database without an API, server, or cost. Answers are computed in your browser.',
     'chat.localNote': 'Local mode: it does not use Gemini or ChatGPT. It works only with the CSV loaded by the app and respects the active filters.',
-    'chat.advisor': 'Leo USACH Advisor',
+    'filter.more': 'More filters',
+    'filter.advanced': 'Advanced options',
+    'filter.colHint': 'With nothing selected, all are shown.',
+    'filter.collection': 'Web of Science collection',
+    'filter.collectionNote': 'A publication can belong to more than one collection. CPCI covers conference proceedings and BKCI books: both are part of the Core Collection but are not counted as WoS in institutional reporting.',
+    'filter.col.tickNote': 'Conta como WoS em relatório institucional',
+    'filter.col.pickJournals': 'Marcar as de revista',
+    'filter.col.clear': 'Limpar seleção',
+    'filter.col.scie': 'SCI-EXPANDED',
+    'filter.col.ssci': 'SSCI',
+    'filter.col.ahci': 'A&HCI',
+    'filter.col.esci': 'ESCI',
+    'filter.col.cpci': 'CPCI, proceedings',
+    'filter.col.bkci': 'BKCI, books',
+    'filter.col.none': 'No WoS collection',
+    'filter.affiliation': 'Affiliation considered',
+    'filter.doctype': 'Document type',
+    'filter.afil.unit': 'Unit only',
+    'filter.afil.all': 'Full career',
+    'filter.afil.ext': 'External only',
+    'filter.idx.all': 'All',
+    'filter.idx.both': 'Indexed in WoS and Scopus',
+    'filter.idx.scopus': 'Indexed in Scopus only',
+    'filter.idx.wos': 'Indexed in WoS only',
+    'filter.idx.none': 'No record',
+    'profile.ofFilter': 'Of the active filter',
+    'filter.type.all': 'All',
+    'filter.type.journal': 'Journal articles',
+    'filter.type.conf': 'Conference papers',
+    'filter.type.other': 'Other documents',
+    'filter.showing': 'Showing {n} of {total} publications from the unit',
+    'chat.advisor': 'Bibliometric assistant',
     'chat.advisorDesc': 'Ask about publications, areas, authors, and any database field.',
     'chat.clear': 'Clear chat',
     'chat.quick': 'Quick questions',
@@ -163,7 +226,38 @@ const I18N = {
     'chat.title': 'Assistente bibliométrico',
     'chat.desc': 'Consulte a base filtrada sem API, sem servidor e sem custo. As respostas são calculadas no navegador.',
     'chat.localNote': 'Modo local: não usa Gemini nem ChatGPT. Trabalha apenas com o CSV carregado pela app e respeita os filtros ativos.',
-    'chat.advisor': 'Assessor Leo USACH',
+    'filter.more': 'Mais filtros',
+    'filter.advanced': 'Opções avançadas',
+    'filter.colHint': 'Sem seleção mostram-se todas.',
+    'filter.collection': 'Coleção da Web of Science',
+    'filter.collectionNote': 'Uma publicação pode pertencer a mais de uma coleção. CPCI são anais de congresso e BKCI livros: pertencem à Core Collection mas não contam como WoS em relatório institucional.',
+    'filter.col.tickNote': 'Counts as WoS in institutional reporting',
+    'filter.col.pickJournals': 'Select journal collections',
+    'filter.col.clear': 'Clear selection',
+    'filter.col.scie': 'SCI-EXPANDED',
+    'filter.col.ssci': 'SSCI',
+    'filter.col.ahci': 'A&HCI',
+    'filter.col.esci': 'ESCI',
+    'filter.col.cpci': 'CPCI, anais',
+    'filter.col.bkci': 'BKCI, livros',
+    'filter.col.none': 'Sem coleção WoS',
+    'filter.affiliation': 'Filiação considerada',
+    'filter.doctype': 'Tipo de documento',
+    'filter.afil.unit': 'Somente a unidade',
+    'filter.afil.all': 'Toda a trajetória',
+    'filter.afil.ext': 'Somente externas',
+    'filter.idx.all': 'Todas',
+    'filter.idx.both': 'Com registro em WoS e Scopus',
+    'filter.idx.scopus': 'Somente com registro em Scopus',
+    'filter.idx.wos': 'Somente com registro em WoS',
+    'filter.idx.none': 'Sem registro',
+    'profile.ofFilter': 'Do filtro ativo',
+    'filter.type.all': 'Todos',
+    'filter.type.journal': 'Artigos de revista',
+    'filter.type.conf': 'Anais de congresso',
+    'filter.type.other': 'Outros documentos',
+    'filter.showing': 'Mostrando {n} de {total} publicações da unidade',
+    'chat.advisor': 'Assistente bibliométrico',
     'chat.advisorDesc': 'Consulte publicações, áreas, autores e qualquer campo da base.',
     'chat.clear': 'Limpar chat',
     'chat.quick': 'Perguntas rápidas',
@@ -208,6 +302,7 @@ function setLanguage(lang) {
   S.lang = lang;
   try { localStorage.setItem('biblio_lang', lang); } catch(e) {}
   applyLanguage();
+  if (typeof poblarFiltros2 === 'function') poblarFiltros2();
   if (typeof rebuildTab === 'function') rebuildTab();
   else if (S.tab === 'asistente' && typeof buildChat === 'function') buildChat(true);
 }
@@ -342,6 +437,110 @@ function hasUnitAffiliation(r) {
   return ['SI', 'S', 'YES', 'Y', 'TRUE', '1'].includes(val);
 }
 
+/* ------------------------------------------------------------
+   Filiación considerada.
+   FIALIACION_SESION marca si el año de la publicación cae dentro de los
+   años en que la persona estaba registrada en esa unidad. Un registro
+   externo es una publicación de cuando trabajaba en otra institución.
+   Antes el filtro estaba siempre activo y no se podía apagar, así que
+   la app escondía un tercio de la producción del DIINF.
+   ------------------------------------------------------------ */
+function matchAfil(r) {
+  if (S.afil === 'todas') return true;
+  const dentro = hasUnitAffiliation(r);
+  return S.afil === 'externas' ? !dentro : dentro;
+}
+
+/* ------------------------------------------------------------
+   Indexación: en qué base existe el registro.
+   No son categorías excluyentes por naturaleza, una publicación puede
+   estar en las dos, así que se ofrecen las cuatro combinaciones reales.
+   ------------------------------------------------------------ */
+function tieneWos(r) {
+  return String(r.WOS_Science_Index || '').trim() !== '';
+}
+function tieneScopus(r) {
+  return String(r.LINK || '').indexOf('scopus.com') !== -1 ||
+         String(r.AUTORES_ID || '').trim() !== '';
+}
+/* Procedencia de un registro. Se usa en todas las vistas para no
+   volver a la partición falsa entre WoS y Scopus: 1689 publicaciones
+   de la base están en las dos, así que "Scopus = total - WoS" daba
+   cifras y porcentajes equivocados. */
+function procedencia(r) {
+  const w = tieneWos(r), s = tieneScopus(r);
+  if (w && s) return 'ambas';
+  if (s) return 'scopus';
+  if (w) return 'wos';
+  return 'ninguna';
+}
+function contarProcedencia(rows) {
+  const c = { ambas: 0, scopus: 0, wos: 0, ninguna: 0 };
+  rows.forEach(r => { c[procedencia(r)]++; });
+  return c;
+}
+const PROC_ETIQUETA = { ambas: 'filter.idx.both', scopus: 'filter.idx.scopus', wos: 'filter.idx.wos', ninguna: 'filter.idx.none' };
+
+/* Nombre de los CSV que se exportan, con el alcance dentro.
+   Un archivo llamado "tabla.csv" no dice de qué periodo ni de qué unidad
+   es, y despues de guardarlo en el escritorio ya no hay forma de saberlo.
+   Este lo deja explicito: DIINF_2021-2025_unidad_todas.csv */
+function nombreExport(base){
+  const trozos = [base];
+  if (typeof S !== 'undefined'){
+    if (S.sec) trozos.push(String(S.sec).replace(/[^A-Za-z0-9ÁÉÍÓÚÑáéíóúñ]+/g,'_').replace(/^_|_$/g,'').slice(0,28));
+    trozos.push(S.yMin + '-' + S.yMax);
+    if (S.afil && S.afil !== 'todas') trozos.push(S.afil);
+    if (S.idx && S.idx !== 'todas') trozos.push(S.idx);
+    if (S.tipo && S.tipo !== 'todos') trozos.push(S.tipo);
+    if (Array.isArray(S.col) && S.col.length) trozos.push(S.col.join('-'));
+  }
+  return trozos.join('_');
+}
+
+function matchIdx(r) {
+  if (S.idx === 'todas') return true;
+  const w = tieneWos(r), s = tieneScopus(r);
+  if (S.idx === 'ambas') return w && s;
+  if (S.idx === 'scopus') return s && !w;
+  if (S.idx === 'wos') return w && !s;
+  return true;
+}
+
+/* ------------------------------------------------------------
+   Tipo de documento. Reemplaza al filtro por colecciones WoS: el tipo
+   cubre las 272 actas del DIINF y no solo las que traen marca CPCI,
+   y además se entiende sin saber qué es CPCI.
+   ------------------------------------------------------------ */
+/* ------------------------------------------------------------
+   Colección de Web of Science. WOS_COLECCION la escribe el pipeline
+   (016_consolidar_wos.R) con la colección efectiva de la fuente, así
+   que el filtro cuadra con la marca WOS. Una publicación puede estar
+   en varias colecciones a la vez.
+   ------------------------------------------------------------ */
+const COL_REVISTA = ['SCI-EXPANDED', 'SSCI', 'A&HCI', 'ESCI'];
+function colecciones(r) {
+  return String(r.WOS_COLECCION || '').split(';').map(s => s.trim()).filter(Boolean);
+}
+/* Selección múltiple. Sin nada seleccionado no filtra. Con una o más,
+   la publicación pasa si pertenece a cualquiera de las elegidas.
+   "ninguna" es el grupo de las que no tienen colección conocida. */
+function matchCol(r) {
+  if (!Array.isArray(S.col) || S.col.length === 0) return true;
+  const c = colecciones(r);
+  if (c.length === 0) return S.col.includes('ninguna');
+  return c.some(x => S.col.includes(x));
+}
+
+function matchTipo(r) {
+  if (S.tipo === 'todos') return true;
+  const t = String(r.TIPO_DOCUMENTO || '').trim();
+  if (S.tipo === 'revistas') return t === 'Article';
+  if (S.tipo === 'actas') return t === 'Conference paper';
+  if (S.tipo === 'otros') return t !== 'Article' && t !== 'Conference paper';
+  return true;
+}
+
 const ACM_CURRICULUM_URL = 'https://www.acm.org/education/curricula-recommendations';
 const ACM_CS2023_URL = 'https://csed.acm.org/';
 const ACM_AREA_HELP_HTML = `Estas especialidades se usan como un marco de lectura disciplinar para Informática/Computación. En esta app se inspiran en recomendaciones curriculares ACM/IEEE/AAAI, como CS2023. <br><br><a href="${ACM_CURRICULUM_URL}" target="_blank" rel="noopener">Ver recomendaciones curriculares ACM</a> · <a href="${ACM_CS2023_URL}" target="_blank" rel="noopener">Ver CS2023</a><br><br>Importante: si la app se usa en otra carrera, las áreas de especialidad deben cambiarse por el marco propio de esa disciplina. Por ejemplo, Ingeniería Biomédica no debería leerse con las mismas áreas ACM de Computación.`;
@@ -356,10 +555,11 @@ const ODS_AREA_HELP_HTML = `Las áreas ODS (ANID) vinculan cada publicación con
 const FRIENDLY_HELP = {
   'summary.total': ['Producción total', 'Cuenta cuántas publicaciones hay en el periodo seleccionado. También muestra cuántos académicos(as) aportan a ese conjunto y el promedio simple de publicaciones por académico(a).'],
   'summary.tipo': ['Tipo de documento', 'Separa la producción entre artículos de revista, actas de conferencia y otros documentos. Sirve para ver si la unidad publica más en revistas o en conferencias.'],
-  'summary.index': ['Indexación', 'Muestra cuántas publicaciones están registradas en Web of Science y cuántas sólo en Scopus, según la marca disponible en la base.'],
+  'profile.cuenta': ['En WoS', 'Publicaciones en una colección de revista de Web of Science: SCI-EXPANDED, SSCI, A&HCI o ESCI. Es el número que se usa en reporte institucional.\n\nEl detalle de cada publicación está en la columna "Dónde está" de la tabla: verde si cuenta, ámbar si su registro en Web of Science es solo de actas de congreso (CPCI) o de libros (BKCI), que no cuentan.'],
+  'summary.index': ['Procedencia del registro', 'De qué base salió cada fila. Ambas significa que el título coincidió en la exportación de Scopus y en la descarga de Web of Science del académico. Las publicaciones que solo tienen registro WoS vienen incompletas: no traen coautores con identificador ni palabras clave de índice, porque la exportación de WoS no incluye esos campos.'],
   'summary.citas': ['Citas totales', 'Suma todas las citas recibidas por las publicaciones del filtro activo. Es una señal de impacto, pero siempre debe leerse junto con el área, el año y el tipo de publicación.'],
   'summary.h': ['Índice h', 'Un índice h de 10 significa que existen 10 publicaciones con al menos 10 citas cada una. Aquí se calcula sólo con las publicaciones del filtro activo.'],
-  'summary.q1': ['Revistas Q1', 'Cuenta los artículos publicados en revistas del primer cuartil. En simple: revistas ubicadas en el tramo superior de impacto dentro de su categoría.'],
+  'summary.q1': ['Revistas Q1', 'Publicaciones en revistas del cuarto superior de su categoría según Scimago. El porcentaje se calcula sobre artículos y no sobre el total, porque las actas de congreso no reciben cuartil.'],
   'summary.global': ['Alcance global', 'Cuenta los países que aparecen en las afiliaciones de coautoría. Ayuda a mirar colaboración internacional, no calidad por sí sola.'],
   'summary.especialidad': ['Especialidad top', ACM_AREA_HELP_HTML],
   'summary.aplicacion': ['Aplicación top', APPLICATION_AREA_HELP_HTML],
@@ -419,6 +619,10 @@ const FRIENDLY_HELP = {
 const TEXT_HELP = {
   'Universidad': ['Universidad', 'Filtra la base para mostrar sólo publicaciones asociadas a la universidad seleccionada.'],
   'Unidad académica': ['Unidad académica', 'Filtra la producción por departamento, carrera o unidad académica.'],
+  'Filiación considerada': ['Filiación considerada', 'FIALIACION_SESION marca si el año de la publicación cae dentro de los años en que la persona estaba registrada en esta unidad. Solo la unidad deja fuera lo que publicó cuando trabajaba en otra institución. Toda la trayectoria incluye todo lo que la persona ha publicado.'],
+  'Indexación': ['Indexación', 'En qué base existe el REGISTRO de la publicación, que no es lo mismo que contar como WoS. Web of Science indexa también las actas de congreso, en el Conference Proceedings Citation Index (CPCI), así que una conferencia puede tener registro en WoS y aun así no contar como WoS en reporte institucional, porque para eso se piden las colecciones de revista: SCI-EXPANDED, SSCI, A&HCI o ESCI. La columna "Dónde está" de la tabla muestra la colección exacta de cada publicación. Tampoco son categorías excluyentes: una publicación puede estar en Scopus y en Web of Science a la vez, así que se ofrecen las cuatro combinaciones reales.'],
+  'Colección de Web of Science': ['Colección de Web of Science', 'Las colecciones son los índices que componen la Core Collection: SCI-EXPANDED para ciencias, SSCI para ciencias sociales, A&HCI para artes y humanidades, ESCI para revistas emergentes, CPCI para actas de congreso y BKCI para libros. Una publicación puede estar en varias a la vez, así que los conteos por colección no suman el total. Revistas WoS agrupa las cuatro de revista, que son las que cuentan como WoS en reporte institucional.'],
+  'Tipo de documento': ['Tipo de documento', 'Separa artículos de revista, actas de congreso y otros documentos. Sirve para armar reportes que cuenten solo revistas, que es lo que suelen pedir a nivel institucional.'],
   'Periodo de publicación': ['Periodo de publicación', 'Define el rango de años usado en todas las vistas, gráficos, tablas e informes.'],
   'Resumen': ['Resumen', 'Vista rápida con los principales números de producción, impacto, indexación y colaboración.'],
   'Indicadores': ['Indicadores', 'Tablas con métricas bibliométricas. Puedes pasar el cursor por las siglas o hacer clic para ver explicación.'],
@@ -428,7 +632,7 @@ const TEXT_HELP = {
   'Nivel de análisis': ['Nivel de análisis', 'Elige si quieres ver indicadores de la unidad completa o desglosados por académico(a).'],
   'Selección': ['Selección', 'Cambia entre el perfil institucional y el perfil de un académico(a).'],
   'Académico(a)': ['Académico(a)', 'Selecciona la persona cuyo perfil bibliométrico quieres revisar.'],
-  'Indexación': ['Indexación', 'Permite usar todas las publicaciones, sólo Web of Science o sólo Scopus.'],
+  'Indexación': ['Indexación', 'Filtra según en qué base tiene registro cada publicación. Ojo: tener registro en Web of Science no es lo mismo que contar como WoS, porque WoS también indexa actas de congreso.'],
   'Tipo de documento': ['Tipo de documento', 'Filtra el análisis de dominio por todas las publicaciones, Web of Science o Scopus.'],
   'Término': ['Término', 'Elige la palabra, área o subárea que quieres seguir en el tiempo.'],
   'Frecuencia anual de publicaciones': ['Frecuencia anual', 'Muestra cuántas publicaciones hay por año dentro del filtro activo.'],
@@ -519,6 +723,26 @@ function applyFriendlyTooltips() {
     if (h) setHelpTarget(card, h[0], h[1]);
   });
   document.querySelectorAll('.profile-card').forEach(card => setHelpTarget(card, LBLT('Ficha de perfil'), LBLT('Resume el perfil institucional o académico seleccionado, incluyendo producción e indexación.')));
+
+  /* Etiquetas de filtro y de control.
+     La primera pasada de esta función les quita los atributos de ayuda,
+     y antes nada se los volvía a poner, así que ningún filtro tenía
+     explicación. Se enganchan acá, después del limpiado, con un punto
+     de interrogación visible para que se sepa que son pulsables. */
+  document.querySelectorAll('.field > label, .control > label').forEach(el => {
+    const dot = el.querySelector('.row-help-dot');
+    const base = (dot ? el.textContent.replace(dot.textContent, '') : el.textContent).trim();
+    const h = thL(esFromDisplay(base));
+    if (!h) { if (dot) dot.remove(); return; }
+    setHelpTarget(el, h[0], h[1]);
+    if (!el.querySelector('.row-help-dot')) {
+      const d = document.createElement('span');
+      d.className = 'row-help-dot';
+      d.textContent = '?';
+      d.setAttribute('aria-hidden', 'true');
+      el.appendChild(d);
+    }
+  });
 }
 let HELP_WIRED = false;
 function wireFriendlyHelp() {
@@ -567,7 +791,13 @@ function parseCSV(raw) {
 function base() {
   return DATA.filter(r => r.UNIVERSIDAD === S.uni && r.SESION === S.sec &&
     int0(r.ANO) >= S.yMin && int0(r.ANO) <= S.yMax &&
-    hasUnitAffiliation(r));
+    matchAfil(r) && matchIdx(r) && matchTipo(r) && matchCol(r));
+}
+
+/* conjunto sin los tres filtros nuevos, para contar opciones */
+function baseAmplia() {
+  return DATA.filter(r => r.UNIVERSIDAD === S.uni && r.SESION === S.sec &&
+    int0(r.ANO) >= S.yMin && int0(r.ANO) <= S.yMax);
 }
 function byIndex(rows, idx) {
   if (idx === 'Web of Science') return rows.filter(r => r.WOS === 'SI');
@@ -593,7 +823,7 @@ function buildResumen() {
   const nArt = d.filter(r => r.TIPO_DOCUMENTO === 'Article').length;
   const nConf = d.filter(r => r.TIPO_DOCUMENTO === 'Conference paper').length;
   const nOtr = total - nArt - nConf;
-  const wos = d.filter(r => r.WOS === 'SI').length, sco = total - wos;
+  const proc = contarProcedencia(d);
   const pc = n => (n / total * 100).toFixed(1);
 
   const cs = sortEnt(countBy(d.map(r => r.AREA_COMPUTACION).filter(Boolean)));
@@ -674,12 +904,13 @@ function buildResumen() {
     </div>
 
     <div class="stat c3"${helpAttrs('summary.index')}>
-      <div class="stat-eyebrow"><i class="fa-solid fa-database si"></i>Indexación</div>
+      <div class="stat-eyebrow"><i class="fa-solid fa-database si"></i>Procedencia del registro</div>
       <div class="donut-row">
-        <div class="donut">${donut([{ v: wos, c: C.emerald2 }, { v: sco, c: C.emeraldSoft }])}</div>
+        <div class="donut">${donut([{ v: proc.ambas, c: C.emerald2 }, { v: proc.scopus, c: C.emerald }, { v: proc.wos, c: C.emeraldSoft }, { v: proc.ninguna, c: '#b8b0a0' }])}</div>
         <div class="legend">
-          <div class="lg"><span class="sw" style="background:${C.emerald2}"></span>WoS <b>${wos}</b><span class="pct">${pc(wos)}%</span></div>
-          <div class="lg"><span class="sw" style="background:${C.emeraldSoft}"></span>Scopus <b>${sco}</b><span class="pct">${pc(sco)}%</span></div>
+          <div class="lg"><span class="sw" style="background:${C.emerald2}"></span>${tr('filter.idx.both')} <b>${proc.ambas}</b><span class="pct">${pc(proc.ambas)}%</span></div>
+          <div class="lg"><span class="sw" style="background:${C.emerald}"></span>${tr('filter.idx.scopus')} <b>${proc.scopus}</b><span class="pct">${pc(proc.scopus)}%</span></div>
+          <div class="lg"><span class="sw" style="background:${C.emeraldSoft}"></span>${tr('filter.idx.wos')} <b>${proc.wos}</b><span class="pct">${pc(proc.wos)}%</span></div>
         </div>
       </div>
     </div>
@@ -960,7 +1191,7 @@ function drawDTObj(sel, data, inst) {
   }));
   $(sel).DataTable({
     data, columns: cols, dom: 'Brt',
-    buttons: [{ extend: 'csv', text: '↓ CSV', className: 'dt-button' }],
+    buttons: [{ extend: 'csv', text: '↓ CSV', className: 'dt-button', filename: () => nombreExport('tabla') }],
     pageLength: 50, ordering: false, order: [], language: dtLang(),
     createdRow: (row, rowData) => {
       const h = fhL(rowData.Sigla);
@@ -984,7 +1215,7 @@ function drawDTArr(sel, rows, colDefs) {
   }); });
   $(sel).DataTable({
     data: rows, columns, dom: 'Bfrtip',
-    buttons: [{ extend: 'csv', text: '↓ CSV', className: 'dt-button' }],
+    buttons: [{ extend: 'csv', text: '↓ CSV', className: 'dt-button', filename: () => nombreExport('tabla') }],
     pageLength: 12, ordering: true, order: [[1, 'desc']], scrollX: true,
     language: dtLang()
   });

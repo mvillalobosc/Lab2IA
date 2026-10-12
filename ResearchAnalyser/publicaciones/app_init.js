@@ -22,7 +22,7 @@ function rebuildTab(){
 function initFilters(){
   const unis=uniq(DATA.map(r=>r.UNIVERSIDAD)).sort();
   document.getElementById('f_uni').innerHTML=unis.map(u=>`<option>${u}</option>`).join('');
-  S.uni=unis[0]; populateSec(); initSlider();
+  S.uni=unis[0]; populateSec(); initSlider(); poblarFiltros2();
 }
 function populateSec(){
   const secs=uniq(DATA.filter(r=>r.UNIVERSIDAD===S.uni).map(r=>r.SESION)).sort();
@@ -49,6 +49,198 @@ function syncSlider(){
   fill.style.left=a+'%'; fill.style.width=(b-a)+'%';
 }
 
+
+/* ------------------------------------------------------------
+   Filtros nuevos: filiación, indexación y tipo de documento.
+   Los conteos se recalculan con la universidad, unidad y periodo
+   activos, así que la etiqueta siempre dice cuántas publicaciones
+   deja ver cada opción antes de elegirla.
+   ------------------------------------------------------------ */
+function miles(n){
+  const t = String(n); let o = '', c = 0;
+  for (let i = t.length - 1; i >= 0; i--) { o = t[i] + o; c++; if (c % 3 === 0 && i > 0) o = '.' + o; }
+  return o;
+}
+
+/* ------------------------------------------------------------
+   Conteo de opciones, condicionado al resto de los filtros.
+
+   La primera versión contaba cada grupo por separado sobre
+   universidad, unidad y periodo, ignorando los demás filtros activos.
+   Eso producía etiquetas incoherentes: con "solo la unidad" en 174,
+   el selector de indexación seguía diciendo "todas · 284".
+
+   Ahora cada opción dice cuántas publicaciones vas a ver si la eliges,
+   dado lo que ya está puesto en los otros filtros. Para el propio
+   grupo se ignora su selección actual, que es lo que corresponde:
+   si no, la opción activa sería la única con número distinto de cero.
+   ------------------------------------------------------------ */
+const TEST_OPCION = {
+  afil: {
+    unidad:   r => hasUnitAffiliation(r),
+    todas:    r => true,
+    externas: r => !hasUnitAffiliation(r)
+  },
+  idx: {
+    todas:  r => true,
+    ambas:  r => tieneWos(r) && tieneScopus(r),
+    scopus: r => tieneScopus(r) && !tieneWos(r),
+    wos:    r => tieneWos(r) && !tieneScopus(r)
+  },
+  tipo: {
+    todos:    r => true,
+    revistas: r => String(r.TIPO_DOCUMENTO || '').trim() === 'Article',
+    actas:    r => String(r.TIPO_DOCUMENTO || '').trim() === 'Conference paper',
+    otros:    r => { const t = String(r.TIPO_DOCUMENTO || '').trim();
+                     return t !== 'Article' && t !== 'Conference paper'; }
+  },
+  col: {
+    'SCI-EXPANDED': r => colecciones(r).includes('SCI-EXPANDED'),
+    SSCI:           r => colecciones(r).includes('SSCI'),
+    'A&HCI':        r => colecciones(r).includes('A&HCI'),
+    ESCI:           r => colecciones(r).includes('ESCI'),
+    CPCI:           r => colecciones(r).includes('CPCI'),
+    BKCI:           r => colecciones(r).includes('BKCI'),
+    ninguna:        r => colecciones(r).length === 0
+  }
+};
+
+/* para cada grupo, qué filtros del resto siguen aplicando */
+const OTROS_FILTROS = {
+  afil: r => matchIdx(r) && matchTipo(r) && matchCol(r),
+  idx:  r => matchAfil(r) && matchTipo(r) && matchCol(r),
+  tipo: r => matchAfil(r) && matchIdx(r) && matchCol(r),
+  col:  r => matchAfil(r) && matchIdx(r) && matchTipo(r)
+};
+
+function contarOpciones(){
+  const d = baseAmplia();
+  const conteo = {};
+  Object.keys(TEST_OPCION).forEach(grupo => {
+    const resto = d.filter(OTROS_FILTROS[grupo]);
+    conteo[grupo] = {};
+    Object.keys(TEST_OPCION[grupo]).forEach(valor => {
+      conteo[grupo][valor] = resto.filter(TEST_OPCION[grupo][valor]).length;
+    });
+  });
+  return conteo;
+}
+
+const OPCIONES = {
+  afil: [['unidad','filter.afil.unit'], ['todas','filter.afil.all'], ['externas','filter.afil.ext']],
+  idx:  [['todas','filter.idx.all'], ['ambas','filter.idx.both'], ['scopus','filter.idx.scopus'], ['wos','filter.idx.wos']],
+  col:  [['SCI-EXPANDED','filter.col.scie'], ['SSCI','filter.col.ssci'],
+         ['A&HCI','filter.col.ahci'], ['ESCI','filter.col.esci'],
+         ['CPCI','filter.col.cpci'], ['BKCI','filter.col.bkci'],
+         ['ninguna','filter.col.none']],
+  tipo: [['todos','filter.type.all'], ['revistas','filter.type.journal'], ['actas','filter.type.conf'], ['otros','filter.type.other']]
+};
+
+function poblarFiltros2(){
+  const c = contarOpciones();
+  const mapa = { afil: 'f_afil', idx: 'f_idx', tipo: 'f_tipo', col: 'f_col' };
+  Object.keys(mapa).forEach(grupo => {
+    const el = document.getElementById(mapa[grupo]);
+    if (!el) return;
+
+    /* selección múltiple: casillas agrupadas.
+       Los subtítulos hacen visible qué colecciones cuentan como WoS,
+       que es la regla con la que el pipeline calcula la columna WOS.
+       No se marcan por defecto a propósito: marcarlas activaría el
+       filtro y recortaría el conjunto sin que nadie lo haya pedido. */
+    if (Array.isArray(S[grupo])) {
+      /* El tiquet marca las colecciones que cuentan como WoS, que es la
+         regla con la que el pipeline calcula la columna WOS. La casilla
+         es aparte: sirve para filtrar y viene vacía a propósito, porque
+         marcarla recortaría el conjunto sin que nadie lo haya pedido. */
+      const casilla = ([v, clave]) => {
+        const n = c[grupo][v] || 0;
+        const marcada = S[grupo].includes(v);
+        const esWos = COL_REVISTA.includes(v);
+        return `<label class="col-check${n === 0 ? ' vacia' : ''}${esWos ? ' es-wos' : ''}">` +
+               `<input type="checkbox" value="${escAttr(v)}"${marcada ? ' checked' : ''}>` +
+               `<span class="cc-tick" aria-hidden="true">` +
+               (esWos ? '<i class="fa-solid fa-check"></i>' : '') + `</span>` +
+               `<span class="cc-t">${tr(clave)}</span>` +
+               `<span class="cc-n">${miles(n)}</span></label>`;
+      };
+      el.innerHTML =
+        `<div class="cc-grid">${OPCIONES[grupo].map(casilla).join('')}</div>` +
+        `<p class="cc-leyenda"><span class="cc-tick" aria-hidden="true"><i class="fa-solid fa-check"></i></span> ` +
+        `${tr('filter.col.tickNote')}</p>` +
+        `<div class="cc-acts">` +
+        `<button type="button" class="cc-act" data-cc="revistas">${tr('filter.col.pickJournals')}</button>` +
+        `<button type="button" class="cc-act" data-cc="limpiar">${tr('filter.col.clear')}</button>` +
+        `</div>`;
+      return;
+    }
+
+    el.innerHTML = OPCIONES[grupo].map(([v, clave]) =>
+      `<option value="${v}"${S[grupo] === v ? ' selected' : ''}>${tr(clave)} · ${miles(c[grupo][v] || 0)}</option>`
+    ).join('');
+    el.value = S[grupo];
+  });
+  actualizarResumenFiltro();
+}
+
+/* ------------------------------------------------------------
+   Alcance de lo que se está mirando.
+
+   Esto es la corrección de un defecto de fondo, no un adorno. Antes esta
+   línea decía filiación, indexación, tipo y colección, pero NO decía la
+   unidad ni el PERIODO. Y el periodo es justamente lo que hace que un
+   mismo académico muestre 5, 7 o 16 publicaciones WoS: 2021-2025 da 5,
+   que es la ventana de ANID, 2020-2024 da 7, y el total da 16. Los tres
+   números son correctos y responden preguntas distintas, pero al leerlos
+   sin el periodo al lado son indistinguibles de un error.
+
+   Además la línea vivía sobre las pestañas, así que al bajar a cualquier
+   panel desaparecía de la pantalla. Ahora queda fija arriba.
+
+   Regla que se sigue de acá en adelante: ningún número se muestra sin las
+   condiciones que lo produjeron, ni en pantalla ni en el informe ni en
+   los CSV que se exportan.
+   ------------------------------------------------------------ */
+function actualizarResumenFiltro(){
+  const el = document.getElementById('filter_summary');
+  if (!el) return;
+  const total = baseAmplia().length;
+  const n = base().length;
+  const etiqueta = grupo => {
+    const par = OPCIONES[grupo].find(o => o[0] === S[grupo]);
+    return par ? tr(par[1]).toLowerCase() : '';
+  };
+  const partes = [];
+  /* typeof, no la variable pelada: referenciar un identificador que no
+     existe lanza ReferenceError y se cae toda la función. */
+  const bonito = s => (typeof titleCase === 'function' ? titleCase(s) : s);
+  if (S.uni) partes.push(bonito(S.uni));
+  if (S.sec) partes.push(bonito(S.sec));
+  partes.push(S.yMin + '-' + S.yMax);
+  partes.push(etiqueta('afil'));
+  partes.push(etiqueta('idx'));
+  partes.push(etiqueta('tipo'));
+  if (Array.isArray(S.col) && S.col.length)
+    partes.push(S.col.map(v => {
+      const par = OPCIONES.col.find(o => o[0] === v);
+      return par ? tr(par[1]).toLowerCase() : v;
+    }).join(', '));
+
+  el.innerHTML = tr('filter.showing')
+      .replace('{n}', '<b>' + miles(n) + '</b>')
+      .replace('{total}', miles(total)) +
+    ' · ' + partes.filter(Boolean).join(' · ');
+}
+
+/* Texto plano del alcance, para el informe y los CSV. La misma
+   información que se ve en pantalla, sin etiquetas HTML. */
+function alcanceTexto(){
+  const el = document.getElementById('filter_summary');
+  if (el && el.textContent.trim()) return el.textContent.replace(/\s+/g, ' ').trim();
+  const partes = [S.uni, S.sec, S.yMin + '-' + S.yMax].filter(Boolean);
+  return partes.join(' · ');
+}
+
 /* ---------- selector autor ---------- */
 function refreshAutor(){
   const box=document.getElementById('perf_autor_box');
@@ -71,14 +263,63 @@ function wireSeg(id, cb){
 
 /* ---------- eventos ---------- */
 function wire(){
+  /* Atajos de periodo. El de cinco años es el que usa ANID para medir
+     productividad, y es la razón por la que un mismo académico puede
+     mostrar 5 acá y 16 con el periodo completo: son preguntas distintas. */
+  document.querySelectorAll('.atajos-periodo .ap').forEach(b => {
+    b.addEventListener('click', () => {
+      const hoy = new Date().getFullYear();
+      const minPos = +document.getElementById('y_min').min;
+      const maxPos = +document.getElementById('y_min').max;
+      let desde, hasta;
+      if (b.dataset.todo) { desde = minPos; hasta = maxPos; }
+      else { hasta = Math.min(maxPos, hoy); desde = Math.max(minPos, hasta + (+b.dataset.desde)); }
+      document.getElementById('y_min').value = desde;
+      document.getElementById('y_max').value = hasta;
+      S.yMin = desde; S.yMax = hasta;
+      syncSlider(); refreshAutor(); poblarFiltros2(); rebuild(true);
+    });
+  });
+
   document.querySelectorAll('#lang_switch button').forEach(btn => {
     btn.onclick = () => setLanguage(btn.dataset.lang);
   });
-  document.getElementById('f_uni').onchange=e=>{ S.uni=e.target.value; populateSec(); initSlider(); refreshAutor(); rebuild(true); };
-  document.getElementById('f_sec').onchange=e=>{ S.sec=e.target.value; initSlider(); refreshAutor(); rebuild(true); };
+  document.getElementById('f_uni').onchange=e=>{ S.uni=e.target.value; populateSec(); initSlider(); poblarFiltros2(); refreshAutor(); rebuild(true); };
+  document.getElementById('f_sec').onchange=e=>{ S.sec=e.target.value; initSlider(); poblarFiltros2(); refreshAutor(); rebuild(true); };
+  ['afil','idx','tipo','col'].forEach(grupo => {
+    const el = document.getElementById({afil:'f_afil', idx:'f_idx', tipo:'f_tipo', col:'f_col'}[grupo]);
+    if (!el) return;
+    el.onchange = e => {
+      /* el evento change de las casillas burbujea hasta el contenedor */
+      S[grupo] = Array.isArray(S[grupo])
+        ? [...el.querySelectorAll('input[type=checkbox]:checked')].map(i => i.value)
+        : e.target.value;
+      poblarFiltros2(); refreshAutor(); rebuild(true);
+    };
+    if (Array.isArray(S[grupo])) {
+      el.onclick = e => {
+        const b = e.target.closest('.cc-act');
+        if (!b) return;
+        S[grupo] = b.dataset.cc === 'revistas' ? [...COL_REVISTA] : [];
+        poblarFiltros2(); refreshAutor(); rebuild(true);
+      };
+    }
+  });
+  const at = document.getElementById('adv_toggle');
+  if (at) at.onclick = () => {
+    const abierto = at.getAttribute('aria-expanded') === 'true';
+    at.setAttribute('aria-expanded', String(!abierto));
+    document.getElementById('adv_panel').classList.toggle('open', !abierto);
+  };
+  const mf = document.getElementById('more_filters');
+  if (mf) mf.onclick = () => {
+    const abierto = mf.getAttribute('aria-expanded') === 'true';
+    mf.setAttribute('aria-expanded', String(!abierto));
+    document.getElementById('filters_2').classList.toggle('open', !abierto);
+  };
   const mn=document.getElementById('y_min'), mx=document.getElementById('y_max');
   const onY=()=>{ let a=int0(mn.value), b=int0(mx.value); if(a>b)[a,b]=[b,a];
-    S.yMin=a; S.yMax=b; mn.value=a; mx.value=b; syncSlider(); refreshAutor(); rebuild(true); };
+    S.yMin=a; S.yMax=b; mn.value=a; mx.value=b; syncSlider(); refreshAutor(); poblarFiltros2(); rebuild(true); };
   mn.oninput=mx.oninput=onY;
 
   document.querySelectorAll('#tabs button').forEach(btn=>{
@@ -91,10 +332,7 @@ function wire(){
   });
 
   wireSeg('ind_nivel', v=>{ S.indNivel=v; rebuild(true); });
-  wireSeg('ind_index', v=>{ S.indIndex=v; rebuild(true); });
   wireSeg('perf_sel', v=>{ S.perfSel=v; refreshAutor(); rebuild(true); });
-  wireSeg('perf_index', v=>{ S.perfIndex=v; rebuild(true); });
-  wireSeg('chat_index', v=>{ S.chatIndex=v; buildChat(true); if (typeof applyFriendlyTooltips === 'function') applyFriendlyTooltips(); });
 
   document.getElementById('dom_doc').onchange=e=>{ S.domDoc=e.target.value; rebuild(true); };
   document.getElementById('dom_dom').onchange=e=>{ S.domDom=e.target.value; S.domPalabra=null; rebuild(true); };
@@ -385,6 +623,7 @@ function construirInforme(tab, printMode){
   const sc=reportScope(tab); const d=sc.d;
   const total=d.length, autores=uniq(d.map(r=>r.NOMBRE_AUTOR)).length;
   const wos=d.filter(r=>r.WOS==='SI').length;
+  const proc=contarProcedencia(d);
   const nArt=d.filter(r=>r.TIPO_DOCUMENTO==='Article').length;
   const TC=d.reduce((s,r)=>s+int0(r.CITADO_POR),0);
   const H=hIndex(d.map(r=>int0(r.CITADO_POR)));
