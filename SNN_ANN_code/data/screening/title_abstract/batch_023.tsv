@@ -1,0 +1,100 @@
+R02201	EXCLUDE	E4	FPGA	SNN event-driven platform on FPGA, no ANN baseline or pruning
+R02202	EXCLUDE	E2	memristor/in-memory	Memristor stuck-at-fault mitigation for DNN, no SNN or pruning
+R02203	EXCLUDE	E2	memristor/in-memory	Flash synapse and neuron device block, no ANN or SNN comparison
+R02204	EXCLUDE	E5	none	DNN for IC design verification, neuromorphic mentioned only loosely
+R02205	INCLUDE	C3	none	Strong lottery tickets in recurrent residual networks, random subnetworks
+R02206	INCLUDE	C1	none	SNN from DNN distillation, lower power than DNN on neuromorphic chip
+R02207	EXCLUDE	E2	memristor/in-memory	Memristor reliability redundancy for ANN, no SNN or pruning
+R02208	INCLUDE	C2	none	Online synapse cutting in sparse SNN to reduce hardware resources
+R02209	EXCLUDE	E4	Loihi	Hebbian fear conditioning robot on Loihi, no ANN baseline
+R02210	EXCLUDE	E4	none	SNN image recognition analysis, no efficiency comparison with ANN
+R02211	EXCLUDE	E4	none	Survey of spiking reinforcement learning, not efficiency focused
+R02212	EXCLUDE	E4	none	Review of SNN training methods for image classification, not efficiency focused
+R02213	EXCLUDE	E4	Loihi,TrueNorth,SpiNNaker,CPU,GPU	Spiking reservoir classifier on Loihi, compared only with spiking models
+R02214	EXCLUDE	E2	memristor/in-memory	Review of RRAM memristor materials and deposition techniques
+R02215	INCLUDE	C2	none	Sparse pruning of SNNs via minimax optimization
+R02216	INCLUDE	C3	none	Graph lottery tickets, joint graph and weight sparsity in GNNs
+R02217	EXCLUDE	E2	none	MoS2 retina-inspired sensor device, ANN only for recognition
+R02218	EXCLUDE	E5	none	Log-polar retinotopic input to CNNs, no SNN
+R02219	UNSURE	C5	memristor/in-memory	SNN hardware review, unclear if efficiency is compared with ANN
+R02220	EXCLUDE	E4	none	Review of SNN medical data applications, efficiency only as motivation
+R02221	EXCLUDE	E4	FPGA,ASIC,MCU,simulation	Review of open neuromorphic cores, RISC-V integration, no ANN baseline
+R02222	EXCLUDE	E2	memristor/in-memory	Review of perovskite optoelectronic synaptic devices
+R02223	EXCLUDE	E2	ASIC	Low-power CMOS neuron circuit, post-layout simulation only
+R02224	EXCLUDE	E2	photonic	Roadmap of phase change materials for photonics
+R02225	EXCLUDE	E2	photonic	Noise-aware training for photonic DL accelerators, no SNN or pruning
+R02226	INCLUDE	C3	none	Robust lottery ticket subnetworks for transfer learning
+R02227	EXCLUDE	E2	memristor/in-memory	Printed CNT synaptic transistor arrays, device-level work
+R02228	EXCLUDE	E4	none	Spiking RL for D2D, compared with AC and PPO, no energy metric
+R02229	INCLUDE	C1	none	Single-step SNN, comparable accuracy to full-precision nets, energy efficient
+R02230	INCLUDE	C1	none	Hybrid spiking-analogue optical flow network, energy benefits claimed
+R02231	EXCLUDE	E4	none	SNN classifier in apple leaf pipeline, no efficiency comparison
+R02232	EXCLUDE	E4	Loihi	Sparse coding QUBO on Loihi, baseline is simulated annealing
+R02233	INCLUDE	C1+C2+C6	ASIC	Sparsity-aware SNN training accelerator, SNN versus ANN training energy
+R02234	EXCLUDE	E2	simulation	Side-channel attacks on analog SNN neuron circuits
+R02235	INCLUDE	C1	none	Event-based SNN tracker, low energy versus ANN trackers
+R02236	INCLUDE	C3	none	Searching graph lottery tickets in GNNs
+R02237	EXCLUDE	E4	none	Adversarial robustness of approximate SNNs, no ANN efficiency baseline
+R02238	INCLUDE	C1	none	Early-exit timestep reduction in SNNs, works with ANN-SNN conversion
+R02239	EXCLUDE	E2	memristor/in-memory	FeFET synaptic array device endurance work
+R02240	EXCLUDE	E5	none	ANN segmentation of event camera data, no SNN
+R02241	EXCLUDE	E4	ASIC	Digital neuromorphic processor, no ANN baseline in abstract
+R02242	EXCLUDE	E5	none	Event camera video reconstruction with sparse coding, ANN only
+R02243	EXCLUDE	E4	memristor/in-memory	SNN sequence learning on ReRAM synapses, no ANN comparison
+R02244	UNSURE	C2	none	LIF neuron sharing cuts SNN memory, compression but no pruning
+R02245	EXCLUDE	E4	simulation	PyTorch simulator for hardware SNN devices, no ANN comparison
+R02246	EXCLUDE	E6	none	Cluster scheduling for ML jobs, lottery ticket only as example
+R02247	EXCLUDE	E2	none	Superconductor sigmoid circuit for stochastic ANNs
+R02248	EXCLUDE	E2	memristor/in-memory	SiC optoelectronic memristor synapse, SNN accuracy only, no ANN comparison
+R02249	EXCLUDE	E2	memristor/in-memory	Si-nanowire charge-trap synapse device with CNN simulation
+R02250	EXCLUDE	E2	photonic	Silicon photonics platform overview for neuromorphic computing
+R02251	INCLUDE	C6	CPU,GPU,memristor/in-memory,simulation	SNN chip simulator reporting energy and delay, no ANN baseline
+R02252	EXCLUDE	E4	none	SNN movie recommender, accuracy metrics only
+R02253	EXCLUDE	E3	none	Theoretical model of simple and complex cells
+R02254	INCLUDE	C1	none	SNN place recognition on robot, lower power than methods, baselines unclear
+R02255	EXCLUDE	E4	none	Spiking GoogLeNet crack detection, efficiency gain only versus SNN baseline
+R02256	EXCLUDE	E5	simulation	Oscillatory networks for edge detection, no spikes or ANN comparison
+R02257	INCLUDE	C1	none	U-Net SNN speech enhancement, 53.97x less compute energy than ANN
+R02258	EXCLUDE	E4	none	Spiking VGG-13 skin lesion classifier, accuracy and parameters only
+R02259	EXCLUDE	E4	none	Skip connection analysis in SNN training, accuracy focus
+R02260	EXCLUDE	E2	memristor/in-memory	Skyrmion MTJ synapse device
+R02261	UNSURE	C2	none	Information bottleneck lowers SNN power, unclear if sparsity is involved
+R02262	INCLUDE	C1+C2	ASIC	Spike-domain DNN processor with zero skipping and weight sparsity
+R02263	EXCLUDE	E2	photonic	Optical speckle receptron device for Boolean classification
+R02264	INCLUDE	C3	none	Sparse binary transformers with lottery ticket pruning, FLOPs reduction
+R02265	EXCLUDE	E6	none	Spike sorting of neural recordings with sparse coding
+R02266	INCLUDE	C2	none	Sparse-firing regularisation to reduce TTFS SNN firing
+R02267	UNSURE	C2	none	Fast training of sparse SNNs, unclear if sparsity method or only simulation
+R02268	INCLUDE	C2	none	Feature masking to lower spiking activity in event-based SNN
+R02269	INCLUDE	C2	none	Suppressing near-zero spikes to sparsify SNN and save energy
+R02270	INCLUDE	C2	none	Spiking CNN audio classifier tuning activation sparsity and accuracy
+R02271	EXCLUDE	E4	none	STBP training with channel reward, accuracy focus
+R02272	EXCLUDE	E2	photonic,ASIC	Overview of neuromorphic hardware design and reliability, not efficiency comparison
+R02273	EXCLUDE	E4	none	Neuroevolution of SNN architectures, accuracy only
+R02274	UNSURE	C1	none	Spike-based training with theoretical energy estimate, ANN baseline unclear
+R02275	INCLUDE	C1+C2	none	SNN denoising versus CNN, activation sparsity and energy analysis
+R02276	INCLUDE	C1+C2	none	ANN-SNN conversion with spike-rate regularisation for energy-efficient inference
+R02277	UNSURE	C2	none	Dendritic learning lowers spikes and synaptic operations, sparsity only as outcome
+R02278	INCLUDE	C1	none	Spike-driven transformer, 87.2x lower self-attention energy than vanilla
+R02279	EXCLUDE	E4	none	Conversion-based SNN event detector, no efficiency metric visible
+R02280	EXCLUDE	E4	none	Spike encoding of depth gestures for SNN, accuracy and data volume
+R02281	EXCLUDE	E6	none	Spike sorting algorithms and hardware survey, neural recording domain
+R02282	EXCLUDE	E4	none	Single-spike convolutional SNN training, binary weights, accuracy only
+R02283	EXCLUDE	E4	none	Binarized SNN training with spike timing gradient, no ANN baseline
+R02284	EXCLUDE	E4	none	Spike-based loss functions for classification, accuracy only
+R02285	INCLUDE	C6	memristor/in-memory	Compute-in-memory energy and latency evaluation tool for SNNs
+R02286	UNSURE	C1	none	Spiking transformer, low energy claimed but no quantified ANN comparison
+R02287	EXCLUDE	E4	memristor/in-memory	Mixed-signal spiking ConvNet MaxPool circuit, no efficiency comparison visible
+R02288	INCLUDE	C1	none	Converted text SNN, comparable to DNN with much less energy
+R02289	INCLUDE	C1	none	ANN-to-SNN conversion of deep ResNets with low latency
+R02290	EXCLUDE	E2	none	Spiking feature extraction circuit on PCB, no ANN comparison
+R02291	INCLUDE	C1	none	Event-based FER SNN, up to 65.39x less energy than ANN
+R02292	EXCLUDE	E4	none	Spiking generative model for lifelong learning, accuracy only
+R02293	INCLUDE	C1	none	Spiking GLOM object recognition, energy efficiency superiority claimed
+R02294	EXCLUDE	E4	TrueNorth,Loihi	Spiking LCA with dictionary learning, no ANN baseline
+R02295	EXCLUDE	E4	none	Spiking memory policy for POMDP control, performance comparison only
+R02296	INCLUDE	C1	none	Spiking text summarizer, low power claimed versus BERT plus LSTM
+R02297	EXCLUDE	E4	none	SNN channel equalizer, energy efficiency only as motivation
+R02298	EXCLUDE	E4	none	SNN robot navigation with evolutionary connectivity search, no efficiency content
+R02299	INCLUDE	C1	FPGA	ANN-to-SNN conversion on FPGA with frames per watt metric
+R02300	EXCLUDE	E4	none	Review of SNN architectures and learning in vision, not efficiency focused

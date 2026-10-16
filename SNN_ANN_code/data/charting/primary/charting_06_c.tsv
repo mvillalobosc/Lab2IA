@@ -1,0 +1,25 @@
+R01871	Y	-	C2	SNN	NS	NS	SIM	NA	CLAIM	OPS	NA	DST	NA	STRUCT	N	N	DSD-SNN grows neurons for new tasks and prunes redundant ones; comparable to DNN-based continual learning; overhead reduction claimed
+R01872	Y	-	C3	ANN	NS	NS	NA	SIM	NONE	NONE	NA	NS	OTHER	STRUCT	N	N	Neuron-wise subnetwork masks for task-incremental learning, LTH-inspired and data-free replay; no efficiency data
+R01875	Y	-	C2	SNN	NS	EVENT	SIM	NA	NONE	NONE	NA	DST	NA	UNSTRUCT	N	N	Sparse SNN training from scratch by dynamic prune-and-regrow; 0.28% accuracy loss at 10% connection density on DVS-Cifar10
+R01876	Y	-	C1	ANN+SNN	CNN	EVENT	SIM	SIM	CLAIM	ENERGY	PAIRED	NA	NA	NA	NA	N	SNN reconstruction converted from CNN for event-camera place recognition; better accuracy and energy efficiency than CNN, no figures
+R01879	Y	-	C1	ANN+SNN	NS	STATIC_IMG+EVENT	OTHER_NEURO	NS	NS	ENERGY	NS	NA	NA	NA	NA	U	SNNs on neuromorphic boards 65-135x more energy efficient than ANNs on traditional accelerators; event data beats image-based accuracy
+R01882	N	E5	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Event-encoded sEMG on STM32 MCU: 9x less memory, 13x less energy, 10x shorter latency than DNN; no SNN stated
+R01884	Y	-	C1	ANN+SNN	NS	EVENT+OTHER	SIM	NS	NS	POWER	NS	NA	NA	NA	NA	N	SNN optical flow for event cameras: accuracy equivalent to best existing methods, 99% power saving vs existing algorithm
+R01886	Y	-	C1	ANN+SNN	CNN	STATIC_IMG	SIM	SIM	CLAIM	ENERGY	PAIRED	NA	NA	NA	NA	N	Converted SNN-VGG-15 reaches 99.14/94.54/95.00% on UCM/RSSCN7/AID; energy advantage claimed, no figures
+R01889	Y	-	C3	ANN	NS	NS	NA	SIM	NONE	NONE	NA	SCORE	STRONG	UNSTRUCT	N	N	Federated Rank Learning: clients rank parameters of a random network (supermask-style), server votes; poisoning-robust, communication-efficient
+R01891	Y	-	C3	ANN	NS	NS	NA	SIM	NONE	NONE	NA	EVO	OTHER	UNSTRUCT	N	N	Iterative re-initialization and re-pruning with (1+1) evolution strategy improves subnetwork without increasing size; no efficiency data
+R01892	Y	-	C2	SNN	RNN	CONTROL	SIM	NA	NONE	NONE	NA	EVO	NA	UNSTRUCT	N	N	Evolving binary connectivity of recurrent SNNs with NES; locomotion performance comparable to DNNs; sparse boolean connections; no efficiency figures
+R01893	Y	-	C3	ANN	NS	STATIC_IMG+NLP	NA	SIM	NONE	NONE	NA	SCORE	BOTH	UNSTRUCT	N	N	Exclusive supermask subnetwork training for continual learning; masks use 2-10% of parameters, +8.3% over SupSup
+R01897	Y	-	C3	ANN	NS	NS	NA	GPU	MEASURED	MEMORY+LATENCY	NA	NS	NS	UNSTRUCT	Y	N	Exploiting pruned sparse subnetworks in AxoNN on 512 V100 GPUs: 74% less memory, 40% less communication time, 34% speedup
+R01900	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Proposal for automated NN-to-SNN conversion and NoC mapping tool flow; no results, no ANN efficiency comparison
+R01902	Y	-	C3	ANN	NS	STATIC_IMG	NA	SIM	NONE	NONE	NA	OTHER	WEAK	NS	N	N	First systematic LTH study in few-shot learning; winning tickets exist for some methods and transfer cross-domain; early-stage via ISS
+R01903	Y	-	C5	SNN	NS	NS	NA	NA	NONE	NONE	NA	NA	NA	NA	NA	N	Review of SNN neuromorphic computing from algorithms to hardware incl. NVM; qualitative efficiency discussion only
+R01905	Y	-	C3	ANN	NS	NS	NA	SIM	CLAIM	OPS	NA	REG	NS	STRUCT	N	N	DessiLBI finds structural sparsity and early-epoch winning tickets matching fully trained accuracy; transferable; cheaper network growing
+R01906	Y	-	C2	SNN	NS	NS	SIM	NA	NONE	NONE	NA	OTHER	NA	NS	N	N	Fisher information concentrates in early timesteps of SNNs; an iterative pruning method built on this; no efficiency figures
+R01907	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Hybrid conversion plus BPTT SNN reaches 99.05/91.36/92.62% at one time step on MSTAR/AID/UCMerced; no ANN efficiency comparison
+R01908	Y	-	C2	SNN	NS	NS	SIM	NA	CLAIM	LATENCY+SPIKES	NA	OTHER	NA	NS	Y	N	Explores TTFS at-most-one-spike constraint trade-offs; relaxed multi-spike variant gains accuracy with similar sparsity and latency; no ANN
+R01909	Y	-	C2	SNN	NS	EVENT	SIM	NA	NS	SPIKES	NA	OTHER	NA	NS	N	N	Hodgkin-Huxley SNNs trained with BPTT show spiking activity up to two orders of magnitude lower than LIF SNNs; no ANN
+R01910	Y	-	C3	ANN	NS	STATIC_IMG	NA	SIM	NONE	NONE	NA	SCORE	STRONG	UNSTRUCT	N	N	Fair sparse subnetworks exist in random networks without weight training; accuracy-fairness comparable to trained dense models
+R01911	Y	-	C1	ANN+SNN	CNN+RNN	EVENT	SIM	SIM	ESTIMATED	OPS+MEMORY	DIFFERENT	NA	NA	NA	NA	N	RSNN vs LSTM: 5x fewer parameters, 2000x fewer MACs, accuracy -1.9/-8.7 points; vs CNN: 200x fewer parameters, accuracy -23.7/-17.1
+R01912	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Quantized-ANN conversion with signed IF neuron; SOTA accuracy at low latency (time steps); no ANN efficiency comparison
+R01916	Y	-	C1	ANN+SNN	CNN+RNN	BIOSIG	SIM	SIM	NS	POWER	DIFFERENT	NA	NA	NA	NA	N	SNN for EMG gesture recognition: power 1-2 orders lower than CNN, LSTM, LDA; accuracy +0.99 to 14.91%

@@ -1,0 +1,100 @@
+R04201	EXCLUDE	E6	none	NIDS cybersecurity; neuromorphic only as future direction
+R04202	EXCLUDE	E4	CPU	SNN-only neuron model; compared with SNN baselines, no ANN
+R04203	EXCLUDE	E2	memristor/in-memory	Memristor crossbar circuit design; no learning-task comparison
+R04204	EXCLUDE	E5	none	Liquid neural network hybrid forecasting; no spiking, no efficiency metrics
+R04205	EXCLUDE	E4	none	Hybrid ANN-SNN continual learning; energy only as motivation
+R04206	INCLUDE	C1	none	Hybrid ANN/SNN layers; up to 2.45x energy reduction vs ANN
+R04207	EXCLUDE	E4	none	SNN anomaly detection; latency and sparsity reported, no ANN comparison
+R04208	INCLUDE	C1	none	Spiking GNN vs GNN, energy goal; abstract truncated
+R04209	EXCLUDE	E2	memristor/in-memory	WS2 memristor device characterization
+R04210	INCLUDE	C1	memristor/in-memory	Hybrid ANN-SNN PIM compiler; 2.74x energy, 2.48x latency gains
+R04211	EXCLUDE	E2	memristor/in-memory	Hydrogel synaptic device; MNIST accuracy only
+R04212	UNSURE	C1	ASIC	Hybrid ANN-SNN accelerator; only accuracy shown, efficiency unclear
+R04213	INCLUDE	C3	none	LTH-based hypernetwork masks for continual learning
+R04214	EXCLUDE	E4	none	SNN hyperspectral classifier; compared only with SNNs
+R04215	EXCLUDE	E2	memristor/in-memory	Optoelectronic memristor device; ANN only for accuracy
+R04216	UNSURE	C1	none	Spiking ViT claims lower energy than CNN methods; no numbers
+R04217	INCLUDE	C1	none	Liquid state machine compared with CNN and Transformers including efficiency
+R04218	EXCLUDE	E4	photonic,simulation	Photonic SNN simulation on CIFAR-10; no ANN efficiency comparison
+R04219	EXCLUDE	E6	none	Industrial metaverse and digital twins
+R04220	UNSURE	C1	none	UAV SNN detection; truncated, likely compares CNN/LSTM on latency and power
+R04221	EXCLUDE	E6	none	Lottery sales economics
+R04222	EXCLUDE	E4	none	Hybrid CNN-Transformer-SNN EDA classifier; accuracy only
+R04223	EXCLUDE	E2	none	Gas discharge tube spiking neuron device
+R04224	INCLUDE	C2	memristor/in-memory	Pruned and quantized SNN on RRAM; power estimated with pruning
+R04225	EXCLUDE	E4	Dynap	SNN on DYNAP-SE vs ANN/SVM; performance only, no efficiency
+R04226	EXCLUDE	E5	FPGA,ASIC	General edge DL compression and hardware; no SNN or LTH
+R04227	EXCLUDE	E2	memristor/in-memory	HfO2 memristor device; accuracy simulation only
+R04228	EXCLUDE	E4	none	SNN bit-plane coding; accuracy only
+R04229	EXCLUDE	E4	none	SNN fraud detection; energy only as motivation
+R04230	EXCLUDE	E4	none	SNN encoding and adversarial attacks; no efficiency
+R04231	EXCLUDE	E4	none	Sparse associative memory with neurogenesis; no ANN or pruning
+R04232	EXCLUDE	E4	none	SNN fall detection responsiveness; SNN-only
+R04233	INCLUDE	C2	none	Dynamic sparse training of deep SNNs with prune/regrow
+R04234	EXCLUDE	E2	memristor/in-memory	Fuel cell synaptic device
+R04235	EXCLUDE	E2	none	Perovskite microwire physical computing device
+R04236	INCLUDE	C1	none	SNN denoising; over 4000x less energy than deep learning
+R04237	EXCLUDE	E4	ASIC	SNN action recognition on vision processor; accuracy-only vs CNN
+R04238	EXCLUDE	E4	FPGA	SCNN FPGA accelerator; no ANN baseline
+R04239	EXCLUDE	E3	none	Biological spike-pattern learning model; neuroscience focus
+R04240	INCLUDE	C1	none	ANN-SNN conversion; energy lower than ANNs
+R04241	EXCLUDE	E4	none	SNN encoding/neuron/quantization on MNIST; no ANN efficiency comparison
+R04242	EXCLUDE	E4	none	Spiking plant disease classifier; efficiency only asserted
+R04243	EXCLUDE	E4	none	Hardware Trojan on SNNs; security
+R04244	INCLUDE	C1	none	SpikeYOLO vs equivalent ANN; energy efficiency stated, truncated
+R04245	UNSURE	C1	none	Spiking-neuron forecaster, reduced computation time; metric vs ANNs unclear
+R04246	EXCLUDE	E6	none	Neuroradiology big-data framework; not spiking
+R04247	EXCLUDE	E2	simulation	FBFET neuron circuit, TCAD/SPICE only
+R04248	INCLUDE	C5	none	Compression and sparsity roadmap for Gen AI; LTH keyword
+R04249	EXCLUDE	E6	none	AI for food quality review
+R04250	EXCLUDE	E2	photonic	Photonic computing hardware review
+R04251	EXCLUDE	E2	memristor/in-memory	Ferroelectric synapse device
+R04252	EXCLUDE	E4	none	Spiking RL actor; accuracy-only comparison
+R04253	EXCLUDE	E6	none	Computability theory for inverse problems
+R04254	INCLUDE	C1	none	Hybrid DNN-neuromorphic; power reduction vs traditional AI analyzed
+R04255	EXCLUDE	E2	memristor/in-memory	NVM variability robustness analysis
+R04256	EXCLUDE	E2	none	Side-channel analysis of flexible MLP circuits
+R04257	EXCLUDE	E4	none	Survey on SNN security; not efficiency, pruning or LTH
+R04258	EXCLUDE	E2	none	IGZO FET synaptic device
+R04259	EXCLUDE	E5	GPU	Perovskite FET device; ANN energy vs GPU, no SNN
+R04260	EXCLUDE	E2	none	Reconfigurable photodetector device
+R04261	EXCLUDE	E2	none	2D ionic transistor device perspective
+R04262	EXCLUDE	E4	none	Convolutional SNN promoter recognition; accuracy only
+R04263	EXCLUDE	E6	none	Housing market planning
+R04264	EXCLUDE	E4	CPU	RISC-V Izhikevich ISA extension; no ANN baseline
+R04265	EXCLUDE	E6	none	Blockchain lotteries
+R04266	INCLUDE	C3	none	Graph lottery tickets via gradual pruning and distillation
+R04267	EXCLUDE	E2	memristor/in-memory	CZTS RRAM device
+R04268	EXCLUDE	E4	none	Knowledge distillation to train SNNs; no efficiency measured
+R04269	INCLUDE	C3	none	Certified winning tickets for LLM fine-tuning
+R04270	UNSURE	C2	none	Sparse spike encoding with fewer spikes; ANN comparison unclear
+R04271	EXCLUDE	E2	none	Optoelectronic synapse array device
+R04272	EXCLUDE	E2	photonic	Silicon photonic platform review
+R04273	INCLUDE	C1	none	ANN-to-SNN distillation; competitive vs ANN, latency reduced; truncated
+R04274	EXCLUDE	E4	none	Adaptive spike encoder; SNN-only
+R04275	EXCLUDE	E4	none	Deep SNN gradient clipping with device noise; no efficiency
+R04276	EXCLUDE	E2	simulation	MTJ LIF neuron/PUF circuit
+R04277	EXCLUDE	E2	memristor/in-memory	Perovskite memristor device; ANN accuracy only
+R04278	EXCLUDE	E2	memristor/in-memory	Nanoparticle network physics, memristive dynamics
+R04279	INCLUDE	C3	none	Multi-prize subnetworks via post-training pruning, LTH
+R04280	EXCLUDE	E4	none	Gradient-free SNN RL; reward comparison, resources vague
+R04281	INCLUDE	C3	none	Meta-LTH magnitude pruning for meta-learning
+R04282	INCLUDE	C1	ASIC	DNN/SNN in-memory processor; TFLOPS/W efficiency reported
+R04283	INCLUDE	C1	none	Event SNN pipeline; over 10000x less energy than frame-based
+R04284	EXCLUDE	E2	none	Analog dendrite circuits for neuromorphic hardware
+R04285	EXCLUDE	E4	none	Hybrid attention-SNN diagnosis; accuracy only
+R04286	INCLUDE	C2	none	Structured sparsity in spiking transformer; energy and throughput gains
+R04287	INCLUDE	C5	none	Discussion of neuromorphic vs conventional AI efficiency
+R04288	EXCLUDE	E6	none	Event-camera stereo, no spiking network
+R04289	EXCLUDE	E5	memristor/in-memory	RRAM DNN accelerator, no SNN
+R04290	INCLUDE	C2	none	Pruning-based NAS enforcing sparsity in SNNs
+R04291	INCLUDE	C2	none	Low-rank compression of spiking transformer
+R04292	UNSURE	C1	none	SpikingFormer vs Transformer claims lower complexity; measurement unclear
+R04293	EXCLUDE	E4	FPGA	SNN FPGA accelerator; compared with MAC SNN designs only
+R04294	EXCLUDE	E4	none	Spiking federated detector; no ANN efficiency comparison
+R04295	UNSURE	C1	MCU	SNN on Cortex-M4 claims suitability over ANNs; no metrics shown
+R04296	INCLUDE	C3	none	LTH-inspired filter pruning of U-Net
+R04297	EXCLUDE	E2	memristor/in-memory	Perovskite synapse device
+R04298	EXCLUDE	E2	memristor/in-memory	MoS2 memtransistor device
+R04299	EXCLUDE	E2	memristor/in-memory	LLM SPICE generation for analog IMC; one-page abstract
+R04300	EXCLUDE	E4	none	Spiking neuron model with reset; SNN benchmarks only

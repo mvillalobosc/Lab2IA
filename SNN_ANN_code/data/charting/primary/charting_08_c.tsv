@@ -1,0 +1,25 @@
+R02418	Y	-	C1	ANN+SNN	NS	TS	SIM	NS	CLAIM	ENERGY	LITERATURE	NA	NA	NA	NA	N	Memristive STDP SNN detects Wi-Fi frames comparably to prior DNN, CNN, RNN mechanisms with less energy, no figures
+R02420	Y	-	C3	ANN	NS	STATIC_IMG+NLP	NA	SIM	NONE	NONE	NA	OTHER	NS	UNSTRUCT	N	N	All-alive pruning avoids dead connections and improves accuracy of iterative, one-shot and dynamic pruning at high compression ratios
+R02421	N	E2	-	-	-	-	-	-	-	-	-	-	-	-	-	-	ISSCC abstract on 22 nm SNN processing unit with sparsity-adaptive in-memory computing; only background, no results or ANN comparison
+R02423	N	E5	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Kronecker CP tensor decomposition compression of 3DCNNs, LTH cited for theory; not pruning or ticket search
+R02425	N	E2	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Digital SNN processor 0.2 pJ/SOP on MNIST, 1.9x speedup and 2x fewer memory accesses; no ANN comparison
+R02426	N	E2	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Neuromorphic SoC in 55 nm: 0.96 pJ/SOP, 0.52 mW/mm2 power density (67.5% below related works); no ANN comparison
+R02428	Y	-	C2	SNN	MLP	EVENT	FPGA	NA	MEASURED	THROUGHPUT+ENERGY	NA	OTHER	NA	STRUCT	Y	N	Structured-sparse SNN accelerator on ZCU104: 96% N-MNIST and 79% DVS-Gesture at 50% sparsity; 3.82 GSOP/s, 5.31 GSOP/W
+R02429	Y	-	C1	ANN+SNN	CNN	EVENT	NS	ASIC	NS	ENERGY+POWER	LITERATURE	NA	NA	NA	NA	N	CNN-based DVS gesture SoC in 65 nm: 593.4 nJ per inference, 92.4% accuracy; claims lower power than SNN systems
+R02430	Y	-	C2	SNN	RNN	AUDIO	ASIC	NA	NS	POWER+ENERGY+OPS+MEMORY	NA	NS	NA	MIXED	N	N	Pruned recurrent SNN accelerator: model 2.79 MB to 0.1 MB, 13.86 MMAC/S, 71.2 uW at 100 kHz, 28.41 TOPS/W
+R02432	Y	-	C1	ANN+SNN	NS	TS	NS	NS	CLAIM	ENERGY	NS	NA	NA	NA	NA	N	ACAN-neuron SNN for movement recognition; superiority over DNNs in computational efficiency asserted without figures
+R02433	Y	-	C1	ANN+SNN	CNN	TS	SIM	SIM	ESTIMATED	ENERGY+SPIKES	PAIRED	NA	NA	NA	NA	N	Converted spiking residual attention network beats existing networks on noisy bearing faults; energy calculation favors SNN, no figures
+R02434	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Spiking self-attention network for battery capacity prediction; extremely low energy consumption claimed without figures or ANN comparison
+R02436	Y	-	C1	ANN+SNN	GNN+TRANSFORMER	EVENT	SIM	SIM	NS	OPS	DIFFERENT	NA	NA	NA	NA	N	Compares SNN, graph CNN and video Transformer on event-based action recognition: comparable accuracy, different errors; complexity analyzed, no figures
+R02437	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Comparison of ANN2SNN, BPTT and STDP training for SNNs on CIFAR-10; no efficiency metrics
+R02439	N	E2	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Memcapacitive in-memory SNN circuit with nonlinearity-aware training and compression; MNIST 97.64% accuracy, 15.7 nJ per inference; no ANN comparison
+R02440	Y	-	C3	ANN	CNN	DET	NA	NS	NS	LATENCY	NA	DST	OTHER	MIXED	N	N	LTH-inspired unstructured then structured pruning of YOLOv7 with sparse distillation; accuracy almost unchanged, speed improved over 45%
+R02441	Y	-	C1	ANN+SNN	CNN+RNN	AUDIO	SIM	SIM	NS	LATENCY	NS	NA	NA	NA	NA	N	CHSNN beats most CNN-RNN music classifiers, real-time with 20.8% of inference time steps; SNN substitutes RNN in latency
+R02442	N	E2	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Event-driven convolutional SNN accelerator on FPGA: 4.6x performance, 3.6x energy efficiency, 1.6x memory versus baseline accelerator; no ANN comparison
+R02443	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	VGG16-to-SNN conversion: 94.88% land-cover accuracy, seizure detection specificity 99.45%, sensitivity 95.06%; no efficiency metrics
+R02447	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Lightweight SNN with DVS for UAV obstacle avoidance, latency reduced 85% versus unspecified baseline methods; no ANN comparison stated
+R02451	Y	-	C2	SNN	NS	STATIC_IMG	FPGA	NA	MEASURED	ENERGY	NA	OTHER	NA	STRUCT	Y	N	Structured-sparse fully parallel SNN accelerator on ZCU102: 97.1% MNIST accuracy, 40.1 GSOP/s/W
+R02452	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	SpikeGCL binarized 1-bit graph representations, 32x storage compression, accuracy comparable to full-precision methods; no energy or operation metrics
+R02456	N	E2	-	-	-	-	-	-	-	-	-	-	-	-	-	-	RRAM and SRAM SoC fusing CNN and SNN; 91.8% power saving from gating, over 100 outputs/s; no ANN-SNN comparison
+R02457	Y	-	C1	HYBRID	NS	DET+EVENT	SIM	SIM	NS	POWER	PAIRED	NA	NA	NA	NA	N	Hybrid ANN-SNN: 88% less power and 4% lower performance than fully ANN counterparts; 74% lower error than SNNs
+R02458	Y	-	C1	ANN+SNN	NS	NS	FPGA	FPGA	MEASURED	THROUGHPUT+ENERGY	NS	NA	NA	NA	NA	U	FPGA accelerator supports SNN and ANN: 48.51 GSOP/s, 25.8 GSOP/W (SNN); 26.38 GOP/s, 12.05 GOP/W (ANN)

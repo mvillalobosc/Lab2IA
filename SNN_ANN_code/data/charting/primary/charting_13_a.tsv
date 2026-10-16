@@ -1,0 +1,25 @@
+R03759	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	SNN-only dendritic self-organizing model; no ANN efficiency comparison and no pruning or sparsity method
+R03763	Y	-	C3	ANN	NS	NS	NA	NS	NS	OPS	NA	NS	NS	NS	NS	N	88.1x/80.8x lower upstream/downstream communication, 3.9-34.9x lower computation cost; accuracy comparable to uncompressed FL
+R03764	Y	-	C2	SNN	TRANSFORMER	NS	NS	NA	NS	ENERGY+LATENCY	NA	ACT	NA	MIXED	Y	N	Bishop accelerator: 5.91x speedup, 6.11x energy efficiency over previous SNN accelerators; no ANN baseline
+R03766	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Binarized SNN with distillation; memory 3.125% of full-precision SNN; compared only with SNNs; quantization/KD only
+R03771	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	ANN-to-SNN conversion for detection; only fewer time steps and mAP 0.476/0.591 reported; no efficiency comparison
+R03773	Y	-	C2	SNN	NS	NS	SIM	NA	NONE	NONE	NA	ACT+DST	NA	STRUCT	N	N	Up to 95.26% lower pruning cost than SOTA SNN pruning; no energy or ANN figures
+R03779	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Memristor-based quantized SNN CIFAR-10 94.34%; 4x less inference energy and 16x fewer parameters than full-precision SNN only
+R03780	Y	-	C1	ANN+SNN	CNN	DET	SIM	NS	NS	ENERGY	DIFFERENT	NA	NA	NA	NA	N	SNN detector 6.43 mJ, 7.8M parameters, mAP 62.0 COCO, 66.3 Gen1; claimed to outperform SOTA ANN detectors
+R03783	Y	-	C1	ANN+SNN	RNN	BIOSIG	MCU	MCU	MEASURED	LATENCY+MEMORY	PAIRED	NA	NA	NA	NA	Y	RSNN vs ANN decoder on ESP32 MCU: 15.96x speed-up, 5.47% less memory; R2 +17.92%, CC +7.98%, RMSE 25.45% better
+R03784	N	E2	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Neuromorphic EEG classifier IC in 65nm; clock gating from sparse firing cuts power 93%; no ANN baseline
+R03785	Y	-	C3	ANN	NS	STATIC_IMG+OTHER	NA	NS	NONE	NONE	NA	SCORE	BOTH	NS	N	N	No efficiency figures; grokked tickets cut delayed generalization; edge-popup finds generalizing subnetworks without changing weights
+R03789	Y	-	C1	HYBRID	TRANSFORMER	NLP	ASIC	ASIC	MEASURED	ENERGY+LATENCY	LITERATURE	NA	NA	NA	NA	U	Chip 28nm: 0.21-0.33x computation energy, 0.37-0.41x EMA energy vs baseline; 13.6% lower than prior SOTA; GPT-2 0.656 s
+R03790	Y	-	C2	SNN	NS	STATIC_IMG+AUDIO	FPGA	NA	MEASURED	ENERGY+THROUGHPUT	NA	NS	NA	STRUCT	Y	N	FPGA XCKU115: 198.59 GSOP/s peak, 56.47 GSOP/W at 75% weight sparsity; no ANN baseline
+R03791	Y	-	C1	ANN+SNN	CNN	OTHER	NS	NS	NS	ENERGY+POWER	DIFFERENT	NA	NA	NA	NA	U	Greener model 8 W, 30 J at 54% recall; up to 65% recall; competitive energy/power versus non-spiking approaches
+R03794	Y	-	C3	ANN	NS	NLP	NA	NS	NONE	NONE	NA	OTHER	OTHER	UNSTRUCT	N	N	No efficiency figures; LTH-inspired sparse fine-tuning mask; accuracy 90.2% sentiment analysis, 76% NLI
+R03795	Y	-	C1	ANN+SNN	CNN	STATIC_IMG	ASIC	NS	NS	ENERGY	PAIRED	NA	NA	NA	NA	N	SNN processor 28nm: 486.7/503.6/1426 uJ energy, 91.7/67.9/57.4% accuracy CIFAR-10/100/Tiny-ImageNet; no ANN energy
+R03801	Y	-	C1	ANN+SNN	TRANSFORMER	OTHER	SIM	SIM	NS	ENERGY	PAIRED	NA	NA	NA	NA	N	SNN versions cut energy cost by more than 10x versus ANN-based beamforming solutions (simulation results)
+R03802	Y	-	C1	ANN+SNN	CNN+RNN	TS	SIM	SIM	ESTIMATED	POWER+LATENCY	PAIRED	NA	NA	NA	NA	N	SNN vs ANN of same structure: latency -60%, theoretical power -70%+ at 45nm CMOS; accuracy >95.93% at SNR>3dB
+R03805	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Distilled SNN student for hyperspectral classification: 61% fewer parameters, 5-7x faster inference; SNN-to-SNN only, KD only
+R03813	Y	-	C3	ANN	CNN	STATIC_IMG+DET	NA	NS	NONE	NONE	NA	OTHER	WEAK	UNSTRUCT	N	N	No energy figures; COLT matches IMP winning tickets' accuracy at high sparsity with fewer iterations
+R03814	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Spike Aggregation Transformer; claims better accuracy and energy than SOTA SNNs only; no ANN comparison
+R03815	Y	-	C1	ANN+SNN	NS	DET	NS	NS	CLAIM	ENERGY	PAIRED	NA	NA	NA	NA	U	SNN more energy efficient than ANN with high accuracy for both, no figures in abstract; FPGA target
+R03817	Y	-	C1	ANN+SNN	CNN	OTHER	NS	NS	NS	ENERGY+LATENCY	PAIRED	NA	NA	NA	NA	U	SNN vs CNN: up to 5x less energy, ~3x faster training, 0.014 ms/sample; macro F1 0.58 vs 0.62
+R03818	Y	-	C5	ANN+SNN	CNN	OTHER	FPGA+ASIC+GPU	GPU+FPGA+ASIC	NONE	NONE	NA	NA	NA	NA	NA	N	Review of memory optimization, compression, tiling and pruning for CNN and SNN accelerators in medical imaging; no figures
+R03819	Y	-	C3	ANN	OTHER	OTHER	NA	NS	NONE	MEMORY	NA	NS	NS	NS	N	N	WGAN generator pruned via LTH then codec-compressed up to 15x with sample quality retained; no energy figures

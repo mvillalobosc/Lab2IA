@@ -1,0 +1,25 @@
+R05789	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	SNN seizure prediction: sensitivity 90.1, specificity 93.2, better than DL; power only claimed, no figures
+R05790	Y	-	C5	ANN+SNN	NS	BIOSIG	NS	NS	NONE	NONE	NA	NA	NA	NA	NA	N	Review of SNNs vs DL for low-power cardiac wearables; frame-based vs event-driven; no quantitative figures
+R05792	Y	-	C1	ANN+SNN	NS	BIOSIG	MEMRISTOR	NS	NS	LATENCY+ENERGY	DIFFERENT	NA	NA	NA	NA	N	Memristive SNN: sub-10 ms latency, under 80% of energy of conventional DL; EEG accuracy up to 92%
+R05794	Y	-	C1	ANN+SNN	NS	BIOSIG	NS	NS	NS	ENERGY	DIFFERENT	NA	NA	NA	NA	N	NFL-SNN 92.6% accuracy; energy -38.4%, communication cost -41.7% vs traditional DNN federated learning
+R05795	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Hybrid ANN-server/SNN-edge semantic system on FPGA: bandwidth -95.8%, ICR over 20x ANN system; no listed efficiency metric vs ANN
+R05798	Y	-	C1	ANN+SNN	NS	NLP	NS	NS	CLAIM	ENERGY+LATENCY	DIFFERENT	NA	NA	NA	NA	N	SNN-LE claims less energy and faster inference than traditional deep learning NLP; no figures given
+R05800	Y	-	C1	ANN+SNN	CNN	DET	SIM	NS	ESTIMATED	ENERGY+OPS	PAIRED	NA	NA	NA	NA	N	Block-wise analysis: 3.33x lower synaptic-op energy than equivalent CNN; AP 92.05/87.04/86.51 (Easy/Mod/Hard)
+R05801	Y	-	C1	ANN+SNN	NS	BIOSIG	NS	NS	CLAIM	LATENCY+OPS	DIFFERENT	NA	NA	NA	NA	N	SNN MU-spike decoding competitive with other DL models, lower latency and computational cost (no figures); force R2 0.90
+R05803	Y	-	C1	ANN+SNN	NS	DET+EVENT	SIM	NS	ESTIMATED	ENERGY+LATENCY	PAIRED	NA	NA	NA	NA	N	Energy analysis: 18x lower than equivalent ANNs; inference under 15 ms; SSIM up to 0.96, MSE 0.004
+R05804	Y	-	C1	ANN+SNN	MLP	TS	SIM	NS	ESTIMATED	ENERGY	PAIRED	NA	NA	NA	NA	N	SNN vs feedforward baseline: projected ~270x energy reduction on neuromorphic hardware (Loihi 2/Akida targets); spike-rate +5.5 points at faults
+R05806	Y	-	C2	ANN+SNN	RNN	CONTROL	SIM	SIM	NONE	NONE	NA	NS	NA	UNSTRUCT	N	N	Distilled ANN/SNN control policies tolerate high weight and activation zero-suppression; distillation cuts training time; no energy figures
+R05815	Y	-	C1	ANN+SNN	NS	TS+CONTROL	LOIHI	NS	CLAIM	POWER+LATENCY	NS	NA	NA	NA	NA	U	VT-SNN slip detection 99.59% accuracy, F1 99.28%, comparable to ANNs; lower power and inference time (no figures); Loihi
+R05816	Y	-	C1+C2	ANN+SNN	NS	AUDIO+TS	SIM	SIM	CLAIM	ENERGY+SPIKES	NS	OTHER	NA	TEMPORAL	Y	N	RF-SNN comparable accuracy to LIF-SNNs and ANNs; lower spike rates and total energy (no figures); audio and modulation classification
+R05818	Y	-	C1	HYBRID	CNN	OTHER	SIM	SIM	NS	ENERGY	PAIRED	NA	NA	NA	NA	N	SNN-ANN hybrid 5G receiver: similar performance to ANN counterparts with 7.6x less energy; BLER gain over 5G-NR receivers
+R05819	Y	-	C1	ANN+SNN	NS	OTHER	SIM	NS	CLAIM	ENERGY	NS	NA	NA	NA	NA	N	NeuroPINNs: spiking PINNs report high accuracy with substantially lower communication and energy demands; no figures
+R05820	Y	-	C1	HYBRID	TRANSFORMER	OTHER	NS	NS	NS	POWER	DIFFERENT	NA	NA	NA	NA	N	NeuroPulse spiking-transformer: 94.3% accuracy at 0.23 mW, 12x power reduction vs transformer-only baselines
+R05821	Y	-	C2	SNN	CNN+TRANSFORMER+OTHER	NLP+OTHER	ASIC	NA	NS	LATENCY+ENERGY+MEMORY	NA	ACT	NA	STRUCT	Y	N	Dynamic neuron pruning accelerator: -38.6% latency, +48.4% energy efficiency vs RISC-V accelerator; 4.6x speedup, 84.9x efficiency vs RTX 4090
+R05822	Y	-	C2	ANN+SNN	GNN	OTHER	SIM	NS	NS	SPIKES	NA	REG	NA	NS	Y	N	VS-GNO vs non-spiking baseline: energy-error balance loss gives controllable energy-accuracy tradeoff; numeric results absent from abstract
+R05823	Y	-	C1	HYBRID	OTHER	BIOSIG	SIM	SIM	ESTIMATED	OPS	DIFFERENT	NA	NA	NA	NA	N	NeuroSleep: 53.6% fewer sparsity-adjusted ops vs dense; vs dense Transformer +7.5% accuracy, 45.8% less compute; accuracy 74.2%
+R05824	Y	-	C1	ANN+SNN	NS	CONTROL	ASIC+FPGA	ASIC+FPGA	BOTH	ENERGY+THROUGHPUT	DIFFERENT	NA	NA	NA	NA	U	NeuroUNI: ANN energy efficiency 35.0x V100, 1.21x EyerissV2; SNN 5.7x TrueNorth throughput; 422.6 GOPS/W ANN, 190.8 GSOPS/W SNN
+R05825	Y	-	C1	HYBRID	CNN+RNN	CONTROL	SIM	SIM	NS	ENERGY	PAIRED	NA	NA	NA	NA	N	NeuroVIO: 80.4% lower energy than nonspiking counterpart with competitive pose accuracy on AQUALOC
+R05827	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Review of time-series forecasting from DL to SNN; energy only as motivation; no efficiency comparison
+R05832	Y	-	C2	SNN	OTHER	BIOSIG	SIM	NA	CLAIM	NONE	NA	ACT	NA	UNSTRUCT	N	N	STDP reservoir with clustering-guided connection pruning; claims better accuracy and efficiency than fully connected SNN; no figures
+R05833	Y	-	C6	SNN	RNN	NS	TRUENORTH+SIM	NA	ESTIMATED	LATENCY+POWER	NA	NA	NA	NA	NA	N	NPEva within 8% of TrueNorth data; latency bounds 0.55-2.53x lower than WCTT; LSM exploration 2.94x cost efficiency
+R05834	Y	-	C2	SNN	NS	EVENT+STATIC_IMG+AUDIO+CONTROL	SIM	NA	NONE	NONE	NA	OTHER	NA	UNSTRUCT	N	N	Nonlinear synaptic pruning with dendritic integration; high sparsity, minimal accuracy loss on DVS128 Gesture, CIFAR10-DVS, CIFAR10; no figures

@@ -1,0 +1,25 @@
+R00851	Y	-	C2	SNN	NS	NS	SIM	NA	ESTIMATED	SPIKES	NA	OTHER	NA	TEMPORAL	Y	N	LIF more robust than IF, but leak decreases computational sparsity; robustness vs energy-efficiency trade-off
+R00871	Y	-	C3	ANN	MLP	NS	NA	NS	NONE	NONE	NA	THEORY	WEAK	UNSTRUCT	N	N	Samples needed scale with non-pruned weights; pruned networks converge faster; one-hidden-layer theory plus experiments
+R00875	Y	-	C3	ANN	NS	TS	NA	NS	CLAIM	OPS	NA	NS	WEAK	UNSTRUCT	Y	N	Multiplier-less DNN equalizer with progressive LTH weight pruning and APoT quantization; good performance-complexity trade-off
+R00876	Y	-	C2	SNN	NS	STATIC_IMG	MEMRISTOR	NA	ESTIMATED	ENERGY+THROUGHPUT+SPIKES	NA	NS	NA	NS	Y	N	Device-focused 1S1R synapse; BSNN on MNIST optimized for consumption, footprint, frequency via topology and activation sparsity
+R00987	Y	-	C3	ANN	CNN+RNN+TRANSFORMER	AUDIO	NA	NS	ESTIMATED	MEMORY	NA	NS	WEAK	MIXED	N	N	Winning tickets under 20% of weights on all backbones, lightest 4.4%; noise-robust, transferable, structured sparsity
+R01034	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	YOLOv3-tiny converted to SNN for crater detection; only accuracy and time steps, no ANN efficiency
+R01050	Y	-	C1	ANN+SNN	CNN+RNN	BIOSIG	LOIHI	EDGE_GPU	MEASURED	ENERGY	DIFFERENT	NA	NA	NA	NA	Y	SNN on Loihi 95% less energy per inference than state-of-the-art DNNs on Jetson TX2; similar accuracy
+R01098	Y	-	C1	ANN+SNN	NS	AUDIO+OTHER	LOIHI2	NS	ESTIMATED	OPS	DIFFERENT	NA	NA	NA	NA	N	Emulated Loihi 2: RF-neuron optical flow over 90x fewer operations than DNN solution; STFT 47x less bandwidth
+R01122	Y	-	C2	SNN	MLP	NS	FPGA	NA	BOTH	THROUGHPUT+ENERGY+LATENCY	NA	OTHER	NA	MIXED	Y	N	FPGA: 253.1 GSOP/s, 32.1 GSOP/W at 75% weight sparsity; spike compression 3.2x throughput; 14.6 uJ
+R01142	Y	-	C3	ANN	GNN+OTHER	OTHER	NA	NS	ESTIMATED	MEMORY	NA	MAG	WEAK	NS	N	N	Winning tickets in MF and LightGCN recommenders match full models with small parameter fractions on Yelp2018, TikTok, Kwai
+R01143	Y	-	C2+C4	SNN	NS	NS	SIM	NA	NS	MEMORY+LATENCY	NA	MAG	WEAK	UNSTRUCT	N	Y	Winning tickets in deep SNNs up to 97% sparsity; Early-Time ticket cuts search time up to 38%
+R01160	Y	-	C3	ANN	TRANSFORMER	NLP	NA	NS	ESTIMATED	MEMORY	NA	REG	WEAK	NS	N	N	Dominant winning ticket with 0.05% of PLM parameters gives satisfactory performance; transferable across tasks
+R01247	Y	-	C3	ANN	NS	NS	NA	NS	NONE	NONE	NA	MAG	WEAK	NS	N	N	Pre-training on small or easy data subsets suffices for good IMP initialization; mode connectivity predicts IMP
+R01358	Y	-	C3	ANN	CNN	OTHER	NA	NS	ESTIMATED	MEMORY	NA	MAG	WEAK	NS	N	N	IMP finds matching subnetworks at 89.2% sparsity in AdaIN and 73.7% in SANet
+R01371	Y	-	C2	ANN+SNN	NS	STATIC_IMG+AUDIO+OTHER	SIM	NS	ESTIMATED	OPS+LATENCY	NA	OTHER	NA	NS	Y	N	At least 10x fewer inference time steps and synaptic ops than other SNNs; fan-in constraint imposed progressively
+R01373	Y	-	C3	ANN	TRANSFORMER	NLP	NA	NS	ESTIMATED	MEMORY	NA	OTHER	NS	STRUCT	N	N	LTH-based adapter pruning keeps GLUE performance while reducing AdapterFusion size significantly
+R01390	Y	-	C2	ANN+SNN	RNN+CNN	TS	SIM	NS	CLAIM	LATENCY	NA	NS	NA	UNSTRUCT	Y	N	Compact recurrent SNN with sparse connectivity beats LSTM, approaches large CNNs; early classification cuts latency
+R01399	Y	-	C2	SNN	NS	NS	SIM	NA	CLAIM	SPIKES	NA	REG	NA	TEMPORAL	Y	N	Loss penalizes spikes after the first; two-phase training avoids silent neurons; spike rate kept under control
+R01465	Y	-	C1	ANN+SNN	NS	EVENT	SIM	SIM	NS	ENERGY	PAIRED	NA	NA	NA	NA	N	SNN beats counterpart ANN on simulated DVS emotion data; energy one-quarter of ANN's
+R01472	Y	-	C5	ANN+SNN	NS	NS	ASIC	ASIC	NONE	NONE	NA	NA	NA	NA	NA	N	Review of SNN integrated circuit trends; abstract only covers accelerator energy-efficiency techniques
+R01519	Y	-	C3	ANN	NS	OTHER	NA	NS	NONE	NONE	NA	NS	OTHER	NS	N	N	LTH-style adaptation of decoder multiplicative parameters; beats VVC in MS-SSIM at low bitrate
+R01522	N	E5	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Linear mode connectivity and permutation invariance; LTH only mentioned as an implication
+R01570	Y	-	C1	ANN+SNN	CNN	STATIC_IMG	FPGA	FPGA	NS	ENERGY	LITERATURE	NA	NA	NA	NA	U	Dendrite-inspired CNN on FPGA 10.7 uJ/frame, 88% CIFAR-10; 94.4x energy efficiency vs spiking CNN FPGA, +6% accuracy
+R01610	Y	-	C1	ANN+SNN	NS	CONTROL	SIM	SIM	NS	ENERGY+LATENCY	PAIRED	NA	NA	NA	NA	N	Latency as low as 0.8% of other spiking RL methods; energy efficiency up to 5x DNNs
+R01615	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Conversion with clipping and potential initialization; MNIST 96.18% at 2 steps; no efficiency comparison

@@ -1,0 +1,40 @@
+R03765	EXCLUDE	E4	CPU, FPGA, memristor/in-memory	SNN compiler framework; no ANN baseline or pruning method
+R03787	EXCLUDE	E2	photonic	Optoelectronic synaptic device; no network-level ANN comparison
+R03825	EXCLUDE	E5	CPU, FPGA, ASIC	Edge AI microprocessor design; neuromorphic cores mentioned loosely, no SNN comparison
+R03872	EXCLUDE	E6	ASIC, FPGA	ASIC image compression review; neuromorphic only incidental
+R03924	EXCLUDE	E4	none	SGCN vs GCN privacy attacks; efficiency only as motivation
+R03929	EXCLUDE	E6	none	Cash benefit health study; lottery is sampling, not LTH
+R04050	EXCLUDE	E5	none	Event-camera mesh recovery with point clouds; no SNN
+R04057	EXCLUDE	E2	memristor/in-memory	Memristor device for reservoir computing; software CNN/ANN accuracy only
+R04075	EXCLUDE	E4	none	SNN adversarial attack on raw events; no efficiency comparison
+R04082	EXCLUDE	E5	FPGA	Hyperdimensional computing quantization on FPGA; no SNN or lottery content
+R04099	EXCLUDE	E4	none	Spiking CNN for finger veins; parameter count only, no energy figures
+R04105	EXCLUDE	E2	photonic	Photonic synaptic transistor; ANN digit accuracy only, no efficiency comparison
+R04195	EXCLUDE	E2	memristor/in-memory, photonic	Memtransistor device; no network-level ANN or SNN evaluation
+R04209	EXCLUDE	E2	memristor/in-memory	WS2 memristor; MNIST ANN accuracy only
+R04226	EXCLUDE	E5	FPGA, ASIC	Deep learning on edge via VLSI; general compression, no SNN
+R04256	EXCLUDE	E5	none	Side-channel attacks on bespoke flexible MLP classifiers; no SNN
+R04261	EXCLUDE	E2	memristor/in-memory	Perspective on 2D ionic transistors; device-level, no efficiency comparison
+R04323	INCLUDE	C1	memristor/in-memory	SNN energy 25-39x and EDP 52-82x better than ANN
+R04349	EXCLUDE	E2	memristor/in-memory	Artificial synapse device; CNN accuracy only, no efficiency comparison
+R04387	EXCLUDE	E4	none	Evolving SNN plus neuro-fuzzy; RMSE only, no efficiency metric
+R04409	UNSURE	E4	none	SNN robustness vs ANN; low energy claimed but not quantified
+R04415	INCLUDE	C1	simulation	SNN controller cuts computation about 90% versus ANN; simulation
+R04423	UNSURE	E4	none	SNN cell classifier; computation reduction claimed, baseline unspecified
+R04497	EXCLUDE	E4	none	Spiking SSM; sparse spiking noted, no ANN efficiency baseline
+R04500	UNSURE	C1	none	Spiking variant claims energy gains over base model; no figures
+R04541	INCLUDE	C2	none	Adaptive-threshold spike coding gives 2x sparsity; no ANN baseline
+R04584	EXCLUDE	E2	memristor/in-memory, photonic	Optoelectronic memristor device; SNN power estimate only, no ANN comparison
+R04600	EXCLUDE	E2	memristor/in-memory	RRAM device review; not about ANN-SNN efficiency or pruning
+R04601	EXCLUDE	E2	memristor/in-memory	Battery-material transistor; DNN accuracy only, no efficiency comparison
+R04630	EXCLUDE	E4	FPGA, GPU	FPGA vs GPU for same BCPNN model; no ANN baseline
+R04654	INCLUDE	C1	none	SNN optical flow with 90% less energy than counterpart ANN
+R04683	EXCLUDE	E6	none	Gambling lottery ticket sales; unrelated to lottery ticket hypothesis
+R04688	INCLUDE	C2	none	Sparse attention spike coding; coding sparsity vs SNNs, no ANN baseline
+R04771	INCLUDE	C1	none	Spiking detector, energy efficiency vs Transformer detectors; ANN baseline likely
+R04819	EXCLUDE	E2	memristor/in-memory	Memristor device; CNN accuracy vs software baseline only
+R04822	EXCLUDE	E2	none	Synaptic thin-film transistor; no network-level evaluation
+R04840	EXCLUDE	E4	none	SNN architecture; fewer time steps and parameters, no ANN efficiency metric
+R04971	EXCLUDE	E4	none	Spiking SSM; accuracy-only versus non-spiking models, no energy figures
+R04984	INCLUDE	C2	ASIC, FPGA	Sparsity-exploiting SNN accelerator with ASIC/FPGA figures; no ANN baseline
+R05027	INCLUDE	C1	none	SNN branch uses 54.5% of ResNet50 ANN theoretical energy

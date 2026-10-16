@@ -1,0 +1,25 @@
+R06019	Y	-	C1	ANN+SNN	MLP	CONTROL	CPU	CPU	MEASURED	POWER	PAIRED	NA	NA	NA	NA	Y	SNN MAE 11.06 deg; on Raspberry Pi SNN used slightly more average power than ANN; ANN lower joint error
+R06021	Y	-	C1	ANN+SNN	CNN	STATIC_IMG	SIM	SIM	NS	ENERGY	PAIRED	NA	NA	NA	NA	N	SNN image aesthetic assessment: energy efficiency 2.495x higher than equivalent ANN-based architectures on AADB
+R06022	Y	-	C1	ANN+SNN	RNN	EVENT	SIM	SIM	NS	ENERGY	DIFFERENT	NA	NA	NA	NA	N	Fully spiking optical flow on DSEC-Flow: energy 42.88x lower than EV-FlowNet and 38x lower than TIDNet, competitive accuracy
+R06023	Y	-	C1	ANN+SNN	CNN	DET	SIM	SIM	NS	ENERGY	PAIRED	NA	NA	NA	NA	N	SNN-Drone-s energy efficiency 7.7x higher than YOLOv8s; better detection than baseline ANNs and YOLOv8 variants
+R06025	Y	-	C1	ANN+SNN	NS	TS	SIM	SIM	ESTIMATED	ENERGY	DIFFERENT	NA	NA	NA	NA	N	SNNLoc WiFi localization: comparable or better accuracy with over 90% lower energy (hardware simulator comparison across architectures)
+R06026	Y	-	C2	SNN	NS	STATIC_IMG	SIM	NA	NONE	NONE	NA	ACT	NA	STRUCT	Y	N	PTQ for SNNs: 2-bit weights, at most 8 time steps on CIFAR-10/100, ImageNet-1K; test-time neuron pruning cuts time steps
+R06027	Y	-	C1	ANN+SNN	NS	OTHER	SIM	SIM	NS	ENERGY	DIFFERENT	NA	NA	NA	NA	N	SNNSIR stereo restoration: comparable to advanced ANN methods on Stereo Waterdrop with about two orders of magnitude less energy
+R06031	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	SNN training accelerator: 2.22-2.30x Spikformer training speedup and 29% EDP reduction vs backpropagation; no ANN comparison
+R06033	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	SparrowSNN hybrid ANN-SNN ASIC: 20x to 100x lower energy than existing ultra-low power solutions (types unstated); no ANN baseline named
+R06035	N	E2	-	-	-	-	-	-	-	-	-	-	-	-	-	-	QUDA CSR systolic dataflow for neuromorphic SNNs: better resource use and power than SOTA designs; no network-level ANN evaluation
+R06036	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	SCAE-SNN HAR: F1 near 96% comparable to hybrid approach, 81.1% spike sparsity; no ANN comparison
+R06037	Y	-	C1	ANN+SNN	OTHER	NS	OTHER_NEURO	NS	NS	THROUGHPUT	LITERATURE	NA	NA	NA	NA	N	Spike-based diffractive optical network S2NN: 2036 FPS single-layer inference, 20x faster than frame-based DONN (reported results)
+R06038	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	FPGA SNN accelerator for modulation classification: 23.5 MS/s (about 2x baseline), dynamic power -58.7%; baseline type unstated, no ANN comparison
+R06039	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Spiking RNN with sparse gradient descent for NLP (IMDB, AG NEWS): competitive accuracy vs ANNs; no efficiency figures
+R06041	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	S3DNet spiking point cloud: ModelNet40 92.34%, ScanObjectNN 84.49%, 1.18M params; low energy claimed, no ANN comparison
+R06042	Y	-	C1	ANN+SNN	OTHER	BIOSIG	SIM	NS	CLAIM	ENERGY	NS	NA	NA	NA	NA	N	STASNN EEG seizure detection claims significantly reduced theoretical energy with high accuracy; no figures
+R06044	Y	-	C1	HYBRID	CNN	TS	NS	NS	CLAIM	LATENCY+MEMORY+ENERGY	DIFFERENT	NA	NA	NA	NA	N	Hybrid conv-LIF radar HAR: 88% fewer parameters, under 1% accuracy loss; latency, memory, energy vs three ANNs (no figures)
+R06045	Y	-	C1	ANN+SNN	TRANSFORMER	EVENT	SIM	SIM	CLAIM	NONE	PAIRED	NA	NA	NA	NA	N	Fully spiking swin flow network vs same-backbone ANN STTFlowNet on DSEC and MVSEC: competitive accuracy, favorable accuracy-efficiency trade-off (no figures)
+R06046	Y	-	C1+C2	ANN+SNN	TRANSFORMER	OTHER	GPU	NS	NS	LATENCY+ENERGY	LITERATURE	ACT	NA	STRUCT	Y	N	SPEAR 24.3-135.3x speedup, 154.4-845.3x energy efficiency over GPU; 4.9x vs point cloud accelerators, 2.4x vs spiking transformer accelerators
+R06049	Y	-	C1	ANN+SNN	RNN	AUDIO	SIM	NS	CLAIM	SPIKES+LATENCY+ENERGY	LITERATURE	NA	NA	NA	NA	N	Sparse MFCC encoding: fewer spikes, same accuracy; fMRISNN less accurate but more energy efficient than deep CNN (literature)
+R06052	Y	-	C2	SNN	TRANSFORMER	NLP	SIM	NA	CLAIM	POWER+MEMORY	NA	EVO	NA	NS	NS	N	Evolutionary pathway pruning (ABC-Arc) plus dynamic PTQ for SpikeLM on GLUE; performance kept, model size and power reduced (no figures)
+R06053	Y	-	C1	ANN+SNN	RNN+CNN	TS	SIM	SIM	ESTIMATED	OPS+SPIKES	DIFFERENT	NA	NA	NA	NA	N	LIF-STDP IAQ sensing: 8.9x (about 89%) fewer FLOPs than LSTM inference; sparse firing ratio 10.94%; hardware validation still needed
+R06055	Y	-	C1	ANN+SNN	CNN	EVENT	SIM	NS	CLAIM	ENERGY	DIFFERENT	NA	NA	NA	NA	N	Spike-EVPR event-based place recognition: Recall@1 +7.61% (Brisbane-Event-VPR) and +13.20% (DDD20); energy reduced significantly (no figures)
+R06056	Y	-	C1	ANN+SNN	CNN+TRANSFORMER	BIOSIG	SIM	NS	NS	ENERGY	DIFFERENT	NA	NA	NA	NA	N	Spike-driven Conv-Transformer on DEAP and MAHNOB-HCI: SOTA arousal accuracy, average 16x less energy than ANN-based methods
+R06057	Y	-	C1	HYBRID	CNN+TRANSFORMER	DET	SIM	SIM	ESTIMATED	ENERGY+SPIKES	NS	NA	NA	NA	NA	N	SPiKe-Med hybrid spiking CNN-transformer MRI segmentation; evaluates Dice, spike rate and estimated energy per inference; no results given in abstract

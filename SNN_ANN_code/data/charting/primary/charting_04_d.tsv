@@ -1,0 +1,25 @@
+R01328	Y	-	C3	ANN	MLP	CONTROL	NA	NS	NONE	NONE	NA	MAG	WEAK	UNSTRUCT	N	N	Behavioural cloning networks prune to higher sparsity than RL; lottery ticket effect mostly from the IMP mask, not initialization
+R01329	Y	-	C3	ANN	NS	NS	NA	NS	NONE	NONE	NA	THEORY	STRONG	NS	N	N	Proves universal strong lottery tickets exist and need no further training; subset-sum extensions; sparse constructions for convolutional architectures
+R01330	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Quantized radar-gesture SNN above 91% accuracy; reports SNN energy per classification but no ANN comparison stated
+R01331	Y	-	C3	ANN	CNN	STATIC_IMG	NA	NS	NONE	NONE	NA	OTHER	WEAK	NS	N	N	One-Cycle Pruning beats one-shot, iterative and gradual schedules at 80-95% sparsity with smaller training budget; also finds better tickets
+R01334	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	DQN-to-SNN conversion on Atari; efficiency claimed without any metric or figure, no ANN efficiency comparison
+R01336	Y	-	C2	ANN+SNN	NS	NS	SIM	NS	NONE	OPS	NA	REG	NA	NS	Y	N	Compares activity regularizers enforcing sparse activation maps on efficiency of DNNs and converted SNNs; no figures
+R01347	Y	-	C1	ANN+SNN	NS	STATIC_IMG	NS	NS	NS	EDP	DIFFERENT	NA	NA	NA	NA	N	EDP improved 248x on average versus SNN baseline accelerator and 47x versus ANN-based accelerators on CIFAR10
+R01348	Y	-	C3	ANN	CNN	STATIC_IMG	NA	NS	NONE	NONE	NA	SCORE+OTHER	OTHER	UNSTRUCT	N	N	Peek-a-Boo finds disguised subnetworks in random networks, beating edge-popup on ResNet-18/50 and WideResNet-28 with cheaper search
+R01357	Y	-	C3	ANN	NS	NS	NA	NS	NONE	NONE	NA	NS	NS	NS	N	N	Planting framework hides sparse target networks in random networks to test lottery ticket pruning methods; limits look algorithmic
+R01358	Y	-	C3	ANN	CNN	OTHER	NA	NS	NONE	NONE	NA	MAG	WEAK	UNSTRUCT	N	N	IMP finds matching subnetworks at 89.2% sparsity in AdaIN and 73.7% in SANet; other style transfer models also win tickets
+R01359	Y	-	C3	ANN	TRANSFORMER	OTHER	NA	NS	NONE	NONE	NA	NS	WEAK	NS	N	N	Relaxed winning tickets at 50-70% sparsity keep 99% accuracy in UNITER; pre-training tickets transfer; ViLT only 30% sparsity
+R01365	N	E2	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Spike-based e-skin readout vs frame-based: one order of magnitude lower power, 87.92% vs 74.58% accuracy; circuit-level, no ANN
+R01370	Y	-	C2	SNN	NS	STATIC_IMG	SIM	NA	NONE	NONE	NA	NS	NA	UNSTRUCT	N	N	Progressive pruning with dynamic weight reinforcement gives up to 80% compression while preserving MNIST performance
+R01371	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	ANN-to-SNN conversion; at least 10x less inference time and synaptic operations than other SNN implementations; no ANN efficiency comparison
+R01372	Y	-	C3	ANN	CNN	NS	NA	NS	NONE	NONE	NA	THEORY	STRONG	NS	N	N	Proves that any CNN can be approximated by pruning a random CNN larger by a logarithmic factor (strong LTH)
+R01373	Y	-	C3	ANN	TRANSFORMER	NLP	NA	NS	CLAIM	MEMORY	NA	OTHER	WEAK	STRUCT	N	N	LTH-based pruning of Adapterfusion adapters reaches state-of-the-art GLUE results with significantly reduced size; no figures
+R01374	Y	-	C3	ANN	TRANSFORMER	NLP	NA	NS	CLAIM	MEMORY	NA	OTHER	WEAK	NS	N	N	Three iterative LTH-based adapter pruning methods keep GLUE performance with sizes reduced significantly; some beat same-size unpruned adapters
+R01375	Y	-	C3	ANN	MLP	NS	NA	NPU	NS	POWER	NA	NS	WEAK	UNSTRUCT	Y	N	Up to 89% of phase angles pruned, accuracy loss under 5%, tuning power cut up to 86%; hardware-aware LTH
+R01381	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	ANN-to-SNN quantization: 70.18% ImageNet accuracy in 8 time steps; only time-step latency, no ANN efficiency comparison
+R01383	Y	-	C3	ANN	CNN	STATIC_IMG	NA	NS	NONE	NONE	NA	NS	OTHER	NS	N	N	Trojan features survive pruning better than benign ones; winning Trojan lottery ticket isolates the trigger; security use of LTH
+R01385	Y	-	C1+C2	ANN+SNN	CNN+RNN	TS	SIM	NS	ESTIMATED	OPS+SPIKES	DIFFERENT	ACT	NA	NS	NS	N	30-neuron SNN 98.1% accuracy; adaptive LIF cuts activity up to 37.9%; better than LSTM in accuracy and computation cost
+R01386	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Radar gesture SNN about 99.50% accuracy, 75 kB model; only memory size versus deep learning, no energy or operation figures
+R01387	Y	-	C2	SNN	NS	NS	NS	NA	NS	ENERGY+LATENCY	NA	NS	NA	UNSTRUCT	N	N	MISS gives 36% average (up to 57%) energy efficiency gain and 23% (up to 48%) speedup over baseline SNN accelerators
+R01388	Y	-	C3	ANN	NS	NS	NA	NS	NONE	NONE	NA	NS	WEAK	NS	N	N	GEM-MINER finds lottery tickets at initialization matching or beating IMP accuracy up to 19x faster
+R01390	Y	-	C2	SNN	RNN	TS	SIM	NA	CLAIM	LATENCY	NA	NS	NA	UNSTRUCT	NS	N	Compact recurrent SNN with sparse connectivity beats LSTM accuracy, nears large CNNs; early classification cuts latency; no figures

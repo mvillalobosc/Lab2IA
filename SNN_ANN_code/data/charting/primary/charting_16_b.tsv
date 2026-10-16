@@ -1,0 +1,25 @@
+R04714	Y	-	C1	ANN+SNN	NS	STATIC_IMG+NLP	NS	NS	CLAIM	ENERGY	NS	NA	NA	NA	NA	N	SNN on par with ANNs while substantially reducing energy across multimodal datasets; no figures
+R04715	Y	-	C1	HYBRID	CNN	DET	GPU+OTHER_NEURO	NS	MEASURED	LATENCY+MEMORY+ENERGY	DIFFERENT	NA	NA	NA	NA	U	SNN backbone with CNN head: latency -10%, memory -95% on GPU; 25x less energy than reference backbones on neuromorphic hardware
+R04716	Y	-	C1	ANN+SNN	NS	DET	NS	NS	NS	ENERGY	DIFFERENT	NA	NA	NA	NA	N	79.8% mAP@0.5 at 6.2 mJ per inference; +1.24% accuracy and 65% less energy than ANN baselines
+R04717	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	SNN systolic-array accelerator: up to 1.66x efficiency vs common systolic arrays, area -47.23%, power -46.86%; no ANN comparison
+R04718	Y	-	C1	ANN+SNN	TRANSFORMER	DET	NS	NS	CLAIM	ENERGY+LATENCY	NS	NA	NA	NA	NA	N	Spiking transformer for hyperspectral change detection; SOTA accuracy with faster detection and lower energy claimed, no figures
+R04720	Y	-	C1	ANN+SNN	NS	STATIC_IMG+DET	GPU+FPGA	NS	CLAIM	SPIKES	NS	NA	NA	NA	NA	N	SNN neuron model with near-lossless ANN-to-SNN conversion; claims efficiency gains over SOTA and FPGA tests with enhanced sparsity; no figures
+R04721	Y	-	C1	HYBRID	NS	TS	NS	NS	NS	ENERGY	DIFFERENT	NA	NA	NA	NA	N	Over 90% energy saving vs SOTA position regression algorithms with similar location errors (IMU, four datasets)
+R04726	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	SNN on RISC-V clusters: 4.39x speedup vs non-streaming baseline, 3.46x energy vs LSMCore, 2.38x perf vs Loihi; no ANN comparison
+R04728	Y	-	C1	ANN+SNN	NS	TS	TIANJIC	GPU	MEASURED	POWER+LATENCY	LITERATURE	NA	NA	NA	NA	N	Tianjic: 1 W, under 20 ms vs hundreds to thousands of W typical for GPU; accuracy 92.92% (objects), 92.35% (stiffness)
+R04729	Y	-	C1	ANN+SNN	TRANSFORMER	DET+OTHER	NS	NS	NS	ENERGY	DIFFERENT	NA	NA	NA	NA	N	Matches recent ANN-based methods with x16, x10, x5 efficiency gains on three video tasks; over 15% above SNNs on two
+R04731	Y	-	C2	SNN	OTHER	STATIC_IMG+EVENT	NS	NA	CLAIM	SPIKES+POWER	NA	OTHER	NA	NS	Y	N	Single-spike encoding and spike-count optimization; power efficiency gain claimed without figures; MNIST MSE 0.039, 99.93% below previous
+R04733	Y	-	C1	ANN+SNN	CNN+RNN	EVENT+OTHER	NS	NS	CLAIM	OPS	DIFFERENT	NA	NA	NA	NA	N	SCNN vs CNN-LSTM: accuracy +4.0%, fewer trainable parameters, substantial reduction in computational load (no figures)
+R04736	Y	-	C1	ANN+SNN	OTHER	OTHER	NS	NS	CLAIM	ENERGY	PAIRED	NA	NA	NA	NA	N	Spiking diffusion model comparable to its ANN counterpart with few time steps; significantly lower energy claimed, no figures
+R04738	Y	-	C1	ANN+SNN	OTHER	EVENT	NS	NS	NS	ENERGY	PAIRED	NA	NA	NA	NA	N	sLTC uses up to 9.22x less energy than LTC with higher accuracy on event-driven datasets; beats LSM on most benchmarks
+R04740	Y	-	C1	HYBRID	CNN	CONTROL	NS	NS	CLAIM	ENERGY+LATENCY	NS	NA	NA	NA	NA	N	Hybrid SNN and CNN anomaly detector for robot navigation; claims higher speed and accuracy with significantly lower energy, no figures
+R04743	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	SNN spectrum allocation for 6G; about 40% energy reduction and 35% spectral efficiency gain in simulation; no ANN comparison stated
+R04744	Y	-	C2	SNN	CNN	DET	NS	NA	NS	LATENCY	NA	OTHER	NA	TEMPORAL	Y	N	Timestep compression and STDI coding: about 750x fewer timesteps and +30% mAP versus Spiking-YOLO on MS COCO
+R04745	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Spiking visual attention for brain tumor segmentation; compared with conventional models but no efficiency metric or figures stated
+R04749	Y	-	C1	ANN+SNN	NS	BIOSIG	NS	NS	CLAIM	NONE	NS	NA	NA	NA	NA	N	ECG SNN accuracy 90.35/93.25/97.8% (MIT-BIH, PTB, Heartbeat); far fewer computational resources than DL, no figures
+R04753	Y	-	C1	ANN+SNN	NS	OTHER	OTHER_NEURO	NS	MEASURED	ENERGY+LATENCY	NS	NA	NA	NA	NA	U	Gesture SNN assessed on neuromorphic devices; uses less energy and reacts faster than other deep learning models; no figures
+R04755	Y	-	C2	ANN+SNN	NS	TS	LOIHI2	NS	NONE	NONE	NA	NS	NA	NS	N	N	ANN pruned, quantized, converted to SNN on Loihi 2; model complexity reduced over 90%, timing accuracy preserved; no energy figures
+R04756	Y	-	C5	SNN	NS	STATIC_IMG+OTHER	NS	NA	NONE	LATENCY	NA	NA	NA	NA	NA	N	Review of SNNs for imaging with meta-analysis of datasets, training, hardware plus LMU dToF depth case study; no efficiency figures
+R04757	Y	-	C5	ANN+SNN	NS	NS	NS	NS	NONE	NONE	NA	NA	NA	NA	NA	N	Survey of SNNs for edge computing; case study SNN vs ANN in distributed learning: +6% accuracy, -80% data transmission
+R04758	Y	-	C1	ANN+SNN	CNN	STATIC_IMG	NS	NS	CLAIM	ENERGY	PAIRED	NA	NA	NA	NA	N	SNN VGG9/ResNet in vertical federated learning on CIFAR-10/100: accuracy comparable to ANNs, significantly more energy efficient (no figures)
+R04760	Y	-	C5	SNN	NS	NS	FPGA	NA	NONE	POWER+LATENCY+THROUGHPUT	NA	NA	NA	NA	NA	N	Survey of SNN implementations on FPGA; FPGA presented as lower latency and power, higher throughput than CPU and GPU

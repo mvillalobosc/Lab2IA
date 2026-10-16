@@ -1,0 +1,25 @@
+R02007	Y	-	C3	ANN	OTHER	OTHER	NA	NS	NONE	NONE	NA	SCORE	STRONG	UNSTRUCT	N	N	Hierarchical supermasks with trainable scales: random subnetworks beat fully trained video INR at similar encoding size (UVG)
+R02009	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	ANN-SNN co-training for converted SNNs on detection and segmentation; no efficiency metric reported
+R02010	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	DNN-SNN distillation; Loihi SNN energy compared only with other SNNs on GPU, no DNN efficiency comparison
+R02011	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Knowledge distillation ANN-to-SNN and SNN-to-SNN on image classification; no efficiency metric
+R02014	Y	-	C2	SNN	OTHER	EVENT	SIM	NA	CLAIM	NONE	NA	NS	NA	UNSTRUCT	N	N	Heterogeneous-delay spiking layer for motion detection on event streams; weight pruning keeps performance with much reduced workload, no figures
+R02016	Y	-	C3	ANN	NS	NS	NA	NS	NONE	NONE	NA	SCORE	WEAK	UNSTRUCT	N	N	Layer-wise continuous sparsification learns winning tickets by gradient, beating prior sparse reparameterization; no cost figures
+R02020	Y	-	C1	ANN+SNN	RNN	AUDIO	SIM	NS	ESTIMATED	OPS	PAIRED	NA	NA	NA	NA	N	Spik-GRU 95.9% accuracy on GSCD v2; similar accuracy to GRU with up to 82% fewer operations
+R02025	Y	-	C1	ANN+SNN	NS	EVENT	GPU	GPU	MEASURED	LATENCY+POWER	DIFFERENT	NA	NA	NA	NA	Y	ANN, SNN and hybrid run in real time on laptop GPU; hybrid best accuracy-efficiency-latency trade-off; no figures given
+R02029	Y	-	C3	ANN	CNN	NS	NA	NS	CLAIM	OPS+MEMORY	NA	OTHER	WEAK	STRUCT	N	N	Filter-wise model-parallel pretraining preserves lottery tickets; claims computation and communication savings with comparable accuracy, no figures
+R02030	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Membrane-potential constraint for deep SNN hardware; memory reduction on ResNet-20 with no ANN efficiency comparison
+R02031	Y	-	C1	ANN+SNN	NS	BIOSIG	ASIC	ASIC	NS	POWER	PAIRED	NA	NA	NA	NA	U	Lossless ANN-to-SNN conversion for ECG; 22 nm SNN accelerator has 2.32x lower power and 7.22x smaller area than ANN
+R02032	Y	-	C3	ANN	CNN	STATIC_IMG	NA	NS	NONE	NONE	NA	SCORE+MAG+THEORY	STRONG	UNSTRUCT	N	N	Jackpot with 10% of VGG-19 parameters matches dense on CIFAR-10; ResNet-50 90% pruned, over 70% top-1 on ImageNet
+R02033	Y	-	C3	ANN	CNN	STATIC_IMG	NA	NS	NONE	NONE	NA	MAG	WEAK	UNSTRUCT	N	N	Interpolating IMP subnetworks gains up to 1.88% on CIFAR-100 and 2.36% on CIFAR-100-C without extra training or inference cost
+R02034	Y	-	C3	ANN	NS	OTHER	NA	NS	NONE	NONE	NA	EVO	WEAK	STRUCT	N	N	Genetic algorithm finds lottery tickets in untrained tabular networks using up to 95% less training data at similar accuracy
+R02035	Y	-	C3	ANN	NS	NS	NA	NS	NONE	NONE	NA	OTHER	WEAK	NS	N	N	Sparse trainable initializations exist for evolution strategies, found by SNR iterative pruning; transfer across strategies and to gradient descent
+R02038	Y	-	C1	ANN+SNN	RNN	TS	SIM	NS	ESTIMATED	ENERGY+MEMORY	PAIRED	NA	NA	NA	NA	N	Spiking LMU 98.53% (two radars), 95.37% (one radar) similar to DL equivalent; estimated 2.04 uJ versus mJ for DL
+R02039	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Quantization-aware training of SNNs, binary weights, up to 31x memory saving; quantization only, no ANN efficiency comparison
+R02044	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	SNN methodology for mobile agents; 2.9x energy saving is 8-bit SNN versus 32-bit SNN, no ANN comparison
+R02046	Y	-	C3	ANN	CNN	STATIC_IMG	NA	NS	NONE	NONE	NA	MAG	WEAK	UNSTRUCT	N	N	LTH with L1 unstructured pruning on transfer-learned CNNs; accuracy 96% brain tumor (EfficientNet), 81.5% pneumonia (pruned GoogLeNet)
+R02047	Y	-	C3	ANN	NS	OTHER	NA	NS	NONE	NONE	NA	MAG	WEAK	UNSTRUCT	N	N	Rewinding LTH gives nested masks for scalable super-resolution; smallest sub-network reaches 94% sparsity and beats lightweight SR methods
+R02052	Y	-	C3	ANN	CNN	STATIC_IMG	NA	NS	NONE	NONE	NA	EVO	OTHER	NS	NS	N	Evolutionary NAS accelerated by replacing models with their lottery tickets; state-of-the-art on ImageNet-1K, CIFAR-10, CIFAR-100
+R02057	Y	-	C1	ANN+SNN	CNN	STATIC_IMG	ASIC	ASIC	NS	ENERGY	LITERATURE	NA	NA	NA	NA	N	MF-DSNN on MobileNet-V2 ImageNet: 6-22x energy efficiency over ANN accelerators, accuracy drop under 0.9%, smaller silicon area
+R02058	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Conversion method, ResNet-20 at 8 time steps: 79.02% CIFAR-100, 95.74% CIFAR-10; no ANN efficiency comparison
+R02061	Y	-	C1	ANN+SNN	CNN	OTHER	SIM	NS	NS	ENERGY	DIFFERENT	NA	NA	NA	NA	N	Spiking CNN for aging-bug prediction: generalization +7.82% over DL classifiers, up to 5x better computational energy efficiency
+R02063	Y	-	C3	ANN	NS	NS	NA	CPU	MEASURED	LATENCY	NA	OTHER	NS	UNSTRUCT	Y	N	PruneFL pruning during federated training cuts training time on Raspberry Pi with similar accuracy; result is a lottery ticket

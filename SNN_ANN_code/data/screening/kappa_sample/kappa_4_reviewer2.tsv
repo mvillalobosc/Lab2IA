@@ -1,0 +1,86 @@
+R03692	EXCLUDE	E2	ASIC	Event-driven single-photon CMOS sensor design; no network-level evaluation
+R03726	INCLUDE	C2	none	KD-compressed CNN converted to SNN; accuracy matches CNN baseline
+R03762	EXCLUDE	E4	none	Spiking transformer attention; accuracy gains, no quantified efficiency vs ANN
+R03765	EXCLUDE	E4	CPU,FPGA,memristor/in-memory	SNN compiler framework; no ANN baseline or pruning focus
+R03778	EXCLUDE	E4	none	SNN online domain adaptation for remote sensing; no ANN efficiency comparison
+R03781	EXCLUDE	E2	photonic	MgZnO optoelectronic synaptic device; MNIST only via ANN simulation
+R03785	INCLUDE	C3	none	Lottery tickets and edge-popup explain grokking in non-spiking networks
+R03812	EXCLUDE	E2	photonic	Perovskite photodetector synapse; facial recognition only via ANN simulation
+R03832	EXCLUDE	E4	ASIC,simulation	Sparse spike encoder on analog neuromorphic hardware; no ANN comparison
+R03843	EXCLUDE	E4	none	Spike-driven event detection; energy compared only with other SNNs
+R03848	EXCLUDE	E2	memristor/in-memory	Cryogenic RRAM device endurance; no network-level learning evaluation
+R03858	UNSURE	C1	none	LSTM benchmarked against multilayer SNN; efficiency measurement unclear
+R03867	EXCLUDE	E2	photonic	Bi2Se3 optoelectronic synapse device; MNIST only via ANN simulation
+R03875	EXCLUDE	E2	memristor/in-memory,simulation	Memristor crossbar CNN circuit; no SNN, ANN comparison or pruning
+R03880	EXCLUDE	E5	none	YOLO sign language recognition; neuromorphic only as future direction
+R03897	INCLUDE	C1+C2	none	Depthwise separable SNN vs CNNs; 80% convolution cost reduction
+R03904	EXCLUDE	E2	photonic	Dual-wavelength photonic synaptic device; CNN training only in simulation
+R03914	INCLUDE	C3	none	Early-bird lottery tickets for efficient diffusion model training
+R03938	INCLUDE	C1	none	ANN-to-SNN conversion with two time steps; low-latency inference
+R03959	INCLUDE	C1	none	Spiking transformer for medical images; superior energy efficiency reported
+R03962	UNSURE	C1	none	Fuzzy SNN for EEG; 3x faster than unspecified traditional techniques
+R03966	EXCLUDE	E3	simulation	Biologically grounded V1 spiking model; computational neuroscience, no ML task
+R04001	EXCLUDE	E2	simulation	Electrolyte-gated synaptic transistor; recognition only in network simulation
+R04011	UNSURE	C1	none	Spiking transformer emotion recognition; energy efficiency claimed, comparator unclear
+R04030	INCLUDE	C2	none	Event-based GRU with graded spikes; sparse communication and inference
+R04047	EXCLUDE	E5	none	Event-camera X-ray super-resolution with conventional deep network; no SNN
+R04053	INCLUDE	C2	none	Sparse convolution SNN; over 90% inference time cut vs dense SNN
+R04062	EXCLUDE	E6	none	Review of triboelectric self-powered sensors with deep learning
+R04063	EXCLUDE	E7	ASIC,simulation	Activation sparsity for recurrent LLMs on neuromorphic processor; no SNN
+R04073	INCLUDE	C2	FPGA	FPGA SNN accelerator; quantization raises sparsity, energy measured
+R04078	EXCLUDE	E6	none	Electromagnetic convolution macromodeling; neuromorphic circuits only as case study
+R04083	EXCLUDE	E4	simulation	SNN robustness to radiation-induced noise; no ANN efficiency comparison
+R04090	EXCLUDE	E2	photonic	Ferroelectric optoelectronic synapse device; CNN recognition only in simulation
+R04096	EXCLUDE	E2	memristor/in-memory,simulation	Spin-orbit torque synaptic device; CNN accuracy only in simulation
+R04104	EXCLUDE	E2	none	Review of flexible neuromorphic devices for wearable sensing
+R04108	EXCLUDE	E2	memristor/in-memory	Ferroelectric memcapacitive synapse device; digit recognition in simulation
+R04111	EXCLUDE	E2	photonic	Fluorescence matrix-vector multiplication for optical neural networks
+R04132	EXCLUDE	E4	none	RGB-event gesture authentication; no efficiency comparison reported
+R04133	EXCLUDE	E7	none	General DNN quantization and pruning; no SNN or lottery tickets
+R04137	EXCLUDE	E2	photonic	TMD gradient alloy optoelectronic synapse; ANN recognition only simulated
+R04139	INCLUDE	C3	none	Genetic lottery-ticket search prunes BERT attention heads
+R04165	EXCLUDE	E2	memristor/in-memory	MoSe2 memtransistor synaptic array; no SNN, ANN comparison or pruning
+R04178	EXCLUDE	E2	photonic	Microring photonic weight bank; photonic CNN on MNIST
+R04180	EXCLUDE	E2	ASIC	Superconducting SFQ ReLU neuron circuit; no network-level evaluation
+R04185	EXCLUDE	E2	photonic	SiC/MoS2 neuromorphic phototransistor; DNN accuracy only in simulation
+R04197	EXCLUDE	E4	photonic,simulation	Hybrid photonic SNN for modulation recognition; accuracy only
+R04201	EXCLUDE	E6	none	Network intrusion detection; neuromorphic only as future direction
+R04203	EXCLUDE	E2	memristor/in-memory	Memristor-CMOS crossbar control circuits; no learning-task evaluation
+R04218	EXCLUDE	E4	photonic,simulation	Photonic VCSEL spiking ResNet simulated; accuracy only, no ANN efficiency
+R04219	EXCLUDE	E6	none	Industrial metaverse business study; neuromorphic mentioned incidentally
+R04223	EXCLUDE	E2	none	Gas discharge tube spiking neuron device; no network evaluation
+R04228	EXCLUDE	E4	none	Bit-plane input coding for SNN; accuracy gains only
+R04230	EXCLUDE	E4	none	Signed rate encoding and adversarial robustness in SNNs; no efficiency metrics
+R04253	EXCLUDE	E5	none	Computability of deep learning on real-number hardware; no SNN
+R04268	INCLUDE	C1	none	Distilled SNN beats equivalent ANN accuracy with four timesteps
+R04284	EXCLUDE	E2	none	Analog dendrite circuits for neuromorphic ANNs; no SNN comparison
+R04297	EXCLUDE	E2	memristor/in-memory	Perovskite artificial synapse materials; classification only in network simulation
+R04301	INCLUDE	C1	none	Hybrid ANN-SNN parasite classifier; energy savings from SNN layers
+R04317	EXCLUDE	E2	simulation	Spintronic skyrmion synapse CNN hardware; no SNN or pruning
+R04318	EXCLUDE	E4	simulation	SNN mapping on segmented bus; energy compared only with NoCs
+R04325	EXCLUDE	E2	memristor/in-memory	Biomolecular memristive reservoir computing device; no spiking network
+R04353	EXCLUDE	E4	ASIC	Digital SNN chip with on-chip learning; no ANN baseline
+R04414	EXCLUDE	E2	memristor/in-memory	Review of neuromorphic devices for electronic skin
+R04447	INCLUDE	C1	none	SNN with attention for EEG; 2.13x energy efficiency vs CNN
+R04449	INCLUDE	C1	none	Spiking graph convolution denoising; lower energy than ANN alternatives
+R04462	EXCLUDE	E5	none	Correlation filter tracking with lightweight CNN; no SNN
+R04467	EXCLUDE	E6	none	Review of on-device ECG learning; SNNs only incidental
+R04491	EXCLUDE	E2	memristor/in-memory	Y:HfO2 ferroelectric memristor synapse; CNN recognition only in simulation
+R04510	EXCLUDE	E4	none	SNN cortical model for event-camera persistence; no efficiency comparison
+R04524	EXCLUDE	E2	photonic	Plasmonic optoelectronic synapse device; ANN recognition only in simulation
+R04534	INCLUDE	C1	Loihi2	Graded SNN on Loihi 2; event sparsity and energy vs ANNs
+R04543	EXCLUDE	E2	photonic	Photonic Ising machine for combinatorial optimization; no SNN
+R04589	EXCLUDE	E2	memristor/in-memory	ZnO/NiO memristor synapse device; ANN digit recognition simulation
+R04611	EXCLUDE	E5	none	Review of event-camera vision; no SNN efficiency focus
+R04613	EXCLUDE	E4	none	SNN prototype decoding for robustness; no efficiency comparison
+R04632	INCLUDE	C2	ASIC,simulation	Superconductor SNN neuron; pruned network with energy per inference
+R04635	EXCLUDE	E4	none	Deep resonate-and-fire SNN; fewer spike operations only vs SNNs
+R04651	EXCLUDE	E2	memristor/in-memory	Dynamic memristor LIF neuron and encoder circuits; no network comparison
+R04658	EXCLUDE	E4	FPGA	Spiker+ FPGA SNN accelerator configurations; no ANN baseline
+R04686	INCLUDE	C1	GPU	SNN deep Q-learning; GPU runtime and hardware needs vs ANNs
+R04701	EXCLUDE	E2	memristor/in-memory,simulation	MTJ spintronic synapses with STDP in SPICE; no ANN comparison
+R04711	EXCLUDE	E4	simulation	Spike encoding schemes compared for image reconstruction; no efficiency metrics
+R04725	EXCLUDE	E4	FPGA	Liquid state machine FPGA accelerator; compared only with LSM baseline
+R04742	EXCLUDE	E4	FPGA	FPGA SNN accelerator with learned encoding; no ANN comparison
+R04747	EXCLUDE	E4	none	General SNN review; ANN efficiency comparison not the main subject
+R04752	EXCLUDE	E4	simulation	NeuCube neuroimaging review; simulator timing only, no ANN efficiency

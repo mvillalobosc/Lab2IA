@@ -1,0 +1,25 @@
+R03884	Y	-	C1	ANN+SNN	CNN+TRANSFORMER	NS	SIM	NS	CLAIM	ENERGY+SPIKES	PAIRED	NA	NA	NA	NA	N	Differential coding conversion cuts spike counts and energy versus rate-coding conversion; no figures in abstract
+R03896	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	ANN-to-SNN conversion spiking transformer; CIFAR-10 95.39% with ultra-low latency, no efficiency metric beyond latency claim
+R03897	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Depthwise separable SNN for DVS action recognition: 98% accuracy, up to 80% lower conv cost versus conventional SNN
+R03898	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Spiking Q-network for path planning; better than DQN in performance; energy efficiency asserted without any comparison or figure
+R03906	Y	-	C3	ANN	NS	STATIC_IMG	NA	NS	NONE	NONE	NA	DST	OTHER	NS	N	N	No efficiency figures; LTH-inspired dynamic subnetwork selection with differential privacy; higher client accuracy, reduced communication through sparsification
+R03909	Y	-	C2	SNN	NS	EVENT	SIM	NA	NONE	NONE	NA	OTHER	NA	MIXED	N	N	Spatio-temporal pruning: DVS128 Gesture +0.69% accuracy with 98.18% fewer parameters and 50% less time redundancy
+R03910	Y	-	C1+C2	ANN+SNN	TRANSFORMER	STATIC_IMG	SIM	NS	CLAIM	ENERGY+OPS	NS	SCORE	NA	TEMPORAL	Y	N	Dynamic time-step masks: 95.97% CIFAR10 accuracy at 4.97 time steps; ACs instead of ViT MACs, no energy figures
+R03912	Y	-	C1	ANN+SNN	NS	DET+EVENT	SIM	NS	CLAIM	LATENCY+THROUGHPUT+MEMORY+SPIKES	DIFFERENT	NA	NA	NA	NA	N	Pure SNN DVS tracker claims better accuracy, latency, throughput, memory and spike efficiency than conventional methods; no figures
+R03914	Y	-	C3	ANN	OTHER	OTHER	NA	NS	NS	LATENCY	NA	NS	WEAK	NS	N	N	2.9-5.8x training speedup over dense models and up to 10.3x over train-prune-finetune; early-bird tickets in diffusion models
+R03915	Y	-	C1	ANN+SNN	CNN	DET	SIM	NS	CLAIM	ENERGY	DIFFERENT	NA	NA	NA	NA	N	Spiking Unet claims better segmentation performance and lower energy than existing ANN models on GF-3; no figures
+R03918	Y	-	C1	ANN+SNN	CNN+TRANSFORMER	STATIC_IMG+BIOSIG	SIM	SIM	NS	ENERGY	PAIRED	NA	NA	NA	NA	N	Converted SNN vs source ANN: energy -52.84% to -53.52% on EEG, accuracy loss 0.6-0.73%; images energy -18.18% to -45.13%
+R03919	Y	-	C1	ANN+SNN	NS	NS	NS	NS	NS	ENERGY+LATENCY	NS	NA	NA	NA	NA	N	ECC-SNN: accuracy +4.15%, average energy -79.4%, latency -39.1% on four datasets; baseline not stated
+R03920	Y	-	C3	ANN	GNN	TS	NA	NS	NONE	NONE	NA	NS	OTHER	NS	N	N	No efficiency figures; GNN adjacency-matrix search named graph lottery ticket; lower RMSE than SUPA on eight Australian variables
+R03925	Y	-	C1	HYBRID	CNN+TRANSFORMER	DET	NS	NS	NS	ENERGY	DIFFERENT	NA	NA	NA	NA	N	EECD-Net 5.6 mJ per image, 98.6% accuracy, F1 82.0%; outperforms DeepCrack2, HrSegNet, Hybrid-Segmentor in accuracy and energy
+R03926	Y	-	C3	ANN	GNN	BIOSIG	NA	NS	NONE	NONE	NA	NS	OTHER	NS	N	N	No efficiency figures; graph lottery ticket adjacency matrices beat Geodesic and PCC across six GCNs on PhysioNet EEG MI
+R03931	Y	-	C2	SNN	CNN	NS	SIM	NA	CLAIM	POWER	NA	REG	NA	NS	Y	N	IB regularization promotes sparse spikes; claims better generalization, robustness and power efficiency than representative SNN studies, no figures
+R03934	Y	-	C2	ANN+SNN	NS	NS	SIM	SIM	NONE	NONE	NA	OTHER	NA	NS	N	N	No efficiency figures; LFP gives sparse parameter updates; applied to network pruning and gradient-free SNN training
+R03935	Y	-	C5+C6	ANN+SNN	NS	DET+EVENT	NS	GPU	MEASURED	THROUGHPUT	NA	NA	NA	NA	NA	U	Survey of event-based detection (dense, spiking, graph); throughput measured on RTX 4090 for several models on GEN1 and 1MP
+R03936	Y	-	C1+C2	ANN+SNN	NS	AUDIO	NS	NS	NS	ENERGY+SPIKES	DIFFERENT	OTHER	NA	TEMPORAL	Y	N	Rhythm-SNN cuts firing rates; over two orders of magnitude energy reduction versus deep learning solutions in Intel N-DNS challenge
+R03938	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	ANN-SNN conversion with error compensation; CIFAR-10 94.75% at two time steps; only time steps as efficiency figure
+R03939	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Weight-binarized spiking transformer for modulation classification; comparable accuracy at fraction of size; no ANN efficiency comparison
+R03940	Y	-	C1	ANN+SNN	OTHER	BIOSIG	SIM	SIM	ESTIMATED	OPS+SPIKES	DIFFERENT	NA	NA	NA	NA	N	Linear decoder ~615 SOPs per trial, over 400x fewer than SNN; SNN operational density 4-7%, robust to channel loss
+R03941	Y	-	C2	SNN	RNN	OTHER	SIM	NA	NONE	NONE	NA	NS	NA	NS	N	N	No efficiency figures; sparser recurrent connectivity improves e-prop learning performance in recurrent SNNs on a temporal credit assignment task
+R03943	Y	-	C1	HYBRID	CNN+RNN	DET+EVENT	NS	NS	CLAIM	POWER+LATENCY	LITERATURE	NA	NA	NA	NA	U	Hybrid SNN-ANN detector: accuracy comparable to ANN/RNN methods, beats SNNs; claims much lower latency and power; no figures
+R03944	Y	-	C1	HYBRID	NS	DET+EVENT	SIM	NS	NS	ENERGY	NS	NA	NA	NA	NA	N	Hybrid SNN-ANN frame-event segmentation: SOTA accuracy with 65% energy reduction on DSEC-Semantic (baseline not stated)

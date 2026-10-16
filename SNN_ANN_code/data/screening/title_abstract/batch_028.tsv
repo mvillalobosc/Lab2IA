@@ -1,0 +1,100 @@
+R02701	EXCLUDE	E2	ASIC	CMOS neuron circuit, no network-level ANN comparison
+R02702	INCLUDE	C1	GPU	Evolved SNN, 9.4x energy gain and EDP versus GPU SOTA
+R02703	EXCLUDE	E4	none	SNN tumor classifier, accuracy-only comparison with SVM and MLP
+R02704	INCLUDE	C1	GPU,ASIC	SCNN on uBrain chip, four orders lower power than CNN on Jetson
+R02705	EXCLUDE	E2	memristor/in-memory	Review of memristive materials and devices for SNN hardware
+R02706	EXCLUDE	E2	memristor/in-memory	Peptide memristor humidity neuron, device-level work
+R02707	EXCLUDE	E4	none	Spiking VGG skin cancer classifier, no efficiency comparison
+R02708	EXCLUDE	E4	none	Differentiable NAS for SNN, no ANN baseline or pruning
+R02709	EXCLUDE	E4	none	Bio-plausible SNN digit classifier, robustness only
+R02710	EXCLUDE	E4	none	Review of direct SNN training methods, not efficiency comparison
+R02711	EXCLUDE	E4	none	Masked surrogate gradients for training, gradient sparsity not network cost
+R02712	UNSURE	C1	Loihi	LSM on Loihi with DNN distillation, energy comparison not visible
+R02713	EXCLUDE	E6	none	Household finance and farming culture, lottery tickets incidental
+R02714	EXCLUDE	E2	memristor/in-memory	Domain wall MTJ synapse and neuron devices
+R02715	INCLUDE	C2	none	Streaming speech SNN with L1 activation suppression for energy
+R02716	EXCLUDE	E6	none	Droplet impact vision analysis, off-topic
+R02717	EXCLUDE	E4	memristor/in-memory	MRAM CIM macro for SNN, no ANN baseline
+R02718	INCLUDE	C2	none	Dual-threshold SCNN cuts operations and memory by half
+R02719	EXCLUDE	E2	photonic	Optoelectronic synaptic transistor, device-level
+R02720	EXCLUDE	E2	memristor/in-memory	COF memristor device with CNN recognition demo
+R02721	INCLUDE	C1	none	ANN-SNN hybrid with equivalent conversion, 47.8% lower energy than ANN
+R02722	EXCLUDE	E4	none	Event-based optical flow with spiking neurons, no ANN baseline
+R02723	EXCLUDE	E2	memristor/in-memory	Nanocomposite memristor for reservoir computing
+R02724	EXCLUDE	E4	none	SNN neuron model and surrogate gradient, accuracy only
+R02725	EXCLUDE	E6	none	Chaotic dynamics of memristive Hopfield-type network
+R02726	EXCLUDE	E2	Dynap	Neuromorphic chip description, circuit-level, no ANN comparison
+R02727	INCLUDE	C2	none	SNN accelerator with early exit skipping unlikely-to-fire neurons
+R02728	INCLUDE	C2	none	Deep SNN splitting with channel pruning, latency and energy reduced
+R02729	EXCLUDE	E6	none	Event camera pose optimization for remote sensing
+R02730	EXCLUDE	E5	none	CNN on eventized RF fingerprints, SNN only future work
+R02731	EXCLUDE	E4	none	Hybrid SNN-CNN deblurring, accuracy only
+R02732	EXCLUDE	E4	none	Spiking GCN for EEG attention, power only as motivation
+R02733	EXCLUDE	E4	none	SNN for EEG emotion, compared only with SNN methods
+R02734	EXCLUDE	E3	none	Neuronal covariance theory in spiking networks, neuroscience
+R02735	EXCLUDE	E2	memristor/in-memory	Antiferromagnet orbital torque switching device
+R02736	INCLUDE	C3	none	Winning tickets with soft prompts, updates 20% of parameters
+R02737	INCLUDE	C1	none	Hyperspectral SNN, training time 7x lower than ResNet baseline
+R02738	EXCLUDE	E2	none	Digital Hindmarsh-Rose neuron design, no ANN comparison
+R02739	INCLUDE	C3	none	LTH pruning fairness, subnetwork selection framework Ballot
+R02740	INCLUDE	C3	none	Federated learning with lottery ticket pruning and sparse training
+R02741	INCLUDE	C1	FPGA	SNN equalizer on FPGA, 25x energy efficiency over ANN
+R02742	EXCLUDE	E4	simulation	Spiking gesture recognition with sensor fusion, no ANN comparison
+R02743	EXCLUDE	E4	FPGA	FPGA online-trainable SNN, no ANN baseline
+R02744	INCLUDE	C1	none	Neuromorphic-Bayesian olfaction model, energy compared with non-spiking model
+R02745	UNSURE	C5	none	SNN learning overview, discusses efficiency versus CNNs, main focus unclear
+R02746	EXCLUDE	E4	none	Specialized SNNs cut energy and latency, SNN-only comparison
+R02747	INCLUDE	C2	none	Sparse spiking auto-encoder with orders-of-magnitude fewer spikes
+R02748	EXCLUDE	E4	none	Spiking NAS with mixed neurons, accuracy and timesteps only
+R02749	EXCLUDE	E4	none	Spiking NAS with SynOps-aware search, SNN baselines only
+R02750	EXCLUDE	E2	memristor/in-memory	Lithium memristor neuron device
+R02751	INCLUDE	C1	none	Radix-encoded SNN via conversion, short spike trains, latency gain
+R02752	INCLUDE	C2	none	SNN with k-WTA sparse activation for continual learning
+R02753	INCLUDE	C1	none	Spiking VGAE, energy savings versus ANN and SNN baselines
+R02754	INCLUDE	C2	none	Neuron and channel pruning with rewiring for SNN
+R02755	INCLUDE	C1	Loihi2	Loihi 2 sigma-delta networks, energy-delay gains over state of the art
+R02756	UNSURE	C1	none	ANN-to-SNN ECG conversion, efficiency metrics not visible
+R02757	EXCLUDE	E2	memristor/in-memory	ECRAM device and analog accelerator review
+R02758	INCLUDE	C3	none	Lottery-ticket-inspired pruning for visual prompting ensembles
+R02759	EXCLUDE	E4	none	Evolved recurrent SNN for control, SNN-only comparison
+R02760	EXCLUDE	E2	memristor/in-memory	Memristor reservoir computing review, device-level
+R02761	INCLUDE	C1	none	ANN versus SNN intrusion detection, SNN uses less energy
+R02762	EXCLUDE	E6	none	Siamese neural network EEG biomarker, not spiking
+R02763	EXCLUDE	E6	none	Quantum RL agentic AI, neuromorphic used loosely
+R02764	EXCLUDE	E4	none	Spiking YOLO vehicle detection, efficiency only as motivation
+R02765	EXCLUDE	E2	none	Ferroelectric transistor synapse device
+R02766	EXCLUDE	E2	memristor/in-memory	MoS2 memtransistor synapse device
+R02767	EXCLUDE	E4	FPGA	FPGA SNN accelerator compared with other SNN implementations only
+R02768	EXCLUDE	E4	none	BLDC defect detection, SNN compared on accuracy only
+R02769	EXCLUDE	E4	Akida	Akida detection system, power reported without ANN baseline
+R02770	EXCLUDE	E5	none	Energy-based models robustness, no SNN
+R02771	INCLUDE	C1	none	ANN, CNN, SNN, SCNN energy measured on N-MNIST
+R02772	INCLUDE	C2	FPGA	Sparse spike coding cuts spikes 93.69%, energy gain on FPGA
+R02773	INCLUDE	C1	none	ANN-to-SNN crater detection, over 10x lower energy
+R02774	EXCLUDE	E2	memristor/in-memory	Memristor crossbar sparse coding architecture, no ANN or SNN comparison
+R02775	INCLUDE	C1	Loihi2,FPGA	SNN on Loihi 2 versus CNN on Versal, 100x less power
+R02776	INCLUDE	C1	none	PPG SNN, better energy efficiency than deep learning models
+R02777	EXCLUDE	E2	memristor/in-memory	Memcapacitive reservoir device
+R02778	EXCLUDE	E2	memristor/in-memory	PCM synapse SNN, energy compared with other PCM SNNs
+R02779	EXCLUDE	E4	none	Convolutional SNN for brain tumors, efficiency not measured
+R02780	INCLUDE	C1	Akida	CNN converted to SNN on Akida, 85% less computation
+R02781	EXCLUDE	E4	none	Customized convolutional SNN, accuracy only
+R02782	UNSURE	C1	none	SNN wireless recognition, low power claimed versus DNN, unmeasured
+R02783	EXCLUDE	E4	none	Gradient sparsity regularization for adversarial robustness
+R02784	EXCLUDE	E5	memristor/in-memory	Quantized memristor ANN training, no SNN
+R02785	EXCLUDE	E2	photonic	Optoelectronic CNT synapse device
+R02786	EXCLUDE	E5	none	ResNet-50 on CIFAR-10, ANN only
+R02787	EXCLUDE	E4	none	ANN-guided contrastive learning for SNN accuracy, no efficiency measurement
+R02788	EXCLUDE	E6	none	Roof bolting segmentation with event sensors, no SNN
+R02789	EXCLUDE	E4	none	Neuromorphic dataset and attention fusion, accuracy only
+R02790	UNSURE	C2	none	Binary attention makes spiking transformer sparser, cost reduction unclear
+R02791	EXCLUDE	E4	none	ANN-guided output feature enhancement, accuracy only
+R02792	EXCLUDE	E4	none	Energy attack on SNN via bit flips, no ANN baseline
+R02793	INCLUDE	C1	memristor/in-memory	Hybrid architecture running ANN and SNN with low power
+R02794	INCLUDE	C1	CPU,GPU	ANN, SNN, hybrid event workloads on edge CPUs and GPUs
+R02795	EXCLUDE	E4	none	Recommender with fuzzy logic, accuracy only
+R02796	EXCLUDE	E6	none	Event anonymization for privacy, off-topic
+R02797	INCLUDE	C1	none	Spiking U-Net depth, 58x energy gain over same-structure ANN
+R02798	UNSURE	C1	Loihi2	Sigma-delta net on Loihi 2, 7 mW but GPU power missing
+R02799	INCLUDE	C5	none	Review of SNN detection including energy, latency, hardware trade-offs
+R02800	EXCLUDE	E2	ASIC	Spiking phase-locked loop CMOS circuit

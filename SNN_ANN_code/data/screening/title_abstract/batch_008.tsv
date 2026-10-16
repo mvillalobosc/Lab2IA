@@ -1,0 +1,100 @@
+R00701	EXCLUDE	E2	photonic	Polariton optical binary network; device-level, no ANN efficiency comparison
+R00702	UNSURE	C5	SpiNNaker,TrueNorth,Loihi,Tianjic	Overview of neuromorphic chips; benchmarking content unclear
+R00703	EXCLUDE	E2	memristor/in-memory	Review of CMOS-RRAM neuromorphic ICs, device and circuit level
+R00704	EXCLUDE	E6	none	Mechanical metamaterials, off-topic
+R00705	EXCLUDE	E2	photonic	Photoelectric neuromorphic elements, device-level abstract
+R00706	EXCLUDE	E2	photonic	Neuromorphic photonics materials review
+R00707	UNSURE	C2	none	Recurrent SNN with sparse connections for robustness; compression unclear
+R00708	EXCLUDE	E4	ASIC	SNN-like SLAM accelerator, no ANN baseline
+R00709	EXCLUDE	E6	none	Radiation effects on event camera sensor
+R00710	EXCLUDE	E5	simulation	CNN mapping to NoC accelerators, no SNN
+R00711	EXCLUDE	E4	none	Noise-robust deep SNN, no ANN efficiency comparison
+R00712	EXCLUDE	E4	none	Izhikevich SNN system identification, accuracy-only comparison
+R00713	EXCLUDE	E2	memristor/in-memory	InAs nanowire memory device, synaptic behaviour
+R00714	EXCLUDE	E2	memristor/in-memory	Analog tanh neuron circuit design
+R00715	EXCLUDE	E5	memristor/in-memory	Variation-aware training for memristor ANN, no SNN
+R00716	EXCLUDE	E2	memristor/in-memory	Charge-trap synapse device and neuron circuit, DNN system simulation
+R00717	EXCLUDE	E5	memristor/in-memory	DNN checksum testing on memristor crossbars
+R00718	EXCLUDE	E2	memristor/in-memory	Memristor local activity theory
+R00719	INCLUDE	C3	none	Transferability of LTH winning tickets across datasets
+R00720	INCLUDE	C3	none	Channel pruning via bee colony based on lottery ticket hypothesis
+R00721	EXCLUDE	E4	none	SNN plus CNN traffic accident prediction, no efficiency comparison
+R00722	INCLUDE	C1	none	ANN-SNN conversion; 8.6x faster, 0.265x energy
+R00723	INCLUDE	C1	none	ANN-SNN conversion with 1/10 simulation time
+R00724	INCLUDE	C1	none	Conversion with two spikes per neuron; latency and throughput
+R00725	EXCLUDE	E4	none	SNN training for DVS data, no ANN comparison stated
+R00726	EXCLUDE	E2	photonic	Optoelectronic synaptic devices review
+R00727	EXCLUDE	E2	none	Organic electrochemical transistor circuits review
+R00728	EXCLUDE	E2	memristor/in-memory	Organic memristive devices mini review
+R00729	EXCLUDE	E2	memristor/in-memory	Ferroelectric TFT synapse for DNN and SNN, device-level
+R00730	INCLUDE	C3	none	Sparse subnetworks in speech SSL models, compared with LTH
+R00731	EXCLUDE	E2	none	Antiferromagnet oscillator structure for pattern recognition
+R00732	EXCLUDE	E4	none	Hebbian spiking visual cortex models, accuracy only
+R00733	EXCLUDE	E4	none	NeuCube SNN on longitudinal MRI, application only
+R00734	EXCLUDE	E2	photonic	Photonic extreme learning machine, no efficiency comparison
+R00735	EXCLUDE	E2	photonic	Review of neuromorphic photonics
+R00736	EXCLUDE	E6	none	Consumer psychology, lottery incidental
+R00737	EXCLUDE	E6	none	Gambling warning messages
+R00738	UNSURE	C1	Loihi	Spiking vs non-spiking DQN on Loihi; power measured unclear
+R00739	UNSURE	C1	none	SNN disturbance classifier; MAC operations keyword, comparison unclear
+R00740	EXCLUDE	E2	memristor/in-memory	Memcapacitive spike coding circuit, preliminary evaluation
+R00741	EXCLUDE	E2	none	Presynaptic neuron circuit hardware realization
+R00742	EXCLUDE	E2	memristor/in-memory	Printable synaptic transistor device
+R00743	EXCLUDE	E2	photonic	Phase-change photonic convolutional core
+R00744	EXCLUDE	E2	none	Spintronics neuromorphic review
+R00745	INCLUDE	C3	none	Supermasks to accelerate lottery ticket pruning
+R00746	EXCLUDE	E7	memristor/in-memory	Fault-targeted DNN pruning, not LTH, no SNN
+R00747	INCLUDE	C2	none	Gradient rewiring pruning of deep SNNs, 0.73% connectivity
+R00748	INCLUDE	C3	none	Pruning randomly initialized networks, strong LTH setting
+R00749	EXCLUDE	E6	none	2D LiDAR vehicle detection, sparse incidental
+R00750	EXCLUDE	E2	memristor/in-memory	LTspice memristive synapse logic gate simulation
+R00751	EXCLUDE	E7	none	Brain predictivity of ANNs; pruning effect, not LTH
+R00752	EXCLUDE	E4	memristor/in-memory	STDP weight transfer for hardware SNN, no ANN efficiency comparison
+R00753	EXCLUDE	E4	none	SNN adversarial robustness with DVS filters
+R00754	EXCLUDE	E4	none	Radar gesture SNN, accuracy-only comparison
+R00755	INCLUDE	C1	Loihi	SNN on Loihi 15x more energy efficient than CNN edge devices
+R00756	EXCLUDE	E5	none	CNN on event camera data, no SNN
+R00757	EXCLUDE	E2	memristor/in-memory	2D material synaptic devices review
+R00758	EXCLUDE	E6	none	Youth gambling survey
+R00759	EXCLUDE	E2	memristor/in-memory	Optoelectronic memristor in-sensor computing
+R00760	EXCLUDE	E6	none	Lottery gambling and socio-economic status
+R00761	EXCLUDE	E4	none	DNN-to-SNN conversion for remote sensing, accuracy only
+R00762	EXCLUDE	E2	memristor/in-memory	ReSe2 RRAM device and Verilog-A model
+R00763	EXCLUDE	E4	none	Radar gesture SNN, efficiency only as motivation
+R00764	EXCLUDE	E4	FPGA	Side-channel leakage of Izhikevich neuron on FPGA
+R00765	EXCLUDE	E5	none	Conceptual review of low-memory AI algorithms
+R00766	EXCLUDE	E4	none	BNTT batch normalization for SNN training, no ANN comparison
+R00767	EXCLUDE	E5	none	Noisy label learning, LTH only as motivation
+R00768	EXCLUDE	E4	none	Sound recognition SNN with sparse input encoding
+R00769	EXCLUDE	E4	none	Adversarial robustness of SNNs vs ANNs, accuracy only
+R00770	EXCLUDE	E4	FPGA	Streaming SNN FPGA accelerator, no ANN baseline
+R00771	INCLUDE	C3	none	Sanity checks for lottery ticket hypothesis
+R00772	INCLUDE	C3	none	Duplicate of R00771, LTH sanity checks
+R00773	EXCLUDE	E4	ASIC	Convolutional SNN neuromorphic core, pJ/SOP, no ANN baseline
+R00774	EXCLUDE	E5	none	Equilibrium propagation for ConvNets, no SNN or LTH
+R00775	UNSURE	C1	none	Plasticity rule cuts computational cost in SNNs and ANNs; comparison unclear
+R00776	EXCLUDE	E4	none	Event optical flow with ANNs and SNNs, no efficiency metric
+R00777	UNSURE	C1	GPU	Shallow SNN optical flow; unquantified energy claim vs CNN GPU
+R00778	EXCLUDE	E3	none	Plastic spiking model of primary visual cortex
+R00779	EXCLUDE	E3	none	Hippocampal CA3 neuromodulation model
+R00780	EXCLUDE	E5	none	Low-rank transformer compression, LTH only as motivation
+R00781	EXCLUDE	E4	none	SAR ship recognition SNN, vague efficiency claim
+R00782	UNSURE	C1	TrueNorth	SiamSNN tracker; energy on TrueNorth, DNN comparison unclear
+R00783	EXCLUDE	E2	memristor/in-memory	Signal integrity of memristor crossbar array
+R00784	EXCLUDE	E4	none	Spiking reservoir EMG gesture, accuracy-only comparison
+R00785	EXCLUDE	E4	none	Liquid state machine sitting posture recognition
+R00786	EXCLUDE	E6	none	SMS spam detection, lottery incidental
+R00787	EXCLUDE	E4	none	SNN robotic grasping control
+R00788	EXCLUDE	E4	none	Approximate DRAM for SNN inference, no ANN baseline or pruning
+R00789	EXCLUDE	E6	simulation	Sparse matrix-vector multiplication on neuromorphic computers
+R00790	INCLUDE	C2	none	Sparse SNN backpropagation exploiting spike sparsity, 150x speedup
+R00791	UNSURE	C3	none	Dynamic sparse training framed against LTH; family membership unclear
+R00792	EXCLUDE	E5	ASIC	Analog CIM hybrid network, no spikes
+R00793	INCLUDE	C2	none	Spatio-temporal SNN pruning, 8-14x less compute energy
+R00794	EXCLUDE	E6	none	Reliability of AI hardware special session
+R00795	EXCLUDE	E4	none	Temporal encoding SNN classifier, accuracy only
+R00796	INCLUDE	C2	none	Attention-guided compression reduces SNN spiking activity
+R00797	EXCLUDE	E4	none	SpikeMS motion segmentation SNN
+R00798	EXCLUDE	E4	none	Spiking autoencoders, accuracy parity only
+R00799	EXCLUDE	E4	none	Spiking multi-agent RL for D2D, task metrics only
+R00800	EXCLUDE	E4	none	SNN hexapod gait; energy refers to robot motion

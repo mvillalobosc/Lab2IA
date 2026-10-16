@@ -1,0 +1,100 @@
+R05601	EXCLUDE	E2	ASIC	CMOS synaptic circuit design; no ANN comparison or sparsity
+R05602	UNSURE	C1	none	Fusion method tested on ANN and SNN; ANN-SNN efficiency comparison unclear
+R05603	EXCLUDE	E6	none	Lottery gambling GIS study; unrelated
+R05604	INCLUDE	C1	none	SNN about 25% less energy than ANNs on CIFAR-100
+R05605	INCLUDE	C1	none	SNN forecasting uses about 10% of LSTM estimated inference energy
+R05606	EXCLUDE	E3	none	Theoretical synaptic plasticity and information storage; neuroscience
+R05607	EXCLUDE	E2	memristor/in-memory	Fluidic memristor LIF neuron device; no network comparison
+R05608	EXCLUDE	E4	FPGA,ASIC	Quantized SNN dynamics simulation; no ANN baseline or pruning
+R05609	EXCLUDE	E2	photonic	Photonic neural network device review; no ANN-SNN efficiency comparison
+R05610	EXCLUDE	E2	memristor/in-memory	ZnO synaptic device array; device-level focus
+R05611	EXCLUDE	E2	memristor/in-memory	SrTiO3 memristor device; MNIST demo only
+R05612	EXCLUDE	E5	photonic,simulation	Oscillator front-end for CNN; no spiking network
+R05613	EXCLUDE	E6	none	Grain aeration review; SNN mentioned incidentally
+R05614	EXCLUDE	E4	none	SNN fitness application; precision only, no ANN efficiency comparison
+R05615	EXCLUDE	E5	none	Gated deep-learning traffic pipeline; neuromorphic used loosely, no SNN
+R05616	EXCLUDE	E5	ASIC	General edge AI VLSI overview; neuromorphic only as paradigm
+R05617	EXCLUDE	E2	memristor/in-memory	Bilayer memristor device; MLP MNIST demo
+R05618	EXCLUDE	E2	photonic	Photonic synapse device; CNN accuracy demo only
+R05619	EXCLUDE	E2	memristor/in-memory	Halide memristor synapse device; no network comparison
+R05620	EXCLUDE	E2	memristor/in-memory	TiO2/MoO3 memristor device; MNIST demo only
+R05621	EXCLUDE	E2	memristor/in-memory	Optoelectronic memristor device; CNN accuracy demo only
+R05622	EXCLUDE	E2	memristor/in-memory	MoS2 memristor device fabrication; no network comparison
+R05623	EXCLUDE	E2	memristor/in-memory	MoS2/TiO2 memristor device; CNN MNIST demo only
+R05624	EXCLUDE	E2	none	Spintronic LIF neuron device; no ANN comparison
+R05625	EXCLUDE	E2	photonic	Photonic memristor reservoir device; no ANN-SNN comparison
+R05626	EXCLUDE	E2	photonic	Polymer photonic synapse device; ANN demo only
+R05627	EXCLUDE	E2	none	Stretchable visual adaptive transistor device; no network comparison
+R05628	INCLUDE	C1	none	SNN/hybrid sparse nets: accuracy-energy trade-off; large energy cut vs FEM
+R05629	EXCLUDE	E2	memristor/in-memory	Memristive device and model review; no ANN-SNN efficiency comparison
+R05630	INCLUDE	C3	simulation	Weak and strong LTH tested on variational quantum circuits
+R05631	EXCLUDE	E4	Loihi	SNN on Loihi for object detection; no ANN baseline
+R05632	EXCLUDE	E2	memristor/in-memory	MBene memristor device; ANN MNIST demo only
+R05633	EXCLUDE	E2	none	Ion-doped synaptic device review; no network-level comparison
+R05634	INCLUDE	C2	memristor/in-memory	Non-structured pruning in SNN search-in-memory accelerator; 25.3x energy gain
+R05635	UNSURE	C1	none	Hybrid ANN-SNN tracker; efficiency metrics not visible in abstract
+R05636	INCLUDE	C1	none	SNN with ANN teacher; claims reduced energy versus ANN methods
+R05637	EXCLUDE	E4	none	SNN underwater enhancement; energy only motivation, no efficiency result visible
+R05638	INCLUDE	C1	none	Hybrid ANN-SNN tracker targeting accuracy-efficiency balance
+R05639	INCLUDE	C1	none	CNN vs SNN speaker verification; early-exit SNN latency 15.8 to 6.0 ms
+R05640	EXCLUDE	E4	none	SNN for EEG Alzheimer detection; accuracy only, no ANN efficiency comparison
+R05641	EXCLUDE	E6	none	LLM multimodal cancer survival model; off-topic
+R05642	EXCLUDE	E7	none	Structured filter pruning; lottery ticket only as baseline
+R05643	EXCLUDE	E4	SpiNNaker	SNN on SpiNNaker for EEG; no ANN baseline visible
+R05644	EXCLUDE	E4	none	SNN self-distillation training; no ANN efficiency comparison
+R05645	INCLUDE	C1	none	Spiking saliency net; 11.48 mJ, outperforms lightweight ANN counterparts
+R05646	INCLUDE	C1	none	SNN uses 8% and 28% of mult/add ops of efficient methods
+R05647	INCLUDE	C1	GPU	5G+ANN vs RedCap+SNN on Jetson Orin; energy cut near 60%
+R05648	EXCLUDE	E2	memristor/in-memory	MRAM crossbar BNN hardware demo; no SNN or ANN comparison
+R05649	UNSURE	C2	none	Spintronic device perspective; mentions network-level spiking sparsity
+R05650	EXCLUDE	E2	simulation	Domain-wall synapse device study; ANN simulation demo only
+R05651	EXCLUDE	E2	memristor/in-memory	ZnO memtransistor device and crossbar yield; no network comparison
+R05652	EXCLUDE	E2	memristor/in-memory	Organic memristive photomodulator device; CNN accuracy demo only
+R05653	EXCLUDE	E2	none	RTN device effect; SNN noise-robustness proof of concept only
+R05654	EXCLUDE	E2	memristor/in-memory	IGZO optoelectronic memristor device; reservoir demo only
+R05655	EXCLUDE	E5	MCU	Lightweight AI for IoT security survey; general compression, no SNN
+R05656	INCLUDE	C1	none	Hybrid CNN-SNN; reports smallest size and lowest computational cost
+R05657	EXCLUDE	E5	CPU,GPU	Event-data autoencoder versus YOLOv9; no SNN
+R05658	INCLUDE	C1	none	SNN federated learning; lower communication and compute energy than conventional
+R05659	EXCLUDE	E5	CPU	YOLOv8 event-camera pipeline on Raspberry Pi; no SNN
+R05660	INCLUDE	C1+C2	none	Pruned and quantized SNN; 0.13 mJ versus 1.02 mJ for ANN
+R05661	EXCLUDE	E4	none	Spiking transformer architecture; efficiency only as motivation in abstract
+R05662	INCLUDE	C1	none	Spiking U-Net; about 21x lower estimated energy than ANN baselines
+R05663	EXCLUDE	E4	none	Quantized SNN keyword spotting; compared only with SNN models
+R05664	UNSURE	C1	none	Spiking Mamba reports MACs and latency; ANN baseline comparison unclear
+R05665	EXCLUDE	E2	memristor/in-memory	Perovskite optoelectronic synapse device; ANN simulation demo only
+R05666	EXCLUDE	E2	none	Synaptic transistor device-to-ANN modeling; no SNN comparison
+R05667	EXCLUDE	E5	none	Liquid time-constant clustering; neuromorphic used loosely, no spikes
+R05668	INCLUDE	C1	FPGA	Conv-SNN on FPGA uses 65% computation and 15.6% weights versus CNN
+R05669	EXCLUDE	E4	ASIC	SNN accelerator reports pJ/SOP; no ANN baseline
+R05670	INCLUDE	C3	ASIC	LUT accelerator evaluated on lottery-ticket pruned CNNs; energy per inference
+R05671	EXCLUDE	E2	memristor/in-memory	Perovskite neuromorphic vision materials review; device-level
+R05672	EXCLUDE	E4	none	SNN basketball recognition; efficiency claims without ANN comparison visible
+R05673	EXCLUDE	E5	none	Event-sensor vision latency on processors; no SNN
+R05674	EXCLUDE	E2	memristor/in-memory	NbOx memristor neuron device; only coding scheme comparison
+R05675	EXCLUDE	E2	none	Organic transistor device; no network-level evaluation
+R05676	INCLUDE	C5	none	Edge AI survey covering pruning, SNNs, neuromorphic chips and trade-offs
+R05677	EXCLUDE	E4	FPGA,ASIC	SNN AFib chip; no ANN baseline visible
+R05678	EXCLUDE	E4	Loihi2	SNN bird audio on Loihi-2 energy estimate; no ANN baseline
+R05679	EXCLUDE	E2	ASIC	Analog CMOS SNN reservoir circuits overview; no ANN comparison
+R05680	EXCLUDE	E5	memristor/in-memory	OTS memristor accelerator for CNN-LSTM; no SNN
+R05681	INCLUDE	C2	CPU	Dynamic spike sparsity plus quantization in SNN; power measured on Raspberry Pi
+R05682	EXCLUDE	E2	memristor/in-memory	Optoelectronic memristor encryption device; no ANN-SNN comparison
+R05683	INCLUDE	C2	FPGA	Weight-pruned sparse spike-aware SNN on FPGA; reduced power
+R05684	EXCLUDE	E5	photonic	Training method for photonic hybrid networks; no SNN
+R05685	EXCLUDE	E2	none	IGZO optoelectronic synaptic transistor device; reservoir demo only
+R05686	EXCLUDE	E2	memristor/in-memory	Perovskite memristor device; ANN simulation demo only
+R05687	EXCLUDE	E6	none	Lossless compression of spike camera data; not network efficiency
+R05688	EXCLUDE	E2	memristor/in-memory	NIR organic synapse device; CNN accuracy demo only
+R05689	EXCLUDE	E6	none	Historical study of New York lotteries; unrelated
+R05690	EXCLUDE	E4	none	LUT-based SNN accelerator speedup versus LIF SNNs; no ANN baseline
+R05691	INCLUDE	C1	none	SNN vs CNN vs GNN microseismic; accuracy and inference time
+R05692	EXCLUDE	E2	photonic	Magnetic domain-wall optoelectronic synapse device; ANN demo only
+R05693	EXCLUDE	E4	none	SNN fractional-order plasticity; accuracy only, no efficiency comparison
+R05694	EXCLUDE	E5	none	Mamba capsule network for event detection; no SNN
+R05695	EXCLUDE	E4	none	SNN hyperspectral band selection; no ANN efficiency comparison
+R05696	INCLUDE	C2	none	SNN masks low-activity timesteps to cut temporal redundancy
+R05697	INCLUDE	C1	none	SNN CSI feedback; over 93% lower estimated energy than TransNet
+R05698	EXCLUDE	E2	none	Chiral synaptic transistor encryption device; ANN demo only
+R05699	INCLUDE	C5	none	Theory review of SNNs versus ANNs including energy-efficient implementations
+R05700	EXCLUDE	E5	none	Event-camera action recognition network; no SNN

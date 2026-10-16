@@ -1,0 +1,25 @@
+R05736	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Spiking time-frequency fault diagnosis: 99.07% accuracy, 1.83M parameters, 2.67 ms inference, theoretical 0.06 mJ; DNN comparison on accuracy only
+R05737	Y	-	C2	SNN	TRANSFORMER	CONTROL+TS	NS	NA	NS	POWER	NA	OTHER	NA	NS	NS	N	Spike-driven Transformer with dynamic sparse attention: versus spike-driven Transformers, accuracy +12.3%, deployment power -68.7%, computational efficiency +41.2%
+R05743	Y	-	C2	SNN	MLP	TS	SIM	NA	CLAIM	SPIKES	NA	OTHER	NA	NS	Y	N	Multi-timescale conductance neurons on Mackey-Glass regression: accuracy comparable to AdLIF with substantially sparser activity; no figures
+R05747	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Spiking event-text fusion for action recognition; competitive accuracy with low computational cost claimed without figures
+R05749	Y	-	C1	ANN+SNN	CNN	STATIC_IMG	LOIHI2	NS	ESTIMATED	ENERGY+SPIKES+MEMORY	DIFFERENT	NA	NA	NA	NA	N	SpikingCancerNet 94.51% accuracy, 44.9x fewer parameters than ResNet50; Loihi 2 energy analysis 1,636-fold below ResNet50 from measured spike rates
+R05750	Y	-	C1	ANN+SNN	NS	CONTROL	SIM	SIM	CLAIM	ENERGY	NS	NA	NA	NA	NA	N	SNN controller for space manipulation reports higher success rate and energy efficiency than conventional ANN controllers; no figures
+R05751	Y	-	C2	SNN	NS	BIOSIG+STATIC_IMG+AUDIO+EVENT	SIM	NA	CLAIM	NONE	NA	DST	NA	UNSTRUCT	NS	N	Multimodal SNN with structure-adaptive neurons and dynamic sparse connectivity: DEAP 92.29%/91.08%, WESAD 99.77%; energy efficiency claimed without figures
+R05756	Y	-	C1	ANN+SNN	CNN	STATIC_IMG	SIM	SIM	NS	ENERGY+OPS	PAIRED	NA	NA	NA	NA	N	Spiking U-Net denoiser for CIFAR-10: computational complexity 24.8% and energy 4.83% of the equivalent CNN U-Net
+R05760	Y	-	C2	SNN	CNN	OTHER	FPGA	NA	NS	SPIKES	NA	OTHER	NA	NS	N	N	FPGA ConvSNN decoder for quantum error correction: threshold calibration cuts switching activity to about 18%; 181 LUTs at distance 3
+R05761	Y	-	C2	SNN	NS	STATIC_IMG	SIM	NA	NS	SPIKES	NA	ACT	NA	NS	N	N	ECM-regulated STDP SNN: MNIST accuracy 86.77% vs 69.28% baseline; excitatory spikes cut 228.7-fold; spike count not a power measurement
+R05766	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	SNN FPGA accelerator NEURAL: 1.97x energy efficiency and 50% fewer resources versus SNN accelerators; KD-trained single-timestep models; no ANN baseline
+R05767	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Spike-driven BMI decoder R2 0.688: beats SNNs with fewer parameters and less energy, matches ANN accuracy; no ANN energy comparison
+R05768	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Overview of spike encoders plus simulation of encoder accuracy on MNIST, CIFAR-10, UCF-101 with DNNs and SNNs; no efficiency comparison
+R05770	Y	-	C5	ANN+SNN	MLP+CNN+RNN	TS	NS	NS	NONE	NONE	NA	NA	NA	NA	NA	N	Review comparing ANN and SNN models for MOS electronic nose gas classification and regression; accuracy-focused, no efficiency figures in abstract
+R05771	Y	-	C1	ANN+SNN	RNN	CONTROL	OTHER_NEURO	CPU	NS	ENERGY	NS	NA	NA	NA	NA	U	Spiking reservoirs on neuromorphic hardware give 75x and 45x energy efficiency versus standard and high-efficiency CPUs; baseline model type unspecified
+R05773	Y	-	C1	ANN+SNN	CNN	STATIC_IMG	CPU+GPU	NS	MEASURED	LATENCY+MEMORY	LITERATURE	NA	NA	NA	NA	N	Conv SNN for leukemia: 98.16% accuracy, 1.35 MB, 454.67 ms CPU and 11.24 ms GPU latency; footprint orders below CNNs
+R05774	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	SNN compiler: model predicts 73-98% energy cut on Loihi 2 versus naive deployment; auxiliary GPU, Jetson, FPGA measurements
+R05775	Y	-	C1	ANN+SNN	CNN+RNN	BIOSIG	NS	NS	NS	ENERGY+LATENCY	DIFFERENT	NA	NA	NA	NA	U	Neuromorphic BCI pipeline versus CNN-LSTM: energy down 65-70%, latency down 40-50%, 2-3% accuracy trade-off
+R05778	Y	-	C1	HYBRID	CNN	AUDIO+STATIC_IMG+BIOSIG	SIM	SIM	CLAIM	LATENCY	NS	NA	NA	NA	NA	N	Autism screening with STDP audio SNN plus ResNet50 images; faster response than conventional deep learning claimed without figures
+R05780	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Hybrid ResNet18 plus SNN lesion detector with GA tuning of time steps; 98.18% accuracy; efficiency versus ANNs claimed without figures
+R05781	Y	-	C1	ANN+SNN	CNN	TS	NS	NS	NS	LATENCY	NS	NA	NA	NA	NA	N	Tactile emotion classification: SNN 8 ms inference latency versus 38 ms for conventional CNN; accuracy up to 92%
+R05783	Y	-	C5	SNN	NS	NS	NS	NA	NONE	NONE	NA	NA	NA	NA	NA	N	Review of ASIC and FPGA neuromorphic architectures, frameworks and on-chip communication for edge SNNs; advocates SoC platforms; no figures
+R05785	Y	-	C1	ANN+SNN	CNN+RNN+TRANSFORMER	BIOSIG	SIM	SIM	ESTIMATED	ENERGY+SPIKES	DIFFERENT	NA	NA	NA	NA	N	BioSpike-Net MIT-BIH 97.6% accuracy; estimated 6.4 uJ per inference, 27-fold below transformer baseline; activation density under 0.10
+R05787	Y	-	C6	SNN	NS	EVENT	SIM	NA	ESTIMATED	ENERGY+LATENCY+THROUGHPUT	NA	NA	NA	NA	NA	N	Architecture study with energy-to-solution model and reproducible synthetic N-MNIST and DVS-like benchmarks: energy per inference, latency, throughput; no figures
+R05788	Y	-	C5	SNN	NS	NS	NS	NA	NONE	NONE	NA	NA	NA	NA	NA	N	Review of neuromorphic models, STDP and hardware from digital to memristor and PCM; dense throughput workloads may favor conventional computing

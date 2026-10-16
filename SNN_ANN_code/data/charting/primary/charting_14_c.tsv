@@ -1,0 +1,25 @@
+R04154	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	SpiNNaker2 up to 32x lower energy than GTX 1650 GPU baseline for SNN models; no ANN comparison.
+R04169	Y	-	C1	ANN+SNN	OTHER	CONTROL	NS	NS	NS	POWER	DIFFERENT	NA	NA	NA	NA	N	LSM-based SNN: at least 14.6% better accuracy than SOTA approaches with 40% of their power; up to 7-DoF manipulators.
+R04172	Y	-	C1	ANN+SNN	CNN	DET	NS	NS	NS	ENERGY	DIFFERENT	NA	NA	NA	NA	N	Energy efficiency 2.47x and 3.30x over representative ANNs on Cityscapes and TT100K; mAP +10.4% and +12.0% over prior SNN.
+R04182	Y	-	C1	ANN+SNN	CNN	STATIC_IMG	NS	NS	ESTIMATED	ENERGY+OPS+MEMORY	PAIRED	NA	NA	NA	NA	N	CSNN estimated energy 4.8% and FLOPs 25% of similar CNN; 0.225 µJ per inference; accuracy 99.90% on GTSRB.
+R04183	Y	-	C1	ANN+SNN	TRANSFORMER	EVENT+DET	NS	NS	NS	OPS+ENERGY	DIFFERENT	NA	NA	NA	NA	N	Spiking Spatiotemporal Transformer needs 19.1% FLOPs and 3.6% energy of SOTA ANN-based methods for event-based 3D pose tracking.
+R04189	Y	-	C2	SNN	NS	NS	NS	NA	CLAIM	LATENCY+OPS	NA	REG	NA	MIXED	Y	N	Pruned SNN latency rises with activity regularization strength; modified loss term fixes this and improves computational load; no figures.
+R04190	Y	-	C3	ANN	MLP	STATIC_IMG	NA	NS	NONE	NONE	NA	MAG+THEORY	WEAK	UNSTRUCT	N	N	IMP on fully connected networks increases non-Gaussianity of pre-activations, producing local receptive fields; mechanistic analysis, no efficiency figures.
+R04193	Y	-	C1	ANN+SNN	MLP+CNN+RNN	OTHER	CPU+GPU	CPU+GPU	MEASURED	LATENCY	DIFFERENT	NA	NA	NA	NA	Y	Runtime benchmarking: MLP/CNN gain from GPU HPC acceleration; sparse RLS SNN scales non-monotonically, baseline faster at small to mid sizes.
+R04198	Y	-	C1	HYBRID	CNN+RNN	BIOSIG	NS	NS	NS	ENERGY	DIFFERENT	NA	NA	NA	NA	N	Hybrid CNN-LSTM plus SNN: accuracy 91.2%, F1 0.90, inference energy 2.1 mJ, lower than other effective models.
+R04206	Y	-	C1	HYBRID	CNN	STATIC_IMG+AUDIO	NS	NS	NS	ENERGY	PAIRED	NA	NA	NA	NA	N	Hybrid ANN-SNN layer configurations cut energy up to 2.45x at ANN baseline accuracy on CIFAR-10 and GSC V2.
+R04208	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Variable spiking GNNs claim sparse communication and energy efficiency; compared with vanilla GNNs on regression performance only.
+R04210	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Compiler for ANN-SNN hybrid PIM accelerators; 2.48x latency and 2.74x energy gains over SOTA techniques, no explicit ANN baseline.
+R04212	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Hybrid ANN-SNN training and inference accelerator; accuracy 99.65% on ANN MNIST and 99.34% on SNN N-MNIST; no efficiency metric.
+R04213	Y	-	C3	ANN	NS	NS	NA	NS	NONE	NONE	NA	SCORE	OTHER	UNSTRUCT	N	N	Hypernetwork generates semi-binary masks yielding task-specific LTH subnetworks for continual learning; no efficiency figures.
+R04216	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Spiking vision transformer for image aesthetic assessment; energy reduction claimed without comparator or figures.
+R04217	Y	-	C1	ANN+SNN	CNN+TRANSFORMER+OTHER	STATIC_IMG	NS	NS	CLAIM	NONE	DIFFERENT	NA	NA	NA	NA	N	CLSM compared with CNNs and Transformers on accuracy and efficiency; claims energy efficiency, no efficiency figures in abstract.
+R04220	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	UAV intrusion detection, 28 ms and 0.25 J per inference; best trade-off claimed without explicit ANN comparison.
+R04224	Y	-	C2	SNN	NS	STATIC_IMG	MEMRISTOR	NA	ESTIMATED	POWER	NA	NS	NA	UNSTRUCT	Y	N	RRAM crossbar SNN MNIST inference power 243 nW with quantization, 222 nW with quantization and pruning; array-level model estimate.
+R04231	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Sparse associative memory SNN with neurogenesis; topology optimization raises memory capacity over 10^4x; no efficiency metric or ANN comparison.
+R04233	Y	-	C2	SNN	NS	NS	NS	NA	NONE	MEMORY	NA	DST	NA	UNSTRUCT	N	N	Two-stage dynamic sparse training for deep SNNs: PQ-index-based adaptive rewiring ratio; matches SNN accuracy with better compression; no figures.
+R04236	Y	-	C1	ANN+SNN	NS	EVENT	NS	NS	NS	ENERGY	DIFFERENT	NA	NA	NA	NA	N	Over 4,000x less energy than existing deep learning approaches on DVSCLEAN; SNR up to 31.13 dB, F1 0.9847.
+R04240	Y	-	C1	ANN+SNN	NS	STATIC_IMG+DET+OTHER	NS	NS	CLAIM	ENERGY	PAIRED	NA	NA	NA	NA	N	Converted SNNs show lower energy than conventional ANNs; no figures in abstract; local threshold balancing conversion.
+R04244	Y	-	C1	ANN+SNN	CNN	DET+EVENT	NS	NS	NS	ENERGY	PAIRED	NA	NA	NA	NA	N	SpikeYOLO on Gen1: mAP@50 67.2%, +2.5% over ANN with equivalent architecture, energy efficiency 5.7x; COCO 66.2% mAP@50.
+R04245	Y	-	C1	ANN+SNN	RNN+CNN+OTHER	TS	SIM	SIM	CLAIM	LATENCY	DIFFERENT	NA	NA	NA	NA	N	IF-NN has better computational time than RNN on each dataset (no figures); MAPE 65.9-74.3% better than second-best models.
+R04248	Y	-	C5	ANN	TRANSFORMER	NLP	NA	NS	NONE	NONE	NA	NA	NA	NA	NA	N	Roadmap review of model compression and sparsity (pruning, quantization, distillation, LoRA) for Gen AI on IoT; no quantitative results.

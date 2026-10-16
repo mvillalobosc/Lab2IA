@@ -1,0 +1,36 @@
+{
+  "identified_scopus": 6092,
+  "identified_wos": 4688,
+  "identified_total": 10780,
+  "duplicates_removed": 4454,
+  "records_screened": 6326,
+  "rescreened": 1114,
+  "rescreened_passing": 161,
+  "agreement_sample": 428,
+  "kappa_binary_final": 0.86,
+  "agreement_binary_final": 0.937,
+  "kappa_binary_first_pass": 0.83,
+  "kappa_three_level": 0.784,
+  "agreement_three_level": 0.895,
+  "excluded": 4217,
+  "excluded_by_reason": {
+    "E1": 10,
+    "E2": 1587,
+    "E3": 123,
+    "E4": 1600,
+    "E5": 442,
+    "E6": 409,
+    "E7": 46
+  },
+  "passing": 2109,
+  "include": 1701,
+  "unsure": 408,
+  "include_categories": {
+    "C1": 906,
+    "C2": 462,
+    "C3": 334,
+    "C4": 8,
+    "C5": 69,
+    "C6": 47
+  }
+}

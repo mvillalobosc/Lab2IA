@@ -1,0 +1,25 @@
+R05231	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	SNN EEG model; inference time cut 64.9%, accuracy 94.45%; no ANN efficiency comparison, no sparsity
+R05236	Y	-	C1	ANN+SNN	OTHER	AUDIO	NS	NS	NS	ENERGY	DIFFERENT	NA	NA	NA	NA	N	LSD 1.14 comparable to ANN baselines; energy cost 1.24 mJ, ANN energy not quantified
+R05238	Y	-	C2	SNN	NS	STATIC_IMG+EVENT	SIM	NA	CLAIM	SPIKES	NA	SCORE+REG	NA	STRUCT	Y	N	Lagrangian-budgeted gating of multi-threshold channels reduces spike-driven workload; abstract gives no figures
+R05240	Y	-	C2	SNN	CNN	STATIC_IMG+EVENT	SIM	NA	ESTIMATED	OPS	NA	DST+ACT	NA	MIXED	Y	N	VGG-16 CIFAR-10: 50% channel sparsity, SOPs -42.1% at SW 0.90 and SC 0.50, no accuracy loss
+R05241	Y	-	C2	SNN	TRANSFORMER	NS	NS	NA	ESTIMATED	OPS	NA	OTHER	NA	MIXED	Y	N	Temporal exit plus dynamic channel pruning cut synaptic operations by up to 65.4% versus original spiking transformers
+R05243	Y	-	C2	ANN+SNN	CNN	STATIC_IMG+EVENT	SIM	ASIC	NS	THROUGHPUT+ENERGY+OPS	NA	OTHER	NA	NS	N	N	Psums cut 80% LeNet-5, 54% ResNet-18, 88% SNN DVS Gesture; SRAM IMC 40.8 TOPS/W on ResNet-18
+R05244	Y	-	C1	HYBRID	CNN	STATIC_IMG	NS	NS	NS	LATENCY	DIFFERENT	NA	NA	NA	NA	U	Hybrid CNN-SNN accuracy 97.12%; inference time over 80% lower than EfficientNet-B7, ResNet-50, InceptionResNetV2
+R05248	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Pre-attention for MetaFormer SNNs improves performance and lowers energy, unquantified; no ANN efficiency comparison
+R05254	Y	-	C1	ANN+SNN	NS	BIOSIG	SIM	SIM	CLAIM	ENERGY	NS	NA	NA	NA	NA	N	CRIMF-SNN beats spiking neurons and ANN recurrent units on two EEG emotion datasets; low energy claimed, no figures
+R05263	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Spiking sound classifier 99.38% accuracy; efficiency only asserted, no figures or ANN efficiency comparison
+R05270	Y	-	C1	ANN+SNN	CNN	BIOSIG	NS	NS	NS	ENERGY	PAIRED	NA	NA	NA	NA	N	SNN 7.5% higher accuracy and 6.8% lower energy than same-architecture ANN on two MI datasets
+R05271	Y	-	C3	ANN	NS	NS	NA	SIM	NONE	NONE	NA	SCORE+REG+THEORY	STRONG	MIXED	N	N	Distributed strong lottery ticket with personalized binary masks and group sparsity; theoretical proof, no efficiency figures
+R05272	Y	-	C2	SNN	OTHER	STATIC_IMG	NS	NA	NS	ENERGY	NA	OTHER	NA	NS	N	N	92% sparse modular SNNs keep about 1.2 mJ/sample like 80% sparse TANet-Tiny; CIFAR-10 accuracy about 92.96%
+R05276	Y	-	C5	ANN+SNN	NS	AUDIO+EVENT+TS	LOIHI2+TRUENORTH+SPECK+BRAINSCALES+SPINNAKER	MEMRISTOR	CLAIM	ENERGY+LATENCY+MEMORY	NA	NA	NA	NA	NA	N	Qualitative comparison of Loihi 2, TrueNorth, AIMC-PCM, Speck, BrainScaleS-2, SpiNNaker; no quantitative figures in abstract
+R05278	Y	-	C1	ANN+SNN	CNN	DET	SIM	SIM	ESTIMATED	LATENCY+ENERGY	PAIRED	NA	NA	NA	NA	U	SNN 2.5x faster and over 60% lower energy than CNN; accuracy about 75% for both on KITTI
+R05281	Y	-	C2	SNN	NS	TS	SIM	NA	NS	OPS	NA	ACT	NA	UNSTRUCT	Y	N	Spike-timing pruning before training: 10x lower pruning time and computational cost than baselines, performance maintained
+R05282	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	ANN-SNN conversion with CIM circuit; faster inference and small accuracy gap claimed without figures or ANN efficiency data
+R05287	Y	-	C3	ANN	NS	OTHER	NA	SIM	NONE	NONE	NA	NS	WEAK	NS	N	N	LTH applied to quantum ground-state networks: sparse nets match dense ones with over 10x fewer parameters
+R05289	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	SNN anomaly detector: 42% energy savings, 12.4 ms latency; baseline not stated, no ANN comparison
+R05292	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Convolutional LCA on Loihi 2 benchmarked against GPU run of same algorithm; no ANN comparison or metrics given
+R05295	Y	-	C1	HYBRID	CNN	BIOSIG	SIM	SIM	CLAIM	OPS+MEMORY+LATENCY	LITERATURE	NA	NA	NA	NA	N	Hybrid CNN-SNN: up to 10% higher decoding accuracy, 87.5% fewer EEG channels, 75% smaller weight bit precision, 0.5-s windows
+R05297	N	E5	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Memristive evolutionary-trained edge system, about 5.8x energy savings vs von Neumann architectures; no SNN or LTH content
+R05298	Y	-	C1+C6	ANN+SNN	NS	NS	OTHER_NEURO+MEMRISTOR	GPU+NPU+FPGA	MEASURED	ENERGY	DIFFERENT	NA	NA	NA	NA	U	Energy per synaptic event: GPU/NPU/FPGA ANNs 1e5-1e8 fJ, digital spiking 1e3-1e4 fJ, best memristor about 2 fJ
+R05307	Y	-	C1	HYBRID	OTHER	AUDIO	SIM	SIM	ESTIMATED	OPS	DIFFERENT	NA	NA	NA	NA	N	Dual-branch ANN-SNN speech enhancer: average 7.5x lower computational complexity than baseline models, performance maintained on three datasets
+R05308	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	SNN ECG denoiser: SNR gain 6.80 dB, R-peak detection 90.71 to 95.72%; no efficiency figures or ANN comparison

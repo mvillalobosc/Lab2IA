@@ -1,0 +1,25 @@
+R05647	Y	-	C1	ANN+SNN	NS	NS	GPU	EDGE_GPU	MEASURED	ENERGY	DIFFERENT	NA	NA	NA	NA	Y	ANN+5G vs SNN+5G RedCap on Jetson Orin UAV: energy use down about 60%, flight time up 35%
+R05649	N	E2	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Perspective on spintronic MTJ synapses and neurons; superparamagnetic neurons give network-level spiking sparsity; no ANN comparison or figures
+R05656	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Hybrid CNN-SNN single-eye emotion recognition; state-of-the-art accuracy, smallest model size and lowest computation claimed without figures
+R05658	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Federated SNN with gradient quantization; communication and computation energy reduction claimed against conventional methods without figures
+R05660	Y	-	C1+C2	HYBRID	CNN+RNN	TS+STATIC_IMG	SIM	SIM	NS	ENERGY+OPS+MEMORY	NS	EVO	NA	MIXED	NS	N	Hybrid RNN-SNN found by NAS with 90% pruning, 4-6 timesteps: 0.13 mJ vs 1.02 mJ for ANNs, 98-99.5% accuracy
+R05662	Y	-	C1	ANN+SNN	CNN	DET	SIM	SIM	ESTIMATED	ENERGY+SPIKES+MEMORY	NS	NA	NA	NA	NA	N	LSS-UNet F1 above 0.92 comparable to ANN baselines; estimated energy 21x lower at about 12% firing rate (CMOS constants)
+R05664	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Spiking Mamba speech enhancement: PESQ 2.73, STOI 93.9%, 0.26M parameters, 0.11 G/s MACs, 30 ms latency; no ANN efficiency comparison
+R05668	Y	-	C1	ANN+SNN	CNN	TS+EVENT	FPGA	NS	ESTIMATED	OPS+MEMORY	NS	NA	NA	NA	NA	N	Conv-SNN on FPGA needs 65% of computation and 15.6% of weight storage versus a CNN, 92.11% accuracy on tactile digits
+R05670	N	E5	-	-	-	-	-	-	-	-	-	-	-	-	-	-	LUT-based ANN accelerator: 1.80x lower energy per inference than digital MAC; evaluated on lottery-ticket-pruned models only as workloads
+R05676	Y	-	C5	ANN+SNN	CNN	NS	NS	NS	NONE	LATENCY+POWER	NA	NA	NA	NA	NA	N	Survey of low-power edge AI covering quantisation, pruning, distillation, SNNs, neuromorphic chips; accuracy-latency-power trade-offs; no figures in abstract
+R05677	Y	-	C1	ANN+SNN	NS	BIOSIG	FPGA+ASIC	NS	ESTIMATED	POWER+ENERGY+LATENCY	LITERATURE	NA	NA	NA	NA	N	Post-synthesis 40-nm SNN chip: 0.018 mW, 0.6 nJ per classification, 34 us; accuracy 98.42%; prior accelerators milliwatt-level power
+R05681	Y	-	C2	SNN	NS	STATIC_IMG	CPU	NA	MEASURED	POWER+LATENCY	NA	OTHER	NA	NS	Y	N	Input-aware pulse sparsity plus quantization: MNIST 96.92%, 73.78 mW, 42.3% lower power, 22.5% faster than fixed-threshold SNN
+R05683	Y	-	C2	SNN	NS	OTHER	FPGA	NA	NS	POWER	NA	NS	NA	UNSTRUCT	Y	N	Sparse spike-aware weight-pruned LIF classifier on FPGA: Iris 93.3% accuracy, 3.5 W on-chip power, 587 logic cells; no ANN baseline
+R05691	Y	-	C1	ANN+SNN	CNN+GNN	TS	SIM	SIM	NS	LATENCY	DIFFERENT	NA	NA	NA	NA	N	DAS micro-seismic: GNN 82.5% accuracy, CNN fastest at 12.5 ms/sample, SNN best weak-event F1 79.9% with higher compute cost
+R05696	Y	-	C2	SNN	NS	TS	SIM	NA	NONE	NONE	NA	ACT	NA	TEMPORAL	Y	N	Activity-based timestep masking in SNN for UCR series; accuracy comparable to ML and DL at ultra-low timesteps; no efficiency figures
+R05697	Y	-	C1	ANN+SNN	CNN+TRANSFORMER	OTHER	SIM	SIM	ESTIMATED	ENERGY	DIFFERENT	NA	NA	NA	NA	N	SpikingCSINet matches Transformer-based TransNet performance with over 93% lower operation-based energy estimate on COST 2100
+R05699	Y	-	C5	ANN+SNN	NS	NS	NS	NS	NONE	NONE	NA	NA	NA	NA	NA	N	Review of SNN mathematical foundations (expressivity, training, generalization) and energy-efficient implementations compared with ANNs; no quantitative figures
+R05701	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Membrane-aware distillation for quantized SNN: 14.85x lower EDAP, 2.64x higher TOPS/W versus floating-point SNNs; quantization and distillation only
+R05707	Y	-	C1	ANN+SNN	RNN	STATIC_IMG+AUDIO	MCU	MCU	MEASURED	LATENCY+ENERGY+MEMORY	PAIRED	NA	NA	NA	NA	Y	Recurrent SNN on STM32H7 MNIST: 197.69 ms, 76.98 mJ, outperforming iso-parametric RNNs; peak SRAM down about 74%
+R05708	Y	-	C3	ANN	CNN+GNN	NS	NA	SIM	NONE	OPS+MEMORY	NA	RANDOM	STRONG	UNSTRUCT	Y	N	Seed-regenerated strong-lottery-ticket models with Bayesian multi-objective search over accuracy, calibration, FLOP, memory; tens to hundreds of times smaller
+R05717	Y	-	C2	SNN	NS	EVENT	SIM	NA	ESTIMATED	OPS	NA	OTHER	NA	NS	Y	N	Adaptive event buffering for SNNs: input channels cut to 35% without accuracy loss; maximum synaptic operations reduced over 2x
+R05718	Y	-	C1	ANN+SNN	GNN	OTHER	SIM	SIM	NS	ENERGY	DIFFERENT	NA	NA	NA	NA	N	MK-SGN spiking GCN uses 98% less energy than conventional GCN-based approaches for skeleton action recognition, with competitive accuracy
+R05722	Y	-	C1	ANN+SNN	CNN	STATIC_IMG	FPGA	NS	NS	POWER	PAIRED	NA	NA	NA	NA	U	CNN-to-SNN on Cyclone IV FPGA: MNIST 91.94% vs CNN 97%, FPGA power analysis shows 52% lower power
+R05728	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Dual-branch spiking underwater detector: 57.2% mAP@0.50; estimated 24.21 mJ per frame (45 nm model); no ANN energy comparison
+R05734	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	First SNN edge detector; outperforms ANN-based methods on BSDS500 and other datasets; ultralow energy claimed without figures

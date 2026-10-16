@@ -1,0 +1,25 @@
+R03683	N	E6	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Neuro-inspired learning algorithm; no spiking or SNN stated; claims latency cuts and up to 92% energy efficiency vs conventional models.
+R03687	Y	-	C2	ANN+SNN	RNN	STATIC_IMG	SIM	NS	CLAIM	POWER+LATENCY	NA	OTHER	NA	NS	N	N	LSM with sparse modular liquid layer and Pow-STDP: 98.1% MNIST, 95.4% CIFAR-10, 75.52% CIFAR-100; power and speed gains asserted only.
+R03688	Y	-	C1	ANN+SNN	CNN	TS	LOIHI+GPU	GPU	ESTIMATED	POWER+ENERGY	PAIRED	NA	NA	NA	NA	N	SNN vs ANN solar forecasting: similar error, about 9x power efficiency (direct training), 7-8x (conversion); estimated on Loihi and GPU.
+R03689	Y	-	C5	ANN+SNN	CNN	NS	NS	NS	NONE	NONE	NA	NA	NA	NA	NA	N	Review of dynamic pruning and model compression for deep learning in medical imaging, including SNN optimization; no efficiency figures.
+R03691	Y	-	C1	ANN+SNN	RNN	BIOSIG	SIM	SIM	ESTIMATED	OPS+MEMORY+SPIKES	DIFFERENT	NA	NA	NA	NA	N	SNN decoder needs 5-23x fewer computations and memory than NN and LSTM decoders; event filter cuts events 192x/554x.
+R03693	Y	-	C3	ANN	GNN	OTHER	NA	NS	NONE	MEMORY	NA	NS	NS	NS	N	N	LTH experiments show ST-GCNs over-parameterized; sparse ST-GCN with 95% fewer parameters loses under 1% top-1 accuracy.
+R03703	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Hybrid ANN-SNN network for vision-language alignment; competitive results on VL tasks; efficiency only asserted, no figures.
+R03704	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	PINN-to-SNN conversion with calibration; accurate with low spike rates; efficiency gains asserted without ANN energy figures.
+R03706	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Asynchronous SNN optical-flow accelerator, 28 nm: 104 FPS, 7.9 mW, 0.3 pJ/SOP; no ANN comparison.
+R03715	Y	-	C1	HYBRID	CNN	OTHER	GPU	GPU	BOTH	OPS+POWER+ENERGY	PAIRED	NA	NA	NA	NA	Y	CNN-SNN hybrid vs CNN-only: FLOPs 1.82 to 0.94 G, power 68.4 to 62.1 W (P100), est. energy -13.2%; accuracy 99.47%.
+R03720	Y	-	C3	ANN	CNN+TRANSFORMER+MLP	STATIC_IMG	NA	NS	NONE	NONE	NA	NS	NS	NS	N	N	Pruning bias in image classification measured by chi-square test; truncated lottery ticket scheme reduces bias; MNIST, Fashion-MNIST, CIFAR10.
+R03721	Y	-	C2	SNN	NS	OTHER	SIM	NA	ESTIMATED	SPIKES	NA	OTHER	NA	NS	N	N	Tight E/I balanced initialization cuts firing rates up to 99.9% vs unbalanced SNNs on cue-based navigation task; 97.60% accuracy.
+R03722	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Multimodal ECG/PCG spiking CNNs: accuracy 89.74%, AUC 89.08%, energy 209.6 (units garbled); compared only with unimodal SNNs, no ANN.
+R03723	Y	-	C2	SNN	CNN	EVENT	SIM	NA	NONE	MEMORY	NA	NS	NA	NS	N	N	Delayed-kernel spiking convolutions with attention; three pruning techniques remove up to 80% of delays with minimal accuracy loss.
+R03725	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Batchnorm-free binarized SNN with stochastic encoding; memory and computation savings and better results than binarized CNN claimed, no figures.
+R03726	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	CNN-to-SNN conversion with KD for body-channel user recognition: 98.11% accuracy, student 5.1% of parameters; only accuracy and parameter counts.
+R03727	Y	-	C2	ANN+SNN	CNN+MLP	STATIC_IMG	SIM	SIM	NS	OPS+SPIKES	NA	OTHER	NA	NS	Y	N	Bernoulli spike thinning in DeepSNN vs SimpleCNN/SimpleFCNN for plant disease: 93.4% accuracy, 30% less computational overhead (comparator unclear).
+R03730	Y	-	C1+C6	ANN+SNN	MLP	STATIC_IMG	SIM	SIM	ESTIMATED	OPS+SPIKES	PAIRED	NA	NA	NA	NA	N	MNIST: ANN 98.0% vs SNN 97.2-98.0%; SNN at T=1-2 uses 24-52% of ANN SynOps; T=8 costs more, no gain.
+R03738	Y	-	C3	ANN	GNN	NS	NA	FPGA	CLAIM	MEMORY	NA	NS	STRONG	UNSTRUCT	Y	N	BingoGCN: strong lottery ticket with random weights and fine-grained sparsity for GNN accelerator on FPGA; memory-access reduction claimed, accuracy preserved.
+R03741	Y	-	C1	ANN+SNN	CNN	EVENT+CONTROL	SIM	SIM	CLAIM	ENERGY	DIFFERENT	NA	NA	NA	NA	N	Spiking CNN with event camera for quadrotor home localization (simulation); superiority in efficiency over frame-based networks claimed, no figures.
+R03743	Y	-	C1	ANN+SNN	NS	STATIC_IMG+TS	MEMRISTOR	NS	MEASURED	POWER+LATENCY	DIFFERENT	NA	NA	NA	NA	U	Neuromorphic memristive circuit for edge AI: measured 62% less power and 47% lower latency than digital accelerators, no accuracy drop.
+R03747	Y	-	C1	ANN+SNN	RNN	BIOSIG	SIM	SIM	NS	POWER+SPIKES	DIFFERENT	NA	NA	NA	NA	N	SNN with federated learning for ECG anomaly detection: 12.5% power reduction, 12.8% spike sparsity; 92.4% vs LSTM 82.0% accuracy.
+R03748	Y	-	C1	ANN+SNN	NS	BIOSIG	SIM	SIM	NS	ENERGY	NS	NA	NA	NA	NA	N	STDP SNN with temporal encoding for biomedical signals: +2.4% accuracy and 72.8% lower energy than conventional ANNs.
+R03756	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Heterogeneous SNN with autapses: 1-10% higher accuracy, up to 17.83x less energy, 5x lower latency; comparators not stated as ANNs.
+R03758	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	ANN-to-SNN conversion with IIPooling for bearing fault diagnosis: accuracy 0.959 (CWRU-DE), 0.861 (Lab-N205EW); no efficiency metrics.

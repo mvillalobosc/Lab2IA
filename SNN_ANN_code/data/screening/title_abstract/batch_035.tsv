@@ -1,0 +1,100 @@
+R03401	INCLUDE	C2+C5	none	Survey of pruning, quantization, distillation, spike reduction for deep SNNs
+R03402	EXCLUDE	E2	none	Organic vertical transistor reservoir device; no network-level ANN/SNN comparison
+R03403	EXCLUDE	E4	none	LSM/SNN EEG classifier; competitive accuracy only, efficiency not measured
+R03404	EXCLUDE	E4	none	Spiking model-based RL; biological plausibility, no ANN efficiency comparison
+R03405	INCLUDE	C2	none	Structured activity-based channel pruning and regeneration for deep SNNs
+R03406	INCLUDE	C1	Loihi,GPU	Hybrid SNN-ANN on Loihi and Jetson; accuracy, latency, power vs ANN
+R03407	INCLUDE	C2	GPU	Token sparsification in spiking transformer; training speedup, 48% energy reduction
+R03408	EXCLUDE	E2	memristor/in-memory	Fabricated memristor crossbar SNN; no ANN baseline or pruning
+R03409	INCLUDE	C2	none	Unstructured weight and neuron pruning for SNNs; energy and SOPs reported
+R03410	INCLUDE	C1	none	ANN-to-SNN conversion of transformers; 35% of transformer power
+R03411	EXCLUDE	E4	none	Spiking RL training scalability (MPI, mixed precision); no ANN efficiency comparison
+R03412	EXCLUDE	E4	GPU	SNN training speedup on GPUs vs SNN libraries; no ANN baseline
+R03413	EXCLUDE	E4	none	Traffic sign SNN; accuracy only, efficiency only as motivation
+R03414	INCLUDE	C1	none	Trainable Spiking-YOLO; accuracy, latency, energy compared with ANN detector
+R03415	EXCLUDE	E6	none	Event-camera polarization recovery network; no SNN or efficiency study
+R03416	EXCLUDE	E4	Loihi2	Spiking GNN on Loihi 2; accuracy only, no ANN comparison
+R03417	EXCLUDE	E2	memristor/in-memory	Boron nitride memristor device characterization only
+R03418	EXCLUDE	E4	none	Surrogate gradient for spiking RL; no efficiency comparison
+R03419	EXCLUDE	E4	ASIC	ROI attention on SENECA chip; no ANN baseline
+R03420	EXCLUDE	E2	ASIC	TCAM sparse connection memory circuit for cortical simulation; no learning task
+R03421	INCLUDE	C2	ASIC	Tensor-train compression of SNN; fewer FLOPs, parameters, training energy
+R03422	EXCLUDE	E2	ASIC	CMOS synapse circuit only
+R03423	EXCLUDE	E2	memristor/in-memory	Magnetic synapse device only
+R03424	INCLUDE	C1+C4	none	GA-tuned synaptic connections in spiking policy; higher energy efficiency than DRL
+R03425	INCLUDE	C5+C6	simulation	Tutorial and SANA-FE tool for neuromorphic performance-power prediction
+R03426	EXCLUDE	E2	memristor/in-memory	MoS2 memristor devices only
+R03427	EXCLUDE	E7	none	Graph sparse training for GNNs; no SNN, no lottery framing
+R03428	INCLUDE	C2	none	Sparsity boosting and spike skipping cut spike ratio; CNN accuracy parity
+R03429	EXCLUDE	E2	photonic	Ga2O3 optoelectronic synapse device
+R03430	EXCLUDE	E2	photonic	Optical nonlinear activator device
+R03431	EXCLUDE	E2	memristor/in-memory	Ferroelectric tunnel junction synapse device
+R03432	UNSURE	C1	Loihi,GPU	NAS for SNN on Loihi; unclear if ANN/GPU energy compared
+R03433	EXCLUDE	E4	none	SNN seizure detection review; application focus, no efficiency comparison
+R03434	INCLUDE	C1	none	SNNs vs RNN/LSTM on sequential tasks; hybrid SNN-ANN accuracy and efficiency
+R03435	EXCLUDE	E6	none	Interatomic potential for phase-change material
+R03436	INCLUDE	C1	Loihi,CPU,GPU	Autoencoder on Loihi uses less power than CPU or GPU
+R03437	EXCLUDE	E5	none	Spike-camera depth via knowledge distillation; no SNN efficiency
+R03438	INCLUDE	C3	none	Robust graph lottery tickets via joint adjacency and weight pruning
+R03439	EXCLUDE	E4	none	SNN poisoning robustness; compared only with other SNNs
+R03440	EXCLUDE	E2	memristor/in-memory	Polymer synaptic transistor device
+R03441	UNSURE	C5	GPU,memristor/in-memory	GPU and neuromorphic overview; unclear whether efficiency comparison is covered
+R03442	INCLUDE	C1	none	Calligraphy SNN needs far less computing power than same-structure ANN
+R03443	EXCLUDE	E6	none	Gambling lottery warning labels; unrelated
+R03444	EXCLUDE	E2	memristor/in-memory	Dual-port FeFET circuit for BNN accelerators; no SNN
+R03445	EXCLUDE	E4	none	Ship classification SNN; accuracy comparison only
+R03446	EXCLUDE	E2	photonic	V2O5 optical synaptic device
+R03447	EXCLUDE	E2	memristor/in-memory	OTS oscillator neuron device
+R03448	EXCLUDE	E6	none	Event-camera tracking benchmark with transformer; no SNN efficiency
+R03449	EXCLUDE	E3	none	Visual cortex pinwheel modelling with SNN; neuroscience
+R03450	UNSURE	C1	none	SNN beats DNNs on wafer maps; efficiency claimed but not quantified
+R03451	EXCLUDE	E2	photonic	Photodetector synaptic device
+R03452	INCLUDE	C1+C2	none	Weight pruning plus activity sparsity in event-based language models
+R03453	INCLUDE	C3	ASIC	Multicoated supermask pruning in 40 nm inference chip
+R03454	UNSURE	C3	none	Epistemology paper using LTH as example; no cost reduction content
+R03455	INCLUDE	C3	none	Expand-and-sparsify theory explaining LTH and random untrained networks
+R03456	EXCLUDE	E4	none	Spike encoding GUI tool; no efficiency comparison
+R03457	INCLUDE	C2+C4	none	LTH-based SNN pruning balancing hardware workload; latency and energy gains
+R03458	INCLUDE	C3	none	LTH draw-and-scratch pruning of MLP for mechanism design
+R03459	EXCLUDE	E2	memristor/in-memory	ReS2 synaptic transistor device
+R03460	EXCLUDE	E2	memristor/in-memory,CPU	Optoelectronic memristor; CNN power compared with CPU only
+R03461	EXCLUDE	E2	memristor/in-memory	Synaptic transistor device
+R03462	EXCLUDE	E2	ASIC	CMOS STDP circuit only
+R03463	EXCLUDE	E2	memristor/in-memory	Review of perovskite synaptic materials
+R03464	EXCLUDE	E2	photonic	COF optoelectronic synapse device
+R03465	EXCLUDE	E2	photonic	Review of 2D material vision devices
+R03466	INCLUDE	C2	ASIC	Dynamic head pruning in 3D spiking transformer accelerator; energy and latency
+R03467	EXCLUDE	E2	none	3D NoC router architecture for SNN; no learning task
+R03468	EXCLUDE	E4	none	3D spiking CNN for action recognition; accuracy only
+R03469	EXCLUDE	E2	photonic	SiC photogated synapse device
+R03470	EXCLUDE	E2	photonic	Photonic modulator device
+R03471	EXCLUDE	E2	memristor/in-memory	Floating-gate memory device
+R03472	UNSURE	C1	ASIC	Voice detection chip with neuromorphic features; unclear ANN baseline comparison
+R03473	EXCLUDE	E4	ASIC	SNN processor pJ/SOP; compared only with other SNN chips
+R03474	EXCLUDE	E4	ASIC	Neuromorphic SoC pJ/SOP; no ANN baseline
+R03475	INCLUDE	C2	ASIC	Dynamic neuron-pruning SNN processor; uJ per inference
+R03476	INCLUDE	C1	ASIC	Hybrid SNN-ANN accelerator; accuracy, throughput, energy per inference
+R03477	EXCLUDE	E4	ASIC,memristor/in-memory	Digital CIM SNN accelerator; compared with prior SNN designs
+R03478	EXCLUDE	E4	ASIC,memristor/in-memory	Time-domain CIM SNN chip; compared with SNN CIM
+R03479	EXCLUDE	E3	SpiNNaker	Hippocampus memory model on SpiNNaker; no ML task
+R03480	EXCLUDE	E4	none	Spiking policy for AUV tracking; no efficiency comparison
+R03481	EXCLUDE	E6	none	Self-healing network framework; SNN incidental
+R03482	EXCLUDE	E2	memristor/in-memory,photonic	Photoelectronic reservoir device; no SNN or ANN comparison
+R03483	EXCLUDE	E2	photonic	Optoelectronic synaptic transistor device
+R03484	EXCLUDE	E2	ASIC	Spiking vision sensor circuit; no ANN baseline
+R03485	UNSURE	C1	none	Hybrid ANN-SNN robot control; energy efficiency claimed, measurement unclear
+R03486	EXCLUDE	E4	GPU	Thalamus-inspired SNN; accuracy only
+R03487	EXCLUDE	E5	none	Transformers for IoT security; neuromorphic incidental
+R03488	INCLUDE	C5	none	Review of DNN versus SNN edge circuits, energy per operation
+R03489	EXCLUDE	E4	Loihi2	Neuron models for random walks on Loihi 2; no ANN
+R03490	EXCLUDE	E4	Loihi2,GPU	SNN on Loihi 2 vs Jetson; no ANN baseline
+R03491	EXCLUDE	E6	none	Event-camera depth estimation review; efficiency not the subject
+R03492	INCLUDE	C3+C5	none	Review of network pruning with extensive lottery ticket coverage
+R03493	EXCLUDE	E5	none	General deep learning image processing survey
+R03494	EXCLUDE	E6	none	Broad green-AI survey; pruning and neuromorphic only incidental
+R03495	INCLUDE	C2	none	Compressed-sensing SNN with sparsified binarized matrices; MACs reported
+R03496	EXCLUDE	E4	none	Adaptive-threshold LIF and surrogate gradient; no efficiency comparison
+R03497	EXCLUDE	E5	none	Plant disease CNN transfer learning; neuromorphic used loosely
+R03498	EXCLUDE	E2	Loihi,TrueNorth,ASIC	Time-synchronization architecture compared with TrueNorth and Loihi; no learning task
+R03499	UNSURE	C1	Loihi2,GPU	Non-spiking SSM on Loihi 2 vs Jetson; no SNN
+R03500	EXCLUDE	E3	FPGA	Neuron-astrocyte working memory model on FPGA

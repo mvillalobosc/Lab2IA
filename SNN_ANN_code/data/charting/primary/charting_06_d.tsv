@@ -1,0 +1,25 @@
+R01919	Y	-	C3	ANN	MLP+CNN	NS	NA	SIM	NONE	NONE	NA	EVO	WEAK	NS	N	N	Neuroevolutionary Ticket Search finds lottery-ticket subnetworks in feed-forward and convolutional DNNs before gradient training; no efficiency figures
+R01924	Y	-	C1	ANN+SNN	NS	EVENT	OTHER_NEURO	NS	CLAIM	ENERGY+LATENCY+THROUGHPUT+MEMORY	DIFFERENT	NA	NA	NA	NA	U	SNN on neuromorphic hardware 98.45% vs best frame ANN 97.51%; less memory, promising latency and energy scaling
+R01926	Y	-	C2	SNN	NS	DET	FPGA	NA	MEASURED	ENERGY+THROUGHPUT	NA	OTHER	NA	MIXED	Y	N	SNN FPGA accelerator FrameFire: KWBS scheduling gives 1.7x throughput; 1.04 KFPS and 1.15 mJ/frame on XC7Z035; no DNN baseline
+R01929	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Review of SNN biological plausibility and neurorobotics with some neuromorphic chip comparison; not focused on ANN-SNN efficiency or benchmarking
+R01937	Y	-	C3	ANN	NS	STATIC_IMG	NA	SIM	NS	LATENCY	NA	SCORE	STRONG	MIXED	N	N	Supermask-based meta-subnets (BMP, MMSUP) for multi-distribution few-shot vision; accuracy gains and ~2-4x training-time speed-up
+R01940	Y	-	C3	ANN	GNN	OTHER	NA	SIM	NONE	NONE	NA	NS	NS	NS	N	N	Lottery-hypothesis graph structure learning (GSL-LH) improves GNN robustness and scales to large graphs; no efficiency figures
+R01942	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Weight-binarized SNN on FPGA saves memory vs SNN and BNN counterparts, small accuracy loss; memory-only, quantization-only
+R01951	Y	-	C1	ANN+SNN	NS	NS	SIM	SIM	NS	ENERGY	NS	NA	NA	NA	NA	N	HFedSNN beats FedSNN by 4.48% accuracy and 26x lower communication overhead; 4.3x less energy than FedANN
+R01952	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Two-stream SNN via conversion plus tandem learning: 88.46% on UCF-101 with 200 time steps; energy efficiency only asserted
+R01953	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	QAT-based ANN-to-SNN conversion with Ca-LIF neurons; competitive accuracy at 8-128 time steps; no ANN efficiency comparison
+R01957	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Compact ANN-to-SNN object detector: 118x speedup on GPU, 1.5MB parameters, 800+ FPS on FPGA; no ANN comparison stated
+R01958	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Highway connection and residual membrane potential neurons cut simulation steps of conversion-based SNNs; no ANN efficiency comparison
+R01959	Y	-	C4	SNN	MLP	STATIC_IMG	SIM	NA	NS	SPIKES	NA	SCORE	STRONG	UNSTRUCT	N	Y	Hidden-network (LTH-inspired) connection search for SNN with surrogate gradients: 93.73% MNIST accuracy at 0.138 average fire intensity
+R01962	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Directly trained spiking DQN on 17 Atari games beats SOTA conversion SNN in performance and energy efficiency; no ANN comparison
+R01964	Y	-	C1	HYBRID	CNN	TS	SPINNAKER2	NS	CLAIM	NONE	DIFFERENT	NA	NA	NA	NA	N	Hybrid CNN-SNN matches SNN and ANN baselines in accuracy; on SpiNNaker 2 slightly less efficient than SNNs with noisy input
+R01966	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Hybrid SNN training (conversion plus spike backprop) for hippocampus segmentation; compared only with SNN training methods, no ANN efficiency data
+R01968	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	HDC plus random SNN layer: 10x faster, 2.6x more efficient than SNNs on Loihi; ASIC 601x faster; no ANN baseline
+R01976	Y	-	C1	ANN+SNN	OTHER	OTHER	LOIHI2	CPU+GPU	MEASURED	ENERGY+LATENCY	PAIRED	NA	NA	NA	NA	U	LCA on Loihi 2 orders of magnitude more efficient and faster than CPU/GPU at large sparsity penalties, similar reconstruction quality
+R01985	Y	-	C1	ANN+SNN	NS	STATIC_IMG	SIM	NS	NS	ENERGY	NS	NA	NA	NA	NA	N	In-sensor SNN co-design cuts sensor-to-processor bandwidth 12-96x and total energy 2.32x vs traditional CV processing; 3.8% accuracy drop on ImageNet
+R01987	Y	-	C2	SNN	RNN	OTHER	SIM	NA	NONE	NONE	NA	DST	NA	UNSTRUCT	N	N	Structural plasticity (growth and pruning of connections) in reward-modulated recurrent SNN for sequence learning; no efficiency data
+R01989	Y	-	C2	SNN	NS	NS	SIM	NA	CLAIM	SPIKES	NA	OTHER	NA	NS	Y	N	Spatial attention module suppresses noise spikes in SNNs, cutting firing with better accuracy than SNN baselines; no ANN comparison
+R01992	Y	-	C2	SNN	NS	NS	NS	NA	NS	ENERGY+LATENCY+EDP	NA	OTHER	NA	TEMPORAL	Y	N	Entropy-based dynamic timesteps on IMC: 1.46 average timesteps match 4-timestep static SNN accuracy, EDP reduced 80%
+R01994	Y	-	C3	ANN	TRANSFORMER	STATIC_IMG+NLP	NA	SIM	CLAIM	OPS	NA	MAG+OTHER	WEAK	UNSTRUCT	N	N	Instant Soup Pruning draws lottery-ticket-quality subnetworks from CLIP and BERT at a fraction of IMP cost; no cost figures
+R01998	Y	-	C1	ANN+SNN	CNN	OTHER	SIM	NS	CLAIM	LATENCY+MEMORY	NS	NA	NA	NA	NA	N	SpikeConvFlowNet two-stream SNN: fewer parameters and higher inference efficiency than latest methods with limited accuracy loss; no figures
+R02002	Y	-	C1	ANN+SNN	NS	OTHER	SIM	SIM	CLAIM	ENERGY+LATENCY	DIFFERENT	NA	NA	NA	NA	N	IDS-SNNDT shows lower energy use and latency than IDS-DNN and IDS-SNNTLF in simulation; no figures

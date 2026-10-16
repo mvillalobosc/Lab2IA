@@ -1,0 +1,25 @@
+R04838	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Ternary-spike SNN with quantization: 94% less memory, 7.5x energy saving vs other SNN works; no ANN comparison, no pruning
+R04841	Y	-	C1	ANN+SNN	CNN	STATIC_IMG	NS	NS	NS	LATENCY+MEMORY	PAIRED	NA	NA	NA	NA	N	Temporal-encoding CSNN: 73.10% accuracy, competitive with CNNs; up to 73% memory savings and 13x faster inference
+R04848	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Conceptual proposal of memristive SNNs with sleep-phase consolidation; discusses ANN energy cost, no experiments or figures
+R04854	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Hybrid sparse encoding with single-spike neurons: 90.65% CIFAR-10, 65.23% CIFAR-100, up to 25% lower firing rates; SNN-only comparison
+R04855	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	ANN-to-SNN conversion with hybrid fine-tuning for speech enhancement; quality gains only, no efficiency metric or figures
+R04858	Y	-	C3	ANN	TRANSFORMER	NLP	NA	NS	NONE	MEMORY	NA	SCORE	STRONG	UNSTRUCT	N	N	Ada-Sup supermasks for LLMs: TicketLLM beats BitNet b1.58 at 1.3B, perplexity 13.54 vs 13.62, sparsity about 50% vs 33%
+R04859	N	E2	-	-	-	-	-	-	-	-	-	-	-	-	-	-	TIF neuron circuit: +0.48%p accuracy, 92% lower neuron energy than IF-based SNNs on CIFAR-10; circuit level, no ANN comparison
+R04865	Y	-	C2	SNN	NS	STATIC_IMG+OTHER	MEMRISTOR	NA	MEASURED	ENERGY+OPS	NA	DST+OTHER	NA	MIXED	Y	N	Pruned memristive SNN on 40-nm macro: energy efficiency 37.8x and 62.5x, computational load -77% and -12.5%, accuracy near software baselines
+R04871	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	SNN bearing fault diagnosis; claims better accuracy, energy and noise robustness than existing methods; no figures, ANN baseline not named
+R04872	Y	-	C1	ANN+SNN	NS	CONTROL	NS	NS	CLAIM	ENERGY+MEMORY	NS	NA	NA	NA	NA	N	TTFS spike-based DRL with low-bit weights: competitive performance, higher energy efficiency and lower memory claimed, no figures
+R04873	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	ANN-SNN conversion with two-stage error minimization; SOTA accuracy, latency and energy preservation claimed, no figures or ANN efficiency comparison
+R04874	Y	-	C5+C6	ANN+SNN	NS	NS	FPGA	FPGA	NONE	NONE	NA	NA	NA	NA	NA	N	Survey of neuromorphic intelligence plus preliminary FPGA deployment pipeline for ANNs and SNNs enabling head-to-head benchmarking; no results
+R04875	N	E6	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Survey of scalable neuromorphic chips (architectures, learning, communication, sparsity); hardware scaling focus, no ANN-SNN efficiency comparison
+R04877	N	E2	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Neuromorphic transistor for ANN and SNN functions: 0.84 nJ per MAC, 95% CIFAR-10 in simulation; device level, no ANN-SNN comparison
+R04879	N	E6	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Review of neuromorphic computing for space missions; BrainStack under 1.5 W vs 15 W conventional processors (about 90% better); application-focused
+R04880	Y	-	C1	ANN+SNN	NS	AUDIO	NS	NS	CLAIM	ENERGY	NS	NA	NA	NA	NA	N	Spiking-FullSubNet beats SOTA in speech quality and energy efficiency, won Intel N-DNS Challenge algorithmic track; no figures
+R04884	N	E6	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Review of memristor-based neuromorphic computing and ANN, BNN, SNN learning algorithms; compares accuracy, device and hardware focus, no efficiency comparison
+R04887	Y	-	C1	ANN+SNN	CNN	STATIC_IMG+OTHER	TRUENORTH+LOIHI+BRAINSCALES	GPU	MEASURED	POWER+LATENCY	DIFFERENT	NA	NA	NA	NA	U	TrueNorth, Loihi, BrainScaleS: competitive accuracy with up to 30x lower power and 2-3x lower latency than DNNs on GPU
+R04888	Y	-	C1	ANN+SNN	NS	AUDIO+OTHER	NS	NS	CLAIM	ENERGY	NS	NA	NA	NA	NA	N	Multimodal spiking network for audio-visual classification; claims better accuracy and energy consumption on five datasets, no figures
+R04892	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Conceptual SNN cyber-defense architecture with prototype simulations; qualitative latency and energy advantages versus conventional ML, no figures
+R04896	Y	-	C3	ANN	TRANSFORMER	STATIC_IMG+NLP	NA	NS	NONE	MEMORY	NA	NS	WEAK	UNSTRUCT	N	N	Pruned quaternion transformers following LTH: quaternions cut parameters to one-fourth, and pruned quaternion models beat real-valued ones at severe sparsity
+R04899	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Mixed-precision quantization of spiking transformers: 8.71-10.19x compression, 5.69-10.2x energy reduction; quantization only, no ANN comparison, no pruning
+R04910	Y	-	C1	ANN+SNN	CNN	OTHER	NS	NS	CLAIM	OPS	DIFFERENT	NA	NA	NA	NA	N	DehazeSNN competitive with SOTA dehazing methods with smaller model size and fewer MACs; no figures
+R04915	Y	-	C1	ANN+SNN	CNN	DET	NS	NS	ESTIMATED	POWER	PAIRED	NA	NA	NA	NA	N	Theoretical power 1/2000 of ANN-based Tiny YOLO with performance degradation not exceeding 2%
+R04919	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	ANN-SNN conversion for bearing faults with residual-membrane-potential strategy to cut latency; no efficiency figures or ANN comparison

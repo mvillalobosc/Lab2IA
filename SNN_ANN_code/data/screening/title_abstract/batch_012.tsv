@@ -1,0 +1,100 @@
+R01101	EXCLUDE	E4	none	Spike encoding study for SNN speech; no ANN efficiency comparison
+R01102	EXCLUDE	E5	memristor/in-memory	Memristive deep belief net training; ANN-only, no SNN or LTH
+R01103	EXCLUDE	E5	photonic	Wave-based extreme learning machine and reservoir computing without spikes
+R01104	EXCLUDE	E2	memristor/in-memory	Ag/CeO2/Pt memristor synaptic device characterisation
+R01105	EXCLUDE	E2	memristor/in-memory	Multilayer RRAM synaptic device characterisation
+R01106	EXCLUDE	E2	memristor/in-memory	Device-level review of memristors for brain-inspired computing
+R01107	EXCLUDE	E2	photonic	SOA-based all-optical neuron emulation; no learning-task comparison
+R01108	EXCLUDE	E4	none	Hybrid SNN VAE on DVS data; accuracy only
+R01109	EXCLUDE	E4	none	SNN traffic classification; accuracy and parameter count only
+R01110	INCLUDE	C3	none	Supermask pruning of image captioning models
+R01111	INCLUDE	C1	Loihi	DNN-to-SNN conversion; latency, power, energy vs edge DNN accelerator
+R01112	EXCLUDE	E2	ASIC	Time-domain I&F neuron circuit; compared to other neuron circuits only
+R01113	EXCLUDE	E2	none	TFET charge-trap synaptic device; ANN simulation of device only
+R01114	EXCLUDE	E5	memristor/in-memory	Domain wall synapse quantized DNN; no SNN or LTH
+R01115	INCLUDE	C1	none	SNN vs LSTM forecasting; memory, training time, estimated energy
+R01116	UNSURE	C1	none	1DCNN quantization energy; SNN keyword, abstract truncated before SNN results
+R01117	EXCLUDE	E4	memristor/in-memory	STDP SNN on RRAM CIM; energy per spike, no ANN baseline
+R01118	EXCLUDE	E6	none	Philosophy of mind essay on energy and substrate independence
+R01119	EXCLUDE	E2	none	MoSe2/MoS2 heterojunction memory FET device
+R01120	UNSURE	E4	none	Hybrid ANN-SNN attention; efficiency keyword, measurement unclear, truncated
+R01121	EXCLUDE	E6	GPU	Fault injection reliability framework for SNN and compressed DNN
+R01122	INCLUDE	C2	FPGA	Sparse SNN accelerator exploiting weight and spike sparsity; GSOP/W
+R01123	INCLUDE	C6	simulation	Benchmarking framework for spintronic SNN chips; throughput and energy
+R01124	INCLUDE	C3	none	LTH evaluated for time series classification
+R01125	EXCLUDE	E5	none	PointNet++ on DVS event clouds vs CNN; no SNN
+R01126	UNSURE	C1	none	Convolutional SNNs vs ANN variants on radar gestures; efficiency measurement unclear
+R01127	EXCLUDE	E5	none	Sparse GRU for event-based drone racing; no SNN
+R01128	EXCLUDE	E4	none	Fully spiking event-based video reconstruction; efficiency only as motivation
+R01129	EXCLUDE	E2	memristor/in-memory	Event-driven SRAM CiM configuration; no task-level ANN comparison
+R01130	EXCLUDE	E6	none	Event data downscaling for embedded vision; no SNN or ANN
+R01131	EXCLUDE	E4	none	Event-driven intrinsic plasticity in converted SCNNs; compares IP rules
+R01132	EXCLUDE	E4	none	SNN tactile learning with TSSL-BP; no ANN efficiency comparison
+R01133	EXCLUDE	E5	none	Hyperdimensional computing on DVS data; no SNN
+R01134	EXCLUDE	E4	none	Evolved SNN blimp controller; tracking performance vs ANN only
+R01135	EXCLUDE	E4	simulation	Event-driven SNN simulator speed; no ANN comparison
+R01136	EXCLUDE	E4	memristor/in-memory	SNN robustness on non-ideal crossbars; accuracy only
+R01137	EXCLUDE	E2	memristor/in-memory	Dynamic memristor neuron and 1R array demonstration
+R01138	EXCLUDE	E5	memristor/in-memory	RRAM programming for stable ANN inference; no SNN
+R01139	EXCLUDE	E6	none	DVS event camera sensor characterisation
+R01140	EXCLUDE	E2	memristor/in-memory	Review of RRAM non-idealities for probabilistic computing
+R01141	EXCLUDE	E6	none	Review of neo-Hebbian reinforcement learning exploration
+R01142	INCLUDE	C3	none	LTH winning tickets in media recommender models
+R01143	INCLUDE	C2+C4	none	LTH in deep SNNs; Early-Time tickets, 97% sparsity
+R01144	EXCLUDE	E4	none	Caputo fractional derivative for SNN training
+R01145	EXCLUDE	E4	none	Extended liquid state machine; spike reduction, no ANN or pruning
+R01146	EXCLUDE	E6	none	COVID vaccine hesitancy survey
+R01147	EXCLUDE	E6	none	Ultimatum bargaining experiment with lottery tickets
+R01148	EXCLUDE	E5	none	Int8 NN fall detection on edge platform; neuromorphic used loosely
+R01149	EXCLUDE	E4	memristor/in-memory	Cycle-accurate RRAM SNN chip simulator; no ANN baseline
+R01150	EXCLUDE	E5	none	Event tensor representation for CNNs; no SNN
+R01151	EXCLUDE	E4	Loihi	Sparse coding on Loihi vs classical OMP; no ANN baseline
+R01152	EXCLUDE	E5	memristor/in-memory	Adversarial attacks on RRAM CNN accelerator; no SNN
+R01153	EXCLUDE	E4	none	Fault injection attacks on SNN; security, not efficiency
+R01154	EXCLUDE	E2	memristor/in-memory	Fault models and testing of memristor SNN circuits
+R01155	INCLUDE	C3	none	LTH-based masking for federated log anomaly detection
+R01156	INCLUDE	C3	none	Federated lottery ticket networks
+R01157	EXCLUDE	E2	memristor/in-memory	Tantalum oxide memristor switching types
+R01158	INCLUDE	C3	none	Adversarial winning tickets; LTH existence via NTK
+R01159	INCLUDE	C3	none	Meta winning tickets for MAML; FLOPs reported
+R01160	INCLUDE	C3	none	Dominant winning ticket in pre-trained language models
+R01161	INCLUDE	C2	none	Compressing SNN lateral inhibition via decomposition and local rules
+R01162	EXCLUDE	E2	none	Flexible optoelectronic synapse device
+R01163	EXCLUDE	E4	none	Deep SNN flood prediction; accuracy comparison only
+R01164	EXCLUDE	E4	none	Fluctuation-driven weight initialization for SNN training
+R01165	INCLUDE	C3	none	LTH-inspired winning subnetworks for continual learning
+R01166	INCLUDE	C3	none	Duplicate of R01165; winning subnetworks continual learning
+R01167	EXCLUDE	E2	none	Ferroelectric Schottky barrier FET synapse device
+R01168	EXCLUDE	E4	FPGA	SNN ECG recognition on FPGA; efficiency only as motivation
+R01169	EXCLUDE	E6	none	Blockchain lottery scheme
+R01170	INCLUDE	C1	none	Hybrid SNN-ANN optical flow; energy-efficiency claim for SNN part
+R01171	EXCLUDE	E6	none	Loot box gamblification experiment
+R01172	INCLUDE	C2	none	Ternary-weight SNN compression; fewer time steps
+R01173	EXCLUDE	E6	none	E-nose gas recognition review; ANN-SNN efficiency not main subject
+R01174	EXCLUDE	E4	none	SNN framework for mmWave radar trajectory
+R01175	INCLUDE	C3	none	Gradient flow analysis of lottery tickets and sparse training
+R01176	EXCLUDE	E4	none	Gradual surrogate gradient learning for SNNs
+R01177	EXCLUDE	E4	ASIC	BPTT SNN learning accelerator; no ANN baseline
+R01178	EXCLUDE	E2	none	Halide perovskite synaptic device review
+R01179	EXCLUDE	E4	memristor/in-memory	Hardware-calibrated RRAM SNN learning; accuracy only
+R01180	EXCLUDE	E5	ASIC	Automatically generated analog CNN ASIC; no SNN
+R01181	EXCLUDE	E4	Loihi	Recurrent SNN HDR texture segmentation on Nengo Loihi
+R01182	EXCLUDE	E6	none	Stock returns and Swedish legislative lottery
+R01183	EXCLUDE	E4	none	Spike-driven few-shot online learning
+R01184	EXCLUDE	E2	memristor/in-memory	HfO2 RRAM device review for neuromorphic computing
+R01185	EXCLUDE	E2	memristor/in-memory	Superlattice-like memristive synapse device
+R01186	EXCLUDE	E2	memristor/in-memory	Ferroelectric memcapacitive synapse device
+R01187	INCLUDE	C3	ASIC	Hidden network supermask inference engine; TOPS/W
+R01188	EXCLUDE	E4	FPGA	Multicast NoC for neuromorphic systems; no ANN comparison
+R01189	EXCLUDE	E4	none	Partitioning and mapping for large-scale neuromorphic hardware
+R01190	EXCLUDE	E2	memristor/in-memory	MoS2 memtransistor array device
+R01191	UNSURE	C1	none	Low-energy SNN SAR ship recognition; results truncated, energy comparison unclear
+R01192	INCLUDE	C3	CPU, GPU, FPGA	LTH keyword; compressed text detection, throughput on hardware
+R01193	EXCLUDE	E2	none	MXene ECRAM synaptic device
+R01194	INCLUDE	C1	SpiNNaker	DVS plus SpiNNaker recognition; 96.3% less computation than ANN
+R01195	EXCLUDE	E2	photonic	Photonic neuro-transistor synaptic device
+R01196	EXCLUDE	E2	memristor/in-memory	GeO2 resistive switching synaptic device
+R01197	EXCLUDE	E2	memristor/in-memory	Flash synapse array with CMOS IF neurons; tiny demo
+R01198	EXCLUDE	E2	none	Ferroelectric semiconductor memtransistor synapse
+R01199	EXCLUDE	E2	none	MoS2/ZrO2 memtransistor heterosynaptic plasticity
+R01200	EXCLUDE	E2	none	Ferroelectric tunnel junction synapse device

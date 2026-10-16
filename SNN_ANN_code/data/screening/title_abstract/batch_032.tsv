@@ -1,0 +1,100 @@
+R03101	EXCLUDE	E2	photonic	Photonic VO2 spiking device simulation, no network evaluation
+R03102	EXCLUDE	E2	memristor/in-memory	Skyrmion synapse device, MNIST only, no ANN comparison
+R03103	EXCLUDE	E2	photonic	Photonic resonator and PCM neuron design, no ANN comparison
+R03104	EXCLUDE	E4	FPGA	SNN ECG classifier on FPGA, no ANN baseline
+R03105	INCLUDE	C2+C6	none	SNN sparsity tradeoff with application-specific efficiency metric, DVS128 Gesture
+R03106	INCLUDE	C2	none	Spike activity reduction in SNNs via distillation and regularization
+R03107	EXCLUDE	E4	none	SNN intrinsic structure analysis, no efficiency comparison or sparsity
+R03108	EXCLUDE	E4	none	SNN XOR solvability study, no ANN efficiency comparison
+R03109	INCLUDE	C3	none	Strong LTH existence proof with sparsity guarantees
+R03110	EXCLUDE	E4	none	Spiking transformer compared only with SNN baselines on efficiency
+R03111	EXCLUDE	E2	memristor/in-memory	Optoelectronic memristor classification scheme, device-level, no SNN
+R03112	INCLUDE	C1	none	ANN-to-SNN conversion to single timestep, latency and accuracy
+R03113	EXCLUDE	E4	none	SNN fault monitoring, accuracy-only comparison with ANN-SVM
+R03114	EXCLUDE	E2	photonic	Optical CNN and reservoir hardware demonstration, no SNN
+R03115	EXCLUDE	E2	photonic	Photonic linear processor review, no SNN or sparsity content
+R03116	INCLUDE	C1	none	ANN-SNN conversion with group neurons, short time-steps, ImageNet
+R03117	INCLUDE	C3	none	Pruning at random initialization by masking, compared against LTH
+R03118	EXCLUDE	E5	FPGA	ANN segmentation of oil spills, FPGA proposal, no SNN
+R03119	EXCLUDE	E5	FPGA	Graph CNN hardware for event cameras, no SNN
+R03120	INCLUDE	C3	none	LTH-based iterative pruning of predistortion neural network
+R03121	EXCLUDE	E4	ASIC	Neuromorphic processor optimization compared only with other neuromorphic processors
+R03122	INCLUDE	C2	none	Connectivity reduction in SNN to cut wire congestion
+R03123	EXCLUDE	E5	memristor/in-memory	Optimizer comparison for memristor-based ANNs, no SNN
+R03124	INCLUDE	C1	ASIC	RNN-to-SNN conversion, 294.6x power reduction on Lynxi chip
+R03125	EXCLUDE	E4	none	Spiking transformer attention, accuracy against SNN baselines only
+R03126	EXCLUDE	E2	memristor/in-memory	Organic ferroelectric transistor synapse, device-level
+R03127	EXCLUDE	E2	memristor/in-memory	Perspective on organic mixed conductor materials
+R03128	INCLUDE	C3	none	Winning ticket in BERT via MLM pruning for robustness
+R03129	UNSURE	C1	ASIC	Hybrid ANN-SNN chip platform, power measured, baseline comparison unclear
+R03130	EXCLUDE	E4	none	Supervised STDP learning rule, no ANN or efficiency comparison
+R03131	INCLUDE	C2	none	Parallel spiking neuron reports higher activity sparsity and energy efficiency
+R03132	EXCLUDE	E2	none	Spintronic neuron network, picojoule power, no ANN comparison
+R03133	EXCLUDE	E2	none	Perovskite heterojunction vision sensor device
+R03134	INCLUDE	C1	Loihi2,FPGA	CNN on Versal versus SNN on Loihi 2, power compared
+R03135	INCLUDE	C6	simulation,CPU	Spintronic SNN energy and throughput benchmarking framework against CMOS
+R03136	EXCLUDE	E2	memristor/in-memory	Perovskite memristor synapse device
+R03137	EXCLUDE	E2	ASIC	Neuron circuit design with rebound excitation, circuit-level only
+R03138	EXCLUDE	E4	none	SNN for PET coincidence, baseline is classical algorithm
+R03139	EXCLUDE	E2	memristor/in-memory	Ferroelectric photoelectric synapse device, MNIST simulation only
+R03140	EXCLUDE	E2	photonic	Photonic analog signal processing review, no SNN comparison
+R03141	EXCLUDE	E2	photonic	Photonic neural network tutorial, no SNN or sparsity content
+R03142	EXCLUDE	E2	photonic	Silicon microresonator photonic network review, no SNN comparison
+R03143	EXCLUDE	E2	photonic	Photonic spectrum slicer for event cameras, device-level
+R03144	EXCLUDE	E7	photonic	Optical network with sparse connection activation, no SNN or LTH
+R03145	EXCLUDE	E2	photonic	Photonic synaptic transistor device
+R03146	EXCLUDE	E2	memristor/in-memory	Optoelectronic synaptic transistor array, SNN accuracy only
+R03147	EXCLUDE	E2	none	Spin texture physical reservoir device, no SNN
+R03148	EXCLUDE	E4	none	SNN for finite element material response, no ANN efficiency comparison
+R03149	INCLUDE	C3	none	Supermasks in untrained network for sequential PDE solving
+R03150	EXCLUDE	E2	memristor/in-memory	Device-level domain pruning in ferroelectric memory, not network pruning
+R03151	EXCLUDE	E2	memristor/in-memory	Tunneling transistor synapse device, no SNN comparison
+R03152	EXCLUDE	E5	none	DNN tracking with event cameras for AR, no SNN
+R03153	EXCLUDE	E4	memristor/in-memory	Memristive TTFS SNN yield tuning, no ANN comparison or pruning
+R03154	EXCLUDE	E2	memristor/in-memory	Memristor neuromorphic ADC circuit, no SNN or ANN comparison
+R03155	INCLUDE	C3	GPU	Graph winning ticket from LTH for spatial-temporal GNN
+R03156	EXCLUDE	E2	memristor/in-memory	Organic electrochemical devices for glucose prediction network, no SNN
+R03157	EXCLUDE	E3	none	Predictive coding SNN as cortical model, MNIST demo only
+R03158	EXCLUDE	E4	none	SNN for campus quality data, accuracy-only comparison with NNs
+R03159	EXCLUDE	E4	none	Probabilistic Boolean spiking neuron theory, no ANN comparison
+R03160	EXCLUDE	E2	none	Life cycle assessment of VO2 neuron fabrication, device-level
+R03161	EXCLUDE	E2	none	Transistor neuron variability analysis, device-level
+R03162	EXCLUDE	E2	photonic	Optical computing with MoS2 material, device-level
+R03163	EXCLUDE	E2	memristor/in-memory	ECRAM device review for in-memory accelerators
+R03164	EXCLUDE	E2	none	Organic transistor LIF neuron, MNIST accuracy only
+R03165	INCLUDE	C2	ASIC	SNN accelerator exploiting spike sparsity via time-step merging
+R03166	EXCLUDE	E4	none	Spiking transformer for segmentation, no ANN efficiency comparison stated
+R03167	INCLUDE	C2	FPGA	Sparsity-aware SNN accelerator, 3.14x FPS/W over sparsity-oblivious design
+R03168	EXCLUDE	E3	none	Theoretical neuron network synchronization, no ML task
+R03169	INCLUDE	C2	none	SNN quantization of weights and membrane potentials, memory reduction
+R03170	EXCLUDE	E5	none	ANN quantization-aware training with fault awareness, no SNN
+R03171	EXCLUDE	E4	none	Spiking transformer, accuracy gains over SNNs, no ANN efficiency data
+R03172	EXCLUDE	E4	ASIC	SNN many-core hardware compared only with other SNN designs
+R03173	INCLUDE	C2	Loihi	Quantization-aware SNN training on Loihi to cut memory and energy
+R03174	EXCLUDE	E4	ASIC	Quantized recurrent SNN neuron in 45nm, no ANN baseline
+R03175	EXCLUDE	E4	none	SNN radar recognition, efficiency only as motivation
+R03176	UNSURE	C1	none	SNN vs ANN on Raman data, parameters and operation type only
+R03177	EXCLUDE	E5	none	LSTM on simulated event data for boiling, no SNN
+R03178	EXCLUDE	E2	none	Event sensor pixel characterization, no network evaluation
+R03179	EXCLUDE	E4	FPGA	FPGA SNN comparing IF and Izhikevich neurons, no ANN baseline
+R03180	EXCLUDE	E3	none	Hardware emulation of neural cultures, no ML task
+R03181	EXCLUDE	E4	FPGA	FPGA SNN accelerator for remote sensing, no ANN baseline measured
+R03182	EXCLUDE	E5	none	Event camera perception network, no SNN
+R03183	EXCLUDE	E4	ASIC	SNN seizure detection on Xylo, power measured, no ANN baseline
+R03184	INCLUDE	C1	Akida,MCU	CNN on Arduino 125 mW versus converted SNN on Akida 72 mW
+R03185	EXCLUDE	E4	none	SNN online training gradients, no ANN efficiency comparison
+R03186	INCLUDE	C5	memristor/in-memory	Overview of energy-efficient SNN algorithms, co-design and hardware
+R03187	UNSURE	C5	memristor/in-memory	Memristor device to neuromorphic chip review, link to chip metrics
+R03188	EXCLUDE	E2	memristor/in-memory	Memristor device and crossbar review
+R03189	EXCLUDE	E2	memristor/in-memory	ReSe2 ferroelectric memristor device
+R03190	EXCLUDE	E2	photonic,simulation	Optical interconnect network architecture, no SNN
+R03191	EXCLUDE	E2	none	Dual-gate transistor physical reservoir device
+R03192	INCLUDE	C2	none	Spike rate reduction in deep SNNs through loss penalty
+R03193	EXCLUDE	E2	memristor/in-memory	Organic photosynaptic transistor device
+R03194	EXCLUDE	E6	none	Legal commentary on lottery vendor disability ruling
+R03195	EXCLUDE	E2	memristor/in-memory	NiPS3 memristor crossbar device
+R03196	EXCLUDE	E4	none	Spiking vision transformer for remote sensing, no ANN baseline stated
+R03197	EXCLUDE	E4	none	Brain-inspired computing system stack perspective, no efficiency comparison
+R03198	INCLUDE	C1	none	SOM-SNN fatigue detection, 12.21-42.59% energy reduction versus ANN
+R03199	EXCLUDE	E4	none	SNN-ANN equivalence theory for sequences, accuracy only
+R03200	EXCLUDE	E2	memristor/in-memory	Ferroelectric memristor neuromorphic review

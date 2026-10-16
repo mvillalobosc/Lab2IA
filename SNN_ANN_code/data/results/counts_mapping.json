@@ -1,0 +1,25 @@
+{
+  "assessed_on_full_abstract": 2109,
+  "excluded": 638,
+  "excluded_by_reason": {
+    "E0": 3,
+    "E1": 3,
+    "E2": 58,
+    "E4": 508,
+    "E5": 16,
+    "E6": 34,
+    "E7": 16
+  },
+  "included_in_mapping": 1471,
+  "categories": {
+    "C1": 727,
+    "C2": 383,
+    "C3": 331,
+    "C4": 6,
+    "C5": 58,
+    "C6": 46
+  },
+  "hardware_measured_Y": 54,
+  "hardware_measured_U": 109,
+  "fulltext_candidates": 163
+}

@@ -1,0 +1,34 @@
+R06301	EXCLUDE	E2	photonic	Organic transistor synapse device; digit recognition only, no SNN or pruning
+R06302	EXCLUDE	E3	ASIC	Wafer-scale architecture for whole-brain cortical simulation; no ML task
+R06303	EXCLUDE	E2	photonic	Optoelectronic synapse device; CNN accuracy only, no ANN-SNN comparison or pruning
+R06304	EXCLUDE	E7	photonic	Optical neural network with Hessian pruning; no SNN, not lottery-ticket
+R06305	EXCLUDE	E2	photonic	Optical organic synapse device; no network-level ANN-SNN or pruning content
+R06306	EXCLUDE	E6	none	Smart textile fibers review; SNN only a minor emphasis
+R06307	INCLUDE	C1	CPU	CNN vs ANN-SNN vs SNN: accuracy, time, CO2 and spike-based energy
+R06308	EXCLUDE	E4	none	SNN-only spike coding analysis; no ANN baseline, no efficiency or pruning
+R06309	INCLUDE	C1	none	SNN vs CNN baseline: accuracy, power and latency measured
+R06310	EXCLUDE	E2	memristor/in-memory,FPGA	Memristor synapse device; ANN-only FPGA edge system, no SNN or pruning
+R06311	EXCLUDE	E2	memristor/in-memory,simulation	Memristor synapse device; ANN/CNN accuracy simulation only, no SNN or pruning
+R06312	EXCLUDE	E2	memristor/in-memory,simulation	Memristor synapse device; ANN/CNN accuracy simulation only, no SNN or pruning
+R06313	EXCLUDE	E4	FPGA	FPGA spiking transformer accelerator; only spiking baselines, no ANN comparison visible
+R06314	INCLUDE	C2	FPGA	FPGA SNN accelerator; latency vs spatial/temporal sparsity; no ANN baseline seen
+R06315	EXCLUDE	E4	none	SNN temporal-resolution adaptation; accuracy only, energy as motivation
+R06316	EXCLUDE	E2	memristor/in-memory,photonic	Optoelectronic memristor device; ANN image recognition only, no SNN or pruning
+R06317	EXCLUDE	E2	memristor/in-memory	Memristor synapse device; CNN MNIST accuracy only, no SNN or pruning
+R06318	EXCLUDE	E2	photonic	Photoelectrochemical synapse device; ANN digit recognition only, no SNN or pruning
+R06319	EXCLUDE	E4	none	SNN training via ANN-teacher distillation; accuracy only, no efficiency or pruning
+R06320	EXCLUDE	E4	none	SNN visual front-end in VQA; no ANN efficiency comparison or pruning visible
+R06321	EXCLUDE	E4	none	Distributed SNN training protocols; communication traffic, no ANN efficiency comparison stated
+R06322	INCLUDE	C1	none	SNN vs ANN on ECG: 62.95x energy gain, 8.64% accuracy loss
+R06323	EXCLUDE	E4	none	Spiking transformer coding and neuron design; energy only versus SNN baselines
+R06324	EXCLUDE	E4	none	SNN plus diffusion for event-based occlusion removal; no ANN efficiency comparison
+R06325	EXCLUDE	E4	simulation	Exact event-driven SNN training; energy gains versus SNN surrogate baseline only
+R06326	EXCLUDE	E4	none	Koopman SNN module for brain disorder diagnosis; no ANN efficiency or pruning
+R06327	EXCLUDE	E5	none	ANN-only EEG model; EEG-GLT appears only as a comparison baseline
+R06328	EXCLUDE	E2	photonic	Polarization photodetector device; no learning task or ANN-SNN content
+R06329	EXCLUDE	E2	memristor/in-memory,simulation	Memristor crossbar ANN circuit with in-situ training; no SNN or pruning
+R06330	EXCLUDE	E4	none	Spiking transformer architecture; efficiency claims without ANN comparison in abstract
+R06331	INCLUDE	C1	none	Spiking hashing: mAP gain over ANN baselines, one-eighth estimated inference energy
+R06332	UNSURE	C1	none	Energy-aware spiking classifier; unclear if energy versus ANN was measured
+R06333	UNSURE	C1	none	Event-driven liquid-spiking alignment; compute savings vs frame-based baselines unclear
+R06334	EXCLUDE	E2	memristor/in-memory	Ferroelectric memristor device; synaptic functions only, no SNN or pruning content

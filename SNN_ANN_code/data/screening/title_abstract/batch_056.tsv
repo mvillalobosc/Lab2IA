@@ -1,0 +1,100 @@
+R05501	EXCLUDE	E2	memristor/in-memory	ReRAM synaptic device; ANN only for accuracy demo
+R05502	EXCLUDE	E2	memristor/in-memory	Synaptic transistor talk; device-level
+R05503	EXCLUDE	E2	memristor/in-memory	Synaptic transistor; CNN trained on device characteristics only
+R05504	EXCLUDE	E4	FPGA	Event-based optical flow FPGA; no ANN baseline visible
+R05505	EXCLUDE	E2	memristor/in-memory	Optoelectronic memristor; in-sensor CNN demo
+R05506	EXCLUDE	E2	memristor/in-memory	Organic synaptic TFT; device-level with CNN accelerator
+R05507	EXCLUDE	E2	photonic	Photodiode synapse; CNN accuracy only
+R05508	UNSURE	C1	none	SNN vs DL baselines; efficiency claimed but unquantified
+R05509	EXCLUDE	E5	none	Foveated CNN preprocessing; ANN only
+R05510	INCLUDE	C2	FPGA,CPU,GPU	Structured sparse SNN FPGA accelerator; throughput and energy gains
+R05511	EXCLUDE	E6	simulation	Fractional Hamiltonian networks; memory dynamics, no efficiency
+R05512	EXCLUDE	E4	none	Spiking intrusion detection; no efficiency comparison
+R05513	EXCLUDE	E6	none	Event camera spectral processing; no SNN or ANN
+R05514	INCLUDE	C1+C2	none	CNN vs SNN energy benchmark plus structured pruning of spiking SqueezeNet
+R05515	EXCLUDE	E3	none	Biological neuron reservoir computing
+R05516	EXCLUDE	E2	FPGA	FPGA memristive neuron model; no learning task
+R05517	EXCLUDE	E5	MCU	TinyML survey; general ANN compression
+R05518	INCLUDE	C1	CPU	CNN vs converted and native SNN latency and accuracy
+R05519	INCLUDE	C1	ASIC	SNN processor supporting ANN-to-SNN conversion; time-window tuning; energy
+R05520	EXCLUDE	E2	memristor/in-memory	Photomemristor vision device; ANN demo
+R05521	EXCLUDE	E2	photonic	All-optical synapse device
+R05522	UNSURE	C1	none	Binary SNN plus CNN ensemble; model efficiency unquantified
+R05523	EXCLUDE	E5	none	Event-frame fusion gait recognition; ANN only
+R05524	EXCLUDE	E4	none	Spiking Q-network accuracy gap only
+R05525	INCLUDE	C1	none	Energy-efficient SpikeYOLO vs ANN detectors; details truncated
+R05526	EXCLUDE	E2	photonic	Optical synaptic transistor; CNN training demo
+R05527	EXCLUDE	E2	memristor/in-memory	Stretchable OECT synapse; ANN pattern recognition demo
+R05528	EXCLUDE	E4	none	Spiking ViT; efficiency compared only with SNN methods
+R05529	INCLUDE	C1	none	ANN-to-SNN conversion with fewer time steps and energy
+R05530	EXCLUDE	E4	none	Graph reservoir; neuromorphic constraints, no ANN efficiency comparison
+R05531	EXCLUDE	E3	none	Graphon signal processing; stimulus identification, neuroscience
+R05532	EXCLUDE	E5	none	Green AI review; general compression and quantisation
+R05533	INCLUDE	C2	none	SNN neuron pruning and timestep adaptation reduce energy
+R05534	INCLUDE	C1	none	Low-timestep ANN-SNN conversion; accuracy versus latency
+R05535	EXCLUDE	E6	none	Precision farming; SNN incidental
+R05536	INCLUDE	C2	ASIC	SNN accelerator exploiting temporal spike sparsity; no ANN baseline
+R05537	INCLUDE	C2	FPGA	Structured pruning and quantization of event SNN on FPGA
+R05538	EXCLUDE	E4	FPGA	SNN quantization FPGA accelerator; no ANN baseline or pruning
+R05539	EXCLUDE	E5	GPU,FPGA,ASIC	General DNN hardware acceleration survey
+R05540	EXCLUDE	E2	memristor/in-memory	GaN memristor array AMC; MLP only
+R05541	EXCLUDE	E5	memristor/in-memory	Analog ANN hardware-aware training; no SNN
+R05542	EXCLUDE	E5	memristor/in-memory	Memristor CNN design; ANN only, not pruning
+R05543	INCLUDE	C1	ASIC	ANN-SNN conversion stochastic computing hardware; power and area gains
+R05544	EXCLUDE	E2	memristor/in-memory,simulation	Analog IMC circuit modelling of physical networks
+R05545	EXCLUDE	E2	memristor/in-memory	Organic memristor device; simulation demo
+R05546	INCLUDE	C1	none	Hybrid ANN-SNN BERT; 41.9% less energy on GLUE
+R05547	EXCLUDE	E2	memristor/in-memory	2D material monolithic 3D integration; CNN demo
+R05548	EXCLUDE	E2	memristor/in-memory	Device integration review; not efficiency comparison
+R05549	INCLUDE	C1	none	Deep SNN claimed more efficient than ANN on neuromorphic hardware
+R05550	INCLUDE	C2	memristor/in-memory	IGZTO CIM SNN macro with pruning, 39% sparsity
+R05551	EXCLUDE	E2	memristor/in-memory	Memristor device
+R05552	EXCLUDE	E3	none	Cerebellar neuroscience
+R05553	EXCLUDE	E2	photonic	Photosynaptic transistor device
+R05554	EXCLUDE	E2	memristor/in-memory	Polymer memristor device
+R05555	EXCLUDE	E2	memristor/in-memory	CBRAM memristor device
+R05556	EXCLUDE	E2	memristor/in-memory	MoTe2 memtransistor device
+R05557	EXCLUDE	E2	memristor/in-memory	Organic memristor device
+R05558	INCLUDE	C1	none	Spiking transformer; complexity reduction versus ANN attention
+R05559	EXCLUDE	E4	ASIC	INT8 SNN accelerator; no ANN baseline or pruning
+R05560	EXCLUDE	E2	none	Supercapacitive synapse; reservoir device
+R05561	EXCLUDE	E2	memristor/in-memory	GaN synapse device; ANN MNIST
+R05562	EXCLUDE	E2	photonic	Optoelectronic heterojunction device
+R05563	EXCLUDE	E2	memristor/in-memory	HfOx memristor device
+R05564	EXCLUDE	E4	none	Event-camera SNN-CNN speckle imaging; no ANN baseline
+R05565	EXCLUDE	E4	none	Spiking Ising machine; optimisation, no ANN baseline
+R05566	EXCLUDE	E2	memristor/in-memory	Carbon nanotube synaptic transistor array
+R05567	EXCLUDE	E2	memristor/in-memory	Memristive neuron; SNN task, no ANN comparison
+R05568	EXCLUDE	E2	memristor/in-memory	2D optoelectronic neuron and synapse integration
+R05569	INCLUDE	C1	FPGA	Converted spiking UNet FPGA; time steps, power, FPS
+R05570	INCLUDE	C2	none	Fine-pruning of SNNs for backdoor defense
+R05571	EXCLUDE	E4	none	SNN saliency explanation method
+R05572	EXCLUDE	E2	memristor/in-memory	Neuromorphic sensory device review
+R05573	EXCLUDE	E4	none	Spiking forecasting for EV charging; no efficiency
+R05574	EXCLUDE	E4	none	CNN+SNN plant disease; accuracy only
+R05575	EXCLUDE	E4	none	CAE plus SNN compression; quality metrics only
+R05576	UNSURE	C1	none	Hybrid SNN plus DL supply chain; baseline unclear
+R05577	EXCLUDE	E6	none	EV charging optimisation; SNN only as comparator
+R05578	EXCLUDE	E4	none	Quantum spiking ResNet; accuracy and noise only
+R05579	EXCLUDE	E4	ASIC	SNN-only CMOS accelerator; energy per SOP, no ANN baseline
+R05580	UNSURE	C1	none	Spiking EEG benchmark with latency; ANN baselines unclear
+R05581	INCLUDE	C1	none	Hybrid SCNN versus CNN/AlexNet; 2-15x fewer MACs
+R05582	INCLUDE	C1	none	Spiking LoRA versus LoRA; theoretical efficiency, timestep ablations
+R05583	UNSURE	C1	none	Hybrid ANN-SNN action recognition; low-power claim unquantified
+R05584	EXCLUDE	E4	none	Hybrid SNN fault detection; energy only as motivation
+R05585	INCLUDE	C2	none	Spiking CLIP with sparsity constraint; energy claims unverified
+R05586	UNSURE	C1	none	Spiking transformer for water vision; energy comparison unclear
+R05587	UNSURE	C1	ASIC	Hybrid SNN-ANN optical flow chip; ANN baseline unclear
+R05588	EXCLUDE	E2	ASIC	Asynchronous RISC-V processor; circuit-level
+R05589	EXCLUDE	E4	none	Hyperparameter-invariant SNN; accuracy only
+R05590	INCLUDE	C1	ASIC	SNN-hyperdimensional controller ASIC; 3.05x energy efficiency versus conventional
+R05591	EXCLUDE	E3	none	Neuronal avalanches in Hodgkin-Huxley networks
+R05592	INCLUDE	C3	none	Lottery ticket pruning for transfer learning on edge
+R05593	EXCLUDE	E2	memristor/in-memory	Recyclable synaptic transistor device
+R05594	INCLUDE	C1	none	Spiking transformer speech; WER comparable to ANNs, energy claimed
+R05595	EXCLUDE	E2	memristor/in-memory	Ferroelectric tunnel junction device
+R05596	EXCLUDE	E4	none	SNN anomaly detection with PKI; network energy only
+R05597	EXCLUDE	E2	photonic	In-sensor optoelectronic event sensor
+R05598	INCLUDE	C1	memristor/in-memory	Binarized SNN in-sensor; 97% energy reduction versus CNN
+R05599	EXCLUDE	E2	memristor/in-memory	Neuromorphic transistor; CNN training demo
+R05600	EXCLUDE	E6	none	E-nose review

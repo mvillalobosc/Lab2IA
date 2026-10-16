@@ -1,0 +1,25 @@
+R04323	Y	-	C1	ANN+SNN	RNN	BIOSIG	SIM	NS	NS	ENERGY+EDP+LATENCY	NS	NA	NA	NA	NA	N	SNN vs ANN: energy savings 25.12-39.20x, EDP gains 52.37-81.9x; MCLeaky accuracy 98.8% on EDA stress detection
+R04324	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Lightweight SNN 1.78M params, 97% accuracy; compared with ANNs on accuracy only, no efficiency metric
+R04336	Y	-	C1	ANN+SNN	NS	NS	NS	NS	NS	ENERGY	NS	NA	NA	NA	NA	N	SNNs 23.08x more energy-efficient than ANNs in MIMO over-the-air federated learning; accuracy comparable to ideal benchmarks
+R04337	Y	-	C2	SNN	NS	STATIC_IMG	FPGA	NA	MEASURED	THROUGHPUT+POWER	NA	NS	NA	NS	NS	N	FPGA SNN with sparse learning: ~3.9 million inferences/s/W at 97.5% accuracy target; no ANN comparison
+R04340	Y	-	C3	ANN	NS	OTHER	NA	NS	NONE	NONE	NA	OTHER	OTHER	NS	N	N	LTH-inspired intrinsic/extrinsic parameter split with distinct updates for OOD detection; no efficiency metrics
+R04342	Y	-	C1	HYBRID	OTHER	OTHER	NS	NS	NS	ENERGY	NS	NA	NA	NA	NA	N	Hybrid spiking NeRF with Group Neurons: energy consumption reduced by 60% (baseline traditional NeRF implied)
+R04345	N	E5	-	-	-	-	-	-	-	-	-	-	-	-	-	-	RBM teacher-student theory; lottery ticket hypothesis only mentioned as possible application, no subnetworks or masks
+R04351	N	E2	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Dual-mode IGZO CIM macro: 622.54 TOPS/W CNN mode, 1731.42 TOPS/W SNN mode; circuit level, no network evaluation
+R04352	Y	-	C1	HYBRID	CNN	STATIC_IMG	GPU	GPU	MEASURED	LATENCY+THROUGHPUT	DIFFERENT	NA	NA	NA	NA	U	Hybrid CNN-SNN on RTX 3090: ~31 ms latency, ~32 images/s; baselines run under same settings, values not given
+R04364	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	SNN RL model surpasses ANN FQF on Atari; power reduction claimed without ANN-specific figure
+R04369	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Spiking sender for food recognition: 9x less transmission volume, 3x faster runtime/memory vs unspecified baseline; no ANN efficiency comparison
+R04377	Y	-	C2	SNN	NS	AUDIO	OTHER_NEURO	NA	NS	SPIKES	NA	OTHER	NA	NS	Y	N	Photonic SNN with TTFS coding: 0.4 spikes per neuron, ~4x fewer than other SNNs; speech accuracy 90.5%
+R04380	Y	-	C1	ANN+SNN	CNN+MLP+RNN	BIOSIG	NS	NS	CLAIM	NONE	DIFFERENT	NA	NA	NA	NA	N	MFSNN beats MLP and GRU in accuracy and computational efficiency on invasive BCI decoding; no figures given
+R04384	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	SNN controller for artificial pancreas beats RL models in time in range (92.4/83.8/79.9%); power only claimed minimal
+R04386	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	ANN-SNN conversion; only efficiency figure is time steps (2-3 steps), no energy or operation counts
+R04388	Y	-	C1	ANN+SNN	CNN	NS	FPGA	NS	NS	LATENCY+ENERGY	DIFFERENT	NA	NA	NA	NA	U	Neuromorphic processor with NeuGEMM on FPGA: execution time -69%, energy -89% vs conventional ANN accelerators
+R04394	Y	-	C1	ANN+SNN	GNN	OTHER	NS	NS	ESTIMATED	OPS+SPIKES	PAIRED	NA	NA	NA	NA	N	SNN needs 5.86x more operations than static GCN (40 timesteps); 65.3% neuron sparsity; PubMed AUC 0.937 vs 0.917
+R04396	Y	-	C1	ANN+SNN	CNN	TS	NS	NS	NS	ENERGY	PAIRED	NA	NA	NA	NA	N	SNN accuracy 91.3% close to CNN counterpart with 65% energy savings
+R04399	Y	-	C1	ANN+SNN	NS	CONTROL+TS	NS	NS	CLAIM	ENERGY+LATENCY	NS	NA	NA	NA	NA	N	Benchmarks SNN vs deep learning on energy and latency for spacecraft tasks; preliminary findings, no figures
+R04400	Y	-	C1	ANN+SNN	CNN	DET	SIM	NS	ESTIMATED	OPS	DIFFERENT	NA	NA	NA	NA	N	IoU 78.4% (Synaptic SNN) and 74.6% (Sigma-Delta SNN) vs 84% MobileNetV2; ~102x fewer computations
+R04401	Y	-	C1	ANN+SNN	NS	AUDIO	NS	NS	CLAIM	POWER	DIFFERENT	NA	NA	NA	NA	N	AGS-FSN beats conventional deep learning in accuracy and power consumption on noisy speech; no figures given
+R04404	Y	-	C1	ANN+SNN	NS	TS	OTHER_NEURO	NS	NS	LATENCY+ENERGY	DIFFERENT	NA	NA	NA	NA	U	Latency ~35 us, 30x faster than baseline deep learning; neuromorphic hardware ~2 orders of magnitude lower energy
+R04405	N	E6	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Survey of neuromorphic applications on SpiNNaker, TrueNorth, Loihi and DVS; no efficiency comparison or benchmarking focus
+R04409	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	SNN robustness vs ANN on CIFAR-10 (2x robustness); low energy asserted as general benefit, not evaluated
+R04415	Y	-	C1	ANN+SNN	NS	CONTROL	SIM	NS	NS	OPS	DIFFERENT	NA	NA	NA	NA	N	SNN controller ~90% less computational burden than ANNs on von Neumann architectures; multi-UAV simulation

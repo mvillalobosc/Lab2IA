@@ -1,0 +1,25 @@
+R04511	Y	-	C2	SNN	NS	NS	ASIC	NA	NS	LATENCY+ENERGY	NA	ACT	NA	MIXED	Y	N	Phi hierarchical pattern sparsity SNN accelerator: 3.45x speedup, 4.93x energy efficiency vs SOTA SNN accelerators; no ANN baseline
+R04525	Y	-	C3	ANN	NS	NS	NA	NS	NONE	NONE	NA	REG+SCORE+THEORY	WEAK	UNSTRUCT	N	N	Concave regularization of relaxed binary mask to find winning tickets; theory in convex setting; numerical tests, no efficiency figures
+R04526	Y	-	C3	ANN	TRANSFORMER	NLP	NA	NS	CLAIM	NONE	NA	OTHER	OTHER	NS	N	N	Lottery-ticket PEFT for code LLMs: state-of-the-art among PEFT methods on MultiPLE; PLEX-E reduces compute, no figures
+R04527	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	PointLCA-Net 93.41% on DVS128, ~92% less energy than other SNNs for point clouds; no ANN comparison
+R04529	Y	-	C1	ANN+SNN	OTHER	TS	NS	NS	CLAIM	MEMORY	DIFFERENT	NA	NA	NA	NA	N	Spiking LMU predicts EKF state with up to 96% memory reduction vs deep learning; efficiency claimed over traditional models
+R04530	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Res-SNN accuracy >0.95 vs ResNet 0.84/0.90; power 5.41 mJ.s reported for SNN only
+R04531	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	ANN-SNN conversion with channel-wise thresholds via PTQ; efficiency only as reduced training time, no energy or ops
+R04533	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	ANN-to-SNN conversion with Precision Spiking neurons; max conversion loss 0.55%; efficiency only as low latency, no figures
+R04534	Y	-	C1	ANN+SNN	NS	BIOSIG	LOIHI2	NS	MEASURED	THROUGHPUT+ENERGY+SPIKES+OPS	NS	NA	NA	NA	NA	N	GSNN on Loihi 2: 21.6 inputs/s, 25.104 mJ per input; 6.26x event and 3.80x synaptic sparsity gain vs ANNs
+R04539	Y	-	C3	ANN	CNN	STATIC_IMG	NA	MCU	NONE	MEMORY	NA	SCORE	STRONG	UNSTRUCT	N	N	Edge-popup pruning for integer-only on-device training on Raspberry Pi Pico: accuracy +8.08-33.75 points; PRIOT-S reduces memory
+R04540	Y	-	C3	ANN	OTHER	OTHER	NA	NS	NONE	MEMORY	NA	SCORE	STRONG	UNSTRUCT	N	N	Strong-lottery-ticket binary mask search for federated generative models; claims low communication cost and small model, no figures
+R04541	Y	-	C2	SNN	CNN	CONTROL	SIM	NA	NONE	SPIKES	NA	OTHER	NA	NS	Y	N	Adaptive-threshold spike coding: about 2x higher sparsity and lower spike rate than fixed threshold, in underwater pose regression
+R04542	Y	-	C6	SNN	NS	NS	SIM	NA	NONE	MEMORY	NA	NA	NA	NA	NA	N	Profiler for SNN data movement across memory hierarchy as energy surrogate; shows sparsity lowers dynamic traffic linearly
+R04547	Y	-	C2	SNN	TRANSFORMER	NS	ASIC+GPU	NA	NS	LATENCY+ENERGY+OPS	NA	OTHER	NA	NS	Y	N	Product sparsity SNN accelerator: 7.4x/1.8x speedup and 8.0x/193x energy efficiency vs PTB accelerator/A100; computation 11x lower than bit sparsity
+R04550	Y	-	C3	ANN	OTHER	NS	NA	NS	NONE	NONE	NA	THEORY	OTHER	UNSTRUCT	N	N	Theory: sparse mask at initialization equals sketching in linear models; error bound and data-independence of pruning; no efficiency figures
+R04551	Y	-	C3	ANN	NS	OTHER	NA	NS	NONE	NONE	NA	OTHER	WEAK	UNSTRUCT	N	N	Multi-task LTH pruning (MTDLP) beats single-shot pruning and IMP on NYU-v2 and Cityscapes at high sparsity; no efficiency figures
+R04554	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Hybrid ANN-SNN PuSpike for action recognition beats ANN-only and SNN-only in accuracy; MAC avoidance claimed without figures
+R04555	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Quantized convolutional SNN for ECG arrhythmia: 76.2% less memory; quantization-only, no ANN efficiency comparison
+R04557	Y	-	C2	SNN	CNN	NS	NS	NA	CLAIM	NONE	NA	ACT	NA	STRUCT	Y	N	Quantization plus structured kernel pruning of SNNs using spike-activity singular values; efficiency claimed without figures
+R04561	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Quantized spike transformer: 80.3% top-1, 6.0x less power and 8.1x smaller than prior SNN; quantization and distillation only
+R04565	N	E2	-	-	-	-	-	-	-	-	-	-	-	-	-	-	RRAM CIM macro in 65nm: 28.6 TOPS/W ANN, 45.7 TOPS/W SNN, 33.5 TOPS/W HNN; circuit level only
+R04566	Y	-	C3	ANN	OTHER	OTHER	NA	NS	NONE	NONE	NA	DST	OTHER	UNSTRUCT	N	N	Prune-and-regrow GAN training with limited data as alternative to GAN lottery tickets; no efficiency figures
+R04568	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Convolutional SNNs for ECG with sparse input encoding; F1 94.16% and 94.25%; no efficiency metrics
+R04586	Y	-	C2	SNN	NS	DET	LOIHI2	NA	MEASURED	EDP+SPIKES+THROUGHPUT+LATENCY	NA	OTHER	NA	STRUCT	Y	N	Input region masking on Loihi 2: masking 60% of regions cuts EDP 1.65x vs baseline sigma-delta network; mAP@0.5 drops 1.09%
+R04587	Y	-	C1	ANN+SNN	OTHER	BIOSIG	OTHER_NEURO	NS	CLAIM	NONE	DIFFERENT	NA	NA	NA	NA	N	Spiking ECG heart-rate regression: computational efficiency improvement over conventional deep learning claimed, no figures; tested on neuromorphic hardware

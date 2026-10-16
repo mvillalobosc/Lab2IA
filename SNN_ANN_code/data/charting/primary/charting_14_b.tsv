@@ -1,0 +1,25 @@
+R04081	Y	-	C3	ANN	GNN	OTHER	NA	NS	ESTIMATED	OPS	NA	MAG	WEAK	UNSTRUCT	N	N	One-shot GLT: +1.32-45.62% weight sparsity, +7.49-22.71% graph sparsity, 1.7-44x speedup over IMP, 95.3-98.6% MAC savings.
+R04084	Y	-	C1	ANN+SNN	CNN	BIOSIG	NS	NS	NS	ENERGY	PAIRED	NA	NA	NA	NA	N	SNN uses 28% of the energy of a comparable ANN model; seizure prediction on two public EEG datasets.
+R04085	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Federated SNN co-design with NSGA-II multi-objective search over accuracy, energy and communication; no ANN comparison.
+R04086	Y	-	C3	ANN	NS	NS	NA	NS	CLAIM	OPS	NA	NS	NS	STRUCT	Y	N	LTH-based structured pruning in federated learning with per-client pruning rates; claims lower computation and communication overhead, no figures.
+R04092	Y	-	C1	ANN+SNN	CNN	BIOSIG	AKIDA	CPU	MEASURED	POWER+LATENCY	NS	NA	NA	NA	NA	U	Akida AKD1000 vs Xeon CPU: over 97% power reduction, 1.3x latency increase; EEG braking intent accuracy at least 90%.
+R04097	Y	-	C3	ANN	NS	NS	NA	NS	NONE	NONE	NA	OTHER	WEAK	NS	N	N	Sparse masks plus parameter signs let randomly initialized networks reach low error barriers; no efficiency figures.
+R04100	Y	-	C2	SNN	NS	STATIC_IMG+EVENT	FPGA	NA	NS	THROUGHPUT+POWER	NA	DST	NA	UNSTRUCT	N	N	FireFly-S FPGA: weight sparsity 85-95%, 4-bit; 10,047 FPS/W MNIST, 3,683 DVS-Gesture, 2,327 CIFAR-10.
+R04117	N	E2	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Mott memristor neuristor device; device-based sparse network simulations, no ANN comparison or pruning method.
+R04119	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	CNN-to-SNN pipeline for skin lesion classification on Akida NPU; no efficiency or accuracy figures reported.
+R04120	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	CNN-to-SNN conversion for depression detection; SNN matches CNN accuracy 82.5% and F1 0.8254; no efficiency metric.
+R04122	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Lossy spike compression cuts spike data size by up to 31.50% with under 1.16% accuracy drop; SNN-only, no pruning.
+R04123	Y	-	C2	SNN	NS	NS	NS	NA	CLAIM	SPIKES	NA	OTHER	NA	NS	Y	N	FSTA attention module suppresses redundant spikes and significantly reduces SNN firing rate; no figures in abstract.
+R04124	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	ANN-SNN conversion with temporal bias correction improves accuracy on CIFAR-10/100 and ImageNet; no efficiency metric.
+R04126	Y	-	C1	ANN+SNN	NS	CONTROL+EVENT	LOIHI	EDGE_GPU	MEASURED	ENERGY	DIFFERENT	NA	NA	NA	NA	Y	Loihi energy/inference 4.30% of event spike tensor method on Jetson Orin NX; 1.64% of event frame method on Loihi.
+R04128	Y	-	C1	ANN+SNN	NS	CONTROL	SIM	SIM	ESTIMATED	ENERGY	NS	NA	NA	NA	NA	N	Theoretical energy model compares SNN with ANN baselines for robotic arm reaching and grasping; no figures in abstract.
+R04129	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Fully spiking actor network; outperforms state of the art on control tasks; theoretical energy estimate without stated ANN comparator.
+R04131	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Fully spiking frame-event tracker claims lower power than existing methods; no ANN comparator or figures given.
+R04136	Y	-	C1	ANN+SNN	CNN	TS	NS	NS	NS	ENERGY	NS	NA	NA	NA	NA	N	Spiking CNN energy savings ten times smaller than conventional NN model for pulsed eddy current corrosion detection.
+R04139	Y	-	C3	ANN	TRANSFORMER	NLP	NA	NS	NS	LATENCY	NA	EVO	NS	STRUCT	N	N	BERT sentiment: lossless 70% head reduction, up to 90% with 1% F1 loss; inference time improved up to 47.2%.
+R04141	Y	-	C3	ANN	GNN+TRANSFORMER	OTHER	NA	NS	NONE	NONE	NA	NS	OTHER	NS	N	N	LTH-inspired sub-network activation for GNN multi-view learning improves generalization at minimal inference cost; no efficiency figures.
+R04143	Y	-	C3	ANN	CNN	STATIC_IMG	NA	NS	CLAIM	LATENCY	NA	SCORE	WEAK	STRUCT	N	N	Structured gradient-flow pruning in iterative lottery-ticket framework; outperforms magnitude and gradient pruning baselines at high sparsity; inference speedups unquantified.
+R04144	Y	-	C3	ANN	GNN	OTHER	NA	NS	NONE	MEMORY	NA	NS	WEAK	NS	N	N	Quaternion GNN with one-fourth parameters; graph lottery tickets cut trainable parameters further; no energy or operation figures.
+R04145	Y	-	C2	HYBRID	GNN	OTHER	NS	NS	CLAIM	NONE	NA	ACT	NA	NS	N	N	Spiking neurons learn sparse attention coefficients for GATs, giving edge-sparsified graphs; efficiency claimed without figures.
+R04146	Y	-	C2	SNN	NS	NS	NS	NA	CLAIM	NONE	NA	DST	NA	NS	Y	N	Dynamic priority-aware gradient sparsification for SNN online learning (DECOLLE, ETLP, OTTT); efficiency gains claimed, no figures.
+R04151	Y	-	C1	ANN+SNN	GNN	AUDIO+EVENT	FPGA	FPGA	CLAIM	LATENCY+OPS+MEMORY	LITERATURE	NA	NA	NA	NA	N	Event-graph ANN on SoC FPGA: SHD accuracy 92.3% quantised, +19.3% and +4.5% over FPGA SNNs; fewer resources, lower latency.

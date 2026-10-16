@@ -1,0 +1,25 @@
+R06060	Y	-	C1	ANN+SNN	TRANSFORMER	NLP	SIM	SIM	CLAIM	ENERGY	PAIRED	NA	NA	NA	NA	N	Comparable accuracy to BERT on text classification; much less energy claimed, no figures
+R06061	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	SNN autoencoder on AKD1000, 91.5% compression, SSIM 0.985; reduced power claimed without ANN baseline
+R06062	Y	-	C1	ANN+SNN	NS	OTHER	SIM	SIM	CLAIM	SPIKES	NS	NA	NA	NA	NA	N	SpikeCSI reduces neuron activity versus dense ANNs and approaches traditional CSI methods; no figures
+R06064	Y	-	C1	ANN+SNN	CNN	STATIC_IMG	SIM	SIM	CLAIM	OPS	DIFFERENT	NA	NA	NA	NA	N	SpikeFSL: superior accuracy and substantially lower computational cost than SOTA FSL methods; no figures
+R06066	Y	-	C1	ANN+SNN	TRANSFORMER+GNN	OTHER+STATIC_IMG+NLP	GPU	GPU	NS	LATENCY+MEMORY	PAIRED	NA	NA	NA	NA	U	10-20x lower GPU memory than vanilla self-attention; faster training and inference; beats SOTA on node tasks
+R06067	Y	-	C1	HYBRID	TRANSFORMER	NLP	SIM	SIM	NS	POWER	PAIRED	NA	NA	NA	NA	N	SpikeLoRA cuts power 35% versus LoRA with 0.08% average GLUE drop; +2.07% on Wikipedia with Llama-3.1-8B
+R06073	Y	-	C1	ANN+SNN	OTHER	OTHER	SIM	SIM	ESTIMATED	OPS+ENERGY	DIFFERENT	NA	NA	NA	NA	N	SpikeRain: FLOPs -89%, parameters -40% versus ANN deraining; energy on par with SNNs; SOTA PSNR and SSIM
+R06074	Y	-	C1	ANN+SNN	NS	DET+STATIC_IMG	SIM	SIM	NS	ENERGY+OPS	PAIRED	NA	NA	NA	NA	N	SpikeSMOKE-L: 10x less computation, 3x fewer parameters than SMOKE; energy lower, no figure; KITTI AP 11.78/10.69/10.48
+R06075	Y	-	C1	ANN+SNN	NS	DET	SIM	SIM	NS	ENERGY+OPS	DIFFERENT	NA	NA	NA	NA	N	SpikeSOD: 100x to 1000x energy efficiency versus ANNs with comparable accuracy; far above other SNN methods
+R06079	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	SpikeVFuse reports only theoretical energy trade-off; no ANN comparator or figures in abstract
+R06081	Y	-	C1	ANN+SNN	TRANSFORMER	OTHER	SIM	SIM	ESTIMATED	ENERGY	DIFFERENT	NA	NA	NA	NA	N	SpikeVPR 6.7 mJ per image, over 83% less estimated energy than BoQ; 88.2% R@1 on Nordland
+R06082	Y	-	C2	SNN	NS	NS	NS	NA	NS	EDP+ENERGY+LATENCY	NA	NS	NA	MIXED	Y	N	SNN accelerator exploiting unstructured firing sparsity; EDP reduced 15.1x-150.87x without accuracy loss; no ANN baseline
+R06088	N	E2	-	-	-	-	-	-	-	-	-	-	-	-	-	-	RISC-V SNN/CNN processor, quantization and zero-skipping; estimated 89.03% fewer cycles, 4.5x efficiency; no ANN-SNN comparison
+R06089	N	E1	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Position paper arguing SNNs are necessary for sustainable AI; no experiments or survey
+R06090	Y	-	C1	ANN+SNN	CNN	TS	SIM	SIM	ESTIMATED	ENERGY	PAIRED	NA	NA	NA	NA	N	Spiking ResNet gives competitive accuracy with lower normalized theoretical energy than standard, compressed, lightweight ANNs; no figures
+R06091	Y	-	C1	ANN+SNN	CNN	STATIC_IMG	SIM	SIM	CLAIM	ENERGY	DIFFERENT	NA	NA	NA	NA	N	Spiking-ConvNet claims superior energy efficiency and diagnostic performance versus CNNs and SNNs; no figures
+R06092	Y	-	C2	SNN	CNN	STATIC_IMG	SIM	NA	ESTIMATED	OPS+SPIKES	NA	OTHER	NA	NS	Y	N	TTFS ConvNeXt CIFAR-10 94.49%, CIFAR-100 74.75%; sparsity 33.55%/32.93%; computation proxy 62.11%/60.70%, not energy
+R06093	Y	-	C1	ANN+SNN	NS	OTHER	SIM	SIM	NS	ENERGY	DIFFERENT	NA	NA	NA	NA	N	SpikeHash matches SOTA ANN accuracy with up to 9x lower energy on three benchmarks
+R06094	Y	-	C1	ANN+SNN	CNN	EVENT+OTHER	SIM	SIM	CLAIM	POWER	DIFFERENT	NA	NA	NA	NA	N	Spiking Depth beats SNN and ANN models on MVSEC, depth error 11.8/18.0/12.5 cm; lower power claimed, no figures
+R06095	Y	-	C1	ANN+SNN	OTHER	OTHER	SIM	SIM	NS	LATENCY	NS	NA	NA	NA	NA	N	Converted spiking GAN: 0.07 s inference per image, faster than conventional models; PSNR 28.73 dB, SSIM 0.802
+R06097	Y	-	C1	ANN+SNN	CNN+OTHER	DET	SIM	SIM	NS	ENERGY+POWER+OPS	DIFFERENT	NA	NA	NA	NA	N	Spiking MU-Net DSC 83% at 3.22 mJ; DSC +1.04% over ANN-based nets; lowest energy among SNN segmenters
+R06098	Y	-	C1+C2	ANN+SNN	OTHER	OTHER	NS	EDGE_GPU	NS	THROUGHPUT+POWER+ENERGY+MEMORY	DIFFERENT	ACT	NA	NS	N	U	Vs edge GPU: 111.2x throughput, 41.67x lower power; vs NeRF accelerators 2.48x throughput, 5.45x less energy
+R06103	Y	-	C1	ANN+SNN	NS	CONTROL	CPU	CPU	MEASURED	LATENCY	PAIRED	NA	NA	NA	NA	Y	SNN 1.50 ms vs ANN 20.15 ms for inverse kinematics on Intel Core i7 CPU; lower MSE
+R06104	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Compares SNN equalizer design choices on bit error rate, spike activity, model size; no ANN baseline
+R06107	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	SNN remote sensing detector; energy advantage claimed without named ANN comparator or figures

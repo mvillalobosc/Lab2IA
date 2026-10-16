@@ -1,0 +1,100 @@
+R02801	EXCLUDE	E4	none	CNN plus SNN deraining on events; no efficiency comparison.
+R02802	EXCLUDE	E5	none	Non-spiking transformer on event streams; no SNN.
+R02803	EXCLUDE	E6	none	Event camera clustering and tracking; no neural network content.
+R02804	UNSURE	E4	none	Evolutionary SNN survey; unclear whether pruning or mask search covered.
+R02805	EXCLUDE	E4	none	SNN segmentation; only parameter count reduced, no energy or operations.
+R02806	EXCLUDE	E4	GPU	SNN training on IPU versus GPU; no ANN baseline.
+R02807	EXCLUDE	E4	memristor/in-memory	SNN training method; accuracy only, low power as motivation.
+R02808	INCLUDE	C3	GPU	Signed multicoat supermasks (SLTH) with N:M sparsity in ResNets.
+R02809	EXCLUDE	E4	none	SNN dendritic modules; accuracy only, no efficiency or sparsity method.
+R02810	EXCLUDE	E4	ASIC	SNN accelerator; no ANN baseline visible in abstract.
+R02811	INCLUDE	C3	none	Lottery ticket search and early pruning for few-shot classification.
+R02812	EXCLUDE	E2	memristor/in-memory	TiOxNy/SnOx memristor device; ANN simulation only.
+R02813	EXCLUDE	E4	GPU	8-bit posit SNN training; no ANN baseline, no pruning.
+R02814	EXCLUDE	E4	none	SNN speech model analysing oscillations; no efficiency comparison.
+R02815	EXCLUDE	E4	none	SNN plus DL occlusion detection; no ANN efficiency comparison.
+R02816	INCLUDE	C1+C6	none	Apples-to-apples ANN vs SNN comparison; SNN at 1/10th power.
+R02817	EXCLUDE	E2	memristor/in-memory	Statistical reliability of Y2O3 memristive devices.
+R02818	EXCLUDE	E4	simulation	Dendritic computation library for SNNs; no ANN efficiency comparison.
+R02819	EXCLUDE	E3	none	Mean-field dynamics of spiking networks; computational neuroscience.
+R02820	EXCLUDE	E4	none	Event eye tracking SNN; accuracy vs ANN, compute time vs SNN.
+R02821	EXCLUDE	E6	none	Graph clustering for event eye tracking; no SNN or pruning.
+R02822	INCLUDE	C3	none	Federated MRI model with LTH-based sparse global model.
+R02823	EXCLUDE	E3	none	Brain-like fast learning in recurrent spiking networks; neuroscience modelling.
+R02824	EXCLUDE	E4	none	SNN training speed and carbon; no ANN baseline.
+R02825	EXCLUDE	E6	none	Historical lottery rhymes of the Low Countries.
+R02826	EXCLUDE	E2	photonic	Electrochromic array device with ANN and diffractive networks.
+R02827	INCLUDE	C2	none	SNN federated gesture recognition with weight pruning.
+R02828	INCLUDE	C3	none	Federated pruning-expanding producing lottery ticket networks.
+R02829	INCLUDE	C3	none	Federated personalization via LTH-style iterative subnetwork discovery.
+R02830	EXCLUDE	E2	memristor/in-memory	Ferrimagnet spintronic neuron and synapse devices.
+R02831	EXCLUDE	E2	memristor/in-memory	AlScN ferroelectric transistor device physics.
+R02832	EXCLUDE	E2	memristor/in-memory,photonic	Organic photoelectric synaptic transistor device.
+R02833	EXCLUDE	E2	memristor/in-memory	Review of ferroelectric materials and devices.
+R02834	EXCLUDE	E2	memristor/in-memory,photonic	ReS2 optoelectronic synapse device; ANN digit accuracy only.
+R02835	EXCLUDE	E2	memristor/in-memory	Ferroelectric tunnel junction memristor crossbar; MNIST accuracy only.
+R02836	EXCLUDE	E6	none	Lottery ticket buying and financial literacy; unrelated domain.
+R02837	EXCLUDE	E6	none	LTH only inspires training-data selection for GNNs.
+R02838	INCLUDE	C3	none	Pruning at initialization finding lottery tickets via NTK.
+R02839	INCLUDE	C3	none	Genetic algorithm search for strong lottery tickets.
+R02840	INCLUDE	C2	FPGA	Sparsity-aware SNN; hyperparameters versus firing rate and FPGA latency.
+R02841	EXCLUDE	E4	FPGA	SNN FPGA accelerator; no ANN baseline visible.
+R02842	EXCLUDE	E2	memristor/in-memory	Memristive neuron circuit for robot control; no learning task.
+R02843	EXCLUDE	E2	memristor/in-memory	Review of flexible electrolyte neuromorphic devices.
+R02844	EXCLUDE	E2	none	IGZO transistor integrate-and-fire neuron circuits.
+R02845	EXCLUDE	E6	none	Event stream compression; no neural network content.
+R02846	EXCLUDE	E4	GPU	Spikformer variant; energy compared only with spikformer.
+R02847	INCLUDE	C1+C2	FPGA	FPGA SNN, pruning to 30% of parameters, conversion, energy per inference.
+R02848	EXCLUDE	E2	photonic	Free-space optical spiking CNN; no ANN comparison visible.
+R02849	EXCLUDE	E4	none	SNN event-time prediction with STDP; no efficiency comparison.
+R02850	EXCLUDE	E4	Loihi	SNN drone pipeline on Loihi; no ANN baseline in abstract.
+R02851	EXCLUDE	E2	photonic	Photonic scattering-based neuromorphic scheme.
+R02852	EXCLUDE	E2	memristor/in-memory	Solution-processed synaptic transistor device.
+R02853	EXCLUDE	E2	photonic	UV-modulated optical synapse device.
+R02854	INCLUDE	C5	none	Position paper on ANN versus SNN and energy consumption.
+R02855	EXCLUDE	E4	none	SNN intrusion detection for vehicles; accuracy only.
+R02856	EXCLUDE	E4	none	Spiking tactile recognition; accuracy only.
+R02857	INCLUDE	C2+C4	none	Lottery tickets and multi-level sparsity in spiking transformers.
+R02858	EXCLUDE	E4	none	Event gait recognition SNN; no efficiency comparison.
+R02859	EXCLUDE	E4	none	SNN coding module; energy compared only with prior SNNs.
+R02860	EXCLUDE	E6	none	Neural network learning digital circuit design; off-topic.
+R02861	EXCLUDE	E4	none	SNN software framework; accuracy-only comparison with ANNs.
+R02862	EXCLUDE	E2	memristor/in-memory	GeTe/MoTe2 memristor device with MLP accuracy.
+R02863	EXCLUDE	E4	none	Spiking graph tactile recognition; accuracy only.
+R02864	EXCLUDE	E2	memristor/in-memory	Ferroelectric tunnel junction device with ANN simulation.
+R02865	EXCLUDE	E4	none	SNN keyword spotting; compared only with SNN models.
+R02866	EXCLUDE	E4	none	SNN GNSS spoofing detection; no efficiency comparison.
+R02867	EXCLUDE	E4	Dynap	SNN deployment on DYNAP-SE2; no ANN baseline.
+R02868	EXCLUDE	E5	none	Gradient-free RNN training; ANN only.
+R02869	EXCLUDE	E4	none	Deep SNN stress prediction; accuracy only.
+R02870	INCLUDE	C3	none	Adaptive graph lottery tickets for GNNs.
+R02871	INCLUDE	C1	none	Hybrid SNN-ANN segmentation; 20x lower inference cost versus prior art.
+R02872	INCLUDE	C5	CPU,GPU,ASIC,memristor/in-memory	Review of DL accelerators including neuromorphic processors; performance focus.
+R02873	EXCLUDE	E5	memristor/in-memory	In situ backpropagation hardware; ANN only, no SNN.
+R02874	EXCLUDE	E5	memristor/in-memory	Review of memristive ANN hardware; no SNN.
+R02875	EXCLUDE	E2	memristor/in-memory	Spin stochastic neuron devices, hardware-in-loop learning.
+R02876	INCLUDE	C1	FPGA,ASIC	DNN converted to SNN accelerator; FPGA GOPS and watts.
+R02877	EXCLUDE	E6	none	Digital inclusion and generative AI; unrelated.
+R02878	INCLUDE	C2	GPU	SNN training on IPU; throughput gains rise with activation sparsity.
+R02879	EXCLUDE	E2	none	Superconducting SFQ stochastic synapse circuits.
+R02880	EXCLUDE	E2	memristor/in-memory	3D NAND conductance modulation scheme; CNN accuracy only.
+R02881	EXCLUDE	E4	none	SNN DNS tunnelling detection; accuracy-type metrics only.
+R02882	EXCLUDE	E2	memristor/in-memory	WS2 heterosynaptic memtransistor device.
+R02883	EXCLUDE	E2	memristor/in-memory	Nanocomposite memristor device; ANN crossbar accuracy only.
+R02884	EXCLUDE	E4	FPGA	SNN neuromorphic platform description; no ANN baseline.
+R02885	EXCLUDE	E4	none	SNN-to-neuromorphic mapping; synapse pruning is a side effect.
+R02886	EXCLUDE	E4	none	CNN-SNN hybrid classifier; no ANN efficiency comparison.
+R02887	INCLUDE	C1	none	ANN-to-SNN conversion with BLIF neurons, low latency.
+R02888	EXCLUDE	E2	photonic	2D phototransistor array device; no SNN comparison.
+R02889	INCLUDE	C1	none	ANN-to-SNN conversion with energy and latency gains.
+R02890	INCLUDE	C1	none	ANN-SNN mapping, same accuracy as ANN, 0.3 spikes per neuron.
+R02891	EXCLUDE	E2	memristor/in-memory,photonic	BiVO4 optoelectronic memristor synapse device.
+R02892	EXCLUDE	E4	none	Reversible SNN; efficiency gains versus SNN baselines only.
+R02893	EXCLUDE	E2	memristor/in-memory	Alkali ion memristor reliability device.
+R02894	UNSURE	C1	none	Neuromorphic ADC plus SNN versus CNN; sampling rate cut 95%.
+R02895	EXCLUDE	E2	memristor/in-memory	Memristor weight writing strategy; no SNN.
+R02896	EXCLUDE	E4	FPGA,GPU	FPGA SNN training platform; baseline not an ANN.
+R02897	EXCLUDE	E2	memristor/in-memory	Ta2O5 threshold switching memristor neuron device.
+R02898	EXCLUDE	E2	none	SiGe HBT spiking neuron circuit.
+R02899	EXCLUDE	E2	memristor/in-memory	h-BN neuristor reservoir computing device.
+R02900	EXCLUDE	E4	none	Spiking vision transformer; no ANN efficiency comparison.

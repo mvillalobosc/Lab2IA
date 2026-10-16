@@ -1,0 +1,25 @@
+R01617	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	StepReLU conversion with leakage; accuracy and latency only, no ANN efficiency comparison
+R01683	Y	-	C2	SNN	NS	NS	FPGA	NA	NS	THROUGHPUT+ENERGY	NA	OTHER	NA	UNSTRUCT	N	N	Bit-mask compressed sparse-weight SNN accelerator on FPGA: 2.56 GSOP/s peak, 1.53 GSOP/W
+R01701	Y	-	C1+C6	ANN+SNN	NS	NS	ASIC	ASIC	ESTIMATED	ENERGY+SPIKES	PAIRED	NA	NA	NA	NA	N	IF SNNs match efficient ANN hardware only at 0.15-1.38 spikes per synapse per inference; Eyeriss case study
+R01773	Y	-	C3	ANN	GNN	OTHER	NA	NS	NONE	NONE	NA	SCORE	OTHER	STRUCT	N	N	Explainer jointly finds salient subgraph and GNN subnetwork by iterative importance-score masking; beats state-of-the-art explainers
+R01808	Y	-	C5	ANN	NS	NS	NA	NS	NONE	NONE	NA	NA	NA	NA	NA	N	Survey of pruning at initialization, lottery tickets, dynamic sparse training and freezing; focus on unstructured methods
+R01829	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Adaptive threshold conversion for point clouds and images; fewer time steps vs other conversions only
+R01886	Y	-	C1	ANN+SNN	CNN	STATIC_IMG	SIM	SIM	CLAIM	ENERGY	PAIRED	NA	NA	NA	NA	N	SNN-VGG-15 99.14/94.54/95.00% on UCM/RSSCN7/AID, beats source ANN on two; energy advantage claimed
+R01902	Y	-	C3	ANN	NS	STATIC_IMG	NA	NS	NONE	NONE	NA	OTHER	WEAK	NS	N	N	Winning tickets found for some few-shot methods on miniImageNet, CUB, CIFAR-FS; transfer cross-domain; early-stage via ISS
+R01911	Y	-	C1	ANN+SNN	RNN+CNN	EVENT	SIM	SIM	ESTIMATED	OPS+MEMORY	DIFFERENT	NA	NA	NA	NA	N	RSNN 200x fewer parameters than CNN; vs LSTM 5x fewer parameters, 2000x fewer MACs, 1.9-8.7 points lower accuracy
+R01942	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Weight-binarized SNN on FPGA; only memory saving vs SNN and BNN, quantisation-only, no C1 metric
+R01962	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Directly trained spiking DQN on 17 Atari games; energy compared only with conversion SNN
+R01987	Y	-	C2	SNN	RNN	TS	SIM	NA	NONE	NONE	NA	DST	NA	UNSTRUCT	N	N	Recurrent SNN with R-STDP, homeostatic and structural plasticity (synapse growth and pruning) for sequence tasks
+R01992	Y	-	C2	SNN	NS	NS	MEMRISTOR	NA	NS	LATENCY+EDP	NA	OTHER	NA	TEMPORAL	Y	N	On IMC: 1.46 average timesteps match 4-timestep static SNN accuracy; EDP reduced 80%
+R02138	Y	-	C3	ANN	NS	NS	NA	NS	NONE	NONE	NA	SCORE	OTHER	NS	N	N	Soft non-binary subnetwork masks learned with weights; beats state-of-the-art few-shot class-incremental baselines
+R02153	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Review of SNN learning algorithms and their complexity; not centred on ANN-SNN efficiency comparison
+R02197	Y	-	C1	ANN+SNN	CNN	STATIC_IMG	LOIHI	CPU+NPU+EDGE_GPU+TPU	MEASURED	POWER+ENERGY+LATENCY	NS	NA	NA	NA	NA	Y	Loihi ~100x lower power and ~10x less energy than Coral TPU; comparable accuracy; real-time latency met
+R02226	Y	-	C3	ANN	NS	NS	NA	NS	ESTIMATED	MEMORY	NA	NS	WEAK	MIXED	N	N	Adversarially robust tickets transfer better than vanilla tickets; better accuracy-sparsity trade-offs across tasks and patterns
+R02267	Y	-	C2	SNN	RNN	NS	SIM	NA	NS	OPS+LATENCY	NA	OTHER	NA	NS	Y	N	Forward and backward cost O(N) to O(log N) per spike; over 10^4x speed-up vs prior event-based simulators
+R02269	Y	-	C2	SNN	NS	NS	SIM	NA	CLAIM	ENERGY+SPIKES	NA	ACT	NA	TEMPORAL	Y	N	Local rhythms suppress spikes for near-zero values, cutting communication and computation energy while preserving accuracy
+R02275	Y	-	C1	ANN+SNN	CNN	OTHER	SIM	SIM	ESTIMATED	ENERGY+LATENCY+SPIKES	PAIRED	NA	NA	NA	NA	N	SNN 30.18 dB on Set12, 0.25 dB below equivalent DCNN; efficient only at low latency; larger SNN 20% less energy
+R02304	Y	-	C1	ANN+SNN	CNN	DET+EVENT	SIM	SIM	CLAIM	ENERGY+LATENCY	PAIRED	NA	NA	NA	NA	N	SNN competitive or better accuracy and robustness than similar ANN with significantly lower energy
+R02306	Y	-	C1	ANN+SNN	CNN	TS	SIM	NS	ESTIMATED	ENERGY+MEMORY	NS	NA	NA	NA	NA	N	SCNN 99.1% at 0 dB SNR, 1.51 uJ per inference; three orders of magnitude less energy than non-spiking
+R02354	Y	-	C1+C6	ANN+SNN	NS	AUDIO	LOIHI2+SIM	NS	CLAIM	ENERGY+POWER+LATENCY+MEMORY	DIFFERENT	NA	NA	NA	NA	U	Benchmark with energy, latency, resource metrics; neuromorphic baseline more power-efficient than NsNet2, no figures given
+R02417	Y	-	C3	ANN	NS	NS	NA	NS	CLAIM	OPS	NA	RANDOM+THEORY	BOTH	UNSTRUCT	N	N	Random masks approximate targets if wider by log(1/sparsity) factor; random sources contain strong lottery tickets
+R02443	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	VGG16 converted to SNN for land cover and seizure detection; accuracy only, no efficiency comparison

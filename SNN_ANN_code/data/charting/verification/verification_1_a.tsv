@@ -1,0 +1,25 @@
+R00079	Y	-	C3	ANN	NS	NS	NA	NS	ESTIMATED	MEMORY	NA	OTHER	WEAK	NS	N	N	LTH-inspired class-dependent pruning: up to 35% fewer false negatives, higher AUC-ROC than LT, 99% fewer parameters
+R00098	Y	-	C1	ANN+SNN	NS	CONTROL	LOIHI	EDGE_GPU	MEASURED	ENERGY	PAIRED	NA	NA	NA	NA	Y	PopSAN on Loihi 140x less energy per inference than deep actor network on Jetson TX2; same performance
+R00155	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Binary SNN via conversion; only latency versus prior SNN work, no ANN efficiency comparison
+R00210	Y	-	C3	ANN	CNN	NS	NA	NS	NONE	NONE	NA	NS	NS	UNSTRUCT	N	N	Similarity of pruned vs unpruned CNN representations depends critically on the similarity measure used
+R00232	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	D-Wave annealer vs Loihi on LCA sparse coding; no ANN comparison and no pruning
+R00270	Y	-	C3	ANN	CNN	NS	NA	NS	NONE	NONE	NA	MAG	WEAK	NS	N	N	IMP-pruned CNNs similar to unpruned in first conv and FC layers, less in intermediate layers
+R00312	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Soft-reset conversion; only 2-8x fewer time steps vs hard-reset SNNs, no ANN efficiency comparison
+R00318	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	SNN accelerator, MLP on MNIST 96% at 1.26 mW; no ANN efficiency baseline
+R00328	Y	-	C3	ANN	CNN	STATIC_IMG	NA	NS	ESTIMATED	OPS+MEMORY	NA	EVO	OTHER	NS	N	N	Model size 2x-12x smaller, MACs 2x-19x fewer, under 1% accuracy drop
+R00340	Y	-	C2	SNN	RNN	AUDIO	NS	NA	CLAIM	POWER+MEMORY+SPIKES	NA	NS	NA	UNSTRUCT	Y	N	Up to 85% of connections pruned without loss; low spiking activity; fraction of power of other methods
+R00371	Y	-	C1	HYBRID	CNN	STATIC_IMG	SIM	SIM	ESTIMATED	ENERGY+MEMORY	PAIRED	NA	NA	NA	NA	N	Near state-of-the-art accuracy with large energy-efficiency gains over ANN counterparts on CIFAR10 and ImageNet
+R00373	Y	-	C2	SNN	NS	NS	FPGA	NA	NS	ENERGY+MEMORY	NA	ACT	NA	STRUCT	Y	N	Pruning 400 of 800 neurons: 2.3x less memory, 2.8x energy efficiency, 1.69% accuracy loss
+R00445	Y	-	C1	ANN+SNN	CNN	STATIC_IMG	OTHER_NEURO	GPU	MEASURED	ENERGY+LATENCY	NS	NA	NA	NA	NA	U	LeNet/VGG on chip 0.38/3.24 ms and 0.28/2.3 mJ per image; ~100x more efficient than GPUs; 99.37/91.91%
+R00477	Y	-	C2	SNN	NS	STATIC_IMG	ASIC	NA	NS	ENERGY+OPS	NA	ACT+OTHER	NA	NS	Y	N	Spike prediction cuts synaptic ops 63.84%; training energy saving 52.16%, 0.3% accuracy loss; 1.18 uJ/image inference
+R00490	Y	-	C1	HYBRID	RNN+MLP+CNN	NS	ASIC	NS	CLAIM	OPS+POWER	NS	NA	NA	NA	NA	U	Circuit overview; delay-feedback reservoir SNN claimed more computationally efficient than conventional RNN
+R00561	Y	-	C3	ANN	TRANSFORMER	NLP	NA	NS	NS	LATENCY	NA	NS	WEAK	STRUCT	N	N	EarlyBERT matches BERT on GLUE and SQuAD with 35-45% less training time
+R00598	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Review of SNN training and hardware; main subject not ANN-SNN efficiency comparison or pruning
+R00612	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Conversion for DVS Gesture; energy and EDP compared only with traditional SNN, not ANN
+R00707	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Recurrent SNN with plasticity and sparse recurrence for robustness; no efficiency metric or pruning
+R00745	Y	-	C3	ANN	NS	STATIC_IMG	NA	NS	ESTIMATED	MEMORY	NA	OTHER	BOTH	STRUCT	N	N	Supermask evaluation sets neuron-pruning threshold without retraining; over 60% size reduction on MNIST without performance drop
+R00748	Y	-	C3	ANN	NS	STATIC_IMG	NA	NS	ESTIMATED	MEMORY	NA	SCORE+THEORY	STRONG	UNSTRUCT	N	N	IteRand: iterative weight randomization reduces parameters needed when pruning random networks; approximation theorem; CIFAR-10, ImageNet
+R00771	Y	-	C3	ANN	NS	NS	NA	NS	NONE	NONE	NA	NS	WEAK	NS	N	N	Winning ticket existence correlates with learning rate, epochs, capacity and residual connections; parameter-setting guideline
+R00775	N	E6	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Plasticity rule cutting training cost in SNN and ANN separately; no ANN-SNN efficiency comparison or pruning
+R00790	Y	-	C2	SNN	NS	STATIC_IMG+EVENT	SIM	NA	NS	LATENCY+MEMORY	NA	ACT	NA	TEMPORAL	Y	N	Sparse SNN backprop: backward pass up to 150x faster, 85% more memory efficient, no accuracy loss
+R00797	Y	-	C1	ANN+SNN	NS	DET+EVENT	SIM	NS	ESTIMATED	POWER	DIFFERENT	NA	NA	NA	NA	N	SpikeMS on par with comparable ANN on EV-IMO, EED, MOD, using potentially 50x less power

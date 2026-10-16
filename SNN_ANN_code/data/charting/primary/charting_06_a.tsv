@@ -1,0 +1,25 @@
+R01735	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Hybrid net on Tianjic vs same workload on Jetson NX: 10.5x lower latency, 43.6% lower power; no ANN baseline
+R01740	Y	-	C1	ANN+SNN	RNN	STATIC_IMG+AUDIO+TS	SIM	SIM	ESTIMATED	ENERGY+LATENCY+OPS	PAIRED	NA	NA	NA	NA	N	GSC accuracy 94.75% with 2 time steps; ~4.1x lower energy than iso-architecture LSTM
+R01744	Y	-	C1	HYBRID	CNN	NS	ASIC	ASIC	NS	ENERGY+SPIKES	NS	NA	NA	NA	NA	U	Heterogeneous CNN/SNN processor, 24.5-85.8 TOPS/W in title; abstract gives no SNN vs CNN figures
+R01745	Y	-	C1	HYBRID	CNN	STATIC_IMG	ASIC	ASIC	NS	ENERGY+POWER+SPIKES	LITERATURE	NA	NA	NA	NA	U	C-DNN V2: 76.9% ImageNet accuracy at 32.8 TOPS/W; CNN-SNN combination, no separate ANN baseline
+R01746	Y	-	C3	ANN	NS	STATIC_IMG	NA	SIM	NONE	NONE	NA	OTHER	NS	NS	N	N	Pruning raises certified accuracy up to 8.2% (standard) and 24.5% (adversarial) on CIFAR10; certified lottery tickets observed
+R01747	Y	-	C3	ANN	OTHER	OTHER	NA	SIM	NONE	NONE	NA	SCORE	STRONG	UNSTRUCT	N	N	Strong lottery tickets in generative models match dense model with 10% of weights, found via moment-matching scores
+R01749	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	SNN weight quantization (constrained backprop); accuracy drop under 1%, memory 3.5% of FP32; no ANN comparison
+R01750	Y	-	C3	ANN	NS	OTHER	NA	SIM	NONE	NONE	NA	NS	WEAK	NS	N	N	Lottery image priors: sparse subnetworks match dense deep image priors at high sparsity; first LTH for inverse problems
+R01754	Y	-	C1	ANN+SNN	CNN	STATIC_IMG	SIM	SIM	CLAIM	ENERGY+LATENCY	PAIRED	NA	NA	NA	NA	N	Converted SNN 1.026% above original ANN on CIFAR-10; energy and delay reduction claimed, no figures
+R01757	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Chip energy 7.7 mJ, latency 164.5 ms per DVS Gesture inference; no ANN baseline comparison reported
+R01759	Y	-	C1	HYBRID	NS	STATIC_IMG	SIM	SIM	CLAIM	POWER	NS	NA	NA	NA	NA	N	ANN-SNN hybrid on MNIST and CIFAR-10; Gaussian coding gives higher accuracy with lower power, no figures
+R01762	Y	-	C2	SNN	NS	STATIC_IMG+EVENT	SIM	NA	CLAIM	OPS+SPIKES	NA	REG	NA	UNSTRUCT	Y	N	ADMM connection pruning plus quantization and activity regularization cut spike events; MNIST, N-MNIST, CIFAR; no ANN comparison
+R01763	Y	-	C3	ANN	NS	STATIC_IMG	NA	SIM	NONE	NONE	NA	NS	WEAK	NS	N	N	Winning ticket found with synthetic surrogate dataset at FL server; communication cost reduced about 80% (FEMNIST, Chars74K)
+R01766	Y	-	C3	ANN	MLP+CNN	NS	NA	SIM	NONE	NONE	NA	RANDOM+OTHER	NS	UNSTRUCT	N	N	Effective sparsity metric shows random pruning with tuned layerwise quotas matches pruning-at-initialization methods; no efficiency figures
+R01768	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	KD from ANN teacher to SNN student; fewer time steps than direct training or conversion; no ANN efficiency comparison
+R01773	Y	-	C3	ANN	GNN	OTHER	NA	SIM	NONE	NONE	NA	SCORE	OTHER	STRUCT	N	N	GNN explainer finds salient subgraph and subnetwork by iterative score-based neuron discarding; LTH keyword; no efficiency data
+R01777	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	CNN-to-SNN conversion; 0.09% accuracy drop at 600 steps, 94.09% CIFAR-10 at 64 steps; only time steps as efficiency
+R01780	Y	-	C3	ANN	TRANSFORMER	STATIC_IMG	NA	SIM	NONE	NONE	NA	OTHER	OTHER	NS	N	N	Weight-level winning tickets hard to find in ViTs; data-level winning ticket patches match full-patch accuracy
+R01784	Y	-	C1	ANN+SNN	CNN	STATIC_IMG	SIM	NS	NS	LATENCY	NS	NA	NA	NA	NA	N	DCSNN vs five existing methods on DDSM: accuracy +12.78 to 31.13%, computation time 50.26 to 66.54% lower; Python
+R01786	Y	-	C1	ANN+SNN	CNN	DET+EVENT	SIM	SIM	NS	ENERGY	PAIRED	NA	NA	NA	NA	N	EMS-YOLO SNN comparable to same-architecture ANN with 5.83x less energy on COCO and Gen1; 4 time steps
+R01796	Y	-	C1	ANN+SNN	NS	OTHER	ASIC	ASIC	ESTIMATED	ENERGY+POWER+LATENCY	PAIRED	NA	NA	NA	NA	N	7-nm synthesized TTFS SNN beats equivalent ANN on energy x area cost on Iris; no figures in abstract
+R01797	Y	-	C2	SNN	NS	NS	SIM	NA	ESTIMATED	LATENCY	NA	OTHER	NA	NS	Y	N	Sparsity-aware SNN accelerator DSE: up to 31.25x speed-up and 76% fewer hardware resources vs sparsity-oblivious designs; no ANN baseline
+R01802	Y	-	C1	ANN+SNN	CNN	STATIC_IMG	SIM	SIM	NS	ENERGY+LATENCY+SPIKES	PAIRED	NA	NA	NA	NA	N	DIET-SNN ImageNet top-1 69% at 5 timesteps, 12x less compute energy than equivalent ANN; 20-500x faster than other SNNs
+R01805	Y	-	C2	SNN	MLP	STATIC_IMG	FPGA	NA	CLAIM	LATENCY	NA	OTHER	NA	MIXED	Y	N	Selective-input-sparsity SNNs on FPGA use fewer neurons, synapses, resources and infer faster than FC baselines; no figures
+R01808	Y	-	C5	ANN	NS	NS	NA	NA	NONE	NONE	NA	NA	NA	NA	NA	N	Survey of pruning at initialization, lottery tickets, dynamic sparse training and weight freezing in DNNs; ANN-only

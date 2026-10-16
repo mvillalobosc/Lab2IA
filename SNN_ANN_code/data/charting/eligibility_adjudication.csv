@@ -1,0 +1,20 @@
+record_id,decision,source,reason,justification
+R00490,Y,second,,Delay-feedback reservoir SNN claimed more efficient than a conventional RNN: C1 claim without figures
+R00775,N,exclude,E6,Plasticity rule reduces training cost in SNN and ANN separately; no ANN-SNN efficiency comparison and no pruning method
+R00876,N,primary,,Device-level 1S1R study without network-level comparison against an ANN
+R01371,Y,second,,ANN-to-SNN conversion with fan-in constraints progressively imposed: C2
+R02153,N,exclude,E4,Review of SNN learning algorithms and their complexity; not centred on efficiency comparison or sparsity
+R02267,N,primary,,Event-based simulator that exploits sparsity but does not sparsify; no ANN comparison
+R02794,N,exclude,E6,"Edge runtime for event-based ANN/SNN/hybrid workloads; gains are against an all-GPU execution, not ANN versus SNN"
+R02876,N,exclude,E4,Reduced-precision SNN on an FPGA accelerator; efficiency compared with other accelerators only
+R03572,N,primary,,FPGA SNN accelerator compared with other SNN implementations only
+R03601,N,primary,,No abstract available; eligibility cannot be confirmed
+R04529,Y,primary,,Spiking LMU with 96 % memory reduction and efficiency claim against deep-learning solutions: C1 claim
+R04634,N,primary,,Spike-driven transformer compared with other SNNs; no ANN efficiency comparison in the abstract
+R04660,Y,second,,Spiking graph transformer with computational-efficiency claim against conventional attention models: C1 claim
+R04974,N,primary,,SNN chip compared only with other SNN chips
+R05358,N,exclude,E4,Spiking transformer compared with CNN and transformer baselines on accuracy; efficiency only theoretical and unquantified
+R05508,Y,second,,SNN framework reported to outperform deep-learning baselines in accuracy and efficiency: C1 claim
+R05982,Y,primary,,Spiking CNN for traffic classification with reduced energy against pre-trained models: C1 claim
+R06200,Y,second,,Spike-driven attention consumes 0.240 times the energy of conventional attention: C1 estimated
+R06300,Y,second,,Ternary SNN outperforms DNNs in accuracy and computational efficiency: C1 claim

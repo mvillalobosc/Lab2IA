@@ -1,0 +1,86 @@
+R00009	UNSURE	C2	none	Evolutionary spiking framework with neuronal pruning; pruning role unclear
+R00034	EXCLUDE	E3	none	Biological insect mushroom body model; sparse coding, no efficiency
+R00041	EXCLUDE	E5	ASIC	Stochastic-computing CNN accelerator; no SNN or lottery-ticket content
+R00044	EXCLUDE	E4	ASIC	SNN keyword-spotting chip; no ANN efficiency baseline or pruning
+R00053	EXCLUDE	E4	none	Conversion max-pooling method; compared only with SNN methods
+R00092	INCLUDE	C1	none	SNN vs ANN keyword spotting, computational cost compared
+R00098	INCLUDE	C1	Loihi,GPU	Loihi SNN 140x less energy than DNN on Jetson TX2
+R00101	INCLUDE	C1	none	SNN ASR vs ANN; synaptic operations compared
+R00114	EXCLUDE	E2	photonic,GPU	Photonic CNN hardware architecture; no SNN
+R00136	EXCLUDE	E2	memristor/in-memory	Review of neuromorphic memory devices
+R00148	EXCLUDE	E4	FPGA	Event-based HOTS network on FPGA; no ANN baseline
+R00163	EXCLUDE	E2	memristor/in-memory	FeFET neuron and synapse devices chapter
+R00176	EXCLUDE	E2	memristor/in-memory	Thin-film synaptic device characterisation
+R00181	EXCLUDE	E5	none	Graph CNN on event-camera data; no SNN
+R00184	INCLUDE	C5+C6	CPU,GPU,FPGA,ASIC	Survey of DNN/SNN accelerators with benchmarking section
+R00192	EXCLUDE	E2	memristor/in-memory,simulation	Synaptic transistor device; ANN simulation only
+R00225	INCLUDE	C3	none	Strong LTH theory, logarithmic overparameterisation bounds
+R00238	EXCLUDE	E2	memristor/in-memory	Crossbar floorplanning for sparse networks; no learning task
+R00279	EXCLUDE	E2	memristor/in-memory	Review of organic neuromorphic devices
+R00287	INCLUDE	C3	none	Winning tickets in RL and NLP
+R00292	EXCLUDE	E6	none	Power demand response with coupon lotteries
+R00294	INCLUDE	C3	none	Proof of strong LTH for random networks
+R00296	INCLUDE	C3	none	SynFlow: data-free search for sparse trainable subnetworks at init
+R00322	EXCLUDE	E2	memristor/in-memory	Memristor crossbar circuit for pattern matching; no SNN
+R00325	EXCLUDE	E2	memristor/in-memory,simulation	Synaptic transistor SNN; no ANN comparison or pruning
+R00342	EXCLUDE	E2	none	Heterojunction transistor spiking neuron device
+R00360	EXCLUDE	E4	none	SNN training method; no ANN efficiency comparison
+R00385	INCLUDE	C3	CPU	LTH-based structured pruning for music models
+R00391	EXCLUDE	E4	none	Hybrid SNN-CNN keyword recognition; no efficiency metric vs ANN
+R00398	INCLUDE	C3	none	Continuous sparsification for pruning and ticket search
+R00408	EXCLUDE	E4	ASIC	Unified ANN/SNN neuromorphic chip; no ANN-SNN efficiency comparison
+R00416	EXCLUDE	E4	FPGA	SCNN FPGA accelerator; no ANN baseline or pruning
+R00436	EXCLUDE	E5	none	Event-camera gesture recognition, non-spiking network
+R00462	EXCLUDE	E2	memristor/in-memory	Review of spintronic SNN devices
+R00466	EXCLUDE	E2	photonic,memristor/in-memory	All-photonic memristor synapse device
+R00492	EXCLUDE	E5	ASIC,memristor/in-memory	Review of NPU architectures for DNN inference
+R00538	EXCLUDE	E4	none	Deep SNN object localisation; accuracy only
+R00553	INCLUDE	C3	none	Structure and function of winning tickets under stochasticity
+R00555	EXCLUDE	E6	none	Psychology study on choice and lottery tickets
+R00566	EXCLUDE	E4	SpiNNaker	CNN-to-SNN deployment on SpiNNaker; accuracy and search time only
+R00586	INCLUDE	C3	none	Lottery tickets transferred under distribution shift
+R00609	EXCLUDE	E4	none	SNN gait authentication; accuracy-only comparison with ANNs
+R00628	UNSURE	C1	none	Hybrid ANN-SNN model; efficiency evaluated, metric unspecified
+R00641	EXCLUDE	E4	memristor/in-memory,simulation	Memristive SNN STDP learning; no ANN efficiency comparison
+R00642	EXCLUDE	E4	none	Liquid state machine with astrocytes; accuracy only
+R00648	EXCLUDE	E2	memristor/in-memory	Ion-gating synaptic transistor device
+R00652	INCLUDE	C3	none	Fairness of lottery ticket pruning in NLP
+R00658	EXCLUDE	E4	none	Frozen GNN KG embedding with SNN variant; no ANN-SNN efficiency
+R00670	EXCLUDE	E2	memristor/in-memory,CPU	Review of low-power neuromorphic devices
+R00682	UNSURE	C1	none	Conversion latency cut 10x; ANN efficiency comparison unclear
+R00748	INCLUDE	C3	none	Pruning random-weight networks with iterative randomisation
+R00751	EXCLUDE	E7	none	ANN brain predictivity; general pruning, no LTH or SNN
+R00756	EXCLUDE	E5	none	Event-camera face tracking with recurrent CNN; no SNN
+R00770	EXCLUDE	E4	FPGA	Streaming SNN FPGA accelerator; no ANN baseline
+R00781	UNSURE	C1	none	SNN SAR ship recognition; efficiency claimed, baseline unclear
+R00785	EXCLUDE	E4	none	LSM SNN posture recognition; accuracy only
+R00791	EXCLUDE	E7	none	During-training ANN pruning (GraNet); LTH only as context
+R00796	INCLUDE	C1+C2	none	SNN compression cuts spikes; 12.2x energy efficiency vs ANNs
+R00798	EXCLUDE	E4	none	Spiking autoencoders; accuracy-only comparison with ANN
+R00813	EXCLUDE	E3	none	Electrophysiology statistics of human cortical neurons
+R00819	INCLUDE	C3	none	Super tickets in pre-trained language models
+R00853	INCLUDE	C3	none	Differentially private training via lottery tickets
+R00882	EXCLUDE	E4	FPGA	FPGA online-learning SNN processor; no ANN baseline
+R00884	EXCLUDE	E4	ASIC	SNN segmentation accelerator; no ANN baseline or pruning
+R00895	EXCLUDE	E2	memristor/in-memory	Perovskite memristor device
+R00906	INCLUDE	C1	Loihi,GPU	LSTM-like SNN on Loihi; energy efficiency vs GPU implied
+R00908	EXCLUDE	E4	none	SNN-to-hardware mapping model; no ANN comparison
+R00909	EXCLUDE	E2	memristor/in-memory,GPU	Memristive synapses for deep belief network; no SNN
+R00923	EXCLUDE	E2	photonic	Review of optical neural networks
+R00931	EXCLUDE	E2	memristor/in-memory	Organic ECRAM synaptic device
+R00933	INCLUDE	C2	simulation	Spike-frequency adaptation cuts SNN spike count
+R00954	EXCLUDE	E2	memristor/in-memory,simulation	Metal-oxide synaptic transistor; ANN simulation only
+R00958	EXCLUDE	E2	memristor/in-memory	MoS2 in-memory bioinspired network devices
+R00970	EXCLUDE	E6	none	Economics of lottery-ticket mechanisms
+R00972	EXCLUDE	E2	photonic	Optoelectronic reservoir computing device; no spikes
+R00997	EXCLUDE	E4	MCU	CNN vs SNN EEG accuracy only; efficiency as motivation
+R01016	EXCLUDE	E4	FPGA	Sparse SNN FPGA accelerator; baselines appear to be SNN accelerators
+R01026	INCLUDE	C3	none	Sparse fine-tuning masks from LTH variant
+R01035	INCLUDE	C1	TrueNorth	Converted Siamese SNN tracker; energy and latency on TrueNorth
+R01083	EXCLUDE	E5	none	Event-camera super-resolution with recurrent network; no SNN
+R01091	INCLUDE	C1	FPGA	Measured CNN vs SNN energy on FPGA; SNNs less efficient
+R01093	EXCLUDE	E4	FPGA	CSNN FPGA accelerator compared only with prior SNN designs
+R01118	EXCLUDE	E6	none	Philosophy of mind on energy and substrate independence
+R01128	INCLUDE	C1	none	Event video reconstruction SNN, 19x more efficient than ANN
+R01147	EXCLUDE	E6	none	Ultimatum bargaining experiment over lottery tickets
+R01148	EXCLUDE	E5	none	Int8 DNN fall detection on edge; no SNN

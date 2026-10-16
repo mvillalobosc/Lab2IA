@@ -1,0 +1,25 @@
+R02072	Y	-	C3	ANN	NS	OTHER	NA	NS	NS	LATENCY	NA	NS	OTHER	NS	NS	N	Cost model based on LTH for tensor program tuning; up to 1.53x search efficiency gain, 1.41x inference speedup
+R02076	N	E2	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Tianjic multi-chip card and board systems; latency and power measured, no ANN or SNN baseline comparison
+R02079	Y	-	C3	ANN	GNN	OTHER	NA	NS	NS	MEMORY	NA	SCORE	STRONG	UNSTRUCT	N	N	SLTH-based GNNs reach high sparsity, competitive accuracy and up to 98.7% memory reduction; untrained recurrent GNNs match trained feed-forward
+R02081	Y	-	C3	ANN	NS	NLP	NA	NS	CLAIM	NONE	NA	EVO	WEAK	NS	N	N	Per-language lottery tickets via zero-shot NAS reduce inference cost and boost multilingual performance; no figures; search cost negligible
+R02089	Y	-	C2	SNN	NS	STATIC_IMG+EVENT+BIOSIG	ASIC	NA	NS	ENERGY+POWER	NA	OTHER	NA	TEMPORAL	Y	N	40 nm single-spike SNN processor: 94.61% MNIST, 93.59% N-MNIST, 93.27% ECG; 0.173 uJ per ECG inference; 91.68% less power
+R02091	Y	-	C3	ANN	NS	NS	NA	NS	NONE	NONE	NA	NS	OTHER	UNSTRUCT	N	N	LTH weight masks extract single-function winning tickets as modules; recomposed models smaller and more accurate than compressed models
+R02092	N	E2	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Fabricated 28 nm CIM processor: 0.72 uJ and 92.1% on CIFAR-10; circuit-level SNN techniques, no ANN baseline
+R02095	Y	-	C1	ANN+SNN	CNN	BIOSIG	NS	NS	NS	OPS+ENERGY	PAIRED	NA	NA	NA	NA	N	CNN-to-SNN edge biosignal framework: accuracy 92.7/96.7/85.7%; versus CNN, computation -80.7%, energy -80%, area -64.8%
+R02096	Y	-	C2	SNN	NS	NS	SIM	NA	CLAIM	POWER+MEMORY	NA	DST	NA	UNSTRUCT	N	N	Dynamic prune-and-regrow sparse SNN training from scratch at fixed sparsity; minimal accuracy loss claimed; no efficiency figures
+R02097	Y	-	C2	SNN	CNN	STATIC_IMG	SIM	NA	NS	NONE	NA	DST	NA	UNSTRUCT	N	N	Drop-and-grow dynamic sparse SNN training: +20.52% accuracy on Tiny-ImageNet at 99% sparsity versus SOTA; training cost 40.89% of LTH
+R02100	N	E6	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Review of neuromorphic applications in medicine (imaging, biosignals, prostheses); not focused on efficiency comparison or sparsity
+R02102	Y	-	C5	ANN+SNN	NS	NS	MEMRISTOR	MEMRISTOR	CLAIM	ENERGY	NA	NA	NA	NA	NA	N	Review of CMOS-integrated memristive neuromorphic hardware; claims orders-of-magnitude performance and energy gains of prototypes over conventional systems
+R02105	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Spiking arm controller on Loihi; two orders less energy than standard hardware, no ANN baseline; RMSE 4.13% worse than analytic
+R02108	Y	-	C1	ANN+SNN	CNN+RNN	BIOSIG	SIM	NS	CLAIM	OPS+ENERGY	NS	NA	NA	NA	NA	N	Spiking ConvLSTM seizure detection AUC 92.7 (FB), 89.0 (CHB-MIT), 81.1 (EPILEPSIAE); lower overhead and energy than SOTA models, unquantified
+R02118	Y	-	C1	ANN+SNN	NS	NLP	SPINNAKER	NS	MEASURED	ENERGY	PAIRED	NA	NA	NA	NA	U	ANN converted to SNN on SpiNNaker: 100% accuracy, 3970 J for about 10,000 words; better than ANN claimed, unquantified
+R02122	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Text emotion SNNs (conversion and surrogate gradient); only accuracy and noise robustness compared with ANN, no efficiency metric
+R02123	Y	-	C2	SNN	CNN	STATIC_IMG	ASIC	NA	NS	ENERGY+LATENCY	NA	ACT	NA	MIXED	Y	N	Input-dependent temporal neuron pruning in 65 nm SNN processor: 57% energy reduction, 2.68x speed up, 0.82% accuracy loss, CIFAR-10
+R02127	Y	-	C3	ANN	NS	NS	NA	NS	NONE	NONE	NA	OTHER	WEAK	STRUCT	N	N	MIP-based neuron importance for pruning; sub-networks generalize across datasets after retraining (lottery ticket optimization); no cost figures
+R02133	Y	-	C1	ANN+SNN	NS	BIOSIG	FPGA	NS	ESTIMATED	MEMORY+OPS	LITERATURE	NA	NA	NA	NA	N	SNN decoder on Zynq-7010 FPGA: comparable accuracy to DL decoders, 7.36x fewer parameters, about 90% fewer computations via spike sparsity
+R02134	Y	-	C1	ANN+SNN	NS	BIOSIG	FPGA	NS	MEASURED	POWER+MEMORY	LITERATURE	NA	NA	NA	NA	N	Artix-7 FPGA SNN decoder tracks five variables at 56.4 mW; comparable accuracy to DL decoders with about 20x fewer parameters
+R02136	Y	-	C3	ANN	MLP	NS	NA	NS	NONE	NONE	NA	THEORY	NS	NS	NS	N	Tropical-geometry characterization of ReLU decision boundaries, with a tropical view of LTH and pruning reformulations; theory, no efficiency data
+R02138	Y	-	C3	ANN	NS	NS	NA	NS	NONE	NONE	NA	SCORE	OTHER	UNSTRUCT	N	N	Soft-subnetwork masks jointly learned with weights for few-shot class-incremental learning; accuracy-only gains over baselines
+R02142	Y	-	C1	ANN+SNN	TRANSFORMER	BIOSIG	SIM	NS	ESTIMATED	OPS	PAIRED	NA	NA	NA	NA	N	Sliding-window spiking transformer for sEMG finger regression: new state-of-the-art accuracy on NinaproDB8, up to 5.3x fewer synaptic operations
+R02143	Y	-	C6	SNN	NS	OTHER	OTHER_NEURO	NA	NS	ENERGY	NA	NA	NA	NA	NA	N	Instruction set and per-component energy costs of the SENeCA digital neuromorphic processor to benchmark SNN algorithms; no ANN comparison
+R02153	Y	-	C5	SNN	NS	NS	NA	NA	NONE	NONE	NA	NA	NA	NA	NA	N	Review of SNN learning algorithms grouped by type with computational complexity assessment; SNN energy potential versus ANN speed on CPUs/GPUs

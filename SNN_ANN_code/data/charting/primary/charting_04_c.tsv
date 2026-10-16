@@ -1,0 +1,25 @@
+R01231	Y	-	C1	ANN+SNN	RNN	AUDIO	SIM	NS	ESTIMATED	OPS	NS	NA	NA	NA	NA	N	SNN accuracy within 1.1% of best ANNs with up to 49x fewer operations; SpikGRU best recurrent SNN on hardest task
+R01232	N	E2	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Device-level study of gated Schottky diode synapses in two-layer SNN; TTFS fewer spikes than max-firing, no ANN efficiency comparison
+R01234	Y	-	C2	SNN	CNN	STATIC_IMG	SIM	NA	NONE	NONE	NA	NS	NA	UNSTRUCT	N	N	Prunes unessential weights of one network and replaces them with another's weights for multitask learning; tested on convolutional SNNs
+R01238	Y	-	C3	ANN	TRANSFORMER	NLP	NA	NS	NONE	NONE	NA	MAG+SCORE	WEAK	UNSTRUCT	N	N	Task-agnostic mask training finds BERT subnetworks beating magnitude pruning on GLUE and SQuAD, with cheaper search
+R01242	Y	-	C1	HYBRID	RNN+CNN	NLP+EVENT	SIM	NS	CLAIM	MEMORY+OPS	DIFFERENT	NA	NA	NA	NA	N	LIAF-Net claims far fewer synaptic weights and less computation than LSTM, GRU, ConvLSTM, Conv3D; state-of-the-art on DVS sets; no figures
+R01246	Y	-	C3	ANN	MLP	OTHER	NA	NS	NS	LATENCY	NA	NS	WEAK	STRUCT	N	N	Over 85% of nodes pruned (98% possible) with minimal accuracy loss; training time improved over 50%, inference over 10%
+R01247	Y	-	C3	ANN	NS	NS	NA	NS	NONE	NONE	NA	MAG	WEAK	UNSTRUCT	N	N	IMP finds good sparse subnetworks after early dense pre-training; small or easy data subsets suffice; loss landscape predicts IMP success
+R01251	Y	-	C1	ANN+SNN	NS	OTHER	MEMRISTOR	NS	CLAIM	POWER	DIFFERENT	NA	NA	NA	NA	N	Stochastic memristor-neuron SNN claimed better accuracy and power than conventional ANNs and deterministic SNNs on liver tumor data; no figures
+R01253	Y	-	C3	ANN	MLP+CNN	NS	NA	NS	CLAIM	MEMORY+LATENCY	NA	OTHER	OTHER	NS	N	N	Low-rank subnetworks found during training cut time and memory of training and evaluation; fully connected and convolutional nets; no figures
+R01255	Y	-	C3	ANN	CNN	BIOSIG	NA	NS	NS	MEMORY	NA	NS	WEAK	NS	N	N	LTH-ECG reduces model size 142x with under 1% F1 penalty for single-lead ECG atrial fibrillation detection
+R01256	Y	-	C2	SNN	NS	EVENT	SIM	NA	CLAIM	SPIKES	NA	ACT	NA	NS	Y	N	SFA under multiple-spike patterns reduces spike activity; competitive on N-MNIST and SHD; no efficiency figures
+R01258	Y	-	C3	ANN	NS	NS	NA	NS	ESTIMATED	OPS	NA	THEORY+OTHER	WEAK	STRUCT	N	N	Spline-based node-group pruning cuts training FLOPs up to 3.5x at similar or better accuracy; early-bird phenomenon
+R01269	Y	-	C1	ANN+SNN	CNN	STATIC_IMG	GPU	NS	MEASURED	LATENCY	PAIRED	NA	NA	NA	NA	U	Converted VGG-16 inference 2.5x faster than BindsNet; ResNet-20 converted SNN a little over 2x slower than TensorFlow ANN
+R01270	Y	-	C1	ANN+SNN	NS	STATIC_IMG	OTHER_NEURO	GPU	MEASURED	THROUGHPUT+POWER	PAIRED	NA	NA	NA	NA	U	SoC runs 181 (MNIST) and 26 (CIFAR-10) images/s; comparable accuracy and significantly better power than ANN on GPU
+R01272	Y	-	C3	ANN	NS	NS	NA	NS	NONE	NONE	NA	THEORY	STRONG	NS	N	N	Existence proof: random network of depth L+1 suffices to contain subnetwork approximating depth L target; many activation functions
+R01280	Y	-	C3	ANN	CNN	STATIC_IMG	NA	NS	NS	MEMORY	NA	SCORE	STRONG	UNSTRUCT	N	N	7-coated supermask ResNet-101 beats Hidden Networks counterpart by 4%, matches dense ResNet-50 at an order of magnitude smaller size
+R01286	Y	-	C1	ANN+SNN	CNN	STATIC_IMG	LOIHI	GPU	MEASURED	POWER+LATENCY	LITERATURE	NA	NA	NA	NA	N	NC-Emotions on Loihi 0.96 W, 84.6% accuracy, 25 ms per frame; SoTA on GPU 86.2% at about 35 W
+R01290	Y	-	C6	SNN	NS	NS	NS	NS	NONE	NONE	NA	NA	NA	NA	NA	N	Proposes neural mini-apps in Fugu to benchmark neuromorphic architectures; no results or efficiency figures in abstract
+R01292	Y	-	C3	ANN	MLP	STATIC_IMG	NA	NS	NONE	NONE	NA	MAG	WEAK	UNSTRUCT	N	N	IMP winning tickets of a fully connected net develop local connectivity; effect grows with training set size and data semantics
+R01298	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Review of neuromorphic AI hardware projects classified by brain features; not an ANN-SNN efficiency comparison or pruning review
+R01300	Y	-	C1	ANN+SNN	CNN	OTHER	LOIHI	CPU+GPU	MEASURED	ENERGY	PAIRED	NA	NA	NA	NA	Y	Loihi 2.5x more energy efficient than Cortex-A72 CPU and 12.5x than T4 GPU for CNN inference, batch 1
+R01303	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	SNNs for EMG gesture recognition on Loihi: 74% accuracy, 5.7 ms latency, 41 mW; no ANN efficiency comparison
+R01309	Y	-	C1	ANN+SNN	NS	NS	NS	NS	CLAIM	POWER	NS	NA	NA	NA	NA	N	SNN-STDP claimed orders of magnitude more power efficient than conventional deep-learning systems; event-based sampling outperforms conventional in power
+R01312	Y	-	C1	ANN+SNN	CNN	OTHER	NS	NS	NS	POWER	DIFFERENT	NA	NA	NA	NA	N	NeuroSEE could cut power 15x versus existing CNN framework; state-of-the-art Pearson correlation predicting V1 response
+R01322	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Loihi compiler: 80% utilization on 16 chips for 28-layer MobileNet; CIFAR-10 error 8.52%; no ANN efficiency figures

@@ -1,0 +1,25 @@
+R01539	Y	-	C3	ANN	CNN	STATIC_IMG	NA	SIM	NONE	NONE	NA	MAG+RANDOM+OTHER	WEAK	UNSTRUCT	N	N	Sparse training recipe (ghost neurons, skip connections, init, labels) improves lottery ticket, SNIP, GRASP, SynFlow and random masks
+R01541	Y	-	C3	ANN	NS	STATIC_IMG	NA	SIM	CLAIM	NONE	NA	RANDOM+MAG	WEAK	UNSTRUCT	N	N	Random buildup then LTH-like elimination with binary search; over 98% pruned matching full-network performance on three image datasets
+R01546	Y	-	C3	ANN	CNN+TRANSFORMER	NS	NA	SIM	NONE	NONE	NA	MAG+THEORY	WEAK	NS	N	N	IMP viewed as renormalization group flow; ResNet-50 and BERT transferable winning tickets show common flow properties; no efficiency figures
+R01558	Y	-	C3	ANN	NS	STATIC_IMG	NA	SIM	NONE	NONE	NA	MAG	OTHER	UNSTRUCT	N	N	Fourier analysis of magnitude pruning plus two-stage prune and frequency-domain distillation retraining; CIFAR-10/100; no efficiency figures
+R01561	Y	-	C3	ANN	TRANSFORMER	NLP	NA	SIM	NONE	NONE	NA	NS	NS	STRUCT	N	N	LTH-style hierarchical structured pruning of prompt tokens closes gap with fine-tuning on SuperGLUE at smaller model scales
+R01569	N	E2	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Hybrid ANN/SNN/BNN processor: 0.99 to 4.38 uJ/class across EEG, ECG, EMG and spike tasks; no ANN-SNN comparison on same task
+R01570	Y	-	C1	ANN+SNN	CNN	STATIC_IMG	FPGA	FPGA	MEASURED	ENERGY	LITERATURE	NA	NA	NA	NA	N	Dendrite-inspired CNN on FPGA: 10.7 uJ/frame, 88% CIFAR-10; 94.4x better energy efficiency, 6% higher accuracy than spiking CNN FPGA
+R01571	Y	-	C2	SNN	NS	EVENT+STATIC_IMG	ASIC	NA	ESTIMATED	ENERGY+THROUGHPUT	NA	ACT	NA	NS	Y	N	SNN accelerator 65nm synthesis: DVS-Gesture 92.7% accuracy, 24.3 uJ/image; MNIST 349.6 KFPS, 0.52 uJ/image; sparsity-exploiting dataflow
+R01575	Y	-	C2	SNN	RNN	STATIC_IMG	ASIC	NA	MEASURED	ENERGY	NA	NS	NA	UNSTRUCT	NS	N	Fabricated 65nm mixed-signal ESN spiking processor: 95.35% MNIST accuracy, 12.92 nJ per classification; sparse connections optimized
+R01577	N	E2	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Hybrid RRAM CNN and SRAM SNN tracking SoC, 73.53 TOPS/W in title; abstract gives no ANN-SNN comparison results
+R01578	Y	-	C1	ANN+SNN	CNN	BIOSIG	LOIHI	MCU	ESTIMATED	ENERGY+LATENCY+POWER	PAIRED	NA	NA	NA	NA	U	SCNN on Loihi simulator: 6.2 uJ, 9.5 ms, sensitivity 92.2, specificity 97.3; CNN on MCU 93.4 and 99.1
+R01580	Y	-	C2	HYBRID	NS	NS	ASIC	ASIC	NS	ENERGY	NA	NS	NA	NS	NS	U	Title: 22nm 0.43 pJ/SOP sparsity-aware hybrid SNN/ANN in-memory system; abstract is background only, no results
+R01590	Y	-	C3	ANN	NS	NS	NA	NS	CLAIM	MEMORY+LATENCY+THROUGHPUT	NA	OTHER	NS	STRUCT	Y	N	Single-shot layer-wise channel pruning under computational constraints; reduces memory, speeds up, raises throughput, no figures
+R01599	Y	-	C3	ANN	MLP+CNN+GNN	NS	NA	SIM	NONE	NONE	NA	THEORY	STRONG	NS	N	N	Proves equivariant strong LTH for G-equivariant networks with optimal overparametrization; verified by pruning E(2)-steerable CNNs and GNNs
+R01603	Y	-	C1	ANN+SNN	CNN	STATIC_IMG	SIM	SIM	CLAIM	LATENCY	PAIRED	NA	NA	NA	NA	N	DNN vs SNN under BFV encryption on FashionMNIST: SNN up to 40% higher accuracy at low modulus, longer execution time
+R01610	Y	-	C1	ANN+SNN	NS	CONTROL	SIM	SIM	NS	LATENCY+ENERGY	NS	NA	NA	NA	NA	N	Learnable spike coding for spiking RL: latency down to 0.8% of other SRL methods, energy efficiency up to 5X DNNs
+R01612	Y	-	C2	SNN	NS	STATIC_IMG+BIOSIG+EVENT	ASIC	NA	MEASURED	POWER+ENERGY+OPS	NA	ACT	NA	TEMPORAL	Y	N	Fabricated 40nm SNN processor: 680 uW, 9.9 pJ/SOP; dynamic pruning cuts synaptic operations 3.68x in training, 1.63x in inference
+R01615	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	ANN-SNN conversion with clipping layer and potential initialization: MNIST 96.18% at 2 time steps, 97.68% at 16; only time-steps
+R01617	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	StepReLU-based ANN-SNN conversion with state-of-the-art accuracy on CIFAR and ImageNet; latency claims only, no ANN efficiency comparison
+R01618	Y	-	C1	ANN+SNN	CNN	OTHER	SIM	SIM	NS	ENERGY+MEMORY	PAIRED	NA	NA	NA	NA	N	Converted spiking ResNet beats SRCNN and unconverted ResNet at low channel SNR; 68% lower storage and energy requirements
+R01623	Y	-	C1	ANN+SNN	CNN	BIOSIG	SIM	SIM	NS	POWER	PAIRED	NA	NA	NA	NA	N	EMG spiking CNN vs same-structure CNN: accuracy +50.69% small-sample, +6.50% electrode shift; power about 1/93 of CNN
+R01626	Y	-	C3	ANN	MLP	OTHER	NA	SIM	NONE	NONE	NA	NS	NS	NS	NS	N	Federated proactive caching using lottery hypothesis for privacy; beats Thompson Sampling in caching efficiency; no model-efficiency figures
+R01631	Y	-	C1	HYBRID	RNN+CNN	TS	SIM	SIM	NS	ENERGY	PAIRED	NA	NA	NA	NA	N	Federated spiking-LSTM for activity recognition: 97.36% indoor, 89.69% outdoor accuracy; 32.30% better energy efficiency than plain LSTM
+R01633	Y	-	C2	SNN	NS	NS	SIM	NA	CLAIM	NONE	NA	NS	NA	UNSTRUCT	NS	N	LIF SNN circuit fault simulation: 85.25% neuron loss tolerated in second layer, 93.33% fault tolerance; pruning reduces connections
+R01638	Y	-	C1	ANN+SNN	CNN	STATIC_IMG	OTHER_NEURO	GPU	MEASURED	ENERGY	PAIRED	NA	NA	NA	NA	Y	Shallow converted-ResNet SNN on few neuromorphic devices: accuracy over 80%, about 1/130 the energy of GPU running same DNN

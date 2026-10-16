@@ -1,0 +1,25 @@
+R04660	Y	-	C2	SNN	TRANSFORMER+GNN	OTHER	SIM	NA	CLAIM	OPS	NA	OTHER	NA	NS	Y	N	Spiking graph transformer with selective critical-node interactions; claims superior computational efficiency, competitive accuracy; no figures
+R04666	Y	-	C3	ANN	NS	NS	NA	SIM	NONE	NONE	NA	THEORY+OTHER	OTHER	NS	N	N	LTH-based pruning at initialization; Sign-In reparameterization induces sign flips; no efficiency figures
+R04672	Y	-	C1	ANN+SNN	TRANSFORMER	NLP	NS	NS	NS	ENERGY+LATENCY	PAIRED	NA	NA	NA	NA	U	SpikingBERT on SITRA up to 6.4x higher energy efficiency and 3.4x lower latency than ANN baseline
+R04717	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	SNN systolic array accelerator compared only with systolic arrays running SNNs: 1.66x efficiency, 46.86% less power
+R04731	Y	-	C2	SNN	OTHER	EVENT+OTHER	SIM	NA	ESTIMATED	SPIKES	NA	OTHER	NA	TEMPORAL	Y	N	Single-spike MNIST encoding and spike-count optimisation; MNIST MSE 0.039, 99.93% lower than previous results
+R04834	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	ANN-SNN conversion with two-phase probabilistic neurons; accuracy results only, no efficiency metric
+R04875	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Survey on scaling neuromorphic chips; main subject is not ANN-SNN efficiency, benchmarking or pruning
+R04924	Y	-	C3	ANN	CNN	STATIC_IMG	NA	SIM	NONE	NONE	NA	MAG	WEAK	UNSTRUCT	N	N	MesoNet 56.2% accuracy at 80% sparsity (3,000 parameters) vs 62.6% baseline; IMP beats one-shot
+R04957	Y	-	C3	ANN	GNN	OTHER	NA	SIM	NONE	NONE	NA	THEORY	OTHER	NS	N	N	Proves a Strong Expressive LTH for GNNs via Weisfeiler-Leman expressivity; drug discovery examples
+R04974	Y	-	C6	SNN	NS	NS	ASIC	NA	MEASURED	POWER+MEMORY	NA	NA	NA	NA	NA	N	22-nm SNN chip proposes power and network density metrics; vs SOTA SNN chips ND 6x, PD 2.3x
+R05002	Y	-	C1	ANN+SNN	NS	NS	ASIC	ASIC	NS	ENERGY	LITERATURE	NA	NA	NA	NA	U	28 nm dual-mode accelerator 9.75 TOPS/W DNN and 9.75 TSOPS/W SNN; 1.9x and 2.7x prior designs
+R05117	Y	-	C1+C2	ANN+SNN	NS	STATIC_IMG+EVENT	SIM	SIM	NS	POWER+OPS	PAIRED	REG	NA	NS	Y	N	19.7% of equivalent ANN power (5.1x less), accuracy loss <1%; 3.2x fewer SOPs than rate-coded SNN; accuracy 93.4%
+R05128	Y	-	C1+C2	ANN+SNN	TRANSFORMER	NS	NS	NS	NS	ENERGY+LATENCY+THROUGHPUT	LITERATURE	NS	NA	STRUCT	Y	N	Speedup 241.2x vs Xeon CPU, 71.5x vs V100 GPU; vs Transformer accelerators 3.14x throughput, 85.99x energy efficiency
+R05144	Y	-	C1	ANN+SNN	CNN	TS	SIM	SIM	NS	ENERGY	NS	NA	NA	NA	NA	N	97% classification accuracy; over 50,000x lower energy than conventional CNNs
+R05199	Y	-	C1	ANN+SNN	CNN+OTHER	EVENT	FPGA	GPU	BOTH	POWER+LATENCY+THROUGHPUT+OPS	DIFFERENT	NA	NA	NA	NA	N	Single LIF neuron on iCE40 FPGA ~10 mW, 2.67 Mev/s; ~2.2e7 fewer ops/event than EDnCNN; ΔAUC +0.016
+R05240	Y	-	C2	SNN	CNN	STATIC_IMG+EVENT	SIM	NA	ESTIMATED	OPS	NA	ACT+DST	NA	MIXED	Y	N	VGG-16 CIFAR-10: 50% channel sparsity, 42.1% fewer SOPs, no observable accuracy loss
+R05241	Y	-	C2	SNN	TRANSFORMER	NS	NS	NA	ESTIMATED	OPS	NA	OTHER	NA	MIXED	Y	N	Temporal exit and early-guided channel pruning reduce synaptic operations up to 65.4% vs original spiking transformers
+R05282	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Ternary ANN-SNN conversion for compute-in-memory; faster inference than rate coding, no efficiency comparison with ANN
+R05333	Y	-	C1	ANN+SNN	NS	TS	NS	NS	NS	POWER+LATENCY	DIFFERENT	NA	NA	NA	NA	U	Accuracy 95.8% vs ML 89.3%, DL 92.6%; response 120 ms, 40-50% faster; power 35-40% lower
+R05349	Y	-	C1+C2	ANN+SNN	TRANSFORMER	STATIC_IMG+DET	SIM	SIM	NS	ENERGY	PAIRED	OTHER	NA	STRUCT	Y	N	ImageNet-1K up to +3.23%, accuracy gap to ANN as low as 0.02%, energy up to 44x lower
+R05358	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Spiking transformer anomaly detection; accuracy-only comparison with ANN methods; theoretical energy efficiency asserted, no figure
+R05372	Y	-	C1	ANN+SNN	CNN	BIOSIG	SIM	NS	CLAIM	ENERGY+LATENCY	NS	NA	NA	NA	NA	N	Accuracy 81.64% Sleep-EDF-78, 80.55% SHHS; claims faster inference and lower energy than DNNs
+R05415	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Spiking YOLO for SAR ship detection; energy efficiency asserted without explicit ANN comparison or figures
+R05457	Y	-	C2	SNN	NS	EVENT	SIM	NA	CLAIM	OPS	NA	OTHER	NA	TEMPORAL	Y	N	AER-SNN with denoising and First-To-Spike coding; claims much lower computation cost at competitive accuracy
+R05469	Y	-	C3	ANN	NS	NS	NA	SIM	NONE	NONE	NA	NS	STRONG	NS	N	N	LTH-inspired sparse hidden network with ATLAS sharing; accuracy comparable to dense models; no efficiency figures

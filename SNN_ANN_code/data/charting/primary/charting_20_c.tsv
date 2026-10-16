@@ -1,0 +1,25 @@
+R05939	Y	-	C1+C6	ANN+SNN	NS	NS	SIM	SIM	ESTIMATED	ENERGY+SPIKES	PAIRED	NA	NA	NA	NA	N	Analytical energy model: SNN with T=5 needs average spike rate below 5.7% to beat capacity-matched QNN
+R05944	Y	-	C1	ANN+SNN	NS	OTHER	SIM	NS	CLAIM	ENERGY	LITERATURE	NA	NA	NA	NA	N	CSNPC fraud detection: 90.8% recall at 5% FPR; lower energy per transaction than dense ANNs asserted, no figures
+R05945	Y	-	C1	ANN+SNN	NS	DET	FPGA	NS	CLAIM	POWER+LATENCY	NS	NA	NA	NA	NA	U	SNN remote sensing detector on Xilinx XC7VX690T FPGA: significantly lower power and latency, high accuracy (no figures)
+R05947	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Event-camera SNN flame detection claims higher accuracy and lower computational load vs traditional methods (type unstated); no figures
+R05948	Y	-	C1	ANN+SNN	CNN	OTHER	SIM	SIM	ESTIMATED	ENERGY	PAIRED	NA	NA	NA	NA	N	SDARNet PSNR 39.96 dB; theoretical energy efficiency over 56% above equivalent ANN PReNet; 4.3% less energy than SNN ESDNet
+R05952	Y	-	C2	SNN	NS	BIOSIG	SIM	NA	CLAIM	ENERGY	NA	DST	NA	STRUCT	Y	N	Scale-adaptive SNN spike sorter adds and removes active nodes online; accuracy comparable to benchmark methods; energy savings claimed, no figures
+R05954	Y	-	C1	HYBRID	TRANSFORMER	DET+EVENT	SIM	SIM	NS	ENERGY	PAIRED	NA	NA	NA	NA	N	HDI-Former SNN branch comparable to same-architecture ANN with 10.57x (DSEC) and 11.46x (PKU-DAVIS-SOD) less energy
+R05962	Y	-	C3	ANN	NS	NS	NA	NS	NS	LATENCY+MEMORY	NA	NS	WEAK	NS	N	N	LTH tickets lose soft-error robustness; two LT variants improve robustness up to 10,000x with under 1% latency overhead
+R05967	Y	-	C2	SNN	NS	BIOSIG	SIM	NA	ESTIMATED	ENERGY	NA	REG	NA	NS	N	N	D-SNN ECG; L1 regularisation plus pruning lowers estimated energy to 1.91 uJ/inference at 98.23% accuracy (intra-patient multiclass)
+R05971	Y	-	C1	HYBRID	NS	DET	NS	NS	CLAIM	ENERGY	DIFFERENT	NA	NA	NA	NA	N	SNN region proposal feeds ANN segmentation of railway defects; competitive accuracy, lower energy than existing approaches (no figures)
+R05972	Y	-	C2	SNN	NS	STATIC_IMG+EVENT	SIM	NA	NONE	NONE	NA	DST	NA	UNSTRUCT	N	N	S2TE sparse training with scale-free topology and prune-regrow; competitive accuracy at 30% connectivity on CIFAR10, CIFAR100, DVS-CIFAR10
+R05976	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	SAEN-BGS spiking autoencoder; ANN-to-SNN self-distillation claims decreased power with no figure or named comparator
+R05977	Y	-	C1	HYBRID	NS	OTHER	SIM	SIM	CLAIM	ENERGY	PAIRED	NA	NA	NA	NA	N	SAH-NeRF hybrid improves three ANN-based NeRFs in view synthesis and reduces energy (no figures)
+R05981	Y	-	C1	HYBRID	CNN+RNN+TRANSFORMER	AUDIO+OTHER	SIM	SIM	ESTIMATED	ENERGY+SPIKES	PAIRED	NA	NA	NA	NA	N	SCAF-Net CREMA-D 79.03% vs equivalent ANN 80.83%; spike rate 7.19%; theoretical energy about 71x lower than ANN
+R05982	Y	-	C1	ANN+SNN	CNN	OTHER	NS	NS	CLAIM	ENERGY+POWER	DIFFERENT	NA	NA	NA	NA	N	SCNNTraffic accuracy 98.65 (ISCX-VPN) and 92.51 (Non-VPN); fewer parameters and lower energy than existing methods, no figures
+R05983	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	SConvNSys FPGA SCNN accelerator: 1.8 W, 73 frames/s on CIFAR-10, 15.23 GOPS/W; no ANN baseline
+R05985	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Spiking transformer with dilated window attention beats SOTA spiking transformers; no ANN comparison, no efficiency figures
+R05986	Y	-	C1	ANN+SNN	CNN	CONTROL	SIM	SIM	ESTIMATED	ENERGY+OPS	PAIRED	NA	NA	NA	NA	N	SDP comparable to ANN counterparts; projected dynamic energy -80.36% on 45 nm hardware; fewer floating-point operations
+R05989	Y	-	C2	SNN	NS	NS	FPGA+SIM	NA	BOTH	POWER	NA	ACT	NA	NS	NS	N	PHEN-NoC: pruning unused connections gives estimated 15.2% lower static power; Zynq FPGA 1.352 W, 19.63% LUTs
+R05994	Y	-	C1	ANN+SNN	NS	BIOSIG	SIM	SIM	CLAIM	ENERGY+OPS	PAIRED	NA	NA	NA	NA	N	ANN-to-SNN conversion (SRIF neuron, collaborative trim) for EEG motor imagery: ANN-comparable accuracy; energy and complexity advantages claimed, no figures
+R06000	Y	-	C1+C2	ANN+SNN	NS	DET	SIM	SIM	ESTIMATED	ENERGY	DIFFERENT	OTHER	NA	NS	Y	N	SenSNN 20.87% mIoU at 4.18 mJ vs MobileNetV2-UNet 20.83% at 16.9 mJ (about 4x lower estimated energy)
+R06004	Y	-	C1	ANN+SNN	NS	OTHER	ASIC	NS	MEASURED	ENERGY	LITERATURE	NA	NA	NA	NA	N	SHARP 28 nm spiking chip: peak 83.2 TOPS/W, 2.16x energy efficiency over SOTA 3D point cloud processors
+R06007	Y	-	C1	ANN+SNN	NS	NS	LOIHI2	EDGE_GPU	MEASURED	ENERGY+LATENCY+EDP	PAIRED	NA	NA	NA	NA	Y	Sigma-delta ANN-to-SNN conversion on Loihi 2 vs Jetson Xavier: significant gains in efficiency and latency (EDP), no figures
+R06010	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Memristor-crossbar SNN simulation framework with nonideality models; compares nonideality impact on trace-SNN vs ANN (accuracy), no energy comparison
+R06018	Y	-	C5	HYBRID	NS	NS	NS	NS	NONE	NONE	NA	NA	NA	NA	NA	N	Survey of SNN-ANN hybrid architectures for wireless edge efficiency-accuracy trade-off; no quantitative figures

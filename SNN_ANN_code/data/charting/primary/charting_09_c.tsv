@@ -1,0 +1,25 @@
+R02721	Y	-	C1	HYBRID	NS	STATIC_IMG	SIM	SIM	NS	ENERGY	PAIRED	NA	NA	NA	NA	N	DualNet ANN/SNN mix keeps ANN accuracy (ImageNet 72.03%); energy up to 47.8% below ANN, 35.1% below SNN
+R02727	Y	-	C2	SNN	NS	STATIC_IMG	ASIC	NA	NS	LATENCY+ENERGY	NA	ACT+MAG	NA	NS	Y	N	SNN accelerator with early firing and exit: average speedup 20.3x/6.5x/2.4x and energy savings 25.2x/7.4x/3.2x vs Spinalflow/PTB/SATO
+R02728	Y	-	C2	SNN	NS	STATIC_IMG+EVENT	NS	NA	NS	LATENCY+ENERGY	NA	NS	NA	STRUCT	N	N	Splits deep SNN across edge devices with channel pruning; average inference latency down 60.7%, per-device energy down 27.7%, accuracy kept
+R02736	Y	-	C3	ANN	TRANSFORMER	NLP	NA	SIM	NONE	NONE	NA	MAG	OTHER	UNSTRUCT	N	N	LTP updates only 20% of parameters (most changed in MLM fine-tuning) plus soft prompts; beats baselines cross-lingually
+R02737	Y	-	C1	ANN+SNN	CNN	STATIC_IMG	SIM	SIM	NS	LATENCY	DIFFERENT	NA	NA	NA	NA	U	Spiking hyperspectral classifier beats five ANN models on accuracy; training time 7x shorter than A2S2K-ResNet, 4x shorter than SSRN
+R02739	Y	-	C3	ANN	NS	NS	NA	SIM	NONE	NONE	NA	OTHER	WEAK	NS	N	N	Ballot fair LTH-style pruning improves fairness by 38.00% over Magnitude Pruning, 33.91% over Standard LTH; no efficiency metric
+R02740	Y	-	C3	ANN	NS	NS	NA	SIM	CLAIM	OPS+MEMORY	NA	MAG	WEAK	UNSTRUCT	N	N	Federated lottery-ticket pruning with sparse-to-sparse client training and zCDP; claims better communication, computation, memory efficiency than SOTA, no figures
+R02741	Y	-	C1	ANN+SNN	NS	OTHER	FPGA	NS	NS	THROUGHPUT+ENERGY	DIFFERENT	NA	NA	NA	NA	U	FPGA SNN-based decision-feedback equalizer vs ANN-based DFE: better communication performance, similar throughput, 25x higher energy efficiency
+R02744	Y	-	C1	ANN+SNN	CNN	TS	SIM	SIM	CLAIM	ENERGY	NS	NA	NA	NA	NA	N	Convolutional and Bayesian SNN odor detector claims superior energy efficiency, comparable accuracy vs non-spiking ML algorithm; no figures
+R02745	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Tutorial on SNN learning methods; energy-per-error metric only suggested, no efficiency comparison; main subject is learning
+R02747	Y	-	C2	SNN	OTHER	STATIC_IMG	SIM	NA	ESTIMATED	SPIKES	NA	OTHER	NA	TEMPORAL	Y	N	STDP-trained TTFS spiking auto-encoder with 1-3 orders of magnitude fewer spikes than state-of-the-art SAEs on MNIST and Fashion-MNIST
+R02751	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Radix-encoded SNN uses under 6 time steps; 25x latency and 1.7% accuracy gain vs SOTA method on VGG-16 CIFAR-10
+R02752	Y	-	C2	SNN	NS	STATIC_IMG	SIM	NA	NONE	NONE	NA	ACT	NA	MIXED	N	N	K-WTA and variable-threshold sparse activation for class-incremental SNN; MNIST and CIFAR10 accuracy matches ANN regularization methods; no efficiency figures
+R02753	Y	-	C1	ANN+SNN	GNN	OTHER	SIM	SIM	CLAIM	ENERGY	NS	NA	NA	NA	NA	N	Spiking variational graph autoencoder claims significant energy savings, little performance loss vs ANN- and SNN-based baselines; no figures
+R02754	Y	-	C2	SNN	NS	STATIC_IMG+EVENT	SIM	NA	NONE	NONE	NA	DST	NA	MIXED	N	N	SNN neuron/channel pruning with rewiring (CIFAR-10/100, DVS-Gesture): parameters cut to about 10%, performance drop under 1%
+R02755	Y	-	C1	ANN+SNN	MLP+CNN	OTHER+AUDIO+TS	LOIHI2	NS	MEASURED	EDP	LITERATURE	NA	NA	NA	NA	U	Loihi 2 sigma-delta/resonate-and-fire networks give orders of magnitude EDP gains over state-of-the-art for video, audio denoising, spectral transforms
+R02756	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	ECG SNN converted from ANN with attention: 93.8% MIT-BIH, 85.8% PhysioNet 2017; efficiency asserted, no metric
+R02758	Y	-	C3	ANN	NS	STATIC_IMG	NA	SIM	NONE	NONE	NA	NS	STRONG	NS	N	N	Pruning pretrained backbones without retraining, ensembled for visual prompting: accuracy +1.3% to +12.96% across 12 datasets; no efficiency metric
+R02761	Y	-	C1	ANN+SNN	NS	OTHER	SIM	SIM	CLAIM	ENERGY	PAIRED	NA	NA	NA	NA	N	Empirical ANN vs SNN comparison on network-intrusion datasets: comparable accuracy, SNN consumes less energy, no figure
+R02764	Y	-	C1	ANN+SNN	CNN	DET	SIM	SIM	ESTIMATED	ENERGY	NS	NA	NA	NA	NA	N	SNN YOLO vehicle detector mAP50 34.1% on VisDrone2019; theoretical 82.86% energy reduction vs CNN detectors on neuromorphic chips
+R02771	Y	-	C1	ANN+SNN	MLP+CNN	EVENT	SIM	SIM	NS	ENERGY	PAIRED	NA	NA	NA	NA	U	N-MNIST: ANN 97.68%, CNN 97.68%, SNN 96.56%, SCNN 97.66%; ANN used least energy, about 0.27 Wh vs SNN 3.93 Wh
+R02772	Y	-	C2	SNN	NS	STATIC_IMG	FPGA	NA	MEASURED	ENERGY+POWER+THROUGHPUT+SPIKES	NA	OTHER	NA	TEMPORAL	Y	N	Sparse spike coding cuts spikes 93.69%, energy efficiency +76.47%; ZCU102 FPGA 409 mW, 0.021 mJ/image inference, MNIST 95.84%
+R02773	Y	-	C1	ANN+SNN	NS	DET	SIM	SIM	NS	ENERGY	LITERATURE	NA	NA	NA	NA	N	Converted spiking crater detector from digital elevation models: over 10x lower energy than previous method
+R02775	Y	-	C1	ANN+SNN	CNN	OTHER	LOIHI2	FPGA	MEASURED	POWER+ENERGY	PAIRED	NA	NA	NA	NA	Y	SNN on Loihi 2 vs CNN on Versal VCK5000: higher accuracy, over 100x lower power consumption
+R02776	Y	-	C1	ANN+SNN	NS	BIOSIG	SIM	SIM	CLAIM	ENERGY	NS	NA	NA	NA	NA	N	PPG respiratory-rate SNN: MAE 1.37/1.23/1.15 (16/32/64 s windows); claims better energy efficiency than deep learning models

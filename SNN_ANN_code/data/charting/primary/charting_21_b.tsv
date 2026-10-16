@@ -1,0 +1,25 @@
+R06108	Y	-	C1	ANN+SNN	NS	TS	SIM	SIM	NS	ENERGY	DIFFERENT	NA	NA	NA	NA	N	SNN 5.8x more energy efficient than CNNs; robust accuracy 89.5-93.1% under adversarial and noise conditions
+R06109	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	ANN-to-SNN conversion of a grid cell model for self-localization; no efficiency metric or ANN comparison
+R06110	Y	-	C1	ANN+SNN	NS	CONTROL	SIM	SIM	ESTIMATED	ENERGY	PAIRED	NA	NA	NA	NA	N	SNN about half the estimated energy of a structurally similar ANN, equal tracking (0.33 m error); real robot run
+R06113	Y	-	C1	ANN+SNN	NS	BIOSIG	SIM	SIM	NS	ENERGY	DIFFERENT	NA	NA	NA	NA	N	MnSNN more accurate than traditional ANNs and tens or hundreds of times more efficient; two rhesus macaques
+R06114	Y	-	C1	ANN+SNN	NS	CONTROL+TS	SIM	SIM	CLAIM	LATENCY+OPS	DIFFERENT	NA	NA	NA	NA	N	SNN controller: faster transient detection, lower THD, better power factor than PI and ANN controllers in Simulink; no figures
+R06115	Y	-	C1	ANN+SNN	NS	CONTROL	NS	NS	CLAIM	LATENCY	DIFFERENT	NA	NA	NA	NA	N	SNN with STDP gives better reactivity, reaction latency and adaptability than classical ANN controllers on robot arm; no figures
+R06116	Y	-	C1	ANN+SNN	NS	DET	SIM	SIM	NS	LATENCY+ENERGY	DIFFERENT	NA	NA	NA	NA	N	SNN 96.4% detection rate, 42 ms inference, 72% energy reduction versus CNN and ANN models; MATLAB simulation
+R06117	Y	-	C5	SNN	NS	NS	LOIHI+TRUENORTH+FPGA	NA	CLAIM	ENERGY	NA	NA	NA	NA	NA	N	Review of SNN models, learning rules and hardware (TrueNorth, FPGA, Loihi); energy gains asserted, no figures
+R06118	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Transformer plus hybrid SNN seizure predictor; efficiency claimed with no ANN comparator or metric
+R06119	N	E6	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Review of SNNs as neurodynamic models; efficiency measurement only a side remark, not the main subject
+R06120	Y	-	C1	ANN+SNN	NS	TS	SIM	SIM	NS	LATENCY+ENERGY	DIFFERENT	NA	NA	NA	NA	N	SpikeSOH MAE 4.5%, 3.55 us inference, 0.36 mJ; more efficient than conventional deep learning models
+R06121	Y	-	C1	ANN+SNN	CNN	STATIC_IMG	SIM	SIM	NS	ENERGY	PAIRED	NA	NA	NA	NA	N	SNN-T6 84.7% accuracy at 62.38 nJ/image, 2.49x energy saving versus best CNN; overall 85.38 vs 89.91 for ResNet-18
+R06123	Y	-	C1	ANN+SNN	NS	BIOSIG	SIM	SIM	CLAIM	ENERGY+OPS+MEMORY	DIFFERENT	NA	NA	NA	NA	N	PSNN 87.21% accuracy with 25.5k parameters; PLIF-SNN 90.25% with 15.4k, matching MobilESCAPE-NET at a quarter of its parameters
+R06125	Y	-	C1+C5+C6	ANN+SNN	RNN+CNN+TRANSFORMER+OTHER	OTHER	SIM	SIM	ESTIMATED	ENERGY+OPS+SPIKES	PAIRED	NA	NA	NA	NA	N	Survey plus ANN-to-SNN baselines on HDFS, BGL, Thunderbird; analytical projection 100-1200x energy reduction at 1-3% accuracy loss, not measured
+R06126	Y	-	C1	ANN+SNN	NS	OTHER	GPU	GPU	CLAIM	ENERGY	DIFFERENT	NA	NA	NA	NA	U	SNN brain age MAE 2.8 years, Pearson 0.93; lower GPU training energy than MLP, SVR, XGBoost, Attention-MLP; no figures
+R06127	Y	-	C1	ANN+SNN	NS	OTHER	SIM	SIM	NS	ENERGY+THROUGHPUT+LATENCY	DIFFERENT	NA	NA	NA	NA	N	SNN PHY adaptation: 70% lower energy, 32% higher throughput, 69% faster reconfiguration versus MIMO-OFDM and DL baselines
+R06128	N	E6	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Review of SNNs for EEG, ECG and EMG analysis; efficiency is a recurring theme, not the main subject
+R06129	N	E6	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Review of SNN video analysis models; SpikeActNet compared with C3D, I3D, ResNet without any efficiency metric in abstract
+R06130	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	SNN continual learning for steering regression, baselines are models without CL; no ANN efficiency comparison or pruning
+R06131	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Spiking CNN for motor imagery EEG; lower energy claimed without named ANN comparator or figures
+R06135	Y	-	C1	HYBRID	TRANSFORMER+OTHER	STATIC_IMG	SIM	SIM	NS	ENERGY	DIFFERENT	NA	NA	NA	NA	N	ViT features plus spike-based SVM; energy efficiency gains 99.52% (CK+) and 99.60% (RAF-CE) versus traditional deep learning
+R06136	Y	-	C1	ANN+SNN	NS	BIOSIG	SIM	SIM	NS	ENERGY	DIFFERENT	NA	NA	NA	NA	N	SNN-enabled personalized federated learning cuts inference energy 6.46x versus ANN-based baselines with best identification accuracy
+R06137	Y	-	C1	ANN+SNN	TRANSFORMER	DET	NS	NS	ESTIMATED	ENERGY+LATENCY+POWER+THROUGHPUT	DIFFERENT	NA	NA	NA	NA	U	NeuViT: 88.8% lower energy, 31% lower latency than Swin Transformer, 79.4% of its accuracy, over 22 FPS
+R06140	Y	-	C2	SNN	TRANSFORMER	EVENT	SIM	NA	NS	ENERGY+THROUGHPUT+MEMORY	NA	SCORE	NA	STRUCT	N	N	SDMFormer: parameters 37.93-42.69% of Spikformer, energy -42.79-50.13%, 196.20 img/s on CIFAR10-DVS, accuracy maintained
+R06142	Y	-	C1	ANN+SNN	NS	OTHER	SIM	SIM	NS	ENERGY	PAIRED	NA	NA	NA	NA	N	SpikingIR matches ANN counterparts on restoration benchmarks with up to 50% less energy

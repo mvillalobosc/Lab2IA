@@ -1,0 +1,25 @@
+R02344	N	E7	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Sparse parameter subset (about 0.01%) localizes fine-tuned skills via grafting without retraining; not lottery-ticket work, no SNN
+R02346	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	TTFS SNN with dynamic firing threshold beats other TTFS methods in accuracy; no ANN efficiency comparison
+R02349	Y	-	C5	ANN+SNN	CNN+GNN	EVENT	NS	NS	NONE	NONE	NA	NA	NA	NA	NA	N	Review of CNN versus SNN processing of event-camera data, algorithms and hardware, with event-graph GNN outlook; no figures
+R02350	N	E7	-	-	-	-	-	-	-	-	-	-	-	-	-	-	One-shot magnitude pruning shows essential sparsity in large pre-trained transformers; ANN-only, outside lottery-ticket family
+R02351	Y	-	C2	SNN	NS	EVENT	SIM	NA	ESTIMATED	ENERGY	NA	NS	NA	UNSTRUCT	N	N	Pruning keeps iso-accuracy up to 80% sparsity but costs 45% more energy than best quantization; ternary weights lossless
+R02354	Y	-	C1+C6	ANN+SNN	NS	AUDIO	LOIHI2+SIM	NS	CLAIM	ENERGY+POWER+LATENCY	DIFFERENT	NA	NA	NA	NA	U	N-DNS challenge with simulation and Loihi 2 tracks; neuromorphic baseline claims high power efficiency versus NsNet2, no figures
+R02359	Y	-	C1	ANN+SNN	NS	TS	SIM	SIM	ESTIMATED	POWER	NS	NA	NA	NA	NA	N	SNN accuracy up to 92.59% at 25 dB SNR; 64% less power than comparable-accuracy ANNs, 45 nm CMOS
+R02364	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Time-coded multiplication-free SNN with accuracy at par with machine learning models; efficiency versus ANNs asserted without figures
+R02366	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Sparse recurrent SNN for time series prediction and anomaly detection; cost comparison framework mentioned, no efficiency results given
+R02369	Y	-	C5	ANN+SNN	NS	NS	NS	NS	CLAIM	NONE	NA	NA	NA	NA	NA	N	Digital hardware review: ANNs more efficient on static data; hybrids and event sensors need further study
+R02372	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Lossless ANN-to-SNN conversion with negative spikes; state-of-the-art accuracy, fewer time steps and synaptic operations, comparator not stated as ANN
+R02375	Y	-	C1	HYBRID	RNN	STATIC_IMG	SIM	NS	CLAIM	ENERGY	NS	NA	NA	NA	NA	N	LSM plus logistic regression reaches 87% on MNIST; claims lower energy than traditional deep learning, no figures
+R02377	Y	-	C1	ANN+SNN	TRANSFORMER	NLP	SIM	SIM	NS	ENERGY	DIFFERENT	NA	NA	NA	NA	N	Spike encoder versus SOTA Transformer on IMDB: energy 1.36% (64.93x better efficiency ratio), accuracy variance within 2%
+R02378	Y	-	C1	ANN+SNN	TRANSFORMER	NLP	SIM	SIM	NS	ENERGY	DIFFERENT	NA	NA	NA	NA	N	Spiking encoder comparable to Transformer baseline in accuracy on sentiment and translation; computational energy reduced to 0.82%
+R02379	Y	-	C1	ANN+SNN	CNN	BIOSIG	FPGA	MCU	BOTH	ENERGY	LITERATURE	NA	NA	NA	NA	U	Spiking EEGNet 63.35% accuracy on BCIC-IV-2a; FPGA 318 uJ/inference versus MCU 337; neuromorphic estimate 34 uJ
+R02382	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Trainable-threshold SNN with fewer time steps and high sparsity beats state-of-the-art accuracy; no ANN efficiency comparison
+R02387	Y	-	C3	ANN	NS	STATIC_IMG+DET	NA	SIM	NONE	NONE	NA	DST	WEAK	NS	N	N	Transferring lottery tickets: adapting masks and weights beats original masks at various pruning ratios on classification and segmentation
+R02396	Y	-	C1	ANN+SNN	NS	OTHER	OTHER_NEURO	GPU	MEASURED	ENERGY	LITERATURE	NA	NA	NA	NA	U	Spiking-ORNN on neuromorphic chips 4300x higher energy efficiency than deep NNs on GPUs, accuracy loss under 0.5%
+R02402	N	E5	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Dynamical-system explanation of self-attention with StepNet; lottery ticket hypothesis only mentioned as a side explanation; ANN-only
+R02405	Y	-	C3	ANN	NS	NS	NA	SIM	NONE	NONE	NA	MAG+THEORY	WEAK	UNSTRUCT	N	N	Error landscape analysis of IMP masks and winning tickets; links IMP performance to Hessian eigenspectrum; no efficiency figures
+R02407	Y	-	C1	ANN+SNN	NS	OTHER	SIM	SIM	NS	ENERGY	DIFFERENT	NA	NA	NA	NA	N	SNN beamforming feature estimation: energy cost orders of magnitude lower than ANN frameworks with comparable sum rate
+R02409	Y	-	C3	ANN	NS	OTHER	NA	NS	NONE	NONE	NA	NS	NS	NS	N	N	Federated learning for DNN optical monitors with model size reduction by transferable lottery ticket; no results in abstract
+R02411	Y	-	C3	ANN	CNN	NS	NA	SIM	NONE	NONE	NA	NS	WEAK	STRUCT	N	N	Lottery ticket hypothesis examined with structured pruning in CNNs across architectures; no efficiency figures
+R02416	Y	-	C3	ANN	NS	NS	NA	SIM	NS	ENERGY+LATENCY	NA	NS	WEAK	STRUCT	N	N	Layer-pruned winning tickets found at initialization speed up training and cut up to 51% of carbon emission
+R02417	Y	-	C3	ANN	NS	NS	NA	SIM	NONE	NONE	NA	RANDOM+THEORY	BOTH	NS	N	N	Random masks approximate target networks if wider by a log factor in inverse sparsity; competitive with ticket pruning

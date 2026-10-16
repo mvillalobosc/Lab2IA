@@ -1,0 +1,25 @@
+R01395	N	E6	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Survey of 79 low-power AI accelerators; neuromorphic only one of five criteria; main subject general accelerators
+R01399	Y	-	C2	SNN	NS	NS	SIM	NA	NONE	SPIKES	NA	REG	NA	NS	Y	N	Spike-penalizing loss plus two-phase training to curb spike rate in deep SNNs; no figures given
+R01405	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	SNN fault diagnosis vs second-generation NN on several datasets; low energy asserted, no efficiency metric reported
+R01409	Y	-	C3	ANN	CNN	NS	NA	SIM	NONE	NONE	NA	OTHER	OTHER	STRUCT	N	N	LTH-informed grouped kernel pruning with greedy kernel selection and fine-tuning; no efficiency figures
+R01411	Y	-	C3	ANN	NS	NS	NA	SIM	NONE	NONE	NA	SCORE	STRONG	NS	N	N	Strong LTH for binary networks: fixed binary weights, pruned subnetwork robust to attacks; no efficiency figures
+R01412	N	E5	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Hyperspectral contraband CNN on GPU and neuromorphic modules; no spikes mentioned, no efficiency figures; neuromorphic accuracy lower
+R01413	Y	-	C3	ANN	TRANSFORMER	NLP	NA	SIM	NONE	NONE	NA	SCORE+REG	WEAK	UNSTRUCT	N	N	Learned binary masks with L0 and adversarial loss find robust tickets in pre-trained language models; no efficiency figures
+R01421	Y	-	C1	ANN+SNN	NS	NS	ASIC	ASIC	NS	ENERGY+LATENCY	DIFFERENT	NA	NA	NA	NA	N	SNN accelerator SATO vs 8-bit Eyeriss ANN accelerator: 30.9x speedup, 12.3x energy saving; vs SpinalFlow 6.4x, 4.8x
+R01425	Y	-	C2	SNN	MLP	STATIC_IMG	SIM	NA	NS	LATENCY+MEMORY	NA	OTHER	NA	STRUCT	Y	N	Input sparsity in fully connected SNN: MNIST size -58.16%, inference time -41.07%; Fashion-MNIST -55.99%, -59.05%
+R01430	Y	-	C3	ANN	MLP	OTHER	NA	SIM	CLAIM	NONE	NA	MAG+THEORY	WEAK	MIXED	N	N	IMP-based sparse random feature models viewed as lottery tickets of two-layer networks; generalization analysis; no efficiency figures
+R01431	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	ANN-SNN conversion with signed neuron; CIFAR10 95.44, CIFAR100 78.3, ImageNet 73.16 top-1; only latency vs other conversions
+R01432	Y	-	C3	ANN	NS	NS	NA	SIM	NONE	NONE	NA	SCORE	STRONG	UNSTRUCT	N	N	Signed supermask: weight selection and sign inversion, pruning rate up to 99% matching or exceeding baselines
+R01438	Y	-	C2	SNN	CNN	EVENT	ASIC	NA	NS	ENERGY+OPS	NA	ACT	NA	NS	Y	N	Event-based CNN accelerator: 80-261 uJ/inference on DVS-Gesture at 1.2-4.9% input activity, 0.221 pJ/SOP; operations scale with events
+R01443	Y	-	C2	SNN	NS	DET	ASIC	NA	NS	ENERGY+THROUGHPUT	NA	NS	NA	MIXED	Y	N	SNN detection accelerator in 28nm exploiting activation and weight sparsity: 71.5% mAP, 35.88 TOPS/W, 1.05 mJ/frame
+R01444	Y	-	C3	ANN	NS	NS	NA	SIM	NONE	NONE	NA	NS	WEAK	NS	N	N	Pruning gives sparse double descent in test error; a winning ticket may not always win; no efficiency figures
+R01446	Y	-	C3	ANN	NS	STATIC_IMG	NA	SIM	NONE	NONE	NA	MAG	WEAK	UNSTRUCT	N	N	Magnitude-pruned winning tickets beat dense nets with 50-100 examples per class; up to 16% absolute gain
+R01447	Y	-	C3	ANN	CNN	STATIC_IMG	NA	SIM	ESTIMATED	OPS	NA	DST+OTHER	WEAK	UNSTRUCT	N	N	LTH-based static and dynamic sparse adversarial training: 87.83% training and 87.82% inference FLOPs savings, CIFAR-100 ResNet-18
+R01452	Y	-	C1	ANN+SNN	RNN	AUDIO	SIM	SIM	CLAIM	OPS+LATENCY	NS	NA	NA	NA	NA	N	Bio-inspired spiking units in RNN-T: competitive ASR accuracy, significantly reduced computational cost and lower latency, no figures
+R01453	Y	-	C1	ANN+SNN	NS	STATIC_IMG	SIM	SIM	CLAIM	ENERGY+OPS	NS	NA	NA	NA	NA	N	SABP-trained SNN near best on MNIST and CIFAR-10, best on sonar; great energy and complexity advantage over ANN, unquantified
+R01454	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Benchmark of spike encoders with spiking CNN on FSD and WISDM; ANN transfer and compression unspecified; no efficiency figures
+R01455	Y	-	C1	ANN+SNN	NS	STATIC_IMG	OTHER_NEURO	NS	NS	LATENCY+POWER	DIFFERENT	NA	NA	NA	NA	U	Neuromorphic 3D-NoC pneumonia X-ray: accuracy 88.43%; latency 4.6% better and power 32% lower than ANN-based system
+R01460	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	ANN-SNN conversion, near-lossless on CIFAR and ImageNet; 32-512x fewer time steps than other conversion methods; no ANN efficiency comparison
+R01463	Y	-	C1	ANN+SNN	CNN	DET	GPU	GPU	CLAIM	LATENCY	PAIRED	NA	NA	NA	NA	U	CNN-to-SNN simulation for LiDAR 3D detection: equivalent run-time and accuracy on GPU; power gains only expected on neuromorphic hardware
+R01465	Y	-	C1	ANN+SNN	NS	EVENT	SIM	SIM	NS	ENERGY	PAIRED	NA	NA	NA	NA	N	Simulated-DVS emotion recognition: SNN better performance than ANN, energy one-quarter of ANN's
+R01466	Y	-	C1+C2	ANN+SNN	OTHER	OTHER	SIM	SIM	NS	ENERGY+LATENCY+SPIKES	NS	REG	NA	TEMPORAL	Y	N	Spiking-GAN with TTFS: 57x lower energy than ANN GANs on MNIST; inference time improved over 33%, spikes cut over 11%

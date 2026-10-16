@@ -1,0 +1,25 @@
+R02632	Y	-	C1+C2	ANN+SNN	NS	STATIC_IMG+DET	SIM	SIM	ESTIMATED	OPS	LITERATURE	REG	NA	NS	Y	N	Hoyer-regularized sparse binary-activation net beats BNNs, SNNs, adder nets on accuracy-FLOPs trade-off; portable to multi-step SNNs
+R02634	Y	-	C1	ANN+SNN	CNN+MLP	TS	SIM	SIM	CLAIM	ENERGY	DIFFERENT	NA	NA	NA	NA	N	Spiking forecasters vs CNN and MLP on Barcelona cellular traffic: lower energy cost with similar accuracy, no figures
+R02642	Y	-	C3	ANN	NS	OTHER	NA	SIM	NONE	NONE	NA	NS	NS	UNSTRUCT	NS	N	Cooperative lottery ticket jointly prunes visual/audio data and weights for live-stream sales prediction; no efficiency figures
+R02645	Y	-	C3	ANN	CNN	NS	NA	MEMRISTOR	CLAIM	POWER	NA	SCORE	STRONG	UNSTRUCT	Y	N	SLTH masks on FeFET CiM: 87% accuracy after 10-year retention; one mapping cuts CiM area 45% at 9.1% accuracy loss
+R02647	Y	-	C2	SNN	NS	EVENT	LOIHI+OTHER_NEURO	NA	CLAIM	MEMORY	NA	NS	NA	UNSTRUCT	N	N	SNN with trainable synaptic delays deployed on Loihi and Seneca for SHD; delay pruning cuts memory with low accuracy cost
+R02649	Y	-	C1	HYBRID	NS	DET+STATIC_IMG	SIM	SIM	CLAIM	ENERGY	PAIRED	NA	NA	NA	NA	N	ANN+SNN hybrid for Eimeria microscopy detection; claims markedly lower energy footprint than deep-learning models, no figures
+R02650	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Convolutional spiking speech denoiser; claims low energy and size, no ANN comparison and no figures
+R02651	Y	-	C2	SNN	MLP	STATIC_IMG+AUDIO	SIM	NA	NONE	NONE	NA	RANDOM	NA	UNSTRUCT	N	N	Ensemble of small SNNs vs probabilistic sparse SNN: F1 0.93-0.95 digits, 0.85-0.93 spoken; connections reduced over 3x
+R02652	Y	-	C2	SNN	NS	NS	ASIC	NA	NS	LATENCY+ENERGY	NA	ACT	NA	NS	Y	N	SRAM CIM SNN accelerator with spike speculation: 26.7x end-to-end speedup, up to 386.7x less energy per inference vs SNN accelerators
+R02655	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Recurrent SNN architecture search raises accuracy (96.44% TI46-Alpha, 98.72% N-MNIST); sparse by design, no efficiency evaluation
+R02658	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Compressed-sensing SNN input stage: OPs down 65.24-81.11%, model size down about 62-63%; baseline not described as an ANN
+R02669	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Dual-threshold ANN-SNN conversion for action recognition: 92.94% top-1 on UCF-101 with 4 time steps; no energy or operation metric
+R02672	Y	-	C1	HYBRID	CNN	DET	ASIC	ASIC	MEASURED	ENERGY	LITERATURE	NA	NA	NA	NA	U	Fabricated 28nm CNN/SNN training chip: 6.94 mJ/frame, 0.73 mAP detection, 47.7% energy reduction vs previous SOTA
+R02680	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Data-driven threshold and membrane initialization for ANN-SNN conversion: SOTA accuracy on CIFAR and ImageNet; no efficiency metric
+R02681	Y	-	C3	ANN	TRANSFORMER	NLP	NA	GPU	BOTH	OPS+LATENCY+MEMORY	NA	ACT	NS	UNSTRUCT	N	N	Attention Pruning mask saves 90% of attention computation for language modeling, about 50% for MT and GLUE; Triton GPU kernels
+R02684	Y	-	C2	SNN	RNN	BIOSIG	SIM	NA	CLAIM	SPIKES+MEMORY	NA	NS	NA	UNSTRUCT	NS	N	Tiny RSNN decoder, low firing rates and sparse connectivity, beats existing SNN and ANN decoders; no efficiency figures
+R02688	N	E2	-	-	-	-	-	-	-	-	-	-	-	-	-	-	IF neuron circuit with steep switching device; system simulation 98.36% accuracy comparable to software DNN; no energy comparison
+R02689	Y	-	C1	ANN+SNN	CNN	TS	SIM	SIM	NS	LATENCY	NS	NA	NA	NA	NA	U	Spiking residual shrinkage net for bearing faults: higher accuracy under noise; training about 3x faster than ANN
+R02690	Y	-	C1	ANN+SNN	CNN	OTHER	SPINNAKER2	EDGE_GPU	MEASURED	POWER	PAIRED	NA	NA	NA	NA	Y	Converted SNN on SpiNNaker2 vs original CNN on Jetson Xavier: almost 5x power efficiency, moderate accuracy loss
+R02702	Y	-	C1	ANN+SNN	CNN+RNN	STATIC_IMG+EVENT	SIM	GPU+EDGE_GPU	NS	ENERGY+POWER+EDP	LITERATURE	NA	NA	NA	NA	N	Evolved spiking RSCNN: 85.36% on FER-13 (SOTA 86.3%), 9.4x energy efficiency, 19.42x EDP gain over SOTA
+R02704	Y	-	C1	ANN+SNN	CNN	STATIC_IMG	OTHER_NEURO	EDGE_GPU	MEASURED	POWER	PAIRED	NA	NA	NA	NA	Y	SCNN on uBrain chip: about four orders lower power than CNN on Jetson Nano; accuracy 93.67 vs CNN 92.86
+R02712	Y	-	C1	ANN+SNN	RNN	OTHER	LOIHI	NS	MEASURED	ENERGY	DIFFERENT	NA	NA	NA	NA	U	LSM on Loihi consumes ~6x less energy per sample than quantized DNN-based models at comparable accuracy
+R02715	Y	-	C2	SNN	CNN+RNN	AUDIO	SIM	NA	NS	LATENCY+ENERGY	NA	REG+ACT	NA	NS	Y	N	Spiking speech enhancer: about 5 ms latency; L1 loss and activation suppression on non-spiking layers aim at lower energy
+R02717	Y	-	C2	SNN	NS	STATIC_IMG+OTHER	ASIC+MEMRISTOR	NA	NS	ENERGY+POWER+SPIKES	NA	OTHER	NA	TEMPORAL	Y	N	40nm MRAM CIM macro with dual-spike coding (2 spikes per value): 8.07 nJ digits, 71.26 nJ images; no ANN baseline
+R02718	Y	-	C2	SNN	CNN	STATIC_IMG	SIM	NA	ESTIMATED	OPS+MEMORY	NA	OTHER	NA	MIXED	Y	N	Dual-threshold SCNN halves convolution operations and storage vs conventional SCNN, at most 0.4% accuracy loss (CIFAR10, MNIST, Fashion MNIST)

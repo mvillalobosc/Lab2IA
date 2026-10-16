@@ -1,0 +1,25 @@
+R01468	Y	-	C1	ANN+SNN	GNN	OTHER	OTHER_NEURO	NS	CLAIM	ENERGY	NS	NA	NA	NA	NA	U	SpikingGCN competitive accuracy vs SOTA; clear energy advantage on a neuromorphic chip, unquantified
+R01471	Y	-	C1	ANN+SNN	NS	TS	NS	NS	NS	LATENCY	LITERATURE	NA	NA	NA	NA	N	Radar SNN on raw ADC data: 98.1% accuracy, 112 ms processing, over 2x faster than prior state of art
+R01472	Y	-	C5	SNN	NS	NS	NS	NA	NONE	NONE	NA	NA	NA	NA	NA	N	Review of SNN integrated circuits; abstract only covers accelerator energy efficiency in general, no figures
+R01473	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	General SNN survey of learning rules and architectures; efficiency only as motivation, no ANN efficiency comparison
+R01474	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	SNN review of neuron models, synapses, training, frameworks and vision and robotics applications; no efficiency comparison
+R01481	Y	-	C1	ANN+SNN	RNN	AUDIO	SIM	SIM	ESTIMATED	OPS	PAIRED	NA	NA	NA	NA	N	SNN within 1.10% and 0.36% of LSTM accuracy with 2x fewer parameters; 10.13x and 11.14x fewer multiplications than GRU
+R01486	Y	-	C1	ANN+SNN	CNN	STATIC_IMG	FPGA	FPGA	MEASURED	POWER	PAIRED	NA	NA	NA	NA	Y	SPLEAT SNN vs CNN on same OPS-SAT FPGA: resources 6.62x lower, power 5.91x lower, equivalent accuracy
+R01488	Y	-	C2	SNN	CNN	STATIC_IMG	SIM	NA	NONE	NONE	NA	DST	NA	UNSTRUCT	N	N	Dynamic SNN pruning inspired by dendritic spines: SEW ResNet18 on ImageNet, about 3% loss at 88.8% sparsity
+R01489	Y	-	C1	ANN+SNN	NS	STATIC_IMG	LOIHI	NPU	MEASURED	LATENCY+POWER+ENERGY	PAIRED	NA	NA	NA	NA	Y	Loihi SNN vs NCS2 DNN: accuracy 99.30 vs 99.93 (alphabet), 99.03 vs 99.76 (digits); power 20.64x, energy 4.10x lower
+R01495	Y	-	C3	ANN	CNN	STATIC_IMG	NA	SIM	CLAIM	NONE	NA	MAG	WEAK	UNSTRUCT	N	N	IMP global pruning of ResNet seed classifier: 92% fewer parameters, accuracy 0.56% above unpruned and 9.17% above layer-wise
+R01498	Y	-	C3	ANN	NS	NS	NA	SIM	CLAIM	NONE	NA	EVO+DST	OTHER	MIXED	NS	N	Joint NAS and pruning draws lottery tickets from supernets; better accuracy-efficiency trade-offs than NAS and pruning pipelines, no figures
+R01499	Y	-	C2	SNN	NS	STATIC_IMG	SIM	NA	NS	LATENCY+SPIKES	NA	OTHER	NA	STRUCT	NS	N	Siamese SNN with EMD loss: F1 up to 0.9386 using about 15% of hidden neurons; non-sparse code 45% slower
+R01501	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	BrainScaleS-2 SNN: under one spike per hidden neuron, 85,000 frames/s, under 200 mW; no ANN baseline
+R01506	Y	-	C1	ANN+SNN	CNN	STATIC_IMG	FPGA	FPGA	MEASURED	THROUGHPUT	PAIRED	NA	NA	NA	NA	Y	SyncNN on Xilinx ARM-FPGA: 99.6% MNIST accuracy, 13,086 fps; similar accuracy and better performance than Vitis AI CNNs
+R01511	Y	-	C1	ANN+SNN	CNN	EVENT	NS	ASIC	ESTIMATED	ENERGY	LITERATURE	NA	NA	NA	NA	N	Ternary TCN on CUTIE, 22nm post-synthesis: 94.5% accuracy, 1.7 uJ/inference, 647x lower than prior SNN results
+R01519	Y	-	C3	ANN	NS	OTHER	NA	SIM	NONE	NONE	NA	NS	OTHER	NS	N	N	LTH-inspired adaptation of decoder multiplicative parameters in learned video codec; beats VVC in MS-SSIM at low bitrate
+R01521	Y	-	C3	ANN	NS	NS	NA	SIM	CLAIM	NONE	NA	NS	WEAK	NS	NS	N	Zero-shot pruning to find lottery subnetworks at training time; accuracy versus training complexity trade-off, no figures
+R01522	N	E5	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Conjecture on permutation invariance and linear mode connectivity; lottery ticket hypothesis only mentioned as implication
+R01524	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	SNN designs of varying plausibility on image classification; power, inference time and accuracy trade-offs claimed, no figures or ANN baseline
+R01526	N	E2	-	-	-	-	-	-	-	-	-	-	-	-	-	-	All-optical SNN mapping by weight partitioning: 58% less energy than unrolling; photonic hardware, no ANN comparison
+R01529	Y	-	C2	SNN	NS	EVENT	SIM	NA	NS	SPIKES	NA	REG	NA	NS	Y	N	Few-shot DVS gesture SNN: 84.75% (5-way 1-shot), 92.82% (5-way 5-shot); 60.02% and 58.21% fewer spikes than standard SNN
+R01531	N	E2	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Neuromodulatory tuning cuts trained parameters four orders of magnitude; analog circuit power below GPU/CPU claimed, no ANN-SNN efficiency figures
+R01532	Y	-	C2	SNN	CNN	STATIC_IMG+CONTROL	SIM	NA	NS	LATENCY	NA	OTHER	NA	TEMPORAL	Y	N	Temporal pruning to 1 timestep: VGG16 top-1 CIFAR-10 93.05, CIFAR-100 70.15, ImageNet 69.00; RL with 1-5 timesteps
+R01534	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	LSQ-based low-bit and binary SNN quantization: negligible accuracy drop, memory reduction; quantization-only, no pruning
+R01537	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Conversion of ANNs over 100 layers with few time-steps, strong CIFAR and ImageNet accuracy; only time-steps, no ANN efficiency comparison

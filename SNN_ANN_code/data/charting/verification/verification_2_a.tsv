@@ -1,0 +1,25 @@
+R02452	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	SpikeGCL 1-bit SNN graph representations; ~32x storage compression vs full precision; memory is not a C1 metric
+R02630	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Conversion plus spike calibration for spiking RL on MuJoCo; no efficiency metric or ANN comparison
+R02684	Y	-	C2	SNN	RNN	BIOSIG	SIM	NA	CLAIM	MEMORY+SPIKES	NA	NS	NA	NS	NS	N	Tiny RSNN with sparse connectivity, low firing rates beats SNN and ANN decoders in accuracy; no figures
+R02689	Y	-	C1	ANN+SNN	CNN	TS	SIM	SIM	NS	LATENCY	NS	NA	NA	NA	NA	U	SNN training about 3x faster than ANN; higher fault recognition accuracy under noise
+R02712	Y	-	C1	ANN+SNN	RNN	OTHER	LOIHI	NS	MEASURED	ENERGY	DIFFERENT	NA	NA	NA	NA	U	LSM on Loihi about 6x less energy per sample than quantized DNN models of comparable accuracy
+R02715	Y	-	C2	HYBRID	CNN+RNN	AUDIO	SIM	NA	NS	LATENCY	NA	ACT+REG	NA	NS	Y	N	Streaming SNN speech enhancement with about 5 ms latency vs ~32 ms STFT-based SNNs; activation suppression plus L1
+R02758	Y	-	C3	ANN	NS	STATIC_IMG	NA	SIM	NONE	NONE	NA	NS	OTHER	NS	N	N	Pruned pretrained models without retraining; VP ensemble raises accuracy 1.3% to 12.96% over 12 datasets
+R02764	Y	-	C1	ANN+SNN	CNN	DET	SIM	SIM	ESTIMATED	ENERGY	NS	NA	NA	NA	NA	N	mAP50 34.1% on VisDrone2019; theoretical 82.86% energy reduction vs CNN detectors on neuromorphic chips
+R02776	Y	-	C1	ANN+SNN	NS	BIOSIG	SIM	SIM	CLAIM	ENERGY	DIFFERENT	NA	NA	NA	NA	N	MAE 1.37, 1.23, 1.15 for 16, 32, 64 s windows; superior energy efficiency vs DL models, no figure
+R02794	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Edge runtime for ANN/SNN/hybrid; 1.28-2.05x latency, 1.23-2.15x energy gains vs all-GPU Jetson; no ANN-SNN comparison
+R02839	Y	-	C3	ANN	NS	NS	NA	SIM	NONE	NONE	NA	EVO	STRONG	NS	N	N	Genetic algorithm finds smaller, better strong tickets than gradient-based SOTA on small binary classification tasks
+R02847	Y	-	C2	SNN	MLP	TS	FPGA	NA	ESTIMATED	ENERGY+LATENCY+MEMORY	NA	NS	NA	NS	N	N	Params cut to 30%, accuracy 97.04% (<1% loss); 334 μs and 157 μJ per inference on Artix-7, estimated
+R02871	Y	-	C1	HYBRID	NS	DET+EVENT	SIM	SIM	NS	ENERGY+MEMORY	DIFFERENT	NA	NA	NA	NA	N	Up to 20x lower inference cost vs prior art, 33x parameter efficiency, 17.9 mJ per cycle
+R02876	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	DNN-to-SNN within 1% accuracy at 8 time steps; FPGA 38.4 GOPS at 1.54 W; efficiency only vs SOTA
+R02878	Y	-	C2	SNN	RNN	NS	ASIC+GPU	NA	MEASURED	THROUGHPUT	NA	OTHER	NA	NS	Y	N	SNN training on IPU 5-10x throughput vs A100 GPUs, up to 38x at higher activation sparsity
+R02925	Y	-	C3	ANN	GNN	OTHER	NA	SIM	NONE	NONE	NA	MAG+SCORE	WEAK	UNSTRUCT	N	N	Same performance at 14.26-43.12% graph sparsity and 48.80-91.41% GNN weight sparsity on 12 benchmarks
+R02940	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Spiking reservoir computing; competitive performance at lower operational complexity; no explicit ANN efficiency comparison
+R02961	Y	-	C2	SNN	NS	TS	SIM	NA	CLAIM	SPIKES	NA	REG	NA	NS	Y	N	Learned spike encoder beats existing encoders in reconstruction error and spike sparsity; regularizer tunes energy trade-off
+R02964	Y	-	C2	SNN	RNN	NS	SIM	NA	NS	SPIKES+LATENCY	NA	REG	NA	NS	Y	N	Firing-rate sparsity regularization; 30.5% lower MSE and 53% faster training convergence vs full-FORCE baseline
+R02996	Y	-	C3	ANN	NS	BIOSIG+STATIC_IMG	NA	MCU	NONE	NONE	NA	MAG+EVO	OTHER	NS	Y	N	LTH-pruned models shrink NAS search space, cutting search time up to 50%; MCU ECG and X-ray tasks
+R03005	Y	-	C2	SNN	CNN	NS	FPGA	NA	MEASURED	THROUGHPUT+ENERGY	NA	OTHER	NA	NS	Y	N	Kintex FPGA SNN accelerator: 244.6 GSOP/s peak, 54.1 GSOP/W at 0% spike sparsity, 150 MHz
+R03054	Y	-	C2	SNN	NS	EVENT+AUDIO	SIM	NA	NS	ENERGY	NA	EVO	NA	STRUCT	N	N	Up to 97.5% lower inference energy with minimal accuracy loss; better noise robustness than same-size SNNs
+R03074	Y	-	C1	ANN+SNN	TRANSFORMER	OTHER	SIM	SIM	ESTIMATED	ENERGY+POWER	PAIRED	NA	NA	NA	NA	N	Spiking transformer ICL keeps accuracy with 5.4x to 26.8x lower power vs ANN implementations, estimated
+R03100	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Lossless CRNN-SNN conversion; 99.16% S-MNIST, 94.95% PS-MNIST, 8 time steps; accuracy only
+R03117	Y	-	C3	ANN	CNN	OTHER	NA	SIM	NONE	NONE	NA	NS	OTHER	NS	N	N	Masks found at random init give sparse DIP priors resisting noise overfitting; beats LTH for image recovery

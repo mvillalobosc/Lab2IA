@@ -1,0 +1,11 @@
+R06064	Y	-	C1	ANN+SNN	CNN	STATIC_IMG	SIM	SIM	CLAIM	OPS	DIFFERENT	NA	NA	NA	NA	N	Claims superior accuracy and substantially lower computational cost than state-of-the-art ANN-based FSL methods; no figures
+R06092	Y	-	C2	SNN	CNN	STATIC_IMG	SIM	NA	ESTIMATED	OPS+SPIKES	NA	OTHER	NA	TEMPORAL	Y	N	CIFAR-10 94.49%, CIFAR-100 74.75%, Tiny ImageNet 63.11%; sparsity 21.7-33.6%; RPW 47.3-62.1%, not hardware
+R06119	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Review of SNNs as neurodynamic models; efficiency only discussed as caveat, not main subject
+R06126	Y	-	C1	ANN+SNN	MLP	BIOSIG	GPU	GPU	CLAIM	ENERGY	DIFFERENT	NA	NA	NA	NA	U	MAE 2.8 years, Pearson 0.93; claims lowest GPU training energy vs MLP, SVR, XGBoost, Attention-MLP
+R06142	Y	-	C1	ANN+SNN	NS	OTHER	SIM	SIM	NS	ENERGY	PAIRED	NA	NA	NA	NA	N	Converted SNN comparable to ANN counterparts on image restoration benchmarks with up to 50% lower energy
+R06157	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	SNN speech enhancement; 62% lower power proxy, 11% lower power cost vs SNN models; ANN comparison on performance only
+R06187	Y	-	C2	HYBRID	CNN+RNN	NLP	SIM	SIM	ESTIMATED	ENERGY+OPS	NA	REG	NA	NS	Y	N	Competitive accuracy vs ANN counterpart; 28.49% fewer SynOps per timestep; 32.93 μJ per inference, 45 nm model
+R06188	Y	-	C1	ANN+SNN	NS	EVENT	SIM	SIM	CLAIM	OPS	PAIRED	NA	NA	NA	NA	N	Eye-movement classification accuracy up to 0.83; claims substantial computational efficiency gains over ANN counterparts
+R06200	Y	-	C1	ANN+SNN	NS	DET+EVENT	SIM	SIM	NS	ENERGY	PAIRED	NA	NA	NA	NA	N	mAP@50-95 57.7% PASCAL VOC, 47.6% EvDET200K; spike-driven attention 0.240x energy of conventional attention
+R06202	Y	-	C1+C2	HYBRID	NS	NLP	NS	NS	NS	ENERGY+LATENCY	NS	OTHER	NA	TEMPORAL	Y	N	Up to 5.3x energy efficiency, 15.2x lower latency vs purely spiking and non-spiking models; language and vision tasks
+R06300	Y	-	C1	ANN+SNN	NS	STATIC_IMG	SIM	SIM	CLAIM	OPS	NS	NA	NA	NA	NA	N	Ternary SNN outperforms binary SNNs and DNNs on WM-811k; claims high accuracy and computational efficiency; no figures

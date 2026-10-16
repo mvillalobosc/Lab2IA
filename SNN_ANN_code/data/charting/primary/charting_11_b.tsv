@@ -1,0 +1,25 @@
+R03288	Y	-	C2	SNN	NS	NS	SPECK	NA	MEASURED	POWER	NA	OTHER	NA	NS	Y	N	Speck chip 0.42 mW resting power; attention-based dynamic computing reaches real-time power as low as 0.70 mW; no ANN baseline
+R03290	Y	-	C1	ANN+SNN	NS	EVENT	SIM	NS	CLAIM	OPS+ENERGY	DIFFERENT	NA	NA	NA	NA	N	Lightweight SNN for spike camera reconstruction; comparable quality to SOTA methods at much lower computation and energy, no figures
+R03291	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Meta-SpikeFormer 80.0% ImageNet top-1 with 55M parameters vs 66M SNN baseline; no ANN efficiency comparison
+R03292	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Spike-driven YOLO on Loihi 2, mAP above 93% in some cases; no efficiency figures or ANN comparison
+R03293	Y	-	C1	ANN+SNN	NS	EVENT	SIM	SIM	CLAIM	POWER	DIFFERENT	NA	NA	NA	NA	N	Fully spiking video frame interpolation comparable to prior ANN methods, lower power than ANN-based method; no figures
+R03294	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Spike-HAR and Spike-HAR++ need 0.03 and 0.06 mJ per sequence, 0.7M and 1.8M parameters; no ANN comparison stated
+R03297	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	swSNN-SLSTM decoder beats LSTM ANN on accuracy; power reduction only suggested, no efficiency metric
+R03298	Y	-	C1	ANN+SNN	TRANSFORMER	STATIC_IMG+EVENT	SIM	SIM	NS	ENERGY	PAIRED	NA	NA	NA	NA	N	Spikeformer DVS-CIFAR10 81.4%/80.3% at 4/1 steps, 1.7/6.4x energy efficiency vs ANN counterpart; beats ANN by 3.13% on DVS-Gesture
+R03300	Y	-	C1	ANN+SNN	TRANSFORMER	NLP	SIM	SIM	ESTIMATED	OPS	NS	NA	NA	NA	NA	N	SpikeGPT (46M, 216M) competitive with non-spiking models with 32.2x fewer operations on neuromorphic hardware
+R03302	Y	-	C1	ANN+SNN	OTHER	EVENT	SIM	SIM	NS	POWER+MEMORY	DIFFERENT	NA	NA	NA	NA	N	SpikePoint SOTA on three event datasets using about 0.3% of ANN parameters and 0.5% of ANN power
+R03303	Y	-	C1	ANN+SNN	NS	AUDIO	SIM	SIM	NS	ENERGY	PAIRED	NA	NA	NA	NA	N	SpikeVoice TTS comparable to ANN with only 10.5% of ANN energy; four datasets in Chinese and English
+R03304	Y	-	C2	SNN	CNN	DET	SIM	NA	CLAIM	NONE	NA	OTHER	NA	NS	NS	N	Dynamic and adaptive pruning plus NeuroDynamic block in SpikeYOLO; claims better detection and efficiency than SpikeYOLO baseline; no figures
+R03305	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Exact ANN-to-SNN conversion for Transformers; ImageNet 83.82%, SST-2 93.79%; no efficiency metric
+R03307	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Spiking autoencoder vs same-structure ANN: claims superior training efficiency and accuracy; no energy or operation metric
+R03308	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Spiking CenterNet uses less than half the energy of comparable prior work on GEN1; comparators not stated as ANNs
+R03311	Y	-	C1	ANN+SNN	OTHER	OTHER	SIM	SIM	CLAIM	ENERGY	PAIRED	NA	NA	NA	NA	N	Spiking U-Net diffusion matches ANN counterpart at 4 time steps with significantly reduced energy, no figure
+R03313	Y	-	C1	HYBRID	CNN	DET	SIM	SIM	NS	POWER	PAIRED	NA	NA	NA	NA	N	Hybrid YOLO with selected spiking layers, one timestep, consumes 2.77% of ANN power for object detection
+R03314	Y	-	C1	ANN+SNN	RNN	DET	SIM	SIM	ESTIMATED	ENERGY	PAIRED	NA	NA	NA	NA	N	Spiking-LSTM Sclerotinia segmentation mAP 94.3%; one-fifth of theoretical energy of same-structure LSTM
+R03315	Y	-	C1	ANN+SNN	NS	OTHER	SIM	SIM	CLAIM	ENERGY	PAIRED	NA	NA	NA	NA	N	ANN-to-SNN conversion for NeRF; comparable rendering to ANN NeRF with energy reduction (number missing in abstract)
+R03323	Y	-	C2	SNN	OTHER	AUDIO	SIM	NA	NONE	NONE	NA	OTHER	NA	UNSTRUCT	N	N	Spatially probabilistic sparse connectivity cuts SNN connections up to 60% vs fully connected; F1 0.92-0.95 on Free Spoken Digits
+R03325	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Review of SNNs for autonomous driving covering models, learning rules and hardware; no ANN-SNN efficiency comparison
+R03326	Y	-	C1	ANN+SNN	NS	TS	SIM	SIM	CLAIM	POWER	DIFFERENT	NA	NA	NA	NA	N	SNN detectors for satellite IoT signals beat matched filter under interference; ultralow power vs DL claimed, no figures
+R03327	Y	-	C1	ANN+SNN	NS	TS	OTHER_NEURO	NS	NS	POWER	DIFFERENT	NA	NA	NA	NA	N	Wavelet plus SNN for acoustic emission ToA: neuromorphic deployment cuts power per inference six orders of magnitude vs standard CNNs
+R03328	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Spiking regression architectures for material models; energy efficiency asserted, no ANN comparison or figures
+R03329	Y	-	C5	ANN+SNN	NS	BIOSIG+AUDIO	NS	NS	CLAIM	POWER	NA	NA	NA	NA	NA	N	Review of SNNs for physiological and speech signals; claims comparative analyses show higher efficiency and lower power; no figures

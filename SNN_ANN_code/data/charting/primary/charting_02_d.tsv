@@ -1,0 +1,25 @@
+R00666	Y	-	C3	ANN	CNN	NS	NA	NS	NONE	NONE	NA	NS	WEAK	NS	N	N	Winning property tied to weight correlation at small learning rates; pruning and fine-tuning beats lottery ticket training; no cost metrics
+R00667	Y	-	C3	ANN	NS	STATIC_IMG	NA	NS	NONE	NONE	NA	NS	WEAK	NS	N	N	Clients learn lottery ticket subnetworks; up to 17.24% higher accuracy and 2.94x lower communication cost on non-IID MNIST, CIFAR-10, EMNIST
+R00668	Y	-	C2	SNN	CNN	AUDIO	NS	NA	NS	SPIKES	NA	REG	NA	NS	Y	N	Convolutional SNN on Google Speech Commands v1: 5.5% error close to DNNs with spiking activity below 5% via regularization term
+R00672	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	CNN-to-spiking mapping on neuromorphic ASIC: MNIST 98.5% and 99.4%, 863 and 174 images/s; no ANN efficiency baseline
+R00682	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Optimized conversion of deep SNNs (ResNet, RetinaNet on COCO): 10x faster inference, under 0.5% accuracy loss; no ANN efficiency comparison
+R00683	Y	-	C3	ANN	NS	OTHER	NA	NS	CLAIM	MEMORY+LATENCY	NA	NS	WEAK	NS	N	N	Student abstract: irrigation framework with LTH-based pruning and quantization to shrink models and improve edge latency; no figures
+R00685	Y	-	C3	ANN	NS	NS	NA	NS	NONE	NONE	NA	RANDOM	OTHER	NS	N	N	Random sparse architectures matching winning-ticket weight and activation statistics reach winning-ticket performance; no efficiency metrics
+R00689	Y	-	C3	ANN	NS	STATIC_IMG	NA	NS	NONE	NONE	NA	THEORY+OTHER	STRONG	NS	N	N	Proves multi-prize tickets in random networks; binary-weight tickets reach 94.8% CIFAR-10 and 74.03% ImageNet top-1 without weight training
+R00693	Y	-	C2	SNN	NS	STATIC_IMG	NS	NA	ESTIMATED	LATENCY+OPS+POWER	NA	NS	NA	NS	N	N	SNN coding schemes: TTFS has 4x/7.5x lower latency and 3.5x/6.5x fewer SOPs than rate coding; burst coding compresses best
+R00702	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Overview of neuromorphic chips (Neurogrid, SpiNNaker, TrueNorth, Loihi, Tianjic); no efficiency comparison or benchmarking
+R00707	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Recurrent SNN with adaptive threshold and reward propagation; higher accuracy on TIDigits, TIMIT; sparse recurrence for robustness, no efficiency evaluation
+R00719	Y	-	C3	ANN	NS	STATIC_IMG	NA	NS	NONE	NONE	NA	NS	WEAK	NS	N	N	Winning tickets from CIFAR and Fashion-MNIST transfer to seven pathology and heritage datasets, beating larger unpruned nets; no efficiency metrics
+R00720	Y	-	C3	ANN	CNN	TS	NA	NS	CLAIM	OPS	NA	EVO	NS	STRUCT	N	N	Channel pruning of 1D-CNN by artificial bee colony using LTH; better recognition on measured HRRP data; no cost figures
+R00722	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	ANN-SNN conversion: near loss-less with VGG-16, PreActResNet-18; 8.6x faster inference with 0.265x energy vs typical conversion, no ANN comparison
+R00723	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	ANN-to-SNN conversion: almost no accuracy loss with about 1/10 of typical simulation time; no ANN efficiency comparison
+R00724	Y	-	C2	SNN	NS	STATIC_IMG	NS	NA	NS	SPIKES+LATENCY+THROUGHPUT	NA	OTHER	NA	TEMPORAL	Y	N	Conversion with spike-timing-optimized neurons needs about two spikes per neuron; improves latency and throughput; no ANN energy comparison
+R00730	Y	-	C3	ANN	TRANSFORMER	AUDIO+NLP	NA	NS	NONE	NONE	NA	NS	OTHER	NS	N	N	PARP finds wav2vec 2.0 subnetworks in one finetuning run; 10.9%/12.6% absolute WER decrease vs full model on 10min Librispeech
+R00738	Y	-	C1	ANN+SNN	NS	CONTROL	LOIHI	NS	CLAIM	POWER+LATENCY	NS	NA	NA	NA	NA	N	Spiking, quantized and Loihi deep Q-networks slightly below non-spiking network; lower power and latency asserted, no figures
+R00739	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	SNN for PMU disturbance classification with QR-based signal selection; energy motivation only, no efficiency comparison or figures
+R00745	Y	-	C3	ANN	NS	STATIC_IMG	NA	NS	NONE	NONE	NA	OTHER	WEAK	STRUCT	N	N	Supermask evaluation sets LTH pruning threshold without extra training; over 60% size reduction on MNIST with no accuracy drop
+R00747	Y	-	C2	SNN	NS	STATIC_IMG	NS	NA	NONE	NONE	NA	DST	NA	UNSTRUCT	N	N	Grad R rewires connectivity and weights jointly; about 3.5% accuracy loss at 0.73% connectivity; minimal loss on MNIST and CIFAR-10
+R00748	Y	-	C3	ANN	NS	STATIC_IMG	NA	NS	NONE	NONE	NA	THEORY+OTHER	STRONG	NS	N	N	IteRand prunes random-weight networks with iterative re-randomization, proven to need fewer parameters; shown on CIFAR-10 and ImageNet
+R00755	Y	-	C1	ANN+SNN	CNN	TS	LOIHI	NS	MEASURED	ENERGY+LATENCY	PAIRED	NA	NA	NA	NA	U	Loihi: 15x more energy efficient than similar CNNs on commercial edge-AI devices; 178x lower latency than sensor sampling; 97% accuracy
+R00771	Y	-	C3	ANN	NS	NS	NA	NS	NONE	NONE	NA	NS	WEAK	NS	N	N	Stricter LTH definition and large study of when winning tickets exist across architectures; hyperparameters correlate; no efficiency metrics
+R00775	Y	-	C2	ANN+SNN	NS	NS	NS	NS	CLAIM	OPS	NA	OTHER	NA	UNSTRUCT	N	N	Self-backpropagation limits updates to few upstream synapses; computational cost markedly lower without accuracy loss in SNNs and ANNs; no figures

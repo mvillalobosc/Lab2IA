@@ -1,0 +1,25 @@
+R03454	Y	-	C3	ANN	NS	NS	NA	NS	NONE	NONE	NA	THEORY	NS	NS	N	N	Epistemic analysis of LTH and complexity regularization; theoretical, no experiments or efficiency figures.
+R03455	Y	-	C3	ANN	MLP	NS	NA	NS	NONE	NONE	NA	THEORY	NS	NS	N	N	Explains LTH and untrained random networks via random projection plus sparsification in MLPs; theoretical, no efficiency figures.
+R03457	Y	-	C2+C4	SNN	NS	NS	NS	NA	NS	ENERGY+LATENCY	NA	OTHER	WEAK	UNSTRUCT	Y	Y	u-Ticket: up to 100% hardware utilization, 76.9% less latency, 63.8% less energy than non-utilization-aware LTH.
+R03458	Y	-	C3	ANN	MLP	OTHER	NA	NS	NONE	NONE	NA	OTHER	WEAK	NS	N	N	LTH draw-and-redraw of tiny MLP subnetworks for worst-case mechanism design; optimal mechanisms up to 5 agents; no efficiency metrics.
+R03466	Y	-	C2	SNN	TRANSFORMER	NS	ASIC	NA	CLAIM	ENERGY+LATENCY	NA	NS	NA	STRUCT	NS	N	3D spiking transformer accelerator with MoE and head pruning; energy and latency gains over 2D CMOS claimed, no figures.
+R03472	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Abstract only reviews prior VAD work; no ANN-SNN efficiency comparison or pruning stated (title: 161 nW chip).
+R03475	Y	-	C2	SNN	NS	NS	ASIC	NA	NS	ENERGY+LATENCY+THROUGHPUT	NA	OTHER	NA	MIXED	Y	N	40 nm SNN processor with dynamic neuron pruning: 0.05-1.4 uJ/inference; no ANN baseline.
+R03476	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Hybrid SNN-ANN accelerator: 94.44% DVS Gesture, 6,711 inf/s, 5.9 uJ/inf; no ANN baseline or pruning.
+R03480	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Spiking policy for multi-AUV RL; reduced computational energy claimed vs other methods, no figures or ANN counterpart stated.
+R03485	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Hybrid ANN-SNN RL obstacle avoidance; energy efficiency on neuromorphic processor asserted, no figures or ANN comparison.
+R03488	Y	-	C5	ANN+SNN	NS	NS	NS	NS	NONE	ENERGY	NA	NA	NA	NA	NA	N	Review of digital and analog DNN vs SNN edge-AI circuits; trade-offs in energy (J/OP) and area; no figures.
+R03492	Y	-	C5	ANN	NS	NS	NA	NS	NONE	NONE	NA	NA	NA	NA	NA	N	Review of ANN pruning by granularity and timing, with extensive coverage of LTH; no efficiency figures.
+R03495	Y	-	C2	SNN	NS	TS	SIM	NA	ESTIMATED	OPS	NA	NS	NA	NS	NS	N	CSSNN radar gesture recognition: 95.84% accuracy on 5-class TinyRadar, 127.1k MACs; no ANN comparison.
+R03499	Y	-	C1	ANN+SNN	OTHER	STATIC_IMG	LOIHI2	EDGE_GPU	MEASURED	ENERGY+LATENCY+THROUGHPUT	PAIRED	NA	NA	NA	NA	Y	SSM on Loihi 2 vs Jetson Orin Nano: ~1000x energy efficiency, 75x latency and throughput; accuracy drop 1-3 points.
+R03501	Y	-	C1	ANN+SNN	NS	CONTROL	NS	NS	CLAIM	ENERGY+LATENCY	NS	NA	NA	NA	NA	U	Demo: spiking vs conventional deep RL for RIS phase adaptation on energy, training latency, outage, BER; no figures.
+R03503	Y	-	C2	SNN	NS	STATIC_IMG+EVENT	SIM	NA	CLAIM	ENERGY	NA	SCORE+ACT	NA	MIXED	Y	N	Energy-aware dual-stage pruning for SNNs on CIFAR-10, CIFAR10-DVS, CIFAR-100; inference energy reduction claimed, no figures.
+R03506	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	ANN-SNN conversion with negative spikes for Leaky ReLU models; abstract gives no energy, operation or latency figures.
+R03519	Y	-	C2	SNN	NS	NS	SIM	NA	NONE	MEMORY	NA	NS	NA	MIXED	N	N	Pruning, quantization and hybrid compression of SNNs on oceanographic data; competitive accuracy, smaller model size; no energy figures.
+R03522	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Hybrid CNN-SNN for histopathology: 75.33% accuracy on nine classes; efficiency only asserted, no figures.
+R03523	Y	-	C1	ANN+SNN	NS	TS	SIM	SIM	NS	ENERGY	PAIRED	NA	NA	NA	NA	N	Spiking hybrid model for multivariate time-series anomaly detection costs 5.04x lower energy than its ANN version.
+R03526	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	SNN keyword-spotting chip, 65 nm: 94.63% accuracy (4-class GSCD), 7.7 uW, 18.74 ms/decision; DNN comparison on accuracy only.
+R03528	Y	-	C2	SNN	NS	STATIC_IMG+EVENT	SIM	NA	CLAIM	ENERGY+SPIKES	NA	REG	NA	NS	Y	N	LTR-LIF neuron with Adaptive Sparse Loss regulating firing rates; 96.25% CIFAR-10, 81.03% CIFAR-100, 60.33% Tiny-ImageNet; no energy figures.
+R03530	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Lightweight EEG motor-imagery SNN beats four CNN models in classification; energy efficiency asserted, no figures.
+R03531	Y	-	C3	ANN	OTHER	DET	NA	NS	NONE	NONE	NA	NS	OTHER	NS	N	N	LTH during pre-training of masked autoencoder to select forgery-sensitive parameters for sparse fine-tuning; accuracy focus, no efficiency figures.
+R03533	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	FPGA SNN accelerator, 8-bit weights, bitmap sparse weight encoding; energy gains claimed, no figures or ANN baseline.

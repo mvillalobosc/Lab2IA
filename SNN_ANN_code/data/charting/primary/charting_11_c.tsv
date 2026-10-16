@@ -1,0 +1,25 @@
+R03330	Y	-	C1	ANN+SNN	CNN	DET+EVENT	SIM	SIM	CLAIM	ENERGY+OPS	DIFFERENT	NA	NA	NA	NA	N	SNN with DVS vs CNNs for pedestrian crossing detection on CARLA and JAAD; claims significant energy reduction, no figures
+R03333	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	ANN-to-SNN conversion for 3D point clouds on ModelNet40 and ScanObjectNN; accuracy only, no efficiency metric
+R03336	Y	-	C1	ANN+SNN	OTHER	AUDIO	SIM	SIM	ESTIMATED	OPS+MEMORY	DIFFERENT	NA	NA	NA	NA	N	Spiking-S4 speech enhancement rivals ANN methods with fewer parameters and FLOPs on DNS and VoiceBank+Demand; no figures
+R03338	Y	-	C2	SNN	TRANSFORMER	STATIC_IMG+EVENT	SIM	NA	NONE	NONE	NA	OTHER	NA	STRUCT	Y	N	Spiking expert mixture with head-wise and channel-wise routing gives dynamic sparse computation; stable gains at similar overhead
+R03339	Y	-	C1	ANN+SNN	OTHER	DET	SIM	SIM	CLAIM	ENERGY	DIFFERENT	NA	NA	NA	NA	N	Spiking U-Net for spectrum occupancy segmentation beats energy detection, near CNNs, favorable energy efficiency claimed; no figures
+R03341	Y	-	C1	ANN+SNN	TRANSFORMER	NLP	SIM	SIM	CLAIM	ENERGY+MEMORY	DIFFERENT	NA	NA	NA	NA	N	SpikingMiniLM GLUE macro-average 75.5, 98% of MiniLMv2 teacher; similar to BERTMINI with fewer parameters, much lower energy, no figure
+R03345	N	E2	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Spintronic synapse devices; CNN and SNN built on them reach high MNIST accuracy with improved energy efficiency; no ANN-SNN comparison
+R03346	Y	-	C2	SNN	NS	STATIC_IMG+DET+EVENT	SIM	NA	ESTIMATED	MEMORY+OPS	NA	ACT	NA	STRUCT	Y	N	Spatial-channel pruning plus quantization: up to 13x memory and >4.7x FLOPs reduction, <1.8% accuracy loss vs SOTA baseline
+R03347	Y	-	C2	SNN	NS	NS	OTHER_NEURO	NA	CLAIM	LATENCY+POWER+THROUGHPUT+MEMORY	NA	ACT	NA	UNSTRUCT	Y	N	Spike-statistics synapse pruning and mapping for neuromorphic chips; beats SpiNeMap in communication, time, memory; no figures
+R03348	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Stateful and weight quantization-aware training for recurrent SNNs at 8, 4, 2 bits; accuracy only; quantization-only
+R03349	Y	-	C2	SNN	NS	NS	ASIC	NA	CLAIM	NONE	NA	NS	NA	NS	Y	N	SNN processor with dynamic pulse pruning, approximate computing, format switching in 28 nm CMOS; superior to SOTA processors, no figures
+R03351	Y	-	C2	SNN	NS	STATIC_IMG+EVENT	NS	NA	NS	ENERGY+LATENCY+SPIKES+OPS	NA	OTHER	NA	TEMPORAL	Y	N	Few-spike training and dedicated dataflow: up to 8.1x energy efficiency, 7.1x speedup over SOTA SNN hardware; fewer spikes than SNNs
+R03354	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	SC attention for spiking Transformers: 83.53% vs ANN 83.66% on CIFAR-10; FPGA 48x lower latency, 15x less power than GPU
+R03356	Y	-	C3	ANN	NS	NS	NA	NS	CLAIM	OPS+ENERGY+LATENCY+MEMORY	NA	OTHER	WEAK	MIXED	N	N	LTH iterations with structural layer elimination shrink models near base performance; claims lower energy, latency, memory; no figures
+R03357	Y	-	C5	ANN	CNN	NS	NA	NS	CLAIM	MEMORY+OPS	NA	NA	NA	NA	NA	N	Survey of structured pruning for CNNs covering filter ranking, regularization, dynamic execution, NAS and lottery ticket hypothesis; no figures
+R03359	Y	-	C2	SNN	NS	EVENT	SIM	NA	NONE	NONE	NA	NS	NA	NS	NS	N	Surrogate-gradient SNN on event-based flow cytometry, over 99% four-class accuracy; network dynamics used to improve accuracy and sparsity
+R03360	Y	-	C5	ANN+SNN	NS	NS	NS	NS	CLAIM	ENERGY+POWER	NA	NA	NA	NA	NA	N	Survey of edge DL processors (dataflow, neuromorphic, PIM) by performance, area, energy efficiency; PIM most efficient; no figures
+R03363	Y	-	C3	ANN	TRANSFORMER	OTHER	NA	SIM	NS	OPS+MEMORY	NA	NS	NS	NS	N	N	LTH sub-network for underwater super-resolution cuts computational cost up to 70.44%; PSNR +0.95-2.23 dB over SwinIR with 29.56% fewer parameters
+R03370	Y	-	C2	SNN	NS	NS	NS	NA	NS	LATENCY+ENERGY	NA	OTHER	NA	TEMPORAL	Y	N	Split-time temporal coding limits spikes per time window; 97x latency and 78x energy improvement over conventional SNN baseline
+R03372	Y	-	C3	ANN	NS	NS	NA	SIM	NONE	NONE	NA	NS	OTHER	NS	N	N	LTH-based network partition for continual learning with a shared-knowledge part; near-zero forgetting; no efficiency figures
+R03375	Y	-	C3	ANN	GNN	OTHER	NA	SIM	NONE	NONE	NA	OTHER+REG	OTHER	MIXED	N	N	One-shot edge-degree graph sparsification plus l0 parameter sparsity finds graph lottery tickets in one training; beats iterative approaches
+R03379	Y	-	C1	ANN+SNN	NS	OTHER	SIM	SIM	ESTIMATED	ENERGY	PAIRED	NA	NA	NA	NA	N	SNN with synaptic delay for graph reasoning; theoretically estimated 20x energy savings vs non-spiking counterparts
+R03383	Y	-	C3	ANN	CNN+TRANSFORMER	NS	NA	SIM	NONE	NONE	NA	OTHER	WEAK	STRUCT	N	N	WORM truncates gradients of static neuron groups to find EarlyBird tickets faster in CNNs; also tested on transformers; no figures
+R03385	Y	-	C2	SNN	NS	TS	SIM	NA	ESTIMATED	OPS+MEMORY	NA	OTHER	NA	NS	Y	N	Basal-ganglia-inspired pruning in Izhikevich SNN for edge fault diagnosis; Params and FLOPs significantly reduced, no figures
+R03386	Y	-	C3	ANN	NS	NS	NA	SIM	NONE	NONE	NA	MAG	OTHER	UNSTRUCT	N	N	IMP-derived sparse initialisations with dense training slightly beat sparse training; zeroed weights stay small; no efficiency figures

@@ -1,0 +1,100 @@
+R06101	EXCLUDE	E3	none	macaque MT-MST biological model; no efficiency or pruning content
+R06102	EXCLUDE	E4	none	SNN-only architecture search survey; efficiency not main subject
+R06103	INCLUDE	C1	CPU	SNN 1.50 ms vs ANN 20.15 ms inference latency
+R06104	INCLUDE	C2	none	SNN equalizer regularization effect on spike activity; ANN baseline unclear
+R06105	EXCLUDE	E4	none	single-layer SNN, accuracy only; efficiency just motivation
+R06106	EXCLUDE	E4	none	SNN knowledge tracing application; no efficiency comparison
+R06107	EXCLUDE	E4	none	SNN detector; energy only as motivation, abstract shows no ANN metrics
+R06108	UNSURE	C1	none	cites 8-15 uJ DL energy; SNN energy comparison not visible
+R06109	UNSURE	C1	none	RNN-to-SNN conversion; unclear whether any efficiency metric reported
+R06110	INCLUDE	C1	simulation	SNN about half the estimated energy of ANN controller
+R06111	EXCLUDE	E4	none	SNN decoder; compares input modalities only, no ANN baseline
+R06112	EXCLUDE	E4	none	SNN multimodal fusion; energy only as motivation
+R06113	INCLUDE	C1	none	SNN tens to hundreds of times more efficient than ANNs
+R06114	EXCLUDE	E4	simulation	SNN power-quality controller in simulation; no ANN efficiency comparison
+R06115	INCLUDE	C1	none	SNN lower reaction latency than classical ANN controllers
+R06116	INCLUDE	C1	simulation	SNN vs CNN/ANN: 42 ms inference, 72% energy reduction
+R06117	INCLUDE	C5	TrueNorth,FPGA,Loihi,memristor/in-memory	review of SNN vs ANN and neuromorphic hardware performance
+R06118	EXCLUDE	E4	none	hybrid SNN-transformer seizure prediction; energy only claimed, no comparison
+R06119	UNSURE	C5	none	SNN neurodynamics review; discusses whether sparsity and reduced connectivity prove efficiency
+R06120	INCLUDE	C1	none	SNN SOH estimation: 3.55 us, 0.36 mJ, beats deep learning
+R06121	INCLUDE	C1	none	Spiking ResNet-18 vs CNNs; 2.49x energy saving; T=2-16 sweep
+R06122	EXCLUDE	E4	none	SNN-for-EEG tutorial review; efficiency only as motivation
+R06123	INCLUDE	C1	none	SNN vs ESCAPE-NET ANNs; complexity reduction; energy-efficient claim, abstract truncated
+R06124	EXCLUDE	E4	none	SNN vs ANN compared on reward only; latency varies with cycles
+R06125	INCLUDE	C5	none	survey of SNN energy-efficiency evidence for log anomaly detection
+R06126	INCLUDE	C1	GPU	SNN uses less GPU training energy than MLP, SVR, XGBoost
+R06127	INCLUDE	C1	none	SNN: 70% lower energy, 69% lower latency than DL baselines
+R06128	UNSURE	C5	none	SNN physiological-signal review; energy efficiency and encoding analyzed, focus is applications
+R06129	UNSURE	C1	none	SNN video review plus SpikeActNet vs CNNs; efficiency metric not stated
+R06130	UNSURE	C1	none	SNN continual learning with CO2 metric; ANN baseline unclear
+R06131	EXCLUDE	E4	none	spiking CNN for motor imagery EEG; efficiency only as motivation
+R06132	EXCLUDE	E4	none	spiking DeepONet; accuracy results only, energy as motivation
+R06133	EXCLUDE	E4	none	spiking P-system transformer; SNN-only accuracy and time steps
+R06134	EXCLUDE	E3	none	theoretical spiking controller derived from neuroscience and control theory
+R06135	EXCLUDE	E4	none	LIF vs QIF facial emotion recognition; no efficiency metrics
+R06136	INCLUDE	C1	none	SNN federated learning cuts inference energy 6.46x versus ANN baselines
+R06137	INCLUDE	C1	none	spiking transformer: 88.8% less energy, 31% lower latency than Swin
+R06138	EXCLUDE	E4	none	spiking transformer forecasting; accuracy only, energy refers to electricity
+R06139	EXCLUDE	E4	none	SNN vs capacity-matched ANN on accuracy only
+R06140	INCLUDE	C2	none	dynamic masking prunes Spikformer; fewer parameters, 42-50% less energy
+R06141	EXCLUDE	E4	none	spiking transformer backbone; no ANN energy comparison in abstract
+R06142	INCLUDE	C1	none	ANN-to-SNN conversion for image restoration; efficiency figures truncated
+R06143	INCLUDE	C1	none	SNN LLM distilled from Mamba: 4.76x energy benefit
+R06144	EXCLUDE	E4	GPU,memristor/in-memory	SNN training CIM accelerator vs GPU/SATA; no ANN baseline
+R06145	EXCLUDE	E5	memristor/in-memory	SOT-MRAM DNN accelerator; no SNN or lottery content
+R06146	EXCLUDE	E2	none	NV-center tactile sensor device with ANN; no SNN comparison
+R06147	EXCLUDE	E2	memristor/in-memory	spin-orbit torque synaptic device physics; no network evaluation
+R06148	EXCLUDE	E5	none	spin-wave device with feedforward ANN; no SNN involved
+R06149	EXCLUDE	E2	memristor/in-memory	memristor tactile neuron device; SNN accuracy only, no ANN comparison
+R06150	EXCLUDE	E2	memristor/in-memory	molecular spin-valve synapse device; no ANN comparison
+R06151	EXCLUDE	E4	ASIC	28nm liquid state machine accelerator; no ANN baseline
+R06152	UNSURE	C1	none	claims time/memory-efficient inference vs conventional models; no figures given
+R06153	INCLUDE	C1+C2	simulation	SNN demapper: half the energy of ANN; spike-rate regularization
+R06154	INCLUDE	C1	none	SNN lowers complexity and energy versus baseline models
+R06155	EXCLUDE	E4	none	spiking transformer attention; SNN-to-SNN accuracy comparison only
+R06156	EXCLUDE	E4	memristor/in-memory	SRAM CIM SNN accelerator; energy gains versus SNN baselines only
+R06157	INCLUDE	C1	none	claims lower power and complexity than ANN speech enhancement models
+R06158	INCLUDE	C1	none	SNN 90.13% (INT-8) and 83.76% (FP32) energy reduction vs ANNs
+R06159	EXCLUDE	E4	none	SNN-GCN emotion recognition; no efficiency metrics
+R06160	INCLUDE	C2	none	adaptive threshold suppresses firing; spikes per sample as energy proxy
+R06161	EXCLUDE	E2	memristor/in-memory	ferroelectric transistor synapse device; hardware network accuracy only
+R06162	EXCLUDE	E2	memristor/in-memory	SOT analog synapse device engineering
+R06163	INCLUDE	C1	none	SNN EEG artifact removal uses 97.98% less power than DNNs
+R06164	EXCLUDE	E4	none	spiking attention module; no efficiency evidence in visible text
+R06165	INCLUDE	C2	none	activation gating and adaptive timesteps cut synaptic operations; no ANN baseline
+R06166	EXCLUDE	E4	none	SNN radio map reconstruction; no efficiency comparison
+R06167	EXCLUDE	E2	photonic	photonic laser reservoir model; no spikes or ANN comparison
+R06168	EXCLUDE	E2	memristor/in-memory	MTJ stochastic device physics; binarized CNN only
+R06169	EXCLUDE	E4	none	quantum spiking neuron model; no ANN efficiency comparison
+R06170	EXCLUDE	E2	none	droplet soliton oscillator device for random numbers
+R06171	EXCLUDE	E2	memristor/in-memory	InSe memristor material engineering; ANN emulation only
+R06172	EXCLUDE	E2	none	retinomorphic optoelectronic device; no network-level comparison
+R06173	EXCLUDE	E2	none	CMOS activation function and STDP circuits
+R06174	EXCLUDE	E2	none	printed MoS2 optoelectronic synapse device
+R06175	EXCLUDE	E4	none	SNN railway detector; energy only as motivation in visible text
+R06176	EXCLUDE	E4	none	LSTM-SNN surveillance; accuracy and FPS only, no ANN comparison
+R06177	UNSURE	C5	Tianjic,SpiNNaker	surgical data science survey with SNN and neuromorphic roadmap; SNN share unclear
+R06178	INCLUDE	C1	none	SNN electricity theft detection; OPs comparison with deep learning baselines
+R06179	INCLUDE	C2+C6	none	hardware latency versus SNN hyperparameters and activation sparsity characterization
+R06180	EXCLUDE	E2	memristor/in-memory	2D ferroelectric synapse device durability
+R06181	EXCLUDE	E4	none	hybrid SNN-ANN video enhancement; no efficiency metrics in visible text
+R06182	EXCLUDE	E4	none	hybrid SNN WiFi sensing; accuracy and convergence only
+R06183	EXCLUDE	E4	none	spiking YOLO detector; energy only as motivation, results truncated
+R06184	EXCLUDE	E4	none	SNN plus hyperdimensional computing training; no energy comparison
+R06185	EXCLUDE	E2	photonic	photoluminescent optical synapse layer; ANN readout offline
+R06186	EXCLUDE	E2	none	CMOS STDP synapse circuit; no network-level evaluation
+R06187	INCLUDE	C1+C2	none	SynOps-regularized hybrid SNN: 28.49% fewer SynOps, energy vs ANN
+R06188	INCLUDE	C1	none	claims SNN efficiency gains over ANN counterparts on event data
+R06189	INCLUDE	C2	ASIC	SNN ASIC skips zero-spike operations; 36.5 pJ per SOP
+R06190	INCLUDE	C2	FPGA	sparsity-aware SNN FPGA accelerator; 35 pJ per SOP; dense baseline
+R06191	EXCLUDE	E4	none	bio-inspired collision detectors; no ANN efficiency comparison
+R06192	EXCLUDE	E4	none	SNN tactile recognition; efficiency claim without ANN comparison
+R06193	EXCLUDE	E2	memristor/in-memory	electrolyte-gated synaptic transistor device
+R06194	EXCLUDE	E4	none	fMRI-topology SNN digit recognition; no efficiency comparison visible
+R06195	EXCLUDE	E4	none	lightweight SNN intrusion detection; no ANN baseline or pruning
+R06196	EXCLUDE	E3	none	trained cortical SNN models studying inhibition; neuroscience focus
+R06197	EXCLUDE	E4	none	topographic SNN visual cortex model; accuracy-only ANN comparison
+R06198	EXCLUDE	E5	none	ANNs on event-camera data; no SNN or efficiency
+R06199	INCLUDE	C1	none	hybrid CNN-SNN: 4.2 ms latency, outperforms LSTM and Transformer
+R06200	INCLUDE	C1	none	spike-driven attention uses 0.240x energy of conventional attention

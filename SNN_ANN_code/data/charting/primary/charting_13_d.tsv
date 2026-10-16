@@ -1,0 +1,25 @@
+R03945	Y	-	C3	ANN	NS	NS	NA	NS	NONE	NONE	NA	NS	NS	NS	N	N	No efficiency figures; MCELL modifies lottery-ticket-based CELL for federated submodel learning in VANETs; claims better transmission efficiency and convergence
+R03947	Y	-	C1	ANN+SNN	CNN	TS	SIM	SIM	CLAIM	OPS	PAIRED	NA	NA	NA	NA	N	SNN rebuilt from AlexNet claims lower computational resource requirement than AlexNet with high accuracy; no figures
+R03949	Y	-	C1	ANN+SNN	RNN	TS	SIM	NS	ESTIMATED	OPS	LITERATURE	NA	NA	NA	NA	N	SNN-LSM RFFI: 94.56% accuracy (+1.16% vs best reported), 89% fewer parameters, MACs reduced 100x versus most efficient baseline
+R03951	Y	-	C1	ANN+SNN	CNN	AUDIO	SIM	NS	NS	LATENCY+OPS	DIFFERENT	NA	NA	NA	NA	N	Spiking speech enhancement: 470K parameters, 1.22M Ops per inference, 14.45 dB SI-SNR, 32 ms latency; claimed to outperform ANN baseline
+R03953	Y	-	C2	SNN	TRANSFORMER	STATIC_IMG+EVENT	SIM	NA	NS	LATENCY	NA	OTHER	NA	STRUCT	N	N	Higher accuracy and over 1.4x inference speedup than baseline SNN-Transformers; attention-based token pruning, cross-time-step distillation
+R03954	Y	-	C1	ANN+SNN	CNN	AUDIO	SIM	NS	CLAIM	OPS	DIFFERENT	NA	NA	NA	NA	N	Deep convolutional SNNs for speech quality prediction match SOTA ANN accuracy with claimed significantly lower computational cost; no figures
+R03956	Y	-	C1+C2	HYBRID	CNN	STATIC_IMG	SIM	SIM	NS	ENERGY	PAIRED	OTHER	NA	NS	Y	N	Hybrid ANN/SNN VGG16/ResNet: up to 84.13% better energy efficiency than pure SNNs; SNN accuracy loss at most 0.89% versus ANN
+R03958	Y	-	C1+C2+C6	ANN+SNN	RNN	EVENT+AUDIO	SIM	SIM	ESTIMATED	OPS	PAIRED	NS	NA	UNSTRUCT	N	N	80% weight sparsity cuts EFLOPs 8.9x for GRU and 3.6x for LIF models on SHD and SSC, same accuracy
+R03959	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	SNN transformer with eye-gaze guidance for medical imaging; claims superior energy efficiency without figures or explicit ANN comparison
+R03960	Y	-	C1	ANN+SNN	CNN	TS	SIM	SIM	NS	ENERGY+OPS	DIFFERENT	NA	NA	NA	NA	N	FCWT-SNN vs conventional CNNs: computational load -97.3%, energy -98.5%, comparable accuracy (99.98% and 98.46%)
+R03963	Y	-	C2	SNN	NS	AUDIO+BIOSIG+OTHER	ASIC	NA	MEASURED	POWER+MEMORY	NA	ACT+DST	NA	STRUCT	Y	N	28nm SNN processor with dynamic structured sparse training: up to 16x lower power, 3.8x less on-chip memory than SOTA
+R03974	Y	-	C2	SNN	NS	BIOSIG	FPGA+ASIC	NA	NS	ENERGY+POWER	NA	NS	NA	STRUCT	Y	N	Channel selection cuts bandwidth 3x, power 2.3x on FPGA and 1.6x on ASIC; inference 0.446 uJ and 1.04 uJ
+R03976	Y	-	C1	ANN+SNN	CNN	DET	NS	NS	NS	POWER	LITERATURE	NA	NA	NA	NA	N	Spiking CNN, 6365 parameters, lane detection at 12 mW, two orders of magnitude below current SOTA
+R03978	Y	-	C1	ANN+SNN	CNN+RNN	CONTROL+TS	SIM	SIM	NS	ENERGY+POWER	DIFFERENT	NA	NA	NA	NA	N	BO-STDP-SNN: energy -27.8%, power -70%, higher anomaly detection accuracy than CNN, RNN and LSTM baselines
+R03979	Y	-	C6	SNN	NS	NS	NS	NA	NONE	NONE	NA	NA	NA	NA	NA	N	Exploratory classification of 13 SNN energy efficiency metrics by accessibility, fidelity, actionability and trend; no measurements
+R03980	Y	-	C1+C6	ANN+SNN	CNN	CONTROL	GPU	GPU	MEASURED	ENERGY	PAIRED	NA	NA	NA	NA	Y	CNNs vs SNN variants on GPU: CNNs use 10-20x more energy with slightly better MSE; delta-encoded SNNs best EER
+R03981	Y	-	C6	SNN	NS	STATIC_IMG	AKIDA	NA	ESTIMATED	ENERGY	NA	NA	NA	NA	NA	N	Hardware-agnostic energy metric for SNN scene classification on EuroSAT, used to predict Akida AKD1000 energy; no figures
+R03982	Y	-	C1	ANN+SNN	CNN	DET	SIM	NS	NS	ENERGY	PAIRED	NA	NA	NA	NA	N	HERD-YOLO SNN reduces energy 89.2% versus ANNs and beats EMS-YOLO in efficiency and accuracy
+R03983	Y	-	C1	ANN+SNN	NS	STATIC_IMG	NS	NS	CLAIM	LATENCY	DIFFERENT	NA	NA	NA	NA	N	ML, DL and SNN models compared on binary image classification with runtime efficiency; Transfer Spiking Net accuracy 0.992
+R03984	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Spiking YOLO for SAR ship detection; energy efficiency advantage stated without figures or explicit ANN comparison
+R03985	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Spiking self-attention network for wafer defect recognition; claims reduced energy, no ANN comparison or figures
+R03987	Y	-	C1	ANN+SNN	RNN	BIOSIG	SIM	SIM	NS	ENERGY	PAIRED	NA	NA	NA	NA	N	SNN with recurrent structure uses only 1.82% of ANN energy with accuracy +9.9% on EEG seizure detection
+R03988	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	SNN-embedded DRL beamforming for ISAC V2X; claims substantial energy savings in simulation, no figures or explicit ANN comparison
+R03989	Y	-	C1	ANN+SNN	NS	OTHER	SIM	SIM	NS	ENERGY	PAIRED	NA	NA	NA	NA	N	SNN versus ANN in telecom: up to 41x energy efficiency in channel prediction, 10x network slicing, 16x anomaly detection
+R03990	N	E2	-	-	-	-	-	-	-	-	-	-	-	-	-	-	ReRAM CIM macro with SNN and ANN modes: 3349.1 1b-TOPS/W, 93.37% keyword spotting; circuit-level, no SNN versus ANN efficiency comparison

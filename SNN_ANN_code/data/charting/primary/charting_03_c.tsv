@@ -1,0 +1,25 @@
+R00934	Y	-	C3	ANN	NS	NS	NA	NS	NONE	NONE	NA	OTHER	WEAK	UNSTRUCT	N	N	Winning tickets preserve Ramanujan graph property; pruning layers while retaining it gives robust tickets and improves existing pruning algorithms
+R00938	Y	-	C2	SNN	NS	STATIC_IMG	SIM	NA	NONE	NONE	NA	NS	NA	UNSTRUCT	N	N	Synaptic pruning with predefined thresholds yields sparse information channels for MNIST digit classes; needs small training set; no efficiency metrics
+R00940	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	28nm SNN processor with TTFS coding: 91.7%/67.9%/57.4% at 486.7/503.6/1426 uJ; no ANN efficiency baseline
+R00942	Y	-	C1	ANN+SNN	CNN	STATIC_IMG	NS	NS	NS	ENERGY+LATENCY+EDP+SPIKES	PAIRED	NA	NA	NA	NA	N	~560.6x and ~44.8x less energy than iso-architecture full-precision and 6-bit CNN; 98.68/99.50/97.95% accuracy at 5 time steps
+R00943	Y	-	C3	ANN	NS	STATIC_IMG	NA	NS	NONE	NONE	NA	THEORY+OTHER	OTHER	UNSTRUCT	N	N	Proves weight sparsity relates to robustness; weights inherited from lottery tickets improve robustness; proposes inverse weights inheritance; no efficiency figures
+R00944	Y	-	C1	ANN+SNN	NS	AUDIO	SIM	SIM	ESTIMATED	POWER	DIFFERENT	NA	NA	NA	NA	N	Analog SNN footstep classifier saves significant power vs digital SNN and ANN-based architectures (simulation); conversion loses ~5% accuracy
+R00947	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Review of SNN algorithms, simulators and neuromorphic/FPGA hardware; not a benchmarking or ANN-SNN efficiency comparison review
+R00951	Y	-	C3	ANN	NS	NS	NA	NS	NS	LATENCY	NA	SCORE	WEAK	MIXED	N	N	BIP finds better winning tickets than IMP with 2-7x speedup at same accuracy and sparsity; structured and unstructured pruning
+R00955	N	E2	-	-	-	-	-	-	-	-	-	-	-	-	-	-	SNN wake-up chip (82 nW, 0.53 pJ/SOP) per title; abstract only reviews prior systems, no ANN baseline evaluated
+R00956	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	CNN-to-SNN conversion with adaptive threshold; better accuracy and latency than recent SNNs on CIFAR10; no ANN efficiency comparison
+R00966	Y	-	C2	SNN	RNN	EVENT	FPGA	NA	MEASURED	LATENCY	NA	OTHER	NA	NS	Y	N	LSM accelerator on FPGA with zero-skipping and weight compression: 97.42% DVS128 Gesture, 3.97 ms latency, 26x better than TrueNorth system
+R00968	Y	-	C2	SNN	MLP	NS	FPGA	NA	MEASURED	THROUGHPUT+LATENCY	NA	OTHER	NA	UNSTRUCT	Y	N	FPGA accelerator: 35.84 GSOPs/s, equivalent to 358.4 dense at 90% weight sparsity; time step 2.15 to 0.55 us
+R00979	Y	-	C3	ANN	CNN	NS	NA	NS	NONE	NONE	NA	MAG+THEORY	WEAK	NS	N	N	PAC-Bayes analysis of winning tickets: IMP with small learning rate finds sharp minima; no efficiency figures
+R00981	Y	-	C2	ANN+SNN	NS	STATIC_IMG	SIM	SIM	CLAIM	NONE	NA	OTHER	NA	TEMPORAL	Y	N	Single-spike SNN equivalent to ReLU network: accuracy close to ANN on MNIST/Fashion-MNIST, above other single-spike SNNs; sparse low-latency inference claimed
+R00983	N	E2	-	-	-	-	-	-	-	-	-	-	-	-	-	-	1T-neuron gas sensor E-nose with SNN; power savings vs DNN-based E-nose asserted without figures; device-level study
+R00987	Y	-	C3	ANN	CNN+RNN+TRANSFORMER	AUDIO	NA	NS	NONE	NONE	NA	NS	WEAK	MIXED	N	N	Winning tickets with under 20% (down to 4.4%) of weights match full speech models; transfer, noise-robust, generalize to structured sparsity
+R00990	Y	-	C1	ANN+SNN	NS	TS	SIM	SIM	ESTIMATED	OPS	PAIRED	NA	NA	NA	NA	N	Radar target classification SNN: accuracy close to reference ANN with 200x fewer operations; detection SNN competitive at low overhead
+R00991	Y	-	C2	SNN	NS	EVENT	SIM	NA	CLAIM	ENERGY+SPIKES	NA	EVO	NA	STRUCT	Y	N	Spike-aware NAS with accuracy and spike-count fitness; searched SNNs beat hand-crafted SNNs in accuracy and energy efficiency
+R00993	Y	-	C2	SNN	RNN	STATIC_IMG+EVENT+BIOSIG+TS	SIM	NA	CLAIM	SPIKES	NA	REG+DST	NA	UNSTRUCT	Y	N	Spiking regularization plus synapse rewiring give sparse spikes and synapses with comparable or better accuracy; no energy figures
+R00999	Y	-	C6	ANN+SNN	NS	NS	OTHER_NEURO	NS	BOTH	ENERGY	NA	NA	NA	NA	NA	U	Benchmark suite and energy model for neuromorphic hardware; systems at least four orders of magnitude less efficient than the brain
+R01000	Y	-	C1	ANN+SNN	CNN	DET+EVENT	SIM	SIM	CLAIM	ENERGY	PAIRED	NA	NA	NA	NA	N	Segmentation SNNs by surrogate gradients beat conversion in latency; claimed more robust and energy-efficient than ANN counterparts, no figures
+R01006	Y	-	C1+C6	ANN+SNN	RNN	TS+EVENT	LOIHI	EDGE_GPU	MEASURED	ENERGY+POWER+LATENCY	DIFFERENT	NA	NA	NA	NA	Y	Recurrent SNN on Loihi ~500x more energy-efficient than LSTM on Jetson at ~30 mW; LSTM ~97% accuracy, ~17% above SNN
+R01009	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Bistable-neuron conversion needs 1/4-1/10 of prior time steps; CIFAR-10 95.16%, CIFAR-100 78.12%, ImageNet 72.64%; no ANN efficiency figures
+R01010	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	ECG classification SNN built from deep ANN counterpart; accuracy exceeds original ANN; no efficiency metrics
+R01012	Y	-	C1	ANN+SNN	CNN	STATIC_IMG	SIM	SIM	NS	ENERGY+LATENCY+SPIKES	PAIRED	NA	NA	NA	NA	N	CIFAR-100 64.19% top-1 at 2 time steps with ~159.2x lower compute energy than iso-architecture DNN; 2.5-8x faster than SOTA SNNs

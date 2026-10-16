@@ -1,0 +1,100 @@
+R03501	INCLUDE	C1	MCU	spiking RL vs deep RL energy and latency in RIS digital twin
+R03502	EXCLUDE	E4	none	spiking LCA vs non-spiking LCA, accuracy only
+R03503	INCLUDE	C2	none	dual-stage pruning of SNN reduces inference energy
+R03504	EXCLUDE	E4	none	SNN decoder for latency, compared only with SNN decoders
+R03505	EXCLUDE	E2	none	CORDIC FHN neuron digital circuit
+R03506	INCLUDE	C1	none	ANN-SNN conversion with negative spikes, fewer time steps
+R03507	EXCLUDE	E4	none	SNN fault diagnosis, accuracy only
+R03508	EXCLUDE	E4	none	SNN on-chip learning, ANN comparison accuracy only
+R03509	EXCLUDE	E2	memristor/in-memory	CuInS2 memristor synapse device
+R03510	EXCLUDE	E2	photonic	photoelectric synaptic transistor device
+R03511	EXCLUDE	E4	none	frugal SNN spike sorting, no ANN baseline
+R03512	EXCLUDE	E4	ASIC	digital SNN processor, no ANN comparison
+R03513	EXCLUDE	E4	Loihi	spiking LCA vs FISTA solver, not ANN
+R03514	EXCLUDE	E2	memristor/in-memory,ASIC	ReRAM SNN circuit, no network-level comparison
+R03515	EXCLUDE	E2	memristor/in-memory	Ag/ZnOx memristor device
+R03516	EXCLUDE	E2	memristor/in-memory	CMOS-memristor associative memory circuit
+R03517	EXCLUDE	E4	none	hybrid CNN-SNN skin cancer, accuracy only
+R03518	EXCLUDE	E4	none	SNN anomaly detection, energy refers to routing
+R03519	INCLUDE	C2	none	pruning and quantization of SNNs
+R03520	EXCLUDE	E4	none	CNN-SNN deepfake detection, no efficiency measured
+R03521	EXCLUDE	E4	none	spiking transformer speech emotion, accuracy only
+R03522	UNSURE	C1	none	hybrid CNN-SNN pathology, efficiency claimed but unclear if measured
+R03523	INCLUDE	C1	none	5.04x lower energy than ANN version
+R03524	EXCLUDE	E4	none	SNN-Transformer biosignals, accuracy only
+R03525	EXCLUDE	E4	FPGA	SNN batch norm engine, no ANN baseline
+R03526	UNSURE	C1	ASIC	KWS SNN chip, DNN comparison on accuracy, power reported
+R03527	EXCLUDE	E4	none	CSNN toxicity detection, accuracy only
+R03528	INCLUDE	C2	none	adaptive sparse loss regulates SNN firing rates
+R03529	EXCLUDE	E5	GPU	event-driven ML ECG, no spiking network
+R03530	UNSURE	C1	none	lightweight SNN vs CNNs, energy efficiency claimed, unclear
+R03531	INCLUDE	C3	none	lottery ticket hypothesis with sparse fine-tuning in MAE
+R03532	EXCLUDE	E4	none	private SNN inference vs FHE baselines
+R03533	INCLUDE	C2	FPGA	SNN FPGA accelerator with quantization and sparse weight encoding
+R03534	EXCLUDE	E6	none	SMS spam classical ML
+R03535	EXCLUDE	E4	memristor/in-memory	memristive SNN vs digital system, no ANN baseline
+R03536	INCLUDE	C1	none	ANN-to-SNN TTFS conversion, accuracy equal to ANN
+R03537	EXCLUDE	E5	memristor/in-memory	nanowire neuron reservoir computing, non-spiking
+R03538	EXCLUDE	E2	memristor/in-memory,ASIC	ECRAM analog circuit, no SNN or sparsity
+R03539	EXCLUDE	E4	none	multisynaptic neuron, efficiency compared with LIF only
+R03540	UNSURE	C1	memristor/in-memory	device paper, LSM vs echo state network efficiency
+R03541	EXCLUDE	E4	none	DSNN recommender, accuracy only
+R03542	EXCLUDE	E4	none	SNN-LSTM crypto prediction, no efficiency
+R03543	EXCLUDE	E4	none	SNN text classification, accuracy only
+R03544	INCLUDE	C2	memristor/in-memory	neuron stashing during SNN training, energy-efficient
+R03545	EXCLUDE	E4	none	SNN obstacle avoidance vs non-neural baseline
+R03546	EXCLUDE	E4	none	neuromorphic robotic painting, no ANN baseline
+R03547	EXCLUDE	E3	none	bee vision neurobiological model
+R03548	EXCLUDE	E2	FPGA	ferroelectric photodetector device
+R03549	EXCLUDE	E4	none	SNN tactile texture recognition, no efficiency
+R03550	EXCLUDE	E4	none	SCNN Braille reading, accuracy only
+R03551	INCLUDE	C1+C2	none	spike-driven transformer hardware, sparsity cuts computation vs transformer
+R03552	EXCLUDE	E4	none	information bottleneck SNN, no efficiency
+R03553	EXCLUDE	E4	none	spiking capsule network EEG, accuracy
+R03554	UNSURE	C1	none	SNN tumor MRI, computation time vs methods, baseline unclear
+R03555	INCLUDE	C1	none	energy-efficient spike transformer depth, abstract truncated
+R03556	EXCLUDE	E5	memristor/in-memory	memristor NN training scheme, non-spiking
+R03557	EXCLUDE	E4	none	spiking residual fault detection, accuracy vs ANN
+R03558	EXCLUDE	E4	none	SNN image coding, accuracy only
+R03559	INCLUDE	C1+C5	GPU	SNN tutorial with ANN energy-proxy benchmark
+R03560	EXCLUDE	E4	SpiNNaker	SNN BCI latency, no ANN baseline
+R03561	INCLUDE	C2	none	quantized SNNs, activation sparsity measured
+R03562	INCLUDE	C3	none	graph lottery ticket EEG framework with sparse adjacency
+R03563	INCLUDE	C2	ASIC	2:4 structured pruning in CNN-SNN fusion accelerator
+R03564	UNSURE	C1	ASIC	CIM macro with CNN and SNN modes, energy per mode
+R03565	EXCLUDE	E4	FPGA	event-driven SNN accelerator vs SNN implementations
+R03566	EXCLUDE	E5	FPGA,GPU	BCPNN accelerator, non-spiking
+R03567	INCLUDE	C1	none	CSNN time series, less energy than CNN and RNN
+R03568	EXCLUDE	E2	memristor/in-memory	review of nanowire devices
+R03569	INCLUDE	C5	none	review of spiking transformers, accuracy and energy
+R03570	EXCLUDE	E4	none	SNN safety verification
+R03571	INCLUDE	C1	none	energy-efficient SNN decoder vs ANN decoders, abstract truncated
+R03572	INCLUDE	C2	FPGA	SNN accelerator with sparse zero-skipping
+R03573	EXCLUDE	E2	memristor/in-memory	Ga2O3 memristor synapse device
+R03574	EXCLUDE	E2	memristor/in-memory	InGaO synaptic device
+R03575	EXCLUDE	E2	memristor/in-memory	MoTe2 optoelectronic synapse device
+R03576	EXCLUDE	E4	none	SCNN accelerator, no ANN baseline shown
+R03577	EXCLUDE	E2	ASIC	chaotic integrate-and-fire neuron circuit
+R03578	EXCLUDE	E4	none	spike coincidence detector for localization
+R03579	EXCLUDE	E4	none	SCNN with PCLIF neuron, SNN-only comparison
+R03580	EXCLUDE	E4	none	hyperspectral SNN, accuracy and training time
+R03581	INCLUDE	C2	photonic	photonic SNN using sparse neuron subsets
+R03582	EXCLUDE	E4	none	spiking U-Net segmentation, accuracy match
+R03583	INCLUDE	C2	FPGA	SNN accelerator exploiting temporal-spatial sparsity
+R03584	EXCLUDE	E4	none	CSNN jamming classification, accuracy comparison
+R03585	EXCLUDE	E6	memristor/in-memory	general neuromorphic overview, no efficiency comparison
+R03586	EXCLUDE	E4	none	survey of spiking neural P system learning
+R03587	INCLUDE	C1	none	SNN medical imaging, energy reduction vs ANN
+R03588	EXCLUDE	E5	none	review of sustainable healthcare AI, not SNN
+R03589	INCLUDE	C5	Loihi	taxonomy review including SNN vs CNN energy
+R03590	EXCLUDE	E4	memristor/in-memory	temporal SNN on memristors, SNN-only comparison
+R03591	EXCLUDE	E4	none	sparse autodiff for plasticity rules
+R03592	EXCLUDE	E4	none	spiking GCN flood risk, accuracy
+R03593	EXCLUDE	E2	memristor/in-memory	ferroelectric transistor device
+R03594	INCLUDE	C1	none	SNN ECG energy proxy lower than ANN baselines
+R03595	UNSURE	E7	Loihi2,GPU	sparse linear RNN on Loihi 2, spiking unclear
+R03596	INCLUDE	C2	none	sparsity-enforcing distillation for SNN controllers
+R03597	EXCLUDE	E4	none	ParaLIF faster simulation, SNN-only
+R03598	EXCLUDE	E4	none	block SNN inhibition, SNN-only comparison
+R03599	INCLUDE	C1	none	spiking segmentation, fewer resources than ANNs
+R03600	EXCLUDE	E2	memristor/in-memory	memristive device, SNN simulation only vs pristine devices

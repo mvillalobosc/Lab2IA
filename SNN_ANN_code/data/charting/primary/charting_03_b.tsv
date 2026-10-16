@@ -1,0 +1,25 @@
+R00853	Y	-	C3	ANN	NS	NS	NA	NS	NONE	NONE	NA	OTHER	WEAK	NS	N	N	DPLTH: privately selected winning tickets beat current DP methods by over 20%; six public datasets; no efficiency metrics
+R00854	Y	-	C1+C2	ANN+SNN	CNN	STATIC_IMG	SIM	SIM	NS	ENERGY+LATENCY+SPIKES	PAIRED	ACT	NA	TEMPORAL	Y	N	5 timesteps, CIFAR-100 66.46% top-1 with 125x less compute energy than equivalent ANN; 5-300x faster inference than other SNNs
+R00862	Y	-	C1	ANN+SNN	NS	TS	MCU	MCU	NS	POWER+MEMORY	NS	NA	NA	NA	NA	U	ANN and SNN for pump/bearing fault detection on Cortex-M4F; model <15 kB, few hundred mW, 7.5-year runtime; no ANN-SNN breakdown
+R00866	Y	-	C3	ANN	NS	NS	NA	NS	NONE	NONE	NA	THEORY	WEAK	NS	N	N	Theoretical validation of LTH via dynamical systems and inertial manifolds; spectrum-gap-based one-time pruning; no efficiency figures
+R00870	Y	-	C1	ANN+SNN	CNN	STATIC_IMG	SIM	SIM	ESTIMATED	OPS+ENERGY	DIFFERENT	NA	NA	NA	NA	N	Shallow SNN 93.45% accuracy, higher than VGG19 CNN; complexity analysis claims energy advantage, no figures
+R00871	Y	-	C3	ANN	NS	NS	NA	NS	NONE	NONE	NA	THEORY	WEAK	UNSTRUCT	N	N	Theory: pruning enlarges convex region near good model; samples needed scale with non-pruned weights; faster convergence for pruned one-hidden-layer network
+R00873	Y	-	C3	ANN	OTHER	OTHER	NA	NS	NS	OPS+LATENCY	NA	MAG	WEAK	NS	N	N	Tickets with 99% (AE), 93% (VAE), 89% (GAN) sparsity; early-bird tickets cut FLOPs 88%, training time 54%
+R00874	Y	-	C3	ANN	CNN	STATIC_IMG	NA	NS	NONE	NONE	NA	NS	NS	NS	N	N	Graph-based signatures and trigger sets verify winning-ticket ownership; robust to fine-tuning and pruning; ResNets on CIFAR; no efficiency figures
+R00875	Y	-	C3	ANN	NS	OTHER	NA	NS	CLAIM	NONE	NA	NS	WEAK	UNSTRUCT	Y	N	Multiplier-less sparse DNN equalizer via progressive LTH weight pruning and APoT quantization; trade-off claimed, no figures
+R00876	N	E2	-	-	-	-	-	-	-	-	-	-	-	-	-	-	1S1R OxRAM+OTS device for binarized SNN on MNIST; device-level study, no ANN comparison or pruning
+R00877	N	E6	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Broad neuromorphic roadmap (materials to ethics); not focused on ANN-SNN comparison, benchmarking or pruning
+R00890	Y	-	C2	SNN	CNN	STATIC_IMG	SIM	NA	NS	ENERGY+SPIKES	NA	OTHER	NA	NS	Y	N	Coding schemes and LIF parameters vs sparsity, robustness, energy on CIFAR10; max deviation 9.35% (VGG5), 13.59% (VGG9)
+R00892	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Vertebrae segmentation by ANN-to-SNN conversion; latency reduction claimed, error close to deep ANNs; no ANN efficiency figures
+R00897	N	E6	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Hybrid ANN-SNN design framework (hybrid units); tracking energy efficiency asserted without figures or ANN comparison
+R00902	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	ANN-to-SNN conversion plus timing-based BP with one-spike coding; training efficiency gain vs direct SNN BP; no ANN efficiency comparison
+R00903	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Hardware-oriented spiking RNN for emotion recognition; accuracy comparable to DL models, run-time efficiency asserted without figures
+R00905	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	CNN-to-SNN conversion (ECC) targeting accuracy, latency, energy; compared with state-of-the-art SNNs, no ANN efficiency figures
+R00906	Y	-	C2	ANN+SNN	RNN	TS+NLP	NS	NS	CLAIM	NONE	NA	OTHER	NA	NS	Y	U	AHP currents let spiking neurons emulate LSTM with few spikes; energy efficiency claimed, no figures; Loihi as target
+R00907	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Ternary-weight DSNN hardware: MNIST 97% at 74 nJ/image, CIFAR10 89.71%; no ANN efficiency comparison; quantisation only
+R00912	N	E2	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Memristor neuromorphic core with AER circuits; LSM 35x faster than CPU, 111x more energy efficient than GPU; no ANN baseline
+R00914	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	EEG attention-detection SNN, 90% accuracy; low connectivity explored only as parameter; no efficiency metrics or ANN comparison
+R00916	Y	-	C3	ANN	NS	AUDIO	NA	NS	CLAIM	NONE	NA	NS	WEAK	STRUCT	N	N	CPLR: iterative channel pruning with LTH learning-rate rewinding for AV wake word spotting; fewer parameters, no figures
+R00917	Y	-	C1	SNN	NS	CONTROL	LOIHI	NS	MEASURED	ENERGY+LATENCY	NS	NA	NA	NA	NA	U	SDRL on Loihi: 186x (CPU) and 516x (GPU) less energy; 1.3x and 2.0x faster; baseline model type not stated
+R00932	Y	-	C3	ANN	CNN	AUDIO	NA	NS	CLAIM	NONE	NA	NS	WEAK	NS	N	N	LTH-IF iterative pruning for compact audio-visual wake word spotting; parameters and computations greatly reduced without degradation; no figures
+R00933	Y	-	C2	SNN	NS	NS	SIM	NA	ESTIMATED	SPIKES	NA	OTHER	NA	NS	Y	N	Sensory-adaptation spike-frequency method keeps accuracy similar to conventional adaptation while cutting spikes to 32.66% (train) and 45.63% (test)

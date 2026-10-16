@@ -1,0 +1,25 @@
+R03991	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Claims superior energy efficiency of Spiking-UNet for SAR change detection; no ANN comparator or figures stated.
+R03994	Y	-	C2	SNN	NS	NS	FPGA	NA	NS	ENERGY+POWER	NA	NS	NA	NS	Y	N	EESE encoding: 26% energy savings, 0.101 W total power on FPGA, 97% accuracy; pruning one of several techniques.
+R03995	Y	-	C1	ANN+SNN	NS	TS	NS	NS	NS	ENERGY	DIFFERENT	NA	NA	NA	NA	N	Energy about half of most current methods; accuracy 99.85% at 15 Msps, 1.61% above best existing method.
+R04008	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Spiking graph transformer claims low computational cost; no ANN efficiency comparison or figures given.
+R04011	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Spiking transformer claims energy efficiency and speed with no comparator or figures; adversarial accuracy gains 3.60-4.01%.
+R04015	Y	-	C1	ANN+SNN	NS	OTHER	NS	NS	CLAIM	OPS	DIFFERENT	NA	NA	NA	NA	N	Competitive accuracy with significantly lower computational overhead than conventional deep learning; no figures given.
+R04019	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	SNN learning processor, 5.3 pJ/SOP, 99.2% MNIST accuracy; compared only with its own baseline architecture, no ANN comparison.
+R04020	Y	-	C1	ANN+SNN	NS	EVENT+CONTROL	NS	NS	NS	ENERGY	NS	NA	NA	NA	NA	N	SNN with event camera uses 11.7% of the energy of an ANN-based model (88.3% reduction) on quadruped parkour.
+R04023	Y	-	C1	ANN+SNN	MLP+CNN+OTHER	TS	NS	NS	CLAIM	ENERGY	DIFFERENT	NA	NA	NA	NA	N	SNN and ESN give significant energy savings versus CNN and MLP with comparable accuracy; no figures in abstract.
+R04029	Y	-	C5	ANN+SNN	CNN	DET+EVENT	OTHER_NEURO	NS	CLAIM	LATENCY+ENERGY	NA	NA	NA	NA	NA	U	Overview of event-based imaging with neuromorphic hardware plus trials; asserts latency and efficiency gains, no figures.
+R04030	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Event-based GRU with graded spikes compared with classical SNNs on task performance; no efficiency comparison or figures.
+R04031	Y	-	C1	ANN+SNN	NS	BIOSIG	NS	NS	ESTIMATED	OPS+MEMORY	DIFFERENT	NA	NA	NA	NA	N	SNN-SPD uses 0.41% of ANN-SPD computation and 26.62% of weights, zero multiplications; accuracy 95.72%, about 2% higher.
+R04032	Y	-	C1+C2	ANN+SNN	NS	EVENT	OTHER_NEURO	ASIC	MEASURED	LATENCY+ENERGY+SPIKES	PAIRED	ACT	NA	NS	Y	Y	On SENECA SNN 44.9 ms, 927.0 µJ: 62.5% and 75.2% of ANN; spike density 43.5% vs 66.5%.
+R04040	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Energy reductions of 3.48x and 12.40x are relative to previous SNNs only; no ANN efficiency comparison.
+R04043	Y	-	C1	ANN+SNN	NS	OTHER	SIM	NS	ESTIMATED	ENERGY+LATENCY	DIFFERENT	NA	NA	NA	NA	N	Up to 55% less energy than traditional deep learning IDS; accuracy up to 97.8%; millisecond latency; neuromorphic simulator.
+R04048	Y	-	C1	ANN+SNN	NS	EVENT	NS	NS	ESTIMATED	OPS+SPIKES	DIFFERENT	NA	NA	NA	NA	N	17.04x event sparsity and 32.28x synaptic-operation efficiency over traditional ANNs; two-fold better than SNNs.
+R04051	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Spiking Siamese event tracker uses addition-only operations; no ANN efficiency comparison or figures.
+R04053	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Inference time cut over 90% versus dense SNN baselines only; sparse convolution on event data, no explicit ANN comparison.
+R04054	Y	-	C2	SNN	NS	NS	NS	NA	NONE	NONE	NA	EVO	NA	STRUCT	N	N	Genetic-algorithm neuron selection compresses STDP SNN ensemble; accuracy +1.25% (single) and +3.04% (merged) versus similarity compression.
+R04064	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	STDP-based SNN on MNIST, accuracy 96.8%, outperforms CNN and SVM in recognition; energy and speed claimed without figures.
+R04066	Y	-	C3	ANN	OTHER	OTHER	NA	NS	NONE	NONE	NA	NS	WEAK	NS	N	N	IWT winning-ticket search for NVR; +1.81, +4.19, +3.5 dB over original pruning at 90% sparsity (NeRV, E-NeRV, HNeRV).
+R04069	Y	-	C2	ANN+SNN	OTHER	TS+BIOSIG	OTHER_NEURO	NS	MEASURED	POWER+LATENCY+MEMORY	NA	EVO	NA	NS	NS	N	µCaspian: 2 mW, 20.2 ms; 49 neurons/66 synapses SNN TPR 51.8% vs DL 49.8% at 1/hr false alarms.
+R04073	Y	-	C2	SNN	CNN	STATIC_IMG	FPGA	NA	MEASURED	ENERGY+POWER+THROUGHPUT+SPIKES	NA	OTHER	NA	NS	N	N	FPGA: quantization +15.2% sparsity, 3.4x less energy than full-precision SNN; direct coding 26.4x less energy than rate.
+R04074	Y	-	C1	ANN+SNN	NS	BIOSIG+OTHER	NS	NS	CLAIM	ENERGY	NS	NA	NA	NA	NA	N	SNNs have significantly lower energy than ANNs, no figures; near 100% accuracy binary seizure detection, about 90% multi-class.
+R04076	Y	-	C1	HYBRID	NS	DET+EVENT	NS	NS	NS	OPS	PAIRED	NA	NA	NA	NA	N	Hybrid SNN-ANN up to 3x higher computational efficiency than equivalent ANN methods; mAP +57.76% over state of the art.

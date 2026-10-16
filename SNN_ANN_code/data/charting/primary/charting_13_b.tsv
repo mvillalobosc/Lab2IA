@@ -1,0 +1,25 @@
+R03820	Y	-	C2	SNN	CNN	STATIC_IMG	NS	NA	NS	ENERGY+MEMORY	NA	NS	NA	UNSTRUCT	NS	N	SCNN accelerator: 2.93 KFPS/W MNIST, 0.55 KFPS/W CIFAR-10; memory footprint down over 40%; no ANN baseline
+R03826	Y	-	C1	ANN+SNN	CNN	BIOSIG	SIM	SIM	CLAIM	ENERGY+POWER	PAIRED	NA	NA	NA	NA	N	Converted LENet SNN uses substantially less power than ANN, no figures; outperforms SOTA on BCI IV-2a and IV-2b
+R03827	N	E7	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Activation sparsity via context-aware thresholding for event vision; proposed model not stated as spiking; no SNN comparison
+R03829	Y	-	C3	ANN	CNN	OTHER	NA	NS	NONE	NONE	NA	NS	NS	NS	N	N	No efficiency figures; LTH-inspired winning subnetworks and SoftNet for continual learning; Fourier operator improves performance
+R03831	Y	-	C5	ANN+SNN	NS	DET+CONTROL	NS	NS	NONE	NONE	NA	NA	NA	NA	NA	N	Survey of neuromorphic continual learning versus DNN-based CL, covering energy efficiency, hardware, benchmarks and SNN operation reduction; no figures
+R03834	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	ANN-SNN conversion with residual-error noise; only accuracy and time steps reported, no efficiency comparison
+R03835	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	CNN and SNN for rotor fault diagnosis from simulated signals; no efficiency metric reported in abstract
+R03839	Y	-	C1	ANN+SNN	OTHER	OTHER	SIM	SIM	NS	ENERGY+MEMORY	DIFFERENT	NA	NA	NA	NA	N	SSR matches SR baselines' accuracy with 59.43% average energy reduction and significantly lower memory usage
+R03841	Y	-	C1	HYBRID	CNN	STATIC_IMG	NS	NS	NS	LATENCY+OPS	NS	NA	NA	NA	NA	N	Hybrid CNN-SNN: FLOPs -28%, latency -27% vs conventional models; accuracy 97.2%, sensitivity 96.9%, specificity 97.6%
+R03846	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	ANN-to-SNN cross-modal distillation for segmentation; claims reduced SNN energy, no figures or ANN comparison
+R03847	N	E2	-	-	-	-	-	-	-	-	-	-	-	-	-	-	FPGA neuromorphic accelerator XCVU9P: 431.9 GSOPS/s, 121.13 GSOPS/W, MNIST 98.2%; no ANN benchmark, no pruning
+R03849	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	ANN-SNN conversion with CS-QCFS activation; CIFAR-10 95.86% at 1 time-step; only time steps as efficiency figure
+R03851	Y	-	C3	ANN	MLP	TS	NA	NS	CLAIM	OPS	NA	NS	WEAK	NS	N	N	No figures; LTH-pruned network array claims high accuracy and lower computational load than full-input models; shake-table validated
+R03853	Y	-	C1	ANN+SNN	CNN	BIOSIG	NS	NS	NS	POWER+LATENCY+MEMORY	DIFFERENT	NA	NA	NA	NA	U	DCSNN vs popular CNNs: latency 0.4%, power 0.05%, memory 2%; accuracy 88.55% and 95.76% on two datasets
+R03854	Y	-	C1	ANN+SNN	TRANSFORMER	CONTROL	SIM	SIM	NS	ENERGY	PAIRED	NA	NA	NA	NA	N	DSFormer on D4RL: 78.4% energy savings over SNN and ANN counterparts with competitive performance
+R03855	Y	-	C1	ANN+SNN	TRANSFORMER	BIOSIG	SIM	SIM	NS	ENERGY	DIFFERENT	NA	NA	NA	NA	N	Spiking transformer on EEG-MER: 100% accuracy with less than 10% energy of traditional DNNs
+R03858	N	E5	-	-	-	-	-	-	-	-	-	-	-	-	-	-	LSTM with SampEn/RQA features for EEG lie detection, 97.66% accuracy; SNN only a benchmark, no efficiency figures
+R03862	Y	-	C1	ANN+SNN	CNN	DET	SIM	SIM	CLAIM	POWER+OPS	DIFFERENT	NA	NA	NA	NA	N	SNN vs CNN SAR ship detectors: power and computational load advantage claimed, no figures in abstract
+R03863	Y	-	C1	ANN+SNN	NS	EVENT	SIM	NS	NS	ENERGY	LITERATURE	NA	NA	NA	NA	N	Event-based person ReID SNN: competitive accuracy with at least 6x better energy efficiency than existing methods
+R03864	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	ANN-SNN plus STBP fusion for remote sensing; time steps reduced 512-1250x; only time steps as efficiency figure
+R03874	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Multi-modal prostate cancer pipeline; QiSNN 45% lower computational cost vs unstated baseline; no ANN-SNN efficiency comparison
+R03877	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Stochastic and weight-binarized SNN on FPGA; memory saving versus SNN and BNN counterparts; memory only, no ANN efficiency metric
+R03879	Y	-	C1	ANN+SNN	TRANSFORMER	EVENT+OTHER	GPU	EDGE_GPU	MEASURED	ENERGY+LATENCY	DIFFERENT	NA	NA	NA	NA	U	Jetson Orin Nano: up to 3.76x speedup and 4.2x lower energy than existing methods; event-based spiking transformer depth estimation
+R03881	Y	-	C6	SNN	NS	DET+EVENT	NS	NA	NONE	NONE	NA	NA	NA	NA	NA	N	Benchmark of three neuromorphic devices for event-based detection plus real-time table tennis robot demo; no figures in abstract
+R03883	Y	-	C2	ANN+SNN	NS	EVENT	SIM	SIM	NONE	NONE	NA	ACT+DST	NA	MIXED	Y	N	Adaptive pruning of synapses and neurons using spike-trace activity for ANNs and SNNs; no energy figures

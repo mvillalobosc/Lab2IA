@@ -1,0 +1,25 @@
+R04590	Y	-	C2	ANN+SNN	CNN+MLP	STATIC_IMG+TS	NS	NS	NONE	NONE	NA	RANDOM	NA	UNSTRUCT	N	N	SNN vs ANN under edge-loss pruning at 30% sparsity: accuracy drop 5.83 vs 18.71 (radar), 3.91 vs 10.13 (MNIST)
+R04594	Y	-	C1	ANN+SNN	CNN	STATIC_IMG	FPGA	NS	MEASURED	THROUGHPUT+POWER	LITERATURE	NA	NA	NA	NA	N	SCNN traffic-sign system on FPGA: 99.22% accuracy, 66.38 FPS, 1.423 W on GTSRB, compared with existing systems
+R04595	N	E7	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Lightweight detector with sparsity and pruning in obfuscated wording; no spikes, no LTH, no efficiency figures
+R04599	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Memristor LSM macro: 23.34x and 160x better energy efficiency than digital hardware; no explicit ANN baseline
+R04602	Y	-	C1	HYBRID	NS	OTHER	NS	NS	CLAIM	ENERGY	LITERATURE	NA	NA	NA	NA	N	Hybrid ANN-SNN action recognition: >30% accuracy gain over SNN baselines; comparable to prior ANNs with better energy tradeoff
+R04614	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	RDSNN accuracy 73.65/81.75/84.56% on three MI datasets; 35% less computation time vs SOTA; no ANN efficiency comparison
+R04617	Y	-	C2	SNN	NS	NS	ASIC	NA	CLAIM	NONE	NA	ACT	NA	MIXED	Y	N	RISC-V SNN processing element with dynamic pulse pruning across dimensions; evaluated in 28nm CMOS, no figures
+R04619	Y	-	C1	ANN+SNN	NS	DET	NS	NS	NS	POWER	PAIRED	NA	NA	NA	NA	U	ANN-to-SNN conversion for remote sensing detection: accuracy similar to ANN; power 1.46 W, 1/122 of original algorithm
+R04622	Y	-	C2	SNN	CNN	DET	NS	NA	ESTIMATED	ENERGY	NA	OTHER	NA	TEMPORAL	Y	N	Temporal pruning to one time step plus KD for tracking: estimated energy 34.6% of original Spiking SiamFC++; OTB100 precision 0.871
+R04623	Y	-	C1+C2	ANN+SNN	CNN	DET	NS	NS	CLAIM	ENERGY+SPIKES	NS	OTHER	NA	NS	Y	N	Spiking YOLO for UAV detection: mAP 87.33% (HIT-UAV), 95.60% (CARPK); energy savings vs ANNs asserted without figures; two time steps
+R04624	Y	-	C2	SNN	TRANSFORMER	NS	FPGA	NA	MEASURED	ENERGY	NA	NS	NA	UNSTRUCT	Y	N	Sparse spiking ViT accelerator on Xilinx ZCU102 FPGA: 80.9 GOPS/W; no ANN baseline
+R04626	Y	-	C2	SNN	NS	NS	NS	NA	NS	ENERGY	NA	ACT	NA	STRUCT	Y	N	Approximating the 20% of neurons causing over 80% of SNN operations: 50-60% energy improvement, minimal accuracy loss
+R04627	Y	-	C1	ANN+SNN	NS	STATIC_IMG	NS	NS	CLAIM	LATENCY	DIFFERENT	NA	NA	NA	NA	N	Lightweight SNN with direct coding for SAR target recognition: competitive accuracy vs DNNs and deep SNNs, faster inference, no figures
+R04629	Y	-	C1	ANN+SNN	NS	AUDIO	NS	NS	CLAIM	LATENCY	DIFFERENT	NA	NA	NA	NA	N	SATRN spiking audio tagging: comparable performance to traditional CNNs with significantly less computation time, no figures
+R04632	Y	-	C2	SNN	NS	STATIC_IMG	OTHER_NEURO	NA	NS	THROUGHPUT+ENERGY	NA	NS	NA	NS	NS	N	Superconductor SNN neuron: after pruning MNIST accuracy 96.1%, throughput 8.92 GHz, 1.5 nJ per inference including cooling
+R04634	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Spike-driven Transformer: ImageNet top-1 78.5-86.2%; 3.9x energy efficiency and 4.5x training speed vs best existing SNN; no ANN efficiency comparison
+R04636	N	E2	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Neuromorphic architecture with synapse compression: 9.6 billion spikes/s per cluster, ~3x similar work; no ANN comparison
+R04638	Y	-	C2	SNN	CNN	NS	NS	NA	NS	ENERGY+SPIKES	NA	ACT+OTHER	NA	NS	Y	N	Sparse coding for SNNs: +10-20% sparsity; weight-access energy -29% and neuron computing energy -49% for 1% accuracy loss
+R04639	Y	-	C1	ANN+SNN	CNN+TRANSFORMER	BIOSIG	NS	NS	NS	ENERGY	DIFFERENT	NA	NA	NA	NA	N	Fully spiking SDAR-Net: 84.9% accuracy beats established ANNs with over 62% lower energy on EEG auditory attention detection
+R04640	Y	-	C1	ANN+SNN	TRANSFORMER	EVENT	NS	NS	CLAIM	POWER	LITERATURE	NA	NA	NA	NA	N	Spiking Swin transformer for event optical flow: comparable to SOTA SNNs, significantly lower power than best ANNs, no figures
+R04641	Y	-	C1	ANN+SNN	CNN	DET	NS	NS	NS	ENERGY	PAIRED	NA	NA	NA	NA	N	RSN detection probability 0.8266 comparable to ResNet18 while using only 70% of its energy
+R04644	Y	-	C1	ANN+SNN	TRANSFORMER	AUDIO	NS	NS	NS	ENERGY	NS	NA	NA	NA	NA	N	Spike-based speaker diarization: 5x lower energy consumption with maintained diarization performance (baseline implied ANN)
+R04648	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Few-shot SNN competitive with ANNs on CUB and miniImageNet; low power asserted without figure or ANN comparison
+R04654	Y	-	C1	ANN+SNN	NS	EVENT	NS	NS	NS	ENERGY	PAIRED	NA	NA	NA	NA	N	SNN energy 90.44% lower than counterpart ANN and 45.70% lower than counterpart SNN; AEE 33.78% lower than ANN on MVSEC
+R04656	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Semi-supervised SNN: training time 37.5% of FlexMatch, memory 25% of FlexMatch; training-cost metrics only, no inference energy or ops

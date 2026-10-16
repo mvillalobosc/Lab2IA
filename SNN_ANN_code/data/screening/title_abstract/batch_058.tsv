@@ -1,0 +1,100 @@
+R05701	INCLUDE	C2	simulation,memristor/in-memory	Quantized SNN compression with EDAP and TOPS/W vs float SNN
+R05702	EXCLUDE	E2	memristor/in-memory	Strain-sensitive memristor device physics, no SNN comparison
+R05703	EXCLUDE	E4	none	SNN R-STDP for class imbalance, accuracy only
+R05704	EXCLUDE	E4	none	Membership inference on SNN vs ANN, privacy not efficiency
+R05705	EXCLUDE	E4	none	Adaptive threshold plasticity in SNNs, accuracy focus
+R05706	EXCLUDE	E4	none	SNN ablation on N-MNIST, no ANN baseline
+R05707	INCLUDE	C2	MCU	Event-driven sparse SNN execution on Cortex-M7, baseline unclear
+R05708	INCLUDE	C3	none	Strong lottery ticket weights with seed-based masks in CNNs and GNNs
+R05709	EXCLUDE	E4	memristor/in-memory	Memristive SNN gesture recognition, efficiency only as motivation
+R05710	EXCLUDE	E5	memristor/in-memory	Memristive reservoir computing without spikes, no SNN
+R05711	EXCLUDE	E7	memristor/in-memory	Pruned Bayesian NN, SNR pruning, not lottery family
+R05712	EXCLUDE	E2	memristor/in-memory	Organic memristor materials work
+R05713	EXCLUDE	E4	simulation	Meta-model for SNN simulators, no efficiency comparison
+R05714	EXCLUDE	E2	memristor/in-memory	Review of memristor artificial neuron materials
+R05715	EXCLUDE	E5	none	Cellular automata with CNN, neuromorphic used loosely
+R05716	EXCLUDE	E6	none	Deep SNN as threshold generator in D2D wireless optimization
+R05717	EXCLUDE	E4	none	Event buffering for SNN input, no ANN baseline
+R05718	INCLUDE	C1	none	Spiking GCN claims lower energy than GCN with distillation
+R05719	EXCLUDE	E6	none	Adversarial defense with SNN as hybrid component, no efficiency
+R05720	EXCLUDE	E4	none	Online learning system for SNNs, no ANN baseline
+R05721	EXCLUDE	E2	none	Field-emission spiking neuron device model
+R05722	INCLUDE	C1	FPGA	CNN-to-SNN conversion on FPGA, 52% power reduction vs CNN
+R05723	EXCLUDE	E2	photonic	Review of photonic neuron models for optogenetics
+R05724	EXCLUDE	E6	none	Data structures survey for ML, off-topic
+R05725	EXCLUDE	E2	memristor/in-memory	Organic synaptic transistor device, ANN simulation only
+R05726	EXCLUDE	E2	memristor/in-memory	Ferroelectric polymer synaptic transistor materials work
+R05727	EXCLUDE	E2	memristor/in-memory	SnS2 memristor fabrication
+R05728	EXCLUDE	E4	none	Quantized SNN underwater detector, domain generalization focus
+R05729	EXCLUDE	E6	none	Machining fault diagnosis, neutrosophic sets, not neuromorphic
+R05730	EXCLUDE	E4	none	SNN-STGAT for excavation risk, no efficiency comparison
+R05731	EXCLUDE	E2	memristor/in-memory	MoTe2 memristor device with MLP-CNN simulation
+R05732	EXCLUDE	E4	GPU	SNN task scheduling on GPUs, compared with schedulers only
+R05733	EXCLUDE	E4	none	New LIF neuron variant, accuracy vs LIF variants
+R05734	INCLUDE	C1	none	SNN edge detection framed on ANN energy cost, numbers truncated
+R05735	EXCLUDE	E5	none	Event representation model, no SNN or efficiency
+R05736	INCLUDE	C1	none	Lightweight SNN fault diagnosis vs DNNs on accuracy and energy
+R05737	INCLUDE	C2	none	Spike transformer with dynamic sparse attention, power reduction vs SNNs
+R05738	EXCLUDE	E2	photonic	ZnO/GO optoelectronic synapse device
+R05739	EXCLUDE	E6	none	Supply chain prediction with SNN as component
+R05740	EXCLUDE	E2	photonic	Optoelectronic visual neuron device
+R05741	EXCLUDE	E4	none	Speech SNN encoder and padding, accuracy focus
+R05742	EXCLUDE	E2	memristor/in-memory	Ferroelectric memtransistor device with CNN simulation
+R05743	INCLUDE	C2	none	Conductance SNN with high activity sparsity vs LIF and AdLIF
+R05744	EXCLUDE	E2	photonic	Perovskite photonic synapse device
+R05745	EXCLUDE	E2	memristor/in-memory	Ferroelectric HZO memory device
+R05746	EXCLUDE	E2	memristor/in-memory	Bilayer RRAM device characterization
+R05747	INCLUDE	C1	none	Event-text SNN claims low computational cost vs ANN multimodal
+R05748	EXCLUDE	E2	memristor/in-memory	Ion-gated transistor device for in-memory computing
+R05749	INCLUDE	C1	none	Spiking cancer classifier vs ResNet50, fewer parameters, energy analysis
+R05750	INCLUDE	C1	none	SNN manipulation controller vs ANN, higher energy efficiency
+R05751	INCLUDE	C2	none	Multimodal SNN with structure-adaptive neurons optimizing sparse connectivity
+R05752	EXCLUDE	E2	memristor/in-memory	Memristive LIF neuron device
+R05753	EXCLUDE	E4	none	Spiking GCN for hyperspectral, sparse activity only observed
+R05754	EXCLUDE	E2	memristor/in-memory	Review of multisensory neuromorphic devices
+R05755	EXCLUDE	E4	none	Mutual information loss for SNN accuracy
+R05756	INCLUDE	C1	none	Spiking U-Net uses 4.83% of CNN U-Net energy
+R05757	EXCLUDE	E2	memristor/in-memory	Polymer memristor device for voiceprint
+R05758	EXCLUDE	E2	memristor/in-memory	MTJ synapse and neuron device, no ANN comparison
+R05759	EXCLUDE	E2	photonic	Photonic artificial neuron device
+R05760	UNSURE	C2	FPGA	SNN QEC decoder on FPGA, threshold calibration lowers switching activity
+R05761	UNSURE	C2	none	STDP network with 228-fold spike count reduction, no pruning method
+R05762	EXCLUDE	E5	FPGA	Explainability for BCPNN, non-spiking
+R05763	EXCLUDE	E2	photonic	Review of photoconductance neuromorphic devices
+R05764	EXCLUDE	E2	photonic	Photonic synapse device
+R05765	EXCLUDE	E2	photonic	Opto-electronic image sensor with binary NN, no SNN
+R05766	INCLUDE	C2	FPGA	Sparsity-aware SNN accelerator, compared with SNN accelerators only
+R05767	INCLUDE	C1	none	Spike decoder matches ANN accuracy with lower energy
+R05768	EXCLUDE	E4	simulation	Spike encoding overview, no ANN comparison or pruning
+R05769	EXCLUDE	E5	none	Compression for embedded vision, general quantization pruning distillation
+R05770	INCLUDE	C5	none	Review comparing ANN and SNN for e-nose with hardware deployment
+R05771	INCLUDE	C1	CPU	Spiking reservoir on neuromorphic hardware, 75x energy gain vs CPU
+R05772	EXCLUDE	E6	memristor/in-memory	Cognitive map planning model, no efficiency measurement
+R05773	INCLUDE	C1	CPU,GPU	Compact SNN for leukemia vs CNNs, CPU and GPU profiling
+R05774	UNSURE	C6	Loihi2,SpiNNaker	Compiler with analytical energy model, SNN baseline only
+R05775	INCLUDE	C1	Loihi	SNN pipeline cuts energy 65-70% vs CNN-LSTM
+R05776	EXCLUDE	E2	ASIC,GPU	HBM processing-in-memory architecture, no learning task
+R05777	EXCLUDE	E4	simulation	Analog neuromorphic simulation framework, no ANN comparison
+R05778	EXCLUDE	E4	none	Multimodal SNN for autism screening, accuracy only
+R05779	EXCLUDE	E2	photonic	Phototransistor device
+R05780	EXCLUDE	E4	GPU	Hybrid ResNet SNN lesion detection, hyperparameter GA, no comparison
+R05781	INCLUDE	C1	none	SNN e-skin latency 8 ms vs 38 ms for CNN
+R05782	EXCLUDE	E6	none	Socio-labor policy study, neuromorphic used loosely
+R05783	INCLUDE	C5	ASIC,FPGA	Review of neuromorphic hardware architectures for edge SNNs
+R05784	EXCLUDE	E4	ASIC	SNN on Xylo with power measurement, no ANN baseline
+R05785	INCLUDE	C1	none	SNN ECG classifier, 27-fold lower energy than transformer baseline
+R05786	EXCLUDE	E5	memristor/in-memory	GCN on memristor circuits, no spiking
+R05787	INCLUDE	C1+C6	CPU,GPU,simulation	Energy-to-solution model and energy, latency results for SNN workloads
+R05788	INCLUDE	C5	memristor/in-memory	Broad neuromorphic review with hardware platforms and efficiency limits
+R05789	UNSURE	C1	none	SNN seizure prediction vs conventional DL, power use unquantified
+R05790	INCLUDE	C5	none	Review of SNNs vs deep learning for low-power cardiac wearables
+R05791	EXCLUDE	E5	none	Review of dendrites in artificial networks, no efficiency comparison
+R05792	EXCLUDE	E4	memristor/in-memory	Memristive SNN wearable architecture, no efficiency results visible
+R05793	EXCLUDE	E4	none	SNN vs ANN forgetting in federated learning, accuracy only
+R05794	UNSURE	C1	none	Neuromorphic federated learning claims lower power vs ANN, results truncated
+R05795	INCLUDE	C1	FPGA	SNN and ANN hybrid semantic system on FPGA vs ANN system
+R05796	EXCLUDE	E6	none	Review of event cameras in flow cytometry
+R05797	EXCLUDE	E2	memristor/in-memory	Floating-gate transistor device with CNN classification
+R05798	EXCLUDE	E4	none	Conceptual SNN language framework, efficiency as motivation
+R05799	EXCLUDE	E4	none	SNN language identification, accuracy comparison, efficiency as motivation
+R05800	UNSURE	C1	none	SNN LiDAR detector titled energy-efficient, ANN comparison not visible

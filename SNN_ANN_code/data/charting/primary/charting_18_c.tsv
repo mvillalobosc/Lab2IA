@@ -1,0 +1,25 @@
+R05375	Y	-	C2	SNN	OTHER	STATIC_IMG+EVENT	SIM	NA	NONE	NONE	NA	EVO	NA	NS	NS	N	Sparsity-aware evolutionary NAS with inhibitory neuron regulation for SNNs; SOTA accuracy on static and neuromorphic datasets; no efficiency figures
+R05377	N	E5	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Hybrid SSM sEMG decoders: up to 5000x lower computational cost, STM32 latencies; event-driven parts not described as spiking
+R05380	Y	-	C1	ANN+SNN	TRANSFORMER+OTHER	OTHER	SIM+FPGA	SIM+FPGA	ESTIMATED	ENERGY+MEMORY	DIFFERENT	NA	NA	NA	NA	N	Versus advanced ANNs: 12.68x theoretical energy reduction, 14.87x FPGA-oriented estimated energy reduction, 8.4x fewer parameters
+R05384	Y	-	C1	ANN+SNN	GNN	BIOSIG	SIM	SIM	ESTIMATED	OPS+MEMORY	DIFFERENT	NA	NA	NA	NA	N	SEED: 94.63% accuracy, 99.8% fewer parameters and over 250x fewer FLOPs than DGCNN; DEAP 0.36 M FLOPs
+R05385	Y	-	C2	SNN	TRANSFORMER	STATIC_IMG+EVENT	SIM	NA	CLAIM	SPIKES+OPS	NA	OTHER	NA	STRUCT	N	N	Elastic width/head slicing lowers weights, firing rate and synaptic operations; matches independently trained baselines; no figures
+R05389	Y	-	C1	ANN+SNN	CNN	NS	ASIC	ASIC	NS	LATENCY+ENERGY	DIFFERENT	NA	NA	NA	NA	N	4-bit ResNet-50: 3.4x speedup and 13.6x energy efficiency over QANN accelerator ANT; 2.9x and 22.1x over SNN accelerator PAICORE
+R05391	Y	-	C1	ANN+SNN	NS	DET	SIM	SIM	CLAIM	POWER	DIFFERENT	NA	NA	NA	NA	N	81.8% mAP@50:95, 14.5% above traditional ANN approaches; low power claimed without figures
+R05396	Y	-	C2	SNN	NS	STATIC_IMG+EVENT	SIM	NA	ESTIMATED	SPIKES+OPS	NA	REG+ACT	NA	NS	Y	N	Spike-budget controller cuts spike rates up to 47% on frame data; accuracy gains up to 17.45 points on event data
+R05397	Y	-	C1	ANN+SNN	GNN	OTHER	SIM	SIM	CLAIM	ENERGY	DIFFERENT	NA	NA	NA	NA	N	Accuracy 95%, AUC 0.97; much lower per-inference energy than DNN, CNN, GNN and SNN baselines, no figures
+R05399	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	SNN-driven DRL for V2X ISAC: lower energy, better communication and sensing claimed in simulation; no figures or ANN comparison
+R05400	Y	-	C1	ANN+SNN	CNN	STATIC_IMG	SIM	SIM	ESTIMATED	ENERGY	PAIRED	NA	NA	NA	NA	N	CSNN accuracy 97.94% vs CNN 97.79%; estimated energy about 61% lower
+R05401	Y	-	C1	ANN+SNN	CNN	DET+STATIC_IMG	NS	NS	NS	ENERGY	PAIRED	NA	NA	NA	NA	N	Detection energy -95% with 4.7% accuracy drop; recognition energy -44.8% with 1.5% accuracy drop versus baseline
+R05402	Y	-	C1+C2	ANN+SNN	NS	TS	SIM	SIM	ESTIMATED	OPS	DIFFERENT	OTHER	NA	TEMPORAL	Y	N	KFall accuracy 98.6%; computation reduced 56.8% versus dense ANN baselines
+R05404	Y	-	C1	ANN+SNN	NS	CONTROL	SIM	SIM	NS	ENERGY	NS	NA	NA	NA	NA	N	SNN intent observer cuts energy 60% with accuracy preserved; baseline described only as conventional networks
+R05405	Y	-	C1	HYBRID	TRANSFORMER	OTHER	SIM	SIM	CLAIM	OPS	NS	NA	NA	NA	NA	N	Transformer-SNN hybrid for intrusion detection: better classification and reduced computational overhead than existing methods, no figures
+R05406	N	E5	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Neuromorphic codebook classifiers vs CNN: lower energy and latency, slight SINR loss; abstract never mentions spikes
+R05407	Y	-	C1	ANN+SNN	NS	STATIC_IMG	MEMRISTOR	NS	ESTIMATED	ENERGY	NS	NA	NA	NA	NA	N	Memristor SNN: 97.27% MNIST with dynamic learning-rate matrix; energy advantage over ANNs asserted via energy model, no figures
+R05408	Y	-	C1	ANN+SNN	MLP+CNN	AUDIO	NS	NS	NS	POWER	DIFFERENT	NA	NA	NA	NA	U	SNN power 0.1-1 mW vs about 10 W for CNNs; SNN accuracy 97-99% vs CNN baseline up to 91%
+R05409	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	EfficientNetB0 plus SNN classifier: 84.57% accuracy, 52 W, 2.5 GFLOPs; baseline for the efficiency gains not stated
+R05411	Y	-	C2	SNN	OTHER	DET	LOIHI2	NA	CLAIM	ENERGY	NA	ACT	NA	STRUCT	Y	N	Loihi 2 spiking resonator radar pipeline; activity-gated sparsity adds energy savings; compared with FFT and OS-CFAR, no ANN, no figures
+R05412	Y	-	C1	ANN+SNN	CNN	TS	SIM	SIM	CLAIM	POWER	PAIRED	NA	NA	NA	NA	N	CNN-to-CSNN conversion with clipping and membrane-potential compensation; power much lower than original CNN, no figures
+R05413	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	SNNs on Loihi 2, SpiNNaker2, Akida: under 1 mJ per inference; energy baseline is ARM GADRAS, not an ANN
+R05414	Y	-	C1	ANN+SNN	CNN	DET	NS	NS	MEASURED	LATENCY+ENERGY	PAIRED	NA	NA	NA	NA	U	SNN mAP@0.5 0.975 vs CNN 0.995; energy 0.50 J vs 2.50 J (about 80% lower); about 34 ms per frame
+R05415	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Spiking attention YOLO for SAR ships: energy efficiency asserted, Wentian chip deployment mentioned; no figures or ANN comparison
+R05416	Y	-	C1	ANN+SNN	NS	DET	NS	NS	NS	ENERGY	DIFFERENT	NA	NA	NA	NA	N	Inference energy over 80% lower than state-of-the-art segmentation models with about 2% mIoU drop

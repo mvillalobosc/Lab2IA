@@ -1,0 +1,25 @@
+R05058	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Accuracies 94.75/94.17/99.00% on three datasets; energy efficiency asserted without ANN comparison or figures
+R05059	Y	-	C2	SNN	TRANSFORMER	STATIC_IMG	SIM	NA	NONE	NONE	NA	ACT	NA	MIXED	Y	N	Spikformer-8-512 on ImageNet-1K: 58.96% weight sparsity, 26.35% neuron sparsity, only 1.65% Top-1 accuracy drop
+R05066	Y	-	C5	SNN	NS	NS	NS	NA	NONE	ENERGY+LATENCY	NA	NA	NA	NA	NA	N	Review of spiking automotive electronics: gains credible for sparse temporal workloads; latency and energy reported inconsistently; no figures
+R05076	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Competitive accuracy versus CNN, GCN, Transformer, Mamba methods; efficiency analysis mentioned without metrics or ANN figures
+R05077	Y	-	C1	ANN+SNN	NS	TS	SIM	SIM	NS	ENERGY	PAIRED	NA	NA	NA	NA	N	Inference energy 41.9% of ANN-based counterparts with accuracy +1-3%; 99.27/98.47/97.28% on 3-way, 5-way, 8-way 1-shot
+R05079	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	mAP 57.30% vs ANN YOLOv8 55.80% (accuracy only); theoretical energy 48.3% below Spike-YOLO baseline, no ANN energy
+R05080	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Glucose MAE 14.2 mg/dL; rate coding removes first-layer MACs at +2.7 mg/dL error; no ANN energy comparison
+R05081	Y	-	C1	ANN+SNN	NS	OTHER	SIM	SIM	CLAIM	POWER	NS	NA	NA	NA	NA	N	Spiking CSI positioning model reaches significant accuracy with lower power than an ANN-based model; no figures
+R05084	Y	-	C2	ANN+SNN	TRANSFORMER	NLP	SIM	SIM	NONE	NONE	NA	REG	NA	NS	Y	N	Spike entropy loss jointly optimises reconstruction accuracy and spike sparsity; beats separate source-channel coding and Transformer counterparts; no efficiency figures
+R05087	Y	-	C2	SNN	TRANSFORMER	NS	ASIC	NA	ESTIMATED	THROUGHPUT+ENERGY	NA	ACT	NA	STRUCT	Y	N	FSSA raises SSA structured sparsity 1.8x, filtering adds 1.5x; post-synthesis 234.44 GOP/s, 319.12 GOP/J, +24.3% and +28.2% over SNN baseline
+R05094	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Navigation SNN with R-STDP: lower estimated energy only versus SNN and hybrid SNN-RL baselines; no ANN comparison
+R05096	Y	-	C1	ANN+SNN	CNN	BIOSIG	NS	NS	NS	POWER	DIFFERENT	NA	NA	NA	NA	U	MIT-BIH 98.2% accuracy; about 90% lower inference power than CNN models; system power down 79.6%; battery 2 to 10+ months
+R05099	Y	-	C1	HYBRID	RNN	NS	CPU	CPU	MEASURED	LATENCY	PAIRED	NA	NA	NA	NA	U	SNN-in-LSTM trains up to 75% faster than traditional LSTM with higher accuracy; CPU use down up to 14%
+R05100	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Photonic SNN architecture: 1176x lower latency, 239x energy savings versus conventional architectures on spiking VGG; no ANN baseline
+R05102	Y	-	C1	ANN+SNN	CNN+RNN	TS	SIM	SIM	NS	ENERGY	PAIRED	NA	NA	NA	NA	N	Hybrid spiking-ANN model cuts energy up to 56% versus ANN-based variant while detecting FDIAs accurately
+R05107	Y	-	C1	ANN+SNN	TRANSFORMER	TS	SIM	SIM	NS	ENERGY+OPS	DIFFERENT	NA	NA	NA	NA	N	Inference energy 65.79% below standard Transformer; R2 +7.1 and RSE -21.1% versus five baselines on five datasets
+R05108	Y	-	C2	SNN	NS	AUDIO	LOIHI	NA	MEASURED	POWER+SPIKES	NA	OTHER	NA	NS	N	N	ALCA on neuromorphic hardware: 4-13 mW dynamic power, three orders below GPU setups; matches dense Mel accuracy with sparse events
+R05111	N	E2	-	-	-	-	-	-	-	-	-	-	-	-	-	-	SoC with CPU/GPU, SNN and RRAM-PIM: 160x power reduction in continuous sensing, baseline unspecified; no ANN comparison
+R05115	Y	-	C1	ANN+SNN	CNN	DET	LOIHI2	NS	CLAIM	ENERGY	PAIRED	NA	NA	NA	NA	U	Sigma-Delta spiking YOLOv3 claims better accuracy and energy efficiency than CNN YOLOv3 and spiking baseline; Loihi 2 deployment; no figures
+R05117	Y	-	C1+C2	ANN+SNN	NS	STATIC_IMG+EVENT	SIM	SIM	NS	POWER+OPS	PAIRED	REG	NA	NS	Y	N	TempoNeuro 93.4% accuracy at 19.7% of equivalent ANN power (5.1x less); synaptic operations 3.2x below rate-coded SNN
+R05128	Y	-	C1+C2	ANN+SNN	TRANSFORMER	NS	ASIC+CPU+GPU	NS	NS	LATENCY+THROUGHPUT+ENERGY	LITERATURE	OTHER	NA	STRUCT	Y	N	241.2x and 71.5x speedup over Xeon CPU and V100 GPU; 3.14x throughput, 85.99x energy efficiency versus Transformer accelerators
+R05134	Y	-	C1	ANN+SNN	NS	TS	OTHER_NEURO	GPU	NS	ENERGY+POWER+LATENCY	DIFFERENT	NA	NA	NA	NA	U	95.8% detection accuracy within 50 ms; 60% less energy (0.5 mW idle, 1.2 mW peak) than GPU-based deep learning models
+R05137	Y	-	C2	SNN	NS	NS	FPGA	NA	NS	ENERGY+THROUGHPUT+SPIKES	NA	OTHER	NA	NS	Y	N	Sparse coding cuts spikes 88% vs rate coding; prototype saves 88-89% energy, 4.5x and 26.8x throughput versus SNN accelerators
+R05141	Y	-	C3	ANN	TRANSFORMER+CNN	DET	NA	EDGE_GPU	MEASURED	THROUGHPUT+OPS	NA	RANDOM	OTHER	STRUCT	N	N	BR-DETR-Prune mAP@0.5 97.1% with 15.52 M parameters, 34.0 GFLOPs; 20.5 FPS FP16 on Jetson Orin Nano Super
+R05142	Y	-	C1	HYBRID	CNN+TRANSFORMER	EVENT+DET	SIM	NS	CLAIM	ENERGY	NS	NA	NA	NA	NA	N	Hybrid CNN-SNN-Transformer tracker outperforms most SOTA trackers on event and RGB datasets, with energy advantage; no figures
