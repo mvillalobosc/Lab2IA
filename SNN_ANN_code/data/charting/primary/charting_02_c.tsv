@@ -1,0 +1,25 @@
+R00582	Y	-	C2	SNN	NS	EVENT+TS	NS	NA	CLAIM	NONE	NA	REG	NA	UNSTRUCT	N	N	Sparse SNN via weight re-parameterization and sparsity regularization; claims better computational efficiency than dense SNNs at comparable accuracy; no figures
+R00584	Y	-	C3	ANN	CNN	OTHER	NA	NS	CLAIM	OPS+MEMORY+LATENCY	NA	NS	WEAK	NS	N	N	LTH pruning of Deep Fingerprinting CNN expected to cut computation, storage and latency without accuracy loss; no results given
+R00585	Y	-	C3	ANN	NS	NS	NA	NS	NONE	NONE	NA	OTHER	OTHER	UNSTRUCT	N	N	Iterative mask discovery combining SNIP-style and lottery-ticket approaches; beats pruning baselines in accuracy and compression ratio; no cost metrics
+R00586	Y	-	C3	ANN	NS	NS	NA	NS	NONE	NONE	NA	NS	WEAK	NS	N	N	Lottery ticket subnetworks transfer across domains when retrained in isolation; initialization strategies compared; no efficiency metrics
+R00598	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	General review of SNN spike representations, training, applications and hardware (ASIC, in-memory); no ANN efficiency comparison or sparsity focus
+R00604	Y	-	C1	ANN+SNN	NS	STATIC_IMG	NS	NS	NS	ENERGY	PAIRED	NA	NA	NA	NA	N	SNN vs ANN in federated learning on CIFAR10/100: accuracy over 15% higher, up to 4.3x energy efficiency
+R00608	Y	-	C2	SNN	MLP	STATIC_IMG	MEMRISTOR	NA	NONE	NONE	NA	NS	NA	UNSTRUCT	NS	N	OxRAM synapse SNN reaches 90.76% test accuracy on MNIST in simulation; sparsity and weight pruning effects investigated, no figures
+R00610	Y	-	C3	ANN	OTHER	OTHER	NA	NS	NONE	NONE	NA	NS	WEAK	NS	N	N	Matching subnetworks found in GANs at 67-74% sparsity; outperform prior GAN compression on SNGAN and CycleGAN; no efficiency metrics
+R00612	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	ANN-to-SNN conversion for DVS Gesture; 35% lower energy, 55% lower EDP vs traditional SNN, no ANN efficiency comparison
+R00613	Y	-	C2	SNN	RNN	STATIC_IMG	NS	NA	NS	SPIKES	NA	REG	NA	NS	Y	N	Sparse regularization lowers firing rate; recurrent SNN reaches 97.3% on rank-order coded MNIST with 392 spikes per inference
+R00621	Y	-	C1	ANN+SNN	CNN	BIOSIG	LOIHI	CPU+NPU+TPU	MEASURED	POWER+LATENCY+EDP	PAIRED	NA	NA	NA	NA	U	Loihi SNN lowest power, highest latency; EDP 1.5x (NCS2) and 110x (Edge TPU) higher; accuracy 97.8 vs 98.4 ANN
+R00622	Y	-	C3	ANN	CNN+RNN	STATIC_IMG	NA	NS	NS	MEMORY	NA	SCORE	STRONG	NS	N	N	Folded ResNet with sparse supermask: ResNet50-level on CIFAR100 with 38.5x less memory; ResNet34-level on ImageNet with 26.8x less
+R00628	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Hierarchical ANN-SNN object recognition model; efficiency claimed generically, no metric or figures
+R00629	Y	-	C1	ANN+SNN	NS	AUDIO	NS	GPU	ESTIMATED	ENERGY	PAIRED	NA	NA	NA	NA	N	SNN auditory interface (voice detection, localization, commands): up to three orders of magnitude energy savings vs equivalent ANNs on GPU
+R00630	Y	-	C1	HYBRID	RNN	STATIC_IMG+NLP	LOIHI	CPU	BOTH	ENERGY	PAIRED	NA	NA	NA	NA	U	Analog-spiking LSTM on Loihi: 55.9x less active energy per inference than i7 baseline; 3.38x estimated for translation; <1% accuracy drop
+R00633	Y	-	C1	HYBRID	NS	EVENT+DET	NS	NS	CLAIM	OPS	PAIRED	NA	NA	NA	NA	N	SNN backbone plus ANN head for event vision; claimed substantially more computationally efficient than ANN counterparts, no figures
+R00638	Y	-	C1	ANN+SNN	RNN	NLP	ASIC	NS	MEASURED	ENERGY+EDP	PAIRED	NA	NA	NA	NA	U	0.99 TOPS/W; SNN ~5x more energy efficient than LSTM on IMDB within 1% accuracy; 97.4% EDP cut at 85% sparsity
+R00647	Y	-	C1	ANN+SNN	CNN	STATIC_IMG	NS	NS	ESTIMATED	SPIKES+LATENCY	PAIRED	NA	NA	NA	NA	N	VGG-16 ANN to SNN on EuroSAT; activations and time steps as energy proxies give accuracy-energy trade-offs vs ANN
+R00651	Y	-	C3	ANN	NS	NLP	NA	NS	NONE	NONE	NA	NS	WEAK	UNSTRUCT	N	N	Fairness of lottery-ticket weight pruning on text classification across three languages; small rise in group disparity at high pruning rates
+R00653	Y	-	C3	ANN	CNN	OTHER	NA	NS	NONE	NONE	NA	NS	NS	NS	N	N	Small CNNs on Game of Life rarely converge, results consistent with LTH; no pruning or efficiency metrics
+R00657	Y	-	C2	SNN	CNN	EVENT	SIM	NA	NONE	SPIKES	NA	NS	NA	NS	NS	N	Sparse spiking CNN trained on DVS128 Gesture; reports accuracy, sparsity, training time; no sparsification method or ANN comparison stated
+R00658	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Frozen random GNN with shallow KG embedding: speedup and memory reduction on conventional hardware; spiking extension has no efficiency figures
+R00660	Y	-	C3	ANN	TRANSFORMER	NLP	NA	NS	NONE	NONE	NA	MAG+OTHER	OTHER	MIXED	N	N	Lottery subnetwork via gradual magnitude pruning plus self-attention attribution; sparse fine-tuning beats full fine-tuning on 4 of 5 domains
+R00661	Y	-	C5	SNN	NS	NS	LOIHI	NA	MEASURED	ENERGY+LATENCY	NA	NA	NA	NA	NA	N	Review of Loihi results: significant energy and latency gains vs conventional approaches, largest for non-deep-learning algorithms
+R00664	Y	-	C3	ANN	NS	STATIC_IMG	NA	NS	NONE	NONE	NA	MAG+DST	WEAK	UNSTRUCT	N	N	Lifelong tickets reach 3-8% of dense model size with higher accuracy than class-incremental baselines on CIFAR and Tiny-ImageNet

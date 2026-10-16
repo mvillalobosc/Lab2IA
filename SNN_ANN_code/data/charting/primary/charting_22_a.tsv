@@ -1,0 +1,9 @@
+R06299	N	E5	-	-	-	-	-	-	-	-	-	-	-	-	-	-	ANN event-camera detector; SNNs only mentioned as prior work; no SNN evaluated; no pruning or LTH
+R06300	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Ternary SNN outperforms binary SNN and DNN on WM-811k; efficiency only asserted, no energy, power or operation figures
+R06307	Y	-	C1	ANN+SNN	CNN	STATIC_IMG	CPU	CPU	BOTH	ENERGY+LATENCY+SPIKES	PAIRED	NA	NA	NA	NA	Y	MNIST on CPU: CNN most accurate, negligible inference carbon; ANN-SNN conversion high inference overhead; low theoretical spike energy
+R06309	Y	-	C1	ANN+SNN	CNN	STATIC_IMG	SIM	SIM	NS	POWER+LATENCY	PAIRED	NA	NA	NA	NA	U	SNN 82.69% acc, 4.21 W, 0.019 s vs CNN 95.59%, 8.93 W, 0.012 s; 52.85% power reduction
+R06314	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	FPGA SNN accelerator on SHD; latency scales with sparsity, 30x to 3000x real-time; no ANN baseline, no pruning method
+R06322	Y	-	C1	ANN+SNN	NS	BIOSIG	NS	NS	NS	ENERGY	PAIRED	NA	NA	NA	NA	N	Latency-encoded SNN 62.95x energy efficiency, accuracy -8.64% vs ANN; rate 37.92x, direct 32.01x (40 time steps, MIT-BIH)
+R06331	Y	-	C1	ANN+SNN	CNN	OTHER	SIM	SIM	ESTIMATED	ENERGY	DIFFERENT	NA	NA	NA	NA	N	mAP +4.6% over ANN baselines, +4.3% over SNN method; about one-eighth estimated inference energy of non-spiking baselines
+R06332	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Spiking KAN hyperspectral classifier reports accuracy and energy estimates; no ANN efficiency comparison stated, no pruning
+R06333	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Liquid-spiking alignment model; efficiency claimed over frame-based baselines but no energy, latency or operation figures; no pruning

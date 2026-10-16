@@ -1,0 +1,7 @@
+# Raw database exports and any file carrying abstracts are not redistributed
+data/raw/*.csv
+data/raw/*.xls
+data/raw/*.xlsx
+data/processed/
+*.aux
+*.log

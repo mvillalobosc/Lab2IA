@@ -1,0 +1,100 @@
+R06001	EXCLUDE	E5	none	Event camera correlation filter network, not spiking, no efficiency comparison
+R06002	EXCLUDE	E4	none	SNN detector, accuracy only, no ANN efficiency comparison
+R06003	EXCLUDE	E4	none	SNN pose estimation, accuracy only, energy claimed but not measured
+R06004	INCLUDE	C1+C2	ASIC	Sparsity-aware spiking accelerator, 28nm prototype, DNN accelerator comparison likely
+R06005	EXCLUDE	E2	none	Single MOSFET LIF neuron device, no network-level evaluation
+R06006	EXCLUDE	E5	memristor/in-memory	DNN side-channel attack on RRAM IMC, no SNN
+R06007	INCLUDE	C1	Loihi2,GPU	ANN-to-SNN conversion on Loihi 2 versus Jetson, energy-delay product
+R06008	EXCLUDE	E7	memristor/in-memory	Memristor crossbar training with dynamic pruning, no SNN or lottery ticket
+R06009	EXCLUDE	E2	memristor/in-memory	Materials review of niobium oxide switching, no network evaluation
+R06010	UNSURE	C6	memristor/in-memory,simulation	Memristor SNN simulation framework, unclear ANN comparison or energy metrics
+R06011	EXCLUDE	E4	none	SNN radar emitter recognition, simulation accuracy only
+R06012	EXCLUDE	E2	memristor/in-memory	Single-molecule memristor device, ANN used only for accuracy check
+R06013	EXCLUDE	E2	memristor/in-memory	Single-molecule synaptic device, no network-level comparison
+R06014	EXCLUDE	E4	none	Spiking autoencoder, energy estimated, ANN comparison only on reconstruction quality
+R06015	EXCLUDE	E2	memristor/in-memory	3D memristive array for matrix operations, no SNN or pruning
+R06016	EXCLUDE	E5	none	RGB-event fusion detector, not spiking, no efficiency comparison
+R06017	EXCLUDE	E4	none	Deep SNN tracker, accuracy comparable to ANN, no efficiency metric
+R06018	INCLUDE	C5	none	Survey of hybrid SNN-ANN designs for edge efficiency-accuracy trade-off
+R06019	INCLUDE	C1	MCU	SNN versus ANN robot controller with energy measurement on embedded hardware
+R06020	EXCLUDE	E4	none	SNN event denoiser, efficiency claimed without ANN comparison in visible text
+R06021	INCLUDE	C1	none	SNN aesthetic assessment, 2.5x energy efficiency versus ANN equivalents
+R06022	INCLUDE	C1	none	Spiking optical flow, 42.9x and 38x lower energy than ANNs
+R06023	INCLUDE	C1	none	Integer-valued SNN detector, energy and accuracy versus baseline ANNs
+R06024	EXCLUDE	E4	none	Spiking transformer attribute recognition, no efficiency results in abstract
+R06025	INCLUDE	C1	simulation	Spiking WiFi localization, over 90% energy reduction versus ANNs (simulator)
+R06026	INCLUDE	C1+C2	none	ANN-to-SNN post-training quantization with test-time neuron pruning, few time steps
+R06027	EXCLUDE	E4	none	Spiking stereo restoration, accuracy and efficiency only as motivation
+R06028	EXCLUDE	E4	none	Spike-camera SNN tracker, no ANN efficiency comparison
+R06029	EXCLUDE	E2	none	Optoelectronic synapse device, ANN face recognition only as demonstration
+R06030	EXCLUDE	E2	memristor/in-memory	SnO2/SnS2 memristor device, ANN accuracy demonstration only
+R06031	INCLUDE	C2	ASIC	Sparsity-aware SNN training accelerator, dynamic sparse and dense core allocation
+R06032	EXCLUDE	E4	none	Modular SNN software framework, cartpole demo, no efficiency comparison
+R06033	INCLUDE	C1	ASIC	Hybrid ANN-SNN ASIC co-design, 20x to 100x lower energy
+R06034	EXCLUDE	E3	none	Plasticity and sparse coding in E-I spiking circuit model
+R06035	INCLUDE	C2	none	CSR sparse quantized weight dataflow for SNN, power gains
+R06036	UNSURE	C2	none	Learned sparse spike encoding (81% sparsity), unclear if baseline is non-spiking
+R06037	INCLUDE	C1	photonic	Spike-based diffractive optical network 20x faster than frame-based version
+R06038	INCLUDE	C2	none	Sparsity-aware streaming SNN accelerator exploiting temporal and spatial sparsity
+R06039	UNSURE	C2	none	Sparse gradient descent speeds SNN training, unclear if counts as sparsity
+R06040	EXCLUDE	E2	none	Retinomorphic MoS2 device, no SNN network evaluation
+R06041	UNSURE	C1	none	Spiking point cloud network claims low energy, ANN baseline unclear
+R06042	INCLUDE	C1	none	SNN seizure detection with theoretical energy reduction versus ANNs
+R06043	EXCLUDE	E4	none	Spiking transformer seizure detection, accuracy versus SNN baselines only
+R06044	INCLUDE	C1	none	Hybrid SNN versus three ANNs on accuracy, latency, memory, energy
+R06045	EXCLUDE	E4	none	Fully spiking optical flow transformer, no ANN efficiency shown in text
+R06046	INCLUDE	C1+C2	GPU,ASIC	Spike-aware point pruning accelerator, 154x to 845x energy gain over GPU
+R06047	EXCLUDE	E2	photonic	Optoelectronic ferroelectric synapse device, ANN simulation as demonstration
+R06048	EXCLUDE	E2	none	Organic floating-gate synapse transistor, ANN classification demonstration only
+R06049	EXCLUDE	E4	none	Liquid state machine speech recognition, spike encoding comparison, no ANN
+R06050	EXCLUDE	E5	none	Device-based non-spiking reservoir computing with random pruning, no SNN
+R06051	EXCLUDE	E4	none	Spike-based Q-learning architecture, no ANN efficiency comparison
+R06052	INCLUDE	C2	none	Evolutionary architecture pruning plus quantization of spiking language model
+R06053	INCLUDE	C1	none	Spiking IAQ sensing, 8.9x fewer FLOPs than LSTM
+R06054	EXCLUDE	E4	none	SNN for evolutionary multi-objective optimization, no efficiency comparison with ANN
+R06055	INCLUDE	C1	none	Event-based place recognition SNN, reduced energy versus ANN methods
+R06056	EXCLUDE	E4	none	Spike-driven multimodal emotion model, efficiency only motivation in visible text
+R06057	UNSURE	C1	none	Spiking refinement on CNN-transformer segmentation, energy results not visible
+R06058	EXCLUDE	E6	none	Neural spike sorting with classical ML, not spiking networks
+R06059	EXCLUDE	E4	none	Spiking YOLO with integer LIF, no efficiency results visible
+R06060	INCLUDE	C1	none	SpikeBERT comparable to BERT with much less energy
+R06061	INCLUDE	C1	Akida	Spiking autoencoder on Akida, reduced power and latency claimed
+R06062	INCLUDE	C1	none	Spiking CSI compression, lower neuron activity and energy than ANNs
+R06063	EXCLUDE	E6	none	Survey of spike camera vision, not efficiency or pruning focused
+R06064	EXCLUDE	E4	none	Spike-driven few-shot hyperspectral classification, accuracy focus
+R06065	EXCLUDE	E4	none	Spiking YOLO detector, accuracy only
+R06066	INCLUDE	C1	GPU	Spiking graph attention, 10x to 20x lower time and memory
+R06067	INCLUDE	C1	none	SpikeLoRA cuts power 35% versus LoRA
+R06068	EXCLUDE	E4	none	SNN backdoor and poisoning defense, no efficiency or pruning
+R06069	EXCLUDE	E4	none	Spiking MLP-Mixer, no ANN efficiency comparison in abstract
+R06070	EXCLUDE	E2	memristor/in-memory	Memristive spiking transformer circuit, no ANN comparison stated
+R06071	EXCLUDE	E4	none	Memory-aware NAS for SNNs, no ANN baseline or pruning
+R06072	EXCLUDE	E4	none	Spiking point cloud classifier, accuracy versus SNNs, energy only claimed
+R06073	INCLUDE	C1	none	Spiking deraining, 89% fewer FLOPs than ANNs
+R06074	EXCLUDE	E4	none	Spiking monocular 3D detector, accuracy against SNN baseline
+R06075	INCLUDE	C1	none	Spiking saliency detection, comparable to ANNs with energy advantage
+R06076	EXCLUDE	E4	none	Spiking action detection, low power claimed without comparison
+R06077	EXCLUDE	E4	none	Hybrid spiking SSVEP decoder, accuracy only
+R06078	EXCLUDE	E4	none	SNN copyright protection via backdoor, no efficiency content
+R06079	EXCLUDE	E4	none	Spiking infrared-visible fusion, efficiency only as motivation
+R06080	EXCLUDE	E4	none	Spiking vision transformer, memory reduction versus SNNs only
+R06081	INCLUDE	C1	none	Spiking place recognition, 83% lower estimated energy than ANN BoQ
+R06082	INCLUDE	C2	none	SNN accelerator exploiting unstructured firing sparsity with co-optimization
+R06083	EXCLUDE	E4	none	Spiking YOLO for remote sensing, accuracy focus
+R06084	EXCLUDE	E4	none	Improved SpikeYOLO, accuracy gains over SpikeYOLO only
+R06085	EXCLUDE	E4	none	Hybrid SNN-ANN WiFi sensing, accuracy and convergence, no energy
+R06086	EXCLUDE	E4	none	Hybrid SNN-ANN WiFi sensing, accuracy and convergence only
+R06087	EXCLUDE	E4	none	Compares LIF variants only, no ANN baseline
+R06088	INCLUDE	C2	none	RISC-V SNN/CNN processor with zero-skipping for sparse SNNs
+R06089	UNSURE	C5	none	Position paper on SNN energy versus conventional AI, not clearly review
+R06090	INCLUDE	C1	none	Spiking RF identification versus ANN baselines, accuracy-energy tradeoff, time steps
+R06091	INCLUDE	C1	none	Spiking ConvNet ultrasound, superior energy efficiency versus CNNs claimed
+R06092	INCLUDE	C1+C2	none	TTFS Spiking ConvNeXt, spike sparsity and computation proxy reported
+R06093	INCLUDE	C1	none	Spiking hashing, accuracy comparable to ANNs, up to 9x less energy
+R06094	EXCLUDE	E4	none	Spiking depth estimation, accuracy versus SNN and ANN only
+R06095	INCLUDE	C1	none	ANN-to-SNN conversion of GAN, energy-efficient potential, metrics not visible
+R06096	EXCLUDE	E4	none	Spiking Mamba hyperspectral classification, accuracy only
+R06097	INCLUDE	C1	none	Spiking segmentation, 3.22 mJ, accuracy comparable to ANN networks
+R06098	INCLUDE	C1+C2	none	Spiking NeRF encoding with hash table pruning, memory traffic cut
+R06099	EXCLUDE	E3	none	Spiking ensemble model of cue combination, neuroscience
+R06100	EXCLUDE	E4	none	Temporal-coding spiking P systems, no ANN efficiency comparison

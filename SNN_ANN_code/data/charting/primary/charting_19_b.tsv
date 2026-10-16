@@ -1,0 +1,25 @@
+R05580	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Spiking EEG seizure detectors: 91.8% and 94.7% accuracy, 1.2 ms CPU latency; ANN comparison accuracy-only from literature
+R05581	Y	-	C1	HYBRID	CNN	AUDIO	SIM	SIM	ESTIMATED	OPS	PAIRED	NA	NA	NA	NA	N	H-SCNN 91.06% accuracy comparable to identical CNN and AlexNet; MACs reduced two to fifteen times
+R05582	Y	-	C1	HYBRID	TRANSFORMER	NLP	GPU	NS	ESTIMATED	ENERGY+OPS	PAIRED	NA	NA	NA	NA	N	Hybrid spiking LoRA retains 95.9% of LoRA on KLUE; operation-level analysis shows theoretical energy saving, GPU simulation adds latency
+R05583	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Two-stream hybrid ANN-SNN for action recognition; state-of-the-art accuracy on HMDB-51, UCF101, Kinetics-400; low power claimed without figures
+R05585	Y	-	C1+C2	ANN+SNN	NS	DET	SIM	SIM	ESTIMATED	ENERGY	PAIRED	REG	NA	NS	Y	N	Hybrid spiking CLIP: operation-level analysis shows higher energy efficiency than ANN counterpart; sparsity constraint limits neuronal over-activation
+R05586	Y	-	C1	ANN+SNN	TRANSFORMER+CNN	DET+EVENT	SIM	SIM	ESTIMATED	LATENCY+ENERGY	DIFFERENT	NA	NA	NA	NA	N	HydroSNN improves mIoU/F1 over CNN/ViT baselines while lowering end-to-end latency and operation-based energy proxy; no figures
+R05587	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	28-nm hybrid SNN-ANN optical flow chip: energy 0.12x, latency 0.19x of baseline, 35.80 TOPS/W; no ANN-only comparison
+R05590	Y	-	C1	ANN+SNN	OTHER	CONTROL	ASIC	NS	NS	ENERGY	DIFFERENT	NA	NA	NA	NA	N	HyperSNN 22nm ASIC design: nJ-level energy, up to 3.05x energy efficiency versus conventional ML controllers on Gym tasks
+R05592	Y	-	C3	ANN	NS	STATIC_IMG	NA	SIM	NONE	NONE	NA	NS	NS	NS	N	N	Lottery-ticket pruning with transfer learning for remote sensing classification on edge; accuracy and parameter size focus, no energy figures
+R05594	Y	-	C1	ANN+SNN	TRANSFORMER	AUDIO	SIM	SIM	ESTIMATED	ENERGY	NS	NA	NA	NA	NA	N	Spiking transformer WER 6.0% AiShell-1, 3.4% Librispeech, comparable to ANN transformers; theoretical energy 4.64x and 4.32x lower
+R05598	Y	-	C1	ANN+SNN	CNN	STATIC_IMG	MEMRISTOR	NS	NS	ENERGY	NS	NA	NA	NA	NA	N	Memristor in-sensor BSNN 98.09% accuracy (software BSNN 98.42%), 1.4 uJ network energy, 97.10% lower than full-precision CNN
+R05602	N	E6	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Brain-inspired multimodal fusion applied to ANNs and SNNs; computational efficiency gain claimed without figures; no ANN-SNN efficiency comparison
+R05604	Y	-	C1	ANN+SNN	NS	STATIC_IMG	SIM	SIM	NS	ENERGY	NS	NA	NA	NA	NA	N	ICE-Net 81.62% CIFAR-100 at 4 timesteps, about 25% less energy than ANNs; ANN baseline unspecified
+R05605	Y	-	C1	ANN+SNN	RNN	TS	SIM	SIM	ESTIMATED	ENERGY	DIFFERENT	NA	NA	NA	NA	N	Enhanced SNN forecasting: comparable accuracy to LSTM in some settings with about 10% of its estimated inference energy
+R05628	Y	-	C1	HYBRID	NS	OTHER	NS	NS	CLAIM	ENERGY	NS	NA	NA	NA	NA	U	Hybrid sparse/non-sparse neuronal networks give best accuracy-energy trade-off; energy several orders below classical numerical simulation; no figures
+R05630	Y	-	C3	ANN	OTHER	OTHER	NA	SIM	NONE	NONE	NA	NS	BOTH	UNSTRUCT	N	N	Weak LTH holds for variational quantum circuits; strong-LTH ticket in binary VQC with 45% of weights, no training
+R05634	Y	-	C2	SNN	NS	NS	NS	NA	NS	ENERGY+LATENCY	NA	NS	NA	UNSTRUCT	Y	N	SNN search-in-memory accelerator with unstructured pruning: 25.3x energy efficiency, 13.7x speedup versus ISAAC-like design; 7.9x energy versus NEBULA
+R05635	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Two-branch ViT plus spiking transformer RGB-Event tracker; state-of-the-art performance, high energy efficiency claimed without figures
+R05636	Y	-	C1	ANN+SNN	CNN+TRANSFORMER	DET	SIM	SIM	NS	ENERGY+MEMORY	DIFFERENT	NA	NA	NA	NA	N	KDSNN energy 27.1% and 10.0% of ANN-based MAT on THUMOS14 and EPIC-Kitchen-100; parameters 37.0% and 27.7%
+R05637	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Spiking underwater image enhancement; quality competitive with ANN methods; computational advantage asserted without figures
+R05638	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Hybrid ANN-SNN RGB-Event tracker with adaptive switching; accuracy-efficiency balance claimed without figures
+R05639	Y	-	C1+C2	ANN+SNN	CNN	AUDIO	SIM	SIM	NS	LATENCY	PAIRED	OTHER	NA	TEMPORAL	Y	N	Early-exit SNN cuts steps 20 to 7, latency 15.82 to 6.04 ms; EER CNN 6.23%, SNN T=20 4.40%, early-exit 6.32%
+R05643	Y	-	C1	ANN+SNN	NS	BIOSIG	SPINNAKER2	GPU	ESTIMATED	ENERGY	NS	NA	NA	NA	NA	U	SNN on SpiNNaker 2: AUC 0.793-0.839, estimated energy per inference about one third of a GPU-based baseline; baseline type unspecified
+R05645	Y	-	C1	ANN+SNN	TRANSFORMER	DET	SIM	SIM	NS	ENERGY	DIFFERENT	NA	NA	NA	NA	N	LENS-Net on ORSSD: S-alpha 92.79%, MAE 0.0109, 11.48 mJ; claims to outperform lightweight ANN counterparts, ANN energy not given
+R05646	Y	-	C1	ANN+SNN	CNN	STATIC_IMG	SIM	SIM	ESTIMATED	OPS	DIFFERENT	NA	NA	NA	NA	N	LeukSNN accuracy 99.91-100%; 8% of multiplications and 28% of additions of state-of-the-art efficient methods

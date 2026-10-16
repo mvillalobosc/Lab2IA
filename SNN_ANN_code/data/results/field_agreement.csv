@@ -1,0 +1,16 @@
+item,n,agreement,kappa
+eligible,211,0.91,0.768
+categories,146,0.99,0.978
+paradigm,146,0.952,0.929
+architecture,146,0.97,0.917
+task,146,0.985,0.943
+platform_snn,146,0.922,0.73
+platform_ann,146,0.802,0.53
+evidence,146,0.781,0.724
+metrics,146,0.938,0.809
+comparison,146,0.89,0.821
+sparsity_method,146,0.965,0.84
+lth_variant,146,0.932,0.85
+granularity,146,0.856,0.804
+cost_in_objective,146,0.938,0.908
+hardware_measured,146,0.959,0.806

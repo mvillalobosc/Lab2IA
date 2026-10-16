@@ -1,0 +1,100 @@
+R02501	EXCLUDE	E2	memristor/in-memory	CTF synaptic device, ANN accuracy only in simulation
+R02502	EXCLUDE	E4	none	SNN spike-encoder parameter optimisation, no ANN baseline
+R02503	EXCLUDE	E6	none	EEG neuromarketing review, off-topic
+R02504	EXCLUDE	E2	memristor/in-memory	Memristor LIF temperature-sensing neuron, device level
+R02505	EXCLUDE	E4	none	SNN event feature extraction, accuracy only
+R02506	EXCLUDE	E2	memristor/in-memory	Pd complex memristor device, device level
+R02507	EXCLUDE	E4	none	SNN meta-learning, accuracy-only comparison with ANNs
+R02508	INCLUDE	C1	none	ANN-to-SNN conversion framework, low latency, high accuracy
+R02509	EXCLUDE	E4	none	SNN processor with on-chip STDP, no ANN baseline
+R02510	EXCLUDE	E2	memristor/in-memory	ZnO nanowire memristor, device level
+R02511	EXCLUDE	E6	CPU	Event video compression, not spiking networks
+R02512	UNSURE	C1	FPGA, GPU	SCNN on FPGA for genomics; CNN comparison implied, truncated
+R02513	INCLUDE	C2	ASIC	Sparsity-aware SNN BPTT training processor, 0.86 pJ/OP
+R02514	EXCLUDE	E4	GPU	SNN simulator speed comparison, no ANN
+R02515	EXCLUDE	E4	none	SNN-GNN floor localization, accuracy only
+R02516	EXCLUDE	E4	none	SNN Fashion-MNIST classifier, no ANN comparison
+R02517	INCLUDE	C1	Loihi	RNN-to-SNN mapping on Loihi, conversion with 3-bit weights
+R02518	EXCLUDE	E4	FPGA	TTFS SNN continual learning on FPGA, no ANN baseline
+R02519	EXCLUDE	E4	none	Neuromorphic many-core processor, compared only with another neuromorphic chip
+R02520	EXCLUDE	E4	none	SNN temporal parameters study, no ANN or efficiency comparison
+R02521	INCLUDE	C2	none	SNN connectivity adjusted by excitation-inhibition, reports sparsity
+R02522	EXCLUDE	E4	none	Direct-training SNN method, accuracy and latency among SNNs
+R02523	INCLUDE	C1	none	Hybrid RNN-SNN versus pure RNN and SNN, accuracy-efficiency tradeoff
+R02524	INCLUDE	C1	none	Hybrid spiking detector, GFLOPs and mAP versus YOLO variants
+R02525	EXCLUDE	E2	memristor/in-memory	Review of artificial neuron and in-sensor devices
+R02526	EXCLUDE	E4	none	Phase-coded SNN, accuracy and latency, no ANN baseline
+R02527	INCLUDE	C1+C5	CPU, GPU, memristor/in-memory	Review comparing ANN CPU/GPU energy with memristive SNNs
+R02528	EXCLUDE	E4	none	SNN positional encoding, accuracy only
+R02529	EXCLUDE	E4	none	Rate-based SNN training efficiency, no ANN baseline
+R02530	INCLUDE	C1	none	Robust ANN-to-SNN conversion with low latency
+R02531	EXCLUDE	E4	none	SNN ensembles for adaptive latency, SNN-only
+R02532	EXCLUDE	E5	none	Edge AI framework, neuromorphic used loosely
+R02533	EXCLUDE	E2	memristor/in-memory	Perovskite memristor optoelectronic synapse, device level
+R02534	EXCLUDE	E2	photonic	Optically controlled artificial synapse, device level
+R02535	EXCLUDE	E2	memristor/in-memory	Aloe vera RRAM synapse, device level
+R02536	EXCLUDE	E4	FPGA, MCU	SCNN FPGA system with energy per inference, no ANN baseline
+R02537	INCLUDE	C1	none	ANN2SNN conversion, integer SNN, fewer operations, few time steps
+R02538	EXCLUDE	E2	memristor/in-memory, ASIC	IGZO TFT synaptic memory training circuit, device level
+R02539	INCLUDE	C2	none	SNN continual learning with model compression; details truncated
+R02540	EXCLUDE	E2	none	Artificial visual neuron device with rate/TTFS coding
+R02541	EXCLUDE	E6	none	Wireless sensor network, SNN decoding only demonstration
+R02542	EXCLUDE	E4	none	SNN-based ectopic pregnancy prediction, accuracy only
+R02543	EXCLUDE	E4	none	BiLSTM-SNN lung disease classifier, accuracy only
+R02544	UNSURE	C1	none	Lightweight CNN-SNN intrusion detection; unclear efficiency comparison
+R02545	INCLUDE	C1	FPGA	Sigma-delta SNN radio classifier, 22x lower energy than ANN
+R02546	EXCLUDE	E4	FPGA	CNN-SNN hybrid SoC on FPGA, no ANN baseline
+R02547	EXCLUDE	E2	memristor/in-memory	Hybrid CMOS memristor neuron circuit, device level
+R02548	EXCLUDE	E6	ASIC	Neural recording telemetry compression circuit, no learning task
+R02549	UNSURE	C5	none	Generic neuromorphic overview; unclear efficiency benchmarking focus
+R02550	EXCLUDE	E4	none	Review of SNN supervised learning, no efficiency comparison
+R02551	EXCLUDE	E4	FPGA, CPU	Neuromorphic vision FPGA accelerator, speedup versus CPU only
+R02552	EXCLUDE	E4	none	DSNN parameters tuned by bacterial foraging, accuracy only
+R02553	EXCLUDE	E5	memristor/in-memory	Review of memristor DNN accelerators, no SNN
+R02554	EXCLUDE	E5	memristor/in-memory, ASIC	RRAM DNN inference accelerator, no SNN
+R02555	EXCLUDE	E4	ASIC	Time-domain SNN ECG processor, compared with digital neurons
+R02556	EXCLUDE	E2	photonic	Microdisk laser activation function, device level
+R02557	EXCLUDE	E2	memristor/in-memory	Analog LIF neuron prototype on PCB, circuit level
+R02558	EXCLUDE	E5	none	Event encoding for ANN detectors, no SNN evaluation
+R02559	EXCLUDE	E2	memristor/in-memory	RRAM conductance variability measurements, device level
+R02560	EXCLUDE	E4	GPU	SpikeProp pronunciation model, no ANN efficiency comparison
+R02561	EXCLUDE	E2	memristor/in-memory, FPGA	Memristor fault-tolerance analysis, circuit level
+R02562	INCLUDE	C3	none	Graph lottery tickets adversarial robustness in GNNs
+R02563	EXCLUDE	E2	memristor/in-memory	Skyrmion synaptic device, device level
+R02564	EXCLUDE	E4	ASIC, memristor/in-memory	NVM CIM SNN processor, 1.25 pJ/SOP, no ANN baseline
+R02565	INCLUDE	C1	none	Spiking-EfficientNet energy 2.56 to 61 percent of ANN baselines
+R02566	EXCLUDE	E5	none	Forward-forward ANN on event data, no SNN
+R02567	EXCLUDE	E6	none	Approximate computing review, off-topic
+R02568	INCLUDE	C1	none	SNN Koopman approximation, 4x fewer additions, 43x fewer multiplications
+R02569	INCLUDE	C1+C6	none	Bit Budget energy estimation comparing SNNs with quantized ANNs
+R02570	INCLUDE	C1+C6	memristor/in-memory, simulation	Hardware benchmarking SATA and SpikeSim, real versus estimated SNN energy
+R02571	EXCLUDE	E6	memristor/in-memory	Flexible sensing and artificial synapses review, off-topic
+R02572	EXCLUDE	E2	memristor/in-memory	Organic ferroelectric synapse device, CNN energy versus conventional CNN
+R02573	EXCLUDE	E2	none	Bloch-point nanowire artificial neuron, device simulation
+R02574	EXCLUDE	E2	photonic	Optoelectronic synapse transistor, device level
+R02575	EXCLUDE	E2	photonic	Optoelectronic synapse phototransistors, device level
+R02576	EXCLUDE	E2	memristor/in-memory	AlN-based memristor synapse, device level
+R02577	EXCLUDE	E2	memristor/in-memory	Ferroelectric film synapse, device level
+R02578	EXCLUDE	E2	memristor/in-memory	Memristor tactile neurons with small SNN, no ANN comparison
+R02579	EXCLUDE	E2	photonic	Visual-tactile optoelectronic synapse array, device level
+R02580	EXCLUDE	E2	none	Semiconductor atomistic modelling, materials level
+R02581	EXCLUDE	E4	none	SNN ECG encoders compared among SNNs, no ANN baseline
+R02582	INCLUDE	C1	none	SNN semantic communication, better energy efficiency and latency than conventional
+R02583	EXCLUDE	E2	memristor/in-memory	h-BN attojoule memristor, device level
+R02584	INCLUDE	C1	none	Recurrent SNN versus RNN baseline, fewer parameters, sparse spiking
+R02585	INCLUDE	C1+C2	none	Spikformer architecture search removes redundant channels, lower energy than CNN/ViT
+R02586	EXCLUDE	E6	none	Mosquito neural spike classification, off-topic
+R02587	INCLUDE	C1	none	SpikeFPN versus ANN detectors, sparse computation efficiency
+R02588	EXCLUDE	E4	none	Training-free NAS for spiking transformers, FLOPs only as proxy
+R02589	EXCLUDE	E3	none	Myelin delay plasticity model, computational neuroscience
+R02590	EXCLUDE	E2	FPGA	Circuit pruning of arithmetic operators, not network pruning
+R02591	INCLUDE	C5	none	Survey of SNN training, conversion, latency and sparsity strategies
+R02592	INCLUDE	C1	FPGA	Bayesian SNN via conversion on Zynq versus binary Bayesian networks
+R02593	EXCLUDE	E6	none	Bayesian event imaging for LiDAR, off-topic
+R02594	EXCLUDE	E2	ASIC	Neuromorphic SLAM chip, circuit-level, no ANN comparison
+R02595	INCLUDE	C1	simulation	ANN-to-SNN tool flow and NoC placement, benchmarking ANN architectures
+R02596	INCLUDE	C1	GPU	Hybrid SNN-ANN optical flow, layer assignment analysis
+R02597	EXCLUDE	E2	memristor/in-memory	Review of neuromorphic synaptic devices
+R02598	EXCLUDE	E2	memristor/in-memory	Spintronic synapse ANN accuracy, device level
+R02599	EXCLUDE	E5	memristor/in-memory	Binary stochastic learning on memristors, ANN-only
+R02600	EXCLUDE	E4	SpiNNaker	Hippocampal spiking memory model on SpiNNaker, no ANN baseline

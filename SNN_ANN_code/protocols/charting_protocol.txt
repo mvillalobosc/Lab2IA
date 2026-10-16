@@ -1,0 +1,43 @@
+ELIGIBILITY CONFIRMATION AND DATA CHARTING PROTOCOL (full abstract)
+Systematic review: energy efficiency of ANN vs SNN and sparsity / lottery-ticket methods (2020-2026)
+
+Each record below passed title/abstract screening (some were marked UNSURE). You now see the FULL abstract. For EACH record: (1) confirm eligibility; (2) if eligible, code the data items. Judge only from the text given (title, keywords, abstract). Never guess a value the text does not support: use NS (not stated) instead.
+
+RESEARCH QUESTIONS
+RQ1. Under which model-hardware pairs and measurement protocols have ANN and SNN been compared empirically?
+RQ2. Which factors (hardware substrate, numerical precision, time steps, spike coding, firing activity) explain reported accuracy and efficiency differences?
+RQ3. What do pruning, sparsity and lottery-ticket-family methods contribute to reducing cost in ANN and SNN, and how is their effect on energy or firing activity measured?
+
+ELIGIBILITY. A record is eligible (Y) if at least one category applies:
+C1  Empirical ANN-SNN comparison on at least one task with at least one efficiency metric (energy, power, latency, throughput, SOPs/FLOPs/MACs, energy-delay product), measured on hardware OR estimated analytically. Includes ANN-to-SNN conversion papers and hardware/accelerator papers that benchmark an SNN against an ANN/DNN baseline with such metrics. A quantified claim such as "N x less energy than the ANN counterpart" counts, and so does an explicit statement such as "fewer operations than its ANN counterpart". NOT C1: an accuracy-only comparison; an SNN whose only efficiency figure is its own number of time steps; an SNN compared only with other SNNs or with CPU/GPU runs of the same SNN.
+C2  Pruning or sparsification in SNN: weight, connection, neuron, channel or time-step pruning; regularisation or mechanisms that reduce spiking activity; dynamic sparsity and sparse training. Quantisation-only or knowledge-distillation-only work is NOT C2.
+C3  Lottery-ticket family in non-spiking ANN (LTH, strong LTH, supermasks, edge-popup, random-weight subnetworks, winning tickets, existence proofs, mask search by any algorithm).
+C4  Lottery-ticket family applied to SNN.
+C5  Review, survey or tutorial whose main subject is ANN-SNN efficiency comparison, neuromorphic hardware benchmarking, or pruning/sparsity/LTH.
+C6  Benchmark or measurement methodology for ANN/SNN efficiency (benchmark suites, energy estimation frameworks, metric standardisation).
+If NOT eligible (N), give exactly one reason:
+E1 not a research or review paper; E2 device/material/circuit level without network-level evaluation against an ANN or involving pruning; E3 neuroscience modelling without an ML task; E4 SNN-only work without an ANN efficiency comparison and without pruning/sparsity/LTH; E5 ANN-only work without SNN and without LTH-family content; E6 off-topic; E7 general ANN pruning/sparsification outside the lottery-ticket family and without SNN.
+
+DATA ITEMS (code every item; use NA when the item does not apply to the record's categories, NS when it applies but the text does not state it). Lists use "+" without spaces. Use only the codes given.
+
+1  id            record id without brackets, e.g. R01234
+2  elig          Y | N
+3  reason        E1..E7 if elig=N, otherwise -
+4  cats          if Y: categories joined by "+", e.g. C1+C2; if N: -
+For elig=N write "-" in items 5 to 17 and a short note in item 18.
+5  paradigm      ANN | SNN | ANN+SNN | HYBRID   (HYBRID = a single network mixing spiking and non-spiking layers). Treat a system as spiking only if the text mentions spiking neurons, spikes or a spiking neuromorphic chip; analog or in-memory DNN accelerators called "neuromorphic" without spikes are ANN.
+6  arch          MLP | CNN | RNN | TRANSFORMER | GNN | OTHER | NS   (list with "+" if several; RNN includes LSTM/GRU and recurrent SNN)
+7  task          STATIC_IMG (static image classification: MNIST, CIFAR, ImageNet...) | DET (detection, segmentation, tracking) | EVENT (event-based or neuromorphic data: DVS, N-MNIST, DVS-Gesture, SHD...) | AUDIO (speech, keyword spotting, audio) | BIOSIG (EEG, ECG, EMG, other biomedical signals) | CONTROL (robotics, reinforcement learning, control) | NLP | TS (other time series or sensor data) | OTHER | NS   (list with "+" if several)
+8  plat_snn      platform on which the SNN is run or measured: LOIHI | LOIHI2 | TRUENORTH | SPINNAKER | SPINNAKER2 | BRAINSCALES | TIANJIC | AKIDA | DYNAP | SPECK | XYLO | DARWIN | OTHER_NEURO | FPGA | ASIC | GPU | CPU | MCU | MEMRISTOR | SIM | NS | NA   (SIM = software simulation with no stated hardware; NA when there is no SNN)
+9  plat_ann      platform on which the ANN is run or measured: GPU | EDGE_GPU (Jetson and similar) | CPU | MCU | FPGA | ASIC | TPU | NPU | MEMRISTOR | SIM | NS | NA   (NA when there is no ANN)
+10 evidence      basis of the efficiency figures: MEASURED (the text says the figures were measured, or reports them for a run on a named physical chip or board, e.g. "on Loihi it consumes 0.3 mJ per inference", "the fabricated chip consumes 12 mW") | ESTIMATED (operation counts times energy per operation, published per-operation energies such as 45 nm values, simulator energy models, post-synthesis or post-layout reports) | BOTH | CLAIM (efficiency asserted without any figure or basis) | NONE (no efficiency figure) | NS (figures given but their basis cannot be determined). Parameter counts, sparsity ratios, model size or memory reductions are not efficiency figures for this item: code NONE when they are the only cost figures given.
+11 metrics       efficiency metrics reported: ENERGY | POWER | LATENCY | THROUGHPUT | OPS (SOPs, MACs, FLOPs, ACs) | EDP | MEMORY | SPIKES (firing rate, spike counts) | NONE   (list with "+")
+12 comparison    for C1 only: PAIRED (same task and equivalent architecture or the source ANN of a conversion, evaluated by the authors) | DIFFERENT (authors compare different architectures or systems) | LITERATURE (compared against figures reported in other papers) | NS ; NA if not C1
+13 sp_method     for C2/C3/C4 only: MAG (magnitude, iterative magnitude pruning) | ACT (activity-, firing- or spike-based criterion) | SCORE (gradient-learned scores or masks: supermask training, edge-popup, straight-through estimators) | REG (regularisation: L0, L1, group lasso, ADMM) | EVO (evolutionary, metaheuristic or architecture-search based) | DST (dynamic sparse training, rewiring, prune-and-regrow) | RANDOM (random pruning or random subnetworks) | THEORY (existence proofs, theoretical analysis) | OTHER | NS ; list with "+" if several; NA otherwise
+14 lth           for C3/C4 only: WEAK (winning tickets retrained or rewound: original LTH, IMP with rewinding) | STRONG (subnetworks used without training the weights: strong LTH, supermasks, edge-popup, random-weight networks) | BOTH | OTHER (LTH-inspired method that fits neither) | NS ; NA otherwise
+15 granularity   for C2/C3/C4 only: UNSTRUCT (individual weights) | STRUCT (neurons, channels, filters, heads, layers) | TEMPORAL (time steps or temporal sparsity) | MIXED | NS ; NA otherwise. Code UNSTRUCT only when the text indicates weight-level masks or pruning; do not infer it from the method name alone.
+16 cost_obj      for C2/C3/C4 only: Y if the method's objective, selection criterion or constraint explicitly includes energy, firing or spiking activity, SOPs/MACs/FLOPs, latency or a hardware cost model; N if it targets accuracy together with parameter count, density, sparsity ratio or memory only (a cost reduction reported as an outcome is not enough); NS ; NA otherwise
+17 fulltext      Y if the abstract indicates that BOTH an ANN and an SNN were evaluated by the authors with an efficiency metric MEASURED on physical hardware (neuromorphic chip, FPGA, ASIC, MCU, GPU or CPU power measurement); U if this is possible but unclear (e.g. energy on a named chip without saying it was measured); N otherwise. For C4 records always write Y.
+18 note          at most 20 words; when the abstract gives a quantitative efficiency or accuracy comparison, copy the figures (e.g. "SNN on Loihi 23x less energy than ANN on Jetson; accuracy 92.1 vs 93.4"). No tabs.
+
+OUTPUT FORMAT (strict). One line per record, 18 tab-separated fields in the order above, no header, no blank lines, no commentary, same order as the input. Every input record must appear exactly once; do not invent ids.

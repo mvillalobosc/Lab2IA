@@ -1,0 +1,100 @@
+R02601	EXCLUDE	E2	none	organic neuromorphic circuit for robot conditioning; no ANN comparison
+R02602	EXCLUDE	E2	none	review of multimodal neuromorphic devices; device-level
+R02603	EXCLUDE	E3	none	biohybrid biomimetic SNN emulation for neurological studies
+R02604	UNSURE	C1	none	SNN image generation; beats ANN; energy claim not quantified in abstract
+R02605	EXCLUDE	E4	none	spiking CNN tumor classification; accuracy and loss only
+R02606	EXCLUDE	E4	none	sparse word codes from spiking neurons; no ANN efficiency comparison
+R02607	INCLUDE	C1	none	SNN eye controller; 87.3% fewer neurons activated, presumably vs ANN
+R02608	EXCLUDE	E2	memristor/in-memory	GCMO memristive synapse device; simulated SNN accuracy only
+R02609	EXCLUDE	E4	none	unsupervised delay learning rule in SNN; no efficiency comparison
+R02610	INCLUDE	C1+C2	none	binary-weight SNN with activation sparsity; energy analysis
+R02611	UNSURE	C2	memristor/in-memory	pruning-based learning in memristive circuit; unclear if spiking
+R02612	EXCLUDE	E2	none	single-transistor neuron device; Boolean logic
+R02613	EXCLUDE	E6	none	gambling psychology; lottery ticket used literally
+R02614	EXCLUDE	E4	none	SNN for EEG depression classification; no efficiency comparison
+R02615	UNSURE	C1	none	LSM localization; fewer parameters than CNN; energy not mentioned
+R02616	EXCLUDE	E2	memristor/in-memory	review of 2D material memristors; device-level
+R02617	INCLUDE	C5	memristor/in-memory	systematic review of brain-inspired hardware; compares accuracy and efficiency
+R02618	EXCLUDE	E4	none	SNN optical imaging reconstruction; no ANN efficiency comparison
+R02619	UNSURE	C1	ASIC	SNN on Xylo chip; energy gain baseline unclear (FEM or ANN)
+R02620	UNSURE	C1	none	SNN and LMU vs ANN on accident detection; metrics unclear
+R02621	INCLUDE	C2	none	sparse brain-derived SNN topology for RL; ANN comparison unclear
+R02622	EXCLUDE	E4	none	SNN vs ANN privacy against inversion attacks; no efficiency
+R02623	INCLUDE	C1	ASIC,GPU	spiking DQN; latency and power on PAICORE vs Jetson
+R02624	INCLUDE	C3	none	graph lottery tickets in GNNs; robust pruning
+R02625	EXCLUDE	E7	ASIC	dynamic sparsity in non-spiking edge accelerators; no SNN stated
+R02626	EXCLUDE	E2	memristor/in-memory	memristor STDP synapse circuit; device level
+R02627	EXCLUDE	E3	none	gamma bursts in neural mass models; neuroscience
+R02628	EXCLUDE	E6	none	H-1B visa lottery economics
+R02629	INCLUDE	C1	ASIC	CNN/SNN heterogeneous ASIC; energy efficiency TOPS/W; workload division
+R02630	INCLUDE	C1	none	ANN-to-SNN conversion for RL; spike count calibration
+R02631	EXCLUDE	E4	none	multi-spike timing backprop; accuracy-only vs ANN
+R02632	INCLUDE	C1	none	sparse binary activation nets vs SNN and BNN; energy
+R02633	EXCLUDE	E6	none	EU rule of law legal analysis; lottery ticket metaphor
+R02634	INCLUDE	C1	none	SNN vs CNN and MLP: accuracy and energy, traffic forecasting
+R02635	EXCLUDE	E4	none	spiking RL collision avoidance; navigation efficiency, not compute efficiency
+R02636	EXCLUDE	E2	photonic	TeO2 optoelectronic synapse device
+R02637	EXCLUDE	E2	memristor/in-memory	nonlinear memristor circuit; crossbar CNN simulation
+R02638	EXCLUDE	E2	memristor/in-memory	memristive STDP SNN circuit; no ANN comparison
+R02639	EXCLUDE	E4	none	CLIF neuron; accuracy-only versus ANN
+R02640	EXCLUDE	E4	none	spike coding network control; no ANN comparison
+R02641	EXCLUDE	E6	ASIC	epilepsy neurostimulator review; SNNs incidental
+R02642	INCLUDE	C3	none	lottery ticket pruning for live-stream sales prediction
+R02643	EXCLUDE	E2	ASIC,memristor/in-memory	mixed-signal hippocampus-inspired CMOS chip; no ANN baseline
+R02644	EXCLUDE	E2	memristor/in-memory	hardware technology overview for neuro-vector-symbolic computing
+R02645	INCLUDE	C3	memristor/in-memory	strong lottery ticket masks with FeFET compute-in-memory
+R02646	EXCLUDE	E4	none	SNN delays and adaptation; accuracy vs ANN, parameters only
+R02647	INCLUDE	C2	Loihi	delay pruning for SNN on Loihi and Seneca
+R02648	EXCLUDE	E5	none	CNN color reconstruction from event data; no SNN
+R02649	INCLUDE	C1	none	hybrid ANN-SNN detection; energy efficiency measure
+R02650	UNSURE	C1	none	compact SNN speech denoising; energy claim, ANN baseline unclear
+R02651	INCLUDE	C2	memristor/in-memory	sparse connectivity and bagging in memristive SNN
+R02652	INCLUDE	C2	memristor/in-memory	CIM SNN accelerator exploiting spike sparsity
+R02653	EXCLUDE	E5	none	CNN circuit compiler from neuromorphic blocks; no SNN
+R02654	EXCLUDE	E2	none	chemical reaction network computing perspective; material-level
+R02655	INCLUDE	C2	none	sparse recurrent motif connectivity in RSNN with architecture search
+R02656	EXCLUDE	E7	none	graph gradual pruning; alternative to LTH, not LTH family
+R02657	EXCLUDE	E4	none	latent replay continual learning in SNN; data compression only
+R02658	INCLUDE	C2	none	compressed sensing SNN; operations and model size reduced
+R02659	EXCLUDE	E3	none	ion dynamics in spiking neuron models; biophysical focus
+R02660	EXCLUDE	E2	none	skyrmion synapse device; CNN simulation
+R02661	EXCLUDE	E2	none	review of neuromorphic bioelectronics; device-level
+R02662	EXCLUDE	E4	none	SNN plus ConvLSTM vocabulary learning; no efficiency comparison
+R02663	EXCLUDE	E4	none	prototype continual learning for robots; no SNN-ANN efficiency comparison
+R02664	EXCLUDE	E6	none	survey of continual learning with Hebbian plasticity; off-topic
+R02665	EXCLUDE	E2	memristor/in-memory	memristor contrastive learning hardware; simple logic only
+R02666	EXCLUDE	E4	none	contrastive plasticity for spiking circuits; no efficiency comparison
+R02667	EXCLUDE	E2	none	skyrmion device for quantized CNN weights
+R02668	EXCLUDE	E6	none	review of nanotechnology and ML
+R02669	INCLUDE	C1	none	ANN-SNN conversion for action recognition; four time steps
+R02670	EXCLUDE	E2	memristor/in-memory	dynamic memristor reservoir computing device
+R02671	EXCLUDE	E4	none	convolutional SNN for EEG intent; accuracy-only vs CNN
+R02672	INCLUDE	C1	ASIC	CNN/SNN online learning NPU; 47.7% energy reduction
+R02673	EXCLUDE	E5	memristor/in-memory	RRAM in-memory DNN robustness; no SNN
+R02674	EXCLUDE	E3	ASIC	neuromorphic core for cortical simulation; no learning task
+R02675	EXCLUDE	E2	memristor/in-memory	memristor oscillators for gait control; device-level
+R02676	EXCLUDE	E5	none	DNN edge perception prioritization; no SNN
+R02677	EXCLUDE	E2	memristor/in-memory	VO2 memristor spiking sensory neuron; device-level
+R02678	EXCLUDE	E4	none	SNN for cryptosystem diagnosis; no efficiency comparison
+R02679	EXCLUDE	E4	none	LCA sparse coding SNN training; accuracy focus
+R02680	INCLUDE	C1	none	ANN-to-SNN conversion with threshold and potential initialization
+R02681	INCLUDE	C3	GPU	attention pruning mask; LTH keyword; sparse attention borderline
+R02682	EXCLUDE	E6	memristor/in-memory	memristor I-V curve dataset classified by CNN; device data
+R02683	EXCLUDE	E4	none	low-light enhancement with spiking encoding; image metrics only
+R02684	INCLUDE	C1+C2	none	RSNN decoders, sparse connectivity, low firing rates, vs ANN decoders
+R02685	EXCLUDE	E4	none	vague neuro-inspired architectures; no concrete efficiency comparison
+R02686	EXCLUDE	E6	none	event-based detection survey; not ANN-SNN efficiency focused
+R02687	EXCLUDE	E6	none	atomic imaging of ion migration; unrelated
+R02688	UNSURE	C1	none	DNN-to-SNN conversion with steep switching neuron; efficiency unclear
+R02689	INCLUDE	C1	none	SNN bearing diagnosis; training time faster than ANN
+R02690	INCLUDE	C1	SpiNNaker,GPU	converted SNN on SpiNNaker2 vs CNN on Jetson, 5x power efficiency
+R02691	EXCLUDE	E2	memristor/in-memory	MoS2 memristor synapse device; ANN simulation only
+R02692	EXCLUDE	E4	none	delay learning SNN; compared with SNNs only
+R02693	EXCLUDE	E2	memristor/in-memory	SiOx RRAM dendritic device
+R02694	EXCLUDE	E2	memristor/in-memory	SiOx memristive oscillatory neuron circuit
+R02695	EXCLUDE	E2	memristor/in-memory	3D flash in-memory array for ECG; device-level
+R02696	EXCLUDE	E6	none	event camera denoising by graph spectra; no neural network
+R02697	EXCLUDE	E2	memristor/in-memory	RRAM dendritic spiking circuit; device-level
+R02698	EXCLUDE	E4	none	convolutional SNN for skin disease; no efficiency comparison
+R02699	EXCLUDE	E4	none	LIF SNN designs on MNIST; no clear ANN efficiency comparison
+R02700	EXCLUDE	E5	FPGA	FPGA deep neural network design; no SNN

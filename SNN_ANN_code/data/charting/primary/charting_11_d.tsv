@@ -1,0 +1,25 @@
+R03388	Y	-	C3	ANN	NS	NLP	NA	SIM	NONE	NONE	NA	NS	NS	NS	N	N	LTH extended to open-world OOD intent classification; pruned calibrated subnetworks improve OOD detection; no efficiency figures
+R03389	N	E6	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Top-k sparsification in SNN federated learning saves more bandwidth than ANNs, 6% of parameters sent; no energy or operation metric
+R03395	N	E5	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Analytical study of curricula and overparameterisation in a 2-layer network; lottery ticket hypothesis only as motivation; no pruning or masks
+R03399	N	E7	-	-	-	-	-	-	-	-	-	-	-	-	-	-	QC-LDPC sparse block factorization for energy-based models; keyword Aprior Supermask only; no lottery-ticket search or SNN
+R03401	Y	-	C5	SNN	NS	NS	NS	NA	CLAIM	POWER+ENERGY	NA	NA	NA	NA	NA	N	Survey of deep SNN compression: pruning, quantization, knowledge distillation, reducing spike firing, time-step pruning; no figures
+R03405	Y	-	C2	SNN	CNN	NS	SIM	NA	CLAIM	OPS+LATENCY	NA	ACT+DST	NA	STRUCT	Y	N	Spiking channel activity-based structured pruning and regrowth during training; claims lower computational load and faster inference; no figures
+R03406	Y	-	C1	HYBRID	NS	EVENT	LOIHI	EDGE_GPU	MEASURED	LATENCY+POWER+ENERGY	PAIRED	NA	NA	NA	NA	Y	Hybrid on Loihi and Jetson Nano beats baseline ANN on accuracy, latency, power, energy and baseline SNN on accuracy, latency
+R03407	Y	-	C2	SNN	TRANSFORMER	NS	GPU	NA	NS	ENERGY+LATENCY	NA	OTHER	NA	STRUCT	Y	N	Timestep-wise anchor token sparsification for Spiking Transformer training: up to 1.53x training speedup and 48% energy reduction at comparable accuracy
+R03409	Y	-	C2	SNN	NS	STATIC_IMG	SIM	NA	ESTIMATED	ENERGY+OPS	NA	NS	NA	MIXED	Y	N	Weight and neuron pruning: 0.63% connections left, 91x energy efficiency vs dense SNN, 8.5M SOPs, 2.19% accuracy loss on CIFAR-10
+R03410	Y	-	C1	ANN+SNN	TRANSFORMER	STATIC_IMG	SIM	SIM	NS	POWER	PAIRED	NA	NA	NA	NA	N	ANN-to-SNN conversion of Transformers: 88.60% top-1, 1% loss, 4 time steps, 35% of original Transformer power
+R03414	Y	-	C1	ANN+SNN	CNN	DET+EVENT	NS	NS	NS	ENERGY+LATENCY+THROUGHPUT	DIFFERENT	NA	NA	NA	NA	U	Trainable Spiking-YOLO competitive with similar ANN and conversion SNN in accuracy, latency, energy; 14-39 FPS on edge device
+R03421	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Tensor-train decomposition for SNN training: 7.98x fewer parameters, 9.25x fewer FLOPs, 28.3% less training energy; not pruning, no ANN baseline
+R03424	Y	-	C1+C4	ANN+SNN	OTHER	CONTROL	SIM	SIM	CLAIM	ENERGY	DIFFERENT	EVO	STRONG	UNSTRUCT	N	Y	Genetic algorithm tunes spiking policy network connections instead of weights; matches mainstream DRL with significantly higher energy efficiency, no figures
+R03425	Y	-	C5+C6	SNN	NS	NS	NS	NA	NONE	POWER	NA	NA	NA	NA	NA	N	Tutorial on spiking neuromorphic architectures and SANA-FE simulator for performance and power prediction; no ANN comparison or figures
+R03427	Y	-	C3	ANN	GNN	OTHER	NA	SIM	NS	LATENCY	NA	DST	NS	NS	N	N	Graph sparse training sparsifies edges dynamically, 1.27-3.42x GNN inference speedup, higher sparsity than prior methods; also aids graph lottery tickets
+R03428	Y	-	C2	SNN	NS	STATIC_IMG	NS	NA	NS	SPIKES+THROUGHPUT+OPS	NA	OTHER	NA	TEMPORAL	Y	N	Spike encoding with sparsity boosting and skipping: 90.3% CIFAR-10 at 4.18% spike ratio, throughput 2.8x, spike generator hardware down 75%
+R03432	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Training-free NAS for SNNs on Loihi; comparable accuracy to SOTA architectures, lower energy per image, smaller model; no ANN baseline
+R03434	Y	-	C1	ANN+SNN	RNN	NLP+AUDIO+OTHER	SIM	SIM	CLAIM	NONE	NS	NA	NA	NA	NA	N	SNNs as efficient alternatives to RNNs and LSTMs on four sequential tasks; hybrid SNN-ANN claimed best of both; no figures
+R03436	Y	-	C1	ANN+SNN	NS	TS	LOIHI	CPU+GPU	MEASURED	ENERGY+POWER	NS	NA	NA	NA	NA	U	Autoencoder anomaly detector on Loihi: about 20,000x and 700x less energy than CPU and GPU; best accuracy among spiking approaches
+R03438	Y	-	C3	ANN	GNN	OTHER	NA	SIM	NONE	NONE	NA	SCORE	NS	MIXED	N	N	Iterative robust sparsification of graph adjacency and GNN weights finds graph lottery tickets resilient to poisoning attacks; no efficiency figures
+R03441	N	E6	-	-	-	-	-	-	-	-	-	-	-	-	-	-	General overview of von Neumann limits, GPUs and neural networks; no ANN-SNN efficiency comparison or pruning content
+R03442	Y	-	C1	ANN+SNN	NS	STATIC_IMG	SIM	SIM	CLAIM	OPS	PAIRED	NA	NA	NA	NA	N	CaStySNN for calligraphy style classification needs significantly less computing power than same-structure ANNs with better accuracy; no figures
+R03450	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	SNN wafer map classifier 98% accuracy, better than DNN-based solutions on performance; efficiency only asserted, no metric
+R03452	Y	-	C2	SNN	RNN	NLP	SIM	NA	CLAIM	OPS	NA	NS	NA	UNSTRUCT	N	N	Weight pruning on event-based RNN language models complements activity sparsity, multiplicative efficiency gains without proportional accuracy loss; no figures
+R03453	Y	-	C3	ANN	CNN+MLP	STATIC_IMG	NA	ASIC	MEASURED	ENERGY+MEMORY	NA	SCORE	STRONG	UNSTRUCT	N	N	Supermask pruning plus quantization on 40 nm engine, 12.24 TFLOPS/W; ResNet-50 at 5.7% memory with 74.7% ImageNet accuracy

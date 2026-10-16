@@ -1,0 +1,41 @@
+FULL-TEXT RETRIEVAL, ELIGIBILITY AND DATA EXTRACTION PROTOCOL
+Systematic review: energy efficiency of ANN vs SNN and lottery-ticket/sparsity methods (2020-2026)
+
+You receive a short list of candidate studies (id, title, year, authors, venue, DOI, abstract-level codes and note). For EACH study: (1) retrieve a legal open full text; (2) assess eligibility for the in-depth synthesis; (3) extract data. Never invent a value: every number you write must appear in the text you read. When a value is not reported, write NR.
+
+1. RETRIEVAL (stop at the first success; at most 4 web tool calls per study, then declare NOT_RETRIEVED)
+ a. If a DOI is given, WebFetch https://doi.org/<DOI> with the extraction prompt below (open-access publishers such as MDPI, Frontiers, Nature, PLOS, IEEE Access, open Springer or Elsevier articles usually work).
+ b. Otherwise, or if (a) fails or shows only an abstract/paywall: WebSearch the exact title (in quotes) plus arXiv. If an arXiv record of the SAME work exists, WebFetch https://arxiv.org/html/<id> (or https://arxiv.org/abs/<id> and then https://arxiv.org/pdf/<id>) with the extraction prompt.
+ c. Open repositories found in search results (PMC, Europe PMC, university repositories, the authors' pages, OpenReview, CVF open access, PMLR, NeurIPS proceedings) are acceptable.
+ Never use Sci-Hub, LibGen or any unauthorised mirror. If a site is declined, move on.
+ Record retrieval = PUBLISHER_OA | ARXIV | REPOSITORY | NOT_RETRIEVED and the URL actually used. Record version = PUBLISHED or PREPRINT.
+ Use ONE comprehensive WebFetch prompt per document asking for all items of sections 2 and 3 with short verbatim quotes and the table, figure or section where each number appears. Use the offset parameter to continue a long page only if the needed tables are not in the first part.
+
+2. ELIGIBILITY FOR THE IN-DEPTH SYNTHESIS (judged on the full text)
+ INCLUDED (paired measured comparison) when ALL hold:
+  P1 the authors themselves evaluate at least one ANN and at least one SNN on the same task or dataset;
+  P2 accuracy or the task metric is reported for both;
+  P3 the energy, power or energy per inference of the SNN is MEASURED on physical hardware (neuromorphic chip, FPGA, ASIC, MCU, or CPU/GPU with power read from a meter, on-board sensor or vendor tool during the run);
+  P4 the efficiency of the ANN is measured on an identified physical platform in the same study.
+ Otherwise EXCLUDED with one reason:
+  FT1 no ANN evaluated by the authors (comparison only with other SNNs or with figures from other papers);
+  FT2 efficiency only estimated analytically (operation counts times energy per operation, simulators, synthesis reports) for the SNN, the ANN or both;
+  FT3 SNN measured on hardware but the ANN efficiency is not measured or its platform is not identified;
+  FT4 no accuracy or task metric for both paradigms;
+  FT5 not an empirical comparison (review, position paper, demonstration without results).
+ Studies whose abstract-level categories include C4 (lottery tickets in SNN) get decision INCLUDE_C4 if the full text confirms a lottery-ticket-family method applied to an SNN, regardless of P3 and P4.
+
+3. EXTRACTION
+ 3a. For INCLUDED studies write one line per ANN-SNN pair (at most 3 pairs per study; choose the main result first). 26 tab-separated fields:
+  id | pair | task_dataset | ann_model | ann_platform | ann_precision | snn_model | snn_platform | snn_precision | neuron_model | snn_training (CONVERSION|SURROGATE|STDP|OTHER|NR) | timesteps_T | coding (RATE|TEMPORAL|DIRECT|DELTA|POPULATION|EVENT_SENSOR|OTHER|NR) | acc_ann | acc_snn | energy_ann (value and unit per inference) | energy_snn | latency_ann | latency_snn | energy_type_ann (DYNAMIC|TOTAL|NR) | energy_type_snn (DYNAMIC|TOTAL|NR) | measurement (how power or energy was obtained, at most 12 words) | batch_size | firing_activity (spike rate, spikes per inference or SOPs if reported) | quotes (at most 3 short verbatim quotes with table/figure/section, separated by " || ") | notes (at most 20 words)
+ 3b. For INCLUDE_C4 studies write one line with 12 tab-separated fields:
+  id | method | lth_variant (WEAK|STRONG|BOTH|OTHER) | search_algorithm (IMP|SCORE|EVO|OTHER) | datasets | sparsity_reached | acc_dense | acc_ticket | cost_reported (what energy, SOPs, firing or hardware figures are reported, or NONE) | hardware | quotes (at most 3, separated by " || ") | notes
+ 3c. For EVERY study write one assessment line with 8 tab-separated fields:
+  id | retrieval | url | version | decision (INCLUDED|INCLUDE_C4|EXCLUDED|NOT_RETRIEVED) | reason (FT1..FT5 or -) | precision_note (numeric precision of each platform if stated, else NR) | justification (at most 25 words)
+
+4. OUTPUT
+ Write three files with the Write tool (no header lines, tab-separated, no tabs inside fields):
+  <batch>_eval.tsv  (one line per study, all studies)
+  <batch>_pares.tsv (pairs of INCLUDED studies; write an empty file if none)
+  <batch>_c4.tsv    (INCLUDE_C4 studies; write an empty file if none)
+ Write the files after finishing all studies of the batch. Reply only with the counts per decision and the ids NOT_RETRIEVED.

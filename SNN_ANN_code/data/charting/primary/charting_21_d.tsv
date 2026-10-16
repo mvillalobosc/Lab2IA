@@ -1,0 +1,25 @@
+R06219	Y	-	C3	ANN	NS	STATIC_IMG	NA	SIM	NONE	NONE	NA	OTHER	NS	UNSTRUCT	N	N	Thermodynamic temperature pruning: 76.50% accuracy at 92.85% weight retention versus 67.75% baseline; LTH only as keyword
+R06221	Y	-	C1	ANN+SNN	OTHER	OTHER+EVENT	SIM	SIM	CLAIM	ENERGY	PAIRED	NA	NA	NA	NA	N	SNN VQ-VAE with temporal codebook: best SNN generation quality; energy lower than ANN counterparts claimed, no figures
+R06235	Y	-	C1+C2	ANN+SNN	NS	CONTROL	SIM	SIM	CLAIM	POWER+SPIKES	DIFFERENT	EVO	NA	NS	Y	N	Self-evolving SNN agents give significantly higher IPW than fixed SNNs and deep RL baselines on event-based control; no figures
+R06240	Y	-	C2	SNN	CNN	STATIC_IMG+EVENT	SIM	NA	CLAIM	MEMORY+OPS	NA	SCORE	NA	TEMPORAL	Y	N	SEWResNet-34 on ImageNet: +2.69% accuracy and 4.16x lower bit budget than baseline; learnable layer-wise bit widths and temporal lengths
+R06241	N	E1	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Perspective arguing for six neuromorphic principles incl. dynamic sparsity; position piece with no experiments
+R06242	Y	-	C1	ANN+SNN	CNN	OTHER	SIM	SIM	ESTIMATED	ENERGY	PAIRED	NA	NA	NA	NA	N	SpikeRx matches ANN neural receivers with up to 8x better energy efficiency under operation-level energy model
+R06243	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	FasterSNN for Alzheimer MRI: competitive performance and enhanced efficiency claimed, no comparator or figures
+R06246	Y	-	C3	ANN	NS	NS	NA	SIM	NONE	NONE	NA	EVO	STRONG	NS	N	N	GA search finds strong lottery tickets with better accuracy and sparsity than state of the art, no gradient information
+R06248	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Training-free ANN-to-SNN conversion, 85.52% ImageNet-1K top-1; no energy or operation comparison in abstract
+R06250	Y	-	C2	SNN	NS	STATIC_IMG+EVENT	SIM	NA	CLAIM	SPIKES	NA	EVO	NA	NS	Y	N	NSGA-II training-free NAS optimizing accuracy and spike efficiency; better or comparable to existing SNN models, no figures
+R06251	Y	-	C2	ANN+SNN	MLP	STATIC_IMG	SIM	SIM	NONE	NONE	NA	NS	NA	NS	N	N	Neurons embedded in Euclidean space, weights from inverse distance; MLP and SNN on MNIST keep performance above 80% pruning
+R06252	Y	-	C1	HYBRID	TRANSFORMER+CNN	OTHER	SIM	SIM	CLAIM	OPS	DIFFERENT	NA	NA	NA	NA	N	ViT embeddings with LIF similarity module; reduced computational cost versus CNN-based retrieval claimed, no figures
+R06256	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	ANN-to-SNN conversion for audio: 0.94 vs 0.96 accuracy, 11x shorter training than SNN from scratch; no inference efficiency comparison
+R06257	Y	-	C2	SNN	CNN+MLP	STATIC_IMG	FPGA	NA	NS	ENERGY	NA	OTHER	NA	UNSTRUCT	Y	N	TSA-P FPGA SNN processor with unstructured pruning: 1.70x to 342.76x energy efficiency over SNN processors on CIFAR10
+R06262	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Twin SNN co-training improves accuracy and allows ternary weights; no efficiency comparison with ANNs
+R06265	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	SNN dynamic ECG-first cascade: 90.75% accuracy, energy 4.62 (unit garbled); no ANN comparison, no sparsification
+R06268	Y	-	C1	ANN+SNN	MLP+CNN	AUDIO	XYLO	CPU	MEASURED	POWER	DIFFERENT	NA	NA	NA	NA	Y	Xylo SNN: 0.93 macro F1 at 3.4 mW, about 1000x less than 1D CNN on Raspberry Pi 4
+R06269	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	CNN converted to 4-bit SNN on AKD1000: 99.02% accuracy, 2.04 uJ, 1.66 ms per inference; no ANN efficiency baseline
+R06278	Y	-	C1	ANN+SNN	NS	AUDIO	SIM	SIM	NS	POWER	DIFFERENT	NA	NA	NA	NA	N	Dual-branch ILIF-SNN cuts power about 98.17% versus single-branch ANN at 99.04% accuracy; comparable accuracy in sea trials
+R06279	Y	-	C2	ANN+SNN	NS	STATIC_IMG+DET	SIM	SIM	NONE	MEMORY	NA	EVO	NA	MIXED	NS	N	UDAS SNN 96.94% vs ANN 96.63%, 8x less storage (1.69 vs 13.89 MB); searches channels, bits, time steps
+R06281	N	E2	-	-	-	-	-	-	-	-	-	-	-	-	-	-	SNN on-chip learning accelerator, 28 nm: 23.0 TFLOPS/W inference, 3.78x training energy gain over prior SOTA; no ANN comparison
+R06286	N	E7	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Neuromorphic state space model with structured sparsity and quantization; abstract never mentions spikes, treated as non-spiking
+R06293	Y	-	C3	ANN	NS	DET	NA	SIM	NONE	NONE	NA	NS	NS	NS	N	N	Gradual pruning via modified LTH in federated skin lesion segmentation; DSC 90.09%; gradual pruning to 40% beats fixed pruning
+R06294	Y	-	C1	HYBRID	NS	STATIC_IMG	MEMRISTOR	GPU	NS	LATENCY+ENERGY	DIFFERENT	NA	NA	NA	NA	U	ViP-HMNN vs RTX 3090: at least 1000x lower latency and 500x energy saving; vs IMC 1.83x latency, 1.87x energy
+R06296	Y	-	C1	ANN+SNN	TRANSFORMER	DET	SIM	SIM	ESTIMATED	ENERGY+OPS+LATENCY	PAIRED	NA	NA	NA	NA	N	Training-free unfolding keeps KITTI 3D AP of source detector; normalized SOP-based energy proxy about 0.17 and lower analytic latency

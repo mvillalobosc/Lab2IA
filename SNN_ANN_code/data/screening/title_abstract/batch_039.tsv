@@ -1,0 +1,100 @@
+R03801	INCLUDE	C1	none	SNN versions cut energy over tenfold versus ANN beamforming
+R03802	INCLUDE	C1	simulation	SNN mapping: 60% lower latency, 70% less power versus ANN
+R03803	EXCLUDE	E5	none	Event-based NAS over ANN macroblocks; no SNN
+R03804	EXCLUDE	E5	GPU,memristor/in-memory,ASIC	Editor's note on AI hardware codesign; no SNN comparison
+R03805	INCLUDE	C2	none	KD compresses SNN structure and time steps; hyperspectral classification
+R03806	EXCLUDE	E4	none	Hybrid SNN-ANN deblurring; accuracy only, no efficiency metrics
+R03807	EXCLUDE	E4	none	SNN training speedup; no ANN comparison
+R03808	EXCLUDE	E4	none	SNN reinforcement learning for DBS; no ANN efficiency comparison
+R03809	EXCLUDE	E2	memristor/in-memory	Hafnium memristor device for encryption; device-level
+R03810	EXCLUDE	E2	ASIC	CMOS LIF neuron circuit; no network-level evaluation
+R03811	EXCLUDE	E2	memristor/in-memory,photonic	Photoelectric memristor synapse device; no network comparison
+R03812	EXCLUDE	E2	photonic	Photonic synapse photodetector device; facial recognition simulation only
+R03813	INCLUDE	C3	none	Cyclic overlapping lottery tickets for CNN pruning
+R03814	UNSURE	C1	none	Spiking transformer; abstract truncated, ANN energy comparison unclear
+R03815	INCLUDE	C1	FPGA	ANN vs SNN road sign detection; accuracy and energy on FPGA
+R03816	EXCLUDE	E6	none	SMS spam classification with SVM and NB; off-topic
+R03817	INCLUDE	C1	none	SNN vs CNN intrusion detection; up to 5x less energy
+R03818	INCLUDE	C5	FPGA,GPU,ASIC,memristor/in-memory	Review of CNN and SNN memory optimization and pruning on accelerators
+R03819	INCLUDE	C3	none	WGAN generator pruned via lottery ticket hypothesis
+R03820	INCLUDE	C2	none	Accelerator for unstructured-pruned spiking CNNs; memory and efficiency gains
+R03821	EXCLUDE	E2	memristor/in-memory	RRAM conductance variability device study; ANN accuracy impact only
+R03822	EXCLUDE	E2	memristor/in-memory	Memristor artificial synapse material device
+R03823	EXCLUDE	E4	none	STDP learning rule for SNN; no efficiency comparison
+R03824	EXCLUDE	E2	photonic	Quantum-dot synaptic transistor device with CNN-GRU demonstration
+R03825	EXCLUDE	E5	CPU,ASIC	Generic AI microprocessor co-design; neuromorphic cores mentioned loosely
+R03826	INCLUDE	C1	none	ANN-to-SNN conversion for EEG; lightweight network, fewer parameters
+R03827	UNSURE	C2	none	Activation sparsity for event vision; unclear if spiking
+R03828	EXCLUDE	E4	none	Spiking familiarity memory model with STDP; accuracy-only LSTM comparison
+R03829	INCLUDE	C3	none	Winning subnetworks (LTH) for continual video learning
+R03830	EXCLUDE	E4	none	Columnar SNN continual learning; no ANN efficiency comparison
+R03831	INCLUDE	C5	none	Survey of neuromorphic continual learning versus DNN-based cost and energy
+R03832	EXCLUDE	E4	none	Spiking encoder on analog hardware; no ANN baseline
+R03833	EXCLUDE	E6	none	Hyperspectral unmixing review; off-topic
+R03834	INCLUDE	C1	none	ANN-SNN conversion with residual error modelling; ultralow latency
+R03835	UNSURE	C1	none	CNN and SNN fault diagnosis; efficiency measurement unclear
+R03836	EXCLUDE	E4	none	Convolutional SNN for fraud; compared with GBDT, no efficiency
+R03837	EXCLUDE	E3	none	Cortical coding model with synapse savings; neuroscience
+R03838	EXCLUDE	E6	none	Financial risk prediction; SNN only a keyword
+R03839	INCLUDE	C1	none	SNN recommender: 59% less energy than baselines
+R03840	EXCLUDE	E4	none	Theoretical receptive fields for SNNs; no efficiency comparison
+R03841	INCLUDE	C1	none	Hybrid CNN-SNN: 28% fewer FLOPs, 27% lower latency
+R03842	EXCLUDE	E4	none	SNN architecture versus vanilla SNN only; no ANN baseline
+R03843	EXCLUDE	E4	none	Energy compared only with SNN methods; no ANN baseline
+R03844	EXCLUDE	E4	none	ANN to SNN distillation; accuracy only
+R03845	EXCLUDE	E5	none	Event camera and CNN-Transformer fusion; no SNN
+R03846	INCLUDE	C1	none	ANN-to-SNN distillation; SNN energy reduction reported, baseline unclear
+R03847	UNSURE	C1	FPGA	Accelerator supports SNN and ANN on FPGA; comparison not stated
+R03848	EXCLUDE	E2	memristor/in-memory	Cryogenic RRAM device endurance
+R03849	INCLUDE	C1	none	ANN-SNN conversion at one time step
+R03850	EXCLUDE	E4	none	SNN accuracy beats CNNs on leaf disease; no efficiency
+R03851	INCLUDE	C3	none	Iterative lottery ticket pruning of neural network arrays
+R03852	EXCLUDE	E4	none	SNN dataset assembly; no ANN efficiency comparison
+R03853	INCLUDE	C1+C2	none	Compressed SNN: far lower latency, power, memory than CNN
+R03854	INCLUDE	C1	none	Spike-driven transformer for RL; 78% energy savings versus ANN
+R03855	INCLUDE	C1	none	Spiking transformer EEG; under 10% energy of DNNs
+R03856	EXCLUDE	E4	none	SNN weight initialization theory; no efficiency comparison
+R03857	EXCLUDE	E5	none	Deep learning EEG review; neuromorphic only as emerging trend
+R03858	EXCLUDE	E6	none	LSTM deceit detection; SNN only a benchmark comparator
+R03859	EXCLUDE	E5	FPGA,ASIC	VLSI embedded deep learning overview; no SNN
+R03860	EXCLUDE	E4	none	Convolutional SNN movie recommender; accuracy only
+R03861	EXCLUDE	E2	photonic	Photonic reservoir computing hardware; no spikes or pruning
+R03862	INCLUDE	C1	none	SNN versus CNN SAR ship detection power analysis
+R03863	UNSURE	C1	none	Energy-efficient event ReID SNN; abstract truncated, ANN comparison unclear
+R03864	INCLUDE	C1	none	ANN-SNN conversion plus STBP fusion; low latency
+R03865	EXCLUDE	E4	none	SNN transfer learning for fault diagnosis; no efficiency
+R03866	EXCLUDE	E4	none	SNN gradient optimization; no efficiency comparison
+R03867	EXCLUDE	E2	photonic	Optoelectronic synapse device; MNIST simulation only
+R03868	EXCLUDE	E4	none	Spiking graph network with delays; no efficiency comparison
+R03869	EXCLUDE	E4	BrainScaleS	Delay training on BrainScaleS-2; no ANN baseline
+R03870	EXCLUDE	E2	memristor/in-memory	FeFET dendritic neuron device; co-simulation, no SNN comparison
+R03871	EXCLUDE	E2	memristor/in-memory	DNA brick memristor synapse device
+R03872	EXCLUDE	E6	ASIC	ASIC image compression review; off-topic
+R03873	EXCLUDE	E4	none	SNN scheduling on neuromorphic SoC; no ANN baseline
+R03874	UNSURE	C1	none	Multi-model cancer diagnosis; QiSNN 45% computation reduction, baseline unclear
+R03875	EXCLUDE	E2	memristor/in-memory	Memristor synaptic circuit for CNN; circuit-level, MNIST simulation
+R03876	EXCLUDE	E4	simulation	SNN accelerator via simulation; no ANN comparison stated
+R03877	EXCLUDE	E4	FPGA	Stochastic and binarized SNN on FPGA; no ANN baseline
+R03878	EXCLUDE	E4	FPGA	FPGA SNN design-space exploration; no ANN baseline stated
+R03879	INCLUDE	C1	GPU	Spiking transformer depth estimation on Jetson; 4.2x less energy
+R03880	EXCLUDE	E6	none	Sign language recognition with YOLO; off-topic
+R03881	INCLUDE	C1+C6	GPU	Benchmark of neuromorphic hardware for detection; energy and latency versus GPU
+R03882	EXCLUDE	E2	ASIC	Superconducting neuromorphic circuit; no network-level comparison
+R03883	INCLUDE	C2	none	Adaptive pruning for deep SNNs and ANNs
+R03884	INCLUDE	C1	none	ANN-to-SNN conversion with fewer spikes and lower energy
+R03885	EXCLUDE	E4	none	Differential privacy in SNNs; no efficiency comparison
+R03886	EXCLUDE	E4	none	Differentially private spiking VAE; no efficiency comparison
+R03887	EXCLUDE	E3	none	Cortical disinhibition spiking model; neuroscience
+R03888	EXCLUDE	E3	none	Review of neuronal cultures; neuroscience
+R03889	EXCLUDE	E5	none	Event-based depth distillation; no SNN
+R03890	EXCLUDE	E4	none	ANN-to-SNN distillation for gestures; accuracy only
+R03891	EXCLUDE	E4	none	Uncertainty quantification for spiking neural operators; no efficiency comparison
+R03892	EXCLUDE	E2	memristor/in-memory	Analog in-memory training devices; IGZO synapse
+R03893	EXCLUDE	E4	none	SNN fault diagnosis with event cameras; no ANN efficiency
+R03894	EXCLUDE	E2	memristor/in-memory	TaOx memristor device doping
+R03895	EXCLUDE	E6	none	Event-camera drone detection survey; not efficiency focused
+R03896	INCLUDE	C1	none	ANN-SNN conversion for spiking transformer; ultra-low latency
+R03897	INCLUDE	C1	none	DSC-SNN versus CNN; 80% lower convolution cost
+R03898	UNSURE	C1	none	Spiking Q-network with conversion; energy measurement unclear
+R03899	EXCLUDE	E4	none	Attention for SNNs; accuracy only
+R03900	EXCLUDE	E4	none	Hybrid spiking crack detection; accuracy only

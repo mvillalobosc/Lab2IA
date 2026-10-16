@@ -1,0 +1,2 @@
+record_id	retrieval	url	version	decision	reason	precision_note	justification
+R00069	ARXIV	https://arxiv.org/pdf/1812.01739	PREPRINT	INCLUDED	-	NR (numeric precision not stated for Loihi, CPU, GPU, Jetson TX1 or Movidius)	Same 2x256 keyword spotter run as ANN on CPU, GPU, TX1, Movidius and as SNN on Loihi; accuracy for both; power measured on all devices.

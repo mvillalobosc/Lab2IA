@@ -1,0 +1,25 @@
+R03040	Y	-	C1	ANN+SNN	CNN	DET+EVENT	NS	NS	NS	ENERGY+POWER+MEMORY	DIFFERENT	NA	NA	NA	NA	N	Fully spiking segmentation network matches UNet accuracy with up to 31x fewer parameters and over 13x lower power consumption.
+R03044	Y	-	C1	ANN+SNN	CNN	AUDIO+OTHER	NS	NS	NS	ENERGY	PAIRED	NA	NA	NA	NA	N	Multimodal identity recognition SNN: 98.94% accuracy; energy about 1/10 of CNN with the same architecture.
+R03045	Y	-	C1	ANN+SNN	CNN	BIOSIG	NS	NS	NS	MEMORY+OPS	DIFFERENT	NA	NA	NA	NA	N	Multiplier-less SNN decodes rat nerve signals: Macro F1 0.89 over various CNNs with 99.8% fewer parameters; no energy figures.
+R03048	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	CSNN on Loihi 2: EDP 20,721x better than non-edge GPU, 541x than edge GPU; baseline not stated as ANN.
+R03049	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Dendritic online-learning neuromorphic architecture; claims lower power and better than GPU platform; no ANN comparison or figures.
+R03051	Y	-	C2	SNN	CNN	NS	CPU	NA	NS	LATENCY	NA	OTHER	NA	NS	Y	N	RISC-V sparse-dense streaming extension for convolutional SNNs: 4.33-10.23x speedup over dense baseline, 1.12-2.66x over optimised dense.
+R03054	Y	-	C2	SNN	NS	EVENT+AUDIO	SIM	NA	NS	ENERGY	NA	EVO	NA	STRUCT	N	N	Evolutionary neuron pruning guided by neuronal dynamics cuts inference energy up to 97.5% with minimal accuracy loss in SNNs.
+R03055	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Spiking transformer for fault diagnosis: 93.14% accuracy at 0.65 mJ; baseline energy not reported in abstract.
+R03056	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	FPGA SNN: 10 ns latency, 91% signal efficiency like a CNN with half the parameters; no ANN latency or energy.
+R03061	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Hybrid LIF-RNN plus LSTM for solar irradiance forecasting; lower errors than literature benchmarks; computational savings claimed, not quantified.
+R03074	Y	-	C1	ANN+SNN	TRANSFORMER	OTHER	SIM	SIM	ESTIMATED	ENERGY+POWER	PAIRED	NA	NA	NA	NA	N	Spiking transformer with stochastic-computing attention preserves accuracy with 5.4x to 26.8x lower power than ANN, by energy estimation.
+R03076	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	SNN keyword spotting straight from PDM microphones: 91.54% on Google Speech Commands; low energy inferred from sparsity; no ANN comparison.
+R03077	Y	-	C1+C2	ANN+SNN	RNN	EVENT	SIM	SIM	ESTIMATED	OPS+SPIKES	PAIRED	NS	NA	NS	Y	N	Signed spiking GRU matches its ANN equivalent; optimising spike sparsity cuts operations up to 22x versus the ANN.
+R03087	Y	-	C2	ANN+SNN	NS	TS	ASIC	NS	MEASURED	ENERGY	NA	OTHER	NA	NS	Y	N	28-nm SNN processor for sparse weights: 7.22 TSOP/W at 8-bit; competitive accuracy, more robust than CNN; no CNN efficiency.
+R03088	Y	-	C1	ANN+SNN	NS	OTHER	SIM	SIM	CLAIM	ENERGY+LATENCY	DIFFERENT	NA	NA	NA	NA	N	SNN-based RIS control gets rate close to ANN-based RIS with significantly lower energy; no figures.
+R03089	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Variable spiking wavelet operator for PDEs; compared with LIF and ANN versions on accuracy; sparse communication claimed, no efficiency figures.
+R03093	Y	-	C3	ANN	NS	NS	NA	NS	NONE	NONE	NA	THEORY	WEAK	UNSTRUCT	N	N	Information-theoretic argument that pruning at initialization is infeasible; lottery tickets exist but cannot be found without training the dense network.
+R03096	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	ANN-to-ternary-SNN conversion with nonpolar neurons; nearly lossless accuracy versus ANN; computational efficiency claimed without figures.
+R03097	Y	-	C3	ANN	CNN+MLP	TS+BIOSIG	NA	EDGE_GPU	MEASURED	LATENCY	NA	NS	NS	NS	NS	N	Fall-detection ensemble with CNN and MLP pruned by a modified LTH on Snapdragon 820c; 98.2% accuracy; latency analysed, no figures.
+R03100	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Lossless CRNN-to-SNN conversion for sequence learning; accuracy 99.16% S-MNIST, 94.95% PS-MNIST; only time steps as efficiency figure.
+R03105	Y	-	C2	SNN	NS	EVENT	NS	NA	NONE	ENERGY+LATENCY+MEMORY	NA	NS	NA	MIXED	Y	N	Metric-driven co-optimisation of temporal and spatial sparsity in SNNs on DVS128 Gesture for application-specific memory, energy and latency; no figures.
+R03106	Y	-	C2	SNN	NS	AUDIO+STATIC_IMG	SIM	NA	NS	SPIKES	NA	REG+OTHER	NA	NS	Y	N	KD and activation/logits regularisation cut SNN spiking activity by 26.73% on GSC and 14.32% on CIFAR-10 with preserved accuracy.
+R03109	Y	-	C3	ANN	MLP+OTHER	NS	NA	NS	NONE	NONE	NA	THEORY	STRONG	NS	N	N	First SLTH proof with subnetwork sparsity guarantees for dense and equivariant networks, via a tight fixed-size subset sum bound.
+R03112	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Conversion of rate-coded CNN SNNs to one timestep; 81.92% ImageNet accuracy; time steps are the only efficiency figure.
+R03116	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	ANN-SNN conversion with group neurons; near-ANN accuracy in very few time steps on CIFAR and ImageNet; time steps only.

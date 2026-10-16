@@ -1,0 +1,25 @@
+R02166	N	E7	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Unstructured pruning with FeatIO score and layer-wise sparsity ratio; general ANN pruning, lottery ticket hypothesis only as background
+R02168	Y	-	C3	ANN	CNN	NS	NA	NS	NONE	NONE	NA	THEORY	STRONG	STRUCT	N	N	First sub-exponential bound for structured strong lottery tickets in random CNNs; theory, no efficiency data
+R02170	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	SNN replaces FFT preprocessing for radar gestures, 98.7% on 8 gestures; lower power claimed versus conventional approaches, no ANN stated
+R02173	N	E6	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Predictive temporal attention throttles DVS output: 46.7% less communication, 43.8% less computation; spiking network not stated
+R02176	Y	-	C2	SNN	NS	STATIC_IMG	SIM	NA	NONE	NONE	NA	REG	NA	UNSTRUCT	N	N	EP-based Bayesian training of probabilistic spiking networks with sparsity-promoting priors on image classification; no efficiency data
+R02177	Y	-	C3	ANN	NS	NLP	NA	NS	CLAIM	NONE	NA	SCORE	OTHER	NS	N	N	Lottery Prompt Tuning learns binary-masked pruned prompts on frozen PLM for lifelong information extraction; state-of-the-art claimed, no efficiency figures
+R02179	N	E6	-	-	-	-	-	-	-	-	-	-	-	-	-	-	General theory of two-layer networks via gradient feature learning; lottery ticket hypothesis only a passing implication
+R02180	N	E7	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Adaptive pruning guided by PQ Index; general ANN pruning, lottery ticket methods only as baselines
+R02184	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	SNN quantization, 40x memory reduction and 4x sparser synaptic operations versus 32-bit float SNN; quantization only, no ANN comparison
+R02185	Y	-	C3	ANN	NS	NS	NA	NS	NONE	NONE	NA	MAG	WEAK	UNSTRUCT	N	N	IMP converges to similar-size networks across starting sizes; pruned models better calibrated, less overconfident; no cost data
+R02187	Y	-	C2	ANN+SNN	MLP+RNN	NS	SIM	NS	NONE	NONE	NA	DST	NA	UNSTRUCT	Y	N	Q-rewiring trains spiking and non-spiking nets under DYNAP-SE-style fan-in and weight precision limits; trade-off between connections and performance
+R02189	Y	-	C3	ANN	MLP	NS	NA	NS	NONE	NONE	NA	OTHER+THEORY	WEAK	NS	N	N	Quantum ridgelet transform finds sparse trainable subnetworks of shallow wide networks in linear runtime; theory, no efficiency data
+R02191	N	E6	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Self-distillation from random teachers; lottery tickets in the student checkpoint are a side observation
+R02193	Y	-	C2	SNN	NS	EVENT	SIM	NA	NONE	NONE	NA	SCORE	NA	TEMPORAL	N	N	Razor SNN prunes redundant event frames via learned temporal-embedding mask; competitive accuracy on four event benchmarks; no efficiency figures
+R02195	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	SDNN on Loihi 2 learns drone flight from pilot data; GPU energy drawback cited from prior work, no efficiency figures
+R02196	Y	-	C3	ANN	CNN	NS	NA	MEMRISTOR	NS	LATENCY	NA	OTHER	WEAK	NS	Y	N	Crossbar-aware lottery ticket pruning prunes over 90% of CNN weights; 77.2% fewer hardware resources, about 20x faster training on ReRAM
+R02197	Y	-	C1	ANN+SNN	CNN	STATIC_IMG	LOIHI	CPU+NPU+EDGE_GPU+TPU	MEASURED	POWER+ENERGY+LATENCY	DIFFERENT	NA	NA	NA	NA	Y	FER on Loihi vs four edge accelerators: about 100x less power, 10x less energy than Coral TPU, comparable accuracy
+R02205	Y	-	C3	ANN	CNN+RNN	STATIC_IMG	NA	NS	NS	MEMORY	NA	NS	STRONG	UNSTRUCT	N	N	Random recurrent subnetworks beat feedforward and learned full models; ResNet-50 compressed to 48.55x less memory, under 2 MB
+R02206	Y	-	C1	ANN+SNN	NS	CONTROL	OTHER_NEURO	NS	NS	POWER+MEMORY	DIFFERENT	NA	NA	NA	NA	U	DNN-to-SNN distillation for RL: faster convergence, fewer parameters than DNN, lower power on a neuromorphic chip; no figures
+R02208	Y	-	C2	SNN	NS	BIOSIG	FPGA	NA	NS	LATENCY	NA	ACT	NA	UNSTRUCT	N	N	Online STDP-guided synapse pruning for sparse SNN on small FPGA: 22 us replacement latency, 2.5x fewer resources at 80% sparsity
+R02211	N	E6	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Survey of spiking reinforcement learning algorithms (three-factor rules, ANN-assisted, direct); not focused on efficiency comparison
+R02213	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Reservoir spiking models for time series; 40x fewer neurons than spiking baseline; Loihi vs CPU energy, no ANN comparison
+R02215	Y	-	C2	SNN	NS	NS	SIM	NA	NONE	NONE	NA	OTHER	NA	UNSTRUCT	Y	N	Minimax optimization for sparse SNN compression, joint compression and finetuning; claims state-of-the-art, no efficiency figures
+R02216	Y	-	C3	ANN	GNN	NS	NA	NS	NONE	NONE	NA	SCORE	WEAK	UNSTRUCT	N	N	Graph lottery tickets: auxiliary-loss edge pruning plus min-max robustness at high graph sparsity; transferable GLT hypothesis verified; no cost data
+R02219	Y	-	C5	SNN	NS	NS	NS	NA	CLAIM	POWER	NA	NA	NA	NA	NA	N	Review of recent SNN hardware implementations; low power asserted from sparse binary asynchronous operation, no figures

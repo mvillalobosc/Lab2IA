@@ -1,0 +1,100 @@
+R05301	EXCLUDE	E2	memristor/in-memory	Perovskite memristor device; ANN simulation only, no SNN comparison
+R05302	EXCLUDE	E2	none	Photodetector device; CNN recognition only
+R05303	EXCLUDE	E5	none	Federated 3D CNN on event cameras; no SNN
+R05304	EXCLUDE	E5	none	Edge machine vision review; general model compression, no SNN
+R05305	EXCLUDE	E2	memristor/in-memory	MoS2 optoelectronic synapse device; ANN simulation accuracy only
+R05306	EXCLUDE	E4	none	SNN EEG epilepsy; accuracy-only comparison with ANNs
+R05307	INCLUDE	C1	none	Hybrid ANN-SNN speech enhancement; energy and complexity versus ANN methods
+R05308	UNSURE	C1	none	SNN ECG denoising; energy keyword, ANN baseline comparison unclear
+R05309	EXCLUDE	E6	none	Event data compression coding; no SNN efficiency content
+R05310	EXCLUDE	E6	none	CNN bone tumor radiograph classification
+R05311	EXCLUDE	E5	CPU	Watson chip claim; DNN inference versus CPU, no SNN
+R05312	EXCLUDE	E4	FPGA	Deep SNN FPGA architecture; compared only with serial SNN implementations
+R05313	EXCLUDE	E4	none	SNN gait recognition; no ANN efficiency comparison shown
+R05314	EXCLUDE	E2	memristor/in-memory	Perovskite memristor device; CNN MNIST accuracy only
+R05315	EXCLUDE	E2	memristor/in-memory	Diamond synaptic transistor; SNN accuracy only
+R05316	EXCLUDE	E2	memristor/in-memory	BeZnO optoelectronic synapse; VGG-8 accuracy only
+R05317	EXCLUDE	E2	memristor/in-memory	Perovskite optoelectronic memristor; CNN accuracy only
+R05318	EXCLUDE	E4	none	SNN seizure accelerator; ANN energy only as motivation
+R05319	EXCLUDE	E5	none	Dendritic ANN communication cost; no SNN or lottery content
+R05320	EXCLUDE	E7	none	Random edge pruning of MLPs, percolation; not lottery ticket
+R05321	EXCLUDE	E4	none	CNN and SNN for vibration analysis; no efficiency comparison
+R05322	INCLUDE	C2	ASIC	TTFS-SNN chip suppresses spike activity up to 60%
+R05323	EXCLUDE	E2	photonic	Plasmonic phase-change memory design; no learning task
+R05324	EXCLUDE	E4	none	SNN is one component of 5G security framework
+R05325	EXCLUDE	E2	ASIC	Approximate FP arithmetic circuits; no ANN-SNN comparison
+R05326	EXCLUDE	E2	simulation	CMOS LIF neuron device; TCAD simulation only
+R05327	EXCLUDE	E5	simulation	Oscillatory network with genetic templates; no spikes
+R05328	EXCLUDE	E2	ASIC	180 nm SNN circuit for digits; no ANN comparison
+R05329	EXCLUDE	E4	none	SNN motif detection with synaptic delays; no ANN baseline
+R05330	INCLUDE	C1	none	SNN versus RNN and LSTM radar detection, theoretical energy comparison
+R05331	EXCLUDE	E2	memristor/in-memory	2D memristor 1T-1M arrays; device-aware simulation accuracy only
+R05332	EXCLUDE	E4	none	Spiking-inspired sensor fusion network; no efficiency comparison
+R05333	INCLUDE	C1	none	Spiking sensing model; power cut 35-40% versus ML/DL
+R05334	EXCLUDE	E2	memristor/in-memory	Memristor reservoir computing review; device-level, non-spiking
+R05335	EXCLUDE	E2	memristor/in-memory	Memristor CSNN device-system design; gesture accuracy only
+R05336	EXCLUDE	E4	none	Spiking remote sensing detector; energy only as motivation in visible text
+R05337	EXCLUDE	E6	none	Fluid physics; neuromorphic only mentioned incidentally
+R05338	EXCLUDE	E4	none	Recurrent SNN credit assignment learning rule; no ANN efficiency comparison
+R05339	INCLUDE	C3	none	Lottery-ticket-inspired pruning before training of RBMs
+R05340	UNSURE	C1	none	Energy-efficient SNN geo-localization; ANN energy comparison not visible
+R05341	INCLUDE	C1	none	FPNN-to-SNN conversion in RL for neurochip robots
+R05342	EXCLUDE	E2	none	Ga2O3 phototransistor device; CNN recognition only
+R05343	EXCLUDE	E2	memristor/in-memory	Single-atom Pt carbon nitride synapse; materials work
+R05344	EXCLUDE	E2	none	Heterojunction photodetector synapse; simulated CNN accuracy only
+R05345	EXCLUDE	E2	memristor/in-memory	OECT synaptic device; CNN simulation, no ANN-SNN comparison
+R05346	INCLUDE	C1	ASIC	28nm SNN-ANN processor, pJ/SOP and pJ/FLOP energy
+R05347	EXCLUDE	E4	none	Spiking state space model; efficiency only as motivation
+R05348	UNSURE	C1	none	Spiking anomaly detection, 40% lower complexity; baseline type unclear
+R05349	INCLUDE	C1+C2	none	ANN-to-SNN token masking; up to 44x energy reduction
+R05350	EXCLUDE	E4	none	SNN training with stochastic latency; no ANN comparison
+R05351	EXCLUDE	E4	none	Dynamical principle for continuous-time/spiking networks; no ANN efficiency comparison
+R05352	EXCLUDE	E5	none	Asymmetric recurrent ANN learning; no SNN or lottery content
+R05353	INCLUDE	C1+C2	ASIC	Hybrid SNN/ANN accelerator, sparsity-aware, timestep pruning, TOPS/W and TSOPS/W
+R05354	EXCLUDE	E4	none	Spiking dynamic graph network; efficiency claim vague, no ANN comparison
+R05355	INCLUDE	C1	none	Event eye tracking SNN with ANN teacher; 0.049 mJ power
+R05356	INCLUDE	C1	ASIC	CNN/SNN accelerator; pJ/OP versus pJ/SOP, CNN-SNN conversion
+R05357	EXCLUDE	E4	none	Spiking emotion recognition; compared only with SNN methods
+R05358	UNSURE	C1	none	Spiking transformer versus CNN/Transformer baselines; efficiency metric truncated
+R05359	INCLUDE	C1	GPU,simulation	Hybrid ANN/SNN ISA; 3.87-53.61x energy efficiency versus edge GPU
+R05360	INCLUDE	C1+C6	none	PilotNet CNN versus SNN energy and CO2 measurement methodology
+R05361	INCLUDE	C1	none	Hybrid ANN-SNN siren detection; latency and energy reductions claimed
+R05362	EXCLUDE	E4	none	SNN is one module in large edge architecture
+R05363	UNSURE	C1	MCU	LIF hybrid with Cortex-M7 energy; ANN baseline unclear
+R05364	EXCLUDE	E5	none	Edge-cloud survey; general model optimization, no SNN
+R05365	EXCLUDE	E4	ASIC	Spiking transformer softmax chip; no ANN comparison
+R05366	EXCLUDE	E5	none	Wearable respiratory system; neuromorphic used loosely, no SNN
+R05367	EXCLUDE	E6	none	EEG driver monitoring survey; neuromorphic only as future mention
+R05368	EXCLUDE	E2	memristor/in-memory	CuI memristor stability; device-level only
+R05369	INCLUDE	C1	none	SNN brain decoding beats ANNs; 14.78-43.86x energy savings
+R05370	EXCLUDE	E4	none	Spiking control via free energy; only compared to spiking frameworks
+R05371	INCLUDE	C1	none	SpikeATE energy analysis versus BERT-based models
+R05372	INCLUDE	C1	none	Deep SNN sleep EEG; lower energy and faster inference than DNNs
+R05373	EXCLUDE	E4	CPU	Spiking convolution kernels on SIMD CPUs; no ANN comparison
+R05374	UNSURE	C1	none	CNN and SNN for rotor faults; efficiency comparison unclear
+R05375	INCLUDE	C2	none	Sparsity-aware evolutionary architecture search for SNNs
+R05376	EXCLUDE	E2	photonic	Optical reservoir network with genetic optimization; no SNN or pruning
+R05377	UNSURE	C1	none	Hybrid event-driven sEMG decoder, 5000x fewer operations; spiking unclear
+R05378	EXCLUDE	E4	none	Spiking remote sensing classifier; energy only as motivation
+R05379	EXCLUDE	E4	none	Spiking speech recognition with distillation; no ANN efficiency comparison visible
+R05380	EXCLUDE	E4	none	Spike-driven geo-localization transformer; power only as motivation
+R05381	EXCLUDE	E5	none	Event camera UAV detection with Swin; no SNN
+R05382	EXCLUDE	E4	none	Hybrid SNN-CNN tracker; no efficiency comparison shown
+R05383	EXCLUDE	E5	ASIC	Approximate FP multiplier tested on CNNs; no SNN
+R05384	UNSURE	C1	none	Spiking graph network reports FLOPs; ANN comparison unclear
+R05385	INCLUDE	C2	Loihi,SpiNNaker	Elastic spiking transformer with dynamic width and head slicing
+R05386	EXCLUDE	E2	memristor/in-memory	Antiferromagnet synapse model; ANN digit accuracy only
+R05387	EXCLUDE	E2	memristor/in-memory	Topological-insulator memristive synapse; device-level
+R05388	EXCLUDE	E2	memristor/in-memory	Ferroelectric heterostructure device; ANN MNIST accuracy only
+R05389	EXCLUDE	E4	ASIC	Elastic SNN accelerator; no ANN baseline visible
+R05390	EXCLUDE	E5	none	Event camera authentication with CNN and transformer; no SNN
+R05391	INCLUDE	C1	none	Spiking UAV detector; low power and higher mAP than ANNs
+R05392	EXCLUDE	E6	none	Psychology experiment; lottery tickets incidental
+R05393	EXCLUDE	E2	memristor/in-memory	Ionic synapse device; ANN accuracy only
+R05394	EXCLUDE	E5	MCU	Hyperdimensional computing on RISC-V; no SNN
+R05395	EXCLUDE	E5	none	Edge intelligence scheduling for smart cities; no SNN
+R05396	INCLUDE	C2	none	Spike budgeting regularizer cuts spike rates up to 47%
+R05397	INCLUDE	C1	none	Spiking graph network lower per-inference energy than DNN/CNN/GNN
+R05398	EXCLUDE	E2	memristor/in-memory	Oxygen vacancy memristors; device-level
+R05399	INCLUDE	C1	none	SNN-driven DRL for V2X; energy improvement over ANN-based DRL
+R05400	INCLUDE	C1	none	CSNN versus CNN drowsiness detection; about 61% less energy

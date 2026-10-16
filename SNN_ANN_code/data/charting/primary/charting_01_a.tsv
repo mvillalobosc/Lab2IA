@@ -1,0 +1,25 @@
+R00004	Y	-	C1	ANN+SNN	CNN	STATIC_IMG+EVENT	ASIC	NS	MEASURED	ENERGY+POWER	LITERATURE	NA	NA	NA	NA	N	SPOON 28 nm: 313 nJ per classification at 0.6 V; MNIST 95.3 on-chip, 97.5 off-chip; claims parity with ML accelerators
+R00013	Y	-	C3	ANN	OTHER	CONTROL	NA	NS	NONE	NONE	NA	OTHER	OTHER	NS	N	N	Fixed C. elegans-inspired wiring framed as natural winning ticket; 77% sparser than counterpart controllers; no efficiency metric.
+R00018	Y	-	C1	ANN+SNN	NS	STATIC_IMG	SIM	SIM	CLAIM	OPS	PAIRED	NA	NA	NA	NA	N	SNN needs much less operations than ANN counterparts on MNIST and CIFAR-10; no figures given.
+R00019	Y	-	C1	ANN+SNN	CNN+RNN+OTHER	TS	SIM	SIM	NS	LATENCY	DIFFERENT	NA	NA	NA	NA	N	SNN latency 34.31% lower than CNN/RNN-based classifiers; DBN accuracy 16.02% higher on average (RadioML).
+R00036	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Hybrid memristive DNN with SNN readout; only prediction error compared with DNNs; efficiency claimed without figures
+R00049	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	DNN-to-SNN conversion on Loihi: 89.64% accuracy, 37 cores; no energy, latency or operation comparison with the DNN
+R00050	Y	-	C2	SNN	OTHER	STATIC_IMG	ASIC	NA	NS	ENERGY+THROUGHPUT+OPS	NA	ACT	NA	MIXED	Y	N	Neuron and temporal sparsity trades quality for up to 74% energy; 781.52 pJ/pixel, 0.35 pJ/SOP, 840.2 GSOP/s
+R00051	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	FPGA SNN 98.94% MNIST, 164 FPS, 41x faster than CPU, 22x lower power than GPU; ANN baseline not stated
+R00061	Y	-	C2	SNN	MLP	STATIC_IMG	ASIC	NA	NS	ENERGY+THROUGHPUT+MEMORY	NA	NS	NA	UNSTRUCT	N	N	Deep compression cuts physical synapses to 1/16 with accuracy kept; 35 pJ/SOP, 1.1 GSOP/s/mm2; MNIST 91.2%
+R00062	Y	-	C2	SNN	NS	OTHER	SIM	NA	NONE	SPIKES	NA	RANDOM+MAG+ACT+EVO	NA	UNSTRUCT	Y	N	Random, weight and activity-based synapse pruning in STDP SNNs; size reduced without performance loss; no energy figures
+R00065	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	ANN-to-SNN conversion with double-threshold neurons on MNIST/CIFAR10; benchmarked only against other SNN baselines; no ANN efficiency figures
+R00068	Y	-	C6	ANN+SNN	NS	NS	BRAINSCALES+OTHER_NEURO+SPINNAKER+CPU+GPU	NS	MEASURED	ENERGY	NA	NA	NA	NA	NA	N	Converted SNNs on BrainScaleS, Spikey, SpiNNaker; conversion loss <1% digital, higher analog with much lower energy per inference
+R00069	Y	-	C1	ANN+SNN	NS	AUDIO	LOIHI	CPU+GPU+EDGE_GPU+NPU	MEASURED	LATENCY+POWER+ENERGY	PAIRED	NA	NA	NA	NA	Y	Loihi lowest energy per inference vs CPU, GPU, Jetson TX1, Movidius at equal accuracy; gap grows with network size
+R00079	Y	-	C3	ANN	NS	NS	NA	NS	NONE	NONE	NA	OTHER	NS	NS	N	N	LTH-motivated iterative pruning keeping false negatives low; up to 35% fewer false negatives, 99% fewer parameters
+R00080	Y	-	C1	ANN+SNN	CNN	STATIC_IMG	SIM	SIM	CLAIM	LATENCY	DIFFERENT	NA	NA	NA	NA	N	Conv SNN with STDP 83.8% (87.7% with feature selection) accuracy; better accuracy and runtime than CNNs; no runtime figures
+R00085	Y	-	C1	ANN+SNN	MLP+CNN	BIOSIG	FPGA	FPGA	MEASURED	POWER	DIFFERENT	NA	NA	NA	NA	Y	Power: SNN 0.226 W, MLP 1.677 W, CNN 2.266 W; accuracy SNN 90%, MLP 76%, CNN 95% (PYNQ-Z2)
+R00092	Y	-	C1	ANN+SNN	MLP+CNN	AUDIO	SIM	SIM	CLAIM	OPS	PAIRED	NA	NA	NA	NA	N	Spiking FC and conv nets vs ANN counterparts on Speech Commands, Hey Snips; comparable accuracy, reduced complexity, no figures
+R00095	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	SNU as recurrent unit; accuracy comparable to ANNs; PCM in-memory prototype demo; efficiency asserted without figures or ANN comparison
+R00098	Y	-	C1	ANN+SNN	NS	CONTROL	LOIHI	EDGE_GPU	MEASURED	ENERGY	PAIRED	NA	NA	NA	NA	Y	PopSAN on Loihi uses 140x less energy per inference than deep actor on Jetson TX2 at same performance (OpenAI gym)
+R00099	Y	-	C1	ANN+SNN	CNN	DET	GPU	NS	BOTH	ENERGY+THROUGHPUT+SPIKES	LITERATURE	NA	NA	NA	NA	N	SCNN on KITTI: 0.247 mJ estimated energy, 56.24% sparsity, 35.7 fps on GTX 1080i; energy lower than existing CNN detectors
+R00100	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	TSC-SNN vs rate-coded SNN: 7-14.5x lower latency, 30-60x fewer additions; no ANN efficiency comparison
+R00101	Y	-	C1	ANN+SNN	NS	AUDIO	SIM	SIM	ESTIMATED	OPS	PAIRED	NA	NA	NA	NA	N	SNN accuracy competitive with ANN counterparts using 10 time steps and as low as 0.68x total synaptic operations per frame
+R00103	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	TrueNorth NS16e demo: under 15 W, 16,000 image chips/s; no ANN baseline, only unquantified claim versus Von Neumann computing
+R00107	Y	-	C2	SNN	NS	NS	SIM	NA	CLAIM	SPIKES+POWER	NA	OTHER	NA	TEMPORAL	Y	N	Modified rate coding reduces spikes to cut hardware power; NAXT simulator for hardware design space exploration; no figures
+R00109	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	CNN-to-spiking CNN conversion rule; accuracy loss <=0.4%; processing time cut 39% at best, baseline unstated; no ANN efficiency comparison

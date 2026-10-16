@@ -1,0 +1,100 @@
+R00501	INCLUDE	C3	none	Adversarial pruning of DNNs; verifies lottery ticket hypothesis
+R00502	INCLUDE	C6	SpiNNaker, GPU, CPU	SNN robotics benchmark across CPU, SpiNNaker, GeNN GPU; no ANN baseline
+R00503	INCLUDE	C6	CPU, GPU	Benchmark of SNN simulators on speed and scalability
+R00504	EXCLUDE	E5	none	Bio-inspired ANN architecture vs generic DNN parameters; no SNN, no LTH
+R00505	EXCLUDE	E4	none	STDP hybrid learning for deep SNN; accuracy only
+R00506	EXCLUDE	E2	memristor/in-memory	MXene synaptic transistor; device level, ANN simulation only
+R00507	EXCLUDE	E4	none	Visual attention SNN for event cameras; no efficiency comparison
+R00508	EXCLUDE	E4	none	Pulse-train kernel method for edge; no ANN efficiency comparison
+R00509	EXCLUDE	E4	none	Binary-weight SNN Bayesian training; quantisation, no pruning or ANN metrics
+R00510	EXCLUDE	E5	memristor/in-memory	Echo state network clustering for memristor mapping; no spikes
+R00511	EXCLUDE	E4	none	Block-wise SNN training and early exit; SNN-only efficiency
+R00512	EXCLUDE	E5	none	GAIT-Prop local learning rule; no SNN comparison, no LTH
+R00513	EXCLUDE	E4	none	Online learning framework for SNN; sparse Jacobian, no pruning
+R00514	INCLUDE	C3	none	Functional lottery ticket hypothesis for OOD generalisation
+R00515	EXCLUDE	E3	none	Neuromodulation credit assignment theory; neuroscience
+R00516	EXCLUDE	E2	photonic	Phase-change photonic devices; no network comparison
+R00517	EXCLUDE	E3	simulation	IF neuron model dynamics and SPICE; no ML task
+R00518	EXCLUDE	E2	ASIC	Chiplet neuromorphic processor architecture; no network evaluation
+R00519	EXCLUDE	E2	photonic	Photonic spiking neuron dynamics; optimisation heuristics, no ANN
+R00520	EXCLUDE	E4	none	STDP plus binary CNN for RL; accuracy vs PPO/DQN only
+R00521	INCLUDE	C3	none	Federated lottery ticket learning; communication cost
+R00522	INCLUDE	C1	none	Analytical energy/resource comparison of rate-coded SNN vs ANN
+R00523	EXCLUDE	E2	memristor/in-memory	Review of memristor device types; device level
+R00524	INCLUDE	C2	none	Storage compression exploiting LSM sparsity; power reduction on processor
+R00525	EXCLUDE	E4	none	Lightweight SNN with compressive spike features; SNN-only
+R00526	INCLUDE	C2	FPGA	Connection pruning in deep SNN; energy savings, 92% connectivity reduction
+R00527	EXCLUDE	E5	none	Position paper on continuous-time algorithms for robotics
+R00528	EXCLUDE	E2	memristor/in-memory	Fe3GeTe2 oxide memristor; device level
+R00529	EXCLUDE	E2	memristor/in-memory	HfS2 flash synapse; simulated ANN MNIST only
+R00530	INCLUDE	C3	none	LTH pruning applied to COVID cough detection networks
+R00531	EXCLUDE	E2	ASIC	CMOS synapse and neuron circuits; circuit level
+R00532	EXCLUDE	E4	none	SNN vs ANN accuracy for SHM; latency only for SNN
+R00533	EXCLUDE	E5	none	Statistical mechanics of weight space; no SNN, no LTH
+R00534	EXCLUDE	E6	none	Review of event-based vision; not efficiency comparison
+R00535	INCLUDE	C3	none	Lottery tickets in GANs for data-efficient training
+R00536	EXCLUDE	E4	none	DCT encoding reduces SNN latency; SNN-only comparison
+R00537	EXCLUDE	E5	none	MLP RF modulation classifier; neuromorphic used loosely
+R00538	EXCLUDE	E4	none	Spiking CNN object localization; no efficiency comparison
+R00539	EXCLUDE	E4	none	ANN-to-SNN face AU recognition; no ANN efficiency metric
+R00540	EXCLUDE	E4	none	Resonate spiking neuron training algorithm; SNN-only
+R00541	UNSURE	C2	none	Binary-weight SNN conversion reduces memory; quantisation not sparsity
+R00542	EXCLUDE	E4	FPGA	FPGA SNN accelerator; compared only to other SNN implementations
+R00543	EXCLUDE	E4	none	Direct feedback alignment Tempotron for deep SNN
+R00544	EXCLUDE	E4	SpiNNaker	EEG CNN to SNN on SpiNNaker; accuracy only
+R00545	EXCLUDE	E5	memristor/in-memory	Memristor MLP for neural interface; no SNN, no pruning
+R00546	EXCLUDE	E4	FPGA	Stochastic SNN on FPGA; accuracy vs ANN, costs SNN-only
+R00547	EXCLUDE	E4	ASIC	Multi-core SNN chip; power reported, no ANN baseline
+R00548	EXCLUDE	E5	memristor/in-memory	ANN on RRAM for bidirectional neural interface
+R00549	EXCLUDE	E4	none	SNN COVID CT classification; accuracy only
+R00550	EXCLUDE	E7	FPGA	Elastic sparse ANN topology, parameter reduction; not LTH
+R00551	EXCLUDE	E2	memristor/in-memory	Halide perovskite memristive barristors; device level
+R00552	EXCLUDE	E5	FPGA	Digital oscillatory neural network; no spikes, no LTH
+R00553	INCLUDE	C3	none	Structural and functional diversity of winning tickets
+R00554	EXCLUDE	E4	none	DoB-SNN classifier; accuracy vs other SNN algorithms
+R00555	EXCLUDE	E6	none	Psychology of choice; lottery tickets literal
+R00556	EXCLUDE	E2	none	Dopant network processing units; nanoelectronic device classifier
+R00557	INCLUDE	C3	none	Robust scratch tickets in randomly initialised networks
+R00558	UNSURE	C1	none	Hybrid CNN-SNN plant disease; energy efficiency claimed, metric unclear
+R00559	EXCLUDE	E4	none	Adversarial attacks on DVS inputs for SNN
+R00560	EXCLUDE	E5	FPGA	DVS event histogram for CNN accelerator; no SNN
+R00561	INCLUDE	C3	none	Early-bird structured lottery tickets in BERT training
+R00562	INCLUDE	C1	none	Short abstract; spiking RNN claimed 100-1000x more energy efficient
+R00563	EXCLUDE	E4	none	Stopping criteria reduce converted SNN latency; SNN-only
+R00564	INCLUDE	C3	none	ProbMask learned probabilistic masks; abstract truncated
+R00565	EXCLUDE	E6	none	Cardiovascular prevention trial; lottery ticket incentive
+R00566	EXCLUDE	E4	SpiNNaker	SpiNNaker configuration exploration; accuracy and search time only
+R00567	EXCLUDE	E4	memristor/in-memory	SNN gas sensing system; robustness, no ANN efficiency metric
+R00568	EXCLUDE	E5	memristor/in-memory	Critical fault identification in DNN memristor crossbars
+R00569	INCLUDE	C3	none	Efficient lottery ticket finding with PrAC data subsets
+R00570	INCLUDE	C1	Loihi2	RF neurons on Loihi 2; 90x fewer operations than DNN
+R00571	EXCLUDE	E7	photonic	Optical neural network on-chip training with dynamic pruning; not LTH
+R00572	EXCLUDE	E5	ASIC	CNN tensor slicing compiler for multicore NPU
+R00573	EXCLUDE	E2	memristor/in-memory	SiO2 conductive bridge memory synapse; device level
+R00574	UNSURE	C2	Dynap	SNN mapping avoids connection pruning; energy reported on DYNAP-SE
+R00575	EXCLUDE	E2	memristor/in-memory	RRAM co-design overview; device and circuit level
+R00576	EXCLUDE	E5	photonic, TrueNorth, Loihi	Photonic neural networks; no SNN comparison, no LTH
+R00577	UNSURE	C1	Tianjic	Hybrid ANN-SNN on Tianjic; latency and power, baseline unclear
+R00578	EXCLUDE	E2	memristor/in-memory	Spintronic BNN synapse energy comparison; device level
+R00579	EXCLUDE	E5	ASIC	Mixed-signal DNN with sparse global connectivity; no SNN
+R00580	INCLUDE	C1	none	CNN converted to SNN for ECG; power 0.0074x of NN solutions
+R00581	EXCLUDE	E2	memristor/in-memory	Memcapacitor crossbar; device-level TOPS/W estimate
+R00582	INCLUDE	C2	none	Sparsity-regularised SNN; computational efficiency vs dense SNN
+R00583	EXCLUDE	E2	memristor/in-memory	Ag/SrTiO3 memristor plasticity; simulated recognition only
+R00584	INCLUDE	C3	none	LTH applied to deep fingerprinting attack model; proposal
+R00585	INCLUDE	C3	none	Iterative mask discovery hybrid of SNIP and lottery tickets
+R00586	INCLUDE	C3	none	Lottery tickets under distributional shift
+R00587	EXCLUDE	E5	none	Sparse convolution cGAN for event anomaly detection; no SNN
+R00588	EXCLUDE	E4	none	EventProp exact gradients for SNN; training method
+R00589	EXCLUDE	E4	none	Hybrid SNN-CNN synthetic aperture imaging; no efficiency comparison
+R00590	EXCLUDE	E6	simulation	DVS pixel simulator; sensor level
+R00591	EXCLUDE	E4	none	SNN UAV controller on neuromorphic chip; no ANN baseline
+R00592	EXCLUDE	E4	none	SNN event stream super-resolution; application only
+R00593	EXCLUDE	E5	none	Event camera place recognition; no SNN
+R00594	EXCLUDE	E3	none	In vitro modular neuronal cultures
+R00595	EXCLUDE	E4	none	Evolved SNN encoding/decoding for RL; SNN-only
+R00596	EXCLUDE	E5	none	DNN architectures for SAR ATR; no SNN, no LTH
+R00597	EXCLUDE	E4	none	Customised deep SNN training with fewer time steps; SNN-only
+R00598	UNSURE	C5	ASIC, memristor/in-memory	SNN training and hardware review; efficiency comparison focus unclear
+R00599	EXCLUDE	E4	FPGA	SLIT layer CNN latency and SNN robustness; no ANN-SNN comparison
+R00600	EXCLUDE	E4	none	Short abstract; SNN training speed and energy, no ANN baseline

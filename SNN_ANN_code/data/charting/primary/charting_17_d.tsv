@@ -1,0 +1,25 @@
+R05143	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Competitive MAE and WAPE; efficiency judged only by information criteria and parameter efficiency; no energy or operation comparison with ANNs
+R05144	Y	-	C1	ANN+SNN	CNN	TS	SIM	NS	NS	ENERGY	DIFFERENT	NA	NA	NA	NA	N	97% accuracy with over 50,000x lower energy than conventional CNNs on 2600 km state-of-polarization data
+R05146	Y	-	C1	ANN+SNN	CNN	BIOSIG	SIM	NS	NS	OPS	DIFFERENT	NA	NA	NA	NA	N	Accuracy within 3% of EEGNet with 40-80x lower computational cost on scalp and ear EEG
+R05147	Y	-	C1	ANN+SNN	NS	BIOSIG	SIM	NS	ESTIMATED	ENERGY	DIFFERENT	NA	NA	NA	NA	N	Surpasses best-performing ANN on large EEG dataset using one-seventh of its theoretical energy
+R05148	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	HLIF neuron energy gains of 25%, 20%, 26% on MNIST, CIFAR-10, CIFAR-100 versus LIF-type neurons; no ANN comparison
+R05151	Y	-	C2	SNN	TRANSFORMER	NS	NS	NA	NS	ENERGY+OPS	NA	ACT	NA	STRUCT	Y	N	Neuron inhibition bypasses over 98% of invalid attention computations; below 0.06 pJ/SOP, over 50% better than baseline
+R05152	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Training architecture 3.4 TFLOPS at 1.44 W (2.36 TFLOPS/W, 28nm energy model); related works unspecified, no ANN baseline
+R05153	Y	-	C1	ANN+SNN	NS	TS	FPGA	FPGA+GPU	MEASURED	POWER+LATENCY	LITERATURE	NA	NA	NA	NA	U	Zynq-7020: 175 mW, 0.209 ms per sample (3.1x lower than GPU implementations); beats lightweight CNN-FPGA schemes on power
+R05155	Y	-	C1	HYBRID	CNN	DET	FPGA	NS	MEASURED	ENERGY	LITERATURE	NA	NA	NA	NA	N	XCVU13P FPGA peak 146.48 GOPS/W at 100 MHz; QS-YOLO 65.80-72.90% mAP on VOC2007 in 1-4 time-steps
+R05158	Y	-	C1	ANN+SNN	CNN	EVENT	FPGA	NS	NS	OPS+MEMORY	PAIRED	NA	NA	NA	NA	N	Conv-SNN on FPGA uses 65% of CNN computation and 15.6% of weight storage; 92.11% digit accuracy
+R05161	Y	-	C2	SNN	NS	DET	LOIHI2	NA	MEASURED	THROUGHPUT+POWER+ENERGY	NA	ACT	NA	MIXED	Y	N	Loihi 2: 95 FPS, 0.58 W, 6.1 mJ per image; mAP50 96.9/91.6/73.2% on SSDD/HRSID/LS-SSDD; event-gated skipping
+R05162	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	SNN plus deep autoencoder anomaly detection; lists latency, throughput, energy as analysis metrics but gives no figures or ANN comparison
+R05175	Y	-	C6	SNN	NS	NS	SIM	NA	ESTIMATED	LATENCY+POWER+EDP	NA	NA	NA	NA	NA	N	Simulator plus GNN latency and ResNet power predictors: R2 above 0.9, MAPE below 2%; co-exploration improves EDP 1.8x versus SOTA
+R05178	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	92.5 ms pipeline latency with eight event cameras; faster and more efficient than CPU/GPU pipelines, no ANN baseline or figures
+R05186	Y	-	C2	SNN	NS	OTHER	OTHER_NEURO	NA	NS	POWER+SPIKES	NA	RANDOM	NA	STRUCT	Y	N	SD-SNN uses 0.5% of neuronal activity; power down 98% (static) and 65% (dynamic) objects; neural activity cut 99.5%
+R05189	N	E7	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Dynamic weight pruning on Jetson Nano: 86.1% less compute, 58.4% less energy, 90% lower latency; no spikes or LTH
+R05193	Y	-	C1	HYBRID	NS	NS	SIM	SIM	CLAIM	LATENCY+ENERGY	DIFFERENT	NA	NA	NA	NA	N	SNN client / ANN server split learning matches ANN-based PSL accuracy with lower training latency and device energy; no figures
+R05194	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Attention Spiking U-Net on WeatherBench; lower energy aimed at but no ANN comparison result or figures reported
+R05195	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Ternary-weight SNN: accuracy loss under 1%, weight memory 14.91x smaller, energy 5.95x lower; baseline is full-precision SNN, no ANN
+R05199	Y	-	C1	ANN+SNN	CNN+OTHER	EVENT	FPGA	GPU	BOTH	POWER+LATENCY+THROUGHPUT+OPS	DIFFERENT	NA	NA	NA	NA	N	STCD on iCE40 FPGA about 10 mW, 2.67 Mev/s; 2.2e7 fewer operations per event than EDnCNN at equivalent AUC
+R05202	Y	-	C1+C6	ANN+SNN	NS	STATIC_IMG	SIM	SIM	NONE	LATENCY+SPIKES	PAIRED	NA	NA	NA	NA	N	Benchmarks five conversion methods on MNIST, Fashion-MNIST, CIFAR-10 for accuracy, latency, spike efficiency; Hybrid and Temporal Coding best; no figures
+R05203	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	DeepLSNN beats non-spiking LSTM-FCN on over 31% of 102 TSC datasets; accuracy benchmark, no efficiency metric
+R05218	Y	-	C1	ANN+SNN	NS	OTHER	SIM	NS	CLAIM	POWER+LATENCY	DIFFERENT	NA	NA	NA	NA	N	Spiking RL in Loihi emulation matches deep learning baselines' accuracy with dramatically lower power and latency; no figures
+R05224	Y	-	C2	SNN	NS	EVENT+BIOSIG	SIM	NA	NONE	NONE	NA	MAG+REG	NA	UNSTRUCT	N	N	L1-norm synaptic pruning in MT-MST motion-perception SNN; 93.00% classification accuracy; no efficiency figures
+R05230	Y	-	C3	ANN	NS	STATIC_IMG	NA	NS	NONE	NONE	NA	MAG	WEAK	NS	N	N	KDLT applies knowledge distillation during pruning and retraining; higher accuracy at fixed sparsity on MNIST, CIFAR-10/100, Tiny-ImageNet

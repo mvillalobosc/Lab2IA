@@ -1,0 +1,25 @@
+R02226	Y	-	C3	ANN	NS	NS	NA	NS	NONE	NONE	NA	OTHER	WEAK	NS	N	N	Robust (adversarially induced) lottery-ticket subnetworks transfer better; better accuracy-sparsity trade-offs across tasks and sparsity patterns; no cost data
+R02229	Y	-	C1	ANN+SNN	NS	NS	SIM	NS	CLAIM	ENERGY+OPS	NS	NA	NA	NA	NA	N	Single-time-step spiking network via reduced surrogate gradient; comparable accuracy to full-precision networks, energy efficiency claimed without figures
+R02230	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Hybrid spiking-analogue self-attention optical flow network; energy benefits claimed without figures; accuracy compared only with SNN approaches
+R02233	Y	-	C1+C6	ANN+SNN	CNN	STATIC_IMG	ASIC	ASIC	ESTIMATED	ENERGY	PAIRED	NA	NA	NA	NA	N	SATA: SNN training uses 1.27x more total energy than ANN on Eyeriss-like architecture; sparsity gives 5.58x energy efficiency gain
+R02235	Y	-	C1	ANN+SNN	CNN	DET+EVENT	SIM	NS	CLAIM	ENERGY	DIFFERENT	NA	NA	NA	NA	N	Spiking convolutional tracker on new DVSOT21 dataset: competitive accuracy and very low energy versus ANN-based trackers, no figures
+R02236	Y	-	C3	ANN	GNN	NS	NA	NS	NONE	NONE	NA	OTHER+THEORY	WEAK	UNSTRUCT	N	N	Graph lottery ticket search by transforming a random ticket via graph information bottleneck; high sparsity and performance; no cost data
+R02238	Y	-	C2	SNN	CNN	STATIC_IMG	SIM	NA	NS	LATENCY	NA	OTHER	NA	TEMPORAL	Y	N	Per-input timestep selection by confidence thresholding or RL: ResNet-19 96.1% on CIFAR-10 with 1.08 average timesteps
+R02244	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Shared LIF neurons across layers and channels: 4.3x forward and 21.9x backward memory efficiency versus standard SNN; no ANN comparison
+R02251	Y	-	C6	SNN	NS	NS	SIM	NA	ESTIMATED	ENERGY+LATENCY	NA	NA	NA	NA	NA	N	System-level hybrid CPU-GPU simulator for neuromorphic SNN chips reporting energy, delay and accuracy; 20,000-core chip simulated on 512 A100 GPUs
+R02254	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	SNN place recognition on mobile robot; lower power than advanced VPR methods claimed, no figures, ANN comparator not stated
+R02257	Y	-	C1	ANN+SNN	CNN	AUDIO	SIM	NS	NS	ENERGY	PAIRED	NA	NA	NA	NA	N	U-Net SNN for speech enhancement: acceptable performance versus equivalent ANN with 53.97x less compute energy; beats Intel N-DNS baseline
+R02261	Y	-	C2	SNN	NS	NS	SIM	NA	CLAIM	POWER	NA	REG	NA	NS	N	N	Information-bottleneck regularization compresses spiking representations, improving robustness; power reduction claimed without figures
+R02262	N	E2	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Spike-domain DNN processor: 13.7 TOPS/W detection, 31.5 TOPS/W ImageNet, 63.2 uW face recognition; no explicit ANN baseline
+R02264	Y	-	C3	ANN	TRANSFORMER	TS	NA	NS	ESTIMATED	MEMORY+OPS	NA	NS	NS	NS	Y	N	Pruned binary-weight Transformers for multivariate time series match dense float Transformers; up to 53x storage and 10.5x FLOPs reduction
+R02266	Y	-	C2	SNN	MLP+CNN	STATIC_IMG	SIM	NA	NONE	SPIKES	NA	REG	NA	TEMPORAL	Y	N	Two spike-timing-based sparse-firing regularizers lower firing frequency of TTFS-coded SNNs on MNIST, Fashion-MNIST, CIFAR-10; no figures in abstract
+R02267	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Event-based exact simulation and training algorithm for sparse recurrent SNNs, O(log N) per spike; no ANN comparison, no sparsification method
+R02268	Y	-	C2	SNN	NS	EVENT	SIM	NA	CLAIM	SPIKES	NA	SCORE	NA	MIXED	Y	N	Refine-and-Mask SNN lowers average spiking activity rate while improving accuracy on seven event benchmarks; no figures in abstract
+R02269	Y	-	C2	SNN	NS	NS	SIM	NA	CLAIM	ENERGY	NA	ACT	NA	TEMPORAL	Y	N	Resonate-and-fire rhythms suppress spikes for near-zero values, cutting communication and computation energy while keeping accuracy; no figures
+R02270	Y	-	C2	SNN	CNN	AUDIO	SIM	NA	NONE	SPIKES	NA	OTHER	NA	TEMPORAL	Y	N	Spiking CNN above 98% accuracy on multi-class audio classification, INT8 quantization kept accuracy; neuron parameters tuned for activation sparsity
+R02274	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Purely spike-based implicit-differentiation training of SNNs; energy cost estimated theoretically with no stated ANN baseline; competitive accuracy on MNIST, CIFAR
+R02275	Y	-	C1	ANN+SNN	CNN	OTHER	SIM	NS	NS	ENERGY+SPIKES	PAIRED	NA	NA	NA	NA	N	SNN denoiser 30.18 dB, 0.25 dB below equivalent DCNN; more energy-efficient only at very small latencies; larger SNN saves 20%
+R02276	Y	-	C2	ANN+SNN	NS	EVENT	SIM	NS	NONE	NONE	NA	REG	NA	TEMPORAL	Y	N	Conversion-based SNN on N-MNIST with spike-rate regularization and timing window analysis; accuracy-only comparison with non-spiking ANN, no efficiency figures
+R02277	Y	-	C2	SNN	NS	NS	SIM	NA	CLAIM	OPS+SPIKES	NA	OTHER	NA	TEMPORAL	N	N	Dendritic spike-driven learning rule: higher accuracy, fewer synaptic operations and output spikes than prior dendritic rule; no figures
+R02278	Y	-	C1	ANN+SNN	TRANSFORMER	STATIC_IMG	SIM	NS	ESTIMATED	ENERGY+OPS	PAIRED	NA	NA	NA	NA	N	Spike-driven Transformer: SDSA has up to 87.2x lower computation energy than vanilla self-attention; 77.1% top-1 on ImageNet-1K
+R02279	Y	-	C1	ANN+SNN	CNN	DET+EVENT	SIM	NS	CLAIM	ENERGY	LITERATURE	NA	NA	NA	NA	N	Deep SNN converted from CNN for event-based detection; better energy efficiency than existing CNN methods on PAFBenchmark, unquantified

@@ -1,0 +1,100 @@
+R01201	EXCLUDE	E5	memristor/in-memory	DNN accelerator in DRAM, no SNN, neuromorphic only as outlook
+R01202	EXCLUDE	E6	none	Psychology study, lottery tickets literal
+R01203	UNSURE	C3	none	Random subspace training theory, LTH framing, not tickets per se
+R01204	EXCLUDE	E6	none	Event camera place recognition, no neural network
+R01205	INCLUDE	C3	none	Transfer of pruned CNNs incl. lottery-ticket, inference speedups
+R01206	INCLUDE	C1	none	SNN vs DNN and LMU for HAR, low energy cost
+R01207	EXCLUDE	E2	memristor/in-memory	CMOS-RRAM spiking CNN circuit, transistor-level only
+R01208	UNSURE	C5	none	Review of hybrid neuromorphic co-design, efficiency focus unclear
+R01209	EXCLUDE	E4	simulation	VSA on SNN circuits, energy estimates, no ANN baseline
+R01210	INCLUDE	C1	none	SNN HSI classification, about 10x less energy than same CNN
+R01211	INCLUDE	C1	none	SNN HSI classification, energy ratio vs CNN reported
+R01212	EXCLUDE	E4	Loihi	HDC+SNN vs traditional SNN on Loihi, no ANN baseline
+R01213	EXCLUDE	E4	ASIC	SNN accelerator dataflows, EDP vs SNN baseline, no ANN
+R01214	INCLUDE	C3	none	Graph lottery tickets for GNNs via iterative pruning
+R01215	INCLUDE	C2	none	Sparse STDP SNN, synapses reduced to about one tenth
+R01216	EXCLUDE	E5	memristor/in-memory	Analog ANN training asymmetry, no SNN or pruning
+R01217	EXCLUDE	E2	simulation	Oscillator phase noise on time-domain neuron circuit
+R01218	EXCLUDE	E2	memristor/in-memory	VRRAM device characterisation, CNN and reservoir demo
+R01219	EXCLUDE	E2	memristor/in-memory	RRAM swish activation circuit design
+R01220	EXCLUDE	E2	simulation	STDP circuit in 90nm CMOS, parameter analysis
+R01221	EXCLUDE	E5	memristor/in-memory	Memristor SOM vs CMOS digital, no SNN or LTH
+R01222	INCLUDE	C3	none	Filter pruning with subnetworks assessed via LTH
+R01223	EXCLUDE	E4	none	SNN bearing fault diagnosis, no ANN efficiency comparison
+R01224	EXCLUDE	E4	simulation	Time-domain analog neuron for converted SNN, accuracy only
+R01225	EXCLUDE	E2	none	In-materio nanoparticle devices, materials report
+R01226	EXCLUDE	E2	none	Review of CNT random networks for in-materio computing
+R01227	EXCLUDE	E6	none	Infertility metaphor study
+R01228	EXCLUDE	E4	Loihi	Continual object learning SNN on Loihi, no ANN efficiency
+R01229	EXCLUDE	E2	memristor/in-memory	Electrolyte-gated transistor synapse, device level
+R01230	EXCLUDE	E2	photonic	Review of optical neural networks, no SNN or pruning
+R01231	INCLUDE	C1	none	Spiking RNNs vs ANNs on audio, 49x fewer operations
+R01232	UNSURE	C1	memristor/in-memory	ANN-to-SNN on Schottky diode synapses, ANN power baseline unclear
+R01233	EXCLUDE	E4	none	Spiking ResNet design study, accuracy and parameters only
+R01234	INCLUDE	C2	simulation	Weight pruning in spiking CNNs for knowledge fusion
+R01235	EXCLUDE	E4	none	SNN local representation architecture, no ANN efficiency comparison
+R01236	EXCLUDE	E5	photonic	Photonic ANN initialisation for fiber links, no SNN
+R01237	EXCLUDE	E4	Loihi	Loihi random walks for inverse problem, no ANN baseline
+R01238	INCLUDE	C3	none	BERT lottery tickets via task-agnostic mask training
+R01239	EXCLUDE	E6	none	Eye movement control model, sparsity incidental
+R01240	EXCLUDE	E5	none	Domain adaptation parameter selection, LTH only as motivation
+R01241	EXCLUDE	E5	photonic	LNOI photonic MAC accelerator, ANN only
+R01242	UNSURE	C1	none	LIAF-Net vs GRU/LSTM, efficiency claimed but metric unclear
+R01243	EXCLUDE	E2	memristor/in-memory	Li-based composite memristor, ANN simulation
+R01244	EXCLUDE	E4	none	LIF to ReLU mapping theory, no efficiency metric
+R01245	EXCLUDE	E5	photonic	Photonic CNN accelerator, no SNN or pruning
+R01246	INCLUDE	C3	none	Lottery ticket node pruning for tabular networks
+R01247	INCLUDE	C3	none	IMP initialization and data subsets, lottery tickets
+R01248	EXCLUDE	E6	none	Streaming heavy hitters algorithm, lottery metaphor
+R01249	EXCLUDE	E4	ASIC	Neuromorphic processor memory organisation, no ANN baseline
+R01250	EXCLUDE	E2	memristor/in-memory	Flexible organic memristor synapse, device level
+R01251	INCLUDE	C1	memristor/in-memory	Stochastic SNN vs ANN accuracy and power consumption
+R01252	EXCLUDE	E4	none	SNN quantization-aware training, no ANN baseline or pruning
+R01253	INCLUDE	C3	none	Low-rank lottery tickets found during training
+R01254	EXCLUDE	E4	ASIC	LSM neuromorphic processor, speedup vs own baseline
+R01255	INCLUDE	C3	none	LTH-based compression for ECG atrial fibrillation detection
+R01256	UNSURE	C2	none	Spike frequency adaptation reduces spikes, sparsity method unclear
+R01257	EXCLUDE	E5	none	Sparse CNN on event data, no SNN
+R01258	INCLUDE	C3	none	Spline view of pruning, winning tickets, early-bird
+R01259	EXCLUDE	E4	none	SNN plus hyperdimensional computing, compared to SNN only
+R01260	EXCLUDE	E5	memristor/in-memory	Memristive ANN in-situ training, no spiking
+R01261	EXCLUDE	E5	memristor/in-memory	Memristor DNN simulation in MemTorch, no SNN
+R01262	EXCLUDE	E4	memristor/in-memory	Memristor deep SNN CIM, power reported, no ANN baseline
+R01263	EXCLUDE	E5	memristor/in-memory	Memristor HTM spatial pooler, not SNN or LTH
+R01264	EXCLUDE	E2	memristor/in-memory	Forming-free memristors, compared with standard memristors
+R01265	EXCLUDE	E4	none	Meta-learning SNN, accuracy comparable to ANN only
+R01266	EXCLUDE	E2	memristor/in-memory	Graphene synaptic transistors, device level
+R01267	EXCLUDE	E5	memristor/in-memory	Memristive ANN non-ideality mitigation, no SNN
+R01268	EXCLUDE	E2	memristor/in-memory	Bismuth iodide memristor synapse, CNN simulation
+R01269	INCLUDE	C1	GPU	ANN-to-SNN library, speed vs TensorFlow ANN on GPU
+R01270	INCLUDE	C1	ASIC, GPU	SNN on neuromorphic SoC, better power than ANN on GPU
+R01271	EXCLUDE	E4	memristor/in-memory, ASIC	PIM hybrid SNN platform, TOPS/W, no ANN baseline
+R01272	INCLUDE	C3	none	Strong LTH existence proof, depth L+1
+R01273	EXCLUDE	E4	none	Motif topology SNN multisensory, accuracy only
+R01274	EXCLUDE	E4	none	Unsupervised SNN movement segmentation, no ANN efficiency
+R01275	EXCLUDE	E4	none	SNN music emotion recognition, accuracy only
+R01276	EXCLUDE	E2	photonic	Photonic tensor processor encoding scheme
+R01277	EXCLUDE	E4	none	Multi-level firing spiking ResNet, parameters only
+R01278	EXCLUDE	E4	ASIC	SNN object detection on PAICORE chip, no ANN comparison
+R01279	EXCLUDE	E4	none	Spiking actor network RL, reward comparison only
+R01280	INCLUDE	C3	none	Multicoated supermasks on hidden networks
+R01281	EXCLUDE	E2	memristor/in-memory	Optoelectronic synapse device, ANN simulation
+R01282	EXCLUDE	E4	none	LIF melody generation, no efficiency
+R01283	EXCLUDE	E4	none	Neuromorphic few-shot dataset for SNNs
+R01284	EXCLUDE	E2	memristor/in-memory	Vertical organic transistor synapses, device level
+R01285	EXCLUDE	E4	none	Quantized SNN learning-rate schedule, no ANN baseline
+R01286	INCLUDE	C1	Loihi, GPU	Neuromorphic CNN on Loihi 0.96 W vs GPU 35 W
+R01287	EXCLUDE	E5	memristor/in-memory, FPGA	CNN subnets on NVM crossbar, no SNN
+R01288	EXCLUDE	E4	ASIC	SCNN mapping toolchain, spike latency, no ANN baseline
+R01289	EXCLUDE	E4	none	NAS for SNNs, fewer timesteps, no ANN efficiency
+R01290	INCLUDE	C6	none	Mini-apps benchmark tool for neuromorphic computing assessment
+R01291	EXCLUDE	E4	none	SNN vs CNN on ENG signals, accuracy only
+R01292	INCLUDE	C3	none	Inductive bias of winning lottery tickets via IMP
+R01293	EXCLUDE	E5	memristor/in-memory	Analog DNN training algorithm, no SNN
+R01294	EXCLUDE	E5	none	Event-based face detection DNN, no SNN
+R01295	EXCLUDE	E5	none	Event camera driving datasets, CNN baselines
+R01296	EXCLUDE	E4	memristor/in-memory, ASIC	STT-RAM SNN accelerator vs SRAM core, no ANN
+R01297	EXCLUDE	E5	none	Seizure detection on NeuroStack, RCE and kNN, no SNN
+R01298	INCLUDE	C5	TrueNorth, Loihi, Tianjic, SpiNNaker, BrainScaleS, Dynap, Akida, memristor/in-memory	Review of neuromorphic AI hardware platforms
+R01299	EXCLUDE	E3	none	Neuroprostheses review, neuroengineering, no ML task
+R01300	INCLUDE	C1	Loihi, CPU, GPU	Loihi image retrieval 2.5x CPU, 12.5x GPU energy

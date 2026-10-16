@@ -1,0 +1,100 @@
+R03201	EXCLUDE	E5	ASIC	Echo state network chip, no spiking, no ANN-SNN comparison
+R03202	EXCLUDE	E4	none	SNN kernel for load forecasting, no efficiency comparison
+R03203	EXCLUDE	E2	memristor/in-memory	RRAM device review, no network-level ANN-SNN evaluation
+R03204	EXCLUDE	E4	none	Resonate-and-fire radar labelling, SNN only
+R03205	INCLUDE	C1	none	MMV SNN claims order of magnitude lower compute than deep learning
+R03206	EXCLUDE	E4	CPU	SNN intrusion detection, no ANN efficiency comparison
+R03207	EXCLUDE	E4	none	Hardware neuron model, accuracy-only match to ANN
+R03208	EXCLUDE	E4	none	ANN pretraining for SNN, training time only
+R03209	EXCLUDE	E4	none	TTFS skip connections, SNN only
+R03210	EXCLUDE	E4	none	Double-threshold neuron, SNN only
+R03211	EXCLUDE	E2	photonic	X-ray optoelectronic synapse device
+R03212	INCLUDE	C2	none	Evolutionary connection pruning with distillation in SNNs
+R03213	INCLUDE	C5	none	Review of SNN ECG classification for low power versus DNN
+R03214	EXCLUDE	E5	ASIC	RISC-V SoC for DNN acceleration, no SNN
+R03215	EXCLUDE	E5	memristor/in-memory	Reservoir plus DNN vision network, no SNN efficiency comparison
+R03216	EXCLUDE	E4	ASIC	SNN on mixed-signal chip for ECoG, no ANN baseline
+R03217	EXCLUDE	E4	none	SNN adversarial robustness
+R03218	EXCLUDE	E2	memristor/in-memory	Organic electrochemical device drift-diffusion model
+R03219	EXCLUDE	E4	none	SNN robustness versus ANN, no efficiency metric
+R03220	EXCLUDE	E4	none	Recurrent SNN on event data, compared with SNNs
+R03221	EXCLUDE	E4	none	Radar gesture SNN, no ANN baseline
+R03222	EXCLUDE	E4	none	Spiking channel attention, accuracy only
+R03223	EXCLUDE	E7	memristor/in-memory	Spin-based accelerator for compressed DNNs, no SNN
+R03224	EXCLUDE	E5	memristor/in-memory	Spin-based dataflow for lightweight CNNs, no SNN
+R03225	EXCLUDE	E4	none	SNN architecture search, no ANN efficiency comparison
+R03226	EXCLUDE	E4	none	SNN coding methods for SAR, robustness only
+R03227	EXCLUDE	E4	none	Spiking LCA beamforming, baseline not an ANN
+R03228	EXCLUDE	E6	none	Hyperdimensional computing co-design survey, no SNN or pruning
+R03229	EXCLUDE	E2	memristor/in-memory	Spintronic synapse device
+R03230	INCLUDE	C3	GPU, CPU	MNIST-1D benchmark used to find lottery tickets
+R03231	EXCLUDE	E3	none	Biological-scale neural simulator
+R03232	EXCLUDE	E4	none	Equilibrium propagation for SNNs, memory versus BPTT
+R03233	EXCLUDE	E4	Loihi	Spiking LCA on Loihi, baseline is CPU solver
+R03234	EXCLUDE	E2	memristor/in-memory	Stochastic in-memory tracking circuit, no neural network comparison
+R03235	INCLUDE	C1	none	Spiking complex network beats ShuffleNet, MobileNet in parameters, speed
+R03236	EXCLUDE	E4	ASIC	SDM-SNN energy per SOP, no ANN baseline shown
+R03237	EXCLUDE	E2	none	Ferroelectric Chern insulator device
+R03238	EXCLUDE	E4	none	ANN-guided distillation for SNN, accuracy and time steps only
+R03239	EXCLUDE	E2	memristor/in-memory	SnS memristor device
+R03240	EXCLUDE	E4	none	Synaptic plasticity rule for SNN accuracy
+R03241	EXCLUDE	E2	photonic	Photonic synapse device
+R03242	EXCLUDE	E2	photonic	Optical neuron microring dynamics
+R03243	EXCLUDE	E2	memristor/in-memory	Memristor reservoir device
+R03244	EXCLUDE	E2	photonic	Phase-change photonic device
+R03245	EXCLUDE	E4	none	Spiking object detector, accuracy only
+R03246	EXCLUDE	E6	none	Hypervector sequence encoding
+R03247	INCLUDE	C1	none	Hybrid ANN-SNN tracker with 2.3-fold efficiency gain
+R03248	EXCLUDE	E4	FPGA	SNN FPGA accelerator, ANN baseline not evident
+R03249	INCLUDE	C1	none	SNN versus non-spiking twin, 25% sparser activations
+R03250	EXCLUDE	E4	none	GAN-SNN signal detection, accuracy only
+R03251	EXCLUDE	E2	none	Silicon FET reservoir, no SNN or ANN comparison
+R03252	EXCLUDE	E2	photonic	Silicon photonic accelerator device
+R03253	EXCLUDE	E2	photonic	Visual synapse heterojunction device
+R03254	EXCLUDE	E6	none	CNN for microscopy images
+R03255	INCLUDE	C3	none	Mode connectivity paper with lottery tickets keyword
+R03256	EXCLUDE	E2	none	OECT inverter device
+R03257	EXCLUDE	E2	memristor/in-memory, GPU	Memristor synapse, DNN versus GPU energy, no SNN
+R03258	EXCLUDE	E4	none	SNN update skipping, compared with SNNs
+R03259	EXCLUDE	E4	none	Spiking looming perception, SNN only
+R03260	EXCLUDE	E4	none	Backdoor attacks on SNNs
+R03261	INCLUDE	C1	GPU, memristor/in-memory	Hybrid SNN-ANN accelerator, 183x lower energy than GPU
+R03262	EXCLUDE	E4	FPGA	SNN FPGA architecture, no ANN baseline
+R03263	INCLUDE	C1	none	SNN-BERT, 6.46x energy reduction, energy-efficient BERT
+R03264	EXCLUDE	E4	none	Hybrid glaucoma classifier, accuracy only
+R03265	INCLUDE	C1	FPGA	Empirical SNN versus CNN energy on FPGAs
+R03266	EXCLUDE	E4	none	SNN quantization and timestep trade-offs, no ANN baseline
+R03267	UNSURE	C1	none	ANN-to-SNN conversion; efficiency measurement unclear
+R03268	UNSURE	C1	ASIC	STDP chip claims efficiency over DNNs; baseline unclear
+R03269	INCLUDE	C6	simulation, memristor/in-memory	SNN hardware simulator reporting power, latency; ANN-to-SNN conversion
+R03270	EXCLUDE	E4	none	SNN simulation framework
+R03271	EXCLUDE	E5	simulation	Spin-oscillator reservoir without spikes
+R03272	INCLUDE	C2	none	Lyapunov pruning of random recurrent SNN
+R03273	INCLUDE	C2+C4	none	LTH sparse subnetwork in spiking transformer
+R03274	INCLUDE	C5+C2	none	Overview of sparsity-aware SNN hardware co-design
+R03275	INCLUDE	C1	ASIC, memristor/in-memory	Hybrid SNN/ANN in-memory chip, energy and accuracy
+R03276	EXCLUDE	E7	FPGA	LSTM pruning accelerator, not spiking
+R03277	EXCLUDE	E4	FPGA, GPU	SNN training accelerator versus GPU, no ANN baseline
+R03278	EXCLUDE	E2	memristor/in-memory	Correlated oxide memristive device
+R03279	EXCLUDE	E4	none	SNN EEG classifier, accuracy only
+R03280	INCLUDE	C1	none	Training-free ANN-to-SNN transformer conversion
+R03281	EXCLUDE	E4	none	Spiking LiDAR detector, sparsity only, no ANN efficiency comparison
+R03282	INCLUDE	C2	none	Spatio-temporal pruning for ultra-low-latency SNN
+R03283	EXCLUDE	E5	none	Event-based transformer detector, no SNN
+R03284	INCLUDE	C3	none	GNN edge pruning linked to lottery tickets
+R03285	EXCLUDE	E3	none	Auditory physiological model with SNN
+R03286	EXCLUDE	E6	none	HMM speech recognition; lottery tickets incidental
+R03287	EXCLUDE	E4	none	Spiking recurrent cell training, SNN comparison only
+R03288	UNSURE	C2	ASIC	Dynamic energy via attention on Speck chip; no ANN baseline
+R03289	EXCLUDE	E4	none	STDP hybrid learning, accuracy only
+R03290	INCLUDE	C1	none	Spike camera SNN, lower computation and energy than SOTA
+R03291	UNSURE	C1	none	Spike-driven Transformer; ANN energy comparison not visible
+R03292	UNSURE	C1	Loihi2	Spike-YOLO on Loihi 2; benchmark baseline unclear
+R03293	INCLUDE	C1	none	Spiking frame interpolation, lower power than ANN methods
+R03294	INCLUDE	C1	none	Spiking transformer HAR with energy in mJ
+R03295	EXCLUDE	E6	none	Power grid management paradigm, off-topic
+R03296	EXCLUDE	E4	FPGA	Spiking DVS model on FPGA, no ANN baseline
+R03297	EXCLUDE	E4	none	Spiking BMI decoder, accuracy comparison only
+R03298	INCLUDE	C1	none	Spikeformer beats ANN counterpart, energy analysis
+R03299	EXCLUDE	E4	none	Hybrid spike-CNN fault diagnosis, compared with spike-CNNs
+R03300	INCLUDE	C1	none	SpikeGPT energy-efficient language model versus non-spiking

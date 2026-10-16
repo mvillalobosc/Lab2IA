@@ -1,0 +1,25 @@
+R06143	Y	-	C1	ANN+SNN	OTHER	NLP	SIM	SIM	NS	ENERGY	PAIRED	NA	NA	NA	NA	N	SpikingMamba-1.3B 4.76x energy benefit versus Mamba with 4.78% zero-shot accuracy gap, 2.23% after RL
+R06152	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Spiking transformer for motor imagery EEG; compared with conventional models on accuracy, efficiency only asserted
+R06153	Y	-	C1+C2	ANN+SNN	NS	OTHER	SIM	SIM	NS	ENERGY+OPS+SPIKES	PAIRED	REG	NA	NS	Y	N	spkLLR comparable BER to ANN approach with over 2x less energy; spiking-rate regularisation (RR-spkLLR) gives highest efficiency
+R06154	Y	-	C1	ANN+SNN	OTHER	BIOSIG	SIM	SIM	CLAIM	ENERGY	DIFFERENT	NA	NA	NA	NA	N	SPSNet ACC 0.772/0.807/0.775 on three datasets, +0.3 to 1.8% over best baseline; lower complexity and energy claimed, no figures
+R06157	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Spiking speech enhancement: 62% lower power proxy than SNN models; ANN models compared without stated efficiency figure
+R06158	Y	-	C1	ANN+SNN	CNN+TRANSFORMER	DET	NS	NS	NS	ENERGY	DIFFERENT	NA	NA	NA	NA	N	ST-RTNet up to 90.13% energy reduction on INT-8 chips and 83.76% on Float-32 chips versus ANN models
+R06160	Y	-	C2	SNN	NS	BIOSIG	SIM	NA	ESTIMATED	SPIKES	NA	ACT	NA	NS	Y	N	Adaptive fractional fatigue neurons cut spikes per sample versus integer-order SNN with accuracy preserved; values missing in abstract
+R06163	Y	-	C1	ANN+SNN	CNN	BIOSIG	SIM	SIM	NS	POWER	PAIRED	NA	NA	NA	NA	N	STAND-Net: over 3.7 dB SDR gain versus SOTA, 97.98% less power than comparable DNNs; BCI accuracy +6.64%
+R06165	Y	-	C2	SNN	NS	STATIC_IMG+EVENT	SIM	NA	ESTIMATED	OPS	NA	SCORE+REG	NA	MIXED	Y	N	STEG-AIW: 34-88% fewer timesteps on static images, 43-73% on neuromorphic data, fewer synaptic operations; SNN baselines only
+R06175	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Spiking catenary component detector for UAVs; lower energy claimed without comparator or figures
+R06177	N	E6	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Survey of surgical data science with a brain-inspired computing roadmap; efficiency comparison is not the main subject
+R06178	Y	-	C1	ANN+SNN	NS	TS	SIM	SIM	ESTIMATED	OPS	DIFFERENT	NA	NA	NA	NA	N	SSNet 96.64% accuracy, 99.34% AUC, 93.28% MCC; OPs versus FLOPs comparison indicates lower cost, no ratio given
+R06179	Y	-	C2+C6	SNN	NS	EVENT	FPGA	NA	MEASURED	LATENCY+SPIKES	NA	OTHER	NA	NS	Y	N	FPGA study: Spike Rate Escape cuts latency up to 12.2%, Lapicque neurons up to 28%; sparsity-aware choice 2x latency
+R06181	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Hybrid SNN-ANN video enhancement reports 10.3 GFLOPs and 44.8 mJ estimated, but no ANN comparator in abstract
+R06183	Y	-	C1	ANN+SNN	CNN	DET	SIM	SIM	NS	ENERGY	DIFFERENT	NA	NA	NA	NA	N	SWS-YOLO 80.6% mAP@0.5 at 40.8 mJ per inference, 4.4x higher energy efficiency than YOLOv8m
+R06187	Y	-	C1+C2	HYBRID	RNN+CNN	NLP	SIM	SIM	ESTIMATED	OPS+ENERGY	PAIRED	REG	NA	NS	Y	N	GRU-C: 28.49% fewer SynOps per timestep than ANN counterpart, competitive accuracy; 32.93 uJ per inference under 45 nm model
+R06188	Y	-	C1	ANN+SNN	NS	EVENT	SIM	SIM	CLAIM	OPS	PAIRED	NA	NA	NA	NA	N	SNN models up to 0.83 accuracy on eye-movement events; substantial computational efficiency gains over ANN counterparts, no figures
+R06189	N	E2	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Open-source 130 nm SNN SoC, 2 GSOP/s at 36.5 pJ per synaptic operation; no ANN comparison, no pruning
+R06190	N	E2	-	-	-	-	-	-	-	-	-	-	-	-	-	-	iCE40 FPGA spiking convolution accelerator: 35 pJ per SOP, 6.8 mW; dense baseline not stated as ANN
+R06199	Y	-	C1	HYBRID	CNN	BIOSIG	SIM	SIM	NS	LATENCY	DIFFERENT	NA	NA	NA	NA	N	MS-CNN-SNN fatigue classification 84.32% accuracy, 4.2 ms inference latency, outperforming LSTM and Transformer baselines
+R06200	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Spiking detector temporal enhancer; only energy figure is spike-driven attention at 0.240x conventional attention, no ANN detector comparison
+R06202	Y	-	C1+C2	HYBRID	NS	NLP+STATIC_IMG	NS	NS	NS	ENERGY+LATENCY	PAIRED	SCORE	NA	MIXED	NS	N	Hybrid SNN-ANN partitions: up to 5.3x energy efficiency gain and 15.2x latency reduction over purely spiking and non-spiking models
+R06213	N	E2	-	-	-	-	-	-	-	-	-	-	-	-	-	-	SpiNNaker2 chip: 4.5 TOPS and 2.7 TOPS/W on INT8 DNNs, 1.8 billion synaptic events/s; no ANN-SNN comparison
+R06214	Y	-	C3	ANN	TRANSFORMER	OTHER	NA	SIM	NONE	NONE	NA	THEORY	STRONG	NS	N	N	Existence proof: random MHA with hidden dimension O(d log(Hd^(3/2))) hides an SLT approximating any MHA; extended to transformers
+R06218	Y	-	C6	ANN+SNN	NS	NS	LOIHI2+BRAINSCALES+SPINNAKER2	MEMRISTOR+ASIC	CLAIM	ENERGY	NA	NA	NA	NA	NA	N	Theory paper; restandardises neuromorphic efficiency to energy-per-bit for Loihi 2, BrainScaleS-2, SpiNNaker2, NeuRRAM; no figures in abstract

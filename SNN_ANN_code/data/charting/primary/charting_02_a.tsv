@@ -1,0 +1,25 @@
+R00421	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	ANN-to-SNN conversion calibration; up to +69% top-1 on ImageNet MobileNet; no inference efficiency metric
+R00422	Y	-	C1	ANN+SNN	CNN	DET	NS	NS	CLAIM	ENERGY	DIFFERENT	NA	NA	NA	NA	N	FSHNN claimed more accurate and more energy-efficient than DNN object detectors; no figures given
+R00424	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	H-SNN accuracy similar or higher than DNNs with 6x fewer parameters; no energy or operation metric
+R00433	Y	-	C1+C2	ANN+SNN	NS	BIOSIG	SIM	NS	ESTIMATED	OPS	DIFFERENT	NS	NA	NS	Y	N	24.6 kFLOPs/inference, 42.4x fewer FLOPs and 55.9x fewer samples than ANN approach; accuracy 95.34%
+R00435	Y	-	C1	ANN+SNN	CNN	BIOSIG	NS	NS	ESTIMATED	OPS	NS	NA	NA	NA	NA	N	Spiking-CNN computation complexity 98.58% lower than CNN; sensitivity 95.1%, specificity 99.2%, AUC 0.912
+R00437	Y	-	C1	ANN+SNN	NS	BIOSIG	SIM	SIM	CLAIM	ENERGY	DIFFERENT	NA	NA	NA	NA	N	Binarized SNN vs DL models for ECG in simulation; slight accuracy loss, claimed more energy-efficient; no figures
+R00438	Y	-	C1+C2	ANN+SNN	NS	STATIC_IMG	NS	NS	CLAIM	POWER	NS	DST	NA	UNSTRUCT	N	N	MNIST 92.1%; training 2.6 h shorter than fully connected SNN; claims SNN power far below ANN
+R00441	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Broad review of SNN algorithms and hardware implementations; no ANN efficiency comparison or sparsity focus
+R00442	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Survey of FPGA SNN implementations (neuron models, architectures, training); no ANN comparison or sparsity focus
+R00445	Y	-	C1	ANN+SNN	CNN	STATIC_IMG	OTHER_NEURO	GPU	MEASURED	ENERGY+LATENCY	NS	NA	NA	NA	NA	U	99.37% MNIST, 91.91% CIFAR-10; 0.28 and 2.3 mJ/image, 0.38 and 3.24 ms; ~2 orders more efficient than GPUs
+R00446	Y	-	C2	SNN	NS	TS	NS	NA	NONE	SPIKES	NA	REG	NA	NS	Y	N	SNN-only; sparsity constraints minimize spiking activity; accuracy comparable to standard methods on olfaction data
+R00449	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Deformable CNN-to-SNN conversion; latency compared only with other SNN conversion methods; no ANN efficiency comparison
+R00453	Y	-	C3	ANN	GNN	OTHER	NA	NS	ESTIMATED	OPS	NA	NS	WEAK	UNSTRUCT	N	N	Graph lottery tickets keep accuracy with 20-98% MACs saving on small graphs, 25-85% on large
+R00454	Y	-	C2	SNN	NS	NS	NS	NA	NS	POWER	NA	ACT	NA	NS	N	N	SC-based SNN neuron: power -81.37% to -90.58%, area -72.38% to -75.64% vs non-SC SNNs; no ANN comparison
+R00455	Y	-	C3	ANN	NS	STATIC_IMG	NA	NS	CLAIM	MEMORY	NA	NS	NS	NS	N	N	Lottery-ticket-style pruning gives compact robust nets; CIFAR-10-C 96.8% standard, 92.75% robust; less memory than dense
+R00457	Y	-	C1+C2	ANN+SNN	RNN	AUDIO+OTHER	NS	NS	ESTIMATED	OPS+SPIKES	DIFFERENT	REG	NA	NS	Y	N	Activity-regularized adaptive spiking RNN; theoretically 1 to 3 orders of magnitude more efficient than RNNs of similar accuracy
+R00463	Y	-	C5	ANN+SNN	NS	EVENT+CONTROL+OTHER	LOIHI	NS	MEASURED	ENERGY+LATENCY	NA	NA	NA	NA	NA	N	Loihi survey: brain-inspired networks show orders of magnitude lower latency and energy than conventional; feedforward DNNs modest benefit
+R00469	Y	-	C1	SNN	NS	AUDIO+OTHER	ASIC	NS	MEASURED	POWER	LITERATURE	NA	NA	NA	NA	N	65nm chip 75-300 nW; >1000x less power than SNN hardware, 2.3x less than KWS hardware (ANN not stated)
+R00470	Y	-	C1+C6	ANN+SNN	NS	NS	SIM	SIM	ESTIMATED	POWER+LATENCY	PAIRED	NA	NA	NA	NA	N	Cycle-accurate simulator compares converted SNNs with ANN counterparts; evaluation methodology, no figures in abstract
+R00477	Y	-	C2	SNN	NS	STATIC_IMG	ASIC	NA	NS	ENERGY+OPS	NA	ACT+OTHER	NA	NS	Y	N	Spike prediction cuts synaptic ops 63.84%; sparse DFA cuts weight updates to 65.17%; 1.18 uJ/image, 97.46% MNIST
+R00481	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	CNN-to-SNN conversion; Fashion-MNIST 93.5%; no efficiency metric or ANN energy comparison
+R00482	Y	-	C2	SNN	NS	STATIC_IMG	NS	NA	NONE	SPIKES	NA	OTHER	NA	NS	Y	N	Enhanced STBP lowers spike count per inference and raises accuracy; no figures in abstract
+R00483	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Convolutional SNN for odor recognition, accuracy 84.5% and 88.6%; vague efficiency claim, no metric or ANN identified
+R00484	N	E7	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Memristor synapse mimics pruning: 84.2% synapses removed, accuracy 99%; no spikes, not lottery-ticket
+R00487	Y	-	C3	ANN	CNN	STATIC_IMG	NA	NS	NONE	NONE	NA	NS	WEAK	MIXED	N	N	Winning ticket found for unstructured pruning on face recognition; promising structured results; no efficiency figures

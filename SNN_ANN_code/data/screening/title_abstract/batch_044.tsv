@@ -1,0 +1,100 @@
+R04301	INCLUDE	C1	none	Hybrid ANN-SNN eimeria classifier; energy savings from SNN layers
+R04302	EXCLUDE	E4	CPU, FPGA	SCNN on ARM core; event vs periodic baseline, no ANN comparison
+R04303	INCLUDE	C1	none	ANN-to-SNN conversion with low latency, fewer time steps
+R04304	INCLUDE	C1+C2	ASIC	Hoyer-sparse one-step SNN, conversion, 34x compute efficiency gains
+R04305	UNSURE	C1	none	Spiking transformer vs traditional models; unclear if power measured (abstract truncated)
+R04306	UNSURE	C1	FPGA	SNN seizure processor on FPGA; ANN baseline comparison unclear
+R04307	EXCLUDE	E2	memristor/in-memory	Memristor neuron circuit, pW power, no learning task
+R04308	EXCLUDE	E2	photonic	Perovskite photoelectric synaptic transistor device; CNN only as demonstration
+R04309	EXCLUDE	E2	memristor/in-memory	Perovskite bilayer memristor device, fJ per spike
+R04310	INCLUDE	C1	FPGA	Converted SNN on FPGA, up to 3x lower power than ANN
+R04311	EXCLUDE	E2	photonic	ZnMgO optoelectronic synapse device, digit recognition only
+R04312	EXCLUDE	E4	FPGA	SNN POSIT precision study, no ANN baseline
+R04313	EXCLUDE	E5	memristor/in-memory	Low-rank equilibrium propagation for analog training, non-spiking, no LTH
+R04314	EXCLUDE	E6	none	Lung disease detection survey; SNN incidental
+R04315	EXCLUDE	E6	none	Bibliometric review of EMG finger recognition
+R04316	EXCLUDE	E2	memristor/in-memory	Organic spintronic memristor device with CNN simulation
+R04317	EXCLUDE	E2	memristor/in-memory	Skyrmion synapse and domain wall ReLU circuit for CNN
+R04318	EXCLUDE	E4	simulation	SNN mapping on segmented bus; no ANN baseline
+R04319	EXCLUDE	E4	memristor/in-memory	SNN crossbar mapping by ILP; no ANN baseline or pruning
+R04320	INCLUDE	C2	none	Random and Gaussian spike masking cuts spiking transformer energy
+R04321	EXCLUDE	E4	none	Sparse-coding SNN for fault diagnosis; accuracy only
+R04322	INCLUDE	C2	none	Dynamic joint pruning of SNN, SOPs compression up to 126x
+R04323	EXCLUDE	E4	memristor/in-memory	Quantized SNN compared only with spiking LSTMs
+R04324	UNSURE	C1	none	Lightweight SNN vs traditional DL; efficiency measure unclear, parameters only?
+R04325	EXCLUDE	E2	memristor/in-memory	Biomolecular memimpedance reservoir device, non-spiking
+R04326	EXCLUDE	E4	none	Hebbian memory SNN; no efficiency comparison
+R04327	EXCLUDE	E2	memristor/in-memory	Brownmillerite memristive synapse device
+R04328	EXCLUDE	E2	memristor/in-memory	Review of ion-based memristive devices
+R04329	EXCLUDE	E2	memristor/in-memory	Review of memristive sensory devices
+R04330	EXCLUDE	E4	none	Optimizer for SNN training; no efficiency comparison
+R04331	EXCLUDE	E2	memristor/in-memory	Device-focused review of memristor neural networks
+R04332	EXCLUDE	E2	memristor/in-memory	Review of perovskite memristor devices
+R04333	EXCLUDE	E2	memristor/in-memory	Van der Waals memristor device, CNN chip simulation only
+R04334	EXCLUDE	E6	none	Microgrid fault detection, unrelated domain
+R04335	EXCLUDE	E2	none	Gold line growth material, axon pruning analogy
+R04336	INCLUDE	C1	none	SNN federated learning, 23.08x more energy-efficient than ANN
+R04337	INCLUDE	C2	FPGA	Sparse-trained SNN on FPGA, inferences per watt reported
+R04338	EXCLUDE	E3	none	Mathematical theory of spiking network dynamics
+R04339	EXCLUDE	E3	none	Entorhinal cortex oscillation simulation; sparse network model
+R04340	UNSURE	C3	none	LTH-inspired parameter split for OOD detection; unclear mask search
+R04341	EXCLUDE	E2	photonic	Photonic-electronic single-layer ANN prototype, fJ/MAC estimate
+R04342	INCLUDE	C1	none	Spiking NeRF with 60% lower energy than NeRF
+R04343	EXCLUDE	E2	photonic	Photonic reservoir computing hardware, non-spiking
+R04344	EXCLUDE	E4	none	Formal verification of sigma-delta networks; no efficiency comparison
+R04345	UNSURE	C3	none	RBM teacher-student theory; LTH only as toy model
+R04346	EXCLUDE	E4	FPGA	FPGA SNN emulator; no ANN baseline
+R04347	EXCLUDE	E2	memristor/in-memory	MXene analogue memristor device
+R04348	EXCLUDE	E2	photonic	Cocrystal nanowire photosynapse device
+R04349	EXCLUDE	E2	memristor/in-memory	Molybdenum oxide artificial synapse device
+R04350	EXCLUDE	E4	none	Multi-objective SNN architecture search; no ANN or pruning
+R04351	UNSURE	C1	memristor/in-memory, ASIC	Dual-mode CIM macro TOPS/W in CNN and SNN modes; no task
+R04352	UNSURE	C1	none	CNN-SNN hybrid reports latency, throughput; baseline comparison unclear
+R04353	EXCLUDE	E4	ASIC	SNN on-chip learning chip; no ANN baseline
+R04354	EXCLUDE	E4	FPGA	SNN learning processor on FPGA; no ANN baseline
+R04355	EXCLUDE	E4	FPGA	e-prop SNN FPGA processor; compared with other neuromorphic works
+R04356	EXCLUDE	E2	photonic	MoS2 optoelectronic synapse device
+R04357	EXCLUDE	E2	photonic	MoS2 photonic synapse device, CNN only as demo
+R04358	EXCLUDE	E2	none	MoTe2 synaptic transistor and physical reservoir
+R04359	EXCLUDE	E4	none	SNN fault diagnosis with federated learning; no efficiency comparison
+R04360	EXCLUDE	E4	none	EMG SNN beats CNN on accuracy only
+R04361	EXCLUDE	E4	none	Neuromorphic vision SNN architecture; accuracy only
+R04362	EXCLUDE	E4	none	Few-shot fault diagnosis SNN; energy only as motivation
+R04363	EXCLUDE	E6	none	Multi-camera anomaly detection, no SNN or sparsity
+R04364	EXCLUDE	E4	none	Spiking distributional RL; accuracy compared with ANN, no efficiency
+R04365	EXCLUDE	E4	none	SNN object detection architecture; no efficiency comparison
+R04366	EXCLUDE	E4	none	Brain-guided SNN image classification; accuracy only
+R04367	EXCLUDE	E4	none	Multimodal toxicity detection with spiking networks; no efficiency data
+R04368	EXCLUDE	E6	none	Smart-city multi-objective optimization review, off-topic
+R04369	EXCLUDE	E4	none	Spiking food recognition transmission; no ANN energy comparison
+R04370	EXCLUDE	E4	none	Spiking transformer zero-shot learning; accuracy only
+R04371	EXCLUDE	E3	BrainScaleS	Plasticity rule on BrainScaleS-2; no learning task
+R04372	EXCLUDE	E2	none	Flexible neuromorphic actuator device
+R04373	EXCLUDE	E2	photonic	2D floating-gate optoelectronic synapse device
+R04374	EXCLUDE	E2	photonic	Organic optoelectronic synapse device
+R04375	EXCLUDE	E2	memristor/in-memory	Review of organic neuromorphic materials and devices
+R04376	EXCLUDE	E2	none	Organic synaptic transistor dosimeter device
+R04377	INCLUDE	C2	photonic	Photonic SNN with sparse TTFS spikes, 0.4 spikes per neuron
+R04378	EXCLUDE	E4	none	SNN-KAN multimodal cancer prediction; energy claim unmeasured
+R04379	EXCLUDE	E4	GPU	Multiplication-free spiking neuron; compared with other spiking neurons
+R04380	INCLUDE	C1	none	SNN decoder beats MLP and GRU in accuracy and efficiency
+R04381	EXCLUDE	E2	photonic	Perovskite photonic synapse device
+R04382	EXCLUDE	E6	none	Scratch-off lottery tickets consumer study, unrelated
+R04383	EXCLUDE	E5	FPGA	FPGA DNN accelerator for fish size; no SNN
+R04384	UNSURE	C1	none	SNN glucose controller beats RL models; efficiency measure unclear
+R04385	EXCLUDE	E2	none	Review of biomaterial neuromorphic devices
+R04386	INCLUDE	C1	none	ANN-SNN conversion with few time steps, accuracy and efficiency
+R04387	EXCLUDE	E4	none	Evolving SNN plus neuro-fuzzy model; no efficiency comparison
+R04388	INCLUDE	C1	FPGA	Neuromorphic processor cuts energy 89% versus ANN accelerators
+R04389	EXCLUDE	E2	none	Spintronic bolometer neural pixel device, no ANN-SNN comparison
+R04390	EXCLUDE	E4	none	LIF microcircuits for spike code translation; no ANN baseline
+R04391	EXCLUDE	E7	none	Evolutionary compaction of printed analog networks versus pruning; not LTH
+R04392	EXCLUDE	E4	none	Neural heterogeneity in SNNs; no efficiency comparison
+R04393	EXCLUDE	E4	none	SNN intrusion prevention for sensor routing; no ANN comparison
+R04394	INCLUDE	C1	none	Spiking GCN vs GCN; operation counts and neuron sparsity
+R04395	EXCLUDE	E5	none	ResNet-BiLSTM vehicle detection; neuromorphic used loosely
+R04396	INCLUDE	C1	none	SNN edge framework, 65% energy savings versus CNN
+R04397	EXCLUDE	E4	FPGA	HLS SNN framework; benchmarked only against SNN frameworks
+R04398	EXCLUDE	E4	none	Self-supervised SNN pretraining; accuracy only
+R04399	INCLUDE	C1	none	Benchmarks SNN versus deep learning on energy and latency
+R04400	INCLUDE	C1	none	SNN localization vs MobileNetV2; about 102x fewer computations

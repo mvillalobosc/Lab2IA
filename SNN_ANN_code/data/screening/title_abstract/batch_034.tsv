@@ -1,0 +1,100 @@
+R03301	EXCLUDE	E4	none	Spiking LM; accuracy gap to ANN only, no efficiency measured
+R03302	UNSURE	C1	none	Abstract truncated; low power claim, ANN comparison not visible
+R03303	INCLUDE	C1	none	Spiking TTS comparable to ANN at 10.5% energy
+R03304	INCLUDE	C2	none	Dynamic and adaptive pruning in spiking YOLO
+R03305	INCLUDE	C1	none	ANN-to-SNN conversion for transformers, exact equivalence
+R03306	EXCLUDE	E4	none	SNN-only autoencoder with STDP, no ANN baseline
+R03307	UNSURE	C1	none	Compared with same-structure ANN on training efficiency; metric unclear
+R03308	UNSURE	C1	none	Less than half energy vs prior work; unclear if ANN baseline
+R03309	EXCLUDE	E4	FPGA	Spiking LeNet-5 on FPGA, no ANN comparison
+R03310	EXCLUDE	E4	ASIC	SCNN processor chip, no ANN baseline efficiency comparison
+R03311	INCLUDE	C1	none	Spiking diffusion comparable to ANN with reduced energy
+R03312	EXCLUDE	E4	ASIC, simulation	SNN-HDC processor compared to similar works, no ANN baseline
+R03313	INCLUDE	C1	none	Hybrid spiking YOLO uses 2.77% of ANN power
+R03314	UNSURE	C1	none	Truncated at comparison with same-structure LSTM; efficiency unclear
+R03315	INCLUDE	C1	none	ANN-to-SNN NeRF, energy reduction vs ANN NeRF
+R03316	EXCLUDE	E4	none	SNN event slicer assisting ANN, no efficiency comparison
+R03317	EXCLUDE	E3	none	Hippocampus episodic memory simulation
+R03318	EXCLUDE	E4	none	SNN flight controller in simulation, no ANN comparison
+R03319	EXCLUDE	E4	none	SNN microseismic detection, no ANN efficiency comparison
+R03320	EXCLUDE	E4	none	SNN spoofing detector; accuracy-only comparison, energy as motivation
+R03321	EXCLUDE	E2	none	Sensor circuit producing spikes, no network-level ANN comparison
+R03322	EXCLUDE	E4	none	Learnable threshold SNN training, SNN baselines only
+R03323	INCLUDE	C2	none	SNN with spatially sparse connectivity, STDP audio classification
+R03324	EXCLUDE	E4	none	Spiking actor for soft robot, no ANN efficiency comparison
+R03325	INCLUDE	C5	none	Review of SNNs for driving, energy efficiency and hardware focus
+R03326	INCLUDE	C1	none	SNN vs DL detectors, ultralow power claimed
+R03327	INCLUDE	C1	none	Power-efficient SNN, negligible loss versus standard models
+R03328	UNSURE	C1	none	Energy efficiency formulation; unclear ANN energy comparison
+R03329	INCLUDE	C5	none	Review with ANN-SNN efficiency comparisons, domain-focused
+R03330	INCLUDE	C1	none	SNN vs CNN, accuracy and energy on DVS
+R03331	EXCLUDE	E2	memristor/in-memory, simulation	Memristor nonlinearity effect on SNN, no ANN comparison
+R03332	EXCLUDE	E6	none	Membrane computing theory, Turing universality
+R03333	INCLUDE	C1	none	ANN-to-SNN conversion for point clouds; efficiency not quantified
+R03334	EXCLUDE	E4	none	SNN associative memory, no ANN efficiency comparison
+R03335	EXCLUDE	E4	none	Deep SNN tracker, accuracy-only comparison with ANN
+R03336	INCLUDE	C1	none	Spiking S4 rivals ANN with fewer FLOPs
+R03337	EXCLUDE	E4	none	Transfer learning for SNN, accuracy-only comparison
+R03338	INCLUDE	C2	none	Spiking MoE with dynamic sparse conditional computation
+R03339	INCLUDE	C1	none	Spiking UNet near CNN accuracy with better energy efficiency
+R03340	EXCLUDE	E4	none	Spiking ViT defect classification, efficiency only as motivation
+R03341	INCLUDE	C1	none	Spiking MiniLM vs BERT-mini, lower energy
+R03342	EXCLUDE	E4	none	Compared only against other spiking transformers
+R03343	EXCLUDE	E4	none	Spiking Mamba action recognition, accuracy vs prior methods
+R03344	EXCLUDE	E2	memristor/in-memory, simulation	Spin-memory crossbar edge detection, circuit level
+R03345	EXCLUDE	E2	memristor/in-memory	Spintronic synapse device paper, network evaluation incidental
+R03346	INCLUDE	C2	none	Pruning plus quantization in SNN, reduced operations
+R03347	INCLUDE	C2	none	Spike-statistics synapse pruning for neuromorphic deployment
+R03348	UNSURE	C2	none	SNN state quantization; unclear if compression counts
+R03349	INCLUDE	C2	ASIC	SNN processor with dynamic pruning, 28 nm
+R03350	EXCLUDE	E4	none	Spiking reservoir sequence learning, no ANN baseline
+R03351	INCLUDE	C2	none	Few-spike sparse SNN algorithm-hardware co-design
+R03352	EXCLUDE	E2	memristor/in-memory, simulation	Stochastic OTS neuron device for RBM
+R03353	EXCLUDE	E5	memristor/in-memory, FPGA	Memristor neuro-fuzzy hardware, no SNN
+R03354	INCLUDE	C1	ASIC, FPGA, GPU	Spiking attention vs ANN accuracy, energy and latency gains
+R03355	EXCLUDE	E4	none	Stochastic SNN coding compared only with SNN baselines
+R03356	INCLUDE	C3	none	LTH with structural pruning for smaller models
+R03357	INCLUDE	C3+C5	none	Survey of structured pruning including LTH
+R03358	EXCLUDE	E2	none	Soft error mitigation in SNN hardware, no ANN comparison
+R03359	INCLUDE	C2	none	SNN cytometry; network dynamics used to enhance sparsity
+R03360	INCLUDE	C5	none	Survey of edge accelerators including neuromorphic, energy comparison
+R03361	EXCLUDE	E4	none	SNN voice activity detection, no ANN baseline
+R03362	EXCLUDE	E6	none	Book trade economic history
+R03363	EXCLUDE	E5	none	Lightweight ANN super-resolution, no SNN
+R03364	EXCLUDE	E2	memristor/in-memory	Synapse device review for biomedical recognition
+R03365	EXCLUDE	E2	photonic	Optoelectronic synaptic transistor device
+R03366	EXCLUDE	E2	memristor/in-memory	Sm-doped HfO2 synaptic device
+R03367	EXCLUDE	E4	none	Spiking RNN threshold control for hardware, no ANN baseline
+R03368	EXCLUDE	E5	GPU	CNN deployment on neuromorphic system, no SNN
+R03369	EXCLUDE	E6	none	Synthetic biology neural networks review
+R03370	INCLUDE	C2	none	SNN accelerator exploiting structured temporal sparsity
+R03371	EXCLUDE	E2	memristor/in-memory	MXene MOF synapse device
+R03372	INCLUDE	C3	none	LTH-based sparse subnetwork partition for continual learning
+R03373	EXCLUDE	E5	none	EEG decoding transformer, no SNN or sparsity
+R03374	EXCLUDE	E4	none	Layer-wise adaptive time steps, SNN baselines only
+R03375	INCLUDE	C3	none	Graph lottery tickets via one-shot edge sparsification
+R03376	EXCLUDE	E2	memristor/in-memory	Ferroelectric capacitor device for reservoir computing
+R03377	EXCLUDE	E4	none	Dendritic heterogeneity SNN, compared to SNNs only
+R03378	EXCLUDE	E2	memristor/in-memory	RRAM crossbar circuit, small classification demo
+R03379	INCLUDE	C1	none	SNN graph reasoning, 20x estimated energy saving vs non-spiking
+R03380	EXCLUDE	E4	none	SNN image processing overview, no ANN efficiency comparison
+R03381	EXCLUDE	E4	Loihi	On-chip SNN backprop; EDP reported, no ANN baseline
+R03382	EXCLUDE	E6	none	Spanish social security law
+R03383	INCLUDE	C3	none	Early-bird ticket search acceleration in CNNs
+R03384	EXCLUDE	E4	none	Compares SNN training algorithms by accuracy only
+R03385	INCLUDE	C2	none	Basal-ganglia inspired pruning in SNN fault diagnosis
+R03386	INCLUDE	C3	none	IMP-derived sparse initialisation, lottery ticket analysis
+R03387	EXCLUDE	E2	memristor/in-memory	Review of neuromorphic biointegrated devices
+R03388	INCLUDE	C3	none	LTH extended to OOD intent classification
+R03389	INCLUDE	C1+C2	none	SNN vs ANN bandwidth savings with top-k sparsification in FL
+R03390	EXCLUDE	E6	none	Covering codes mathematics
+R03391	EXCLUDE	E2	photonic	Photonic chip thermal crosstalk modelling
+R03392	EXCLUDE	E2	memristor/in-memory, simulation	Fe-TFT thermal effects, device level
+R03393	EXCLUDE	E2	photonic	Optoelectronic synaptic heterojunction device
+R03394	EXCLUDE	E2	memristor/in-memory	SnSe threshold switching device
+R03395	UNSURE	C3	none	LTH only as framing; theory of overparameterisation and curricula
+R03396	EXCLUDE	E5	none	Event-camera CNN pipeline; SNNs only accuracy baselines
+R03397	EXCLUDE	E4	none	Spiking RL for air hockey robot, no ANN comparison
+R03398	EXCLUDE	E4	none	Representation analysis of recurrent SNNs
+R03399	UNSURE	C3	none	Supermask keyword; sparse LDPC-structured models, theoretical
+R03400	EXCLUDE	E2	memristor/in-memory	Review of neuromorphic devices for brain interfaces

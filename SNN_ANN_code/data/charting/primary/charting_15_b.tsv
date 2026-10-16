@@ -1,0 +1,25 @@
+R04416	Y	-	C5	SNN	NS	NS	NS	NA	NONE	NONE	NA	NA	NA	NA	NA	N	Survey of neuromorphic edge computing: near-sensor integration, sparsity techniques, RRAM integration and security; no figures
+R04423	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Neuromorphic cytometry dataset; CBAM-SNN 97% accuracy, computation reduction claimed without ANN counterpart
+R04425	Y	-	C1	HYBRID	TRANSFORMER	NLP	NS	NS	NS	ENERGY	NS	NA	NA	NA	NA	N	Hybrid LLM-neuromorphic 6G edge model: 10-100x energy-per-token efficiency claimed; baseline and basis unclear
+R04426	Y	-	C1	ANN+SNN	NS	OTHER	SPINNAKER2	EDGE_GPU	CLAIM	NONE	NS	NA	NA	NA	NA	U	Few-spikes SNN for 5G source localization on SpiNNaker2 benchmarked against baseline ANN on Jetson Xavier NX; no figures
+R04427	Y	-	C1	ANN+SNN	CNN	TS	LOIHI2	FPGA	MEASURED	ENERGY	NS	NA	NA	NA	NA	Y	SNN on Loihi 2 vs CNN on Xilinx chipset: orders of magnitude better energy efficiency with maintained accuracy
+R04431	Y	-	C1	ANN+SNN	GNN	OTHER	NS	GPU	NS	LATENCY+ENERGY	DIFFERENT	NA	NA	NA	NA	U	NQAL SNN for DoH threat detection: 99.18% accuracy, <1 ms latency, 10x less energy than GPU-based models
+R04433	Y	-	C1	ANN+SNN	NS	TS	LOIHI2	GPU	MEASURED	LATENCY+POWER	PAIRED	NA	NA	NA	NA	Y	SNN on Loihi 2 vs GPU ANN: up to 10x lower latency, 4x lower power; comparable accuracy
+R04434	Y	-	C1	ANN+SNN	NS	OTHER	NS	NS	NS	ENERGY	DIFFERENT	NA	NA	NA	NA	N	SNN access control: 87% less energy than conventional deep learning, 94% decision accuracy
+R04439	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Post-training quantization of SNNs: 5.2 bits average, 1.51x power reduction; quantization-only, no ANN comparison
+R04444	N	E2	-	-	-	-	-	-	-	-	-	-	-	-	-	-	28nm 16-core SNN chip: 3.3 pJ/SOP, 4.7 GSOP/s; MNIST 92.3% at 2.7 uJ/classification; no ANN baseline
+R04446	Y	-	C1	ANN+SNN	CNN	TS	NS	NS	NS	ENERGY+POWER+LATENCY+MEMORY	DIFFERENT	NA	NA	NA	NA	U	niCNN (converted CNN): latency 2.25/2.36 ms, memory 22.11/31.84 KB, 5.2/5.8 W; beats baseline CNNs; accuracy 97.25/98.92%
+R04447	Y	-	C1	ANN+SNN	CNN	BIOSIG	NS	NS	NS	ENERGY	PAIRED	NA	NA	NA	NA	N	NiSNN-A 2.13x more energy-efficient than counterpart CNNs on motor imagery EEG, comparable accuracy
+R04449	Y	-	C1	ANN+SNN	GNN	OTHER	NS	NS	CLAIM	ENERGY	DIFFERENT	NA	NA	NA	NA	N	Purely spiking graph conv network: low accuracy loss vs ANN alternatives with significantly reduced energy; no figures given
+R04459	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Aerial neuromorphic detection dataset; baseline of 3 SNNs and 10 DNNs reported, no efficiency metrics in abstract
+R04465	Y	-	C2	SNN	NS	NS	MEMRISTOR	NA	NS	ENERGY	NA	OTHER	NA	STRUCT	Y	N	Row pruning in memristive SNNs: marginal performance drop, up to two orders of magnitude energy saving after 1000 cycles
+R04474	Y	-	C1	ANN+SNN	CNN	STATIC_IMG+EVENT	NS	NS	NS	ENERGY+LATENCY	PAIRED	NA	NA	NA	NA	N	M-LIF SNN: 20x lower energy than VGG16 ANN on ImageNet; +2% accuracy vs VGG16 SNN; 3x lower latency on DVS
+R04475	Y	-	C1+C2	ANN+SNN	CNN+GNN	STATIC_IMG+OTHER	NS	NS	NS	ENERGY	PAIRED	OTHER	NA	NS	Y	N	Single-spike conversion: energy efficiency 4.6-17.3x vs ANN baseline; accuracy loss 0.58% (CNNs), 0.90% (GCNs)
+R04485	Y	-	C2	SNN	NS	STATIC_IMG+EVENT	NS	NA	NS	LATENCY	NA	REG+OTHER	NA	TEMPORAL	Y	N	Top-K cutoff and regularization: 1.76-2.76x fewer timesteps on CIFAR-10, 1.64-1.95x on event datasets, near-zero accuracy loss
+R04487	Y	-	C2	SNN	NS	NS	FPGA	NA	MEASURED	LATENCY+MEMORY	NA	NS	NA	UNSTRUCT	Y	N	SPARSH sparse-hashing memory for SNN FPGA accelerator: over-provisioning -3.2x, access latency -77%, bandwidth utilization -68%
+R04498	N	E2	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Unified SNN-ANN neuromorphic chip: peak 5.181 TSOPS/W (SNN), 10.372 TOPS/W (ANN); chip-level only, no task-level comparison
+R04500	N	E5	-	-	-	-	-	-	-	-	-	-	-	-	-	-	PDMU is an ANN sequence model; spiking variant mentioned with vague energy gains, no figures or ANN comparison
+R04502	Y	-	C3	ANN	CNN	STATIC_IMG	NA	NS	NONE	MEMORY	NA	SCORE+RANDOM	STRONG	UNSTRUCT	N	N	Freezing 70% of ResNet on ImageNet: 3.3x SLT compression vs dense, +14.12 accuracy points vs randomly pruned source
+R04503	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	ANN-SNN conversion; only efficiency figure is 56x fewer timesteps; ResNet-34 SNN ~74% on ImageNet
+R04504	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Neuromorphic co-processors for HPC: up to 80% energy savings vs conventional processors in climate case study; no ANN baseline
+R04507	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	CNN 84.47% vs converted SNN 83.34% accuracy; efficiency reported only as training time and spiking output

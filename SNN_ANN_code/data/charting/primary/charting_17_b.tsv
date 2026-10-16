@@ -1,0 +1,25 @@
+R04993	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	FPGA 0.33 W, 11.54 ms; 31.66x power and 4.01x energy below GPU inference, not stated as ANN
+R04996	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Accuracy-only comparison on MNIST: LeNet-6 CNN over 98% vs single-layer SNN 92%; no efficiency metric
+R05000	Y	-	C5	ANN+SNN	CNN	BIOSIG	NS	NS	NONE	NONE	NA	NA	NA	NA	NA	N	Survey of reconfigurable hybrid CNN-SNN accelerators for biomedical edge SoCs (EEG, ECG, EMG): taxonomy, RISC-V integration; no figures
+R05001	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	OPs cut at least 80% versus fixed-matrix compressed learning; ASIC 2.089 mW estimated; no ANN baseline
+R05002	Y	-	C1	ANN+SNN	NS	NS	ASIC	ASIC	NS	ENERGY	LITERATURE	NA	NA	NA	NA	U	28nm 500MHz: 9.75 TOPS/W (DNN) and 9.75 TSOPS/W (SNN); 1.9x and 2.7x previous DNN and SNN designs
+R05003	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Streaming SNN accelerator on Virtex-7 with latency balancing and resource savings; no ANN baseline, no pruning method
+R05007	Y	-	C2	ANN+SNN	NS	DET	OTHER_NEURO	NS	NONE	NONE	NA	DST	NA	UNSTRUCT	N	N	DS-SNN reaches 85% accuracy at 42% sparsity with about 80k parameters versus 320k (CNN) and 140k (SNN) dense weights
+R05009	Y	-	C1	ANN+SNN	MLP	STATIC_IMG	MCU	MCU	MEASURED	ENERGY	PAIRED	NA	NA	NA	NA	Y	ESP32-C6, MNIST: ANN 11.01 mJ vs SNN 2.31, 2.34, 3.88 mJ at 1, 3, 10 timesteps; identical int8 MLPs
+R05011	Y	-	C2	SNN	NS	NS	GPU	NA	MEASURED	LATENCY+THROUGHPUT	NA	DST	NA	UNSTRUCT	N	N	Sparse SNN classifiers (e-prop, DEEP R) train up to 10x faster than dense baselines on GPU, same accuracy
+R05017	Y	-	C1	ANN+SNN	NS	STATIC_IMG+EVENT+OTHER	SIM	SIM	ESTIMATED	ENERGY+LATENCY+SPIKES	PAIRED	NA	NA	NA	NA	N	Analytical hardware model: multi-level SNNs use 2-3x less energy than binary SNNs; SNNs cannot match ANN energy on denoising
+R05018	Y	-	C1	ANN+SNN	CNN	OTHER	SIM	SIM	ESTIMATED	ENERGY	PAIRED	NA	NA	NA	NA	N	SNN/CNN energy ratios 0.10-0.55 hardware-agnostic and 0.04-0.36 neuromorphic model; direct encoding within about 10% of CNN MSE
+R05019	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Photonic SNN actor 494.07 pJ/inf, 388.74 ps/inf estimated; compared only with unspecified electronic counterparts, no ANN baseline
+R05020	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Event-camera SNN tracker claims better accuracy, latency, energy than existing methods; no ANN baseline named, no figures
+R05022	Y	-	C5+C6	ANN+SNN	NS	NS	MCU+FPGA+ASIC+OTHER_NEURO	MCU+FPGA+ASIC	NONE	ENERGY	NA	NA	NA	NA	NA	N	Mini review: seven-term CMOS energy taxonomy (compute, memory, state, temporal, activation, leakage, clock) for DNN versus SNN inference
+R05023	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Training chip 1.9-3.3x Jetson Orin performance, 55-85% less memory access than A100; GPU runs not stated as ANN
+R05024	Y	-	C1	ANN+SNN	MLP+RNN+TRANSFORMER	TS	SIM	SIM	CLAIM	NONE	DIFFERENT	NA	NA	NA	NA	N	SNN 97.97% accuracy, better than LSTM and transformer; processing efficiency gain claimed without figures; fire stage prediction
+R05026	Y	-	C1	ANN+SNN	MLP+CNN	STATIC_IMG	TIANJIC	ASIC	ESTIMATED	ENERGY+POWER+THROUGHPUT	DIFFERENT	NA	NA	NA	NA	N	Simulated: 8.11% (48.67 mW) less energy than TianjicX; MNIST 95%, 33,900 images/s; ResNet-50 3.12% faster, 40.85 mW/frame saved
+R05027	Y	-	C1	ANN+SNN	CNN+TRANSFORMER	DET	SIM	SIM	ESTIMATED	ENERGY	DIFFERENT	NA	NA	NA	NA	N	Retained SNN branch uses 54.5% of theoretical inference energy of ResNet50-based ANN methods; mIoU +6.81 and +7.93 over SNN baseline
+R05030	Y	-	C2	SNN	NS	NS	MEMRISTOR	NA	NS	ENERGY+POWER	NA	OTHER	NA	STRUCT	N	N	Memristor-SNN pruning removes up to 92% of connected neurons with recognition above 90%; device 90 aJ/um2; no ANN baseline
+R05031	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	FPGA SNN accelerator 6.07 uJ/sample, 78.5 kFPS, 140x over prior SNN accelerators; no ANN baseline
+R05037	Y	-	C1	ANN+SNN	CNN	BIOSIG	SIM	NS	NS	ENERGY	LITERATURE	NA	NA	NA	NA	N	SEED: accuracy comparable to recent ANN-based methods with 96.69% lower energy expenditure
+R05038	Y	-	C2	SNN	NS	BIOSIG	GPU+ASIC	NA	CLAIM	SPIKES+OPS+LATENCY+THROUGHPUT	NA	REG	NA	NS	Y	N	Sparsity-regularised SNN on DEAP: competitive accuracy, significantly lower spike rates; run on Jetson Orin Nano and mobile NPU; no figures
+R05045	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Converted SNN 92% vs CNN 94% accuracy; accuracy-only comparison, no efficiency metric
+R05047	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	40nm simulation 2.3 mW, 559 Hz; 100x less training time than GPU implementations, not stated as ANN
+R05049	Y	-	C1	ANN+SNN	NS	OTHER	SIM	NS	CLAIM	ENERGY	NS	NA	NA	NA	NA	N	SNN on liver function features claimed competitive with state-of-the-art ML and much lower energy; no figures

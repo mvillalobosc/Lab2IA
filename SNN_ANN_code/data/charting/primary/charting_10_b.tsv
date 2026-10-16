@@ -1,0 +1,25 @@
+R02973	Y	-	C2	SNN	NS	NS	SIM	NA	NS	ENERGY	NA	ACT	NA	STRUCT	Y	N	Neuron pruning by adaptive firing-time threshold removes 267 of 600 neurons; energy efficiency +0.55x, accuracy -1.1%.
+R02976	Y	-	C2	SNN	CNN	STATIC_IMG+AUDIO	SIM	NA	CLAIM	MEMORY+OPS	NA	EVO	NA	MIXED	Y	N	Spatial-temporal compression search with pruning, mixed-precision quantisation and timestep search under compute-cost constraints; smaller, cheaper SNNs; no figures.
+R02977	Y	-	C1	ANN+SNN	RNN+CNN	EVENT+NLP	SIM	SIM	CLAIM	ENERGY+MEMORY+LATENCY	DIFFERENT	NA	NA	NA	NA	N	SNNs for gesture, sentiment, translation claim lower energy per inference, fewer parameters and faster inference than LSTM/GRU; no figures.
+R02978	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Learnable multi-threshold SNN reaches accuracy comparable to quantised ANNs; no efficiency metric beyond time latency.
+R02979	Y	-	C2	SNN	NS	NS	ASIC	NA	NS	LATENCY+ENERGY	NA	OTHER	NA	NS	Y	N	Dual-sparse SNN accelerator LoAS: up to 8.51x speedup and 3.68x energy reduction versus prior dual-sparse accelerators.
+R02981	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Convolutional SNN for place recognition on Kapoho Bay; compared with SNNs; energy efficiency claimed without ANN comparison or figures.
+R02983	Y	-	C3	ANN	TRANSFORMER	NLP	NA	NS	NONE	NONE	NA	MAG	WEAK	NS	N	N	LTH-based magnitude pruning of LoRA ranks; GLUE gains of 0.04% to 0.74% over LoRA at large scale.
+R02984	Y	-	C3	ANN	CNN	DET	NA	NS	CLAIM	LATENCY+MEMORY	NA	EVO+THEORY	OTHER	STRUCT	Y	N	Self-attention lottery ticket found by policy gradient search keeps accuracy and speeds inference; no figures.
+R02985	Y	-	C3	ANN	NS	OTHER	NA	NS	NONE	NONE	NA	NS	NS	UNSTRUCT	N	N	Lottery-ticket subnetworks for CTR and CVR with partially shared neuron connections; deployed on Tencent video platform; no efficiency metrics.
+R02987	Y	-	C2	SNN	NS	NS	SIM	NA	CLAIM	LATENCY+OPS	NA	ACT	NA	NS	Y	N	Self-driven adaptive firing thresholds claim lower inference latency, sparser computing and higher accuracy; no figures in abstract.
+R02989	Y	-	C2	SNN	NS	DET+EVENT	SPECK	NA	MEASURED	POWER+OPS+SPIKES	NA	REG	NA	NS	Y	N	Speck chip face detection reaches mAP 0.6 at about 20 mW; power scales with synaptic operations; firing-rate regularisation.
+R02990	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	SNN decoder on iCE40UP5k FPGA: 13.9 mW, 13.9 uJ per inference; accuracy similar to deep decoders; no ANN efficiency figures.
+R02991	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Radar range-data SNN gesture sensing: 97% accuracy, 24.01x faster than prior methods; baselines not stated as ANN.
+R02992	Y	-	C1	ANN+SNN	NS	OTHER	NS	NS	NS	POWER	NS	NA	NA	NA	NA	N	SNN intrusion detection more accurate than DNN detector with 15.08-40% lower power consumption.
+R02995	Y	-	C1+C2	ANN+SNN	NS	NS	MEMRISTOR	ASIC	NS	ENERGY	DIFFERENT	ACT	NA	TEMPORAL	Y	N	ReRAM PIM SNN accelerator LowPASS: 6,860x energy saving vs Eyeriss ANN accelerator, 2,147x vs T2FSNN, 5.09x vs sparse PIM.
+R02996	Y	-	C3	ANN	NS	BIOSIG+STATIC_IMG	NA	MCU	NONE	NONE	NA	EVO	OTHER	NS	Y	N	LTH-pruned models shrink the NAS search space, cutting search time by up to 50% on MCU ECG and X-ray tasks.
+R03000	Y	-	C2	SNN	NS	STATIC_IMG	SIM	NA	NONE	NONE	NA	NS	NA	UNSTRUCT	N	N	Machine unlearning in spiking models via selective synaptic retraining, synaptic pruning and adaptive thresholds; no efficiency metrics.
+R03005	Y	-	C2	SNN	CNN	NS	FPGA	NA	MEASURED	THROUGHPUT+ENERGY	NA	OTHER	NA	NS	Y	N	SNN accelerator with hybrid weight compression on Kintex UltraScale FPGA: 244.6 GSOP/s peak, 54.1 GSOP/W at 0% spike sparsity.
+R03006	Y	-	C3	ANN	NS	NS	NA	NS	NONE	NONE	NA	SCORE+THEORY	STRONG	UNSTRUCT	N	N	Clients learn 1-bit supermasks over random noise as model updates; faster convergence than baselines, accuracy similar to FedAvg; convergence theory.
+R03007	Y	-	C3	ANN	NS	NS	NA	NS	NONE	NONE	NA	MAG+THEORY	WEAK	NS	N	N	Learning rate rewinding versus IMP for lottery tickets; sign flips explain mask quality; proof in single hidden neuron setting.
+R03016	Y	-	C2	SNN	NS	NS	MEMRISTOR	NA	NONE	NONE	NA	ACT	NA	NS	N	N	Memristor Bayesian SNN for IBD diagnosis; threshold trimming keeps model sparsity; error rates down 10.79% and 0.49%; no efficiency figures.
+R03028	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Modular spiking neural P systems classify Oxford Flowers 102; accuracy and energy consumption evaluated; no ANN comparison.
+R03032	N	E2	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Memristor in-memory computing and routing architecture for small-world SNNs; routing efficiency 10x over other SNN platforms; no ANN comparison.
+R03034	Y	-	C2	SNN	CNN	STATIC_IMG+EVENT	SIM	NA	NS	ENERGY+SPIKES	NA	OTHER	NA	NS	Y	N	Approximate KD defense for residual SNNs: 1.3x energy efficiency under efficiency attack, 3x lower spike rate, 1-2% accuracy drop.
+R03035	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	ANN-SNN conversion with multistage adaptive threshold; near-lossless, lower latency; energy efficiency claimed versus other conversion methods; no ANN efficiency figures.

@@ -1,0 +1,25 @@
+R03601	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	No abstract available; title only (SNN of 40,000 neurons, rank order coding, sparsity); eligibility cannot be confirmed.
+R03604	Y	-	C2	SNN	NS	STATIC_IMG	SIM	NA	ESTIMATED	SPIKES+OPS	NA	ACT	NA	NS	Y	N	AT-LIF activity pruning: 0.06 average firing rate and 2.22M parameters on ImageNet SNN; reduces firing rates and SOPs.
+R03605	Y	-	C1	ANN+SNN	NS	TS	SIM	SIM	CLAIM	ENERGY	NS	NA	NA	NA	NA	N	SNN-STDP IoT anomaly detector; accuracy in line with compact deep learning systems, reduced energy claimed without figures.
+R03606	Y	-	C1+C2	ANN+SNN	NS	STATIC_IMG+EVENT+DET+OTHER	SIM	SIM	NS	ENERGY+OPS+LATENCY	NS	OTHER	NA	TEMPORAL	Y	N	Training-free conversion with AdaFire neuron, spike compression, adaptive timesteps: energy savings up to 70.1% (CIFAR-10), 60.3% (CIFAR-100), 43.1% (ImageNet).
+R03607	Y	-	C2	SNN	NS	AUDIO	LOIHI2	NA	CLAIM	POWER	NA	OTHER	NA	NS	N	N	ALCA-CF sparse coding for speech on Loihi 2: better reconstruction and sparsity, significantly lower classification power claimed, no figures.
+R03608	Y	-	C1	ANN+SNN	CNN+TRANSFORMER	STATIC_IMG	SIM	NS	NS	ENERGY	NS	NA	NA	NA	NA	N	Spiking HSI classifier: over 96% accuracy at one time step; about 12.5x lower computational energy than similar models.
+R03611	Y	-	C2	SNN	NS	STATIC_IMG+EVENT	SIM	NA	CLAIM	ENERGY	NA	DST	NA	MIXED	N	N	SD-SNN pruning and regeneration: DVS-Gesture 98.56% accuracy (+1.45%) at 61.10% compression; large energy reduction claimed, no figures.
+R03613	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Adaptive-threshold spiking CNN for EEG motor imagery; lower power vs existing methods claimed, no figures or named ANN baseline.
+R03616	Y	-	C2	SNN	NS	BIOSIG	OTHER_NEURO	NA	ESTIMATED	POWER	NA	OTHER	NA	UNSTRUCT	N	N	Adaptive synapse pruning of SNNs on NeuroBench NHP motor prediction: up to tenfold efficiency gain, sub-uW power in hardware simulation.
+R03624	Y	-	C1	ANN+SNN	TRANSFORMER	NS	FPGA	NS	NS	THROUGHPUT	LITERATURE	NA	NA	NA	NA	N	SpikeTA FPGA accelerator for spiking transformer: 140.73-1023.53x vs EPYC CPU, 2.97-7.29x vs A100 GPU; 2.66x over Transformer accelerators.
+R03631	Y	-	C2	ANN+SNN	NS	NS	SIM	SIM	ESTIMATED	ENERGY+MEMORY	NA	NS	NA	UNSTRUCT	Y	N	ANN-to-SNN conversion yielding sparse robust SNNs: up to 100x fewer stored weights, estimated 8.6x energy efficiency vs dense SNNs.
+R03633	Y	-	C1	ANN+SNN	CNN	OTHER	SIM	SIM	NS	ENERGY	DIFFERENT	NA	NA	NA	NA	N	SNN vs CNN edge controllers for MEC resource allocation: comparable accuracy, SNN inference energy about one-third of CNN.
+R03636	N	E6	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Introductory review of algorithm-hardware co-design for low-power LLMs; general efficiency review, not focused on ANN-SNN or pruning.
+R03653	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	CSNN/VSNN-SEFRON vs CNN/VGG-7 on skin lesions: accuracy 96.5%/97.86% vs 82.5%/86%; run-time efficiency asserted only.
+R03654	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Spiking deformable CNN conversion and 28 nm accelerator: 47.9% mAP, 1.2x energy efficiency vs previous designs; no ANN baseline.
+R03655	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	SNN STBP training accelerator on Xilinx Virtex: 62.3% throughput gain, 37.2 GOPS/W on N-MNIST; no ANN comparison.
+R03658	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Hybrid 2D-CNN/LSTM SNN for radar gestures: 99.28% accuracy; lower complexity and power vs existing methods claimed, no ANN named.
+R03659	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Weight-binarized SNN with hybrid optimizer and shift-based batch norm; empirical study of training tricks; no ANN comparison, no pruning.
+R03661	Y	-	C2	SNN	NS	TS	SIM	NA	CLAIM	ENERGY	NA	ACT	NA	NS	Y	N	Population-coded SNN with adaptive k-WTA sparse activation for bearing fault diagnosis; energy advantage claimed, no figures; accuracy not below SOTA.
+R03662	Y	-	C1	ANN+SNN	TRANSFORMER	EVENT	ASIC	NS	NS	ENERGY+THROUGHPUT+LATENCY	LITERATURE	NA	NA	NA	NA	N	Deformable spiking transformer accelerator, 28 nm, DVS: top SNN peak throughput, at least 1.11x energy efficiency vs Transformer accelerators.
+R03665	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Fabricated 40 nm sparsity-aware SNN accelerator: 0.078 pJ/SOP, 77.6% ImageNet accuracy with spiking transformer; compared only with sparse processors.
+R03668	Y	-	C2	ANN+SNN	CNN	DET	FPGA	NS	NS	THROUGHPUT+MEMORY	NA	NS	NA	STRUCT	N	N	Channel-pruned, quantized spiking YOLO on FPGA: 26x smaller model at similar accuracy, 256x256 at 681 fps, 150 MHz.
+R03669	Y	-	C2	SNN	MLP	EVENT	FPGA	NA	MEASURED	THROUGHPUT+ENERGY	NA	OTHER	NA	MIXED	Y	N	FPGA SNN accelerator with structured sparsity and early stop: 96.0% N-MNIST, 79.0% DVS-Gesture at 50% sparsity; 3.22 GSOP/s, 3.99 GSOP/W.
+R03679	Y	-	C1	ANN+SNN	CNN+TRANSFORMER	DET+OTHER	SIM	SIM	CLAIM	ENERGY	PAIRED	NA	NA	NA	NA	N	Analog Spiking U-Net (CBAM, ViT): retinal vessel segmentation comparable to same-structure ANN; energy considered in comparisons, no figures.
+R03682	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Same steering SNN on Loihi 2 vs GPU: R2 0.89 vs 0.94, 3-3.5 W vs 50+ W; no ANN comparison.

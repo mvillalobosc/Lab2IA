@@ -1,0 +1,25 @@
+R01640	Y	-	C2	SNN	NS	BIOSIG	FPGA	NA	NS	SPIKES+POWER	NA	OTHER	NA	TEMPORAL	Y	N	Adaptive-LIF SNN processor on FPGA for cortical decoding: 2.8% accuracy gain, 70% fewer spikes than standard feed-forward SNN
+R01641	Y	-	C2	SNN	NS	STATIC_IMG	FPGA	NA	MEASURED	THROUGHPUT+ENERGY	NA	NS	NA	NS	Y	N	SNN accelerator with sparse spikes and weights on Kintex UltraScale FPGA: 65.7 GSOP/s, 41.7 GSOP/W on MNIST
+R01645	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Tandem SNN-ANN training: order of magnitude less inference time and SOPs than other SNNs; no ANN efficiency comparison
+R01647	Y	-	C2	SNN	CNN	STATIC_IMG	NS	NA	NS	POWER	NA	OTHER	NA	TEMPORAL	Y	N	TTFS-trained SNN plus accelerator: state-of-the-art MNIST and Fashion-MNIST accuracy; power 2.4x, 25.9x, 38.4x lower than neuromorphic hardware
+R01648	Y	-	C2	ANN+SNN	CNN	STATIC_IMG	SIM	SIM	NONE	NONE	NA	REG	NA	NS	N	N	Soft threshold pruning as ISTA with L1 regularization; state-of-the-art on ResNet-50, MobileNet-V1 and SEW ResNet-18 ImageNet; no efficiency figures
+R01649	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	SlipReLU conversion beats prior methods on CIFAR in accuracy and latency, down to 1 time step; no ANN efficiency comparison
+R01653	Y	-	C2	SNN	NS	STATIC_IMG	GPU	NA	NS	LATENCY+MEMORY+SPIKES	NA	ACT	NA	NS	Y	N	AC2AS vs spike-based BP SNN: comparable accuracy with 0.625x time steps, 0.377x training time, 0.27x GPU memory, 0.33x spikes
+R01654	Y	-	C3	ANN	NS	NS	NA	NS	NS	LATENCY+MEMORY	NA	OTHER	OTHER	UNSTRUCT	Y	N	Quantized lottery tickets (MPQ-tickets) match full-precision accuracy; up to 8x inference speedup and 14x less memory
+R01656	Y	-	C1	ANN+SNN	NS	NS	NS	NS	NS	NONE	NS	NA	NA	NA	NA	U	No abstract available; eligibility judged from title only, needs full-text check
+R01663	Y	-	C2	SNN	NS	NS	SIM	NA	NS	MEMORY+ENERGY	NA	NS	NA	STRUCT	Y	N	Neuron pruning with hybrid coding: 100 of 200 neurons removed, memory 1.9x lower, energy efficiency 2.4x higher, accuracy loss <0.5%
+R01669	Y	-	C3	ANN	GNN	NS	NA	SIM	NONE	NONE	NA	MAG+OTHER	WEAK	MIXED	N	N	ACE-GLT mines pruned edges and weights after each IMP round to build better graph lottery tickets; no efficiency figures
+R01673	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Adaptive layer binarization of SNN: over 20% less storage; one time step gives 93.39 Fashion-MNIST, 92.12 CIFAR-10, 69.55 CIFAR-100; quantization-only
+R01678	Y	-	C1	ANN+SNN	NS	TS	SIM	SIM	ESTIMATED	OPS	PAIRED	NA	NA	NA	NA	N	WiFi-CSI gesture SNN from source ANN: 97.67% in-domain, 91.73% cross-environment accuracy; under 65% of source ANN synaptic operations at T=128
+R01682	Y	-	C2	SNN	CNN	STATIC_IMG+EVENT	SIM	NA	ESTIMATED	OPS+SPIKES	NA	MAG+ACT+REG	NA	STRUCT	Y	N	SNN channel pruning: over 60% fewer parameters, over 80% fewer FLOPs, firing rate down 54.14% to 6.21%, accuracy above baseline
+R01683	Y	-	C2	SNN	NS	NS	FPGA	NA	MEASURED	THROUGHPUT+ENERGY	NA	NS	NA	UNSTRUCT	N	N	SNN accelerator with bit-mask compression of sparse weights on FPGA: 2.56 GSOP/s peak, 1.53 GSOP/W
+R01684	Y	-	C2	SNN	CNN	NS	ASIC	NA	NS	ENERGY+LATENCY+OPS+MEMORY	NA	ACT+OTHER	NA	MIXED	Y	N	SNN accelerator 28nm: layer-wise timesteps give 3.22x speedup, sparse convolution cuts computation and memory access 3.24x, 36.89 TOPS/W
+R01685	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Exact ReLU-to-single-spike SNN mapping with zero accuracy drop on CIFAR-10/100, Places365, PASS; energy efficiency only asserted
+R01701	Y	-	C1+C6	ANN+SNN	NS	NS	SIM	ASIC	ESTIMATED	ENERGY+SPIKES	PAIRED	NA	NA	NA	NA	N	ANN vs SNN energy model (Eyeriss case): IF SNN competes only at 0.15 to 1.38 spikes per synapse per inference
+R01708	Y	-	C2	SNN	NS	STATIC_IMG	SIM	NA	NS	SPIKES+ENERGY	NA	ACT	NA	UNSTRUCT	Y	N	Approximate temporal coding plus synapse pruning on MNIST: 61% fewer spikes, 60% energy saving, no accuracy loss
+R01710	Y	-	C1	ANN+SNN	CNN	EVENT+STATIC_IMG	SIM	SIM	NS	ENERGY+SPIKES	PAIRED	NA	NA	NA	NA	N	Attention SNN Res-SNN-104 on ImageNet: 75.92% single-step, 77.08% 4-step; vs Res-ANN-104 gap -0.95/+0.21 points, energy efficiency 31.8x/7.4x
+R01713	Y	-	C6	ANN	NS	OTHER	NA	NS+MEMRISTOR	BOTH	ENERGY+LATENCY	NA	NA	NA	NA	NA	N	ANN energy and latency measured on conventional hardware, estimated on analog in-memory computing: up to 10x faster, 1000x less energy
+R01720	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Spiking spatiotemporal attention network for battery health from EIS; low power claimed, no efficiency figures or ANN comparison
+R01730	Y	-	C1	ANN+SNN	OTHER	OTHER	OTHER_NEURO	NS	NS	OPS	PAIRED	NA	NA	NA	NA	N	Glial SNN Sudoku solver: 3.82% above best DNN accuracy; computation down 92.9% vs serial solvers; 88% sparsity vs dense DNN
+R01732	Y	-	C1	ANN+SNN	MLP+GNN	EVENT	SIM	SIM	NS	ENERGY	PAIRED	NA	NA	NA	NA	N	Location spiking neurons for tactile learning beat state of the art; SNNs 10x to 100x more energy-efficient than counterpart ANNs
+R01733	Y	-	C5	ANN+SNN	NS	NS	NS	NS	NONE	NONE	NA	NA	NA	NA	NA	N	Survey of bottom-up and top-down neuromorphic chip designs with comparative analyses versus conventional ML accelerators; no figures in abstract

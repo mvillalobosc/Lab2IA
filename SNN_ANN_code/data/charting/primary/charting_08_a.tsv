@@ -1,0 +1,25 @@
+R02283	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Binarized SNN training method; 30x inference speedup and 50% fewer spikes versus prior SNN works, no ANN comparison
+R02285	Y	-	C1+C6	ANN+SNN	NS	STATIC_IMG	MEMRISTOR	MEMRISTOR	ESTIMATED	ENERGY+LATENCY+THROUGHPUT+EDP	PAIRED	NA	NA	NA	NA	N	IMC SNN with few time-steps gives higher throughput and energy efficiency than 4-bit ANN; topology change cuts EDP 10x
+R02286	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Spiking transformer compared only with other SNNs; 74.81% ImageNet top-1 at 4 time steps; energy claimed, no ANN comparison
+R02287	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Spiking MaxPool SCNN on CIFAR10 61.74% vs 62.78% full window; energy compared only with neuromorphic chips, no ANN
+R02288	Y	-	C1	ANN+SNN	CNN	NLP	SIM	SIM	CLAIM	ENERGY	PAIRED	NA	NA	NA	NA	N	Converted SNN matches DNN accuracy with much less energy (no figures given); more robust to adversarial attacks
+R02289	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	ResNet-to-SNN conversion with comparable accuracy to source ANN and low latency; no energy or operation comparison
+R02291	Y	-	C1	ANN+SNN	CNN	EVENT	SIM	SIM	NS	ENERGY	PAIRED	NA	NA	NA	NA	N	Spiking-FER comparable accuracy to a similar ANN with up to 65.39x less energy
+R02293	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Spiking GLOM on CIFAR-10 claims energy efficiency superiority without naming an ANN comparator or giving figures
+R02295	Y	-	C1	ANN+SNN	RNN	CONTROL	SIM	SIM	NS	ENERGY	PAIRED	NA	NA	NA	NA	N	SM-TD3 reaches deep LSTM-TD3 performance on POMDP control; energy only 20-50% of LSTM-TD3
+R02296	Y	-	C1	HYBRID	TRANSFORMER+RNN	NLP	SIM	SIM	CLAIM	POWER	PAIRED	NA	NA	NA	NA	N	BERT+LSNN improves on BERT+LSTM in performance; low power consumption and robustness claimed without figures
+R02299	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	FPGA SNN 8841.7 frames/W versus 337.6 for benchmark SNN; ANN compared on accuracy only (90.36 vs 90.39)
+R02303	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Three-stage ANN-SNN conversion plus fine-tuning for hippocampus segmentation; gains in accuracy and training efficiency, no ANN energy comparison
+R02304	Y	-	C1	ANN+SNN	CNN	DET+EVENT	SIM	SIM	CLAIM	ENERGY	PAIRED	NA	NA	NA	NA	N	SNN vs similar ANN: competitive or better accuracy and robustness with significantly lower energy (no figures)
+R02305	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	SNN decoder on Artix-7 FPGA, 56.4 mW and 19.27x fewer parameters than deep learning decoders; no ANN power comparison
+R02306	Y	-	C1	ANN+SNN	CNN	TS	SIM	SIM	ESTIMATED	ENERGY+MEMORY	NS	NA	NA	NA	NA	N	SCNN 99.1% accuracy at 0 dB, 1.51 uJ per inference; three orders of magnitude less energy than non-spiking models
+R02309	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Spiking PointNet beats ANN counterpart in accuracy; training speedup and storage saving, no ANN efficiency comparison
+R02310	Y	-	C1	HYBRID	RNN	OTHER	SIM	SIM	CLAIM	ENERGY	PAIRED	NA	NA	NA	NA	N	Hybrid spiking LMU model vs second-generation ANN counterpart: energy and accuracy compared, no figures in abstract
+R02314	Y	-	C3	ANN	NS	STATIC_IMG	NA	SIM	NONE	NONE	NA	SCORE	STRONG	UNSTRUCT	N	N	Federated edge-popup: traffic cut up to 79.8% versus sending all scores; 69.9% less traffic than FedAvg at comparable accuracy
+R02320	Y	-	C1	ANN+SNN	CNN	TS	SIM	SIM	ESTIMATED	OPS	PAIRED	NA	NA	NA	NA	N	Converted SNN gesture accuracy about 92%, 3x fewer operations than the CNN
+R02323	Y	-	C3	ANN	NS	NS	NA	SIM	NONE	NONE	NA	THEORY	STRONG	UNSTRUCT	N	N	Theory: epsilon-perturbation cuts strong LTH overparameterization requirement by factor O(1/(1+eps)); projected SGD weights prune better
+R02324	N	E2	-	-	-	-	-	-	-	-	-	-	-	-	-	-	PEDOT dendritic fiber structural plasticity device; software-validated sparsity gains of 61% and 50%; no ANN comparison, no spiking
+R02330	Y	-	C1	ANN+SNN	NS	STATIC_IMG+EVENT	SIM	SIM	NS	ENERGY+LATENCY	PAIRED	NA	NA	NA	NA	N	SNN computation energy savings 34x, 29x, 17x versus standard ANNs on CIFAR10, CIFAR100, CIFAR10-DVS; lower latency than SOTA
+R02333	Y	-	C1	ANN+SNN	NS	STATIC_IMG	SIM	SIM	CLAIM	ENERGY+LATENCY	PAIRED	NA	NA	NA	NA	N	stReLU conversion nearly lossless on MNIST, Fashion-MNIST, CIFAR10 with 6x to 250x speedup; lower energy than ANN, no figures
+R02334	N	E2	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Hardware synapse compression for event-based CNN accelerators, 12 nm silicon, 374x memory reduction versus prior technique; no ANN comparison
+R02341	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Log-SNN beats ML and DL baselines in accuracy; low power and speed claimed without figures or ANN comparison

@@ -1,0 +1,25 @@
+R03884	Y	-	C2	SNN	CNN+TRANSFORMER	NS	SIM	NA	CLAIM	SPIKES+ENERGY	NA	OTHER	NA	TEMPORAL	Y	N	Differential coding cuts spike counts and energy vs rate-coded conversion while improving accuracy; no figures
+R03949	Y	-	C1	ANN+SNN	RNN+TRANSFORMER	TS	SIM	SIM	ESTIMATED	OPS+MEMORY	DIFFERENT	NA	NA	NA	NA	N	Accuracy 94.56% (+1.16%); 89% fewer parameters; 100x fewer MACs than most efficient baseline with +6.93% accuracy
+R03959	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Spiking transformer with eye-gaze for medical images; superior energy efficiency claimed without stated comparator or figures
+R03978	Y	-	C1	ANN+SNN	CNN+RNN	CONTROL+TS	SIM	SIM	NS	ENERGY+POWER	DIFFERENT	NA	NA	NA	NA	N	27.8% lower energy and 70% lower power, better anomaly accuracy than CNN, RNN, LSTM; energy may be building-level
+R03995	Y	-	C1	ANN+SNN	NS	TS	SIM	SIM	NS	ENERGY	DIFFERENT	NA	NA	NA	NA	N	Accuracy 99.85% at 15 Msps; about half the energy of most current methods
+R04008	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Spiking graph transformer CSSGT converges in two epochs, beats SOTA at low computational cost; no explicit ANN efficiency comparison
+R04144	Y	-	C3	ANN	GNN	OTHER	NA	SIM	ESTIMATED	MEMORY	NA	MAG	WEAK	NS	N	N	QMPNN at one-fourth of GNN parameters; graph lottery tickets reduce trainable parameters further at comparable accuracy
+R04233	Y	-	C2	SNN	NS	NS	SIM	NA	CLAIM	MEMORY	NA	DST	NA	UNSTRUCT	N	N	PQ-index adaptive rewiring ratio for dynamic sparse training of deep SNNs; matches accuracy, better compression; no figures
+R04244	Y	-	C1	ANN+SNN	CNN	DET+EVENT	SIM	SIM	NS	ENERGY	PAIRED	NA	NA	NA	NA	N	Gen1 mAP50 67.2%, +2.5% over equivalent ANN with 5.7x energy efficiency; COCO mAP50 66.2%
+R04322	Y	-	C2	SNN	NS	STATIC_IMG	SIM	NA	ESTIMATED	OPS	NA	ACT+DST	NA	MIXED	Y	N	Joint spike and weight pruning reaches up to 126.38x SOP compression on CIFAR-10 with minimal accuracy loss
+R04324	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Lightweight 1.78M-parameter SNN, 97% accuracy on brain tumour classification; DL comparison on accuracy only
+R04364	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Multi-compartment spiking FQF beats ANN FQF and converted Spiking-FQF on Atari; power reduction only in ablation
+R04415	Y	-	C1	ANN+SNN	NS	CONTROL	SIM	NS	ESTIMATED	OPS	NS	NA	NA	NA	NA	N	Edge SNN per UAV; about 90% lower computational burden than ANNs on von Neumann hardware, in simulation
+R04426	Y	-	C1	ANN+SNN	NS	TS	SPINNAKER2	EDGE_GPU	MEASURED	LATENCY+THROUGHPUT	NS	NA	NA	NA	NA	U	FS-coded SNN on SpiNNaker2 benchmarked against baseline ANN on Jetson Xavier NX for 5G localization; no figures
+R04433	Y	-	C1	ANN+SNN	NS	TS	LOIHI2	GPU	MEASURED	LATENCY+POWER	PAIRED	NA	NA	NA	NA	U	Loihi 2 SNNs match GPU ANN accuracy with up to 10x lower latency and 4x lower power
+R04434	Y	-	C1	ANN+SNN	NS	OTHER	SIM	SIM	NS	ENERGY	DIFFERENT	NA	NA	NA	NA	N	STDP SNN access control: 87% lower energy than conventional deep learning, 94% decision accuracy
+R04465	Y	-	C2	SNN	NS	NS	MEMRISTOR	NA	NS	ENERGY	NA	OTHER	NA	STRUCT	Y	N	On-chip data-independent row pruning; marginal accuracy drop; up to 100x energy saving vs pruning cost after 1000 cycles
+R04502	Y	-	C3	ANN	CNN	STATIC_IMG	NA	SIM	ESTIMATED	MEMORY	NA	SCORE+RANDOM	STRONG	UNSTRUCT	N	N	Freezing 70% of ResNet on ImageNet: 3.3x compression vs dense-source SLT, up to +14.12 points vs random-pruned
+R04507	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	CNN 84.47% vs converted SNN 83.34% accuracy via Sinabs; training time and spikes reported, no explicit ANN efficiency comparison
+R04529	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Spiking LMU predicts EKF state; up to 96% memory reduction vs DL; memory is not a C1 metric
+R04530	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Res-SNN accuracy above 0.95 vs ResNet 0.84/0.90; 5.41 mJ.s inference power, no ANN power comparison
+R04555	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Quantized convolutional SNN for ECG; 76.2% less memory than benchmarks; quantization only, memory not C1
+R04557	Y	-	C2	SNN	CNN	NS	SIM	NA	CLAIM	MEMORY+OPS	NA	ACT	NA	STRUCT	Y	N	Uniform quantization plus structured kernel pruning by singular values of spike activity; SOTA accuracy and efficiency, no figures
+R04614	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	RDSNN EEG MI accuracy 73.65%, 81.75%, 84.56%; 35% less computation time vs SOTA methods, comparator type unstated
+R04634	Y	-	C1	ANN+SNN	TRANSFORMER	STATIC_IMG+DET+EVENT	SIM	SIM	NS	ENERGY+LATENCY	NS	NA	NA	NA	NA	N	ImageNet top-1 78.5-86.2%; 10M model +7.2% over best SNN, 4.5x faster training, 3.9x energy efficiency

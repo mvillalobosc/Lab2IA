@@ -1,0 +1,25 @@
+R02870	Y	-	C3	ANN	GNN	OTHER	NA	NS	NONE	NONE	NA	DST+THEORY	NS	UNSTRUCT	N	N	Adaptive dynamic graph lottery tickets with layer-adaptive sparsity for deep GNNs; theory on over-smoothing; no efficiency figures.
+R02871	Y	-	C1	HYBRID	NS	DET+EVENT	NS	NS	NS	ENERGY+MEMORY	LITERATURE	NA	NA	NA	NA	N	Hybrid SNN/ANN event-image segmentation: up to 20x lower inference cost than prior art, 17.9 mJ per cycle.
+R02872	Y	-	C5	ANN+SNN	NS	NS	OTHER_NEURO	CPU+GPU+NPU	NONE	LATENCY+MEMORY	NA	NA	NA	NA	NA	N	Review of CPU, GPU, NPU, compute-in-memory and neuromorphic accelerators, focused on performance and memory bandwidth; no figures.
+R02876	Y	-	C1	ANN+SNN	CNN	NS	FPGA	NS	MEASURED	THROUGHPUT+POWER	PAIRED	NA	NA	NA	NA	N	ResNet-18/VGG-11 SNNs within 1% of DNN accuracy at 8 timesteps; FPGA 38.4 GOPS at 1.54 W.
+R02878	Y	-	C2	SNN	RNN	NS	ASIC+GPU	NA	MEASURED	THROUGHPUT+SPIKES	NA	OTHER	NA	NS	N	N	BPTT training of SNNs on IPU: 5-10x throughput over A100 GPU, up to 38x at high activation sparsity.
+R02887	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	ANN-SNN conversion with BLIF neurons; accuracy on CIFAR and ImageNet; only time steps as efficiency figure.
+R02889	Y	-	C2	SNN	NS	STATIC_IMG	SIM	NA	CLAIM	ENERGY+LATENCY+SPIKES	NA	REG	NA	NS	Y	N	Conversion with spike-count regularisation; claims better energy efficiency and latency than other conversion methods; no figures.
+R02890	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	TTFS mapping matches ANN accuracy with under 0.3 spikes per neuron; no ANN energy or operation comparison.
+R02894	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	SNN with neuromorphic ADC matches CNN with conventional ADC at over 95% lower sampling rate; no network efficiency metric.
+R02902	Y	-	C1	HYBRID	CNN+RNN	BIOSIG	SIM	SIM	ESTIMATED	OPS+MEMORY+SPIKES	PAIRED	NA	NA	NA	NA	N	GRU vs LIF vs spiking GRU decoders on NeuroBench: accuracy, footprint, activation sparsity, synaptic operations; beats baselines; no figures.
+R02908	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Quantised SNN with ternary membrane potentials; up to 13x memory reduction versus SoTA SNNs; no ANN comparison.
+R02922	N	E7	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Randomized parameter sharing versus pruning (MAG, SNIP, SynFlow, GraSP, LTR); ANN only, lottery ticket rewinding just a baseline.
+R02925	Y	-	C3	ANN	GNN	OTHER	NA	NS	NONE	NONE	NA	MAG+SCORE	WEAK	UNSTRUCT	N	N	Inductive graph lottery tickets reach same performance at 14.26-43.12% graph sparsity and 48.80-91.41% GNN sparsity.
+R02940	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Spiking reservoir computing claims competitive accuracy at lower operational complexity; no quantified ANN efficiency comparison.
+R02947	Y	-	C1	ANN+SNN	CNN	TS	NS	NS	CLAIM	POWER	NS	NA	NA	NA	NA	N	Tandem ANN-SNN DOA estimator claims superior accuracy and lower power; no figures given.
+R02951	Y	-	C3	ANN	NS	AUDIO	NA	NS	NONE	NONE	NA	NS	WEAK	NS	N	N	LTH subnetworks in XLS-R show language bias; fine-tuning relies on weights from high-resource languages; no efficiency metrics.
+R02952	Y	-	C1	ANN+SNN	RNN	NLP+EVENT	SPINNAKER2	NS	CLAIM	ENERGY	DIFFERENT	NA	NA	NA	NA	U	EGRU on SpiNNaker2 matches LSTM accuracy; claims significant energy gains versus conventional hardware for single batch inference; no figures.
+R02953	Y	-	C3	ANN	CNN	STATIC_IMG	NA	NS	NONE	NONE	NA	NS	WEAK	NS	N	N	Pruned quaternion ResNet-101 beats real-valued by 4% (CIFAR-100) and 7% (ImageNet64) accuracy at sparsities of 6% and 0.4%.
+R02957	Y	-	C1	ANN+SNN	NS	STATIC_IMG+AUDIO	SIM	SIM	CLAIM	OPS	PAIRED	NA	NA	NA	NA	N	TTFS ANN-to-SNN conversion on image classification, reconstruction, speech enhancement; claims orders of magnitude computation saving over ANN.
+R02961	Y	-	C2	SNN	NS	TS	SIM	NA	CLAIM	SPIKES	NA	REG	NA	NS	Y	N	Learned RF spike encoder with tunable sparsity regularisation; lower reconstruction error and sparser spikes than existing encoders; no figures.
+R02962	Y	-	C2	SNN	NS	AUDIO	SIM	NA	NONE	NONE	NA	DST	NA	UNSTRUCT	N	N	DEEP R and RigL dynamic pruning with delay learning in SNNs on Raw Heidelberg Digits outperforms per-synapse delays when sparse.
+R02964	Y	-	C2	SNN	RNN	NS	SIM	NA	NONE	NONE	NA	REG	NA	NS	Y	N	Sparsity-regularised full-FORCE for recurrent SNNs: 30.5% lower mean square error and 53% faster training convergence than full-FORCE baseline.
+R02966	N	E2	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Spike-routing Clos NoC for sparse SRNNs; 13.9x power saving versus packet-based NoCs; circuit level, no ANN comparison.
+R02970	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Quantised SNN keyword spotting on Google Speech Commands; compared with SNN models only; no ANN efficiency comparison.
+R02972	Y	-	C1	ANN+SNN	NS	DET	SIM	SIM	CLAIM	OPS+MEMORY	PAIRED	NA	NA	NA	NA	N	SNN remote sensing detector claims significantly fewer compute resources than equivalent ANN; dual quantisation gives 80% memory reduction.

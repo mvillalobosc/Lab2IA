@@ -1,0 +1,25 @@
+R05318	Y	-	C2	SNN	NS	BIOSIG	FPGA	NS	MEASURED	POWER+LATENCY+ENERGY	NA	OTHER	NA	TEMPORAL	Y	N	Artix-7 FPGA: 0.181 W, 5.77 ms, 1.04 mJ; 90% fewer timesteps, training time -60.27%; ANN comparison only on accuracy
+R05322	Y	-	C2	SNN	NS	STATIC_IMG	ASIC	NA	MEASURED	THROUGHPUT+POWER+SPIKES	NA	OTHER	NA	NS	Y	N	TSMC 180nm TTFS chip: MNIST 98.65%, 4545 fps, 45.4 uW per neuron, spike activity -60%; no ANN comparison
+R05324	Y	-	C1	ANN+SNN	CNN+TRANSFORMER	OTHER	NS	NS	NS	LATENCY+ENERGY+THROUGHPUT	DIFFERENT	NA	NA	NA	NA	N	Framework with SNN layer: 0.25 J per detection, 40% less energy than CNN/LSTM approaches; latency 15 ms; accuracy 97.75%
+R05330	Y	-	C1	ANN+SNN	RNN	TS	SIM	SIM	ESTIMATED	ENERGY+POWER	DIFFERENT	NA	NA	NA	NA	N	Theoretical energy analysis: SNN lower power than RNN and LSTM; LSTM slightly better detection than SNN, RNN fails
+R05333	Y	-	C1	ANN+SNN	NS	TS	NS	NS	NS	LATENCY+POWER	DIFFERENT	NA	NA	NA	NA	N	Response 120 ms, 40-50% faster than other methods; power -35-40% event-driven; accuracy 95.8 vs ML 89.3, DL 92.6
+R05336	Y	-	C1	ANN+SNN	NS	DET	NS	NS	NS	ENERGY+SPIKES	DIFFERENT	NA	NA	NA	NA	N	Versus ANN of comparable accuracy: spike activity -81.31%, inference energy only 0.12% (DOTA dataset)
+R05339	Y	-	C3	ANN	OTHER	OTHER	NA	SIM	NONE	NONE	NA	NS	WEAK	UNSTRUCT	N	N	RBMs keep quality with up to 80% connections pruned before training; retraining after pruning underperforms scratch training
+R05340	Y	-	C1	ANN+SNN	CNN	OTHER	SIM	SIM	ESTIMATED	ENERGY	PAIRED	NA	NA	NA	NA	N	Matched ANN control: estimated energy 29.84 mJ to 6.36 mJ for SNN, R@1 loss 2.29 points
+R05341	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	FPNN-to-SNN conversion via QNN distillation in RL; lower conversion error, no energy, power or latency figures
+R05346	Y	-	C1	ANN+SNN	NS	STATIC_IMG+EVENT	ASIC	ASIC	MEASURED	ENERGY	DIFFERENT	NA	NA	NA	NA	Y	Fabricated 28nm chip: training energy 4.686 pJ/SOP (SNN) and 4.026 pJ/FLOP (ANN); 75.00% DVS-CIFAR10, 70.37% CIFAR-100
+R05347	Y	-	C2	SNN	OTHER	NS	SIM	NA	CLAIM	SPIKES	NA	OTHER	NA	NS	NS	N	Spiking SSM with reset-refractory neurons and trainable thresholds to balance accuracy and sparsity; no efficiency figures in abstract
+R05348	Y	-	C1	ANN+SNN	NS	OTHER	SIM	SIM	ESTIMATED	OPS	DIFFERENT	NA	NA	NA	NA	N	DHSNN: accuracy +28% vs Random Forest and DNN; false positives -32%; computational complexity -40%
+R05349	Y	-	C1+C2	ANN+SNN	TRANSFORMER	STATIC_IMG+DET	NS	NS	NS	ENERGY	PAIRED	OTHER	NA	STRUCT	N	N	Token masking: energy cut up to 44x; ImageNet-1K gain up to +3.23%, gap to ANN as low as +0.02%
+R05353	Y	-	C1+C2	ANN+SNN	NS	EVENT	ASIC	ASIC	NS	POWER+ENERGY	DIFFERENT	OTHER	NA	MIXED	Y	U	28-nm accelerator: 60.2 TOPS/W and 41.2 TSOPS/W, up to 46% power savings, over 50% timestep pruning, DVS-Gesture 94.44%
+R05355	Y	-	C1	ANN+SNN	RNN+OTHER	EVENT+DET	NS	NS	NS	POWER+ENERGY	NS	NA	NA	NA	NA	N	SNN student with ANN teacher: MSE 1.56 on 3ET+, power consumption 0.049 mJ; ANN energy not given
+R05356	Y	-	C1	ANN+SNN	CNN	NS	ASIC	ASIC	MEASURED	ENERGY	DIFFERENT	NA	NA	NA	NA	Y	Fabricated 28-nm chip: 0.14 pJ/OP for CNN, 0.26 pJ/SOP for SNN at 0.625 V
+R05358	Y	-	C1	ANN+SNN	TRANSFORMER	DET	SIM	SIM	CLAIM	ENERGY	DIFFERENT	NA	NA	NA	NA	N	Spiking transformer beats CNN-, Transformer-, SSM-based methods: image AUROC 98.9%, pixel AP 70.7%; energy claim theoretical, no figure
+R05359	N	E2	-	-	-	-	-	-	-	-	-	-	-	-	-	-	ISA for ANN, SNN and hybrid nets: 5x memory saving, 3.87-53.61x energy efficiency vs edge GPU; no ANN-SNN comparison
+R05360	Y	-	C1+C6	ANN+SNN	CNN	CONTROL	GPU+CPU	GPU+CPU	MEASURED	ENERGY	PAIRED	NA	NA	NA	NA	Y	CNN beats SNN in accuracy and footprint on Udacity; SNN gains accuracy on Palo Alto, AirSim but emits more
+R05361	Y	-	C1	HYBRID	NS	AUDIO	SIM	SIM	CLAIM	LATENCY+ENERGY	NS	NA	NA	NA	NA	N	Hybrid ANN-SNN siren detector: accuracy on par with ANN baselines, latency and energy greatly reduced, no figures; browser-based demo
+R05363	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	LIF-GCN-transformer hybrid: 1.1e8 FLOPs, 110 ms, 44 mJ on Cortex-M7; no ANN comparison, no pruning
+R05369	Y	-	C1	ANN+SNN	NS	BIOSIG	NS	NS	NS	ENERGY	DIFFERENT	NA	NA	NA	NA	N	Energy savings 14.78-43.86x versus state-of-the-art ANNs; accuracy gains 0.80-3.87%
+R05371	Y	-	C1	ANN+SNN	TRANSFORMER	NLP	SIM	SIM	ESTIMATED	ENERGY	DIFFERENT	NA	NA	NA	NA	N	SpikeATE theoretical energy 2.5946 mJ (ternary), 1.8943 mJ (binary) vs about 95.5 mJ for BERT-based models; F1 competitive
+R05372	Y	-	C1	ANN+SNN	CNN	BIOSIG	SIM	SIM	CLAIM	LATENCY+ENERGY	NS	NA	NA	NA	NA	N	Accuracy 81.64% Sleep-EDF-78, 80.55% SHHS; faster inference and lower energy than conventional DNNs claimed without figures
+R05374	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Lightweight CNN and SNN for rotor bar faults; CNN reduces network scale vs existing methods; no SNN-ANN efficiency comparison

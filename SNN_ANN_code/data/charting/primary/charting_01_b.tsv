@@ -1,0 +1,25 @@
+R00112	Y	-	C3	ANN	OTHER	AUDIO	NA	GPU+CPU	NONE	MEMORY	NA	OTHER	WEAK	STRUCT	N	N	Structured LTH trimming with mutual-information criterion: up to 95% weights removed, models up to 100x smaller (Wavenet, SING, DDSP)
+R00117	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Knowledge distillation between SNNs for image classification; no ANN comparison, no efficiency figures
+R00119	Y	-	C3	ANN	MLP+CNN	STATIC_IMG	NA	NS	NONE	NONE	NA	ACT	OTHER	STRUCT	N	N	Iterative node/filter pruning by lowest mean post-activation, LTH-inspired; up to 90% removed without significant accuracy loss; reinit works
+R00126	Y	-	C1	ANN+SNN	RNN	NS	SIM	SIM	ESTIMATED	ENERGY+SPIKES	NS	NA	NA	NA	NA	N	Adaptive SRNN nearly matches or exceeds classical RNNs with sparse activity; calculated >100x energy improvement on harder tasks
+R00127	Y	-	C2	SNN	NS	NS	NS	NA	NONE	NONE	NA	NS	NA	UNSTRUCT	N	N	In-training weight pruning of Whetstone binary-activation networks, preliminary exploration; no efficiency figures
+R00129	Y	-	C1	ANN+SNN	NS	EVENT	SIM	SIM	CLAIM	ENERGY	PAIRED	NA	NA	NA	NA	N	Converted SNNs reach state-of-the-art accuracy on N-MNIST, CIFAR10-DVS, N-CARS, DvsGesture; consistently more energy-efficient than corresponding ANNs, no figures
+R00130	Y	-	C2	ANN+SNN	NS	NS	SIM	NS	CLAIM	SPIKES	NA	OTHER	NA	TEMPORAL	Y	N	Logarithmic temporal coding cuts spike count in converted SNNs; competitive accuracy at significantly lower cost than related work; no figures
+R00137	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Hybrid conversion plus spike-timing backprop: 10x-25x fewer time steps than converted SNNs; ImageNet 65.19% at 250 steps; no ANN comparison
+R00138	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Spike-based backpropagation for deep convolutional SNNs (VGG, residual); best accuracy among spike-trained SNNs; sparse event-based computation analyzed, no ANN comparison
+R00144	Y	-	C3	ANN	CNN	STATIC_IMG	NA	NS	NONE	NONE	NA	NS	WEAK	STRUCT	N	N	VGG-16/CIFAR-10 structured pruning: global pruning with learning rate rewinding finds winning tickets at most levels; weight rewinding few
+R00150	Y	-	C2	ANN+SNN	CNN+MLP	STATIC_IMG+EVENT	SPINNAKER+SIM	NS	NS	SPIKES	NA	NS	NA	NS	Y	N	Spike-rate reduction method cuts spikes up to 34x (fully connected net) at preserved accuracy; SpiNNaker, MNIST, N-MNIST
+R00151	Y	-	C1+C5	ANN+SNN	NS	AUDIO	NS	NS	NS	ENERGY+OPS	PAIRED	NA	NA	NA	NA	U	KWS on Speech Commands: replacing FLOPs with SOPs gives roughly 4x energy reduction with minimal performance loss
+R00152	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Visual-tactile SNN for container classification and slip detection; accuracy compared with standard deep learning; no efficiency figures
+R00155	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Binary and full-precision converted SNNs (CIFAR-100, ImageNet); latency cut by an order of magnitude over prior work; no ANN comparison
+R00167	Y	-	C3	ANN	MLP	NS	NA	NS	NONE	NONE	NA	OTHER	STRONG	STRUCT	N	N	Dense supermasks by structured neuron pruning of randomly weighted fully connected nets; smaller networks, higher accuracy than initial
+R00170	Y	-	C1	ANN+SNN	NS	NS	NS	NS	CLAIM	MEMORY+LATENCY+POWER	DIFFERENT	NA	NA	NA	NA	N	FPT-Spike beats rate-based SNN and ANN in network size, speed and power; no figures in abstract
+R00183	Y	-	C3	ANN	CNN	STATIC_IMG	NA	NS	NONE	NONE	NA	NS	WEAK	NS	N	N	LTH-based layer-wise pruning of a sparse CNN for Bangla word recognition; new benchmark accuracy on CMATERdb2.1.2 with far fewer parameters
+R00184	Y	-	C5	ANN+SNN	CNN+OTHER	NS	CPU+GPU+FPGA+ASIC	CPU+GPU+FPGA+ASIC	NONE	ENERGY+LATENCY	NA	NA	NA	NA	NA	N	Survey of hardware and software optimizations for DNN and SNN on CPU, GPU, FPGA, ASIC; includes benchmarking section
+R00185	Y	-	C1+C5	ANN+SNN	NS	BIOSIG+OTHER	NS	NS	MEASURED	LATENCY+ENERGY	DIFFERENT	NA	NA	NA	NA	Y	Tutorial plus benchmark of neuromorphic processors vs embedded AI accelerators on EMG-vision fusion; latency and energy compared, no figures
+R00193	Y	-	C1	ANN+SNN	CNN	OTHER	SIM	SIM	CLAIM	LATENCY+THROUGHPUT+OPS	NS	NA	NA	NA	NA	N	Spike-SPI SCNN beats ANN: IoU +15%, RSNR ~3 to ~6 dB; faster throughput and less overhead claimed without figures
+R00196	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	LIF, Izhikevich and rectified linear neuron SNNs on MNIST compared with a CNN; metric not stated; no energy figures
+R00206	N	E5	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Non-spiking FPGA DNN system: MNIST 99.37% at 93 uJ per image; CIFAR-10 83.43% with 11x better efficiency than FPGA accelerator
+R00210	Y	-	C3	ANN	CNN	NS	NA	NS	NONE	NONE	NA	NS	NS	UNSTRUCT	N	N	Representation similarity of pruned vs unpruned CNNs under unstructured pruning (LTH keyword); no efficiency figures
+R00222	Y	-	C3	ANN	CNN	STATIC_IMG	NA	NS	NONE	NONE	NA	MAG	WEAK	UNSTRUCT	N	N	IMP subnetworks reach full accuracy only when SGD-noise stable: at init on MNIST, early in training on ImageNet models
+R00225	Y	-	C3	ANN	NS	NS	NA	NS	NONE	NONE	NA	THEORY	STRONG	NS	N	N	Proves a subnetwork matching the trained large network exists at random init with only logarithmic overparameterization (neurons per target weight)

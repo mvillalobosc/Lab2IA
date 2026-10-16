@@ -1,0 +1,40 @@
+R02382	INCLUDE	C2	none	Spike sparsity retained with few time steps; ANN-SNN quantization gap
+R02390	EXCLUDE	E2	photonic	Optoelectronic spiking neuron device; no network-level evaluation
+R02395	EXCLUDE	E2	photonic	Photonic synapse transistor; ANN recognition demo without efficiency comparison
+R02483	UNSURE	C5	none	General SNN review; ANN-SNN energy claims, unclear if main subject
+R02533	EXCLUDE	E2	memristor/in-memory	Perovskite optoelectronic memristor; simulated ANN accuracy only, no comparison
+R02576	EXCLUDE	E2	memristor/in-memory	AlScN memristor synapse; CNN MNIST simulation only, no efficiency comparison
+R02664	EXCLUDE	E4	none	Survey on Hebbian continual learning; not efficiency comparison or pruning
+R02783	EXCLUDE	E4	none	SNN adversarial robustness via gradient sparsity; no efficiency or pruning
+R02784	EXCLUDE	E5	memristor/in-memory	ANN memristor in-situ training with sparse updates; no SNN or tickets
+R02791	EXCLUDE	E4	none	SNN training via ANN feature distillation; accuracy only
+R02810	INCLUDE	C1+C2	ASIC	SATO SNN accelerator, 6.0x energy saving vs Eyeriss, exploits spike sparsity
+R02832	EXCLUDE	E2	photonic	Photoelectric synaptic transistor device; no network-level evaluation
+R02848	INCLUDE	C1	photonic,GPU	Optical SNN at 1.6 W versus GPU CNNs at 150-300 W
+R02918	EXCLUDE	E6	none	Breast cancer pipeline; CSNN is one classifier, no efficiency
+R02928	EXCLUDE	E5	none	Hebbian learning rule for feedforward nets; accuracy only, no SNN evaluation
+R02933	EXCLUDE	E6	none	IoT security and blockchain; spiking network incidental, no efficiency
+R02936	EXCLUDE	E2	memristor/in-memory	ZnO/CdO memristor device; ANN digit recognition only
+R02948	EXCLUDE	E5	none	Sparse coding of images; no SNN, no network pruning or tickets
+R02981	INCLUDE	C1	Loihi	ANN-to-SNN conversion deployed on Loihi Kapoho Bay with energy efficiency claim
+R03010	EXCLUDE	E2	memristor/in-memory	Triboelectric charge-trapping transistor device; ANN digit recognition only
+R03144	EXCLUDE	E5	photonic	Optical non-spiking network vs electronic ANNs; no SNN or tickets
+R03223	EXCLUDE	E5	memristor/in-memory	Spin-based accelerator for compressed DNNs vs Eyeriss; no SNN or tickets
+R03243	EXCLUDE	E2	memristor/in-memory	Heterojunction memristor reservoir computing device; no spiking comparison
+R03246	EXCLUDE	E6	none	Hyperdimensional computing sequence encoding; off-topic
+R03363	INCLUDE	C3	none	Applies LTH to Swin super-resolution model; 70.44% cost reduction
+R03423	EXCLUDE	E2	memristor/in-memory	Spin-orbit torque synapse device; no network-level evaluation
+R03427	INCLUDE	C3	none	Graph sparse training; helps graph lottery tickets; GNN inference speedup
+R03443	EXCLUDE	E6	none	Gambling lottery tickets; unrelated to lottery ticket hypothesis
+R03504	EXCLUDE	E4	none	SNN decoder cuts time steps; baselines are SNNs, no ANN comparison
+R03582	INCLUDE	C1	simulation	Spiking U-Net matches CNN accuracy with claimed lower energy; unquantified
+R03602	EXCLUDE	E4	none	SNN component in RIS antenna selection; communication metrics only
+R03615	EXCLUDE	E4	none	SNN synaptic scaling for continual learning; no ANN baseline or pruning
+R03618	EXCLUDE	E5	none	Event-based tactile sensing with CNN-GRU; no SNN, no efficiency
+R03624	INCLUDE	C1	FPGA,CPU,GPU	Transformer-SNN FPGA accelerator; speedups over CPU, A100 and Transformer accelerators
+R03660	EXCLUDE	E2	ASIC	Asynchronous circuit design flow; SNN accelerator compared only with synchronous version
+R03667	EXCLUDE	E6	none	National tax lottery survey; unrelated
+R03706	INCLUDE	C2	ASIC	SNN optical flow accelerator exploiting sparsity, 0.3 pJ/SOP; no ANN baseline
+R03715	INCLUDE	C1	GPU	CNN-SNN hybrid cuts FLOPs 48.4% and power 9.2% versus CNN
+R03739	EXCLUDE	E2	memristor/in-memory	Overview of 2D material devices; no network-level comparison
+R03757	EXCLUDE	E4	none	CNN-SNN Alzheimer classifier; accuracy only, energy claims unquantified

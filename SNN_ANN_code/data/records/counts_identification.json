@@ -1,0 +1,43 @@
+{
+  "search_date": "2026-10-14",
+  "identified_scopus": 6092,
+  "identified_wos": 4688,
+  "identified_total": 10780,
+  "duplicates_by_doi": 4286,
+  "duplicates_by_title": 160,
+  "duplicates_total": 4446,
+  "unique_records": 6334,
+  "unique_scopus_only": 1754,
+  "unique_in_both": 4319,
+  "unique_wos_only": 261,
+  "by_block": {
+    "A": 3967,
+    "A+B": 743,
+    "B": 1575,
+    "none": 49
+  },
+  "by_year": {
+    "2020": 399,
+    "2021": 476,
+    "2022": 686,
+    "2023": 859,
+    "2024": 1040,
+    "2025": 1506,
+    "2026": 1351,
+    "2027": 17
+  },
+  "by_document_type": {
+    "Article": 3604,
+    "Article; Book Chapter": 1,
+    "Article; Data Paper": 1,
+    "Article; Early Access": 13,
+    "Conference paper": 2410,
+    "Proceedings Paper": 39,
+    "Review": 265,
+    "Review; Book Chapter": 1
+  },
+  "by_language": {
+    "English": 6331,
+    "Spanish": 3
+  }
+}

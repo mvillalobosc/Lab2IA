@@ -1,0 +1,25 @@
+R04657	Y	-	C2	SNN	CNN	NS	NS	NA	NS	ENERGY+LATENCY+MEMORY+SPIKES	NA	ACT	NA	NS	Y	N	31-51% computation energy saving via fewer spikes, accuracy loss <1%, speedup 1.56x; weight access -54.93%, total energy -50.77%
+R04660	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	SNN graph transformer; efficiency claimed without figures, named ANN comparator or pruning method
+R04663	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	SNN processor; 1.26x/1.24x speedup vs LSMCore (SNN) on N-MNIST/MNIST; no ANN comparison, no pruning
+R04664	Y	-	C1	ANN+SNN	TRANSFORMER	AUDIO	NS	NS	NS	ENERGY	PAIRED	NA	NA	NA	NA	N	SNN uses 75.59% less energy than ANN counterpart (GSC V2, 35-class); accuracy 96.8% (12-class), 94.7% (35-class)
+R04666	Y	-	C3	ANN	NS	NS	NA	NS	NONE	NONE	NA	OTHER+THEORY	OTHER	NS	N	N	Sign-In reparameterization induces sign flips for sparse training from scratch (PaI); no efficiency figures
+R04667	Y	-	C1	ANN+SNN	GNN	OTHER	NS	NS	ESTIMATED	ENERGY	DIFFERENT	NA	NA	NA	NA	N	Spiking GCN beats SNN baselines, comparable accuracy to GCNs, significantly lower theoretical energy (no figures)
+R04669	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Continual-learning SNN with neuron reuse and expansion; energy reduction claimed without figures; no ANN efficiency comparison or pruning described
+R04670	Y	-	C6	SNN	TRANSFORMER	STATIC_IMG	SIM	NA	ESTIMATED	ENERGY+POWER+LATENCY	NA	NA	NA	NA	NA	N	Energy-dataflow simulator for spike-driven transformers on ImageNet-scale workloads; 4.6% power inconsistency versus real hardware
+R04671	Y	-	C1	ANN+SNN	NS	NS	NS	NS	NS	ENERGY+LATENCY	DIFFERENT	NA	NA	NA	NA	N	Temporal-coded ANN systolic array: 11x less energy, 4x lower latency vs SNNs; 3.5x energy gain vs 8-bit digital arrays
+R04672	Y	-	C1	ANN+SNN	TRANSFORMER	NLP	NS	NS	NS	ENERGY+LATENCY	PAIRED	NA	NA	NA	NA	N	SpikingBERT vs its ANN baseline on SITRA engine: up to 6.4x higher energy efficiency, 3.4x lower latency
+R04675	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Spike-driven segmentation; 4.58x lower energy reported alongside gains over SOTA SNNs (+9.06/+9.39 mIoU); ANN energy comparison not stated
+R04676	Y	-	C5	ANN+SNN	NS	NLP	NS	NS	NONE	ENERGY+LATENCY	NA	NA	NA	NA	NA	N	Review of SNN-based small language models comparing NLP benchmark accuracy, latency and energy trade-offs; no figures in abstract
+R04680	Y	-	C2	SNN	CNN	STATIC_IMG+EVENT	CPU	NA	MEASURED	LATENCY+ENERGY	NA	ACT	NA	STRUCT	Y	N	Channel pruning plus partitioning on 9 Raspberry Pi 4B: latency -60.7%, energy -49.9%, accuracy maintained
+R04686	Y	-	C1	ANN+SNN	NS	CONTROL	GPU	NS	MEASURED	LATENCY	NS	NA	NA	NA	NA	U	SNN one-hot encoding, one simulation step; outperforms SOTA ANNs on hardware requirements (runtime on GPU), comparable accuracy; no figures
+R04688	Y	-	C2	SNN	NS	TS	NS	NA	CLAIM	SPIKES	NA	OTHER	NA	TEMPORAL	N	N	Timestep-shrinking SNN with sparse attention coding for gearbox faults; beats SOTA SNNs on accuracy, training speed, coding sparsity; no figures
+R04689	N	E7	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Event-based detector, >92% activation sparsity on neuromorphic processors; no spikes or spiking neurons mentioned, so treated as ANN
+R04691	Y	-	C3	ANN	CNN	STATIC_IMG	NA	NS	NONE	NONE	NA	OTHER	WEAK	NS	N	N	Permuting LTH masks to align with new initialization improves sparse training on CIFAR-10/100 and ImageNet (VGG11, ResNet20/50)
+R04693	Y	-	C2	SNN	TRANSFORMER	NS	MEMRISTOR	NA	NS	ENERGY+LATENCY	NA	ACT+OTHER	NA	MIXED	Y	N	Token skipping on ReRAM-CIM: up to 543.1x/10.2x speedup, 308.0x/5.2x energy efficiency vs GPU/COMPASS (SNN accelerator)
+R04694	Y	-	C2	SNN	TRANSFORMER	STATIC_IMG	NS	NA	NONE	NONE	NA	ACT	NA	STRUCT	Y	N	Token pruning by spike accumulation cuts ImageNet training time 181 to 128 h; accuracy 83.13 vs 83.07 (training cost only)
+R04703	Y	-	C1	ANN+SNN	NS	DET+EVENT	NS	NS	NS	ENERGY	DIFFERENT	NA	NA	NA	NA	N	17.76x less energy than ANN-based models; mIoU +1.57% (DDD17), +1.91% (DSEC) over SOTA SNNs
+R04705	Y	-	C1	ANN+SNN	NS	OTHER	NS	NS	CLAIM	ENERGY	NS	NA	NA	NA	NA	N	SNN LiDAR place recognition; higher accuracy and substantially lower energy claimed versus existing approaches; no figures
+R04706	Y	-	C1	ANN+SNN	TRANSFORMER	BIOSIG	NS	NS	NS	ENERGY+POWER	DIFFERENT	NA	NA	NA	NA	N	Inference power -38% on average vs classical deep learning methods; accuracy up to 70% on D-Vlog
+R04707	Y	-	C1	ANN+SNN	TRANSFORMER	OTHER	NS	NS	ESTIMATED	ENERGY+MEMORY	PAIRED	NA	NA	NA	NA	N	Lower theoretical energy and memory traffic than ANN counterparts; 25.50 dB LOL-v1, 30.37 dB SDSD-out, comparable parameters
+R04708	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	RISC-V SNN co-design: 108x energy efficiency, 113x lower latency vs floating-point baseline; no ANN comparison, no pruning
+R04713	Y	-	C1	ANN+SNN	CNN	NS	NS	NS	NS	ENERGY	PAIRED	NA	NA	NA	NA	N	Edge energy efficiency up to 144x vs baseline BottleNet; 256x bit compression in ResNet, accuracy loss 0.16%

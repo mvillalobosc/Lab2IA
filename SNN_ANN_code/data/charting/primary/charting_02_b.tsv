@@ -1,0 +1,25 @@
+R00490	N	E2	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Overview of neuromorphic circuit design (encoders, delay-feedback reservoir, hybrid NNs); DFR claimed more efficient than RNN, no figures
+R00493	Y	-	C1	HYBRID	RNN	NS	SIM	NS	CLAIM	POWER+MEMORY	DIFFERENT	NA	NA	NA	NA	N	Adaptive-threshold recurrent LIF layer claims low power from far fewer weights than SimpleRNN, GRU, LSTM; no figures
+R00495	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Compiler framework (SODA, MLIR dialect) for generating digital and spiking accelerators; design discussion, no efficiency comparison
+R00501	Y	-	C3	ANN	NS	STATIC_IMG	NA	NS	NONE	NONE	NA	MAG	WEAK	MIXED	N	N	BN scaling-factor and effective-weight magnitude pruning for robust sparse models; verifies LTH; no efficiency figures
+R00502	Y	-	C6	SNN	OTHER	CONTROL	CPU+SPINNAKER+GPU	NA	MEASURED	LATENCY+ENERGY	NA	NA	NA	NA	NA	N	SNN wavefront benchmark on CPU (NEST), SpiNNaker, GPU (GeNN): simulation time, energy per run, path length; no figures
+R00503	Y	-	C6	SNN	OTHER	OTHER	CPU+GPU	NA	MEASURED	LATENCY	NA	NA	NA	NA	NA	N	Simulator benchmark (NEST, Brian2, Brian2GeNN, BindsNET, Nengo): speed and scalability; NEST 2x or more speedup in some workloads
+R00514	Y	-	C3	ANN	NS	NS	NA	NS	NONE	NONE	NA	OTHER	OTHER	NS	N	N	Functional lottery ticket hypothesis for OOD generalization; Modular Risk Minimization selects subnetworks; no efficiency metric
+R00521	Y	-	C3	ANN	NS	STATIC_IMG	NA	SIM	NONE	NONE	NA	NS	WEAK	NS	N	N	CELL: up to 3.6% higher accuracy with 4.3x smaller communication cost on CIFAR-10 (simulation); no energy metric
+R00522	Y	-	C1+C6	ANN+SNN	NS	NS	NS	NS	ESTIMATED	ENERGY	PAIRED	NA	NA	NA	NA	N	Analytic comparison under identical silicon: most rate-coded SNN implementations not more energy or resource efficient than the source ANN
+R00524	Y	-	C2	SNN	RNN	STATIC_IMG+EVENT	OTHER_NEURO	NA	NS	POWER+MEMORY	NA	OTHER	NA	UNSTRUCT	Y	N	CSSAC sparse storage compression for LSM: 14-55% less on-chip storage, 5-46% less power on MNIST, NMNIST, DVS Gesture
+R00526	Y	-	C2	SNN	NS	NS	FPGA	NA	NS	ENERGY+LATENCY+POWER	NA	NS	NA	UNSTRUCT	Y	N	Connection pruning cuts connectivity 92.83%; learning 2.1x faster, 64% less energy; inference 2.83x faster, 78.24% less energy; FPGA
+R00530	Y	-	C3	ANN	MLP+CNN	AUDIO	NA	NS	NONE	NONE	NA	NS	WEAK	NS	N	N	LTH pruning of fully connected net explored; VGG-13 best with validation AUROC 82.23%, test 78.3%; no efficiency figures
+R00535	Y	-	C3	ANN	OTHER	OTHER	NA	NS	NONE	NONE	NA	NS	WEAK	NS	N	N	Lottery tickets found in GANs from small data, then sparse subnetwork trained; gains add to augmentation; no efficiency metrics
+R00541	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	CNN-to-SNN conversion with binary weights; less memory than high-precision SNN, accuracy comparable to SNNs; no ANN efficiency comparison
+R00553	Y	-	C3	ANN	NS	NS	NA	NS	NONE	NONE	NA	THEORY	WEAK	NS	N	N	Analysis of winning tickets under SGD stochasticity: structural and functional divergence; no efficiency metrics
+R00557	Y	-	C3	ANN	NS	STATIC_IMG	NA	NS	CLAIM	NONE	NA	NS	STRONG	NS	N	N	Robust subnetworks found in random-init networks without training, matching adversarially trained robust accuracy; claimed efficient; no figures
+R00558	Y	-	C1	HYBRID	CNN	STATIC_IMG	NS	NS	CLAIM	ENERGY	NS	NA	NA	NA	NA	N	Hybrid CNN-SNN tomato disease classifier, 97.78% on original images; energy efficiency asserted from event-driven SNN, not measured
+R00561	Y	-	C3	ANN	TRANSFORMER	NLP	NA	NS	NONE	NONE	NA	NS	WEAK	STRUCT	N	N	Structured early-bird winning tickets in BERT; comparable GLUE and SQuAD performance with 35-45% less training time
+R00562	Y	-	C1	ANN+SNN	RNN	AUDIO+BIOSIG	NS	NS	ESTIMATED	ENERGY	NS	NA	NA	NA	NA	N	Spiking RNNs theoretically 2 to 3 orders of magnitude more energy-efficient than comparable classical ANNs; speech and ECG tasks
+R00564	Y	-	C3	ANN	NS	STATIC_IMG	NA	NS	NONE	NONE	NA	SCORE	STRONG	UNSTRUCT	N	N	ProbMask learns global sparsity masks; up to 10% top-1 gain over prior pruning; also finds supermasks; no efficiency metrics
+R00569	Y	-	C3	ANN	NS	STATIC_IMG	NA	NS	NONE	NONE	NA	NS	WEAK	NS	N	N	Winning tickets found on PrAC subset (35-78% of data), saving 63-93% of training iterations on CIFAR and Tiny ImageNet
+R00570	Y	-	C1	ANN+SNN	OTHER	AUDIO+OTHER	LOIHI2	NS	ESTIMATED	OPS	NS	NA	NA	NA	NA	N	Resonate-and-fire neurons: optical flow over 90x fewer operations than DNN solution; STFT 47x less output bandwidth, similar complexity
+R00574	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Neuron unrolling for crossbar mapping on DYNAP-SE: 60% fewer crossbars, 62% less wasted energy; avoids pruning; SNN-only
+R00577	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Hybrid ANN-SNN mapping on Tianjic; claims low latency and power, no figures or ANN-vs-SNN efficiency comparison
+R00580	Y	-	C1	ANN+SNN	CNN	BIOSIG	NS	NS	NS	POWER	LITERATURE	NA	NA	NA	NA	N	SNN converted from CNN, <1% accuracy drop; average power 0.077 W, 0.0074x that of previous NN solutions

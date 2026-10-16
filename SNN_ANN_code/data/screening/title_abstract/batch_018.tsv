@@ -1,0 +1,100 @@
+R01701	INCLUDE	C1+C6	ASIC,simulation	Analytic ANN vs SNN energy model with memory accesses, Eyeriss baseline
+R01702	EXCLUDE	E6	none	AI in materials science review; neuromorphic incidental
+R01703	EXCLUDE	E6	none	DNN-assisted nanocantilever fabrication; unrelated domain
+R01704	EXCLUDE	E2	memristor/in-memory	PVA:ZnO memristive synapse device characterization
+R01705	EXCLUDE	E2	memristor/in-memory	MoS2 in-memory light sensor device; small CNN simulation only
+R01706	EXCLUDE	E2	memristor/in-memory	Oxide memristor switching physics
+R01707	EXCLUDE	E6	none	Event-camera corner detector; no neural network efficiency comparison
+R01708	INCLUDE	C2	none	Temporal coding plus synapse pruning in SNN; 60% energy saving
+R01709	EXCLUDE	E2	photonic	Optoelectronic synaptic nanosheet device; CNN demo only
+R01710	INCLUDE	C1	none	Attention SNN; 31.8x energy efficiency versus Res-ANN-104
+R01711	EXCLUDE	E4	FPGA	SNN auditory FPGA system; compared only with other SNN systems
+R01712	EXCLUDE	E4	ASIC	RISC-V neuromorphic ISA processor; compared with neuromorphic processors only
+R01713	UNSURE	C6	memristor/in-memory	ANN energy/latency method on AIMC versus conventional; no SNN
+R01714	EXCLUDE	E2	memristor/in-memory	Polymer electret synaptic transistor device
+R01715	EXCLUDE	E4	none	Dendritic burst learning rule; no ANN efficiency comparison
+R01716	EXCLUDE	E4	none	Delay-only SNN training with fixed random weights; no mask or efficiency
+R01717	EXCLUDE	E4	GPU	Spiking framework; efficiency versus ANN not shown in abstract
+R01718	EXCLUDE	E4	none	Binarized SNN liver cancer; accuracy versus ML models only
+R01719	EXCLUDE	E2	memristor/in-memory	Silent synapse layered material device
+R01720	UNSURE	C1	none	SNN battery SOH versus ANN; energy measurement unclear, abstract truncated
+R01721	EXCLUDE	E2	memristor/in-memory	CMOS IF neuron with memristor synapses; information-theory analysis
+R01722	EXCLUDE	E5	memristor/in-memory	DFA versus backprop on CIM hardware; ANN only
+R01723	EXCLUDE	E3	none	Biologically plausible learning rules matched to mouse task
+R01724	EXCLUDE	E4	ASIC	SNN in-memory chip; compared only with other chips
+R01725	EXCLUDE	E2	none	Superconducting SFQ circuits
+R01726	EXCLUDE	E4	none	SNN audio encoding; compared with SNN methods only
+R01727	EXCLUDE	E2	memristor/in-memory	TiO2 memristor synapse
+R01728	EXCLUDE	E4	SpiNNaker,CPU	Sparse coincidence memory; accuracy-only comparison with deep networks
+R01729	EXCLUDE	E2	memristor/in-memory	Ferroelectric synaptic transistor device
+R01730	EXCLUDE	E4	none	Glial SNN Sudoku solver; DNN comparison on accuracy only
+R01731	EXCLUDE	E6	none	Blockchain plastic bottle supply chain; lottery tickets incidental
+R01732	EXCLUDE	E4	none	Tactile SNN neuron model; no ANN efficiency comparison
+R01733	INCLUDE	C5	ASIC,memristor/in-memory	Survey and comparative analysis of neuromorphic processing hardware
+R01734	EXCLUDE	E4	ASIC	Mixed-signal neuromorphic robustness; chip measurements, no ANN comparison
+R01735	UNSURE	C1	Tianjic	Hybrid network on Tianjic vs conventional methods; efficiency unclear
+R01736	EXCLUDE	E4	none	Evolved SNN circuits; no ANN efficiency or pruning
+R01737	EXCLUDE	E4	none	STDP recurrent SNN forecasting; efficiency only motivation
+R01738	EXCLUDE	E2	none	Superconducting SNN device-level energy; no ANN comparison
+R01739	EXCLUDE	E3	ASIC	Neuromorphic platform for brain simulation, no learning task
+R01740	INCLUDE	C1	none	ANN-to-SNN LSTM conversion; AC versus MAC energy and latency gains
+R01741	EXCLUDE	E2	photonic	Optoelectronic synapse device
+R01742	EXCLUDE	E2	memristor/in-memory	Ferroelectric transistor vision device; no ANN comparison
+R01743	EXCLUDE	E4	none	Burstprop SNN learning; compared to STDP and BPTT accuracy
+R01744	INCLUDE	C1+C2	ASIC	Heterogeneous CNN/SNN processor; spike sparsity; TOPS/W
+R01745	INCLUDE	C1+C2	ASIC	CNN-SNN combined processor exploiting spike sparsity; energy efficiency
+R01746	EXCLUDE	E7	none	General ANN pruning for certified robustness
+R01747	INCLUDE	C3	none	Strong lottery tickets in generative models
+R01748	EXCLUDE	E2	simulation	Capacitor-less FBFET neuron circuit
+R01749	INCLUDE	C2	none	SNN weight quantization (compression), binary weights, memory saving
+R01750	INCLUDE	C3	none	Lottery image prior; LTH subnetworks in image priors
+R01751	EXCLUDE	E6	none	Art essay; lottery tickets incidental
+R01752	EXCLUDE	E4	ASIC	Chip-in-loop SNN training; no ANN efficiency comparison
+R01753	EXCLUDE	E2	none	Transistor-based self-training analog circuits
+R01754	INCLUDE	C1	none	ANN-to-SNN conversion; energy and delay reduction reported
+R01755	EXCLUDE	E6	none	Potato leaf CNN disease classification
+R01756	EXCLUDE	E2	memristor/in-memory	Review of CMOS-compatible neuromorphic devices
+R01757	UNSURE	C1	Loihi,ASIC	SNN and ternary CNN accelerators on SoC; comparison unclear
+R01758	EXCLUDE	E4	none	Spiking RL radar navigation; efficiency only motivation
+R01759	EXCLUDE	E4	none	Hybrid ANN-SNN classifier; accuracy only
+R01760	EXCLUDE	E4	none	Spiking neuron model accuracy comparison on MNIST
+R01761	EXCLUDE	E2	FPGA	Complex-exponential neuron on FPGA; no learning task
+R01762	INCLUDE	C2	none	SNN pruning, quantization and activity regularization via ADMM
+R01763	INCLUDE	C3	none	Surrogate winning ticket for federated learning
+R01764	EXCLUDE	E2	photonic	Event-driven vision sensor device; in-sensor SNN, no ANN comparison
+R01765	EXCLUDE	E3	none	Information theory methods for neural circuits
+R01766	INCLUDE	C3	none	Effective sparsity for pruning and lottery tickets benchmarking
+R01767	EXCLUDE	E3	none	Neural population coding review for neuromorphic circuits
+R01768	UNSURE	C1	none	Knowledge distillation ANN to SNN; efficiency versus ANN unclear
+R01769	EXCLUDE	E4	SpiNNaker	Spike-based memory blocks on SpiNNaker
+R01770	EXCLUDE	E4	none	Liquid state machine context modulation; no ANN baseline
+R01771	EXCLUDE	E2	none	Skyrmionium nanostructure device
+R01772	EXCLUDE	E4	none	Convolutional SNN; accuracy-only comparison with ANN
+R01773	UNSURE	C3	none	GNN explanation via subnetwork search; LTH keyword, no cost reduction
+R01774	EXCLUDE	E2	memristor/in-memory	CuO memristor synapse device
+R01775	EXCLUDE	E2	ASIC	Neuromorphic core interface arbitration circuits
+R01776	EXCLUDE	E4	none	Convolutional SNN COVID classification; accuracy only
+R01777	INCLUDE	C1	none	CNN-to-SNN conversion; accuracy loss and time-window latency
+R01778	EXCLUDE	E2	photonic	Optoelectronic synapse device
+R01779	EXCLUDE	E2	memristor/in-memory,ASIC	Charge-trap transistor neuron architecture; no ANN comparison
+R01780	INCLUDE	C3	none	Lottery ticket hypothesis for vision transformers, data level
+R01781	EXCLUDE	E4	none	GAN data augmentation for SNN; no efficiency measurement
+R01782	EXCLUDE	E5	memristor/in-memory	ReRAM fault tolerance for DNN; no SNN
+R01783	EXCLUDE	E6	none	Blockchain lottery system
+R01784	EXCLUDE	E4	none	Convolutional SNN breast cancer; accuracy and runtime versus ML
+R01785	EXCLUDE	E4	none	Spiking channel estimation for 5G; no ANN efficiency comparison
+R01786	INCLUDE	C1	none	Directly trained SNN detector; 5.83x less energy than ANN
+R01787	EXCLUDE	E4	none	SNN deep clustering on neuromorphic images
+R01788	EXCLUDE	E4	none	Hierarchical SNN medical classification; accuracy only
+R01789	EXCLUDE	E5	none	DNN for polarization event reconstruction; no SNN
+R01790	EXCLUDE	E7	none	Pruning plus delta network in deep RL; non-spiking
+R01791	EXCLUDE	E4	none	Local-learning SNN training; no ANN efficiency comparison
+R01792	EXCLUDE	E4	none	STDP image recognition review; no efficiency or pruning focus
+R01793	EXCLUDE	E4	none	SNN wheelset defect recognition; accuracy only
+R01794	EXCLUDE	E2	memristor/in-memory	Memristive circuit system for communication
+R01795	EXCLUDE	E4	none	Liquid state machine digit recognition; no ANN efficiency comparison
+R01796	INCLUDE	C1	ASIC	7-nm TTFS SNN versus ANN design; power, latency, area
+R01797	INCLUDE	C2	simulation	Sparsity-aware SNN accelerator design space exploration
+R01798	EXCLUDE	E5	none	Reservoir computing hardware review; non-spiking
+R01799	EXCLUDE	E4	none	STDP-based SNN training; no ANN efficiency comparison
+R01800	EXCLUDE	E4	none	STDP robot control SNN; no ANN comparison

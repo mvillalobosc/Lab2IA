@@ -1,0 +1,25 @@
+R02780	Y	-	C1	ANN+SNN	CNN	OTHER	AKIDA	NS	NS	OPS+POWER	PAIRED	NA	NA	NA	NA	N	CNN-STAN autoencoder converted to SNN with Akida MetaTF: 85% lower computational requirements, power decrease claimed, minimal capacity trade-off
+R02782	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	SNN wireless technology recognition: competitive accuracy at high SNR; low power asserted, no ANN efficiency comparison or figures
+R02790	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Binary attention for SpikFormer keeps comparable accuracy with lower computational cost vs original SpikFormer; SNN-only, no figures
+R02793	Y	-	C1	ANN+SNN	NS	NS	MEMRISTOR	MEMRISTOR	NS	POWER	LITERATURE	NA	NA	NA	NA	N	Ferrimagnet crossbar ANN/SNN architecture: 1.6x more power-efficient than NEBULA (ANN mode), 4 orders better than Loihi (SNN mode)
+R02794	Y	-	C2	ANN+SNN	NS	EVENT	GPU	EDGE_GPU	MEASURED	LATENCY+ENERGY	NA	ACT	NA	TEMPORAL	Y	U	Ev-Edge on Jetson Xavier AGX: 1.28-2.05x lower latency and 1.23-2.15x lower energy than all-GPU for event-based ANN/SNN/hybrid networks
+R02797	Y	-	C1	ANN+SNN	CNN	EVENT	SIM	SIM	NS	ENERGY	PAIRED	NA	NA	NA	NA	N	Spiking U-Net depth: up to 58x energy efficiency vs same-structure ANN; accuracy +18.50% vs SOTA ANN, +25.18% vs SOTA SNN
+R02798	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	SDNN hand detection on Loihi 2 matches GPU model accuracy; estimated dynamic power about 7 mW, no GPU power figure
+R02799	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Review of SNN object detection (151 papers); hardware energy, latency, memory trade-offs are only one of three findings
+R02804	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Survey of evolutionary computation for SNN weight learning and architecture search; not focused on efficiency comparison or sparsity
+R02808	Y	-	C3	ANN	CNN	STATIC_IMG	NA	SIM	NONE	NONE	NA	SCORE	STRONG	STRUCT	N	N	N:M supermasks (SLTH) vs LSQ on Folded ResNets: better when unstructured, worse at N:M; initial-weight noise improves accuracy
+R02810	Y	-	C1	ANN+SNN	NS	NS	ASIC	ASIC	NS	LATENCY+ENERGY	DIFFERENT	NA	NA	NA	NA	N	SATO temporal-parallel SNN accelerator: 20.7x speedup, 6.0x energy saving vs 8-bit Eyeriss; 4.6x, 3.1x vs SpinalFlow
+R02811	Y	-	C3	ANN	NS	STATIC_IMG	NA	SIM	NONE	NONE	NA	NS	WEAK	NS	N	N	LTH for few-shot classification: prune-aware and mixed-precision early pruning finds winning tickets faster on miniImageNet and FC100
+R02816	Y	-	C1+C6	ANN+SNN	NS	NS	OTHER_NEURO	NS	MEASURED	POWER	PAIRED	NA	NA	NA	NA	Y	Apples-to-apples ANN vs SNN comparison on classical and neuromorphic edge hardware: comparable CV accuracy at 1/10th the power
+R02822	Y	-	C3	ANN	NS	OTHER	NA	SIM	NONE	NONE	NA	NS	NS	NS	N	N	Federated meta-learning learns a sparse global MRI model (LTH keyword), then grows personalised models; fewer parameters, lower communication, no figures
+R02827	Y	-	C2	SNN	NS	TS	SIM	NA	CLAIM	ENERGY	NA	NS	NA	UNSTRUCT	N	N	STDP-trained federated SNN for radar gestures with weight pruning; claims higher energy efficiency than BP and BPTT, no figures
+R02828	Y	-	C3	ANN	NS	NS	NA	SIM	NONE	NONE	NA	OTHER	OTHER	NS	Y	N	FedPE adaptive pruning-expanding finds personalised lottery ticket subnets per client; 1.86x-121x communication efficiency gain, almost no accuracy loss
+R02829	Y	-	C3	ANN	NS	NS	NA	SIM	NONE	NONE	NA	NS	OTHER	UNSTRUCT	N	N	LTH-inspired personalised FL: incrementally expands client subnetworks, outperforms recent PFL methods under heterogeneity; no efficiency metric
+R02838	Y	-	C3	ANN	NS	NS	NA	SIM	CLAIM	OPS+MEMORY	NA	OTHER	OTHER	UNSTRUCT	N	N	Path eXclusion pruning at initialization via NTK trace finds lottery tickets at high sparsity; claims substantial cost savings, no figures
+R02839	Y	-	C3	ANN	NS	OTHER	NA	SIM	NONE	NONE	NA	EVO	STRONG	NS	N	N	First genetic algorithm search for strong lottery tickets without gradients; smaller, better subnetworks than gradient-based SOTA on small binary tasks
+R02840	Y	-	C2	SNN	NS	STATIC_IMG	FPGA	NA	MEASURED	LATENCY+SPIKES+THROUGHPUT	NA	OTHER	NA	NS	Y	N	SNN hyperparameter tuning on FPGA: fast sigmoid lowers firing rate (SVHN); 48% lower latency for 2.88% accuracy loss
+R02847	Y	-	C2	SNN	NS	TS	FPGA	NA	ESTIMATED	ENERGY+LATENCY	NA	NS	NA	NS	N	N	FPGA spiking ensemble: LSQ and pruning cut parameters to 30%, accuracy 97.04%; 334 us, estimated 157 uJ per inference
+R02848	Y	-	C1	ANN+SNN	CNN	STATIC_IMG	OTHER_NEURO	GPU	NS	POWER+LATENCY	LITERATURE	NA	NA	NA	NA	N	Optical spiking CNN: 1.6 W, 2.44 ms vs typical GPU CNNs 150-300 W, 1-5 ms; competitive accuracy on three benchmarks
+R02854	N	E1	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Position paper on ANN and SNN history and perspective; no empirical comparison or efficiency data in abstract
+R02857	Y	-	C2+C4	SNN	TRANSFORMER	NS	SIM	NA	CLAIM	NONE	NA	NS	NS	MIXED	NS	Y	Spiking lottery tickets plus MultiSp (patch, weight, activation sparsity) for spiking transformers: extreme sparsity with slight performance drop, no figures
+R02858	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Event-camera gait recognition SNN: comparable accuracy to RGB systems with unquantified higher computational efficiency; no ANN comparison figures

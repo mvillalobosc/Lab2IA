@@ -1,0 +1,100 @@
+R04801	EXCLUDE	E2	photonic,memristor/in-memory	optical memristor device; gesture demo without ANN-SNN comparison
+R04802	INCLUDE	C3	none	lottery ticket MLPs analysed with network science metrics
+R04803	INCLUDE	C2	none	neuron pruning and growing in SNNs, medical classification
+R04804	EXCLUDE	E4	none	SNN training rule with sparse feedback; no pruning or ANN baseline
+R04805	EXCLUDE	E4	none	general SNN overview for fault diagnosis; no efficiency comparison
+R04806	EXCLUDE	E2	memristor/in-memory	BaTiO3 synaptic device; ANN simulation accuracy only
+R04807	EXCLUDE	E2	none	electrochemical synaptic transistor; perceptron accuracy only
+R04808	EXCLUDE	E2	none	superconducting spintronic neuron and synapse devices
+R04809	INCLUDE	C3	none	supermask-based personalized federated learning
+R04810	EXCLUDE	E4	none	SNN explainability method; energy only as motivation
+R04811	INCLUDE	C1	none	spiking video transformer, energy efficiency focus; abstract truncated
+R04812	EXCLUDE	E2	none	IGZO retinomorphic sensor array; device level
+R04813	EXCLUDE	E2	memristor/in-memory	HfO2 memristor synapse; CNN accuracy only
+R04814	EXCLUDE	E2	Loihi2	CMOS neuron-synapse cell; device level
+R04815	EXCLUDE	E2	none	multiferroic synaptic device
+R04816	EXCLUDE	E2	memristor/in-memory	memristor in HR neurons; CNN accuracy only
+R04817	EXCLUDE	E4	none	SNN delay plasticity with attention; accuracy only
+R04818	EXCLUDE	E3	none	phase-coded spike multiplexing; neuroscience information model
+R04819	EXCLUDE	E2	memristor/in-memory	BaTiO3 memristor synaptic plasticity device
+R04820	EXCLUDE	E2	none	IGZO optoelectronic synaptic transistor; CNN accuracy only
+R04821	EXCLUDE	E2	memristor/in-memory	perovskite synapse device; ANN simulation accuracy only
+R04822	EXCLUDE	E2	none	CuI thin film transistor synapse device
+R04823	EXCLUDE	E2	none	graphene synaptic transistor device
+R04824	EXCLUDE	E2	none	vertical synapse transistor device
+R04825	EXCLUDE	E4	none	SNN self-distillation; accuracy and robustness only
+R04826	EXCLUDE	E4	ASIC	SNN keyword spotting accelerator; chip area only, no ANN metrics
+R04827	EXCLUDE	E4	none	long-tailed SNN with CNN teacher; accuracy only
+R04828	EXCLUDE	E4	none	asynchronous SNN dataflow; gains versus SNN platforms only
+R04829	EXCLUDE	E2	none	SrTiO3 transistor leaky integration device
+R04830	EXCLUDE	E4	none	TDE-2 versus TDE-3 energy; both SNN
+R04831	INCLUDE	C3	none	one-shot pruning with LTH keyword; compared with COLT
+R04832	EXCLUDE	E5	memristor/in-memory	ANN-only drift compensation on memristor crossbar
+R04833	EXCLUDE	E6	none	event camera image reconstruction
+R04834	INCLUDE	C1	none	ANN-SNN conversion method; efficiency implicit
+R04835	EXCLUDE	E4	none	ANN-to-SNN distillation; accuracy only
+R04836	EXCLUDE	E4	none	single-spike transfer learning rule; no ANN baseline
+R04837	EXCLUDE	E4	none	spiking GAN for neural decoding; no ANN comparison
+R04838	INCLUDE	C1+C2	none	ternary quantized SNN; 7.5x energy saving, 94% less memory
+R04839	EXCLUDE	E4	none	local learning rule versus BPTT; accuracy only
+R04840	EXCLUDE	E4	none	SNN architecture for classification and segmentation; no ANN baseline
+R04841	INCLUDE	C1	none	SNN versus CNN on MRI; 13x faster, 73% less memory
+R04842	EXCLUDE	E6	none	lottery ticket sales in economics
+R04843	EXCLUDE	E6	none	job loss and financial risk
+R04844	EXCLUDE	E2	memristor/in-memory	threshold switch neuristor circuit
+R04845	EXCLUDE	E6	none	vaccination incentives review
+R04846	EXCLUDE	E6	none	winning tickets in diffusion noise, not subnetworks
+R04847	EXCLUDE	E5	GPU,CPU,memristor/in-memory	ANN hardware acceleration overview; no SNN comparison
+R04848	EXCLUDE	E4	memristor/in-memory	conceptual memristive SNN proposal; ANN energy only as motivation
+R04849	EXCLUDE	E4	none	perspective on neuromorphic commercialization; no efficiency comparison
+R04850	EXCLUDE	E2	memristor/in-memory	photomemristor synapse device; CNN accuracy only
+R04851	EXCLUDE	E7	photonic	pruning of optical neural networks; not SNN or LTH
+R04852	EXCLUDE	E4	none	SNN speech denoising with pinna cues; accuracy only
+R04853	EXCLUDE	E2	none	SOT-MTJ spiking neuron device; MNIST demo only
+R04854	INCLUDE	C2	ASIC	sparse hybrid encoding cuts firing rate; no ANN baseline
+R04855	INCLUDE	C1	none	ANN-to-SNN conversion for speech enhancement; low-power claim
+R04856	EXCLUDE	E2	memristor/in-memory	domain wall memory device; kernel convolution demo
+R04857	EXCLUDE	E4	none	SNN test-time adaptation; no ANN efficiency comparison
+R04858	INCLUDE	C3	none	strong lottery tickets via supermask for LLMs
+R04859	EXCLUDE	E2	ASIC	CMOS integrate-and-fire neuron circuit; compared with SNN neurons only
+R04860	EXCLUDE	E4	none	parallel spiking neuron; SNN-versus-SNN efficiency
+R04861	EXCLUDE	E4	none	theory of SNN expressivity; no empirical efficiency
+R04862	EXCLUDE	E2	memristor/in-memory	ferroelectric memristor synapse device
+R04863	EXCLUDE	E2	memristor/in-memory	optoelectronic synaptic device; CNN accuracy only
+R04864	EXCLUDE	E2	none	spintronic synapse and neuron devices
+R04865	INCLUDE	C2	memristor/in-memory	pruned memristive SNN; energy gains versus software baselines
+R04866	EXCLUDE	E3	none	Hodgkin-Huxley associative memory model
+R04867	EXCLUDE	E4	none	SNN decision-making and stopping policy; no ANN comparison
+R04868	EXCLUDE	E4	none	spiking sequential memory model; no efficiency comparison
+R04869	EXCLUDE	E2	memristor/in-memory	review of single-device neurons and synapses
+R04870	EXCLUDE	E5	ASIC	DVS gaze estimation processor; neural network, not SNN
+R04871	EXCLUDE	E4	none	SNN bearing fault diagnosis; no ANN efficiency data
+R04872	INCLUDE	C1+C2	none	TTFS spike DRL with low-bit weights; energy versus DRL
+R04873	INCLUDE	C1	none	ANN-SNN conversion with low latency and energy results
+R04874	INCLUDE	C5+C6	FPGA	neuromorphic survey plus FPGA pipeline for ANN versus SNN benchmarking
+R04875	UNSURE	C5	none	survey of scalable neuromorphic chips; efficiency comparison unclear
+R04876	EXCLUDE	E4	none	conceptual neuromorphic TinyML framework; no measured comparison
+R04877	UNSURE	C1	none	transistor emulating ANN and SNN; fusion network energy unclear
+R04878	EXCLUDE	E5	FPGA	cardiac TinyML and federated learning survey; SNN incidental
+R04879	UNSURE	C5	none	space neuromorphic review; power versus conventional processors
+R04880	INCLUDE	C1	none	Spiking-FullSubNet; energy efficiency metrics versus SOTA, N-DNS challenge
+R04881	EXCLUDE	E6	none	neuromorphic event dataset generation
+R04882	EXCLUDE	E5	none	DNN ECG screening; neuromorphic only as keyword
+R04883	EXCLUDE	E4	simulation	memristive LIF in Rat-SLAM; no ANN comparison
+R04884	INCLUDE	C5	memristor/in-memory	review of memristor neuromorphic ANN, BNN and SNN algorithms
+R04885	EXCLUDE	E4	none	adversarial attacks on SNNs; sparse perturbations
+R04886	EXCLUDE	E6	none	lossless DVS event compression
+R04887	INCLUDE	C1	TrueNorth,Loihi,BrainScaleS,GPU	neuromorphic chips versus GPU DNN; 30x power, 2-3x latency
+R04888	INCLUDE	C1	none	audio-visual SNN balancing accuracy and energy versus ANNs
+R04889	EXCLUDE	E4	none	SNN event slicing; no ANN baseline
+R04890	EXCLUDE	E4	none	spiking CNN bug prediction; accuracy only
+R04891	EXCLUDE	E4	none	parameter-free attention SNN; accuracy only
+R04892	UNSURE	C1	none	claims energy advantage over conventional ML; measurement unclear
+R04893	EXCLUDE	E6	none	FixMatch theory; LTH only as explanation
+R04894	EXCLUDE	E5	memristor/in-memory	ReRAM PIM dataflow for CNN; no SNN
+R04895	EXCLUDE	E4	none	SNN fault diagnosis with distillation; no efficiency comparison
+R04896	INCLUDE	C3	none	LTH pruning of quaternion transformers
+R04897	EXCLUDE	E2	photonic	oxide material platform for photonic networks
+R04898	EXCLUDE	E6	none	TENG sensing review; SNN incidental
+R04899	INCLUDE	C2	none	quantized spiking transformers; 5-10x energy reduction
+R04900	EXCLUDE	E4	none	hybrid CNN-GRU-spike pneumonia detection; accuracy only

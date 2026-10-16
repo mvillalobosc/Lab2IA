@@ -1,0 +1,100 @@
+R05801	INCLUDE	C1	none	SNN vs deep learning decoders, lower latency and computational cost
+R05802	EXCLUDE	E4	none	SNN decoder, accuracy-only comparison; chip deployment without ANN efficiency baseline
+R05803	UNSURE	C1	none	DVS plus SNN tracking; abstract cut at energy claim, ANN baseline unclear
+R05804	INCLUDE	C1	Loihi2,Akida	SNN vs feedforward baseline, projected 270x energy reduction
+R05805	EXCLUDE	E5	photonic	Photonic ANN training for spectra, no SNN
+R05806	INCLUDE	C1+C2	none	ANN and SNN policies compared; weight and activation sparsity study
+R05807	EXCLUDE	E4	none	Survey of quantum SNN learning, not efficiency or pruning
+R05808	EXCLUDE	E2	memristor/in-memory	Memristor device characterisation, no network comparison
+R05809	EXCLUDE	E2	memristor/in-memory	Neuron circuit and sensor, device level
+R05810	EXCLUDE	E2	memristor/in-memory	Silicon synaptic device, device level
+R05811	EXCLUDE	E4	none	Spiking denoiser, no ANN efficiency comparison
+R05812	EXCLUDE	E4	none	Application review of neuromorphic neuroengineering, not efficiency-focused
+R05813	EXCLUDE	E2	none	Biomolecular reservoir material, device level
+R05814	EXCLUDE	E6	photonic	Event-based optical knot detection, off-topic
+R05815	INCLUDE	C1	Loihi	SNN comparable to ANN accuracy, lower power and latency, Loihi
+R05816	INCLUDE	C1	none	RF-SNN comparable to ANN and LIF-SNN, lower spikes and energy
+R05817	EXCLUDE	E6	none	Event camera CT reconstruction, no SNN
+R05818	INCLUDE	C1	none	SNN receiver, 7.6x less energy than ANN counterpart
+R05819	UNSURE	C1	none	Spiking PINN claims energy efficiency; baseline comparison unclear (truncated)
+R05820	INCLUDE	C1	none	Spiking transformer, 12x power reduction versus transformer baseline
+R05821	INCLUDE	C2	ASIC	Neuromorphic processor with synapse compression and dynamic neuron pruning
+R05822	INCLUDE	C1	none	Spiking graph operator vs non-spiking baseline, energy-error tradeoff
+R05823	INCLUDE	C1	none	Event-driven LIF sleep staging, 53.6% fewer operations than dense
+R05824	INCLUDE	C1	ASIC,FPGA,GPU,TrueNorth,Loihi	Unified ANN/SNN accelerator, benchmarked against V100, Eyeriss, TrueNorth, Loihi
+R05825	INCLUDE	C1	none	Hybrid SNN, 80.4% less energy than nonspiking counterpart
+R05826	EXCLUDE	E6	none	Finance stochastic dominance, lottery incidental
+R05827	UNSURE	C5	none	Survey DL to SNN forecasting; efficiency focus unclear (truncated)
+R05828	EXCLUDE	E4	none	Neuron-growth SNN, no pruning or ANN efficiency comparison
+R05829	EXCLUDE	E5	photonic	Photonic ANN quantization, no SNN
+R05830	EXCLUDE	E5	photonic	Non-negative ANN for photonic accelerators, no SNN
+R05831	EXCLUDE	E6	none	Lottery gambling economics, off-topic
+R05832	INCLUDE	C2	none	Connection pruning via clustering gives sparse SNN reservoir
+R05833	INCLUDE	C6	TrueNorth,simulation	Performance and power model for neuromorphic processors, validated against TrueNorth
+R05834	INCLUDE	C2	none	Nonlinear synaptic pruning gives high SNN sparsity
+R05835	UNSURE	C1	none	SNN detector claims energy efficiency; ANN baseline unclear (truncated)
+R05836	EXCLUDE	E4	none	Neuron model, accuracy only
+R05837	INCLUDE	C1	none	SNN vs LSTM, about 91% lower energy per inference
+R05838	EXCLUDE	E6	none	Philosophical paper on ANN and biology, off-topic
+R05839	EXCLUDE	E4	ASIC	Energy estimate for timer-neuron SNN, no ANN baseline
+R05840	EXCLUDE	E5	FPGA	ELM with local rule on FPGA, no SNN
+R05841	EXCLUDE	E3	none	In vitro biological network reservoir, neurobiology
+R05842	EXCLUDE	E2	memristor/in-memory	Charge trap memory device, ANN simulation only
+R05843	EXCLUDE	E6	none	Event sensing imaging framework, off-topic
+R05844	EXCLUDE	E4	none	SNN surrogate gradient training, no ANN efficiency comparison
+R05845	EXCLUDE	E5	MCU	INT8 CNN accelerator on RISC-V, SNN removed
+R05846	INCLUDE	C2	none	Reservoir connectivity tuned for LSM performance and energy efficiency
+R05847	EXCLUDE	E4	none	SNN hyperparameter search, no efficiency comparison
+R05848	EXCLUDE	E2	memristor/in-memory	Optoelectronic memristor device, ANN simulation only
+R05849	EXCLUDE	E2	memristor/in-memory	Optoelectronic synaptic device, ANN accuracy only
+R05850	EXCLUDE	E2	memristor/in-memory	Photonic-memory sensor device study
+R05851	EXCLUDE	E2	memristor/in-memory	Optoelectronic synapse device with CNN accuracy only
+R05852	EXCLUDE	E2	memristor/in-memory	Optoelectronic synapse device, CNN accuracy only
+R05853	EXCLUDE	E2	memristor/in-memory	Synapse device emulating pruning, no network-level sparsity
+R05854	EXCLUDE	E2	memristor/in-memory	Spintronic device variation study, ANN accuracy only
+R05855	EXCLUDE	E2	memristor/in-memory	Memcapacitor array network, accuracy only
+R05856	INCLUDE	C1+C2	none	One-timestep spiking RL, masked sparse connections, lower latency and energy
+R05857	EXCLUDE	E2	memristor/in-memory	Vision sensor device, CNN accuracy only
+R05858	EXCLUDE	E2	memristor/in-memory	Oxide memristor device, no ANN-SNN comparison
+R05859	EXCLUDE	E2	memristor/in-memory	Optoelectronic synapse device, linearity study
+R05860	EXCLUDE	E2	photonic	Photonic metasurface processor, device level
+R05861	EXCLUDE	E4	GPU	TTFS SNN training algorithm, accuracy only
+R05862	EXCLUDE	E4	none	Hybrid spiking-quantum CNN, no efficiency baseline
+R05863	UNSURE	C3	none	Supermasks used for parameter merging; link to lottery tickets unclear
+R05864	UNSURE	C1	none	Tactile SNN; efficiency claim versus conventional methods unclear
+R05865	EXCLUDE	E3	none	Neuroscience-style path integration model
+R05866	EXCLUDE	E4	Loihi,TrueNorth,BrainScaleS	Perspective on dendritic neurons and hardware, no efficiency comparison
+R05867	EXCLUDE	E3	ASIC	Cortical simulation hardware design, no learning task
+R05868	INCLUDE	C1	GPU,simulation	CSNN vs CNN energy, time, accuracy on Apple and NVIDIA GPUs
+R05869	INCLUDE	C1	Akida	CNN-to-SNN conversion on Akida; efficiency metric unclear
+R05870	EXCLUDE	E2	photonic	All-optical synapse device
+R05871	EXCLUDE	E2	memristor/in-memory	Perspective on MTJ devices for in-sensor computing
+R05872	EXCLUDE	E2	none	Perspective on magnonic computing, device level
+R05873	EXCLUDE	E3	FPGA	FPGA cortical simulation accelerator, brain simulation
+R05874	EXCLUDE	E2	memristor/in-memory	VO2 photo-synapse device
+R05875	EXCLUDE	E2	memristor/in-memory	Device review of photo-memristive synapses
+R05876	EXCLUDE	E2	photonic	Device review of transparent photonic neuromorphic devices
+R05877	EXCLUDE	E4	photonic	Photonic binary SNN accelerator, no ANN comparison
+R05878	EXCLUDE	E2	none	Transistor-based physical echo state network, device level
+R05879	EXCLUDE	E2	photonic	Luminescent material synapse, device level
+R05880	EXCLUDE	E2	memristor/in-memory	Polymer memristor device, MNIST accuracy only
+R05881	EXCLUDE	E2	memristor/in-memory	Optoelectronic memristor reservoir device
+R05882	INCLUDE	C1	none	SNN arc fault detector, lower latency than conventional baselines
+R05883	EXCLUDE	E6	none	PINN for Hopfield system identification, off-topic
+R05884	EXCLUDE	E3	none	EEG cortical modelling with Izhikevich neurons, neuroscience
+R05885	INCLUDE	C1+C2	none	Sparse RSNN with masked backprop and sparse regularisation, low power
+R05886	INCLUDE	C1	photonic,ASIC	Optical SNN accelerator, throughput and energy gains over ASIC
+R05887	EXCLUDE	E2	none	Piezo-phototronic transistor device
+R05888	EXCLUDE	E2	memristor/in-memory	Ferroelectric memristor device
+R05889	EXCLUDE	E2	memristor/in-memory	COF memristor device
+R05890	EXCLUDE	E2	memristor/in-memory	Memcapacitor device, state pruning at device level
+R05891	EXCLUDE	E4	none	SNN intrusion detector, quantisation only, no ANN efficiency comparison
+R05892	INCLUDE	C1	GPU	Transformer-to-SNN conversion, 25% lower power on Jetson Orin
+R05893	INCLUDE	C6	memristor/in-memory	ILP power estimation model for SNN mapping on ReRAM
+R05894	EXCLUDE	E4	none	Spike time discretization analysis, no efficiency comparison
+R05895	EXCLUDE	E4	none	SNN MNIST classifier, accuracy only
+R05896	EXCLUDE	E5	none	Predictive coding fine-tuning of DNN, no SNN
+R05897	EXCLUDE	E4	none	Survey of spiking predictive coding, not efficiency focused
+R05898	EXCLUDE	E3	none	Neuroimaging-guided brain model, neuroscience
+R05899	EXCLUDE	E6	none	Metasurface imaging review, off-topic
+R05900	EXCLUDE	E2	memristor/in-memory	Printed memristor device, simulation accuracy only

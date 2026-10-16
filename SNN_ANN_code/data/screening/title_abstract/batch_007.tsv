@@ -1,0 +1,100 @@
+R00601	EXCLUDE	E4	BrainScaleS	TTFS learning rule on BrainScaleS-2, no ANN baseline, no pruning
+R00602	EXCLUDE	E5	memristor/in-memory, simulation	Memristor perceptron fault tolerance, ANN only, no SNN
+R00603	EXCLUDE	E4	none	SNN accelerator throughput vs other accelerators, no ANN baseline
+R00604	INCLUDE	C1	simulation	Federated SNN vs ANN, accuracy plus 4.3x energy efficiency
+R00605	EXCLUDE	E2	memristor/in-memory	Flash in-memory computing for DNN, device to architecture overview
+R00606	EXCLUDE	E2	memristor/in-memory	Flexible memristive synapse device, plasticity emulation only
+R00607	EXCLUDE	E2	photonic	Black phosphorus optical memory device, device-level recognition demo
+R00608	INCLUDE	C2	memristor/in-memory, simulation	OxRAM SRDP SNN with training sparsity and weight pruning
+R00609	EXCLUDE	E4	none	SNN gait authentication, accuracy vs ANN only, energy motivation
+R00610	INCLUDE	C3	none	Lottery ticket hypothesis in GANs, matching subnetworks
+R00611	EXCLUDE	E6	none	Lottery ticket method adapted to Gaussian process kernels, no ANN
+R00612	INCLUDE	C1	none	ANN-to-SNN conversion on event data, accuracy-latency-power trade-off
+R00613	INCLUDE	C2	none	Sparse regularization reduces firing rate in SNN for energy
+R00614	EXCLUDE	E4	FPGA	FPGA SNN architecture, GSOPS and pJ/SO, no ANN baseline
+R00615	EXCLUDE	E6	none	Lottery winners happiness economics
+R00616	EXCLUDE	E4	none	Approximated exponential decay in SNN hardware, no ANN baseline
+R00617	EXCLUDE	E4	none	PF neuron device SNN, accuracy-only comparison with ReLU ANN
+R00618	EXCLUDE	E5	memristor/in-memory	Memristor CNN weight update scheme, ANN only
+R00619	EXCLUDE	E4	none	LSM synaptic orders for speech, no ANN efficiency comparison
+R00620	EXCLUDE	E2	memristor/in-memory	Review of memristor crossbar hardware for ANNs
+R00621	INCLUDE	C1	Loihi, CPU	SNN on Loihi vs ANN on CPU, NCS2, Edge TPU, EDP
+R00622	INCLUDE	C3	none	Supermasks in randomly initialized folded ResNets
+R00623	EXCLUDE	E4	none	Network partitioning for neuromorphic mapping, no learning task comparison
+R00624	EXCLUDE	E6	none	AER encoding scheme for scientific imaging, no neural network
+R00625	EXCLUDE	E2	memristor/in-memory	HfS2 floating gate synapse device, device-level
+R00626	EXCLUDE	E4	none	STDP Inception-like SNN, accuracy vs other SNN architectures
+R00627	EXCLUDE	E4	none	SNN adversarial robustness training, no efficiency comparison
+R00628	UNSURE	C1	none	Hybrid ANN-SNN model claims efficiency, metric not specified
+R00629	INCLUDE	C1	GPU	SNN auditory interface, three orders energy savings vs ANN on GPU
+R00630	INCLUDE	C1	none	Analog-to-spiking LSTM conversion for energy efficient edge inference
+R00631	EXCLUDE	E6	Tianjic	Hybrid neural state machine control framework, no efficiency comparison
+R00632	EXCLUDE	E2	memristor/in-memory	Review of hybrid oxide memristive synapses
+R00633	INCLUDE	C1	none	Hybrid SNN-ANN more computationally efficient than ANN counterparts
+R00634	EXCLUDE	E4	none	SNN on N-MNIST, accuracy only
+R00635	EXCLUDE	E2	none	Mixed-signal circuits for balanced networks, circuit simulation only
+R00636	EXCLUDE	E6	none	Lottery ticket as reward in colonoscopy preparation
+R00637	EXCLUDE	E2	memristor/in-memory	Radiation hardening of OxRAM neuron circuit
+R00638	INCLUDE	C1	ASIC, memristor/in-memory	SNN CIM macro, 5x energy efficiency vs LSTM, sparsity EDP
+R00639	EXCLUDE	E2	memristor/in-memory	Review of nonvolatile memory devices for in-memory computing
+R00640	EXCLUDE	E2	memristor/in-memory	RRAM in-memory computing status, device and mapping analysis
+R00641	EXCLUDE	E4	memristor/in-memory, simulation	Memristive SNN in-situ STDP learning, accuracy only
+R00642	EXCLUDE	E4	none	Astrocyte-modulated liquid state machine, accuracy only
+R00643	EXCLUDE	E6	none	Ultimatum game with lottery tickets, aging study
+R00644	EXCLUDE	E4	none	RC integrate-and-fire neuron hardware, no ANN efficiency comparison
+R00645	EXCLUDE	E2	none	Spintronic synapse and neuron devices, proof of concept
+R00646	EXCLUDE	E2	photonic	Review of integrated photonic neuromorphic components
+R00647	INCLUDE	C1	simulation	VGG-16 converted to spiking, activation and time-step energy proxies
+R00648	EXCLUDE	E2	none	Ion-gating synaptic transistor device
+R00649	EXCLUDE	E5	memristor/in-memory, simulation	Radiation effects on SONOS CNN accelerator, ANN only
+R00650	EXCLUDE	E4	none	N-MNIST temporal information analysis, accuracy only ANN vs STDP
+R00651	INCLUDE	C3	none	Fairness of lottery ticket pruning in NLP
+R00652	INCLUDE	C3	none	Duplicate of R00651, lottery ticket fairness in NLP
+R00653	INCLUDE	C3	none	Game of Life convergence consistent with lottery ticket hypothesis
+R00654	EXCLUDE	E6	none	Active search and hyperdimensional computing in additive manufacturing
+R00655	EXCLUDE	E2	photonic	Graphdiyne optical synapse device
+R00656	EXCLUDE	E5	none	Equilibrium propagation with layer-skipping connections, no SNN
+R00657	INCLUDE	C2	none	Sparse spiking CNNs trained on event camera data
+R00658	EXCLUDE	E5	none	Frozen random GNN embeddings, no SNN efficiency comparison
+R00659	EXCLUDE	E2	memristor/in-memory, simulation	Nb-doped SrTiO3 memristor synapses, function approximation
+R00660	INCLUDE	C3	none	Lottery subnetwork fine-tuning for domain adaptation in Transformers
+R00661	INCLUDE	C5	Loihi	Loihi overview, energy and latency gains vs conventional
+R00662	EXCLUDE	E6	none	Qualitative study on financial support for ill children
+R00663	EXCLUDE	E2	none	Pectin-gated neuron transistor linear classification
+R00664	INCLUDE	C3	none	Lifelong lottery tickets in continual learning
+R00665	EXCLUDE	E6	none	History of lotteries in early America
+R00666	INCLUDE	C3	none	Lottery ticket winning property and weight correlation
+R00667	INCLUDE	C3	none	LotteryFL, lottery ticket subnetworks in federated learning
+R00668	INCLUDE	C2	none	Regularization yields sparse spiking activity below 5 percent
+R00669	EXCLUDE	E5	memristor/in-memory	Spintronic logic-in-memory binarized CNN, ANN only
+R00670	EXCLUDE	E2	memristor/in-memory	Overview of emerging devices for low-power neuromorphic computing
+R00671	EXCLUDE	E2	memristor/in-memory	LixWO3 electrochemical synapse device for SNN
+R00672	UNSURE	C1	ASIC	CNN mapped to spiking ASIC, throughput, no ANN baseline
+R00673	EXCLUDE	E2	memristor/in-memory, simulation	BCPNN learning rule mapped to memristor model
+R00674	EXCLUDE	E2	none	Review of organic neuromorphic device materials
+R00675	EXCLUDE	E6	simulation	Matrix multiplication with spiking neurons, no learning task
+R00676	EXCLUDE	E2	memristor/in-memory	Memristive high-dimensional neuron concept
+R00677	EXCLUDE	E2	memristor/in-memory	Review of memristive crossbar arrays
+R00678	EXCLUDE	E5	memristor/in-memory	Memristor binary CNN architecture, ANN only
+R00679	EXCLUDE	E2	photonic	Microcomb optical convolutional accelerator, photonic ANN
+R00680	EXCLUDE	E3	simulation	Mean-field theory of intrinsic timescales, computational neuroscience
+R00681	EXCLUDE	E4	GPU	Mini-batch STDP training speed, no ANN efficiency comparison
+R00682	INCLUDE	C1	none	Converted deep SNN inference time-step reduction, tenfold speedup
+R00683	UNSURE	C3	none	Student abstract, LTH pruning incidental to agriculture framework
+R00684	EXCLUDE	E2	memristor/in-memory	Review of hybrid CMOS-RRAM mixed-signal circuits
+R00685	INCLUDE	C3	none	Monte Carlo winning tickets, random sparse architectures
+R00686	EXCLUDE	E4	none	Deep SNN object tracking for vehicles, vague efficiency claim
+R00687	EXCLUDE	E2	none	Review of ferroic multi-level neuromorphic devices
+R00688	EXCLUDE	E3	simulation	Genetic algorithm fitting cortical SNN firing rates
+R00689	INCLUDE	C3	none	Multi-prize lottery ticket, binary subnetworks in random networks
+R00690	EXCLUDE	E2	memristor/in-memory	Multilevel memristor for off-chip CNN training
+R00691	EXCLUDE	E2	none	Spin-wave interference neural network hardware
+R00692	EXCLUDE	E6	none	GAN naturalization of event streams
+R00693	INCLUDE	C2	simulation	Coding schemes in SNN, SOPs, power, pruning and quantization
+R00694	EXCLUDE	E6	none	EEG sign language decoding
+R00695	EXCLUDE	E6	none	Review of on-device ML for neural interfaces
+R00696	EXCLUDE	E2	memristor/in-memory, simulation	RRAM hybrid synapse for ANN training
+R00697	EXCLUDE	E2	simulation	Ferromagnetic nanofiber micromagnetic simulation
+R00698	EXCLUDE	E6	none	Neurocontroller for vibration machines
+R00699	EXCLUDE	E4	none	Event-driven SNN simulation accelerator, no ANN comparison
+R00700	EXCLUDE	E5	none	General overview of neuromorphic architectures, no comparison

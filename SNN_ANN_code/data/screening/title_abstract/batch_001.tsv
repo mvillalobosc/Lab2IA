@@ -1,0 +1,100 @@
+R00001	EXCLUDE	E5	memristor/in-memory, simulation	DNN on 3D memristor crossbars; no SNN, no pruning
+R00002	EXCLUDE	E2	none	Synaptic transistor device work; no network comparison
+R00003	EXCLUDE	E4	ASIC	Spiking neuron array chip; no ANN efficiency baseline
+R00004	UNSURE	C1	ASIC	Event-driven CNN chip vs conventional accelerators; spiking unclear
+R00005	EXCLUDE	E4	ASIC	Neuromorphic on-chip learning; accuracy-only vs backprop
+R00006	EXCLUDE	E2	memristor/in-memory	eFlash in-memory dot-product cell; circuit level
+R00007	EXCLUDE	E4	none	SNN VAD power figure; no ANN baseline measured
+R00008	EXCLUDE	E4	simulation	Bio-plausible STDP training; accuracy only
+R00009	EXCLUDE	E4	simulation	Evolutionary AGI framework; pruning only as bio feature
+R00010	EXCLUDE	E2	none	3D integration overview for neuromorphic chips
+R00011	EXCLUDE	E2	memristor/in-memory	Radiation-hardened OxRAM neuron circuit
+R00012	EXCLUDE	E5	ASIC	Core mapping for MLP/CNN; no SNN comparison
+R00013	UNSURE	C3	none	Bio-wired sparse controllers framed as lottery ticket; LTH link unclear
+R00014	EXCLUDE	E3	simulation	Drosophila decision-making SNN model
+R00015	EXCLUDE	E5	memristor/in-memory	CNN decomposition for crossbar mapping; ANN only
+R00016	EXCLUDE	E4	simulation	SCRNN gesture recognition; accuracy only
+R00017	EXCLUDE	E4	simulation	Nengo SNN classifier; no ANN efficiency comparison
+R00018	INCLUDE	C1	simulation	Conversion; fewer operations than ANN counterparts
+R00019	INCLUDE	C1	none	DBN vs SNN accuracy-latency tradeoff for modulation classification
+R00020	EXCLUDE	E5	none	DVS tactile sensing with TDNN/DNN; no SNN
+R00021	EXCLUDE	E4	none	Hybrid SNN-ANN IDS; accuracy only
+R00022	EXCLUDE	E2	memristor/in-memory	Memristive neural ADC circuit
+R00023	EXCLUDE	E4	none	SNN hardware power reduction; no ANN baseline
+R00024	EXCLUDE	E2	memristor/in-memory	RRAM-compatible CMOS neuron circuit
+R00025	EXCLUDE	E5	memristor/in-memory	Quantization for ReRAM CIM; ANN only
+R00026	EXCLUDE	E4	simulation	Reservoir convolutional SNN gestures; accuracy only
+R00027	EXCLUDE	E3	none	Review of psychiatric disorder neural models
+R00028	EXCLUDE	E4	memristor/in-memory, CPU	ReRAM SNN vs CPU baseline; no ANN comparison
+R00029	EXCLUDE	E2	photonic	Optical ANN accelerator architecture
+R00030	EXCLUDE	E2	memristor/in-memory	Self-powered artificial retina devices
+R00031	EXCLUDE	E4	simulation	STDP spiking CNN; accuracy only
+R00032	EXCLUDE	E4	simulation	Temporal-code SNN vector quantization; no ANN efficiency
+R00033	EXCLUDE	E4	none	SNN oculomotor robot controller
+R00034	EXCLUDE	E3	simulation	Insect mushroom body foraging model
+R00035	EXCLUDE	E2	memristor/in-memory	RRAM conductance update device study
+R00036	UNSURE	C1	memristor/in-memory, ASIC	Hybrid memristive DNN with SNN readout; efficiency comparison unclear
+R00037	EXCLUDE	E6	none	Electronic lottery scheme
+R00038	EXCLUDE	E4	memristor/in-memory, simulation	PCM crossbar SNN precision; no ANN comparison
+R00039	EXCLUDE	E5	memristor/in-memory	DNN robustness on RRAM; no SNN, no LTH
+R00040	EXCLUDE	E5	memristor/in-memory, ASIC	Mixed-signal ANN inference accelerator
+R00041	EXCLUDE	E5	ASIC	Stochastic computing CNN accelerator; no SNN
+R00042	EXCLUDE	E2	memristor/in-memory	Lithium RRAM synapse device; no network task
+R00043	EXCLUDE	E4	Loihi	Sparse coding Loihi vs quantum; no ANN baseline
+R00044	EXCLUDE	E4	ASIC	Always-on SNN KWS chip; no ANN baseline
+R00045	EXCLUDE	E5	none	Neuromorphic used loosely; EDA circuit modelling
+R00046	EXCLUDE	E2	memristor/in-memory	Mott memristor afferent nerve device
+R00047	EXCLUDE	E6	none	E-lottery system
+R00048	EXCLUDE	E5	simulation	NoC ANN accelerator for seizure detection
+R00049	UNSURE	C1	Loihi	DNN-to-SNN conversion for Loihi; efficiency metrics not stated
+R00050	INCLUDE	C2	ASIC	Removes redundant neurons via sparsity; energy per SOP
+R00051	UNSURE	C1	FPGA, CPU, GPU	FPGA SNN vs CPU/GPU power; baseline network unclear
+R00052	EXCLUDE	E4	simulation	Imbalanced R-STDP medical images; accuracy only
+R00053	EXCLUDE	E4	simulation	Spiking max-pooling for conversion; accuracy only
+R00054	EXCLUDE	E4	none	CNN-to-SNN conversion; SNN power only, no ANN baseline
+R00055	EXCLUDE	E2	ASIC	Analog LIF/STDP circuits; no network task
+R00056	EXCLUDE	E2	ASIC	Analog MAC/ReLU neuron circuits
+R00057	EXCLUDE	E2	memristor/in-memory	Stochastic RRAM synapses for StochANN; no comparison
+R00058	EXCLUDE	E4	simulation	STBP training bottlenecks; SNN-only
+R00059	EXCLUDE	E2	none	Selenium synaptic transistor device
+R00060	EXCLUDE	E4	simulation	SNN odor classification; accuracy only
+R00061	INCLUDE	C2	ASIC	Deep compression in SNN chip; synapses 1/16, power
+R00062	INCLUDE	C2	simulation	Synapse pruning in STDP SNNs; spiking activity effects
+R00063	EXCLUDE	E4	ASIC	Hardware-friendly STDP SoC; no ANN baseline
+R00064	EXCLUDE	E2	SpiNNaker, memristor/in-memory	General neuromorphic hardware review; not benchmarking
+R00065	UNSURE	C1	simulation	Conversion with fewer spikes/time steps; ANN efficiency comparison unclear
+R00066	EXCLUDE	E4	none	SNN bird call classification; no ANN comparison
+R00067	EXCLUDE	E2	none	MTJ Bayesian network hardware
+R00068	INCLUDE	C1+C6	BrainScaleS, SpiNNaker, CPU, GPU, simulation	Energy-per-inference benchmark of converted SNNs across platforms
+R00069	INCLUDE	C1	Loihi, CPU, GPU, ASIC	Loihi KWS energy per inference vs CPU/GPU/Jetson
+R00070	EXCLUDE	E4	simulation	Spiking sleep phase for VAE; accuracy only
+R00071	EXCLUDE	E4	none	SNN mean-field control; no efficiency comparison
+R00072	EXCLUDE	E5	none	Stochastic computing CNN; no SNN
+R00073	EXCLUDE	E6	none	Blood donation incentives
+R00074	EXCLUDE	E2	none	Optoelectronic synaptic transistors
+R00075	EXCLUDE	E2	memristor/in-memory	Carbon-based SET/memristor devices for SNN
+R00076	EXCLUDE	E2	memristor/in-memory	Duplicate of R00075; device-level
+R00077	EXCLUDE	E2	memristor/in-memory	Perovskite memristor SPICE model
+R00078	EXCLUDE	E3	simulation	Insect olfactory sparse coding model
+R00079	INCLUDE	C3	none	LTH-motivated iterative class-dependent pruning
+R00080	INCLUDE	C1	none	Spiking CNN vs CNN accuracy and runtime; weak metric
+R00081	EXCLUDE	E4	none	Convolutional SNN time series; accuracy only
+R00082	EXCLUDE	E5	memristor/in-memory	Binary DNN on ReRAM PIM; ANN only
+R00083	EXCLUDE	E4	simulation	Coarse-scale LIF backprop; no ANN efficiency
+R00084	EXCLUDE	E6	none	Philosophy of infinite lottery logic
+R00085	INCLUDE	C1	FPGA, CPU	MLP, CNN, SNN compared on FPGA power and accuracy
+R00086	EXCLUDE	E6	none	Probability of lottery tickets
+R00087	EXCLUDE	E4	none	CNN-to-SNN conversion; SNN power only, duplicate of R00054
+R00088	EXCLUDE	E2	photonic	Optical NN variation calibration; no SNN
+R00089	EXCLUDE	E3	simulation	Neocortical asynchronous spiking dynamics
+R00090	EXCLUDE	E3	none	Deep brain stimulation neuroscience
+R00091	EXCLUDE	E4	none	EMG spiking CNN; processing time vs unspecified baselines
+R00092	INCLUDE	C1	simulation	Spiking vs ANN KWS computational cost comparison
+R00093	EXCLUDE	E4	simulation	Hybrid CNN-SNN noisy MNIST; accuracy only
+R00094	EXCLUDE	E5	none	Olive pitting ANN vision; off RQs
+R00095	UNSURE	C1	memristor/in-memory	SNU vs ANN accuracy; PCM prototype efficiency comparison unclear
+R00096	EXCLUDE	E2	photonic	Photonic DNN cross-connect
+R00097	EXCLUDE	E5	none	DNN hardware survey; no SNN or LTH focus
+R00098	UNSURE	C1	none	Spiking actor RL; energy claim vs ANN not visible
+R00099	INCLUDE	C1	simulation	SCNN YOLO with energy and sparsity estimation
+R00100	INCLUDE	C1	simulation	Time-based conversion; operation counts and latency gains

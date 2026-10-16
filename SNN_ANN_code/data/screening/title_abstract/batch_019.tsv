@@ -1,0 +1,100 @@
+R01801	EXCLUDE	E2	memristor/in-memory	Capacitor synaptic device with training algorithm, device-level only.
+R01802	INCLUDE	C1	none	Low-latency direct-trained SNN; efficiency via sparsity, evaluation truncated, likely ANN comparison.
+R01803	EXCLUDE	E4	none	Siamese SNN for cosmic ray artefacts; accuracy only versus non-spiking.
+R01804	EXCLUDE	E2	memristor/in-memory	RRAM material and device characterization only.
+R01805	INCLUDE	C2	FPGA	Sparsely connected SNN on FPGA, fewer resources than fully connected baseline.
+R01806	EXCLUDE	E4	none	BSNN as classifier in medical imaging pipeline, no efficiency analysis.
+R01807	EXCLUDE	E5	memristor/in-memory	ANN fault tolerance on RRAM systems, no SNN or pruning.
+R01808	INCLUDE	C3+C5	none	Survey of pruning at initialization, lottery tickets, dynamic sparse training.
+R01809	UNSURE	C5	none	SNN direct training survey; efficiency-methods section may cover pruning, main subject unclear.
+R01810	INCLUDE	C1	ASIC	Direct-trained SNN vs CNN on UAV avoidance, 6x less energy.
+R01811	EXCLUDE	E2	memristor/in-memory	Spintronic device states as weights, no SNN or pruning.
+R01812	INCLUDE	C3	none	Ensemble of lottery tickets for calibration in sparse networks.
+R01813	EXCLUDE	E6	none	Agricultural economics, lottery participation unrelated to lottery ticket hypothesis.
+R01814	EXCLUDE	E6	none	Finance paper about a literal lottery, unrelated.
+R01815	INCLUDE	C1	simulation	DVS plus SNN UAV avoidance; estimated power, delay lower than RL.
+R01816	INCLUDE	C1	none	ANN-to-SNN conversion with dynamic threshold; 7x faster, 0.44x energy.
+R01817	EXCLUDE	E5	none	Event camera detector without SNN, neuromorphic used loosely.
+R01818	INCLUDE	C1	none	Local STDP sparse coding; spikes and operations versus non-spiking CNN.
+R01819	EXCLUDE	E5	none	Event camera eye tracking with CNN, no SNN.
+R01820	EXCLUDE	E4	GPU	GPU simulator and interface for SNN e-prop, no efficiency comparison.
+R01821	EXCLUDE	E5	none	Event camera network without SNN or efficiency comparison.
+R01822	EXCLUDE	E4	none	SNN-to-hardware mapping toolchain, compared only with other mapping schemes.
+R01823	EXCLUDE	E1	none	Editorial for focus issue.
+R01824	EXCLUDE	E2	memristor/in-memory	Ferroelectric tunnel junction memory device characterization.
+R01825	EXCLUDE	E2	memristor/in-memory	Synaptic transistor material study, ANN simulation only.
+R01826	INCLUDE	C2	SpiNNaker	Exploits SNN sparsity with SpGEMM on SpiNNaker 2 MAC array.
+R01827	EXCLUDE	E4	none	SNN indoor/outdoor detection; accuracy comparison, efficiency only as motivation.
+R01828	INCLUDE	C1	none	EEG seizure SNN matches ANN, estimated energy orders of magnitude lower.
+R01829	INCLUDE	C1	none	ANN-SNN conversion with fewer time steps for point clouds and images.
+R01830	EXCLUDE	E4	memristor/in-memory	Weight-sharing spiking CNN on flash synapses, SNN baseline only.
+R01831	INCLUDE	C1	none	HAR SNN comparable to ANN with up to 94% less energy.
+R01832	EXCLUDE	E4	none	Tutorial on SNN learning rules, not efficiency comparison.
+R01833	EXCLUDE	E4	none	SNN malware classifier, 71% accuracy, no efficiency measurement.
+R01834	EXCLUDE	E4	none	STDP spike-latency visual coding, no ANN efficiency comparison.
+R01835	EXCLUDE	E7	none	Event-based sparse-activity GRU, not spiking, no lottery content.
+R01836	INCLUDE	C2	SpiNNaker	Exploits SNN sparsity on multi-core SpiNNaker 2 MAC arrays.
+R01837	EXCLUDE	E5	memristor/in-memory	GCN on memristor crossbars, ANN only.
+R01838	UNSURE	C5	none	Short review of SNN training and neuromorphic hardware, benchmarking unclear.
+R01839	EXCLUDE	E4	GPU	SNN training cost reduction via truncated BPTT, no ANN comparison.
+R01840	EXCLUDE	E4	none	MC-dropout uncertainty in SNNs, no ANN efficiency comparison.
+R01841	EXCLUDE	E4	none	SNN optical flow for egomotion, accuracy versus other methods.
+R01842	EXCLUDE	E4	none	SNN learning method, accuracy only.
+R01843	EXCLUDE	E2	memristor/in-memory	Review of electrochemical synaptic devices.
+R01844	EXCLUDE	E6	none	Broad review of neuromorphic AI for e-textiles.
+R01845	EXCLUDE	E2	memristor/in-memory	Memristive device review with device-level benchmark, not network-level.
+R01846	EXCLUDE	E2	memristor/in-memory	Review of memristive neuron devices.
+R01847	INCLUDE	C1	none	CNN versus SbS under quantization and approximation, cost trade-off.
+R01848	UNSURE	C6	none	Axonal delay SNNs, SOP-based energy estimate, no ANN baseline visible.
+R01849	EXCLUDE	E2	memristor/in-memory	Memristor material and device study with CNN emulation.
+R01850	EXCLUDE	E2	memristor/in-memory	Spintronic device-to-algorithm talk, no network-level comparison.
+R01851	EXCLUDE	E5	none	Bio-inspired ANN continual learning, no SNN efficiency analysis.
+R01852	EXCLUDE	E4	memristor/in-memory,simulation	Number encoding on neuromorphic hardware, energy estimate, no ANN baseline.
+R01853	EXCLUDE	E2	simulation	Analog circuit simulation framework for energy-based networks.
+R01854	EXCLUDE	E7	GPU	Energy-constrained DNN training; lottery ticket only as baseline.
+R01855	INCLUDE	C1	none	Siamese SNN ship classification, lower energy than deep learning methods.
+R01856	INCLUDE	C1	none	Converted YOLO SNN with 40.7% of ANN energy.
+R01857	INCLUDE	C2	FPGA	Converted-CNN SNN FPGA accelerator, sparsity-aware, 46% power reduction.
+R01858	INCLUDE	C2+C6	memristor/in-memory	SNN hardware benchmarking platforms; extended abstract; sparsity limits on energy.
+R01859	INCLUDE	C1	none	SNN arm control, less energy than other methods, unquantified.
+R01860	INCLUDE	C1	none	Spiking CNN seizure detection, 98.6% energy gain over CNN.
+R01861	INCLUDE	C1	none	Spiking segmenter with 4.85x energy efficiency versus ANN.
+R01862	EXCLUDE	E2	memristor/in-memory	SOT-MTJ ReLU circuit for CNN, no SNN.
+R01863	INCLUDE	C3	none	Pose domain adaptation built on lottery ticket hypothesis.
+R01864	EXCLUDE	E2	memristor/in-memory	Organic synaptic transistor device study.
+R01865	INCLUDE	C2	none	Temporal coding yields much higher spike sparsity in SNN.
+R01866	EXCLUDE	E2	memristor/in-memory	Synaptic transistor device study.
+R01867	EXCLUDE	E2	memristor/in-memory	Redox transistor synapse device study.
+R01868	EXCLUDE	E2	memristor/in-memory	Casein electrolyte transistor device study.
+R01869	EXCLUDE	E2	memristor/in-memory	RRAM reliability device study.
+R01870	EXCLUDE	E4	none	Spiking attention RSNN, accuracy and memory only.
+R01871	INCLUDE	C2	none	Neuron growth and pruning in SNN continual learning.
+R01872	INCLUDE	C3	none	Lottery-ticket-inspired neuron-wise subnetwork masks for continual learning.
+R01873	EXCLUDE	E4	none	SNN inhibition and threshold scheme, accuracy only.
+R01874	EXCLUDE	E5	none	Evolving DEQ learning algorithm, no SNN experiments.
+R01875	INCLUDE	C2	none	Evolutionary sparse training of SNN, 10% density, 0.28% loss.
+R01876	INCLUDE	C1	none	Event VPR with SNN converted from CNN; energy verified.
+R01877	EXCLUDE	E4	simulation	SNN simulator tool, binary classification, no efficiency comparison.
+R01878	EXCLUDE	E6	none	Event sensor characterization, no learning task.
+R01879	INCLUDE	C1	ASIC	SNNs on neuromorphic boards 65 to 135 times more efficient than ANNs.
+R01880	EXCLUDE	E4	MCU	Recurrent SNN on Cortex-M4 with energy, no ANN baseline.
+R01881	EXCLUDE	E6	none	Event polarimeter simulation, off-topic.
+R01882	UNSURE	C1	MCU	Event encoding versus DNN energy gains; unclear whether network is spiking.
+R01883	EXCLUDE	E6	none	Event and RGB fusion without neural network.
+R01884	EXCLUDE	E4	none	SNN optical flow, efficiency only as motivation.
+R01885	EXCLUDE	E5	none	YOLOv5 on event data, no SNN.
+R01886	INCLUDE	C1	none	ANN-to-SNN conversion for remote sensing; efficiency metric not visible.
+R01887	EXCLUDE	E4	none	Spiking actor network obstacle avoidance, performance only.
+R01888	EXCLUDE	E4	none	Hybrid CNN and SNN re-identification, accuracy only.
+R01889	INCLUDE	C3	none	Supermask-based federated ranking training against poisoning.
+R01890	EXCLUDE	E4	FPGA	Evolutionary SNN training on FPGA, no ANN or sparsity.
+R01891	INCLUDE	C3	none	Re-initialize and re-prune subnetworks with evolution strategy, lottery tickets.
+R01892	INCLUDE	C2+C4	none	Evolved sparse boolean connectivity in recurrent SNN, mask-like search.
+R01893	INCLUDE	C3	none	Supermask subnetworks for continual learning, 2 to 10% active parameters.
+R01894	EXCLUDE	E4	none	Motif topology SNN modelling cognitive effects, no ANN efficiency comparison.
+R01895	EXCLUDE	E4	none	Homeostatic SNN graph learning, sparsity only incidental.
+R01896	EXCLUDE	E4	none	Spiking SLAM cognitive model, no efficiency comparison.
+R01897	INCLUDE	C3	GPU	Sparse pruned subnetworks cut memory and communication in GPU training.
+R01898	EXCLUDE	E4	none	PIR sensor spiking circuit, no ANN baseline.
+R01899	EXCLUDE	E2	memristor/in-memory	Ferroelectric memristor device study.
+R01900	UNSURE	C1	none	Conversion tool flow and NoC placement; efficiency comparison unclear.

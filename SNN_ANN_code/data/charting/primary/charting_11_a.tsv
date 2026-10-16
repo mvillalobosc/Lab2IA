@@ -1,0 +1,25 @@
+R03212	Y	-	C2	SNN	NS	STATIC_IMG+EVENT	SIM	NA	NONE	NONE	NA	EVO+DST	NA	UNSTRUCT	N	N	Evolutionary structure learning with KD and connection pruning on CIFAR100, Tiny-ImageNet, DVS-Gesture; no efficiency figures
+R03213	Y	-	C5	ANN+SNN	NS	BIOSIG	NS	NS	CLAIM	POWER	NA	NA	NA	NA	NA	N	Review of SNN ECG classification for low-power use; SNN accuracy close to DNN; no figures
+R03230	Y	-	C3	ANN	NS	OTHER	NA	GPU+CPU	NONE	NONE	NA	NS	NS	NS	NS	N	Low-compute MNIST-1D benchmark; use cases include finding lottery tickets; no efficiency figures
+R03235	Y	-	C1	ANN+SNN	NS	TS	SIM	SIM	CLAIM	LATENCY+MEMORY	DIFFERENT	NA	NA	NA	NA	N	Spiking complex NN 89% accuracy on ADS-B; beats ShuffleNet and MobileNet in parameter efficiency and inference speed, no figures
+R03236	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	SNN-only SDM hardware, 4.5 nJ/classification and 7.5 pJ/SOP vs fully connected SNN; no ANN baseline
+R03238	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	ANN-teacher KD for SNNs; accuracy and time steps only; Spiking-ResNet34 70.04% on ImageNet at 4 steps
+R03247	Y	-	C1	HYBRID	OTHER	DET+EVENT	SIM	SIM	NS	NONE	DIFFERENT	NA	NA	NA	NA	N	Hybrid ANN-SNN RGBE tracker; success rate 0.456 and 0.574; 2.3-fold efficiency gain over competing methods, metric unspecified
+R03248	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	SNN FPGA accelerator 1.5 W, 83 GSOPs/W; 11x faster, 34x less energy than FPGA SNN accelerators; no ANN baseline
+R03249	Y	-	C1	ANN+SNN	NS	OTHER	SIM	SIM	ESTIMATED	SPIKES	PAIRED	NA	NA	NA	NA	N	SNN +2.70% accuracy over prior SOTA on WLASL300; 25% sparser activations than non-spiking version of same network
+R03255	Y	-	C3	ANN	NS	NS	NA	NS	NONE	NONE	NA	NS	NS	NS	NS	N	Linear mode connectivity; single permutation aligns iteratively trained and pruned networks; keyword lottery tickets; no efficiency figures
+R03258	Y	-	C2	SNN	NS	EVENT	SIM	NA	CLAIM	NONE	NA	SCORE	NA	TEMPORAL	Y	N	Event-attention skips membrane updates in SNNs for spike-train classification; claims better efficiency and accuracy than SNNs; no figures
+R03261	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Hybrid SNN-ANN depth estimation on TransPIM: 9x speedup, 183x less energy vs standard GPUs; no separate ANN baseline
+R03263	Y	-	C1	ANN+SNN	TRANSFORMER	NLP	SIM	SIM	NS	ENERGY+MEMORY	PAIRED	NA	NA	NA	NA	N	SNN-BERT up to 22.5x energy efficiency vs similar ANN, comparable GLUE; 6.46x less energy than repeat-coding SNN; GLUE 74.4%
+R03265	Y	-	C1	ANN+SNN	CNN	STATIC_IMG	FPGA	FPGA	NS	ENERGY	PAIRED	NA	NA	NA	NA	U	SNN vs CNN accelerators on two FPGAs; SNNs live up to energy expectations on SVHN and CIFAR-10; no figures
+R03266	Y	-	C2	SNN	NS	EVENT	SIM	NA	NS	ENERGY+LATENCY+MEMORY	NA	OTHER	NA	TEMPORAL	Y	N	Quantization, timestep and window reduction on NCARS: 84.12% accuracy, 68.75% memory saving, 3.58x speed-up, 4.03x energy gain vs SOTA
+R03267	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	ANN-to-SNN conversion for smartphone authentication; accuracy and EER only; no efficiency metric
+R03268	N	E2	-	-	-	-	-	-	-	-	-	-	-	-	-	-	22FDX STDP learning circuit for MIMO-OFDM detection; 20.92 μW, 37x62 μm2; no quantified ANN comparison
+R03269	N	E2	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Flash-based analog SNN simulator returning area, accuracy, latency, power; no ANN efficiency comparison
+R03272	Y	-	C2	SNN	RNN	STATIC_IMG+TS	SIM	NA	CLAIM	MEMORY	NA	OTHER	NA	MIXED	N	N	Lyapunov Noise Pruning of recurrent SNN gives fewer neurons and synapses and better prediction than activity-based pruning; no figures
+R03273	Y	-	C2+C4	SNN	TRANSFORMER	STATIC_IMG	SIM	NA	ESTIMATED	OPS+MEMORY	NA	ACT+NS	NS	MIXED	Y	Y	LTH subnetwork >90% sparse plus firing-rate token selector in Spikformer: 90% fewer parameters, 20% fewer GFLOPs, accuracy kept
+R03274	Y	-	C5	SNN	NS	NS	NS	NA	NONE	NONE	NA	NA	NA	NA	NA	N	Overview of sparsity-aware SNN hardware-software co-design: static and dynamic sparsity, encoding, neuron models; no figures
+R03275	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Hybrid S/ANN in-memory chip, 22 nm: 0.43 pJ/SOP, over 95% measured accuracy; compared with pure SNNs on accuracy only
+R03280	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Training-free ViT-B/32 to SNN conversion; abstract reports no efficiency metrics
+R03282	Y	-	C2	SNN	CNN	STATIC_IMG	SIM	NA	NS	LATENCY	NA	OTHER	NA	MIXED	Y	N	Spatio-temporal pruning gives one-time-step SNN for remote sensing; at least 200x faster inference; accuracy comparable to SOTA
+R03284	Y	-	C3	ANN	GNN	OTHER	NA	SIM	NONE	NONE	NA	OTHER	NS	NS	N	N	Spectral-gap edge deletion for GNNs, linked to pruning graphs for lottery tickets; long range benchmark; no efficiency figures

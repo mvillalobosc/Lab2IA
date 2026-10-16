@@ -1,0 +1,25 @@
+R03536	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Model-driven TTFS ANN-to-SNN translation; accuracy equivalent to ANNs on event datasets; no efficiency metrics.
+R03540	N	E2	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Device-level neuransistor for LSM reservoir; LSM beats ESN in performance and efficiency, no metric or figures.
+R03544	Y	-	C2	ANN+SNN	NS	STATIC_IMG	MEMRISTOR	NS	CLAIM	ENERGY	NA	ACT+DST	NA	STRUCT	Y	N	ReRAM SNN with neuron stashing during training (spike-count criterion); accuracy close to ANN on MNIST; energy claim, no figures.
+R03551	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Spike-driven transformer accelerator, 28 nm prototype: under 0.2 mm2, 0.34 pJ/SOP at 50 MHz; no ANN baseline.
+R03554	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	STDP plus BPNN SNN for tumor MRI: 97.65% accuracy, AUC 98.38, 167.86 s computation; baselines unspecified, no ANN efficiency comparison.
+R03555	Y	-	C1	ANN+SNN	TRANSFORMER	EVENT+OTHER	SIM	SIM	NS	ENERGY+MEMORY	DIFFERENT	NA	NA	NA	NA	N	Spike-driven transformer depth estimation: 12.43 vs 41.77 mJ per inference (-70.2%), params 20.55M vs 35.68M; ARE -49%.
+R03559	Y	-	C1+C5	ANN+SNN	MLP+CNN	STATIC_IMG	GPU	GPU	ESTIMATED	ENERGY+OPS	PAIRED	NA	NA	NA	NA	N	MNIST 98.1 vs 98.23, CIFAR-10 83.0 vs 83.6 (SNN vs ANN); up to 3x efficiency via op-count energy proxy.
+R03561	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Catastrophic forgetting in 8/4/2-bit quantized SNNs on MNIST, Permuted MNIST, SHD; quantization only, no ANN comparison.
+R03562	Y	-	C3	ANN	GNN	BIOSIG	NA	NS	NS	LATENCY	NA	NS	NS	NS	N	N	EEG_RL-Net reuses lottery-ticket sparse GCN block (adjacency density 13.39%); 96.40% accuracy within 25 ms; 20 subjects PhysioNet.
+R03563	Y	-	C2	HYBRID	CNN	NS	ASIC	ASIC	NS	ENERGY+THROUGHPUT	NA	OTHER	NA	MIXED	N	U	Fusion CNN/SNN CIM accelerator, 28 nm, 2:4 weight pruning: peak 42.02 TOPS/W (DFC), 0.02 pJ/SOP (SNN).
+R03564	N	E2	-	-	-	-	-	-	-	-	-	-	-	-	-	-	CIM macro for differential-frame CNN and SNN, 28 nm: 29.13 TOPS/W (DFC), 0.56 pJ/SOP (SNN); no network-level ANN-SNN comparison.
+R03567	Y	-	C1	ANN+SNN	CNN+RNN	TS	SIM	SIM	CLAIM	ENERGY	DIFFERENT	NA	NA	NA	NA	N	REAT-CSNN: up to 3% better than CNN/RNN techniques, significantly less energy claimed, no figures.
+R03569	Y	-	C5	ANN+SNN	TRANSFORMER	STATIC_IMG+EVENT	NS	NS	NONE	NONE	NA	NA	NA	NA	NA	N	Review of spiking transformers and hybrid SNN-Transformer architectures on static and neuromorphic datasets; no efficiency figures in abstract.
+R03571	Y	-	C1	ANN+SNN	NS	BIOSIG	SIM	SIM	NS	ENERGY	DIFFERENT	NA	NA	NA	NA	N	Spikachu SNN decoder uses 2.26x to 418.81x less energy than causal baselines on 113 primate sessions.
+R03572	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	FPGA SNN accelerator: 230.4 GSOP/s, 32.9 GSOP/W; +28% throughput, +53% efficiency vs other SNN implementations; no ANN baseline.
+R03581	Y	-	C2	SNN	OTHER	STATIC_IMG	OTHER_NEURO	NA	NONE	NONE	NA	NS	NA	STRUCT	N	N	Photonic SNN with 40,000 neurons: 83.5% MNIST accuracy using 22% of neurons, 77.5% with 8.5%; no energy figures.
+R03582	Y	-	C1	ANN+SNN	CNN	DET	SIM	SIM	CLAIM	ENERGY	PAIRED	NA	NA	NA	NA	N	Spiking U-Net matches CNN segmentation accuracy (97.67%) with significantly lower energy claimed; no energy figures.
+R03583	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	FPGA SNN accelerator: 23.5 MS/s, ~2x throughput, dynamic power under 48% of an SNN baseline; no ANN comparison.
+R03584	Y	-	C1	ANN+SNN	CNN	TS	SIM	SIM	CLAIM	OPS	DIFFERENT	NA	NA	NA	NA	N	CSNN GNSS jamming classifier: up to 98% accuracy, comparable to CNN-CBAM and ResNet; superior computational efficiency claimed, no figures.
+R03587	Y	-	C1	ANN+SNN	NS	STATIC_IMG	SIM	SIM	NS	ENERGY+POWER	PAIRED	NA	NA	NA	NA	N	SNN vs equivalent classical NN on chest X-rays: 99.22% accuracy, 1000x less electrical power; basis not stated.
+R03589	N	E6	-	-	-	-	-	-	-	-	-	-	-	-	-	-	General taxonomy of CNN, SNN, GNN, RNN, INN; SNN 8.7x energy efficiency at edge is one dimension, not the focus.
+R03594	Y	-	C1	ANN+SNN	NS	BIOSIG	SIM	NS	ESTIMATED	ENERGY+LATENCY+SPIKES	NS	NA	NA	NA	NA	N	LIF vs AdEx SNNs on PTB ECG; spike-count energy proxy claimed below ANN baselines, but ANN numbers not reported.
+R03595	Y	-	C1+C2	ANN+SNN	RNN	AUDIO	LOIHI2	EDGE_GPU	MEASURED	ENERGY+LATENCY+OPS+MEMORY	PAIRED	NS	NA	UNSTRUCT	Y	Y	Sparse linear RNN on Loihi 2 vs dense on edge GPU: 42x lower latency, 149x lower energy; 36% less memory.
+R03596	Y	-	C2	SNN	NS	CONTROL	SIM	NA	NONE	SPIKES	NA	NS	NA	NS	Y	N	KD-trained SNN DBS controllers with tunable activity sparsity; training time reduced versus RL; no energy figures.
+R03599	Y	-	C1	ANN+SNN	OTHER	EVENT+DET	SIM	NS	CLAIM	OPS	NS	NA	NA	NA	NA	N	SpikingEDN: 72.57% MIoU on DDD17, 58.32% on DSEC-Semantic; competitive with SOTA ANNs, substantially fewer computational resources claimed.

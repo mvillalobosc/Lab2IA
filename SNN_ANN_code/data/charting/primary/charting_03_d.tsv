@@ -1,0 +1,25 @@
+R01013	Y	-	C3	ANN	NS	STATIC_IMG	NA	NS	NONE	NONE	NA	NS	WEAK	NS	N	N	First assessment of winning tickets beyond accuracy (shift, uncertainty, interpretability, loss geometry); comparable performance at 20-99.53% sparsity
+R01016	Y	-	C2	SNN	CNN	STATIC_IMG+DET	FPGA	NA	NS	ENERGY+LATENCY	NA	OTHER	NA	MIXED	Y	N	FPGA accelerator exploiting spatiotemporal spike sparsity: at least 17.5x lower prediction energy and 20x speedup vs state-of-the-art FPGA accelerators
+R01020	Y	-	C3	ANN	NS	STATIC_IMG	NA	NS	NS	LATENCY	NA	MAG	WEAK	STRUCT	Y	N	Structural winning tickets via refill and regroup after IMP: up to 64.93%/64.84%/60.23% running time savings (CIFAR/Tiny-ImageNet/ImageNet)
+R01025	Y	-	C1	ANN+SNN	MLP+CNN+RNN	EVENT+OTHER	SIM+OTHER_NEURO	EDGE_GPU	NONE	ENERGY	DIFFERENT	NA	NA	NA	NA	U	Frame-camera ANN on embedded GPU vs event-camera SNN on event-based hardware, compared mainly on energy at similar accuracy; no figures
+R01026	Y	-	C3	ANN	NS	NLP	NA	NS	NONE	NONE	NA	NS	OTHER	UNSTRUCT	N	N	Sparse masks from an LTH variant composed for zero-shot cross-lingual transfer; outperforms adapters by a large margin; no efficiency figures
+R01027	Y	-	C3	ANN	TRANSFORMER	NLP	NA	NS	NS	LATENCY+MEMORY	NA	OTHER	OTHER	STRUCT	Y	N	BERT winning ticket by dropping top-k layers: saves 78.1% time and 31.7% memory on average (up to 86.7% and 48%)
+R01030	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	ANN-to-SNN conversion with double-threshold and augmented spikes on MNIST, Fashion-MNIST, CIFAR10; compared only with other conversions; no ANN efficiency comparison
+R01034	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	YOLOv3-tiny-to-SNN conversion for crater detection; mAP@0.5 0.396 at 128 time steps; no ANN efficiency comparison
+R01035	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	SiamSNN tracker converted from Siamese networks; low energy and real-time on TrueNorth claimed; no ANN efficiency comparison
+R01036	Y	-	C3	ANN	CNN	NS	NA	NS	NONE	NONE	NA	THEORY	STRONG	NS	N	N	Proof that convolutional and residual networks with almost arbitrary activations contain lottery tickets with high probability; no efficiency figures
+R01041	Y	-	C2	SNN	NS	NS	SIM	NA	CLAIM	SPIKES	NA	REG	NA	STRUCT	Y	N	Correlation-based regularizer reduces redundant features and spike count with limited accuracy loss versus vanilla and rate-regularized SNNs; no figures
+R01047	Y	-	C1	ANN+SNN	NS	OTHER	LOIHI+AKIDA	NS	CLAIM	POWER	NS	NA	NA	NA	NA	U	DL vs DL-to-SNN conversion on Loihi and Akida for network intrusion; power savings explored, results only called promising, no figures
+R01048	Y	-	C1	ANN+SNN	MLP+RNN	CONTROL	LOIHI	EDGE_GPU	MEASURED	LATENCY+SPIKES	DIFFERENT	NA	NA	NA	NA	U	ANNs sub-ms inference, sub-mm accuracy with 10^4-10^5 parameters; SNNs reasonably good with few thousand neurons; Xavier vs Loihi
+R01049	Y	-	C3	ANN	NS	STATIC_IMG	NA	NS	NONE	NONE	NA	NS	WEAK	NS	N	N	Double-win matching subnetworks at up to 91.41% (CIFAR-10) and 83.22% (CIFAR-100) sparsity from adversarial pre-training; more data-efficient
+R01050	Y	-	C1	ANN+SNN	CNN+RNN	BIOSIG	LOIHI	EDGE_GPU	MEASURED	ENERGY	DIFFERENT	NA	NA	NA	NA	Y	SNN on Loihi consumed 95% less energy per inference than SOTA DNNs on Jetson TX2 with similar EEG classification performance
+R01054	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Phasor networks run as ANN or spiking without conversion; low-energy suitability asserted, no efficiency metrics or comparison
+R01055	Y	-	C1	ANN+SNN	CNN	AUDIO	SIM	SIM	CLAIM	ENERGY+MEMORY	PAIRED	NA	NA	NA	NA	N	Residual SNN beats ANN counterpart in energy efficiency (no figure); 86.5K vs 210K footprint; accuracy +4 to 17% over SNN
+R01058	Y	-	C3	ANN	CNN	NS	NA	NS	NONE	NONE	NA	NS	WEAK	MIXED	N	N	LTH- and DSD-based pruning of small DenseNets at several granularities; DSD efficient at cutting parameters, best at individual-weight level
+R01064	Y	-	C1	ANN+SNN	NS	STATIC_IMG+EVENT	SIM	SIM	NS	ENERGY	NS	NA	NA	NA	NA	N	SpikeDHS on event-based deep stereo: higher accuracy than specially designed ANNs with 26x lower energy (6.7 mJ)
+R01067	Y	-	C3	ANN	NS	NLP	NA	NS	NONE	NONE	NA	NS	WEAK	NS	N	N	LTH sub-networks for languages and tasks are topologically similar (language-neutral) and give effective cross-lingual initializations; no efficiency figures
+R01070	Y	-	C3	ANN	NS	NS	NA	NS	NONE	NONE	NA	NS	WEAK	NS	N	N	Multi-Ticket Ensemble: fine-tuned winning-ticket subnetworks of one pretrained model give more diverse predictions and beat standard ensembles on some tasks
+R01073	Y	-	C3	ANN	NS	NLP	NA	NS	NONE	NONE	NA	OTHER	WEAK	UNSTRUCT	N	N	Doge tickets: domain-general parameter subnetworks selected with a variance-based score improve out-of-domain generalization of pre-trained LMs; no efficiency figures
+R01077	Y	-	C3	ANN	NS	NS	NA	NS	NONE	NONE	NA	RANDOM+REG	OTHER	UNSTRUCT	N	N	DLTH: random subnetworks transformed into trainable tickets by Random Sparse Network Transformation (regularization) match LTH; no efficiency figures
+R01081	Y	-	C2	SNN	NS	STATIC_IMG	SIM	NA	NONE	NONE	NA	ACT+DST	NA	NS	N	N	DynSNN dynamic pruning, co-activity inspired: ~0.3% accuracy loss at 34% compression (CIFAR, ImageNet), lossless 60% compression on MNIST
+R01082	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	E-prop spiking RNN on SpiNNaker 2: 91.12% GSC, 680 KB; estimated 12x less energy than V100 GPU; no ANN comparison

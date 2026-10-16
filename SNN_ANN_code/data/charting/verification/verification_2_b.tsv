@@ -1,0 +1,25 @@
+R03120	Y	-	C3	ANN	NS	OTHER	NA	NS	ESTIMATED	OPS	NA	MAG	WEAK	UNSTRUCT	N	N	Pruned DPD: 160 MHz +0.2 dB EVM, 20% less complexity; 20 MHz -0.1 dB EVM, 50% less complexity
+R03176	Y	-	C1	ANN+SNN	CNN	BIOSIG	SIM	SIM	CLAIM	ENERGY+MEMORY	DIFFERENT	NA	NA	NA	NA	N	Accuracy SNN 95.65% vs ANN 89.61%, ResNet 85.71%; 414,221 fewer parameters than ResNet; energy claim only
+R03235	Y	-	C1	ANN+SNN	CNN	TS	SIM	SIM	CLAIM	MEMORY+LATENCY	DIFFERENT	NA	NA	NA	NA	N	Accuracy 89% on ADS-B; beats ShuffleNet and MobileNet in parameter efficiency and inference speed, no figures
+R03255	Y	-	C3	ANN	NS	NS	NA	SIM	NONE	NONE	NA	MAG	WEAK	NS	N	N	One permutation aligns iteratively trained and iteratively pruned network sequences; barriers fall with width
+R03292	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Spike-driven YOLO on Loihi 2 with Lava; mAP above 93% in some cases; no ANN efficiency comparison
+R03303	Y	-	C1	ANN+SNN	TRANSFORMER	AUDIO	SIM	SIM	NS	ENERGY	NS	NA	NA	NA	NA	N	SpikeVoice TTS comparable to ANN with only 10.5% of ANN energy consumption
+R03338	Y	-	C2	SNN	TRANSFORMER	STATIC_IMG+EVENT	SIM	NA	CLAIM	OPS	NA	OTHER	NA	STRUCT	N	N	Spiking MoE (SEMM) gives stable accuracy gains at about the same computational overhead as Spiking Transformer baselines
+R03372	Y	-	C3	ANN	NS	NS	NA	SIM	NONE	NONE	NA	NS	OTHER	NS	N	N	LTH-based three-part network partition for continual learning; near-zero forgetting, state-of-the-art performance; no figures
+R03399	N	E7	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Energy-based Ising models with QC-LDPC sparse block matrices; fewer parameters; not LTH or SNN
+R03407	Y	-	C2	SNN	TRANSFORMER	NS	GPU	NA	NS	LATENCY+ENERGY	NA	OTHER	NA	STRUCT	Y	N	Token sparsification gives up to 1.53x training speedup and about 48% energy reduction at comparable accuracy
+R03432	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Training-free NAS for SNNs on Loihi; lower energy per image and model size vs SOTA; no ANN comparison
+R03458	Y	-	C3	ANN	MLP	OTHER	NA	SIM	NONE	NONE	NA	OTHER	WEAK	NS	N	N	LTH ticket redraws find optimal mechanisms up to 5 agents; improved worst-case mechanisms up to 20 agents
+R03475	Y	-	C2	SNN	NS	NS	ASIC	NA	MEASURED	ENERGY	NA	OTHER	NA	STRUCT	Y	N	40nm SNN processor with sample-wise dynamic neuron pruning: 0.05-1.4 μJ per inference
+R03519	Y	-	C2	SNN	NS	TS	SIM	NA	CLAIM	MEMORY	NA	NS	NA	NS	N	N	Pruning, quantization and hybrid methods keep competitive accuracy with large model-size reduction on oceanographic data; no figures
+R03572	Y	-	C2	SNN	CNN	NS	FPGA	NA	MEASURED	THROUGHPUT+ENERGY	NA	OTHER	NA	NS	Y	N	FPGA SNN accelerator 230.4 GSOP/s, 32.9 GSOP/W; +28% throughput, +53% energy efficiency vs SNN designs
+R03601	Y	-	C2	SNN	NS	NS	NS	NA	NONE	NONE	NA	NS	NA	NS	NS	N	No abstract; title indicates 40,000-neuron SNN trained with rank order coding leveraging sparsity
+R03636	N	E5	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Introductory review of low-power LLM co-design (quantization, sparsity, neuromorphic); main subject not a C5 topic
+R03689	Y	-	C5	ANN+SNN	CNN	NS	NS	NS	NONE	NONE	NA	NA	NA	NA	NA	N	Review of dynamic pruning and compression for medical imaging, including regularization, structured sparsity and SNN optimization
+R03704	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	PINN-to-SNN conversion with calibration; vague efficiency gains and low spike rates, no explicit ANN comparison
+R03720	Y	-	C3	ANN	CNN+TRANSFORMER+MLP	STATIC_IMG	NA	SIM	NONE	NONE	NA	MAG	WEAK	NS	N	N	Standard pruning can add class bias (chi-square test); truncated lottery ticket scheme reduces it to negligible levels
+R03722	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Multimodal SCNN on PhysioNet 2016: accuracy 89.74%, AUC 89.08%, energy 209.6 (unit lost); no ANN comparison
+R03743	Y	-	C1	ANN+SNN	NS	STATIC_IMG+TS	MEMRISTOR	NS	MEASURED	POWER+LATENCY	DIFFERENT	NA	NA	NA	NA	U	Neuromorphic SNN circuits: 62% lower power, 47% lower latency than traditional digital accelerators, no accuracy drop
+R03818	Y	-	C5	ANN+SNN	CNN	OTHER	NS	NS	NONE	LATENCY+ENERGY+MEMORY	NA	NA	NA	NA	NA	N	Review of memory optimization (compression, tiling, pruning, IMC) for CNN and SNN accelerators in medical imaging
+R03851	Y	-	C3	ANN	MLP	TS	NA	SIM	CLAIM	OPS	NA	MAG	WEAK	STRUCT	N	N	LTH-pruned NN array identifies story stiffness reductions accurately with lower computational load than full-input models
+R03858	N	E6	-	-	-	-	-	-	-	-	-	-	-	-	-	-	LSTM EEG deceit detection 97.66% accuracy; SNN only as accuracy benchmark; vague efficiency claim

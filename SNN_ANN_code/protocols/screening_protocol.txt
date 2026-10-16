@@ -1,0 +1,39 @@
+TITLE/ABSTRACT SCREENING PROTOCOL
+Systematic review: energy efficiency of ANN vs SNN and sparsity / lottery-ticket methods (2020-2026)
+
+You are screening bibliographic records (title, keywords, abstract) for a PRISMA 2020 systematic review. Decide for EACH record whether it passes to full-text assessment. Judge only from the text given. Be inclusive when the abstract explicitly signals eligible content but a detail is missing; be strict when the topic is clearly out of scope.
+
+RESEARCH QUESTIONS
+RQ1. Under which model-hardware pairs and measurement protocols have ANN and SNN been compared empirically (accuracy together with energy, power, latency or operation counts)?
+RQ2. Which factors (hardware substrate, numerical precision, time steps T, spike coding, firing rate / sparsity) explain the reported accuracy and efficiency differences?
+RQ3. What do pruning, sparsity and lottery-ticket-family methods (LTH, strong LTH, supermasks, edge-popup, random-weight subnetworks, evolutionary or other mask search) contribute to reducing cost in ANN and SNN, and how is their effect on energy or firing activity measured?
+
+INCLUDE if at least one category applies. Report ALL categories that apply:
+C1  Empirical ANN-SNN comparison on at least one task with at least one efficiency metric (energy, power, latency, throughput, SOPs/FLOPs/MACs, energy-delay product), measured on hardware OR estimated analytically. Includes ANN-to-SNN conversion papers and hardware/accelerator papers that benchmark an SNN against an ANN/DNN baseline with such metrics. A quantified claim like "Nx less energy than the ANN counterpart" counts.
+C2  Pruning, sparsity, compression or connectivity reduction in SNN (any method: magnitude pruning, structured pruning, regularisation, dynamic sparsity, activity-based pruning, neuron pruning, sparse training), including effects on spikes/energy.
+C3  Lottery-ticket family in non-spiking ANN: lottery ticket hypothesis, strong LTH, supermasks, edge-popup, random-weight subnetworks, winning tickets, theoretical existence proofs, mask search by any algorithm (gradient, evolutionary, other).
+C4  Lottery-ticket family applied to SNN (any of the C3 concepts in spiking networks).
+C5  Review, survey or tutorial whose main subject is ANN-SNN efficiency comparison, neuromorphic hardware benchmarking, or pruning/sparsity/LTH.
+C6  Benchmark or measurement methodology for ANN/SNN efficiency (benchmark suites, energy estimation frameworks, metric standardisation such as NeuroBench, SOP-to-energy models).
+
+EXCLUDE with exactly one reason code:
+E1  Not a peer-reviewed research or review paper: editorial, erratum, preface, abstract-only, book review, call for papers.
+E2  Device, material or circuit-level work (memristors, synaptic transistors, photonic/optical hardware, CMOS neuron circuits) with NO network-level evaluation on a learning task comparing to an ANN or involving pruning/sparsity.
+E3  Neuroscience or neurobiological modelling without a machine-learning task (brain simulation, cortical models, computational neuroscience of plasticity).
+E4  SNN-only work (application, training method, architecture, hardware deployment) with no ANN/non-spiking baseline comparison on efficiency and no pruning/sparsity/lottery content. Accuracy-only comparison with an ANN, with efficiency mentioned only as motivation, is E4.
+E5  ANN-only work with no SNN and no lottery-ticket-family content (e.g. DNN on edge devices, "neuromorphic" used loosely, reservoir computing without spikes, general model compression such as quantisation or knowledge distillation).
+E6  Off-topic for all RQs (other domains where the terms appear incidentally).
+E7  General ANN pruning or sparsification that is NOT in the lottery-ticket family and does not involve SNN (e.g. channel pruning of CNNs, N:M sparsity on GPUs, sparse attention).
+
+UNSURE is allowed only when the abstract suggests eligible content but you genuinely cannot tell (e.g. SNN compared with "conventional networks" where it is unclear whether efficiency was measured). Give the most likely category or reason code and a short note. Keep UNSURE under 10% of records.
+
+Also record the hardware mentioned (comma-separated, from: Loihi, Loihi2, TrueNorth, SpiNNaker, BrainScaleS, Tianjic, Akida, Dynap, FPGA, GPU, CPU, MCU, ASIC, memristor/in-memory, photonic, simulation, none).
+
+OUTPUT FORMAT (strict). Write ONE line per record, tab-separated, no header, no blank lines, no commentary, in the same order as the input:
+id<TAB>decision<TAB>code<TAB>hardware<TAB>note
+- id: the record id in brackets, e.g. R03263 (without brackets)
+- decision: INCLUDE | EXCLUDE | UNSURE
+- code: for INCLUDE the categories separated by "+" (e.g. C1+C2); for EXCLUDE one reason (e.g. E4); for UNSURE the most likely code
+- hardware: as above, or "none"
+- note: at most 12 words, no tabs
+Every input record must appear exactly once. Do not skip records. Do not invent ids.

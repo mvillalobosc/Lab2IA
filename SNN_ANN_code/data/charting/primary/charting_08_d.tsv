@@ -1,0 +1,25 @@
+R02462	Y	-	C1	HYBRID	NS	STATIC_IMG	SIM	FPGA	ESTIMATED	POWER	PAIRED	NA	NA	NA	NA	N	Hybrid ANN-SNN: CIFAR10 70% vs 80% pure ANN, SVHN 90% vs 96%; added power under 5% of FPGA power
+R02473	N	E6	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Dendritic-neuron motion direction visual system compared with four CNNs on effectiveness and efficiency; neuroscience-inspired, no energy or operation figures
+R02474	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Spiking HAR model 96.72% accuracy and about 7.42e-8 J per inference; no ANN energy comparison in abstract
+R02475	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Convolutional SNN intrusion detection: 23% accuracy, 19% delay, 28% energy gains over SNN baselines Spiking DFR+MLP and Spike-DHS
+R02480	N	E2	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Reconfigurable FPGA SNN training accelerator exploiting sparsity: inference 5.98 TOPS, 6.943 W, 0.74 TOPS/W; no ANN comparison
+R02483	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	General review of SNN computing (structure, datasets, learning, platforms); not focused on efficiency comparison, pruning or tickets
+R02484	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Spiking-HCCN beats Spiking GCN and Spike-DHS by 24% accuracy, 21% delay, 29% energy efficiency; SNN baselines only
+R02491	Y	-	C1	ANN+SNN	NS	TS	SIM	NS	CLAIM	OPS	NS	NA	NA	NA	NA	N	Self-attention SNN on Wi-Fi CSI: over 96% accuracy, about 1% above ANN methods; lower overhead claimed without figures
+R02495	Y	-	C3	ANN	NS	DET	NA	SIM	NONE	NONE	NA	REG	OTHER	UNSTRUCT	N	N	Dual-LTH sparse sharing multitask network for building footprints with L3/2 regularization; better edges than baseline, no efficiency figures
+R02508	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	ANN-to-SNN conversion framework DNISNM with high accuracy at very low latency; no energy or operation comparison with ANN
+R02512	Y	-	C1	ANN+SNN	CNN	OTHER	FPGA	NS	MEASURED	THROUGHPUT+POWER	NS	NA	NA	NA	NA	U	SCNN on FPGA for population genomics: accuracy comparable to conventional CNNs, up to 3x throughput and 100x less power
+R02513	N	E2	-	-	-	-	-	-	-	-	-	-	-	-	-	-	SNN BPTT training processor in 40 nm exploiting three types of sparsity: 0.86 pJ/OP in simulation; no ANN comparison
+R02517	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Sigma-delta lpRNN mapped to SNN on Loihi, state-of-the-art audio accuracy with 3-bit weights; no energy or ANN comparison
+R02521	Y	-	C2	SNN	CNN	STATIC_IMG+EVENT	SIM	NA	NONE	NONE	NA	OTHER	NA	NS	N	N	EIHL on Spiking VGG11 DVS-CIFAR10: 62.45% accuracy, 4.35% above STBP and 11.40% above STDP; sparsity 18.74%
+R02523	N	E6	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Hybrid RNN-SNN spatiotemporal model with Hessian-aware neuron selection; efficiency mentioned generically, no metric or ANN efficiency comparison
+R02524	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	SCOD with spiked and normal conv layers: 66.01% and 41.25% mAP, 14 GFLOPs; YOLO variants compared on mAP only
+R02527	Y	-	C1+C5	ANN+SNN	CNN+RNN+TRANSFORMER	NS	MEMRISTOR	CPU+GPU	NS	ENERGY	LITERATURE	NA	NA	NA	NA	N	Review: ANNs on CPU/GPU versus SNNs on memristive hardware; SNN efficiency 5 to 8 orders of magnitude higher
+R02530	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Adversarially robust ANN-to-SNN conversion with low latency; no energy or ANN efficiency comparison
+R02537	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Integer-only converted SNN: 99.45% MNIST and 93.15% CIFAR-10 in 4 and 8 time steps; fewer operations claimed, comparator unstated
+R02539	Y	-	C2	ANN+SNN	OTHER	STATIC_IMG	SIM	SIM	NONE	NONE	NA	OTHER	NA	STRUCT	N	N	Task-free continual learning with SNN players and ANN referees; component pruning limits network size; no efficiency figures
+R02544	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Convolutional SNN-CNN intrusion detection model; lower resource and energy use claimed against unspecified state-of-the-art models, no figures
+R02545	Y	-	C1	ANN+SNN	NS	TS	FPGA	SIM	ESTIMATED	ENERGY+THROUGHPUT	PAIRED	NA	NA	NA	NA	N	SNN with sigma-delta encoding: accuracy within 0.30% of ANN baseline on RADIOML 2018, 22x lower computational energy; FPGA realization
+R02549	N	E6	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Generic overview of neuromorphic computing without comparison, benchmark or sparsity content
+R02562	Y	-	C3	ANN	GNN	OTHER	NA	SIM	NONE	NONE	NA	NS	NS	UNSTRUCT	N	N	Graph lottery tickets from UGS are vulnerable to structure perturbation attacks; self-training defense finds more resilient tickets
+R02565	Y	-	C1	ANN+SNN	CNN	TS	SIM	SIM	NS	ENERGY	DIFFERENT	NA	NA	NA	NA	N	Spiking-EfficientNet 99.13% and 96.02% accuracy; energy 20.1% of EfficientNetV2, 2.56% of VGG11, 10.71% of ResNet18, 61.15% of MobileNetV2

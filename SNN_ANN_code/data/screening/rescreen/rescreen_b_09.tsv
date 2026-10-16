@@ -1,0 +1,81 @@
+R05907	EXCLUDE	E5	GPU	Compact ResNet design for edge; ANN-only, no SNN or lottery content
+R05908	EXCLUDE	E4	none	Self-distillation for SNN; energy gain only versus SNN direct training
+R05910	EXCLUDE	E4	none	SNN slip detection; training speed versus SNN baselines, no ANN efficiency comparison
+R05912	UNSURE	C1	simulation	Energy cut versus MS-ResNet baseline; unclear if baseline is ANN
+R05918	INCLUDE	C1	none	Spiking graph transformer; 40-55% lower computational cost than conventional deep models
+R05922	EXCLUDE	E4	none	RF fingerprint encoding; spikes per inference compared only across fingerprints
+R05928	EXCLUDE	E4	none	STDP variant; accuracy-only comparison with backpropagation, no efficiency metric
+R05929	EXCLUDE	E4	none	Adversarial attacks on SNN event streams; no ANN efficiency comparison
+R05933	EXCLUDE	E2	memristor/in-memory	Review of memristor array hardware for vector-matrix multiplication
+R05936	EXCLUDE	E2	memristor/in-memory	2D memristor device; simulated CNN and reservoir demo only
+R05940	EXCLUDE	E4	none	Recurrent SNN with bimodal time scales; no ANN or efficiency comparison
+R05943	EXCLUDE	E2	memristor/in-memory	Vanadium oxide device and LIF circuit; LeNet demo only
+R05946	EXCLUDE	E4	FPGA	LIF pulse sparse convolution on FPGA; power reported, no ANN baseline
+R05955	EXCLUDE	E4	none	Adaptive synaptic filter for SNN; accuracy only
+R05958	EXCLUDE	E2	memristor/in-memory	Perovskite memristor device characterization; CNN demo only
+R05969	EXCLUDE	E4	none	SNN robustness versus ANN; no efficiency metric
+R05970	EXCLUDE	E2	memristor/in-memory	Review of RRAM device physics, materials and packaging
+R05973	EXCLUDE	E5	none	Event-based sparse network; no spiking model stated
+R05991	EXCLUDE	E2	photonic	Optoelectronic artificial synapse device; ANN recognition demo only
+R05992	EXCLUDE	E2	none	Review of triboelectric neuromorphic touch sensor devices
+R05995	EXCLUDE	E2	memristor/in-memory	Organic memristor device; ANN demo only
+R05998	EXCLUDE	E4	none	Self-supervised pre-training for SNN; no efficiency or ANN comparison
+R05999	EXCLUDE	E2	none	Review of CMOS vision chips and bio-inspired sensing devices
+R06006	EXCLUDE	E5	memristor/in-memory	Side-channel attack on RRAM in-memory VGG11; ANN-only
+R06014	EXCLUDE	E4	none	Spiking autoencoder; estimated energy reported, ANN compared on quality only
+R06040	EXCLUDE	E2	photonic	Retinomorphic MoS2 device; no SNN comparison
+R06047	EXCLUDE	E2	photonic	Opto-synaptic ferroelectric heterojunction device; ANN simulation only
+R06064	INCLUDE	C1	none	Spiking few-shot learning; lower computational cost than ANN-based FSL methods
+R06071	EXCLUDE	E4	GPU	Memory-aware NAS for SNN with quantization; no ANN baseline or pruning
+R06074	INCLUDE	C1	none	Spiking 3D detector; lower energy, 10x less computation than ANN SMOKE
+R06077	EXCLUDE	E4	none	Spiking SSVEP decoder; accuracy and ITR only
+R06079	INCLUDE	C1	none	Spiking image fusion; theoretical energy trade-off against existing fusion methods
+R06080	EXCLUDE	E4	none	Spiking transformer; memory footprint reduction only, no energy or ANN comparison
+R06094	INCLUDE	C1	none	Spiking depth estimation; outperforms SNN and ANN models with lower power
+R06100	EXCLUDE	E4	none	Spiking P system neuron; compared only with spiking neuron models
+R06107	INCLUDE	C1	none	Spiking remote sensing detector; energy and parameter gains claimed, baselines unspecified
+R06111	EXCLUDE	E4	none	SNN finger force decoder; memory trade-offs only, no ANN comparison
+R06118	UNSURE	C1	none	Hybrid transformer SNN; efficiency advantage claimed but not quantified
+R06131	INCLUDE	C1	none	Spiking EEG decoder; lower energy than state-of-the-art decoding methods
+R06133	EXCLUDE	E4	none	Spiking P transformer; accuracy and time steps, no ANN efficiency comparison
+R06135	INCLUDE	C1	none	Spiking FER; 99% energy efficiency gain versus deep learning models
+R06139	EXCLUDE	E4	none	Capacity-matched SNN versus ANN on accuracy only; energy not measured
+R06145	EXCLUDE	E5	memristor/in-memory	SOT-MRAM in-memory accelerator for DNN; no SNN
+R06147	EXCLUDE	E2	memristor/in-memory	Spin-orbit torque synaptic device physics
+R06148	EXCLUDE	E2	simulation	Spin wave device simulation; no SNN, MNIST demo only
+R06151	EXCLUDE	E4	ASIC	28nm reservoir SNN accelerator; compared only with prior SNN hardware
+R06156	EXCLUDE	E4	memristor/in-memory	SRAM compute-in-memory for SNN; energy versus SNN decay model only
+R06164	EXCLUDE	E4	none	Spiking attention lowers firing rate and energy versus SNN baseline only
+R06168	EXCLUDE	E5	memristor/in-memory	Stochastic MTJ in-memory binarized CNN; no SNN
+R06169	EXCLUDE	E4	none	Quantum spiking neuron; accuracy comparison with classical models only
+R06174	EXCLUDE	E2	photonic	Printed optoelectronic synapse device; MNIST demo only
+R06181	INCLUDE	C1	none	Hybrid SNN-ANN video enhancer; reports GFLOPs and estimated energy
+R06183	INCLUDE	C1	none	Spiking YOLO detector; 4.4x higher energy efficiency than YOLOv8m
+R06193	EXCLUDE	E2	memristor/in-memory	Electrolyte-gated synaptic transistor device; MNIST simulation only
+R06196	EXCLUDE	E3	none	Trained spiking cortical-like models; inhibition motif, neuroscience focus
+R06201	EXCLUDE	E4	none	Spiking temporal attention; accuracy and training speed versus LSTM only
+R06206	EXCLUDE	E6	none	Surface acoustic wave devices and ML; neuromorphic incidental
+R06226	EXCLUDE	E2	memristor/in-memory	Heterojunction neuron device for ReLU; no network-level comparison
+R06228	EXCLUDE	E4	none	Modular graph SNN topology search; no ANN or sparsity focus
+R06232	EXCLUDE	E2	memristor/in-memory	RRAM synaptic forgetting device; pruning mimicry at device level
+R06234	EXCLUDE	E2	memristor/in-memory	Review of 2D material memristor devices for neural networks
+R06237	EXCLUDE	E4	none	Bayesian SNN uncertainty; efficiency only versus SNN baselines
+R06243	UNSURE	C1	none	Lightweight spiking Alzheimer diagnosis; efficiency claim, baselines and metric unclear
+R06244	EXCLUDE	E4	Loihi2	Radar pipeline on Loihi 2; latency and power, no ANN baseline
+R06258	EXCLUDE	E4	FPGA	Spiking CNN FPGA accelerator; compared with SNN accelerators only
+R06261	EXCLUDE	E2	memristor/in-memory	Perovskite memristor device; MNIST simulation only
+R06266	EXCLUDE	E2	photonic	NbOI2 optoelectronic synapse device; ANN demo only
+R06267	EXCLUDE	E2	photonic	Optoelectronic memtransistor device; CNN demo only
+R06271	EXCLUDE	E2	photonic	Polymer materials for photodetectors and synapse; ANN preprocessing demo
+R06275	EXCLUDE	E2	photonic	Perovskite optoelectronic synapse device; ANN demo only
+R06280	EXCLUDE	E5	none	EEG classification with transformer; neuromorphic used loosely, no spiking
+R06288	EXCLUDE	E4	memristor/in-memory,ASIC,simulation	Memristor trace-STDP SNN variation tolerance; no ANN baseline
+R06290	EXCLUDE	E4	none	Vehicle classification; SNN briefly tested, no efficiency metric
+R06298	EXCLUDE	E2	photonic	MoS2/Au optoelectronic synapse device; ANN demo only
+R06299	UNSURE	E5	none	Event detector; SNNs among baselines, own model likely non-spiking
+R06301	EXCLUDE	E2	photonic	Organic transistor artificial synapse device; ANN demo only
+R06310	EXCLUDE	E2	FPGA,photonic	Optoelectronic synapse device; ANN with FPGA, no SNN
+R06313	EXCLUDE	E4	FPGA	Spiking transformer FPGA accelerator; compared with SNN ADD baseline only
+R06315	EXCLUDE	E4	none	SNN temporal resolution adaptation; accuracy only
+R06326	EXCLUDE	E4	none	Koopman SNN for brain disorder classification; no efficiency metric
+R06334	EXCLUDE	E2	memristor/in-memory	Ferroelectric memristor device; MNIST simulation only

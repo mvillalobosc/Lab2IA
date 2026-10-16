@@ -1,0 +1,25 @@
+R00328	Y	-	C3	ANN	CNN	STATIC_IMG	NA	NS	ESTIMATED	MEMORY+OPS	NA	EVO	OTHER	NS	N	N	Sparse CNN architecture search guided by redundancy (LTH-inspired): 2x-12x smaller models, 2x-19x fewer MACs, under 1% accuracy drop
+R00331	Y	-	C3	ANN	CNN	NS	NA	NS	NONE	NONE	NA	MAG	WEAK	UNSTRUCT	N	N	Accelerated IMP cuts per-iteration training epochs by over 50% at high sparsity while final pruned network matches existing IMP performance
+R00333	Y	-	C1	HYBRID	NS	EVENT	SIM	SIM	CLAIM	OPS	PAIRED	NA	NA	NA	NA	N	Hybrid SNN-ANN Spike-FlowNet beats its ANN counterpart on optical flow with significant computational efficiency claimed; no figures
+R00340	Y	-	C1+C2	ANN+SNN	RNN	AUDIO	SIM	NS	CLAIM	POWER+SPIKES	LITERATURE	NS	NA	UNSTRUCT	Y	N	SNN-as-RNN for VAD: low-activity training and pruning remove 85% of connections without loss; power claimed well below other methods
+R00343	Y	-	C1	ANN+SNN	CNN	DET	OTHER_NEURO	NS	NS	ENERGY+LATENCY	PAIRED	NA	NA	NA	NA	U	Spiking-YOLO on a neuromorphic chip: ~280x less energy than Tiny YOLO, up to 98% of its accuracy, 2.3-4x faster convergence
+R00344	Y	-	C1	ANN+SNN	CNN	NS	ASIC	ASIC	NS	ENERGY+LATENCY	DIFFERENT	NA	NA	NA	NA	N	SpinalFlow at 4-bit, 90% sparsity: 1.8x less energy than 4-bit Eyeriss; 5x less energy, 5.4x less time than 8-bit Eyeriss
+R00346	Y	-	C3	ANN	TRANSFORMER	NLP	NA	NS	NONE	NONE	NA	MAG+OTHER	WEAK	UNSTRUCT	N	N	Stabilized LTH on Transformer (WMT14) matches magnitude pruning up to 85% sparsity; new combined technique better at higher sparsity
+R00347	Y	-	C3	ANN	NS	NS	NA	NS	CLAIM	MEMORY	NA	SCORE	STRONG	UNSTRUCT	N	N	Fixed random base network with per-task supermasks learns 2500 tasks without forgetting; masks stored in minimal memory; no energy metrics
+R00354	Y	-	C2	ANN+SNN	NS	STATIC_IMG	SIM	NS	NS	LATENCY+SPIKES	NA	OTHER	NA	TEMPORAL	Y	N	T2FSNN time-to-first-spike coding cuts inference latency to 22% and spikes to under 1% of burst coding on CIFAR-100
+R00355	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Keras-trained network translated to Loihi: 9.5-12.9 images/s, accuracy 79.7-94.0%, 0.6 W cores, 14.9-63.2 mJ/image; no ANN baseline
+R00359	Y	-	C1	ANN+SNN	NS	EVENT+TS	SIM	NS	CLAIM	LATENCY+POWER	NS	NA	NA	NA	NA	N	SNN on raw LiDAR pulses claims remarkable time and power efficiency at comparable accuracy to state-of-the-art methods; no figures
+R00365	Y	-	C3	ANN	TRANSFORMER	NLP	NA	NS	NONE	NONE	NA	NS	WEAK	NS	N	N	Matching subnetworks found in pre-trained BERT at 40% to 90% sparsity at pre-trained initialization; MLM-task subnetworks transfer universally
+R00366	Y	-	C3	ANN	NS	OTHER	NA	NS	CLAIM	POWER+MEMORY	NA	NS	OTHER	NS	N	N	LTH-inspired pruned sparse subnets for TCM tongue-inspection domain adaptation; fewer samples and parameters, less power and memory claimed without figures
+R00370	Y	-	C1	ANN+SNN	MLP+CNN+RNN	NS	TIANJIC	ASIC+GPU	MEASURED	THROUGHPUT+POWER	DIFFERENT	NA	NA	NA	NA	Y	Tianjic chip: unfolded mapping gives significantly higher throughput and power efficiency than GPUs; semi-folded saves 30x resources
+R00371	Y	-	C1	ANN+SNN	CNN	STATIC_IMG	SIM	SIM	CLAIM	ENERGY+MEMORY	PAIRED	NA	NA	NA	NA	N	Residual connections, stochastic softmax, hybridization give near state-of-the-art SNN accuracy; large efficiency gains over ANN counterparts, no figures
+R00373	Y	-	C2	SNN	NS	NS	FPGA	NA	NS	ENERGY+MEMORY	NA	ACT	NA	STRUCT	Y	N	Spike-count neuron pruning: 400 of 800 neurons removed gives 2.3x less memory, 2.8x better energy efficiency, 1.69% accuracy loss
+R00379	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	STDP, conversion, backprop: VGG16-SNN 69.96% on ImageNet; backprop cuts latency up to 8x vs converted SNNs; no ANN comparison
+R00385	Y	-	C3	ANN	NS	AUDIO	NA	CPU	CLAIM	MEMORY+OPS	NA	NS	WEAK	STRUCT	N	N	LTH-based structured trimming of deep MIR models removes up to 90% of parameters without accuracy loss; CPU and embedded targets
+R00387	Y	-	C2	SNN	NS	STATIC_IMG	SIM	NA	ESTIMATED	ENERGY+OPS	NA	ACT+MAG	NA	UNSTRUCT	Y	N	Adaptive weight pruning cuts SOPs 30% in training and 55% in inference with 0.44% accuracy loss on MNIST (800 neurons)
+R00395	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	STDP-trained SNN with periodic weight quantization: 4-bit weights cost 0.09% accuracy (0.28% in behavioral simulation); no ANN comparison
+R00396	Y	-	C3	ANN	TRANSFORMER	NLP	NA	NS	NONE	NONE	NA	MAG+OTHER	WEAK	MIXED	N	N	BERT with structured and magnitude pruning: comparable subnetworks exist, even the worst structured ones stay trainable
+R00398	Y	-	C3	ANN	CNN	STATIC_IMG	NA	NS	NONE	NONE	NA	REG	WEAK	NS	N	N	Continuous Sparsification (l0 approximation) beats pruning and ticket-search baselines on VGG/CIFAR-10 and ResNet-50/ImageNet; fast parallel ticket search
+R00404	Y	-	C2	SNN	MLP	STATIC_IMG	FPGA	NA	MEASURED	ENERGY+LATENCY+MEMORY	NA	NS	NA	UNSTRUCT	N	N	Single-spike SNN on VC707 FPGA: 96% MNIST, 2.8 us latency, 1.13 uJ/classification; sparse connections cut weight memory up to 75%
+R00407	Y	-	C2	SNN	NS	STATIC_IMG	ASIC	NA	NS	ENERGY+POWER+THROUGHPUT	NA	NS	NA	UNSTRUCT	N	N	Digital SNN hardware: 4.5 pJ/SOP, up to 81.5% less energy; MNIST 89.6% at 73.6% output-layer weight sparsity
+R00420	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Reconfigurable FPGA accelerator for CNN and hybrid CNN-SNN designs; 7x faster frame rate than current FPGA accelerators; no SNN-ANN comparison

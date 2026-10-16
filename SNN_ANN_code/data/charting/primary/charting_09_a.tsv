@@ -1,0 +1,25 @@
+R02568	Y	-	C1	ANN+SNN	NS	OTHER	SIM	SIM	ESTIMATED	OPS	PAIRED	NA	NA	NA	NA	N	SNN up to 4x fewer additions, 43x fewer multiplications than ANN counterpart, using 20% of input data
+R02569	Y	-	C6	ANN+SNN	NS	STATIC_IMG+EVENT	SIM	SIM	ESTIMATED	ENERGY	NA	NA	NA	NA	NA	N	Bit Budget energy estimation unifies SNN time steps with ANN quantized bit-widths; no figures in abstract
+R02570	Y	-	C6	SNN	NS	NS	ASIC+MEMRISTOR	NA	ESTIMATED	ENERGY	NA	NA	NA	NA	NA	N	SATA/SpikeSim benchmarking: real SNN energy gains differ from estimated values (timestep recomputation, neuron overhead, crossbar non-idealities)
+R02582	Y	-	C2	SNN	NS	EVENT	SIM	NA	CLAIM	ENERGY+LATENCY	NA	REG	NA	NS	Y	N	Spiking rate loss trades performance against cost; claims better energy efficiency and latency than conventional schemes, no figures
+R02584	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Recurrent SNN vs RNN: comparable accuracy, fewer parameters, sparse spiking; no energy or operation metric
+R02585	Y	-	C1+C2	ANN+SNN	TRANSFORMER	STATIC_IMG	SIM	SIM	CLAIM	ENERGY	DIFFERENT	EVO	NA	STRUCT	Y	N	Spiking transformer NAS with energy-aware fitness; lower energy and fewer parameters than Spikformer and most CNN/ViT, no figures
+R02587	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	SpikeFPN event detection: mAP 0.477 on GEN1; ANN comparison accuracy-only, efficiency claim unquantified
+R02591	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Survey of SNN backpropagation training; efficiency and sparsity are secondary topics, not the main subject
+R02592	Y	-	C1	ANN+SNN	NS	NS	FPGA	NS	NS	POWER+THROUGHPUT+SPIKES	LITERATURE	NA	NA	NA	NA	N	Bayesian SNN on Zynq-7000: 25x fewer spikes than binary SNN; 6.5x GOPS/DSP, up to 30x less power vs state-of-the-art
+R02595	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	ANN-to-SNN conversion error 2.65%; latency and energy gains are versus a baseline partitioning algorithm, not an ANN
+R02596	Y	-	C1	HYBRID	NS	EVENT	SIM	SIM	NS	ENERGY	PAIRED	NA	NA	NA	NA	N	DSEC-flow: hybrid has 40% lower AEE, 22% lower energy than Full-SNN; 48% lower AEE than Full-ANN, similar energy
+R02604	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Spike-UNet image generation; ANN comparison is on quality only, low-energy claim has no figure
+R02607	Y	-	C1	ANN+SNN	NS	DET+CONTROL+EVENT	SIM	SIM	ESTIMATED	SPIKES	NS	NA	NA	NA	NA	N	SNN oculomotor controller tracks target activating 87.3% fewer neurons than a conventional neural network; no energy figure
+R02610	Y	-	C2	SNN	CNN	NS	SIM	NA	CLAIM	ENERGY+SPIKES	NA	NS	NA	NS	NS	N	Binary-weight single-step SNN exploiting activation sparsity; claims SOTA accuracy with significantly lower energy, no figures
+R02611	N	E7	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Memristive circuit learns by pruning synapses in a two-layer network; no spikes mentioned, no LTH
+R02614	Y	-	C1	ANN+SNN	NS	BIOSIG	SIM	SIM	CLAIM	ENERGY	NS	NA	NA	NA	NA	N	SNN on EEG depression: accuracy above 97.5%; claims lower energy than deep convolutional methods, no figure
+R02615	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	LSM sound localization with 1.04M parameters vs CNN 10.1M; parameter count only, no energy or operation metric
+R02617	Y	-	C5+C6	ANN	NS	NS	NA	NS	NONE	ENERGY	NA	NA	NA	NA	NA	N	Systematic review of brain-inspired hardware with standardized normalization of reported energy efficiency; no figures in abstract
+R02619	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Spiking physics-informed FE solver on Xylo chip: over 40% faster, energy down to thousandth, versus FEM not ANN
+R02620	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	SNN and LMU accident detection contrasted with ANNs on performance metrics; no efficiency figure
+R02621	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Brain-topology SNN for RL trained evolutionarily; beats ANNs on scores only, no efficiency metric
+R02623	Y	-	C1	ANN+SNN	NS	CONTROL+EVENT	OTHER_NEURO	EDGE_GPU	MEASURED	LATENCY+POWER	NS	NA	NA	NA	NA	U	BrainQN on PAICORE: significant latency and power advantages over Jetson Xavier NX; +82.14% reward vs DQN under low noise
+R02624	Y	-	C3	ANN	GNN	OTHER	NA	SIM	NONE	NONE	NA	DST	WEAK	UNSTRUCT	N	N	Resilient graph lottery tickets for robust OOD generalization via gradient-based reactivation of weights and edges; no efficiency figures
+R02629	Y	-	C1+C2	HYBRID	CNN	STATIC_IMG	ASIC	ASIC	NS	ENERGY+OPS+MEMORY	NS	OTHER	NA	NS	Y	U	Heterogeneous CNN/SNN ASIC: 85.8 TOPS/W CIFAR-10, 24.5 TOPS/W ImageNet ResNet-50; training operations cut 31-79%
+R02630	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Calibrated DNN-to-SNN conversion for RL on MuJoCo; no ANN efficiency comparison

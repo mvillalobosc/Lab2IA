@@ -1,0 +1,25 @@
+R01155	Y	-	C3	ANN	CNN	OTHER	NA	NS	NONE	NONE	NA	NS	NS	NS	N	N	LTH-based masking for communication-efficient federated log anomaly detection; compared with DeepLog and LogAnomaly on HDFS and BGL
+R01156	Y	-	C3	ANN	NS	STATIC_IMG	NA	NS	NONE	NONE	NA	NS	WEAK	NS	N	N	FedLTN learns sparse personalized lottery ticket networks, cutting communication cost on CIFAR-10 and Tiny ImageNet; no figures
+R01158	Y	-	C3	ANN	NS	NS	NA	NS	NONE	NONE	NA	THEORY	WEAK	NS	N	N	Proves existence of adversarial winning tickets via NTK; sparse subnetworks match dense adversarial training performance
+R01159	Y	-	C3	ANN	CNN	STATIC_IMG	NA	NS	ESTIMATED	OPS	NA	OTHER	WEAK	UNSTRUCT	N	N	Meta winning tickets with 20% weights; early detection needs 8-14% (Conv-4) and 19-29% (ResNet-12) of standard search FLOPs
+R01160	Y	-	C3	ANN	TRANSFORMER	NLP	NA	NS	NONE	NONE	NA	REG	WEAK	NS	N	N	Dominant winning ticket with 0.05% of parameters reaches satisfactory performance; L1-regularised fine-tuning; transferable across tasks
+R01161	Y	-	C2	SNN	NS	STATIC_IMG	SIM	NA	CLAIM	LATENCY+MEMORY	NA	OTHER	NA	NS	N	N	SVD-initialised interneuron sublayer compresses lateral inhibition and beats pruning of inhibitory connections on MNIST; no figures
+R01165	Y	-	C3	ANN	NS	NS	NA	NS	NONE	NONE	NA	SCORE	OTHER	UNSTRUCT	N	N	WSN jointly learns weights and task-adaptive binary masks per task, avoiding forgetting; masks Huffman-coded
+R01170	Y	-	C1	HYBRID	NS	EVENT+OTHER	SIM	SIM	CLAIM	ENERGY+MEMORY	NS	NA	NA	NA	NA	N	Spiking-analog fusion network claims substantial savings in parameters and computational energy for MVSEC optical flow; no figures
+R01172	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Ternary-weight SNN on CIFAR and NMNIST; accuracy 87.42, 63.42, 98.43; no ANN comparison, quantization only
+R01175	Y	-	C3	ANN	NS	NS	NA	NS	NONE	NONE	NA	THEORY+DST	WEAK	UNSTRUCT	N	N	Poor gradient flow explains weak sparse training; DST improves it; lottery tickets win by re-learning the pruning solution
+R01177	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	BPTT-based SNN training accelerator versus V100 GPU: 5.74-10.20x speedup, 5.25-7.12x energy saving, 7.38x area saving; no ANN
+R01187	Y	-	C3	ANN	NS	STATIC_IMG	NA	ASIC	MEASURED	ENERGY	NA	SCORE	STRONG	UNSTRUCT	N	N	Hiddenite engine reaches 34.8 to 16.0 TOPS/W on CIFAR-100 and ImageNet; supermask never updates random weights
+R01191	Y	-	C1	ANN+SNN	CNN	STATIC_IMG	SIM	NS	NS	OPS+ENERGY+MEMORY	DIFFERENT	NA	NA	NA	NA	N	SNN 17.97M operations (1/30 of ANNs), 1.38e-6 J (nearly three orders lower), 3.11 MB; F1 98.55%
+R01192	Y	-	C3	ANN	NS	DET	NA	CPU+GPU+FPGA	MEASURED	MEMORY+THROUGHPUT	NA	OTHER	NS	NS	Y	N	Compressed text detector: 142x smaller memory footprint, 5-8x throughput, accuracy within 5% of baseline; LTH only in keywords
+R01194	Y	-	C1	ANN+SNN	NS	EVENT+DET	SPINNAKER	NS	MEASURED	LATENCY+OPS	PAIRED	NA	NA	NA	NA	U	SpiNNaker system needs 96.3% less computation than same-scale ANN; detection rate above 99% at 900-2300 rpm
+R01203	Y	-	C3	ANN	NS	NS	NA	NS	NONE	NONE	NA	THEORY+OTHER	OTHER	NS	N	N	Threshold training dimension is a small fraction of parameters; compared with lottery tickets and new lottery subspaces
+R01205	Y	-	C3	ANN	CNN	STATIC_IMG	NA	NS	CLAIM	LATENCY	NA	MAG+REG+DST+OTHER	NS	UNSTRUCT	N	N	Unstructured sparse ImageNet CNNs match or beat dense transfer on twelve tasks at high sparsity, with inference and training speedups
+R01206	Y	-	C1	ANN+SNN	OTHER	TS	NS	NS	CLAIM	ENERGY	DIFFERENT	NA	NA	NA	NA	N	HAR: SNN claimed high performance at low energy cost versus DNN and Legendre memory unit classifiers; no figures
+R01208	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Review of neuromorphic SNN algorithm-hardware co-design and hybrid platforms; not focused on ANN-SNN efficiency comparison or pruning
+R01210	Y	-	C1	ANN+SNN	CNN	STATIC_IMG	SIM	NS	NS	ENERGY	PAIRED	NA	NA	NA	NA	N	SNN saves about 10x computational energy versus same-architecture CNN; high accuracy with fewer spiking time steps
+R01211	Y	-	C1	ANN+SNN	CNN	STATIC_IMG	SIM	NS	NS	ENERGY	PAIRED	NA	NA	NA	NA	N	SNN-SSEM energy stated as about 4.5 times that of same-architecture CNN (direction unclear); accuracy above 99%
+R01214	Y	-	C3	ANN	GNN	OTHER	NA	NS	NONE	NONE	NA	SCORE	WEAK	UNSTRUCT	N	N	IGRP finds graph lottery tickets (pruned adjacency plus subnetwork) and beats UGS on Cora, Citeseer, PubMed, Wiki-CS, Ogbn
+R01215	Y	-	C2	SNN	NS	STATIC_IMG	SIM	NA	NONE	NONE	NA	NS	NA	UNSTRUCT	N	N	Sparse STDP SNN gives very good accuracy with synapses reduced by nearly 1/10; no energy figures
+R01222	Y	-	C3	ANN	CNN	STATIC_IMG	NA	NS	NONE	NONE	NA	MAG+OTHER	WEAK	STRUCT	N	N	Filter-variety selection added to l1 and movement criteria keeps similar sparsity with higher accuracy and finds better tickets
+R01228	Y	-	C1	ANN+SNN	OTHER	EVENT	LOIHI	NS	MEASURED	ENERGY+LATENCY	NS	NA	NA	NA	NA	U	Loihi SNN up to x300 energy efficiency, latency on par or better versus other online learning methods (comparators unspecified)

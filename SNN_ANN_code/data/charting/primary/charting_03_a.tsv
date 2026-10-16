@@ -1,0 +1,25 @@
+R00777	Y	-	C1	ANN+SNN	CNN	EVENT	SIM	GPU	CLAIM	ENERGY	NS	NA	NA	NA	NA	N	Shallow LIF SNN for optical flow; uses small fraction of energy of CNNs on GPUs (no figure given)
+R00782	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	SNN tracker on TrueNorth: low energy and real-time claimed; no ANN efficiency comparison in abstract
+R00790	Y	-	C2	SNN	NS	STATIC_IMG+EVENT	SIM	NA	NS	LATENCY+MEMORY	NA	ACT	NA	MIXED	N	N	Sparse SNN backprop: backward pass up to 150x faster, 85% more memory efficient, same accuracy (Fashion-MNIST, N-MNIST, SHD)
+R00791	N	E7	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Gradual magnitude pruning with neuroregeneration (dynamic sparse training) on ResNet-50 ImageNet; LTH only as background; no SNN
+R00793	Y	-	C1+C2	ANN+SNN	CNN	STATIC_IMG	SIM	SIM	ESTIMATED	ENERGY+LATENCY+SPIKES	PAIRED	ACT+OTHER	NA	MIXED	Y	N	8-14x less compute energy than unpruned DL counterparts; 3-30x lower latency than SOTA SNNs; CIFAR10 89.04%, CIFAR100 66.4%
+R00796	Y	-	C1+C2	ANN+SNN	CNN	STATIC_IMG	SIM	SIM	NS	ENERGY	PAIRED	OTHER	NA	NS	Y	N	SNN compression up to 33.4x without accuracy drop; up to 12.2x better compute energy than ANNs with similar parameters
+R00797	Y	-	C1	ANN+SNN	OTHER	DET+EVENT	SIM	NS	NS	POWER	NS	NA	NA	NA	NA	N	On par with a comparable ANN method with potentially 50x less power; EV-IMO, EED, MOD datasets
+R00800	N	E6	-	-	-	-	-	-	-	-	-	-	-	-	-	-	CoT (gait energy) 1.64 SAC+SNN vs 1.91 SAC; measures robot motion, not network compute cost
+R00804	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Review of SNN real-world applications; benchmarking raised as motivation but not the main subject; no ANN efficiency comparison
+R00807	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Spiking-YOLO on SUMMIT-XL robot; energy efficiency asserted without figures or ANN comparison
+R00811	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	SSTDP training: 25-32x less latency than directly trained SNNs; 1.3-37.7x fewer additions; no ANN efficiency comparison
+R00815	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	DQN-to-SNN conversion on 17 Atari games; only simulation time analysed, no ANN efficiency comparison
+R00816	Y	-	C2	SNN	NS	NS	BRAINSCALES	NA	CLAIM	NONE	NA	DST	NA	UNSTRUCT	N	N	Rewiring-based structural plasticity keeps connectome sparse on BrainScaleS-2; efficiency asserted, no figures or ANN comparison
+R00819	Y	-	C3	ANN	TRANSFORMER	NLP	NA	NS	NONE	NONE	NA	NS	WEAK	NS	N	N	Winning/super tickets in BERT; fine-tuning improves 0.9 (base) and 1.0 (large) GLUE points; no efficiency figures
+R00828	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	ANN-to-SNN conversion; ImageNet 73.87% (VGG-16), 70.37% (ResNet-34) at 250 cycles; no ANN efficiency comparison
+R00829	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Direct-trained temporal-coded SNN within 1% of equivalent DNN on ImageNet (accuracy only); no efficiency comparison
+R00831	Y	-	C1	ANN+SNN	NS	STATIC_IMG	SIM	SIM	ESTIMATED	POWER+OPS	PAIRED	NA	NA	NA	NA	N	Up to 35x lower estimated power than rate-coded SNN and 42x than ANN on ImageNet; error +<1% vs ANN
+R00835	Y	-	C3	ANN	CNN	STATIC_IMG	NA	NS	NONE	NONE	NA	MAG	WEAK	NS	N	N	Winning tickets from IMP stretched or squeezed across ResNet depths without rerunning IMP; CIFAR-10, ImageNet; no efficiency figures
+R00839	Y	-	C3	ANN	NS	DET	NA	NS	NONE	NONE	NA	NS	WEAK	NS	N	N	First LTH study for detection, segmentation, keypoints; tickets up to 80% sparsity without loss; ImageNet tickets transfer poorly
+R00840	Y	-	C3	ANN	NS	STATIC_IMG+DET	NA	NS	NONE	NONE	NA	NS	WEAK	NS	N	N	Matching subnetworks at 59.04-96.48% sparsity in ImageNet, simCLR, MoCo weights transfer downstream without degradation
+R00842	Y	-	C2	SNN	NS	NS	SIM	NA	CLAIM	SPIKES	NA	REG	NA	NS	Y	N	Surrogate gradient design study; with activity regularization networks work robustly at sparse activity limit; no energy figures
+R00846	Y	-	C3	ANN	NS	NS	NA	NS	NONE	NONE	NA	DST	OTHER	UNSTRUCT	N	N	Topology distance for sparse networks; adaptive sparse connectivity finds sparse subnetworks outperforming dense; framed as efficient winning-ticket search
+R00849	N	E6	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Cross-layer edge AI overview (energy, reliability, security) for DNNs and SNNs; pruning one technique among many; no comparison
+R00850	Y	-	C2	SNN	NS	DET	SIM	NA	ESTIMATED	LATENCY+OPS	NA	OTHER	NA	NS	Y	N	Bayesian-optimised thresholds for SNN detection: SOPs cut 40.33% (VOC) and 45.31% (COCO); converges 2x and 1.85x faster
+R00851	Y	-	C2	SNN	NS	NS	SIM	NA	CLAIM	SPIKES	NA	OTHER	NA	NS	Y	N	LIF vs IF neurons: leak improves robustness and generalization but decreases computation sparsity; trade-off with energy efficiency, no figures

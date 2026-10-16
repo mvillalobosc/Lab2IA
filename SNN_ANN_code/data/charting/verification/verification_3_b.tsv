@@ -1,0 +1,25 @@
+R05508	Y	-	C1	ANN+SNN	NS	BIOSIG	SIM	SIM	CLAIM	NONE	DIFFERENT	NA	NA	NA	NA	N	Claims outperforming ML and DL baselines in accuracy, efficiency and real-time adaptability; no figures
+R05514	Y	-	C1+C2+C6	ANN+SNN	CNN	STATIC_IMG	SIM	SIM	NS	ENERGY+OPS	PAIRED	NS	NA	STRUCT	N	N	SNNs up to 15.7x energy efficiency vs CNNs; pruned SqueezeNet 1% below CNN accuracy, 88.1% less energy
+R05582	Y	-	C1	HYBRID	TRANSFORMER	NLP	GPU	GPU	ESTIMATED	ENERGY+LATENCY+OPS	PAIRED	NA	NA	NA	NA	N	Retains 95.9% of LoRA on KLUE topic, 96.8% on KorQuAD; theoretical adapter energy savings; GPU latency overhead
+R05585	Y	-	C1+C2	HYBRID	NS	DET	SIM	SIM	ESTIMATED	ENERGY	PAIRED	REG	NA	NS	Y	N	Operation-level theoretical energy better than ANN counterpart; sparsity constraint curbs over-activation; SOTA accuracy, no figures
+R05592	Y	-	C3	ANN	NS	STATIC_IMG	NA	SIM	NONE	NONE	NA	NS	WEAK	NS	N	N	Lottery-based sparse transfer learning for remote sensing classification; accuracy advantage, lightweight models; no efficiency figures
+R05635	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Hybrid ANN-SNN RGB-event tracker; SOTA accuracy, energy efficiency asserted without ANN efficiency comparison
+R05645	Y	-	C1	ANN+SNN	CNN+TRANSFORMER	DET	SIM	NS	NS	ENERGY	DIFFERENT	NA	NA	NA	NA	N	ORSSD T=4: Sα 92.79%, MAE 0.0109, 11.48 mJ; outperforms lightweight ANN counterparts
+R05649	N	E2	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Spintronic device perspective (MTJ synapses, stochastic neurons); spiking sparsity from device dynamics, no ANN evaluation
+R05683	Y	-	C2	SNN	NS	OTHER	FPGA	NA	NS	POWER	NA	NS	NA	UNSTRUCT	Y	N	FPGA LIF classifier with weight pruning: Iris accuracy 93.3%, 3.5 W on-chip power, 587 logic cells
+R05699	Y	-	C5	ANN+SNN	NS	NS	NS	NS	NONE	NONE	NA	NA	NA	NA	NA	N	Tutorial review of SNN learning theory and energy-efficient implementations compared with ANNs
+R05707	Y	-	C1	ANN+SNN	RNN	STATIC_IMG+AUDIO	MCU	MCU	MEASURED	ENERGY+LATENCY+MEMORY	PAIRED	NA	NA	NA	NA	U	STM32H7 recurrent SNN MNIST 197.69 ms, 76.98 mJ; peak SRAM -74%; outperforms iso-parametric RNNs
+R05728	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Quantized spiking underwater detector; 57.2% mAP@0.50; 24.21 mJ/frame at 45 nm; compared only with SNNs
+R05751	Y	-	C2	SNN	NS	STATIC_IMG+EVENT+AUDIO+BIOSIG	SIM	NA	CLAIM	ENERGY	NA	DST	NA	UNSTRUCT	NS	N	DEAP 92.29%/91.08%, WESAD 99.77%, MNIST & TIDIGITS 99.01%, MNIST-DVS & N-TIDIGITS 99.98%; energy efficiency claimed
+R05794	Y	-	C1	ANN+SNN	NS	BIOSIG	SIM	SIM	NS	ENERGY	NS	NA	NA	NA	NA	N	92.6% accuracy; 38.4% less energy, 41.7% less communication than DNN-based FL; privacy leakage down >45%
+R05798	Y	-	C1	ANN+SNN	NS	NLP	NS	NS	CLAIM	ENERGY+LATENCY	NS	NA	NA	NA	NA	N	SNN language encoding framework; claims less energy and faster inference than deep learning NLP; no figures
+R05824	Y	-	C1	ANN+SNN	NS	CONTROL	FPGA+ASIC	FPGA+ASIC	BOTH	ENERGY+THROUGHPUT	LITERATURE	NA	NA	NA	NA	U	ANN 422.6 GOPS/W, SNN 190.8 GSOPS/W; 35.0x V100, 1.21x EyerissV2 energy efficiency; vs Loihi 56.7x throughput, 3.85x
+R05827	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Narrative review of time-series forecasting from deep learning to SNNs; no ANN-SNN efficiency comparison focus
+R05864	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Partitioned convolutional SNN for tactile glove; higher accuracy than existing SNN; efficiency potential asserted only
+R05914	Y	-	C2	SNN	NS	BIOSIG	ASIC	NA	NS	ENERGY	NA	ACT	NA	NS	Y	N	40-nm QSNN accelerator 0.066 μJ/inference, 0.21 mm2, >3.4x less energy than SOTA accelerators; accuracy ≥97.40%
+R05948	Y	-	C1	ANN+SNN	CNN	OTHER	SIM	SIM	ESTIMATED	ENERGY	PAIRED	NA	NA	NA	NA	N	Rain200L 39.96 dB PSNR, 0.9870 SSIM; theoretical energy efficiency over 56% above ANN PReNet; 4.3% less than ESDNet
+R05952	Y	-	C2	SNN	NS	BIOSIG	SIM	NA	CLAIM	ENERGY	NA	OTHER	NA	STRUCT	Y	N	Scale-adaptive SNN spike sorter adds or removes nodes online; accuracy comparable to benchmarks; energy savings claimed
+R05982	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Spiking CNN traffic classifier; ISCX-VPN 98.65, Non-VPN 92.51; lower parameters and energy claimed, comparator unnamed
+R06004	Y	-	C1	ANN+SNN	NS	OTHER	ASIC	NS	MEASURED	ENERGY	LITERATURE	NA	NA	NA	NA	N	Fabricated 28 nm spiking chip 83.2 TOPS/W peak; 2.16x energy efficiency over SOTA point cloud processors
+R06018	Y	-	C5	HYBRID	NS	NS	NS	NS	CLAIM	POWER	NA	NA	NA	NA	NA	N	Survey of hybrid SNN-ANN designs for wireless edge; efficiency-accuracy trade-off; claims substantial power reductions
+R06046	Y	-	C1+C2	ANN+SNN	TRANSFORMER	OTHER	NS	NS	NS	ENERGY+LATENCY	LITERATURE	ACT	NA	STRUCT	Y	N	24.3-135.3x speedup, 154.4-845.3x energy efficiency vs GPU; 4.9x and 2.4x vs point cloud and spiking Transformer accelerators

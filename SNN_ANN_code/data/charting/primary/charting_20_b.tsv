@@ -1,0 +1,25 @@
+R05835	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	STMOD SNN detector mAP 44.3/34.2 on GEN1/DSEC; fewer parameters, higher energy efficiency vs event-based detectors (type unstated)
+R05837	Y	-	C1	ANN+SNN	MLP+RNN	TS	SIM	SIM	NS	ENERGY	PAIRED	NA	NA	NA	NA	N	CUBA TTFS SNN MAE 0.22, RMSE 0.30, 2,863 pJ/inference, about 91% lower energy than LSTM; accuracy not different (p>0.05)
+R05846	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	LSM reservoir connectivity and spike multiplication factor tied to chaos; no ANN comparison, no pruning method
+R05856	Y	-	C2	SNN	NS	CONTROL	SIM	NA	CLAIM	LATENCY+ENERGY	NA	NS	NA	MIXED	Y	N	One-timestep spiking actor, sparse adaptive masked connections; comparable to SOTA with lower latency and energy (no figures); 8 Gym tasks
+R05863	N	E5	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Gradient-guided supermasks set merge weights between old and new models; no sparse subnetwork or LTH content
+R05864	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Partitioned CSNN for tactile glove: higher accuracy than existing SNN; fewer readout cycles and compute, no ANN comparison figures
+R05868	Y	-	C1	ANN+SNN	CNN	STATIC_IMG+EVENT	GPU	GPU	MEASURED	ENERGY+LATENCY+MEMORY	NS	NA	NA	NA	NA	Y	CSNN vs CNN on MPS and RTX 3070: MPS more energy efficient but slower; CNN more accurate; CSNN more memory
+R05869	Y	-	C1	ANN+SNN	CNN	STATIC_IMG	SIM	NS	CLAIM	OPS	PAIRED	NA	NA	NA	NA	N	AkidaNet CNN converted to SNN: 94.44% test accuracy after conversion (90.74% quantized with QAT); reduced compute claimed, no figures
+R05882	Y	-	C1	ANN+SNN	NS	TS	NS	NS	CLAIM	LATENCY	DIFFERENT	NA	NA	NA	NA	N	Physics-encoded SNN arc fault detection claims ultra-low latency vs conventional baselines; no figures
+R05885	Y	-	C1+C2	ANN+SNN	RNN	BIOSIG	SIM	NS	NS	OPS+POWER	LITERATURE	REG+OTHER	NA	NS	N	N	PicoSleepNet: 27x fewer operations, 1480x lower computational power, 14.0-25.8K params; accuracy 83.5/77.9/79.4% (SOTA comparators unstated)
+R05886	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	PICoSNN optical SNN accelerator: 70.54x throughput, 8.13x lower energy vs ASIC implementations; baseline types unstated, no ANN baseline
+R05891	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	PON SNN intrusion detection: Macro F1 92.48; TTQ cuts model size 30.69 to 13.82 KB; no ANN efficiency comparison
+R05892	Y	-	C1	ANN+SNN	TRANSFORMER	OTHER	GPU	EDGE_GPU	MEASURED	POWER	PAIRED	NA	NA	NA	NA	Y	Spiking DUST on Jetson Orin Nano: about 25% lower power than original DUST, comparable reconstruction quality
+R05893	Y	-	C6	SNN	NS	NS	MEMRISTOR	NA	ESTIMATED	POWER	NA	NA	NA	NA	NA	N	ILP power estimation model for SNN mapping on ReRAM crossbars; dynamic power -12.6 to -27.3% in hardware-simulator validation
+R05901	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Federated SNN with sparse spike-gradient updates cuts uplink communication; accuracy vs ANN and SNN baselines; no energy or ops figures
+R05902	Y	-	C1	ANN+SNN	CNN+OTHER	EVENT	LOIHI2	NS	MEASURED	POWER+OPS	DIFFERENT	NA	NA	NA	NA	U	Loihi 2: graded-spike LIF CSNN 5x fewer ops than binary spikes (+6% F1); MCUNet+S4D best F1, 90 mW
+R05909	Y	-	C3	ANN	TRANSFORMER	NLP	NA	GPU	NONE	NONE	NA	OTHER	OTHER	NS	N	N	Gradient-free attribution pruning removes unsafe LLM parameters, framed as unsafe/safety tickets under LTH; no efficiency figures
+R05912	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	QDS-SNN: 99.72% GTSRB, 55.77% less energy than MS-ResNet baseline (an SNN); no ANN efficiency comparison
+R05914	Y	-	C2	SNN	NS	BIOSIG	ASIC	NA	NS	ENERGY	NA	ACT	NA	NS	Y	N	QSNNA 40-nm accelerator: 0.066 uJ/inference, >3.4x lower energy than SOTA accelerators, area 0.21 mm2; accuracy >=97.40%
+R05917	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Quantization-only SNN study: EMD diagnostic of firing-distribution drift on SEW-ResNet, CIFAR-10/100; no ANN comparison, no pruning
+R05918	Y	-	C1	ANN+SNN	GNN+TRANSFORMER	TS	SIM	SIM	ESTIMATED	ENERGY+OPS	DIFFERENT	NA	NA	NA	NA	N	QVFS-SGTN: energy analysis 40-55% lower computational cost vs conventional DL; accuracy 0.968, F1 0.968, AUC 0.991
+R05923	Y	-	C3	ANN	CNN+TRANSFORMER	NS	NA	NS	NONE	NONE	NA	RANDOM+REG	OTHER	UNSTRUCT	N	N	Dual LTH: random sparse subnetworks made trainable via sharpness-aware regularization (SA-RST); compared with RigL and SET
+R05930	Y	-	C2	SNN	NS	AUDIO	NS	NA	NS	POWER	NA	NS	NA	STRUCT	NS	N	NPAM-SNN echo canceller: SNR 7.00 dB; 32.6%, 8.07%, 45.60%, 30.35% less power than SCDM, CMOS ASIC, LCCAM, CIPC-AM
+R05931	Y	-	C1	ANN+SNN	NS	DET+EVENT	LOIHI2	EDGE_GPU+CPU	MEASURED	ENERGY+POWER+THROUGHPUT+LATENCY	PAIRED	NA	NA	NA	NA	Y	Loihi 2 SNN lowest energy and power vs ANN on Jetson/M2; ANN higher rate; SNN keeps 87-100% ANN accuracy
+R05932	N	E6	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Broad review of brain-inspired AI (neuron models, SNNs, neuromorphic hardware); main subject not ANN-SNN efficiency, benchmarking or pruning

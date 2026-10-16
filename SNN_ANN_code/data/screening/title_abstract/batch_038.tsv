@@ -1,0 +1,100 @@
+R03701	EXCLUDE	E2	memristor/in-memory	Memristor ReLU neuron device; simulated single-layer SNN only, no ANN comparison
+R03702	EXCLUDE	E2	photonic	Optoelectronic synapse device; CNN digit simulation only
+R03703	UNSURE	C1	none	Hybrid ANN-SNN vision-language model; efficiency claimed, no metrics visible
+R03704	INCLUDE	C1	none	PINN-to-SNN conversion; efficiency gains and low spike rates claimed
+R03705	EXCLUDE	E4	none	Spiking transformer token mixer; no ANN efficiency comparison visible
+R03706	EXCLUDE	E4	none	Asynchronous SNN optical-flow accelerator; no ANN baseline visible
+R03707	EXCLUDE	E4	none	SNN-processor co-design framework; no ANN baseline or sparsity content
+R03708	EXCLUDE	E4	none	SNN weight initialization for training; accuracy only
+R03709	EXCLUDE	E2	photonic	Self-powered photosynaptic skin device; CNN recognition only
+R03710	EXCLUDE	E6	none	Lottery ticket sales consumer behavior; unrelated
+R03711	EXCLUDE	E5	none	Graph network for frames and events; no spiking network
+R03712	EXCLUDE	E2	ASIC	Event-driven pixel readout circuit; no learning task
+R03713	EXCLUDE	E4	none	Adversarial attacks on SNNs; no efficiency or sparsity content
+R03714	EXCLUDE	E5	memristor/in-memory	Memristor transformer accelerator; ANN only, no spikes
+R03715	EXCLUDE	E4	none	Hybrid CNN-SNN gait classifier; accuracy-only comparison
+R03716	EXCLUDE	E4	none	Evolutionary architecture search for SNN; no efficiency comparison
+R03717	EXCLUDE	E4	none	SNN traffic-light detection; efficiency only as motivation
+R03718	EXCLUDE	E4	none	SNN-DQN navigation; energy reported but baselines are A* and Dijkstra
+R03719	EXCLUDE	E6	none	Reconfigurable robot with deep RL; no spiking networks
+R03720	INCLUDE	C3	none	Pruning bias in DNNs; truncated lottery ticket scheme proposed
+R03721	INCLUDE	C2	none	Balanced SNN initialization cuts firing rates up to 99.9%
+R03722	UNSURE	C1	none	SNN ECG-PCG energy-accuracy trade-off; ANN baseline unclear
+R03723	INCLUDE	C2	none	Pruning of learnable delays in spiking convolutions, up to 80% removed
+R03724	EXCLUDE	E5	CPU	Im2col convolution layout optimization on CPUs; no spikes
+R03725	INCLUDE	C1+C2	none	Binarized SNN versus binarized CNN; memory and computation savings
+R03726	UNSURE	C1	none	KD-lightened SNN versus ResNet; parameter savings, energy metrics unclear
+R03727	INCLUDE	C1	none	SNN versus ANN plant disease classification; claims 30% less computation
+R03728	EXCLUDE	E6	none	Lottery fraud accounting case study; unrelated
+R03729	EXCLUDE	E4	none	Benchmark of SNN learning rules; accuracy and robustness, no efficiency
+R03730	INCLUDE	C1	none	MNIST SNN versus ANN benchmark across timesteps using SynOps
+R03731	EXCLUDE	E2	ASIC	3D-IC PPA study of hybrid accelerator; no SNN-ANN task comparison
+R03732	EXCLUDE	E2	photonic	Tellurium optoelectronic synapse device; ANN demo only
+R03733	EXCLUDE	E2	photonic	Photodetector-photosynapse device; ANN recognition simulation only
+R03734	EXCLUDE	E4	none	SNN attention for image classification; accuracy focus
+R03735	EXCLUDE	E4	none	SNN object detector; compared only with SNN baseline on accuracy
+R03736	EXCLUDE	E2	photonic	Nanowire photodetector-synapse device; ANN pattern recognition only
+R03737	EXCLUDE	E5	FPGA	Binarized KAN accelerator; no spiking network
+R03738	INCLUDE	C3	none	Strong lottery ticket with random weights in GNN accelerator
+R03739	EXCLUDE	E2	memristor/in-memory	Overview of 2D material devices for reservoir computing
+R03740	EXCLUDE	E4	none	SNN versus ANN drone policy; task metrics only, no energy
+R03741	UNSURE	C1	none	Event-based SNN localization versus frame-based networks; metric unclear
+R03742	EXCLUDE	E2	photonic	Mid-infrared neuromorphic transistor device; reservoir computing demo
+R03743	EXCLUDE	E2	ASIC,memristor/in-memory	Neuromorphic CMOS-memristor circuits; no ANN comparison visible
+R03744	EXCLUDE	E2	memristor/in-memory	Memristor-tunnel diode spiking neuron circuit model
+R03745	EXCLUDE	E4	none	Spike encoding with photoreceptor layer; accuracy only
+R03746	EXCLUDE	E2	photonic	Ferroelectric optoelectronic device; CNN simulation only
+R03747	INCLUDE	C1	none	SNN versus LSTM ECG anomaly detection; 12.5% power reduction
+R03748	INCLUDE	C1	none	SNN versus ANN biomedical signals; 72.8% energy reduction
+R03749	EXCLUDE	E2	memristor/in-memory	NbO2-ECRAM spiking neuron device; no ANN comparison
+R03750	EXCLUDE	E2	photonic	Phototransistor STDP device; SNN tracking, no ANN comparison
+R03751	EXCLUDE	E2	ASIC	Analog CMOS delay-detector circuit; no network-level comparison
+R03752	EXCLUDE	E2	photonic	Optoelectronic transistor synapse; ANN recognition only
+R03753	EXCLUDE	E5	photonic	In-sensor detection device pipeline; no spiking network
+R03754	EXCLUDE	E4	TrueNorth	Cortical circuit on TrueNorth; ViT accuracy gains only
+R03755	EXCLUDE	E4	none	SNN excitatory-inhibitory ratio training robustness; no efficiency comparison
+R03756	INCLUDE	C1	none	Heterogeneous SNN; up to 17.83-fold energy reduction, baseline unspecified
+R03757	EXCLUDE	E4	none	Hybrid CNN-SNN for Alzheimer MRI; accuracy only
+R03758	INCLUDE	C1	none	ANN-to-SNN conversion for bearing fault diagnosis; latency and cost
+R03759	UNSURE	C2	none	Shared connections reduce neurons; main focus biological plausibility
+R03760	EXCLUDE	E2	photonic	MoS2 ring oscillator encoder device; CNN demo only
+R03761	EXCLUDE	E2	photonic	AlGaN photodetector device; ANN recognition only
+R03762	EXCLUDE	E4	none	Spiking transformer attention; accuracy gap to ANN, no efficiency metrics
+R03763	INCLUDE	C3	none	Lottery-ticket subnetworks in binary networks for federated learning
+R03764	INCLUDE	C2	none	Spiking transformer accelerator with error-constrained pruning and sparsity
+R03765	EXCLUDE	E4	none	SNN compiler for brain-inspired chips; no efficiency comparison
+R03766	INCLUDE	C2	none	Binarized SNN with distillation; memory cut to 3.125%
+R03767	EXCLUDE	E4	none	Distillation for SNN training; accuracy only
+R03768	EXCLUDE	E3	none	Theoretical chance-learning model in SNNs; no efficiency task
+R03769	EXCLUDE	E6	none	Blockchain-IoT tourism; unrelated
+R03770	EXCLUDE	E3	GPU	Brain simulation partitioning on GPU supercomputers; no ML task
+R03771	INCLUDE	C1	none	CNN-to-SNN conversion for detection with fewer time steps
+R03772	EXCLUDE	E4	none	Decentralized SNN satellite learning; efficiency only as motivation
+R03773	INCLUDE	C2	none	Criticality-based pruning-regeneration for deep SNNs
+R03774	EXCLUDE	E2	memristor/in-memory	Mem-selector device; input data pruning, not network pruning
+R03775	EXCLUDE	E4	none	Tutorial on SNN learning rules for control; not efficiency
+R03776	EXCLUDE	E4	none	Spiking reservoir with evolutionary NAS; accuracy only
+R03777	EXCLUDE	E4	none	Evolutionary NAS for SNN architectures; no pruning or ANN comparison
+R03778	EXCLUDE	E4	none	SNN online adaptation for remote sensing; no ANN efficiency comparison
+R03779	INCLUDE	C2	memristor/in-memory	Quantized SNN on memristor crossbar; 16x fewer parameters, 4x less energy
+R03780	INCLUDE	C1	none	SNN detector outperforming ANN detectors at 6.43 mJ
+R03781	EXCLUDE	E2	photonic	Dendrite-like photosynaptic device; ANN digit recognition only
+R03782	EXCLUDE	E4	none	Spiking variational inference; sparse codes, no efficiency metrics
+R03783	INCLUDE	C1	MCU	RSNN versus ANN decoder on ESP32; 15.96x speed-up
+R03784	UNSURE	C2	ASIC	Seizure chip; sparse firing clock-gating cuts power 93%, no ANN baseline
+R03785	INCLUDE	C3	none	Lottery tickets and edge-popup in grokking
+R03786	EXCLUDE	E2	photonic	IGZO phototransistor synapse device; ANN MNIST only
+R03787	EXCLUDE	E2	photonic	MoTe2/WSe2 photodetector-synapse device
+R03788	EXCLUDE	E2	memristor/in-memory	Polymer memristor material and device work
+R03789	INCLUDE	C1	ASIC	DNN/SNN transformer chip; reports energy versus baseline
+R03790	INCLUDE	C2	FPGA	SNN accelerator with structured weight pruning; GSOP/W reported
+R03791	INCLUDE	C1	none	Calibrated SNN; energy and power versus non-spiking approaches
+R03792	EXCLUDE	E4	none	Physical adversarial attack on SNNs; no efficiency content
+R03793	EXCLUDE	E1	none	No abstract; news-style feature, not research
+R03794	INCLUDE	C3	none	LTH-inspired parameter mask for sparse fine-tuning in NLP
+R03795	INCLUDE	C1	ASIC	ANN-to-SNN conversion training; 28nm processor energy reported
+R03796	EXCLUDE	E2	ASIC	Temporal neural network neuron circuit; area and power only
+R03797	EXCLUDE	E4	none	Spiking graph network for fault diagnosis; no efficiency comparison
+R03798	EXCLUDE	E4	none	STDP assemblies SNN classifier; power only as motivation
+R03799	EXCLUDE	E2	memristor/in-memory	Heterojunction memristor device; ANN digit simulation only
+R03800	EXCLUDE	E2	memristor/in-memory,photonic	SnS2 photo-synapse memristor; MNIST simulation, no ANN comparison

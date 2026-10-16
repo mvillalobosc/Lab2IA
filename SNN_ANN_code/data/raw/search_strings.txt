@@ -1,0 +1,17 @@
+Search strings run on 14 October 2026. Blocks A and B were combined with OR for the export.
+
+Scopus, block A
+TITLE-ABS-KEY ( ( "artificial neural network*" OR "deep neural network*" OR "deep learning" OR "convolutional neural network*" ) AND ( "spiking neural network*" OR "neuromorphic" ) AND ( "energy" OR "power" OR "efficien*" OR "latency" ) ) AND PUBYEAR > 2019 AND PUBYEAR < 2027 AND ( LIMIT-TO ( DOCTYPE, "ar" ) OR LIMIT-TO ( DOCTYPE, "cp" ) OR LIMIT-TO ( DOCTYPE, "re" ) ) AND ( LIMIT-TO ( LANGUAGE, "English" ) OR LIMIT-TO ( LANGUAGE, "Spanish" ) )
+
+Scopus, block B
+TITLE-ABS-KEY ( "lottery ticket*" OR "supermask*" OR "edge-popup" OR ( ( "pruning" OR "sparsity" OR "sparse" ) AND ( "spiking neural network*" OR "neuromorphic" ) ) ) AND PUBYEAR > 2019 AND PUBYEAR < 2027 AND ( LIMIT-TO ( DOCTYPE, "ar" ) OR LIMIT-TO ( DOCTYPE, "cp" ) OR LIMIT-TO ( DOCTYPE, "re" ) ) AND ( LIMIT-TO ( LANGUAGE, "English" ) OR LIMIT-TO ( LANGUAGE, "Spanish" ) )
+
+Web of Science Core Collection, block A
+TS=(("artificial neural network*" OR "deep neural network*" OR "deep learning" OR "convolutional neural network*") AND ("spiking neural network*" OR "neuromorphic") AND ("energy" OR "power" OR "efficien*" OR "latency")) AND PY=(2020-2026) AND DT=(Article OR Proceedings Paper OR Review) AND LA=(English OR Spanish)
+
+Web of Science Core Collection, block B
+TS=("lottery ticket*" OR "supermask*" OR "edge-popup" OR (("pruning" OR "sparsity" OR "sparse") AND ("spiking neural network*" OR "neuromorphic"))) AND PY=(2020-2026) AND DT=(Article OR Proceedings Paper OR Review) AND LA=(English OR Spanish)
+
+Export settings
+Scopus: Export > CSV, all results, with "Citation information", "Bibliographical information" and "Abstract & keywords"; save as data/raw/Scopus.csv (6,092 records on the search date).
+Web of Science: Export > Tab delimited or Excel, "Full Record", in batches of 1,000; save as data/raw/Wos1.xls ... Wos5.xls (4,688 records on the search date).

@@ -1,0 +1,100 @@
+R00918	EXCLUDE	E4	none	SNN architecture; accuracy-only comparison with DNNs, no efficiency metric
+R00941	EXCLUDE	E5	FPGA,GPU	Non-spiking SOM/Hebbian model on FPGA versus GPU; no SNN
+R00948	EXCLUDE	E2	photonic	Photonic computing hardware review; no SNN, no pruning
+R00965	EXCLUDE	E2	FPGA	Digital spiking time-difference encoder circuit; no learning task or ANN baseline
+R00980	EXCLUDE	E4	Loihi	Spiking versus non-spiking LCA solution fidelity on Loihi; no efficiency metric
+R00988	EXCLUDE	E6	none	Event camera sensor characterization and radiation testing; off-topic
+R01017	EXCLUDE	E6	none	Trust management systems and computing power shortage; no SNN-ANN comparison
+R01021	EXCLUDE	E2	photonic	Photonic MAC hardware for deep learning; no SNN or pruning
+R01038	EXCLUDE	E2	simulation	Spintronic device architecture for CNN; no SNN, no pruning
+R01039	EXCLUDE	E4	none	Metaheuristic-trained SNN for spectrum sensing; no efficiency or pruning
+R01042	EXCLUDE	E3	none	Computational neuroscience SNN model of MSTd receptive fields
+R01051	EXCLUDE	E3	none	Neural decoding of superior colliculus recordings in monkeys
+R01061	EXCLUDE	E4	Loihi,Dynap	SNN many-core design; energy compared with NoC baseline, no ANN baseline
+R01062	EXCLUDE	E4	none	Spiking reservoir drone detection; low power only as motivation
+R01069	EXCLUDE	E3	none	Hippocampal dentate gyrus network model of pattern separation
+R01082	UNSURE	C1	SpiNNaker,GPU	E-prop on SpiNNaker 2; energy 12x below V100 GPU, ANN baseline unclear
+R01087	EXCLUDE	E5	none	Event-camera tracker with conventional NN detector; no SNN
+R01097	EXCLUDE	E4	none	SNN on-chip learning hardware; baselines are SNN methods, no ANN
+R01101	UNSURE	C1	none	Spike encodings versus CNN baseline; spike and bit-rate savings, ANN efficiency unclear
+R01105	EXCLUDE	E2	memristor/in-memory	RRAM synaptic device characterization; no network-level comparison
+R01107	EXCLUDE	E2	photonic	All-optical SOA neural network emulation; no SNN or pruning
+R01137	EXCLUDE	E2	memristor/in-memory	Memristor artificial neuron device; no ANN comparison or pruning
+R01138	EXCLUDE	E2	memristor/in-memory	RRAM programming strategy for stable inference; no SNN or pruning
+R01145	EXCLUDE	E4	none	Liquid state machine extensions; spike reduction versus LSM, no ANN baseline
+R01149	UNSURE	C6	memristor/in-memory,simulation	SNN chip simulator estimating delay and power; unclear if methodology contribution
+R01150	EXCLUDE	E5	none	CNN-based event data representation; no SNN, no pruning
+R01151	UNSURE	C1	Loihi,CPU	Loihi sparse coding versus OMP on CPU; SWaP claim unquantified, non-ANN baseline
+R01153	EXCLUDE	E4	none	SNN fault injection security study; no ANN efficiency comparison
+R01183	EXCLUDE	E4	none	Spike-driven few-shot learning algorithm; no efficiency metric or ANN comparison
+R01186	EXCLUDE	E2	memristor/in-memory	Ferroelectric memcapacitor synapse device; no SNN or pruning
+R01195	EXCLUDE	E2	photonic	Photonic neuro-transistor device; ANN simulation only for accuracy
+R01199	EXCLUDE	E2	memristor/in-memory	MoS2 memtransistor synapse device; no SNN or pruning
+R01204	EXCLUDE	E6	none	Event-camera place recognition; no SNN, no pruning
+R01209	EXCLUDE	E4	simulation	Hyperdimensional operations as SNN circuits; energy estimates, no ANN baseline
+R01216	EXCLUDE	E5	memristor/in-memory	Tiki-Taka training on asymmetric resistive arrays; ANN focus, SNN only mentioned
+R01228	INCLUDE	C1	Loihi	Loihi on-chip learning; x300 energy efficiency versus other online learners
+R01233	EXCLUDE	E4	none	Spiking ResNet design study; accuracy-only, no ANN efficiency comparison
+R01237	EXCLUDE	E4	Loihi	Loihi random-walk data generation; energy claim versus simulation, not ANN
+R01271	EXCLUDE	E4	ASIC,memristor/in-memory	SNN PIM accelerator; baselines are STDP and BPTT SNNs, no ANN
+R01287	EXCLUDE	E5	TrueNorth,FPGA,memristor/in-memory	CNN mapping to NVM crossbars; core usage versus TrueNorth, no SNN-ANN energy
+R01288	EXCLUDE	E4	none	SNN mapping toolchain; baselines are other mappers, no ANN
+R01299	EXCLUDE	E6	none	Neuroprosthesis review; off-topic for efficiency or pruning
+R01326	EXCLUDE	E2	memristor/in-memory	Domain-wall synapse crossbar CNN co-design; no SNN or pruning
+R01332	EXCLUDE	E4	GPU	SNN online training method; memory versus BPTT, no ANN baseline
+R01341	EXCLUDE	E2	none	Organic synaptic diode device; no network-level evaluation
+R01342	EXCLUDE	E2	none	Organic synaptic transistor device; ANN simulation only for accuracy
+R01389	EXCLUDE	E4	none	SNN training-inference decoupling; accuracy gains only, no efficiency measurement
+R01397	EXCLUDE	E4	none	SNN backprop with accelerator power and latency; no ANN baseline
+R01403	EXCLUDE	E6	FPGA	DVS multi-object tracking on FPGA; no neural network comparison
+R01406	EXCLUDE	E4	none	Reservoir training algorithm; accuracy-only comparison with DNNs, no efficiency
+R01410	EXCLUDE	E2	photonic	Silicon ring resonator phase-change model; device level only
+R01418	EXCLUDE	E3	CPU	Spike delivery algorithm for brain simulation code; no ML task
+R01420	EXCLUDE	E4	none	Multicompartment spiking neuron model; energy only as motivation, no baseline
+R01435	EXCLUDE	E4	GPU	SNN training memory reduction versus SNN BPTT; no ANN baseline
+R01439	EXCLUDE	E5	none	Non-spiking Hebbian winner-take-all learning; no SNN, no pruning
+R01459	EXCLUDE	E4	none	SNN learning algorithm; no efficiency metric or ANN comparison
+R01467	EXCLUDE	E4	none	Spiking GAN training with ANN discriminator; no efficiency metric
+R01479	EXCLUDE	E4	none	SNN signal detector for body communication; BER versus ML detector only
+R01508	EXCLUDE	E4	none	Temporal-coding SNN backprop; accuracy-only comparison with conventional networks
+R01510	EXCLUDE	E4	none	SNN gradient re-weighting training; accuracy-only, no efficiency measurement
+R01512	EXCLUDE	E5	memristor/in-memory	Ternary memristor DNN inference; accuracy versus software, no SNN
+R01517	EXCLUDE	E6	none	Virus-host protein interaction networks; off-topic
+R01525	EXCLUDE	E2	memristor/in-memory	Analog CMOS vector-matrix multiplier circuit; no SNN or pruning
+R01527	EXCLUDE	E4	memristor/in-memory	Perspective on reflective SNNs and memristors; no efficiency comparison
+R01531	UNSURE	C2	GPU,CPU,simulation	Parameter-efficient tuning in ANN and SNN; analog power claim versus GPU
+R01545	EXCLUDE	E2	photonic	Photonic MAC accelerator benchmark; no SNN or pruning
+R01555	EXCLUDE	E2	photonic	Photonic linear optics processor; no SNN or pruning
+R01567	EXCLUDE	E2	memristor/in-memory,simulation	Memristor synapse circuit simulation; no network-level evaluation
+R01574	EXCLUDE	E4	ASIC	SNN chip reporting pJ/SOP; no ANN baseline measured
+R01579	EXCLUDE	E2	ASIC,memristor/in-memory	In-memory image processing macro for event sensors; no SNN
+R01583	EXCLUDE	E2	none	Flexible MoS2 synaptic transistor array; device level
+R01586	EXCLUDE	E4	none	SNN malware detection; low power claimed, no ANN efficiency comparison
+R01598	EXCLUDE	E2	none	Optoelectronic synapse device; ANN used only for digit recognition
+R01602	EXCLUDE	E4	SpiNNaker,FPGA	SpiNNaker interface board; throughput and latency, no ANN baseline
+R01614	EXCLUDE	E2	memristor/in-memory,ASIC,Loihi	Memristor learning-engine circuit; energy versus ASIC and Loihi, no ANN
+R01636	EXCLUDE	E2	photonic	Light-emitting synaptic device system; device level
+R01646	EXCLUDE	E4	memristor/in-memory	Spike-based backprop for hardware; accuracy-only comparison with ANN
+R01650	EXCLUDE	E4	none	STDP SNN model for optic flow; no efficiency measurement
+R01652	EXCLUDE	E4	memristor/in-memory,FPGA,GPU	SNN accelerator codesign project overview; no ANN comparison
+R01665	EXCLUDE	E3	none	Electrophysiology and model of mossy cell spike threshold
+R01668	EXCLUDE	E2	none	SOI charge-trapping synaptic transistor; device level
+R01675	EXCLUDE	E2	photonic	Photon-avalanche nanoparticle synapse; device level
+R01677	EXCLUDE	E4	ASIC,memristor/in-memory	SNN chip pJ/SOP versus other SNN chips; no ANN baseline
+R01688	EXCLUDE	E4	FPGA	FPGA accelerator for SNN Bayesian sampling; no ANN baseline
+R01717	EXCLUDE	E4	GPU	SNN framework for spatiotemporal tasks; no ANN efficiency comparison
+R01718	EXCLUDE	E4	none	Binarized SNN liver cancer classification; accuracy-only comparison with other models
+R01727	EXCLUDE	E2	memristor/in-memory	TiO2 memristor synapse device; no SNN or pruning
+R01734	EXCLUDE	E4	none	Robustness strategies on mixed-signal SNN hardware; no ANN baseline
+R01736	EXCLUDE	E4	none	Evolved SNN circuits; accuracy-only, no efficiency or pruning
+R01759	INCLUDE	C1	none	Hybrid ANN-SNN versus ANN; lower power with Gaussian coding, accuracy compared
+R01761	EXCLUDE	E4	FPGA	FPGA spiking neuron implementation; power and resources, no ANN baseline
+R01787	EXCLUDE	E4	none	SNN deep clustering; accuracy-only comparison with ANN
+R01798	EXCLUDE	E5	photonic,ASIC	Reservoir computing hardware overview; no spikes, no pruning
+R01806	EXCLUDE	E4	none	Binarized SNN in breast cancer pipeline; accuracy-only comparison
+R01822	EXCLUDE	E4	none	SNN mapping toolchain; baselines are other mappers, no ANN
+R01825	EXCLUDE	E2	none	Li-ion synaptic transistor device; ANN simulation only for accuracy
+R01839	EXCLUDE	E4	GPU	SNN training cost reduction versus SNN BPTT; no ANN baseline
+R01844	EXCLUDE	E6	none	E-textiles review of neuromorphic AI; not an efficiency comparison
+R01854	INCLUDE	C3	GPU	DNN energy-constrained compression; Lottery Ticket baseline, energy on GPU/Jetson
+R01867	EXCLUDE	E2	none	HxWO3 redox-transistor synapse; ANN simulation only for accuracy

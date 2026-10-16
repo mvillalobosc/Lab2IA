@@ -1,0 +1,25 @@
+R04761	Y	-	C1	ANN+SNN	CNN	AUDIO	NS	NS	NS	LATENCY+ENERGY	PAIRED	NA	NA	NA	NA	N	SNN vs CNN voice-based HF detection: accuracy 94.6 vs 91.2%; inference latency -43%, energy about -40%
+R04762	Y	-	C5	ANN+SNN	NS	NS	NS	NS	NS	ENERGY+LATENCY+SPIKES	NA	NA	NA	NA	NA	N	Surrogate-gradient SNNs within 1-2% of ANN accuracy, 10 ms latency; STDP SNNs lowest spikes, 5 mJ per inference
+R04763	Y	-	C1	ANN+SNN	CNN	DET	NS	NS	CLAIM	ENERGY	NS	NA	NA	NA	NA	N	YOLOv5-based spiking detector with error-feedback quantization neuron; claims significant accuracy and energy advantages on DOTA1.5 and COCO, no figures
+R04764	Y	-	C1	HYBRID	TRANSFORMER	BIOSIG	NS	NS	NS	POWER	PAIRED	NA	NA	NA	NA	N	Hybrid ANN-SNN rPPG model: power -10.1% vs PhysFormer; transformer block power reduced 12.2x with comparable performance
+R04765	Y	-	C1	ANN+SNN	TRANSFORMER	OTHER	NS	NS	ESTIMATED	ENERGY	PAIRED	NA	NA	NA	NA	N	Theoretical energy at least 6.4x lower than its ANN counterpart; SOTA among SNNs on three point cloud benchmarks
+R04768	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	SNN Siamese-UNet for building damage assessment; accuracy-focused, no efficiency metric or figures
+R04770	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Spiking forecasting network; competitive with mainstream deep learning; computational efficiency and sparsity mentioned without metrics or figures
+R04771	Y	-	C1	ANN+SNN	CNN+TRANSFORMER	DET+EVENT	NS	NS	CLAIM	ENERGY	DIFFERENT	NA	NA	NA	NA	N	Spiking YOLO-Transformer: 67.7% mAP@50 on COCO, 68.6% on Gen1; claims better energy efficiency than advanced Transformer architectures, no figures
+R04776	Y	-	C1	ANN+SNN	CNN	DET	NS	NS	CLAIM	ENERGY	PAIRED	NA	NA	NA	NA	N	Converted SNN matches source ANNs on medical segmentation; energy advantage claimed, no figures; conversion memory cut by orders of magnitude
+R04779	Y	-	C1	ANN+SNN	NS	CONTROL	NS	NS	NS	LATENCY+ENERGY	DIFFERENT	NA	NA	NA	NA	N	SNN-DRL scheduler beats DeepRM by 10-30% in scheduling speed, load balancing and energy efficiency (cluster-level metrics)
+R04780	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Spiking state space model; competitive with SSMs on LRA with 90% average network sparsity; no efficiency comparison with ANNs
+R04781	Y	-	C2	SNN	TRANSFORMER	OTHER	NS	NA	CLAIM	SPIKES	NA	SCORE	NA	STRUCT	Y	N	Saliency feedback gating suppresses uninformative clips to cut neural activity; KD from non-spiking teacher; competitive results, no efficiency figures
+R04784	Y	-	C1	ANN+SNN	NS	OTHER	SIM	NS	ESTIMATED	ENERGY	PAIRED	NA	NA	NA	NA	N	Up to 72.95% less energy than full-precision ANN baseline with comparable synthesis quality; neuromorphic simulator shows further gains
+R04789	Y	-	C1+C2	ANN+SNN	GNN	OTHER	NS	NS	NS	ENERGY	DIFFERENT	OTHER	NA	STRUCT	N	N	Entropy-based edge pruning plus gating: 97.28% energy reduction vs conventional GNNs, 85.31% on Cora; 64.58% vs 30.14% under noise
+R04791	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Event-based optical flow SNN with ANN-to-SNN conversion; energy efficiency mentioned without figures or ANN comparison; accuracy-focused
+R04794	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Weight histogram analysis of SNN on DVS128 Gesture to guide quantization and pruning; no pruning applied, no efficiency metrics
+R04795	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	SNN mapping: up to 12x less memory traffic, 5x less energy; neuron states cut 20x; no ANN comparison
+R04796	Y	-	C1+C6	ANN+SNN	TRANSFORMER	STATIC_IMG+DET+EVENT+TS	SIM	SIM	ESTIMATED	ENERGY	NS	NA	NA	NA	NA	N	Benchmark and analytical energy model for spiking transformers; quantized ANNs may offer comparable or better energy efficiency
+R04798	Y	-	C3	ANN	CNN	STATIC_IMG	NA	NS	NONE	NONE	NA	OTHER+EVO	NS	NS	N	N	Stochastic pruning (Gaussian-noise perturbation before pruning) improves one-shot accuracy at extreme sparsity on CIFAR-10/100; LTH only in keywords
+R04802	Y	-	C3	ANN	MLP	NS	NA	NS	NONE	NONE	NA	NS	NS	NS	N	N	Network-science analysis of pruned lottery-ticket MLPs: heavy-tailed degree distributions emerge; metric changes precede performance collapse
+R04803	Y	-	C2	SNN	NS	OTHER	NS	NA	NONE	NONE	NA	ACT+DST	NA	MIXED	N	N	Neuron prune-and-grow guided by spike train similarity in multilayer SNNs; adaptive structure beats fixed; no efficiency metrics
+R04809	Y	-	C3	ANN	NS	NS	NA	NS	NONE	NONE	NA	SCORE	STRONG	NS	N	N	Supermask-based personalized federated learning with ranked scores; less communication, better accuracy and privacy; no energy metrics
+R04811	Y	-	C1	ANN+SNN	TRANSFORMER	EVENT+OTHER	NS	NS	NS	ENERGY	DIFFERENT	NA	NA	NA	NA	N	84.03% top-1 on UCF101 at 21 mJ/video, SOTA among directly trained SNNs; comparable to mainstream models with higher efficiency
+R04831	Y	-	C3	ANN	NS	STATIC_IMG	NA	NS	NONE	NONE	NA	SCORE	NS	UNSTRUCT	N	N	One-shot teacher-guided unstructured pruning; high sparsity with minimal accuracy loss on CIFAR-10/100, TinyImageNet; beats EPG, EPSD
+R04834	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	ANN-SNN conversion with probabilistic spiking neurons; state-of-the-art accuracy only, no efficiency metric

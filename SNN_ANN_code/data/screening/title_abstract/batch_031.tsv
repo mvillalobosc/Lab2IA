@@ -1,0 +1,100 @@
+R03001	EXCLUDE	E2	memristor/in-memory	Spintronic LIF neuron device; no network-level evaluation visible.
+R03002	EXCLUDE	E2	memristor/in-memory	MTJ synapse/neuron device; MNIST accuracy only, no efficiency comparison.
+R03003	EXCLUDE	E2	none	Magnetic straintronics device review; not ANN-SNN efficiency comparison.
+R03004	EXCLUDE	E5	none	Non-spiking cognitive map learner versus DQN; neuromorphic used loosely.
+R03005	INCLUDE	C2	FPGA	SNN accelerator with hybrid weight-sparsity compression; GSOP/W on FPGA.
+R03006	INCLUDE	C3	none	Mask learning over random noise, supermask keyword; federated communication cost.
+R03007	INCLUDE	C3	none	Lottery tickets via IMP and learning rate rewinding; mask theory.
+R03008	EXCLUDE	E2	memristor/in-memory	Ferroelectric tunnel junction synapse device; ANN simulation only.
+R03009	EXCLUDE	E6	none	Event camera raindrop measurement; unrelated to ANN-SNN efficiency.
+R03010	EXCLUDE	E2	memristor/in-memory	Triboelectric transistor memory device; no network-level comparison.
+R03011	EXCLUDE	E4	GPU	Reversible SNN cuts training GPU memory; compared against SNNs only.
+R03012	EXCLUDE	E2	memristor/in-memory	Memristive C. elegans circuit and robot; circuit-level, no learning task.
+R03013	EXCLUDE	E4	memristor/in-memory	Memristive LIF model and learnable STE; SNN accuracy only.
+R03014	EXCLUDE	E5	memristor/in-memory	Memristive DNN hardware versus CNN software; no SNN involved.
+R03015	EXCLUDE	E2	memristor/in-memory	RRAM tonotopic mapping circuits; device-level work.
+R03016	INCLUDE	C2	memristor/in-memory	Threshold trimming keeps SNN sparsity; memristor Bayesian diagnosis; borderline.
+R03017	EXCLUDE	E2	memristor/in-memory	Memristor in-situ convolution device; no SNN-ANN comparison.
+R03018	EXCLUDE	E2	memristor/in-memory	Review of memristor neuromorphic chips; device and circuit focus.
+R03019	EXCLUDE	E2	memristor/in-memory	Memristor SNN hardware review; no ANN-SNN efficiency benchmarking evident.
+R03020	EXCLUDE	E4	none	Bio-plausible meta-learning with R-STDP; SNN only, accuracy only.
+R03021	EXCLUDE	E2	none	Thin-film transistor synapse device review; no network-level comparison.
+R03022	EXCLUDE	E4	none	SNN time-series forecasting; energy only claimed as motivation.
+R03023	EXCLUDE	E4	none	Spiking depression EEG classifier; no ANN efficiency measurement shown.
+R03024	EXCLUDE	E2	memristor/in-memory	Domain wall MTJ device model; compares device technologies, not ANN-SNN.
+R03025	EXCLUDE	E3	none	ANN surrogate of Hodgkin-Huxley oscillators; computational neuroscience modelling.
+R03026	EXCLUDE	E2	photonic	Superconducting optoelectronic neuron equations; photonic device-level modelling.
+R03027	EXCLUDE	E2	memristor/in-memory	Volatile memristor oscillator neuron circuit simulations; device-level.
+R03028	UNSURE	C1	none	Spiking P systems, energy evaluated; unclear if ANN baseline compared.
+R03029	EXCLUDE	E4	none	Spiking CNN for modulation classification; ANN power only as motivation.
+R03030	EXCLUDE	E2	memristor/in-memory	MoS2 memristor device review.
+R03031	EXCLUDE	E2	photonic	Perovskite photonic synapse device; per-event energy only.
+R03032	INCLUDE	C2	memristor/in-memory	Memristive small-world sparse-connectivity SNN hardware; routing efficiency versus SNN platforms.
+R03033	EXCLUDE	E4	none	Kernel tracker with random-coupled network features; no ANN efficiency comparison.
+R03034	EXCLUDE	E4	none	SNN adversarial defense with energy savings; no ANN baseline.
+R03035	INCLUDE	C1	none	ANN-SNN conversion with adaptive threshold; lower latency.
+R03036	EXCLUDE	E2	memristor/in-memory	Metal halide memristor synapse device; perceptron simulation only.
+R03037	EXCLUDE	E5	none	CNN-Transformer super-resolution inspired by spiking P systems; no SNN.
+R03038	EXCLUDE	E2	memristor/in-memory	RRAM device; SNN navigation demo without ANN comparison.
+R03039	EXCLUDE	E6	none	Skin sensor; off-topic.
+R03040	INCLUDE	C1	none	Deep SNN segmentation claims lower energy and memory; verify ANN baseline.
+R03041	EXCLUDE	E4	none	Event-based SNN classification with Tempotron; no efficiency comparison.
+R03042	EXCLUDE	E2	memristor/in-memory	Ferroelectric domain wall memory device; CNN simulation only.
+R03043	EXCLUDE	E2	photonic	Diffractive optical network chip; photonic hardware, no SNN.
+R03044	INCLUDE	C1	none	Multimodal SNN uses about one tenth CNN energy.
+R03045	UNSURE	C1	none	Multiplierless SNN versus CNNs with 99.8% fewer parameters; energy unclear.
+R03046	EXCLUDE	E3	simulation	Neuroscience co-simulation toolbox for brain models.
+R03047	EXCLUDE	E2	memristor/in-memory	Compound MTJ synapse device; ANN accuracy only.
+R03048	INCLUDE	C1	Loihi2	Loihi 2 energy-delay product 20,721x better; baseline truncated, verify.
+R03049	UNSURE	C2	GPU	Dendritic SNN online learning architecture; connection sparseness ablation, GPU comparison.
+R03050	EXCLUDE	E2	none	Nanooptical gold growth substrates; materials work.
+R03051	INCLUDE	C2	CPU	SNN spike-sparsity kernels on RISC-V; 4-10x speedup over dense.
+R03052	EXCLUDE	E5	none	Mapping and placement toolchain for DNNs on neuromorphic chips; no SNN.
+R03053	EXCLUDE	E3	none	Neuroscience model of critical period inhibition.
+R03054	INCLUDE	C2+C4	none	Evolutionary neuron pruning of SNNs, up to 97.5% less energy.
+R03055	UNSURE	C1	none	Spiking transformer fault diagnosis; low computational cost claimed, metrics unclear.
+R03056	UNSURE	C1	FPGA	Evolved compact SNN on FPGA; half CNN parameters, 10 ns latency.
+R03057	EXCLUDE	E4	ASIC	SNN face recognition camera; 5.88 W, no ANN comparison.
+R03058	EXCLUDE	E4	none	CLIP with SNN adapter for event data; accuracy only.
+R03059	EXCLUDE	E4	none	CNN de-raining with spiking attention; PSNR only.
+R03060	EXCLUDE	E5	FPGA,ASIC	Event-based chiplet running CNNs; neuromorphic used loosely, no SNN.
+R03061	EXCLUDE	E4	none	LIF-LSTM solar forecasting; accuracy against benchmarks only.
+R03062	EXCLUDE	E1	ASIC,memristor/in-memory	Invited talk abstract on SNN hardware energy; not a full paper.
+R03063	EXCLUDE	E1	memristor/in-memory	Invited talk abstract on memristor neuromorphic AI; not a paper.
+R03064	EXCLUDE	E6	none	Review of neuromorphic computing in agriculture; off-topic application.
+R03065	EXCLUDE	E4	ASIC	GA-SNN grid controller on neuromorphic chip; no ANN baseline.
+R03066	EXCLUDE	E2	memristor/in-memory	Optoelectronic memristor synapse device; CNN accuracy only.
+R03067	EXCLUDE	E5	none	Agentic AI with RL and cognitive architectures; no SNN.
+R03068	EXCLUDE	E4	CPU,ASIC	SNN on neuromorphic chip for cell sorting; no ANN comparison.
+R03069	EXCLUDE	E6	none	Optical event-stream encryption; off-topic.
+R03070	EXCLUDE	E2	none	GaN HEMT neuromorphic device with ANN forecasting; device-level.
+R03071	EXCLUDE	E4	simulation	SNN microgrid communication under simulation; no ANN baseline.
+R03072	EXCLUDE	E4	none	Duplicate of R03059: CNN de-raining with spiking attention; PSNR only.
+R03073	EXCLUDE	E5	none	Event graph transformer; no SNN involved.
+R03074	INCLUDE	C1	none	SNN stochastic-attention transformer, 5.4x-26.8x lower power than ANN.
+R03075	EXCLUDE	E4	simulation	Interoperability representation for neuromorphic platforms; no efficiency comparison.
+R03076	INCLUDE	C2	none	SNN keyword spotting reporting activity and connectivity sparsity as energy proxy.
+R03077	INCLUDE	C1+C2	none	Spiking GRU matches ANN; sparsity cuts operations up to 22x.
+R03078	EXCLUDE	E4	none	Neuromorphic MCTS saves energy versus conventional algorithm, not an ANN.
+R03079	EXCLUDE	E2	memristor/in-memory	Nanoionic device review for human-machine interaction.
+R03080	EXCLUDE	E2	photonic	Photonic-electronic network with SOA and APD; photonic device work.
+R03081	EXCLUDE	E2	memristor/in-memory	VO2 device neuron and synapse emulation; device-level.
+R03082	EXCLUDE	E6	none	Conceptual analysis of neuromorphic programming; off-topic.
+R03083	EXCLUDE	E4	none	Wake-up radio neuromorphic communications; no ANN baseline.
+R03084	EXCLUDE	E4	simulation	Wake-up radio neuromorphic split computing; no ANN baseline.
+R03085	EXCLUDE	E4	none	SNN synaptic-delay temporal pattern detection; no efficiency comparison.
+R03086	EXCLUDE	E5	memristor/in-memory	Sparse-attention transformer for in-memory hardware; no SNN.
+R03087	INCLUDE	C2	ASIC	28-nm SNN chip exploiting weight sparsity of pruned models.
+R03088	INCLUDE	C1	simulation	SNN-controlled RIS matches ANN rate with much lower energy.
+R03089	INCLUDE	C1	none	Spiking neural operator versus ANN operator; sparsity-energy claim, verify metric.
+R03090	EXCLUDE	E6	none	Review of neuroscience in vision models; off-topic.
+R03091	EXCLUDE	E2	memristor/in-memory,MCU	Locally-active memristor with CNN; device-level.
+R03092	EXCLUDE	E2	memristor/in-memory	Ferroelectric memristor optoelectronic synapse; device-level.
+R03093	INCLUDE	C3	none	Theory of pruning at initialization and lottery tickets.
+R03094	EXCLUDE	E4	simulation	NoC simulators coupled to NEST; no ANN comparison.
+R03095	EXCLUDE	E4	none	Siamese SNN for SAR; accuracy-only comparison with ANNs.
+R03096	INCLUDE	C1	ASIC	ANN-SNN conversion to ternary SNN; efficiency claims, hybrid circuits.
+R03097	INCLUDE	C3	CPU	Lottery-ticket pruned CNN and MLP ensemble; latency on Snapdragon.
+R03098	EXCLUDE	E2	memristor/in-memory	3D vertical memristor array device; compared with single-layer ANNs only.
+R03099	EXCLUDE	E2	memristor/in-memory	Antiferroelectric HZO synapse and neuron device.
+R03100	INCLUDE	C1	none	CRNN-SNN lossless conversion for sequence learning.

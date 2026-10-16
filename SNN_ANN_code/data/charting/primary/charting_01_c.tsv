@@ -1,0 +1,25 @@
+R00226	Y	-	C3	ANN	TRANSFORMER	NLP	NA	NS	NS	LATENCY	NA	NS	WEAK	STRUCT	N	N	LTH head pruning removes up to 75% of attention heads with -0.1 BLEU (Turkish-English); pruned model 1.5x faster at inference
+R00227	Y	-	C3	ANN	MLP+CNN	STATIC_IMG	NA	NS	NONE	NONE	NA	NS	WEAK	NS	N	N	Pruning at epoch k, not initialization: a minimum k yields maximal pruning with accuracy kept or improved (MNIST, CIFAR10/100)
+R00229	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Whetstone-trained spiking MLPs/CNNs on 48-chip SpiNNaker, high inference throughput via network tiling; no ANN or GPU comparison
+R00232	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Loihi vs D-Wave quantum annealer on LCA sparse coding (Fashion MNIST); power, reconstruction, accuracy similar; no ANN baseline
+R00234	Y	-	C2	SNN	OTHER	OTHER	SIM	NA	NONE	SPIKES	NA	OTHER	NA	NS	Y	N	Multi-compartment neurons trained with greedy decision-tree rule give informative, sparse spiking codes; toy binary classification, no energy figures
+R00236	N	E2	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Memory encodings for neuromorphic accelerators: functional encoding saves 58% energy, bitmap 1.37x efficiency at 4% accuracy loss; no ANN comparison
+R00250	Y	-	C1	ANN+SNN	NS	NS	MEMRISTOR	MEMRISTOR	NS	ENERGY+POWER	PAIRED	NA	NA	NA	NA	N	SNN mode at least 6.25x more power-efficient than ANN mode; energy 7.9x better than ISAAC (ANN), 45x than INXS (SNN)
+R00251	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Nengo toolchain examples on CPUs, GPUs and Loihi (rover control, robot arm adaptive control); no efficiency figures or ANN comparison
+R00253	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Spiking CNNs on MNIST and GTSRB: rate and temporal coding schemes compared on accuracy and spiking activity; no ANN comparison
+R00254	Y	-	C5+C6	ANN+SNN	NS	NS	ASIC+MEMRISTOR	ASIC+MEMRISTOR	NONE	ENERGY+THROUGHPUT	NA	NA	NA	NA	NA	N	Review of ANN and SNN neuro-inspired chips; proposes four benchmarking metrics: computing density, energy efficiency, accuracy, on-chip learning
+R00270	Y	-	C3	ANN	CNN	NS	NA	NS	NONE	NONE	NA	MAG	WEAK	UNSTRUCT	N	N	IMP-pruned vs unpruned CNNs compared with CCA: similar first conv and fully connected layers, different intermediate layers
+R00273	Y	-	C3	ANN	NS	NS	NA	NS	NONE	NONE	NA	THEORY	STRONG	UNSTRUCT	N	N	Strong LTH: pruning a random network only O(log(dl)) wider and twice as deep approximates any width-d, depth-l target; near-optimal
+R00277	Y	-	C2	ANN+SNN	CNN	STATIC_IMG+EVENT	SIM	NS	CLAIM	ENERGY+OPS	NA	REG	NA	NS	Y	N	Energy-aware training of converted spiking CNNs lowers energy at similar accuracy (MNIST-DVS, CIFAR-10); no figures given
+R00287	Y	-	C3	ANN	RNN+TRANSFORMER	NLP+CONTROL	NA	NS	NONE	NONE	NA	NS	WEAK	NS	N	N	Winning tickets exist in LSTM and Transformer NLP models and RL tasks; Transformer tickets one-third the size reach near-equivalent performance
+R00294	Y	-	C3	ANN	NS	NS	NA	NS	NONE	NONE	NA	THEORY	STRONG	NS	N	N	Proves strong LTH: sufficiently over-parameterized random-weight networks contain a subnetwork matching the target network without training
+R00295	Y	-	C2	ANN+SNN	NS	NS	MEMRISTOR	SIM	CLAIM	ENERGY	NA	REG	NA	UNSTRUCT	N	N	L1 regularization prunes connections of Schottky-diode hardware SNN without retraining; accuracy 97.85% vs 98.13% for software DNN; energy efficiency asserted
+R00296	Y	-	C3	ANN	CNN	STATIC_IMG	NA	NS	NONE	NONE	NA	OTHER	OTHER	UNSTRUCT	N	N	Data-free pruning at initialization (SynFlow) avoids layer-collapse; matches or beats state-of-the-art methods up to 99.99% sparsity
+R00305	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Time-for-space spiking modules shrink spiking CNN size to conventional network size; checked on a threshold neuroprocessor; no efficiency metrics
+R00306	Y	-	C1	ANN+SNN	NS	CONTROL	LOIHI	EDGE_GPU	MEASURED	ENERGY	PAIRED	NA	NA	NA	NA	Y	SDDPG on Loihi 75x less energy per inference than DDPG on Jetson TX2; success rate 1% to 4.2% higher
+R00307	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	CNN-to-SNN conversion, DVS pedestrian/vehicle recognition and 3D acquisition; reduces ANN-SNN error; efficiency only asserted, no figures
+R00308	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Balanced excitatory/inhibitory SNN with ensemble learning on MNIST; compact, sparse synapses claimed; no pruning method or ANN comparison
+R00310	Y	-	C1+C6	ANN+SNN	NS	STATIC_IMG+EVENT	SIM	SIM	ESTIMATED	MEMORY+OPS	PAIRED	NA	NA	NA	NA	N	SNNs lose to ANN counterparts on ANN-oriented workloads, win on SNN-oriented; accuracy-cost trade-off depends on time window and threshold
+R00312	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Soft-reset RMP neurons: near loss-less conversion (CIFAR-10 93.63%, ImageNet 73.09%), 2-8x fewer time-steps than hard reset; no ANN comparison
+R00318	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Shenjing SNN accelerator maps MLP/CNN/ResNet without retraining; MNIST MLP 96% at 1.26 mW on 10 cores; no ANN baseline
+R00327	Y	-	C1+C2	ANN+SNN	CNN	CONTROL+OTHER	SIM	SIM	CLAIM	OPS	PAIRED	OTHER	NA	TEMPORAL	Y	N	Converted SpArNet needs significantly fewer synaptic operations than the reference CNN on steering and gesture tasks; no figures

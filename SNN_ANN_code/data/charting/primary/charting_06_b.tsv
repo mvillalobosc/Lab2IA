@@ -1,0 +1,25 @@
+R01809	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Review of direct-training deep SNN methods (accuracy, efficiency, temporal dynamics); not focused on ANN-SNN efficiency or pruning
+R01810	Y	-	C1	ANN+SNN	CNN	EVENT+CONTROL	OTHER_NEURO	NS	NS	ENERGY+LATENCY+THROUGHPUT+SPIKES	DIFFERENT	NA	NA	NA	NA	U	SNN beats CNN on obstacle avoidance with 6x less energy; three embedded SNN versions run on neuromorphic hardware
+R01812	Y	-	C3	ANN	NS	NS	NA	SIM	NONE	NONE	NA	OTHER	NS	NS	N	N	DRO ensemble of lottery tickets improves calibration without losing accuracy or adding inference cost; no efficiency figures
+R01815	Y	-	C1	ANN+SNN	NS	DET+EVENT+CONTROL	SIM	NS	ESTIMATED	POWER+LATENCY	DIFFERENT	NA	NA	NA	NA	N	SNN-based DVS obstacle avoidance: 70% obstacles avoided, estimated 1.5-13.5 mW, delay up to 7% lower than RL methods
+R01816	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Conversion with dynamic threshold: 7.14x faster inference, 0.44x energy vs max-normalization SNN; no ANN efficiency comparison
+R01818	Y	-	C1	ANN+SNN	CNN	STATIC_IMG	SIM	SIM	ESTIMATED	OPS+MEMORY+SPIKES	PAIRED	NA	NA	NA	NA	N	~10,000 spikes per MNIST digit, 4x fewer bits than non-spiking CNN; ~10,000 vs ~1,870,000 training ops per sample
+R01826	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	MAC-array SNN inference on SpiNNaker 2: 82.71% less execution time vs serial ARM, 49.89% less memory; no ANN baseline
+R01828	Y	-	C1	ANN+SNN	CNN+RNN	BIOSIG	SIM	SIM	ESTIMATED	ENERGY	NS	NA	NA	NA	NA	N	EESNN comparable or better than ANNs on cross-patient EEG seizure detection; energy several orders of magnitude lower (theoretical estimate)
+R01829	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Conversion with adaptive threshold for point cloud and image classification; fewer time steps than other conversions; no ANN efficiency data
+R01831	Y	-	C1	ANN+SNN	NS	TS	SIM	SIM	NS	ENERGY	NS	NA	NA	NA	NA	N	SNN competitive or better than ANNs on three HAR datasets, energy reduced by up to 94%
+R01835	N	E7	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Event-based GRU with activity sparsity and sparse BPTT; text never mentions spikes; ANN sparsification outside LTH family
+R01836	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Multi-core MAC array SNN inference on SpiNNaker 2: execution time <=24.56% of serial ARM, memory 74-86%; no ANN baseline
+R01838	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Overview of SNN training methods and neuromorphic hardware solutions; no efficiency comparison, pruning or benchmarking
+R01847	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	CNN vs Spike-by-Spike under quantization and approximate computation; SbS more robust (accuracy, +0.6%); no efficiency metric compared
+R01848	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Axonal-delay SNNs on SHD: >90% accuracy, under half the synapses, ~90% estimated energy and memory reduction; no ANN baseline
+R01854	N	E7	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Energy-constrained DNN compression (ProjACQN) beats Lottery-Ticket baseline by 4.82-7.58% three-pixel error; ANN-only, LTH only as baseline
+R01855	Y	-	C1	ANN+SNN	CNN	STATIC_IMG	SIM	SIM	CLAIM	ENERGY+MEMORY	NS	NA	NA	NA	NA	N	Siamese SNN for SAR ship classification: higher accuracy, fewer parameters, lower energy than mainstream DL; no figures
+R01856	Y	-	C1	ANN+SNN	CNN	DET	SIM	SIM	NS	ENERGY	DIFFERENT	NA	NA	NA	NA	N	Spiking-Rep-YOLOv3 matches YOLOv3-tiny accuracy with 40.7% of its energy on E-FPDS
+R01857	Y	-	C2	SNN	CNN	STATIC_IMG	FPGA	NA	NS	POWER+ENERGY	NA	OTHER	NA	NS	Y	N	FPGA SNN accelerator: sparsity-aware computing, early termination and posit adder give 46% power reduction vs SNN baseline
+R01858	Y	-	C6	SNN	NS	NS	SIM	NA	CLAIM	ENERGY+MEMORY+SPIKES	NA	NA	NA	NA	NA	N	Overview of SATA and SpikeSim hardware evaluation platforms showing spike sparsity can mislead SNN energy claims; no figures
+R01859	Y	-	C1	ANN+SNN	NS	CONTROL	SIM	NS	CLAIM	ENERGY	NS	NA	NA	NA	NA	N	Differentiable SNN gesture-controlled robotic arm in simulation; less energy than other methods, no figures
+R01860	Y	-	C1	ANN+SNN	CNN	BIOSIG	SIM	SIM	ESTIMATED	ENERGY+MEMORY	PAIRED	NA	NA	NA	NA	N	SCNN 1.28 uJ/classification, 98.6% lower energy than conventional CNN at same accuracy; 27x memory efficiency; sensitivity 83.02%
+R01861	Y	-	C1	ANN+SNN	CNN	DET+EVENT	SIM	SIM	NS	ENERGY	PAIRED	NA	NA	NA	NA	N	SCGNet-S comparable to ANN CGNet on Cityscapes with 4.85x energy efficiency; also DDD17 event segmentation
+R01863	Y	-	C3	ANN	NS	DET	NA	SIM	NONE	NONE	NA	OTHER	OTHER	UNSTRUCT	N	N	3D pose domain adaptation using LTH-inspired transferable parameter retention; no efficiency data
+R01865	Y	-	C2	SNN	NS	OTHER	SIM	NA	NS	SPIKES	NA	OTHER	NA	NS	Y	N	Temporal-coding STDP representation learning cuts spike counts; sparsity up to 900x vs related SNN work; no ANN comparison

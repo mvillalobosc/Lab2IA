@@ -1,0 +1,25 @@
+R04254	Y	-	C1	HYBRID	NS	NS	NS	NS	CLAIM	POWER	DIFFERENT	NA	NA	NA	NA	N	Hybrid DNN-neuromorphic structure claims dramatic power reduction versus traditional AI models at competitive accuracy; no figures in abstract.
+R04266	Y	-	C3	ANN	GNN	OTHER	NA	NS	NONE	NONE	NA	MAG	WEAK	UNSTRUCT	N	N	Gradual iterative magnitude pruning with knowledge distillation finds graph lottery tickets; outperforms UGS; no efficiency figures.
+R04268	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	ANN-to-SNN knowledge distillation: ResNet-18 CIFAR-100 80.48% with four timesteps vs ANN 79.90%; no other efficiency metric.
+R04269	Y	-	C3	ANN	TRANSFORMER	NLP	NA	NS	NONE	MEMORY	NA	OTHER+THEORY	OTHER	NS	N	N	KS-Lottery finds small parameter subsets (18 token embeddings of LLaMA suffice) matching full fine-tuning for translation; certified in embedding layer.
+R04270	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Sparse spike encoding with SNN classifies MNIST/Fashion-MNIST; fewer input pixels and spikes than traditional methods; no ANN energy comparison.
+R04273	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Layer-wise ANN-to-SNN distillation: competitive accuracy with ANNs and faster inference than converted SNNs; no ANN efficiency comparison.
+R04279	Y	-	C3	ANN	NS	OTHER	NA	NS	NONE	NONE	NA	NS	OTHER	NS	N	N	Prunable network yields compatible subnetworks at any capacity via post-training pruning for asymmetric retrieval; no efficiency figures.
+R04281	Y	-	C3	ANN	NS	STATIC_IMG	NA	NS	NONE	NONE	NA	MAG	WEAK	UNSTRUCT	N	N	Meta-LTH prunes meta-learner by magnitude pruning; about 2% accuracy gain over first-order MAML (20-way 1-shot, Omniglot, FC100).
+R04282	N	E2	-	-	-	-	-	-	-	-	-	-	-	-	-	-	PIM processor for DNN/SNN training and inference, 179.8 TFLOPS/W in title; abstract lists challenges only, no ANN-SNN comparison.
+R04283	Y	-	C1	ANN+SNN	NS	EVENT	NS	NS	NS	ENERGY+LATENCY	DIFFERENT	NA	NA	NA	NA	N	Pipeline uses over 10,000x less energy than current frame-based methods at similar performance on real event camera datasets.
+R04286	Y	-	C2	SNN	TRANSFORMER	NS	NS	NA	NS	THROUGHPUT+ENERGY	NA	OTHER	NA	STRUCT	Y	N	SSA operator raises structured sparsity 1.8x with under 1% accuracy loss; sparsity-aware dataflow gives 16% throughput, 18% energy gains.
+R04287	Y	-	C5	ANN+SNN	CNN+TRANSFORMER	NS	NS	NS	CLAIM	ENERGY+LATENCY	NA	NA	NA	NA	NA	N	Overview of neuromorphic computing for data analytics; asserts energy and latency advantages over CNNs and transformers, no quantitative results.
+R04290	Y	-	C2	SNN	OTHER	STATIC_IMG+EVENT	NS	NA	NONE	NONE	NA	EVO+ACT	NA	NS	Y	N	Training-free pruning-based NAS for SNNs with sparsity-aware fitness; 98x search speedup over SNASNet, +4.49% on DVS128-Gesture.
+R04291	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Low-rank tensor decomposition compresses spiking transformer: 84.49% parameter compression on ImageNet, memory 42.29% of original; no pruning, no ANN comparison.
+R04292	Y	-	C1	ANN+SNN	TRANSFORMER	TS	NS	NS	NS	LATENCY+ENERGY	DIFFERENT	NA	NA	NA	NA	N	Inference time 2.8-28.4% and energy 13.3-14.4% of SOTA methods; accuracy +4-6.8% for EV battery fault diagnosis.
+R04295	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Lightweight SNNs deployed on ARM Cortex-M4 for EMG gestures, accuracy 78.89% and 70.83%; suitability over ANNs asserted, no efficiency comparison.
+R04296	Y	-	C3	ANN	CNN	DET	NA	NS	NONE	MEMORY	NA	NS	OTHER	STRUCT	N	N	LTH-inspired filter pruning of U-Net: parameters reduced from 31 M to 1.9 M with improved segmentation accuracy.
+R04301	Y	-	C1	HYBRID	NS	STATIC_IMG	NS	NS	CLAIM	ENERGY	NS	NA	NA	NA	NA	N	Hybrid ANN-SNN classifier of 18 Eimeria species from microscope images; significant energy savings from SNN layers claimed, no figures.
+R04303	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	ANN-to-SNN conversion reaching 98.73% MNIST with one time step and 93.71% CIFAR-10 with eight; only time steps reported as efficiency.
+R04304	Y	-	C2	ANN+SNN	NS	STATIC_IMG	NS	NS	NS	OPS+ENERGY+SPIKES+LATENCY	NA	REG	NA	NS	Y	N	Hoyer-regularized one-step SNNs: extremely sparse activations, up to 34x compute-efficiency gain; in-sensor front-end cuts energy 2.3x and bandwidth 96x.
+R04305	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Binarized spiking Transformer for EEG attention detection; model size 21x below full-precision counterpart; power claimed without comparison.
+R04306	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	SNN-based seizure detection processor on Xilinx ZCU102 FPGA: 98.1% accuracy, 3.73 µJ per classification; no ANN comparison stated.
+R04310	Y	-	C1	ANN+SNN	CNN	STATIC_IMG	FPGA	FPGA	NS	POWER	PAIRED	NA	NA	NA	NA	U	FPGA conversion: CIFAR-10 accuracy 88.01% and 91.96% vs ANN 88.95% and 92.43%; up to 3x lower power than ANN.
+R04320	Y	-	C2	SNN	TRANSFORMER	EVENT	NS	NA	CLAIM	ENERGY	NA	RANDOM+SCORE	NA	TEMPORAL	Y	N	Random and Gaussian spike masking cut spiking Transformer energy; RSM with 70% masking gives best DVS128 accuracy; no figures.
+R04322	Y	-	C2	SNN	NS	STATIC_IMG	NS	NA	ESTIMATED	OPS	NA	DST+ACT	NA	MIXED	Y	N	Dynamic joint spike and weight pruning achieves up to 126.38x SOP compression ratio on CIFAR-10 with minimal accuracy loss.

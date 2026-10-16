@@ -1,0 +1,25 @@
+R03117	Y	-	C3	ANN	CNN	OTHER	NA	NS	NONE	NONE	NA	NS	BOTH	NS	N	N	Random-initialization pruning gives Sparse-DIP masks resisting noise overfitting; beats LTH for image recovery; no efficiency metrics.
+R03120	Y	-	C3	ANN	NS	OTHER	NA	NS	NS	OPS	NA	MAG	WEAK	UNSTRUCT	N	N	DPD pruning cuts complexity 20% at 0.2 dB EVM gain (160 MHz) and 50% at 0.1 dB loss (20 MHz).
+R03121	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	SENECA neuromorphic processor optimisations (spike-grouping, depth-first convolution): 6-300x energy efficiency versus other neuromorphic processors; no ANN baseline.
+R03122	N	E2	-	-	-	-	-	-	-	-	-	-	-	-	-	-	SNN hardware implementation method reducing wire congestion from all-to-all connections while limiting accuracy loss; no efficiency figures.
+R03124	Y	-	C1	ANN+SNN	RNN	TS	OTHER_NEURO	NPU	MEASURED	POWER	PAIRED	NA	NA	NA	NA	U	RNN converted to SNN for link transient analysis: 294.6x lower power than the RNN on Lynxi HP201 chip.
+R03128	Y	-	C3	ANN	TRANSFORMER	NLP	NA	NS	NONE	NONE	NA	NS	WEAK	NS	N	N	Winning-ticket BERT subnetwork found by MLM pruning transfers adversarial robustness across tasks without repeated adversarial training; no efficiency figures.
+R03129	N	E2	-	-	-	-	-	-	-	-	-	-	-	-	-	-	PAIBoard hybrid ANN-SNN chip platform in a robot dog; low power and efficiency claimed, no figures or ANN-SNN comparison.
+R03131	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Parallel spiking neuron variants speed up SNN training; energy efficiency claimed via sparser activity, no ANN comparison or figures.
+R03134	Y	-	C1	ANN+SNN	CNN	OTHER	LOIHI2	FPGA	MEASURED	POWER	DIFFERENT	NA	NA	NA	NA	Y	CNNs on Versal VCK5000 versus SNNs on Loihi 2 for three satellite use cases, performance and power compared; no figures.
+R03135	N	E2	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Parallel discrete-event simulator for spintronic SNN hardware with throughput and energy benchmarking against CMOS; device-level, no ANN comparison.
+R03148	Y	-	C1	HYBRID	RNN	OTHER	XYLO	NS	NS	ENERGY	DIFFERENT	NA	NA	NA	NA	U	Hybrid LIF/RLIF plus dense network for FE viscoplasticity: over 30% computational gain; energy compared with RNN on Xylo-Av2, no figures.
+R03149	Y	-	C3	ANN	NS	OTHER	NA	NS	CLAIM	NONE	NA	SCORE	STRONG	UNSTRUCT	N	N	Guided supermasks store several PDE solutions in subnetworks of one PINN, avoiding forgetting; near separate-model performance with fine-tuning.
+R03155	Y	-	C3	ANN	GNN	TS	NA	GPU	ESTIMATED	OPS+MEMORY	NA	OTHER+THEORY	OTHER	NS	Y	N	Star-topology graph winning ticket cuts ASTGNN time and memory complexity from O(N^2) to O(N); fits largest dataset on one A6000.
+R03165	Y	-	C2	SNN	NS	NS	ASIC	NA	NS	THROUGHPUT+ENERGY	NA	ACT	NA	TEMPORAL	Y	N	SNN accelerator PS4 merges time steps using output sparsity: 3.8x performance gain over PTB accelerator without energy-efficiency loss.
+R03167	Y	-	C2	SNN	CNN	STATIC_IMG	FPGA	NA	MEASURED	THROUGHPUT+ENERGY	NA	OTHER	NA	NS	Y	N	Sparsity-aware SNN convolution engine on Kintex FPGA: 3.14x FPS/W over sparsity-oblivious systolic array, 1.72x over recent sparsity-aware design.
+R03169	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Quantised SNN with weight-spike dual regulation; smaller models and higher accuracy than existing SNN methods; quantisation only, no ANN comparison.
+R03173	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Quantisation-aware training of SNNs on Loihi for spectrum sensing; energy efficiency claimed, no ANN comparison or figures.
+R03176	Y	-	C1	ANN+SNN	CNN	BIOSIG	NS	NS	CLAIM	MEMORY+ENERGY	DIFFERENT	NA	NA	NA	NA	N	SLE Raman diagnosis: SNN accuracy 95.65% versus ANN 89.61% and ResNet 85.71%, 414,221 fewer parameters than ResNet; low energy claimed.
+R03184	Y	-	C1	ANN+SNN	CNN	TS	AKIDA	MCU	MEASURED	POWER+LATENCY+MEMORY	PAIRED	NA	NA	NA	NA	Y	Gait CNN on Arduino Nano 33: 125 mW, 70 ms, 96.7% accuracy; converted SNN on Akida within 72 mW.
+R03186	Y	-	C5	SNN	NS	NS	NS	NA	NONE	ENERGY+LATENCY	NA	NA	NA	NA	NA	N	Overview of energy-efficient, low-latency and trustworthy SNNs from training algorithms and co-design to hybrid in-memory and in-sensor hardware; no figures.
+R03187	N	E6	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Review of memristive devices to neuromorphic chips linking device and chip metrics; no spiking networks or ANN-SNN efficiency comparison stated.
+R03192	Y	-	C2	SNN	NS	NS	SIM	NA	NONE	SPIKES	NA	REG	NA	NS	Y	N	Loss penalising spikes after the first spike plus two-phase training avoids silent neurons in deep time-encoded SNNs; no figures.
+R03196	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Spiking vision transformer on embedded GPU: 8.33 ms latency, 95% accuracy, 3.77M parameters, 0.6 GFLOPs; no ANN comparison stated.
+R03198	Y	-	C1	ANN+SNN	OTHER	BIOSIG	NS	NS	NS	ENERGY	NS	NA	NA	NA	NA	N	SOM plus SNN EEG fatigue detector cuts energy consumption by about 12.21-42.59% versus traditional ANNs.
+R03205	Y	-	C1	ANN+SNN	OTHER	OTHER	NS	NS	NS	MEMORY+OPS	NS	NA	NA	NA	NA	N	MMV spiking networks for thermal gesture recognition: over 10x smaller memory and compute than deep learning approaches at 93.9% accuracy.

@@ -1,0 +1,100 @@
+R04401	EXCLUDE	E4	none	Spiking speech denoising; no ANN efficiency comparison shown
+R04402	EXCLUDE	E4	none	Spike coding for auditory SNN; no ANN baseline or pruning
+R04403	EXCLUDE	E6	none	Event-camera visual odometry; no neural network or SNN
+R04404	INCLUDE	C1	none	SNN versus deep learning baselines: 30x lower latency, lower energy
+R04405	UNSURE	C5	Loihi,TrueNorth,SpiNNaker	Neuromorphic hardware applications survey; unclear if efficiency comparison is central
+R04406	EXCLUDE	E4	none	Broad neuromorphic scaling perspective; no efficiency comparison focus
+R04407	EXCLUDE	E2	memristor/in-memory	Ferroelectric tunnel junction device; no ANN-SNN comparison
+R04408	EXCLUDE	E2	simulation	TFET LIF neuron device; energy per spike only
+R04409	EXCLUDE	E4	none	SNN versus ANN adversarial robustness; no efficiency metric
+R04410	EXCLUDE	E4	none	SNN edge detection for image retrieval; no ANN baseline
+R04411	EXCLUDE	E2	none	Supercapacitor synaptic device; ANN only used for recognition
+R04412	EXCLUDE	E4	simulation	SNN intrusion detection; sparsity noted, no ANN comparison
+R04413	EXCLUDE	E2	memristor/in-memory	Review of neuromorphic devices and materials
+R04414	EXCLUDE	E2	memristor/in-memory	Review of neuromorphic e-skin devices
+R04415	EXCLUDE	E4	simulation	SNN UAV control compared with centralized control, not ANN
+R04416	INCLUDE	C5	MCU,memristor/in-memory	Survey incl. sparsity and weight compression for event-driven SNN workloads
+R04417	EXCLUDE	E3	none	Neurobiological encoding model of magnetic sense
+R04418	EXCLUDE	E5	none	Event-camera CNN with attention; no SNN
+R04419	EXCLUDE	E4	none	SNN tracker compared with PMBM tracker; efficiency only motivation
+R04420	EXCLUDE	E4	none	Event-based eye tracking survey; efficiency only motivation
+R04421	EXCLUDE	E5	memristor/in-memory	DNN on FeRAM crossbar; no SNN
+R04422	EXCLUDE	E5	SpiNNaker,ASIC	CNN ensemble on SpiNNaker2 versus Edge-TPU; no SNN
+R04423	EXCLUDE	E5	none	Event-camera cytometry dataset with CNN; no SNN
+R04424	EXCLUDE	E4	none	Recurrent SNN cytometry classification; no ANN efficiency comparison
+R04425	UNSURE	C1	none	Claims 10-100x energy per token; unclear SNN versus ANN measurement
+R04426	INCLUDE	C1	SpiNNaker,GPU	Few-spikes SNN on SpiNNaker2 benchmarked against ANN on Jetson
+R04427	INCLUDE	C1	FPGA	SNN and CNN compared on commercial AI chipsets, energy focus
+R04428	EXCLUDE	E2	photonic	Review of neuromorphic photonic hardware
+R04429	EXCLUDE	E2	none	Adaptive synaptic phototransistor device; CNN only for recognition
+R04430	EXCLUDE	E4	none	Neuromorphic olfaction perspective; no efficiency comparison
+R04431	EXCLUDE	E4	Loihi,Akida	SNN threat detection; efficiency only claimed as motivation
+R04432	EXCLUDE	E4	none	Spiking-neuron reservoir computing; no efficiency or ANN comparison
+R04433	INCLUDE	C1	Loihi2,GPU	ANN-to-SNN on Loihi 2 versus GPU ANN: 10x latency, 4x power
+R04434	INCLUDE	C1	none	SNN access control: 87% less energy than deep learning
+R04435	EXCLUDE	E2	none	2D heterojunction synapse device; CNN only for recognition
+R04436	EXCLUDE	E4	none	Neuromorphic tactile sensing review; no efficiency comparison focus
+R04437	EXCLUDE	E2	none	Multifunction neuromorphic transistor device; ANN only for recognition
+R04438	EXCLUDE	E5	none	Event-based motion segmentation with graph transformer; no SNN
+R04439	INCLUDE	C2	none	SNN post-training quantization with mixed bit-width; compression and energy
+R04440	EXCLUDE	E6	none	Conceptual bio-inspired neuron agent framework; off-topic
+R04441	EXCLUDE	E4	Loihi,SpiNNaker	RISC-V SNN accelerator compared with SNN cores only
+R04442	EXCLUDE	E2	memristor/in-memory	Ferroelectric memristor synapse device
+R04443	EXCLUDE	E5	FPGA,ASIC	Deep learning on VLSI embedded systems; no SNN
+R04444	UNSURE	C2	ASIC	SNN chip exploiting input sparsity; no ANN baseline visible
+R04445	EXCLUDE	E2	memristor/in-memory	Ionic memristor device
+R04446	INCLUDE	C1	none	CNN converted to SNN; lower energy, latency, memory than CNNs
+R04447	INCLUDE	C1	none	SNN with attention for EEG; aims to cut energy versus CNN
+R04448	EXCLUDE	E3	none	Neural operator for biological neuron models
+R04449	INCLUDE	C1	none	Spiking graph convolution: low accuracy loss, lower energy than ANNs
+R04450	EXCLUDE	E4	none	Izhikevich SNN for ECG noise suppression; no efficiency comparison
+R04451	EXCLUDE	E4	none	Spiking actor network exploration; no efficiency comparison
+R04452	EXCLUDE	E4	none	SNN edge inference; accuracy-only comparison with ANN
+R04453	EXCLUDE	E4	ASIC	SNN memory partitioning by firing rate; no ANN or pruning
+R04454	EXCLUDE	E2	photonic	Fiber-optical extreme learning machine; no SNN
+R04455	EXCLUDE	E2	memristor/in-memory	Ionic synapse device implementing STDP
+R04456	EXCLUDE	E2	memristor/in-memory	Floating gate transistor synapse device
+R04457	EXCLUDE	E4	none	SNN EEG emotion classifier; energy only motivation
+R04458	EXCLUDE	E2	memristor/in-memory	Nanocomposite memristor device
+R04459	UNSURE	C1	none	Dataset baseline of 3 SNNs and 10 DNNs; efficiency metrics unclear
+R04460	EXCLUDE	E5	CPU,GPU,MCU	Quantized MobileNetV2 on edge devices; no SNN
+R04461	EXCLUDE	E5	none	Event-camera detector and dataset; no SNN contribution
+R04462	EXCLUDE	E7	none	Tracking filter structured sparsity; not LTH or SNN
+R04463	EXCLUDE	E4	none	Bio-inspired SNN obstacle avoidance; no ANN efficiency comparison
+R04464	EXCLUDE	E5	SpiNNaker	DNN scheduling framework on SpiNNaker2; no SNN
+R04465	INCLUDE	C2	memristor/in-memory	On-chip row pruning for SNNs with energy savings
+R04466	EXCLUDE	E5	none	Survey of energy reduction for DNN training; no SNN
+R04467	EXCLUDE	E6	MCU	ECG TinyML and security review; SNN peripheral
+R04468	EXCLUDE	E6	FPGA,MCU,simulation	Event-based PID control; no neural network learning task
+R04469	EXCLUDE	E5	photonic	Noise robustness of complex-valued ANNs for analog hardware; no SNN
+R04470	EXCLUDE	E4	none	SNN versus ANN privacy under quantization; no efficiency metric
+R04471	EXCLUDE	E4	none	SNN membership inference privacy; no efficiency metric
+R04472	EXCLUDE	E6	none	Spike encoding sparsity theory for signals; no network
+R04473	EXCLUDE	E4	none	SNN hardware reliability and security analysis
+R04474	INCLUDE	C1	none	One-hot multi-level SNN: 20x lower energy than VGG16 ANN
+R04475	INCLUDE	C1	none	ANN-to-SNN conversion; 4.6 to 17.3x energy gain over ANN
+R04476	EXCLUDE	E6	none	Predictive coding loss landscape theory; energy term incidental
+R04477	EXCLUDE	E2	Loihi,SpiNNaker,memristor/in-memory,photonic	Review of 2D-material devices for neuromorphic hardware
+R04478	EXCLUDE	E2	photonic	Optical convolution hardware; no SNN comparison
+R04479	EXCLUDE	E2	none	AlGaN/GaN optical synaptic transistor device
+R04480	EXCLUDE	E5	photonic	Training pipeline for photonic activation ANN; no SNN
+R04481	EXCLUDE	E2	FPGA	Approximate multiplier circuit; no network-level evaluation
+R04482	EXCLUDE	E2	none	Organic photonic synaptic transistor device
+R04483	EXCLUDE	E4	none	Negative-spike SNN for ECG; no efficiency comparison shown
+R04484	EXCLUDE	E5	none	Stochastic computing network with event cameras; no SNN
+R04485	INCLUDE	C1	none	ANN-to-SNN conversion with cutoff; fewer timesteps, near-zero accuracy loss
+R04486	EXCLUDE	E5	none	IoT model compression and quantization; no SNN
+R04487	INCLUDE	C2	FPGA	Weight sparsity memory scheme for SNN accelerators on FPGA
+R04488	EXCLUDE	E2	memristor/in-memory	Memristor crossbar circuit; no SNN or pruning
+R04489	EXCLUDE	E2	photonic	Optoacoustic photonic building blocks; device-level
+R04490	EXCLUDE	E2	none	Te/SnS2 optoelectronic synapse device
+R04491	EXCLUDE	E2	memristor/in-memory	Ferroelectric HfO2 memristor synapse device
+R04492	EXCLUDE	E4	none	Dendritic activation SNN; no efficiency comparison
+R04493	EXCLUDE	E2	none	Organic electrolyte-gated synaptic transistor device
+R04494	EXCLUDE	E4	none	Binarized SNN medical classifier; accuracy only
+R04495	EXCLUDE	E5	none	Event-guided diffusion reconstruction; no SNN
+R04496	EXCLUDE	E6	none	Broad overview of AI electronics; neuromorphic only one topic
+R04497	EXCLUDE	E4	none	Probabilistic spiking state space model; no efficiency comparison shown
+R04498	INCLUDE	C1	ASIC	Digital chip reporting SNN and ANN mode energy efficiency
+R04499	EXCLUDE	E5	none	CNN with EMD for EEG; no SNN
+R04500	EXCLUDE	E5	none	Delay-gated recurrent module; SNN only as keyword

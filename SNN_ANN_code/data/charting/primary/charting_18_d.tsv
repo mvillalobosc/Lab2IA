@@ -1,0 +1,25 @@
+R05417	Y	-	C2	SNN	NS	OTHER	SIM	NA	ESTIMATED	ENERGY+SPIKES	NA	EVO	NA	UNSTRUCT	Y	N	NSGA-II co-evolution: temporal XOR 100% accuracy, 6.253 nJ per inference, 169 active synapses, 5,890 Pareto solutions
+R05418	Y	-	C1	ANN+SNN	CNN	OTHER	NS	NS	NS	ENERGY	PAIRED	NA	NA	NA	NA	N	SNN beats ANN counterpart by 0.87 dB at 19.74% of its energy cost
+R05421	Y	-	C1	ANN+SNN	CNN	STATIC_IMG	SIM	SIM	ESTIMATED	ENERGY	PAIRED	NA	NA	NA	NA	N	SCNN 98.85% vs CNN 98.38%; single time step 98.31% with population decoding, over 14x energy efficiency (operation-based estimate)
+R05423	Y	-	C5	ANN+SNN	NS	NS	NS	MCU	NS	ENERGY+LATENCY+MEMORY	NA	NA	NA	NA	NA	N	Overview of ANN and SNN energy methods: zeroth-order SNN training, MCU pruning and quantization, MILP offloading saving up to 86%
+R05428	Y	-	C1	ANN+SNN	NS	STATIC_IMG	SIM	SIM	CLAIM	LATENCY+ENERGY	PAIRED	NA	NA	NA	NA	N	Conversion reaches 75.59% on ImageNet with two timesteps; energy-latency analysis mentioned without figures
+R05438	Y	-	C1	ANN+SNN	NS	EVENT+DET	NS	NS	NS	OPS+POWER	DIFFERENT	NA	NA	NA	NA	N	SNN replaces DNN for eye segmentation: complexity down an order of magnitude; vs prior implementation, angle error -50%, power -68%
+R05441	Y	-	C5	SNN	CNN+TRANSFORMER	EVENT	OTHER_NEURO	NA	NONE	NONE	NA	NA	NA	NA	NA	N	Review of SNN event vision: architectures, training, datasets, neuromorphic hardware; no efficiency figures in abstract
+R05445	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	SNN offloading controller: latency -26%, energy -32% vs heuristic and ML baselines; ANN baseline not identified
+R05446	Y	-	C1	ANN+SNN	RNN	TS	SIM	SIM	NS	ENERGY+LATENCY+OPS+SPIKES	DIFFERENT	NA	NA	NA	NA	N	Sparse firing ratio 10.93%, response 10.43 steps; versus LSTM and regression, faster response and about 9x lower computational cost
+R05447	Y	-	C1	ANN+SNN	NS	EVENT	SIM	SIM	ESTIMATED	ENERGY+MEMORY	DIFFERENT	NA	NA	NA	NA	N	Matches SOTA deep networks; abstract gives model size reduction of 50 and energy reduction of 30-250 (symbols lost)
+R05452	Y	-	C1	ANN+SNN	NS	OTHER	SIM	SIM	CLAIM	LATENCY+POWER	NS	NA	NA	NA	NA	N	SNN-IDS versus traditional ANN technique: higher detection sensitivity and economy of inferences claimed, no figures
+R05453	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Spiking parking predictor: accuracy-efficiency balance claimed against unspecified baselines; no figures or ANN efficiency comparison
+R05454	Y	-	C1	HYBRID	NS	EVENT+DET	NS	NS	CLAIM	LATENCY+POWER+THROUGHPUT	NS	NA	NA	NA	NA	N	Hybrid RGB-ANN plus event-SNN detector: SNN branch cuts power during event processing (no figure); real-time 60 FPS from 15-FPS camera
+R05455	Y	-	C1	ANN+SNN	NS	EVENT+DET	SIM	SIM	CLAIM	ENERGY	NS	NA	NA	NA	NA	N	SpikeNeXt/EGSTNet 28.7% mAP on PKU-DAVIS-SOD; low energy and communication cost claimed versus traditional ANNs, no figures
+R05457	Y	-	C2	SNN	NS	EVENT	SIM	NA	CLAIM	OPS	NA	OTHER	NA	NS	Y	N	AER-SNN with denoising and first-to-spike coding: significantly less computation cost at competitive accuracy, no figures; baselines unspecified
+R05458	N	E6	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Review of neuron models and memristor CIM hardware; not focused on ANN-SNN efficiency comparison, pruning or sparsity
+R05462	Y	-	C2	SNN	RNN	CONTROL	SIM	NA	NONE	NONE	NA	EVO	NA	UNSTRUCT	N	N	Spatially embedded recurrent SNNs evolved by GA: over 95% zero weights; similar to deep RL using 1.46% of non-zero weights
+R05469	Y	-	C3	ANN	NS	NS	NA	SIM	NONE	NONE	NA	NS	NS	NS	N	N	Federated multi-task sparse hidden network inspired by LTH with ATLAS common-bases sharing; accuracy comparable to dense, no efficiency figures
+R05470	Y	-	C1	ANN+SNN	NS	STATIC_IMG	ASIC	ASIC	NS	ENERGY+THROUGHPUT	PAIRED	NA	NA	NA	NA	N	CIM: PWM instead of ADC cuts dynamic energy 18.5%; LIF neurons save 14.9%; accuracy 87.05% DNN vs 81.85% spiking DNN
+R05473	Y	-	C1	ANN+SNN	NS	TS	SIM	SIM	ESTIMATED	OPS	DIFFERENT	NA	NA	NA	NA	N	Unsupervised SNN: about 82% accuracy with 4.7K SOPs per inference, three orders of magnitude more efficient than deep learning baselines
+R05474	Y	-	C1	ANN+SNN	CNN	EVENT	SIM	SIM	ESTIMATED	OPS	PAIRED	NA	NA	NA	NA	N	Convolutional SNN 94% accuracy, precision 0.92; computational complexity over one order of magnitude lower than ANN counterparts
+R05475	Y	-	C1	ANN+SNN	TRANSFORMER	EVENT	NS	NS	NS	ENERGY	PAIRED	NA	NA	NA	NA	N	Energy about 950x lower than equivalent ANN baselines; fall detection performance described only as acceptable
+R05480	Y	-	C1	ANN+SNN	NS	TS	SIM	SIM	CLAIM	LATENCY+OPS	DIFFERENT	NA	NA	NA	NA	N	Simulink study: SNN controller detects transients faster than PI and ANN controllers, lower THD; complexity reduction claimed, no figures
+R05482	Y	-	C2	SNN	TRANSFORMER	STATIC_IMG	SIM	NA	ESTIMATED	SPIKES	NA	OTHER	NA	TEMPORAL	Y	N	Temporal differential decoupling: up to 80.9% fewer spikes per time step, 57.8% fewer total spikes, no accuracy loss
+R05485	N	E6	-	-	-	-	-	-	-	-	-	-	-	-	-	-	FL-SNN vs FL-ANN under Byzantine attacks; update payload about 2% of FL-ANN; robustness and communication focus, not network energy

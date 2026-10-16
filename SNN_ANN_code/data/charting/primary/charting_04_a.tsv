@@ -1,0 +1,25 @@
+R01085	Y	-	C3	ANN	GNN	OTHER	NA	NS	NS	NS	NA	OTHER	WEAK	NS	N	N	GEBT saves 80.2-85.6% training and 84.6-87.5% inference cost on GCNs with comparable or better accuracy
+R01088	Y	-	C1	ANN+SNN	CNN	BIOSIG	SIM	NS	NS	POWER	DIFFERENT	NA	NA	NA	NA	N	SNN power 13.8% of CNN-based solutions; 3-layer SNN accuracy 78.87 valence and 76.5 arousal on DEAP
+R01089	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Conversion method; only latency in time steps and accuracy reported, no ANN efficiency comparison
+R01091	Y	-	C1	ANN+SNN	CNN	STATIC_IMG	FPGA	FPGA	MEASURED	ENERGY	PAIRED	NA	NA	NA	NA	Y	SNNs clearly less energy efficient than equivalent CNNs on FPGA in general case; no figures in abstract
+R01092	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	SpikeAttack raises spike activity 1.7-2.5x, latency 1.6-2.3x, energy 1.4-2.2x; no ANN comparison, no sparsity method
+R01093	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	FPGA SNN accelerator 10x faster and 15x more energy efficient than prior SNN implementations; no ANN baseline
+R01096	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	CNN and SNN on FPGA and Loihi; only accuracy and SNN time-step latency given, no ANN-SNN efficiency figure
+R01098	Y	-	C1	ANN+SNN	OTHER	AUDIO+OTHER	LOIHI2	NS	ESTIMATED	OPS	DIFFERENT	NA	NA	NA	NA	N	RF neurons: 47x less output bandwidth than STFT; optical flow over 90x fewer operations than conventional DNN
+R01101	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Compares four spike encoders; only accuracy and bit rate against a CNN baseline, no energy or operation figure
+R01110	Y	-	C3	ANN	TRANSFORMER+OTHER	OTHER	NA	NS	NS	MEMORY	NA	SCORE	NS	UNSTRUCT	N	N	80-95% sparse captioning nets match dense; model size 8.7 and 14.5 MB (94-96% smaller), CIDEr above 120
+R01111	Y	-	C1	ANN+SNN	NS	STATIC_IMG	LOIHI	NPU	MEASURED	ENERGY+POWER+LATENCY	PAIRED	NA	NA	NA	NA	Y	Loihi up to 27x less power and 5x less energy than Intel Neural Compute Stick 2, image classification
+R01115	Y	-	C1	ANN+SNN	RNN	TS	NS	NS	ESTIMATED	ENERGY+MEMORY	DIFFERENT	NA	NA	NA	NA	N	SNN estimated 3.36 uJ; 77% less memory, 19% fewer parameters, 43% less training time; 2.2x greater error than LSTM
+R01116	Y	-	C1	ANN+SNN	CNN	BIOSIG	NS	NS	NS	ENERGY	PAIRED	NA	NA	NA	NA	N	Converted SNN 93.33% accuracy at 18x lower energy than baseline 1DCNN (97.15%); 4x lower than quantized model
+R01120	Y	-	C2	HYBRID	NS	STATIC_IMG+EVENT	SIM	SIM	ESTIMATED	SPIKES	NA	OTHER	NA	NS	N	N	HTDA cuts firing rates up to 50% and raises adversarial robustness up to 10% versus state-of-the-art SNNs
+R01121	N	E6	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Fault injection framework for resiliency of SNNs and compressed DNNs; reliability study, no efficiency analysis
+R01122	Y	-	C2	SNN	MLP	NS	FPGA	NA	NS	ENERGY+LATENCY+THROUGHPUT	NA	NS	NA	MIXED	NS	N	Sparse SNN accelerator on Kintex Ultrascale: 253.1 GSOP/s, 32.1 GSOP/W at 75% weight sparsity, 14.6 uJ
+R01123	N	E2	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Simulated spintronic SNN chips versus CMOS neuromorphic hardware; device-level benchmarking, no ANN comparison or pruning
+R01124	Y	-	C3	ANN	NS	TS	NA	NS	NONE	NONE	NA	NS	WEAK	NS	N	N	LTH compresses several deep architectures by large factors on time series classification; no efficiency figures
+R01126	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Convolutional SNNs versus ANN variants on radar gestures; only accuracy compared, no efficiency figure in abstract
+R01128	Y	-	C1	ANN+SNN	NS	EVENT	SIM	NS	NS	ENERGY	PAIRED	NA	NA	NA	NA	N	EVSNN and PAEVSNN 19.36x and 7.75x more energy efficient than their ANN architectures; comparable accuracy
+R01131	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Event-driven intrinsic plasticity cuts IP update operations in converted SCNNs; no ANN efficiency comparison, no pruning
+R01142	Y	-	C3	ANN	GNN+OTHER	OTHER	NA	NS	NONE	NONE	NA	MAG	WEAK	UNSTRUCT	N	N	Winning tickets exist in MF and LightGCN recommenders on Yelp2018, TikTok and Kwai with comparable performance
+R01143	Y	-	C2+C4	SNN	NS	NS	SIM	NA	NONE	NONE	NA	MAG	WEAK	UNSTRUCT	N	Y	Winning tickets in deep SNNs up to 97% sparsity; Early-Time ticket cuts search time up to 38% versus IMP/EB
+R01149	N	E2	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Cycle-accurate simulator of RRAM-based SNN chip for delay and power; circuit-level, no ANN comparison or pruning
+R01151	N	E4	-	-	-	-	-	-	-	-	-	-	-	-	-	-	Spike-based sparse coding on Loihi versus classical OMP; no ANN comparison and no pruning
