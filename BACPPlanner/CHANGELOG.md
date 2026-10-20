@@ -7,7 +7,7 @@ All notable changes to BACP-Planner will be documented in this file.
 ### Added
 
 - GitHub-ready repository structure.
-- Bilingual Spanish–English README.
+- Bilingual Spanish-English README.
 - Real application screenshots for all three modules and the Excel help panel.
 - Excel template and full Civil Engineering in Computer Science example.
 - MIT licence, citation metadata, third-party notices, and GitHub Pages support.

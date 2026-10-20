@@ -108,6 +108,8 @@ También puedes usar cualquier servidor estático, por ejemplo Apache, Nginx, VS
 
 ## 4. Publicación en GitHub Pages
 
+En este repositorio la aplicación vive en la carpeta `BACPPlanner/`. Para publicarla sola en GitHub Pages:
+
 1. Crea un repositorio y copia el contenido de esta carpeta en la raíz.
 2. Sube los archivos a la rama `main`.
 3. En GitHub abre **Settings → Pages**.
@@ -121,7 +123,7 @@ La aplicación quedará disponible en una dirección similar a:
 https://USUARIO.github.io/NOMBRE-DEL-REPOSITORIO/
 ```
 
-El archivo `.nojekyll` evita que GitHub Pages procese la aplicación con Jekyll.
+Conviene agregar en la raíz del sitio un archivo vacío llamado `.nojekyll`, que evita que GitHub Pages procese la aplicación con Jekyll; esta carpeta no lo incluye.
 
 ## 5. Flujo de uso
 
@@ -181,7 +183,7 @@ El libro debe contener tres hojas. La aplicación compara los nombres sin distin
 | `nombre` | Sí | texto | Nombre visible de la asignatura. |
 | `creditos` | Sí | número | Créditos SCT usados por los objetivos de balance. |
 | `periodo` | No | entero | Semestre fijo. Déjalo vacío para que el optimizador pueda asignarlo. |
-| `tel` | No | texto o número | Distribución Teoría–Ejercicios–Laboratorio, por ejemplo `6-2-0` o `620`. |
+| `tel` | No | texto o número | Distribución Teoría-Ejercicios-Laboratorio, por ejemplo `6-2-0` o `620`. |
 | `tipo` | No | entero | Categoría académica usada para colorear la malla. |
 | `tasa` | No | decimal entre 0 y 1 | Probabilidad de reprobación usada por el simulador de cohortes. |
 
@@ -216,10 +218,36 @@ prerrequisito → curso
 | `plan` | Nombre del plan | Título mostrado en la interfaz y exportaciones. |
 | `periodos` | Número entero | Cantidad total de semestres del plan. |
 
+### Variantes que acepta la lectura
+
+La lectura del libro (`readWorkbook` en `index.html`) es más flexible que las tablas anteriores:
+
+- Busca las hojas `Asignaturas`, `Prerrequisitos` y `Parametros` (o `Parámetros`) sin distinguir mayúsculas; si no encuentra alguna, usa la primera, la segunda o la tercera hoja del libro, en ese orden.
+- Compara los nombres de columna sin distinguir mayúsculas ni espacios al borde y acepta estas variantes: `código` por `codigo`, `créditos` por `creditos`, `período` o `semestre` por `periodo`, `departamento` por `tipo`, `prerequisito` por `prerrequisito`, `parámetro` por `parametro` y `value` por `valor`.
+- Descarta las filas de `Asignaturas` sin código y las de `Prerrequisitos` a las que les falta uno de los dos códigos.
+- Toma como 0 los créditos vacíos y el `tipo` vacío. Un `tipo` que no está en la tabla de categorías (por ejemplo 7) se pinta como "Otro / Electivo".
+- Si falta `periodos`, el panel de datos muestra el error "Falta el parámetro periodos en la hoja Parámetros" y desactiva la generación de mallas y la simulación de cohortes. Si falta `plan`, el plan se llama "Plan de estudios".
+
 ### Archivos incluidos
 
 - [Descargar plantilla del plan de estudios](examples/plantilla_plan_estudios.xlsx): plantilla mínima editable.
 - [Descargar ejemplo de Ingeniería Civil en Informática](examples/ejemplo_ing_civil_informatica.xlsx): ejemplo completo con 58 asignaturas, 330 SCT, 11 semestres y 86 prerrequisitos.
+- [mallas_ejemplo/](mallas_ejemplo/): 17 libros con mallas de carreras de Ingeniería Civil y de Ingeniería de Ejecución. Solo `Civil/Ing_Civil_en_Informatica.xlsx` (58 asignaturas, 330 SCT, 87 prerrequisitos) y `Ejecucion/Ing_Ejecucion_en_Computacion_e_Informatica.xlsx` (42 asignaturas, 240 SCT, 40 prerrequisitos) traen créditos y prerrequisitos. Los otros 14 vienen sin créditos ni prerrequisitos y con valores de `tipo` que no siguen la tabla de categorías, y `Civil/PLANTILLA_Ing_Civil_Biomedica_2019.xlsx` es una plantilla a medio llenar. El [README de esa carpeta](mallas_ejemplo/README.md) los describe uno por uno.
+
+La app no lee estas carpetas: el ejemplo incorporado y los botones "↓ Plantilla vacía" y "↓ Ejemplo (.xlsx)" salen del código de `index.html`, y los archivos de las carpetas se cargan a mano desde el panel de datos.
+
+### Archivos que exporta la aplicación
+
+| Archivo | Cómo se obtiene |
+|---|---|
+| `plan_<nombre>.xlsx` | Botón "Exportar plan (.xlsx)" del panel de datos. Si ya hay una malla generada, guarda sus semestres en la columna `periodo`. |
+| `malla_<nombre>.xlsx` | Botón Excel de la malla seleccionada en el Planificador, con las tres hojas del formato. |
+| `todas_las_mallas_<nombre>.xlsx` | Botón "Exportar todas (.xlsx)": una hoja `Resumen` con f₁, f₂ y la marca de la solución de equilibrio, y una hoja `Malla N` por cada malla no dominada. |
+| `malla_<nombre>.png` | Botón PNG: imagen de la malla seleccionada. |
+| `plan_restante_<nombre>.xlsx` | Exportación del Simulador de Estudiantes, con la hoja `Plan restante`. |
+| `plantilla_plan_estudios.xlsx`, `ejemplo_ing_civil_informatica.xlsx` | Botones "↓ Plantilla vacía" y "↓ Ejemplo (.xlsx)" del panel de datos. |
+
+`<nombre>` es el nombre del plan sin tildes, en minúsculas, con guiones bajos en lugar de espacios y signos, y recortado a 42 caracteres. El botón "Imprimir" abre el diálogo de impresión del navegador.
 
 ## 7. Modelo de optimización
 
@@ -238,13 +266,13 @@ Restricciones principales:
 
 Para una malla con carga SCT por semestre `L₁, L₂, ..., Lₚ`:
 
-**f₁ — Carga máxima**
+**f₁: Carga máxima**
 
 ```text
 f₁ = max(L₁, L₂, ..., Lₚ)
 ```
 
-**f₂ — Desequilibrio anual**
+**f₂: Desequilibrio anual**
 
 La aplicación agrupa los semestres en años, suma los créditos de cada par y calcula la raíz de la varianza de esas cargas anuales. Un valor menor representa una distribución más regular entre años.
 
@@ -330,15 +358,13 @@ No existe persistencia automática en servidor. Para conservar un resultado se d
 ## 11. Estructura del repositorio
 
 ```text
-BACP-Planner/
+BACPPlanner/
 ├── index.html
 ├── README.md
 ├── LICENSE.md
 ├── CITATION.cff
 ├── CHANGELOG.md
 ├── THIRD_PARTY_NOTICES.md
-├── .gitignore
-├── .nojekyll
 ├── assets/
 │   ├── screenshot-home.png
 │   ├── screenshot-planner.png
@@ -346,11 +372,19 @@ BACP-Planner/
 │   ├── screenshot-student.png
 │   └── screenshot-help-excel.png
 ├── examples/
+│   ├── README.md
 │   ├── plantilla_plan_estudios.xlsx
 │   └── ejemplo_ing_civil_informatica.xlsx
+├── mallas_ejemplo/
+│   ├── README.md
+│   ├── Civil/          9 libros de Ingeniería Civil
+│   └── Ejecucion/      8 libros de Ingeniería de Ejecución
 └── vendor/
+    ├── README.md
     └── xlsx.full.min.js
 ```
+
+`assets/` solo guarda las capturas que muestra este README. [examples/](examples/), [mallas_ejemplo/](mallas_ejemplo/) y [vendor/](vendor/) tienen su propio README.
 
 ## 12. Desarrollo
 
@@ -445,7 +479,7 @@ BACP-Planner se basa en la memoria de título:
 
 **Profesor guía:** Manuel Villalobos Cid.
 
-El archivo `CITATION.cff` permite usar el botón **Cite this repository** de GitHub.
+`CITATION.cff` trae los datos de cita en formato Citation File Format. GitHub muestra el botón **Cite this repository** solo cuando ese archivo está en la raíz del repositorio; aquí vive dentro de `BACPPlanner/`, así que hay que leerlo directamente o copiarlo a la raíz si la aplicación se publica en un repositorio propio.
 
 Contexto institucional: Universidad de Santiago de Chile, Facultad de Ingeniería, Departamento de Ingeniería Informática.
 
@@ -538,6 +572,8 @@ Any static server can be used, including Apache, Nginx, VS Code Live Server, or 
 
 ## 4. Publishing with GitHub Pages
 
+In this repository the application lives in the `BACPPlanner/` folder. To publish it on its own with GitHub Pages:
+
 1. Create a repository and copy the contents of this folder to its root.
 2. Push the files to the `main` branch.
 3. Open **Settings → Pages** in GitHub.
@@ -551,7 +587,7 @@ The application will be available from an address similar to:
 https://USERNAME.github.io/REPOSITORY-NAME/
 ```
 
-The `.nojekyll` file prevents GitHub Pages from processing the application with Jekyll.
+Add an empty file named `.nojekyll` at the root of the site so that GitHub Pages does not process the application with Jekyll; this folder does not include it.
 
 ## 5. User workflow
 
@@ -611,7 +647,7 @@ The workbook must contain three worksheets. Worksheet names are matched without 
 | `nombre` | Yes | text | Course name displayed in the interface. |
 | `creditos` | Yes | number | SCT credits used by the balancing objectives. |
 | `periodo` | No | integer | Fixed term. Leave it blank so the optimiser can assign the course. |
-| `tel` | No | text or number | Theory–Exercises–Laboratory distribution, such as `6-2-0` or `620`. |
+| `tel` | No | text or number | Theory-Exercises-Laboratory distribution, such as `6-2-0` or `620`. |
 | `tipo` | No | integer | Academic category used to colour the curriculum. |
 | `tasa` | No | decimal from 0 to 1 | Course failure probability used by the cohort simulator. |
 
@@ -646,10 +682,36 @@ prerequisite → course
 | `plan` | Curriculum name | Title shown in the interface and exports. |
 | `periodos` | Integer | Total number of terms. |
 
+### Variants accepted by the reader
+
+The workbook reader (`readWorkbook` in `index.html`) is more flexible than the tables above:
+
+- It looks for the `Asignaturas`, `Prerrequisitos` and `Parametros` (or `Parámetros`) worksheets regardless of case; when one is missing, it uses the first, second or third worksheet of the workbook, in that order.
+- It compares column names regardless of case and surrounding spaces, and accepts these variants: `código` for `codigo`, `créditos` for `creditos`, `período` or `semestre` for `periodo`, `departamento` for `tipo`, `prerequisito` for `prerrequisito`, `parámetro` for `parametro` and `value` for `valor`.
+- It drops `Asignaturas` rows without a code and `Prerrequisitos` rows that lack either code.
+- It reads empty credits and an empty `tipo` as 0. A `tipo` outside the category table (for example 7) is drawn as "Otro / Electivo" (Other / Elective).
+- When `periodos` is missing, the data panel shows the error "Falta el parámetro periodos en la hoja Parámetros" and disables curriculum generation and cohort simulation. When `plan` is missing, the curriculum is named "Plan de estudios".
+
 ### Included workbooks
 
 - [Download the curriculum template](examples/plantilla_plan_estudios.xlsx): small editable template.
 - [Download the Civil Engineering in Computer Science example](examples/ejemplo_ing_civil_informatica.xlsx): complete example with 58 courses, 330 SCT credits, 11 terms, and 86 prerequisite relationships.
+- [mallas_ejemplo/](mallas_ejemplo/): 17 workbooks with curricula of Ingeniería Civil and Ingeniería de Ejecución programmes. Only `Civil/Ing_Civil_en_Informatica.xlsx` (58 courses, 330 SCT, 87 prerequisites) and `Ejecucion/Ing_Ejecucion_en_Computacion_e_Informatica.xlsx` (42 courses, 240 SCT, 40 prerequisites) include credits and prerequisites. The other 14 have no credits or prerequisites and use `tipo` values that do not follow the category table, and `Civil/PLANTILLA_Ing_Civil_Biomedica_2019.xlsx` is a half-filled template. The [README of that folder](mallas_ejemplo/README.md) describes them one by one.
+
+The application does not read these folders: the built-in example and the "↓ Plantilla vacía" and "↓ Ejemplo (.xlsx)" buttons come from the code in `index.html`, and the files in the folders are loaded by hand from the data panel.
+
+### Files exported by the application
+
+| File | How it is produced |
+|---|---|
+| `plan_<name>.xlsx` | "Exportar plan (.xlsx)" button in the data panel. When a curriculum has already been generated, it stores its terms in the `periodo` column. |
+| `malla_<name>.xlsx` | Excel button of the curriculum selected in the Planner, with the three worksheets of the format. |
+| `todas_las_mallas_<name>.xlsx` | "Exportar todas (.xlsx)" button: a `Resumen` worksheet with f₁, f₂ and the flag of the compromise solution, and one `Malla N` worksheet for each non-dominated curriculum. |
+| `malla_<name>.png` | PNG button: image of the selected curriculum. |
+| `plan_restante_<name>.xlsx` | Export of the Student Simulator, with the `Plan restante` worksheet. |
+| `plantilla_plan_estudios.xlsx`, `ejemplo_ing_civil_informatica.xlsx` | "↓ Plantilla vacía" and "↓ Ejemplo (.xlsx)" buttons in the data panel. |
+
+`<name>` is the curriculum name without accents, in lower case, with underscores in place of spaces and symbols, and cut to 42 characters. The "Imprimir" (print) button opens the browser's print dialogue.
 
 ## 7. Optimisation model
 
@@ -668,13 +730,13 @@ Main constraints:
 
 For a curriculum with term workloads `L₁, L₂, ..., Lₚ`:
 
-**f₁ — Peak workload**
+**f₁: Peak workload**
 
 ```text
 f₁ = max(L₁, L₂, ..., Lₚ)
 ```
 
-**f₂ — Annual imbalance**
+**f₂: Annual imbalance**
 
 The application groups terms into academic years, sums the credits in each pair of terms, and computes the square root of the variance of those yearly workloads. A smaller value indicates a more regular distribution across years.
 
@@ -760,15 +822,13 @@ There is no automatic server-side persistence. Export the corresponding Excel or
 ## 11. Repository structure
 
 ```text
-BACP-Planner/
+BACPPlanner/
 ├── index.html
 ├── README.md
 ├── LICENSE.md
 ├── CITATION.cff
 ├── CHANGELOG.md
 ├── THIRD_PARTY_NOTICES.md
-├── .gitignore
-├── .nojekyll
 ├── assets/
 │   ├── screenshot-home.png
 │   ├── screenshot-planner.png
@@ -776,11 +836,19 @@ BACP-Planner/
 │   ├── screenshot-student.png
 │   └── screenshot-help-excel.png
 ├── examples/
+│   ├── README.md
 │   ├── plantilla_plan_estudios.xlsx
 │   └── ejemplo_ing_civil_informatica.xlsx
+├── mallas_ejemplo/
+│   ├── README.md
+│   ├── Civil/          9 Ingeniería Civil workbooks
+│   └── Ejecucion/      8 Ingeniería de Ejecución workbooks
 └── vendor/
+    ├── README.md
     └── xlsx.full.min.js
 ```
+
+`assets/` only holds the screenshots shown in this README. [examples/](examples/), [mallas_ejemplo/](mallas_ejemplo/) and [vendor/](vendor/) have their own README.
 
 ## 12. Development
 
@@ -875,7 +943,7 @@ BACP-Planner is based on the undergraduate thesis:
 
 **Supervisor:** Manuel Villalobos Cid.
 
-`CITATION.cff` enables GitHub's **Cite this repository** button.
+`CITATION.cff` holds the citation data in Citation File Format. GitHub shows the **Cite this repository** button only when that file sits at the repository root; here it lives inside `BACPPlanner/`, so read it directly, or copy it to the root if the application is published in a repository of its own.
 
 Institutional context: Universidad de Santiago de Chile, Faculty of Engineering, Department of Computer Science.
 
