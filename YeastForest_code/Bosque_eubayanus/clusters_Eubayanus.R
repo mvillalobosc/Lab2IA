@@ -2,7 +2,7 @@
 # CLUSTERS DE ORFs POR TOPOLOGIA (MST-kNN) Y ENRIQUECIMIENTO: S. eubayanus
 # Manuel: deja este archivo en la carpeta donde estan los resultados del bosque
 # (Eubayanus_RF.csv.gz y Eubayanus_resumen.tsv) y ejecutalo con
-# source("clusters_Eubayanus_2026-10-04.R") o como Job.
+# source("clusters_Eubayanus.R") o como Job.
 # Fecha: 2026-10-04. No crea carpetas ni archivos temporales.
 # =============================================================================
 # QUE HACE
