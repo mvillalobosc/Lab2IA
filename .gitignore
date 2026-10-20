@@ -21,6 +21,8 @@ node_modules/
 
 # BookAnalyses: textos con derechos, salidas del pipeline, modelo udpipe y corpus de demo
 BookAnalyses/datos/textos/
+BookAnalyses/drive-download*.zip
+BookAnalyses/[Ll]ibros*.zip
 BookAnalyses/output/
 BookAnalyses/models/
 BookAnalyses/demo/textos/
@@ -52,8 +54,11 @@ PhyloGEOYeast/EvolutiveEubayanus_CODE/resultados/
 PhyloGEOYeast/EvolutiveSCerevisiae_CODE/DATA/
 PhyloGEOYeast/EvolutiveSCerevisiae_CODE/resultados/
 
-# PichintunNLP: intermedios, figuras y tablas regenerables
+# PichintunNLP: intermedios, figuras y tablas regenerables, y los diálogos
+# descomprimidos de data/raw/dialogues.7z (el repositorio los trae solo cifrados)
 PichintunNLP/data/processed/
+PichintunNLP/data/raw/dialogues_es.csv
+PichintunNLP/data/raw/dialogues_en.csv
 PichintunNLP/outputs/figures/
 PichintunNLP/outputs/tables/
 
