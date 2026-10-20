@@ -2,7 +2,7 @@
 
 [Español](README.es.md) · **English**
 
-Reproducible computational analysis of lexical, structural, and emotional patterns in the *Papelucho* series by Marcela Paz (12 books, 1947–1974), compared against a corpus of 63 Spanish-language novels.
+Reproducible computational analysis of lexical, structural, and emotional patterns in the *Papelucho* series by Marcela Paz (12 books, 1947-1974), compared against a corpus of 63 Spanish-language novels.
 
 ---
 
@@ -10,7 +10,7 @@ Reproducible computational analysis of lexical, structural, and emotional patter
 
 A nine-step R pipeline that builds a curated corpus, computes lexical diversity, readability, part-of-speech profiles, sentiment, emotion, and stylometric distances, and then tests every finding against the structural imbalances in the comparison corpus.
 
-Every table is exported three times: a machine-readable CSV, an English LaTeX table, and a Spanish LaTeX table.
+The tables meant for the manuscript are exported three times: a machine-readable CSV, an English LaTeX table, and a Spanish LaTeX table (27 LaTeX tables per language, eight of them compact versions of the results tables). Diagnostic and intermediate tables are written as CSV only.
 
 ---
 
@@ -26,9 +26,10 @@ Rscript -e 'install.packages(c(
 # 2. Fetch the Spanish POS model (28 MB, not tracked in git)
 Rscript scripts/download_udpipe_model.R
 
-# 3. Place the corpus text files (see docs/CORPUS.md)
-#    data/raw/papelucho/*.txt   12 files
-#    data/raw/comparison/*.txt  63 files
+# 3. Unpack the corpus shipped in data/raw/corpus.tar.gz and verify every checksum
+Rscript scripts/unpack_corpus.R
+#    -> data/raw/papelucho/*.txt   12 files
+#    -> data/raw/comparison/*.txt  63 files
 
 # 4. Run everything
 Rscript run_all.R
@@ -36,6 +37,8 @@ Rscript run_all.R
 # ...or a single step
 Rscript run_all.R 02
 ```
+
+Every command runs from the project folder (`Papelucho/`), which is what the code comments call the repository root; there is no `.Rproj` file. `R/00_config.R` checks 17 of these packages before running (`REQUIRED_PACKAGES`). `cluster` and `scales` are not in that list, although steps 08 and 09 use them, so install all 19 as above. A run without arguments ends by calling `scripts/bundle_outputs.R`; a run of selected steps does not. `docs/CORPUS.md` explains how the corpus is packed and how to rebuild it if the archive is removed.
 
 Before a long run, or before committing, the static audit catches unresolved
 function calls and silent `summarise()` shadowing without executing anything:
@@ -72,8 +75,8 @@ This pipeline replaces an earlier version of the analysis. The changes below are
 
 The pipeline keeps two versions of every book:
 
-- **raw** — punctuation, capitalisation and function words intact. Used for readability, POS tagging, and sentiment.
-- **content** — lowercased content words, stopwords removed. Used only for lexical diversity and stylometry.
+- **raw**: punctuation, capitalisation and function words intact. Used for readability, POS tagging, and sentiment.
+- **content**: lowercased content words, stopwords removed. Used only for lexical diversity and stylometry.
 
 The earlier analysis mixed them: sentence counts came from the raw text while token counts came from the stripped text. Since stopword removal discards roughly 55% of running words, every words-per-sentence figure was slightly under half its true value, and both readability indices inherited the error.
 
@@ -87,13 +90,13 @@ Every length-sensitive index is computed on random samples of a fixed token coun
 
 ### 3. Spanish-validated readability formulas
 
-Flesch-Kincaid and ARI were fitted on English school texts. Spanish carries roughly 15–20% more syllables per word for the same conceptual difficulty, so the English coefficients inflate estimated grade level by several years.
+Flesch-Kincaid and ARI were fitted on English school texts. Spanish carries roughly 15-20% more syllables per word for the same conceptual difficulty, so the English coefficients inflate estimated grade level by several years.
 
 Four Spanish formulas are used instead: Fernández Huerta (1959), Szigriszt-Pazos (1993) with the INFLESZ interpretive bands, Gutiérrez de Polini (1972), and the Mu index (Muñoz & Muñoz, 2006). Gutiérrez de Polini is the only one calibrated specifically on material for children. The English formulas are still computed and clearly labelled, so earlier values remain traceable.
 
 ### 4. POS tagging on raw text
 
-In Spanish the stopword list consists almost entirely of function words. Tagging a text with those removed does not measure the text's grammatical profile — it measures what the stopword list happens to contain.
+In Spanish the stopword list consists almost entirely of function words. Tagging a text with those removed does not measure the text's grammatical profile; it measures what the stopword list happens to contain.
 
 Tagging the same book both ways:
 
@@ -121,7 +124,7 @@ This pipeline builds a Spanish polarity table (4,596 terms from the Spanish NRC 
 
 ### 7. Burrows's Delta instead of TF-IDF clustering
 
-TF-IDF rewards terms appearing in few documents. In a corpus of novels those are character and place names, so a TF-IDF dendrogram recovers **which books share a cast** — a fact about series membership, not style. Burrows's Delta works on the most frequent words including function words, which is where authorial style actually lives.
+TF-IDF rewards terms appearing in few documents. In a corpus of novels those are character and place names, so a TF-IDF dendrogram recovers **which books share a cast**, a fact about series membership, not style. Burrows's Delta works on the most frequent words including function words, which is where authorial style actually lives.
 
 Branch support is estimated by bootstrapping the feature set 1,000 times. Branches below ~70% support should not be interpreted. The TF-IDF analysis is retained as a labelled sensitivity check, and `07_method_comparison.csv` quantifies how much more strongly TF-IDF tracks series membership.
 
@@ -129,7 +132,7 @@ Branch support is estimated by bootstrapping the feature set 1,000 times. Branch
 
 UMAP is stochastic. With 75 points, a single run can produce a visually convincing separation that vanishes under a different seed. Publishing one plot from one seed is one draw from a distribution of possible pictures, not evidence of structure.
 
-UMAP is run across five seeds × three neighbour settings × three min-distance settings. Two quantities are reported: neighbourhood preservation (is the projection faithful at all?) and group silhouette (does separation hold?), both benchmarked against the silhouette in the original Delta space. **UMAP is used for display only** — every statistical claim rests on the distance matrix, never on projection coordinates.
+UMAP is run across five seeds × three neighbour settings × three min-distance settings. Two quantities are reported: neighbourhood preservation (is the projection faithful at all?) and group silhouette (does separation hold?), both benchmarked against the silhouette in the original Delta space. **UMAP is used for display only**: every statistical claim rests on the distance matrix, never on projection coordinates.
 
 ### 9. Effect sizes alongside every p-value
 
@@ -149,7 +152,7 @@ The comparison corpus has three structural imbalances that no statistical adjust
 
 Mann-Whitney assumes independent observations. Sixteen novels by one author sharing a setting and narrative voice are not sixteen independent draws, so p-values on the full corpus are anticonservative. Translated prose also differs systematically from original prose in the target language (the *translation universals* documented in translation studies), so lexical differences may be translation effects rather than Papelucho effects.
 
-**Step 09 re-tests every finding under three restricted designs:** audience-matched, original-Spanish-only, and one-book-per-author repeated 200 times. A finding that survives all three is robust to corpus composition. A finding that appears only on the full corpus is a statement about how the comparison group was assembled.
+**Step 09 re-tests every finding under three restricted designs:** audience-matched, original-Spanish-only, and one-book-per-author repeated 200 times. A finding that survives all three does not depend on corpus composition. A finding that appears only on the full corpus is a statement about how the comparison group was assembled.
 
 If the headline findings do not survive step 09, the corpus needs rebuilding. No amount of careful statistics fixes a comparison group that differs in more ways than the one being studied.
 
@@ -168,6 +171,7 @@ If the headline findings do not survive step 09, the corpus needs rebuilding. No
 ## Repository layout
 
 ```
+Papelucho/
 ├── R/
 │   ├── 00_config.R              Paths, parameters, bilingual labels, dependency check
 │   ├── utils_text.R             Normalisation, sentence splitting, syllable counting
@@ -176,27 +180,35 @@ If the headline findings do not survive step 09, the corpus needs rebuilding. No
 │   ├── utils_sentiment_es.R     Spanish polarity table and valence shifters
 │   └── 01_…09_*.R               Analysis steps
 ├── data/
-│   ├── metadata/corpus_metadata.csv   Curated: author, series, year, audience, language
-│   ├── raw/                     Book texts (not tracked; see docs/CORPUS.md)
-│   └── derived/                 Pipeline intermediates (regenerated)
+│   ├── metadata/                corpus_metadata.csv (curated) and corpus_checksums.csv (MD5)
+│   ├── raw/corpus.tar.gz        The 75 book texts packed in one tracked file
+│   ├── raw/papelucho/           12 texts, created by unpack_corpus.R (ignored)
+│   ├── raw/comparison/          63 texts, created by unpack_corpus.R (ignored)
+│   └── derived/                 Pipeline intermediates, created by the steps (ignored)
+├── models/                      UDPipe model, created by download_udpipe_model.R (ignored)
 ├── outputs/
-│   ├── tables/                  CSV + *_en.tex + *_es.tex
-│   ├── figures/                 PDF (vector) + PNG (300 dpi)
-│   └── logs/                    sessionInfo per step, pipeline timings
+│   ├── tables/                  40 CSV + tables_en.tex + tables_es.tex
+│   ├── figures/                 20 PDF figures
+│   └── logs/                    session_info.txt
 ├── scripts/
-│   ├── download_udpipe_model.R
-│   └── audit_pipeline.R         Static checks: unresolved calls, shadowing, labels
-├── docs/
+│   ├── download_udpipe_model.R  Fetch the Spanish UDPipe model
+│   ├── unpack_corpus.R          Unpack the corpus and verify every checksum
+│   ├── audit_pipeline.R         Static checks: unresolved calls, shadowing, labels
+│   └── bundle_outputs.R         Merge LaTeX tables and logs after a full run
+├── docs/                        CORPUS.md, CHANGES.md, RESULTS.md
 ├── run_all.R
+├── README.md, README.es.md
 └── LICENSE
 ```
+
+The folders [R/](R/), [data/](data/), [outputs/](outputs/), [scripts/](scripts/) and [docs/](docs/) have their own README.md. The `.gitignore` at the root of the Lab2IA repository holds the patterns marked "ignored" above.
 
 ---
 
 ## Reproducibility
 
 - All randomness is seeded from `PARAMS$seed` in `R/00_config.R`.
-- `sessionInfo()` is written to `outputs/logs/` for every step.
+- `sessionInfo()` is written to `outputs/logs/` for every step, and `scripts/bundle_outputs.R` merges the nine files into `session_info.txt`. The copy in the repository records R 4.3.3 on Ubuntu 24.04.4.
 - The UDPipe model is pinned to `spanish-gsd-ud-2.5-191206`, not resolved by the generic `"spanish"` string, which can change between package versions and would silently alter tagging results.
 - A UTF-8 locale is forced at startup; `LC_COLLATE=C` keeps file ordering byte-stable across machines.
 
@@ -204,7 +216,7 @@ If the headline findings do not survive step 09, the corpus needs rebuilding. No
 
 ## Corpus availability
 
-The book texts are copyrighted and are **not** distributed with this repository. `data/metadata/corpus_metadata.csv` lists every title, author, and edition so the corpus can be reconstructed. See `docs/CORPUS.md`.
+The book texts are under copyright. This repository does include them, packed in `data/raw/corpus.tar.gz` (the 12 Papelucho books and the 63 comparison novels), and `docs/CORPUS.md` explains what that implies and how to publish without them. `data/metadata/corpus_metadata.csv` lists every title, author, and edition so the corpus can be reconstructed, and `data/metadata/corpus_checksums.csv` lets anyone check byte for byte that a reconstructed corpus matches the one analysed.
 
 ---
 
@@ -222,29 +234,24 @@ The book texts are copyrighted and are **not** distributed with this repository.
 
 ## License
 
-Code released under the MIT License. Corpus texts are not covered by this license and are not distributed here.
+Code released under the MIT License (see `LICENSE`). The corpus texts in `data/raw/corpus.tar.gz` are not covered by this license.
 
 ---
 
 ## Publishing to GitHub
 
-The repository is **97 files** and uploads in one go, including by drag-and-drop
-on github.com, which accepts at most 100 files at a time.
+This project lives inside the Lab2IA repository, which is pushed with git and has
+no file limit. The limit matters only when the folder is uploaded by drag-and-drop
+on github.com, which accepts at most 100 files at a time. The project has **96
+files**, counting the README.md of each folder, so it still uploads in one go.
 
-```bash
-git init
-git add .
-git commit -m "Text mining analysis of the Papelucho series"
-git branch -M main
-git remote add origin https://github.com/<user>/papelucho-textmining.git
-git push -u origin main
-```
-
-`run_all.R` calls `scripts/bundle_outputs.R` at the end to keep the count down:
+`run_all.R` calls `scripts/bundle_outputs.R` at the end of a full run to keep the
+count down:
 the 54 individual LaTeX tables are merged into `tables_en.tex` and
 `tables_es.tex`, the nine `sessionInfo` files into `session_info.txt`, PNG
 figure previews are dropped in favour of the PDF vector versions, and four
 per-replicate intermediate CSVs are removed. Everything removed is regenerated by
 re-running the pipeline. To keep it all instead, delete the corresponding blocks
-from `scripts/bundle_outputs.R`; the repository then has about 180 files, which
-git handles fine but which must be pushed from the command line.
+from `scripts/bundle_outputs.R`; the project then has about 180 files, which git
+handles fine but which must be pushed from the command line. The script prints the
+file count at the end and warns when it reaches 100.

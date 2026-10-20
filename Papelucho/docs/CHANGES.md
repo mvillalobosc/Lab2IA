@@ -35,8 +35,8 @@ por qué, sin leer el código.
 
 **EN.** The previous `Sentimientos.R` read from `books/Papelucho_procesado/`,
 whose files had all punctuation stripped. `sentimentr::get_sentences()` segments
-on sentence-final punctuation, so it returned **one "sentence" per book**. The
-subsequent `ntile(sentence_id, 20)` therefore produced one chunk, not twenty.
+on sentence-final punctuation, so it returned **one "sentence" per book**. As a
+result, the subsequent `ntile(sentence_id, 20)` produced one chunk, not twenty.
 Every book's narrative arc collapsed to a single point before it was ever
 plotted.
 
@@ -120,8 +120,8 @@ contribución de cada libro.
 
 ## 4. Emotion counts not normalised / Conteos emocionales sin normalizar
 
-**EN.** `Emociones.R` fed the raw output of `get_nrc_sentiment()` — absolute
-counts — into `wilcox.test()`. With a median of 102,000 running tokens in the
+**EN.** `Emociones.R` fed the raw output of `get_nrc_sentiment()` (absolute
+counts) into `wilcox.test()`. With a median of 102,000 running tokens in the
 comparison group against 19,000 in Papelucho, the comparison group wins all eight
 emotions by construction. No multiple-testing correction was applied either.
 
@@ -131,8 +131,8 @@ Holm correction is applied once across the family of ten tests. The raw-count
 analysis is reproduced in `06_emotions_results_rawcount.csv` solely to document
 the size of the artefact.
 
-**ES.** `Emociones.R` metía la salida cruda de `get_nrc_sentiment()` — conteos
-absolutos — a `wilcox.test()`. Con una mediana de 102.000 tokens corrientes en el
+**ES.** `Emociones.R` metía la salida cruda de `get_nrc_sentiment()` (conteos
+absolutos) a `wilcox.test()`. Con una mediana de 102.000 tokens corrientes en el
 grupo de comparación contra 19.000 en Papelucho, el grupo de comparación gana las
 ocho emociones por construcción. Tampoco se aplicaba corrección por pruebas
 múltiples.
@@ -149,8 +149,8 @@ vez sobre la familia de diez pruebas.
 
 The previous `complexity_readability_results.csv` reported TTR as significantly
 **higher** in Papelucho (p = 1.7e-7). But RTTR and CTTR pointed the opposite way
-in the same table, and MTLD — the index specifically designed to be
-length-robust — was not significant (p = 0.19). That internal contradiction is the
+in the same table, and MTLD, the index designed specifically to be insensitive
+to text length, was not significant (p = 0.19). That internal contradiction is the
 signature of a length artefact.
 
 Under fixed-size resampling (5,000 content tokens, 30 replicates per book), seven
@@ -175,8 +175,8 @@ draft reported.
 
 El `complexity_readability_results.csv` anterior reportaba la TTR como
 significativamente **mayor** en Papelucho (p = 1,7e-7). Pero RTTR y CTTR apuntaban
-al lado opuesto en la misma tabla, y MTLD — el índice diseñado específicamente
-para ser robusto al largo — no era significativo (p = 0,19). Esa contradicción
+al lado opuesto en la misma tabla, y MTLD, el índice diseñado específicamente
+para no depender del largo, no era significativo (p = 0,19). Esa contradicción
 interna es la firma de un artefacto de largo.
 
 Bajo remuestreo de tamaño fijo, siete de once índices cambian de conclusión y
@@ -213,7 +213,7 @@ valor correcto va de 11,7 a 19,4 según el libro.
 ## 7. English readability formulas on Spanish / Fórmulas inglesas sobre español
 
 **EN.** ARI and Flesch-Kincaid were fitted on English school texts. Spanish
-carries roughly 15–20% more syllables per word for the same conceptual
+carries roughly 15-20% more syllables per word for the same conceptual
 difficulty, so the English coefficients inflate estimated grade level by several
 years. The inflation is roughly constant, so text rankings survive, but the
 absolute values cannot be reported as grade levels for Spanish readers.
@@ -254,7 +254,7 @@ palabras más cortas que todos los libros de comparación, sin solapamiento.
 **EN.** `Dendograma.R` clustered on correlation distance over the 500 highest
 TF-IDF terms of the stopword-filtered text. TF-IDF by construction rewards terms
 appearing in few documents; in a corpus of novels those are character and place
-names. The resulting dendrogram recovers which books share a cast — a fact about
+names. The resulting dendrogram recovers which books share a cast, a fact about
 series membership, not style. It would look identical if every book had the same
 author.
 
@@ -372,7 +372,7 @@ The pattern is anchored to whole lines so a URL inside the narrative is untouche
 `www.lectulandia.com - Página N`, inyectadas en cada salto de página por el sitio
 de ebooks del que se bajaron. Tres archivos de comparación traen unas pocas.
 
-**Corrección.** El paso 01 las elimina en todo el archivo, antes de la detección
+**Corrección.** El paso 01 las elimina en el archivo completo, antes de la detección
 de paratexto.
 
 ---

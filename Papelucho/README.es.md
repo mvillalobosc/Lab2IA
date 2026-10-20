@@ -2,7 +2,7 @@
 
 **Español** · [English](README.md)
 
-Análisis computacional reproducible de patrones léxicos, estructurales y emocionales en la serie *Papelucho* de Marcela Paz (12 libros, 1947–1974), comparada contra un corpus de 63 novelas en español.
+Análisis computacional reproducible de patrones léxicos, estructurales y emocionales en la serie *Papelucho* de Marcela Paz (12 libros, 1947-1974), comparada contra un corpus de 63 novelas en español.
 
 ---
 
@@ -10,7 +10,7 @@ Análisis computacional reproducible de patrones léxicos, estructurales y emoci
 
 Un pipeline de nueve pasos en R que arma un corpus curado, calcula diversidad léxica, legibilidad, perfiles morfosintácticos, sentimiento, emoción y distancias estilométricas, y después pone a prueba cada hallazgo contra los desbalances estructurales del corpus de comparación.
 
-Cada tabla se exporta tres veces: un CSV legible por máquina, una tabla LaTeX en inglés y una en español.
+Las tablas pensadas para el manuscrito se exportan tres veces: un CSV legible por máquina, una tabla LaTeX en inglés y una en español (27 tablas LaTeX por idioma, ocho de ellas versiones compactas de las tablas de resultados). Las tablas de diagnóstico e intermedias se escriben solo en CSV.
 
 ---
 
@@ -26,9 +26,10 @@ Rscript -e 'install.packages(c(
 # 2. Descargar el modelo POS del español (28 MB, no versionado en git)
 Rscript scripts/download_udpipe_model.R
 
-# 3. Poner los archivos de texto del corpus (ver docs/CORPUS.md)
-#    data/raw/papelucho/*.txt   12 archivos
-#    data/raw/comparison/*.txt  63 archivos
+# 3. Descomprimir el corpus que viene en data/raw/corpus.tar.gz y verificar los checksums
+Rscript scripts/unpack_corpus.R
+#    -> data/raw/papelucho/*.txt   12 archivos
+#    -> data/raw/comparison/*.txt  63 archivos
 
 # 4. Correr todo
 Rscript run_all.R
@@ -36,6 +37,8 @@ Rscript run_all.R
 # ...o un solo paso
 Rscript run_all.R 02
 ```
+
+Cada comando se corre desde la carpeta del proyecto (`Papelucho/`), que es lo que los comentarios del código llaman raíz del repositorio; no hay archivo `.Rproj`. `R/00_config.R` revisa 17 de estos paquetes antes de correr (`REQUIRED_PACKAGES`). `cluster` y `scales` no están en esa lista, aunque los usan los pasos 08 y 09, así que conviene instalar los 19 como arriba. Una corrida sin argumentos termina llamando a `scripts/bundle_outputs.R`; una corrida de pasos sueltos no lo hace. `docs/CORPUS.md` explica cómo está empaquetado el corpus y cómo reconstruirlo si se saca el archivo comprimido.
 
 Antes de una corrida larga, o antes de un commit, la auditoría estática detecta
 llamadas a funciones que no resuelven y shadowing silencioso en `summarise()` sin
@@ -73,8 +76,8 @@ Este pipeline reemplaza una versión anterior del análisis. Los cambios de abaj
 
 El pipeline mantiene dos versiones de cada libro:
 
-- **raw** — puntuación, mayúsculas y palabras funcionales intactas. Se usa para legibilidad, etiquetado POS y sentimiento.
-- **content** — palabras de contenido en minúscula, sin stopwords. Se usa solo para diversidad léxica y estilometría.
+- **raw**: puntuación, mayúsculas y palabras funcionales intactas. Se usa para legibilidad, etiquetado POS y sentimiento.
+- **content**: palabras de contenido en minúscula, sin stopwords. Se usa solo para diversidad léxica y estilometría.
 
 El análisis anterior las mezclaba: los conteos de oraciones salían del texto crudo mientras que los conteos de tokens salían del texto filtrado. Como el filtrado descarta cerca del 55% de las palabras corrientes, toda cifra de palabras por oración quedaba en algo menos de la mitad de su valor real, y los dos índices de legibilidad heredaban el error.
 
@@ -82,7 +85,7 @@ El análisis anterior las mezclaba: los conteos de oraciones salían del texto c
 
 Los libros de Papelucho tienen una mediana de ~19.000 tokens corrientes. Las novelas de comparación tienen una mediana de ~102.000. Casi toda medida clásica de riqueza léxica baja cuando el texto crece, así que la comparación cruda mide largo de libro y lo reporta como estilo.
 
-Todo índice sensible al largo se calcula sobre muestras aleatorias de un número fijo de tokens, repetidas 30 veces por libro y promediadas. Los valores de texto completo también se reportan para que el tamaño del artefacto quede a la vista.
+Cada índice sensible al largo se calcula sobre muestras aleatorias de un número fijo de tokens, repetidas 30 veces por libro y promediadas. Los valores de texto completo también se reportan para que el tamaño del artefacto quede a la vista.
 
 **Esto cambia conclusiones.** Siete de once índices cambian de dirección o de significancia al controlar el largo. TTR, C de Herdan, Maas y la proporción de hapax **invierten de dirección**.
 
@@ -110,7 +113,7 @@ La frecuencia de pronombres es una de las pocas medidas que habla directamente d
 
 ### 5. Léxico de sentimiento en español con autotest
 
-`sentimentr::sentiment()` llamado sin argumentos usa en silencio una tabla de polaridad **inglesa** por defecto. Sobre entrada en español puntúa casi todo en cero. Puntuar *"me siento muy feliz y contento hoy"* con la tabla por defecto devuelve exactamente **0,00**; el equivalente en inglés devuelve 1,02.
+`sentimentr::sentiment()` llamado sin argumentos usa en silencio una tabla de polaridad **inglesa** por defecto. Sobre entrada en español puntúa casi todas las oraciones en cero. Puntuar *"me siento muy feliz y contento hoy"* con la tabla por defecto devuelve exactamente **0,00**; el equivalente en inglés devuelve 1,02.
 
 A eso se sumaba que el pipeline anterior calculaba el sentimiento sobre texto al que ya se le había quitado la puntuación, así que `get_sentences()` devolvía **una "oración" por libro** y el arco narrativo de 20 segmentos colapsaba a un solo punto.
 
@@ -130,7 +133,7 @@ El soporte de las ramas se estima remuestreando el conjunto de rasgos 1.000 vece
 
 UMAP es estocástico. Con 75 puntos, una sola corrida puede producir una separación visualmente convincente que desaparece con otra semilla. Publicar un gráfico de una semilla es un sorteo de una distribución de imágenes posibles, no evidencia de estructura.
 
-UMAP se corre sobre cinco semillas × tres configuraciones de vecinos × tres de distancia mínima. Se reportan dos cantidades: preservación de vecindario (¿la proyección es fiel del todo?) y silueta de grupo (¿la separación se sostiene?), ambas contrastadas contra la silueta en el espacio original de Delta. **UMAP se usa solo para visualizar**: toda afirmación estadística se apoya en la matriz de distancias, nunca en coordenadas de la proyección.
+UMAP se corre sobre cinco semillas × tres configuraciones de vecinos × tres de distancia mínima. Se reportan dos cantidades: preservación de vecindario (¿la proyección es fiel a los datos?) y silueta de grupo (¿la separación se sostiene?), ambas contrastadas contra la silueta en el espacio original de Delta. **UMAP se usa solo para visualizar**: toda afirmación estadística se apoya en la matriz de distancias, nunca en coordenadas de la proyección.
 
 ### 9. Tamaños de efecto junto a cada valor p
 
@@ -140,7 +143,7 @@ Con n = 12 contra n = 63, un valor p significativo dice casi nada sobre qué tan
 
 ## Composición del corpus: leer esto antes de interpretar cualquier cosa
 
-El corpus de comparación tiene tres desbalances estructurales que ningún ajuste estadístico puede eliminar del todo.
+El corpus de comparación tiene tres desbalances estructurales que ningún ajuste estadístico puede eliminar por completo.
 
 | Problema | Magnitud |
 |---|---|
@@ -150,7 +153,7 @@ El corpus de comparación tiene tres desbalances estructurales que ningún ajust
 
 Mann-Whitney asume observaciones independientes. Dieciséis novelas de un mismo autor que comparten ambientación y voz narrativa no son dieciséis extracciones independientes, así que los valores p sobre el corpus completo son anticonservadores. La prosa traducida además difiere sistemáticamente de la prosa original en la lengua meta (los *universales de traducción* documentados en los estudios de traducción), así que las diferencias léxicas pueden ser efectos de traducción y no efectos Papelucho.
 
-**El paso 09 vuelve a probar cada hallazgo bajo tres diseños restringidos:** público emparejado, solo español original, y un libro por autor repetido 200 veces. Un hallazgo que sobrevive a los tres es robusto a la composición del corpus. Un hallazgo que aparece solo en el corpus completo es una afirmación sobre cómo se armó el grupo de comparación.
+**El paso 09 vuelve a probar cada hallazgo bajo tres diseños restringidos:** público emparejado, solo español original, y un libro por autor repetido 200 veces. Un hallazgo que sobrevive a los tres no depende de la composición del corpus. Un hallazgo que aparece solo en el corpus completo es una afirmación sobre cómo se armó el grupo de comparación.
 
 Si los hallazgos principales no sobreviven al paso 09, hay que reconstruir el corpus. Ninguna cantidad de estadística cuidadosa arregla un grupo de comparación que difiere en más aspectos que el estudiado.
 
@@ -169,6 +172,7 @@ Si los hallazgos principales no sobreviven al paso 09, hay que reconstruir el co
 ## Estructura del repositorio
 
 ```
+Papelucho/
 ├── R/
 │   ├── 00_config.R              Rutas, parámetros, etiquetas bilingües, chequeo de dependencias
 │   ├── utils_text.R             Normalización, segmentación en oraciones, conteo de sílabas
@@ -177,27 +181,35 @@ Si los hallazgos principales no sobreviven al paso 09, hay que reconstruir el co
 │   ├── utils_sentiment_es.R     Tabla de polaridad y valence shifters en español
 │   └── 01_…09_*.R               Pasos de análisis
 ├── data/
-│   ├── metadata/corpus_metadata.csv   Curado: autor, serie, año, público, idioma
-│   ├── raw/                     Textos de los libros (no versionados; ver docs/CORPUS.md)
-│   └── derived/                 Intermedios del pipeline (se regeneran)
+│   ├── metadata/                corpus_metadata.csv (curado) y corpus_checksums.csv (MD5)
+│   ├── raw/corpus.tar.gz        Los 75 textos empaquetados en un solo archivo versionado
+│   ├── raw/papelucho/           12 textos, los crea unpack_corpus.R (ignorada)
+│   ├── raw/comparison/          63 textos, los crea unpack_corpus.R (ignorada)
+│   └── derived/                 Intermedios del pipeline, los crean los pasos (ignorada)
+├── models/                      Modelo UDPipe, lo crea download_udpipe_model.R (ignorada)
 ├── outputs/
-│   ├── tables/                  CSV + *_en.tex + *_es.tex
-│   ├── figures/                 PDF (vectorial) + PNG (300 dpi)
-│   └── logs/                    sessionInfo por paso, tiempos del pipeline
+│   ├── tables/                  40 CSV + tables_en.tex + tables_es.tex
+│   ├── figures/                 20 figuras en PDF
+│   └── logs/                    session_info.txt
 ├── scripts/
-│   ├── download_udpipe_model.R
-│   └── audit_pipeline.R         Chequeos estáticos: llamadas, shadowing, etiquetas
-├── docs/
+│   ├── download_udpipe_model.R  Descarga el modelo UDPipe del español
+│   ├── unpack_corpus.R          Descomprime el corpus y verifica cada checksum
+│   ├── audit_pipeline.R         Chequeos estáticos: llamadas sin resolver, shadowing, etiquetas
+│   └── bundle_outputs.R         Junta tablas LaTeX y logs tras una corrida completa
+├── docs/                        CORPUS.md, CHANGES.md, RESULTS.md
 ├── run_all.R
+├── README.md, README.es.md
 └── LICENSE
 ```
+
+Las carpetas [R/](R/), [data/](data/), [outputs/](outputs/), [scripts/](scripts/) y [docs/](docs/) tienen su propio README.md. El `.gitignore` de la raíz del repositorio Lab2IA contiene los patrones marcados arriba como "ignorada".
 
 ---
 
 ## Reproducibilidad
 
 - Toda la aleatoriedad se siembra desde `PARAMS$seed` en `R/00_config.R`.
-- `sessionInfo()` se escribe en `outputs/logs/` para cada paso.
+- `sessionInfo()` se escribe en `outputs/logs/` para cada paso, y `scripts/bundle_outputs.R` junta los nueve archivos en `session_info.txt`. La copia del repositorio registra R 4.3.3 sobre Ubuntu 24.04.4.
 - El modelo UDPipe queda fijado a `spanish-gsd-ud-2.5-191206`, no resuelto por la cadena genérica `"spanish"`, que puede cambiar entre versiones del paquete y alteraría en silencio los resultados del etiquetado.
 - Se fuerza un locale UTF-8 al inicio; `LC_COLLATE=C` mantiene el orden de archivos estable a nivel de bytes entre máquinas.
 
@@ -205,7 +217,7 @@ Si los hallazgos principales no sobreviven al paso 09, hay que reconstruir el co
 
 ## Disponibilidad del corpus
 
-Los textos de los libros están protegidos por derechos de autor y **no** se distribuyen con este repositorio. `data/metadata/corpus_metadata.csv` lista cada título, autor y edición para que el corpus pueda reconstruirse. Ver `docs/CORPUS.md`.
+Los textos de los libros están protegidos por derechos de autor. Este repositorio sí los incluye, empaquetados en `data/raw/corpus.tar.gz` (los 12 libros de Papelucho y las 63 novelas de comparación), y `docs/CORPUS.md` explica qué implica eso y cómo publicar sin ellos. `data/metadata/corpus_metadata.csv` lista cada título, autor y edición para que el corpus pueda reconstruirse, y `data/metadata/corpus_checksums.csv` permite verificar byte a byte que un corpus reconstruido es el mismo que se analizó.
 
 ---
 
@@ -223,29 +235,24 @@ Los textos de los libros están protegidos por derechos de autor y **no** se dis
 
 ## Licencia
 
-Código bajo licencia MIT. Los textos del corpus no están cubiertos por esta licencia y no se distribuyen acá.
+Código bajo licencia MIT (ver `LICENSE`). Los textos del corpus en `data/raw/corpus.tar.gz` no están cubiertos por esta licencia.
 
 ---
 
 ## Publicar en GitHub
 
-El repositorio son **97 archivos** y sube de una, incluso arrastrando y soltando
-en github.com, que acepta como máximo 100 archivos por vez.
+Este proyecto vive dentro del repositorio Lab2IA, que se sube con git y no tiene
+límite de archivos. El límite importa solo al subir la carpeta arrastrando y
+soltando en github.com, que acepta como máximo 100 archivos por vez. El proyecto
+tiene **96 archivos**, contando el README.md de cada carpeta, así que todavía sube
+de una.
 
-```bash
-git init
-git add .
-git commit -m "Análisis de text mining de la serie Papelucho"
-git branch -M main
-git remote add origin https://github.com/<usuario>/papelucho-textmining.git
-git push -u origin main
-```
-
-`run_all.R` llama a `scripts/bundle_outputs.R` al final para mantener bajo el
-conteo: las 54 tablas LaTeX individuales se juntan en `tables_en.tex` y
+`run_all.R` llama a `scripts/bundle_outputs.R` al final de una corrida completa
+para mantener bajo el conteo: las 54 tablas LaTeX individuales se juntan en `tables_en.tex` y
 `tables_es.tex`, los nueve `sessionInfo` en `session_info.txt`, se descartan las
 vistas previas PNG a favor de las versiones vectoriales en PDF, y se eliminan
-cuatro CSV intermedios por réplica. Todo lo eliminado se regenera volviendo a
-correr el pipeline. Para conservarlo todo, borrar los bloques correspondientes de
-`scripts/bundle_outputs.R`; el repositorio queda con unos 180 archivos, que git
-maneja sin problema pero que hay que subir desde la terminal.
+cuatro CSV intermedios por réplica. Lo eliminado se regenera volviendo a correr
+el pipeline. Para conservarlo, borrar los bloques correspondientes de
+`scripts/bundle_outputs.R`; el proyecto queda con unos 180 archivos, que git
+maneja sin problema pero que hay que subir desde la terminal. El script imprime
+el conteo de archivos al final y avisa cuando llega a 100.

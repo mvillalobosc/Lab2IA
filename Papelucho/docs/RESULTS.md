@@ -5,7 +5,7 @@ result replaces. Every number here is reproduced by `Rscript run_all.R`; the
 tables cited are in `outputs/tables/`.
 
 **ES.** Resumen de lo que encuentra el pipeline corregido, con la conclusión que
-reemplaza cada resultado. Todo número de acá se reproduce con `Rscript run_all.R`;
+reemplaza cada resultado. Cada número de acá se reproduce con `Rscript run_all.R`;
 las tablas citadas están en `outputs/tables/`.
 
 ---
@@ -17,7 +17,7 @@ las tablas citadas están en `outputs/tables/`.
 | Books / Libros | 12 | 63 |
 | Running tokens / Tokens corrientes | 227,125 | 6,585,686 |
 | Median per book / Mediana por libro | 18,629 | 102,138 |
-| Range / Rango | 13,685–25,456 | 9,619–253,615 |
+| Range / Rango | 13,685-25,456 | 9,619-253,615 |
 
 **EN.** The comparison novels are about 5.5× longer at the median. This ratio
 drives most of the artefacts corrected below.
@@ -54,15 +54,15 @@ cambian de conclusión y cuatro invierten de dirección.
 | MATTR | 0.9292 | 0.9468 | −0.728 | <0.001 | Comparison |
 | MTLD | 676.1 | 973.6 | −0.783 | <0.001 | Comparison |
 | Hapax ratio | 0.6547 | 0.6959 | −0.923 | <0.001 | Comparison |
-| Yule's K | 12.30 | 12.37 | −0.090 | 1.000 | — |
-| Shannon's H | 7.295 | 7.345 | −0.413 | 0.074 | — |
+| Yule's K | 12.30 | 12.37 | −0.090 | 1.000 | n.s. |
+| Shannon's H | 7.295 | 7.345 | −0.413 | 0.074 | n.s. |
 
 Direction reversals / Inversiones de dirección: **TTR, Herdan's C, Maas, hapax ratio**.
 
 **EN.** The corrected result is internally consistent across every index:
 Papelucho shows **lower** lexical diversity, with large effect sizes. That is what
-one expects of children's literature. The earlier contradiction — TTR significant
-one way while RTTR, CTTR and MTLD pointed the other — was the signature of the
+one expects of children's literature. The earlier contradiction (TTR significant
+one way while RTTR, CTTR and MTLD pointed the other) was the signature of the
 length artefact.
 
 **ES.** El resultado corregido es internamente consistente en todos los índices:
@@ -98,7 +98,7 @@ perfectamente.
 
 **EN.** A Cliff's delta of **1.000** is perfect separation: every Papelucho book
 uses shorter words than every comparison book, with no overlap. Gutiérrez de
-Polini — the only formula in this set calibrated on material for children — also
+Polini, the only formula in this set calibrated on material for children, also
 separates the corpora perfectly.
 
 INFLESZ bands: the single book in the corpus falling in the *very easy* band is a
@@ -122,7 +122,7 @@ strongest results in the project, and all three were invisible in the previous
 analysis, which tagged text with the function words already removed.
 
 **ES.** Calculado sobre el texto crudo, 1.766.972 tokens etiquetados. Son los
-resultados mas fuertes del proyecto, y los tres eran invisibles en el analisis
+resultados más fuertes del proyecto, y los tres eran invisibles en el análisis
 anterior, que etiquetaba texto con las palabras funcionales ya eliminadas.
 
 | Category | Papelucho | Comparison | Cliff's δ | p (adj) | Higher in |
@@ -135,9 +135,9 @@ anterior, que etiquetaba texto con las palabras funcionales ya eliminadas.
 | ADJ | 4.64% | 5.34% | −0.767 | <0.001 | Comparison |
 | PROPN (proper nouns) | 2.81% | 5.10% | −0.720 | <0.001 | Comparison |
 | DET (determiners) | 13.11% | 14.64% | −0.646 | 0.003 | Comparison |
-| NOUN | 17.25% | 18.31% | −0.458 | 0.089 | — |
-| ADV | 6.07% | 5.98% | −0.026 | 1.000 | — |
-| AUX | 3.76% | 3.83% | 0.003 | 1.000 | — |
+| NOUN | 17.25% | 18.31% | −0.458 | 0.089 | n.s. |
+| ADV | 6.07% | 5.98% | −0.026 | 1.000 | n.s. |
+| AUX | 3.76% | 3.83% | 0.003 | 1.000 | n.s. |
 | **Lexical density** | **47.9%** | **50.5%** | **−0.937** | <0.001 | Comparison |
 
 **EN.** A Cliff's delta of **1.000 on CCONJ** is perfect separation: every
@@ -160,17 +160,17 @@ Comparison with what the previous pipeline reported for the same book:
 The three categories that now separate the corpora most sharply are exactly the
 three the earlier preprocessing deleted.
 
-**ES.** Un delta de Cliff de **1,000 en CCONJ** es separacion perfecta: todos los
-libros de Papelucho usan mas conjunciones coordinantes que todos los libros de
-comparacion, sin solapamiento.
+**ES.** Un delta de Cliff de **1,000 en CCONJ** es separación perfecta: todos los
+libros de Papelucho usan más conjunciones coordinantes que todos los libros de
+comparación, sin solapamiento.
 
-El patron es coherente y se lee directo: Papelucho encadena clausulas con
+El patrón es coherente y se lee directo: Papelucho encadena cláusulas con
 *y... y... y...* en vez de subordinar mediante sintagmas preposicionales, usa
-muchos mas pronombres (narrador infantil en primera persona), mas verbos, menos
-adjetivos, y tiene densidad lexica mas baja. Es la firma del lenguaje oral
+muchos más pronombres (narrador infantil en primera persona), más verbos, menos
+adjetivos, y tiene densidad léxica más baja. Es la firma del lenguaje oral
 infantil.
 
-Las tres categorias que ahora separan los corpus con mayor nitidez son justamente
+Las tres categorías que ahora separan los corpus con mayor nitidez son justamente
 las tres que el preprocesamiento anterior eliminaba.
 
 `04_pos_results.csv`, `04_lexical_density_result.csv`
@@ -223,7 +223,7 @@ sobreviven tres y cuatro categorías invierten de dirección.
 | | Raw counts | Per 1,000 tokens |
 |---|---|---|
 | Significant of 10 / Significativas de 10 | **10** | **3** |
-| Direction reversals / Inversiones | — | **4** |
+| Direction reversals / Inversiones | n/a | **4** |
 
 Surviving after normalisation / Sobreviven tras normalizar:
 
@@ -299,17 +299,17 @@ por estilo.
 |---|---|
 | Silhouette in the original Delta space | **0.173** |
 | Silhouette in UMAP projections, median | **0.639** |
-| Silhouette in UMAP projections, range | 0.417 – 0.892 |
+| Silhouette in UMAP projections, range | 0.417-0.892 |
 | Neighbourhood preservation, median | 0.577 |
 
-**Verdict:** *weakly stable — separation holds in sign but varies substantially in
+**Verdict:** *Weakly stable: separation holds in sign but varies substantially in
 magnitude across seeds.*
 
 **EN.** The real separation between the two corpora in the feature space is weak
 (0.173). UMAP projections show it at roughly 3.7× that value, and the apparent
 strength varies more than twofold depending on the seed. A single UMAP plot from a
 single seed is not evidence of structure. Every statistical claim in this project
-therefore rests on the distance matrix, never on projection coordinates.
+rests on the distance matrix, never on projection coordinates.
 
 **ES.** La separación real entre los dos corpus en el espacio de rasgos es débil
 (0,173). Las proyecciones UMAP la muestran a unas 3,7× ese valor, y la fuerza
@@ -323,12 +323,15 @@ no es evidencia de estructura.
 ## 9. Sensitivity: the findings survive the corpus imbalances
 
 **EN.** Every metric was re-tested under three restricted designs plus 200 draws
-of one randomly chosen book per comparison author. Of 34 metrics: **17 robust,
-4 supported, 0 fragile.**
+of one randomly chosen book per comparison author. Of 34 metrics, **17 get the
+verdict `robust`, 4 get `supported` and none turns out fragile**; the other 13 were
+not significant on the full corpus (`09_sensitivity_summary.csv`, column `verdict`).
 
-**ES.** Cada metrica se volvio a probar bajo tres disenos restringidos mas 200
-sorteos de un libro elegido al azar por cada autor de comparacion. De 34 metricas:
-**17 robustas, 4 sostenidas, 0 fragiles.**
+**ES.** Cada métrica se volvió a probar bajo tres diseños restringidos más 200
+sorteos de un libro elegido al azar por cada autor de comparación. De 34 métricas,
+**17 reciben el veredicto `robust`, 4 reciben `supported` y ninguna resulta
+frágil**; las otras 13 no eran significativas en el corpus completo
+(`09_sensitivity_summary.csv`, columna `verdict`).
 
 | Design / Diseño | Papelucho | Comparison |
 |---|---|---|

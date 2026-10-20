@@ -13,8 +13,11 @@
 >
 > Safe options, in order of preference:
 >
-> 1. **Publish without the texts.** Uncomment the `data/raw/corpus.tar.gz` line
->    in `.gitignore`. `data/metadata/corpus_checksums.csv` still lets anyone
+> 1. **Publish without the texts.** In the `.gitignore` at the root of the Lab2IA
+>    repository, uncomment the line `# Papelucho/data/raw/corpus.tar.gz`, and stop
+>    tracking the archive with `git rm --cached data/raw/corpus.tar.gz`: ignoring a
+>    file that is already tracked does not remove it, and earlier commits keep
+>    their copy. `data/metadata/corpus_checksums.csv` still lets anyone
 >    verify byte-for-byte that they have assembled the identical corpus, so
 >    reproducibility is preserved. This is standard practice in corpus
 >    linguistics and is what the field expects.
@@ -23,8 +26,7 @@
 > 3. **Publish only derived data**: the frequency tables and counts already in
 >    `outputs/tables/`, which are not the original text.
 >
-> The archive is included by default because it was requested. Decide before
-> making the repository public.
+> The archive is included because it was requested.
 >
 > **ES.** El corpus contiene 63 novelas publicadas comercialmente (Stephen King,
 > J. K. Rowling, Stephenie Meyer, R. A. Salvatore, Umberto Eco y otros) y los 12
@@ -37,8 +39,11 @@
 >
 > Opciones seguras, en orden de preferencia:
 >
-> 1. **Publicar sin los textos.** Descomentar la línea
->    `data/raw/corpus.tar.gz` en `.gitignore`. El archivo
+> 1. **Publicar sin los textos.** En el `.gitignore` de la raíz del repositorio
+>    Lab2IA, descomentar la línea `# Papelucho/data/raw/corpus.tar.gz` y dejar de
+>    versionar el archivo con `git rm --cached data/raw/corpus.tar.gz`: ignorar un
+>    archivo que ya está versionado no lo saca, y los commits anteriores conservan
+>    su copia. El archivo
 >    `data/metadata/corpus_checksums.csv` igual permite verificar byte a byte que
 >    se armó el corpus idéntico, así que la reproducibilidad se conserva. Es la
 >    práctica estándar en lingüística de corpus y es lo que el área espera.
@@ -47,16 +52,17 @@
 > 3. **Publicar solo datos derivados**: las tablas de frecuencias y conteos que
 >    ya están en `outputs/tables/`, que no son el texto original.
 >
-> El archivo va incluido por defecto porque así se pidió. Decidir antes de hacer
-> público el repositorio.
+> El archivo va incluido porque así se pidió.
 
-**EN.** The book texts analysed in this project are under copyright and are not
-distributed with this repository. This document explains how to reconstruct the
-corpus so the pipeline can be re-run.
+**EN.** The book texts analysed in this project are under copyright. The
+repository carries them in `data/raw/corpus.tar.gz` (see the warning above). This
+document explains how the corpus is packed and verified, and how to reconstruct it
+if the archive is removed.
 
 **ES.** Los textos de los libros analizados en este proyecto están protegidos por
-derechos de autor y no se distribuyen con este repositorio. Este documento
-explica cómo reconstruir el corpus para poder volver a correr el pipeline.
+derechos de autor. El repositorio los lleva en `data/raw/corpus.tar.gz` (ver la
+advertencia de arriba). Este documento explica cómo se empaqueta y se verifica el
+corpus, y cómo reconstruirlo si se saca el archivo comprimido.
 
 ---
 
@@ -111,7 +117,7 @@ discrepancia no puede pasar en silencio.
 
 | Column | EN | ES |
 |---|---|---|
-| `book_id` | Stable identifier (`PAP01`–`PAP12`, `CMP01`–`CMP63`) | Identificador estable |
+| `book_id` | Stable identifier (`PAP01` to `PAP12`, `CMP01` to `CMP63`) | Identificador estable |
 | `group` | `Papelucho` or `Comparison` | `Papelucho` o `Comparison` |
 | `filename` | Exact filename on disk | Nombre exacto del archivo en disco |
 | `title_es` / `title_en` | Title in Spanish / English | Título en español / inglés |
@@ -139,7 +145,7 @@ sensibilidad pierde sentido.
 
 ## 3. Composition of the current corpus / Composición del corpus actual
 
-### Papelucho (12 books, 1947–1974)
+### Papelucho (12 books, 1947-1974)
 
 The complete series by Marcela Paz (Esther Huneeus Salas), in publication order.
 The two posthumous 2017 volumes are **not** included, since they were assembled
@@ -205,7 +211,7 @@ infantil chilena y latinoamericana de un período comparable.
 3. **El paratexto editorial puede dejarse.** El paso 01 lo detecta y elimina, y
    registra exactamente qué se eliminó en `outputs/tables/01_corpus_qa.csv`.
 4. **Los pies de scraper de ebooks pueden dejarse.** Líneas como
-   `www.lectulandia.com - Página 5` se eliminan en todo el archivo en el paso 01.
+   `www.lectulandia.com - Página 5` se eliminan en el archivo completo en el paso 01.
 5. **Las líneas cortadas duro no son problema.** Varios archivos del corpus actual
    están cortados a unos 50 caracteres; el pipeline los vuelve a unir.
 
@@ -219,25 +225,25 @@ Rscript run_all.R 01
 
 **EN.** Then inspect:
 
-- `outputs/tables/01_corpus_descriptives.csv` — token, type and sentence counts
+- `outputs/tables/01_corpus_descriptives.csv`: token, type and sentence counts
   per book. A book with an implausible count usually means an encoding problem.
-- `outputs/tables/01_corpus_qa.csv` — how much front matter and scraper
+- `outputs/tables/01_corpus_qa.csv`: how much front matter and scraper
   boilerplate was removed from each file, with a preview of the removed text.
   **Read the preview column.** If narrative text appears there, the cleaning was
   too aggressive for that file and should be reported as a bug.
-- `outputs/tables/01_balance_*.csv` — length, authorship, audience and
+- `outputs/tables/01_balance_*.csv`: length, authorship, audience and
   translation balance across the two groups.
 
 **ES.** Después inspeccionar:
 
-- `outputs/tables/01_corpus_descriptives.csv` — conteos de tokens, tipos y
+- `outputs/tables/01_corpus_descriptives.csv`: conteos de tokens, tipos y
   oraciones por libro. Un libro con un conteo inverosímil suele indicar un
   problema de codificación.
-- `outputs/tables/01_corpus_qa.csv` — cuánto paratexto y boilerplate de scraper se
+- `outputs/tables/01_corpus_qa.csv`: cuánto paratexto y boilerplate de scraper se
   eliminó de cada archivo, con una vista previa del texto eliminado.
   **Leer la columna de vista previa.** Si ahí aparece texto narrativo, la limpieza
   fue demasiado agresiva para ese archivo y debe reportarse como bug.
-- `outputs/tables/01_balance_*.csv` — balance de largo, autoría, público y
+- `outputs/tables/01_balance_*.csv`: balance de largo, autoría, público y
   traducción entre los dos grupos.
 
 ---
@@ -253,7 +259,7 @@ Rscript run_all.R 01
    objects depend on step 01.
 
 Note that adding books to the comparison group changes the multiple-testing
-family size and therefore every adjusted p-value in the project.
+family size and, with it, every adjusted p-value in the project.
 
 **ES.**
 
@@ -264,4 +270,4 @@ family size and therefore every adjusted p-value in the project.
    todos los objetos derivados dependen del paso 01.
 
 Notar que agregar libros al grupo de comparación cambia el tamaño de la familia de
-pruebas múltiples y por lo tanto todo valor p ajustado del proyecto.
+pruebas múltiples y, con eso, cada valor p ajustado del proyecto.
