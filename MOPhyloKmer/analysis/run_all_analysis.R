@@ -1,6 +1,6 @@
 # =====================================================================
 # run_all_analysis.R  ·  Runs the whole analysis in one go
-#   Rscript analisis/_correr_todo.R
+#   Rscript analysis/run_all_analysis.R
 # Paths and the MOSA_METRIC switch are set in _common.R
 # =====================================================================
 .here <- function() {

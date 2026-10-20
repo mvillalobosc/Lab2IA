@@ -7,7 +7,7 @@
 # the resulting configuration already matches the comparison budget.
 #
 # Uso:  Rscript tuning/irace_nsga.R
-# Resultado: tuning/best_nsga.csv  +  tune/irace_nsga.Rdata
+# Resultado: tuning/best_nsga.csv  +  tuning/irace_nsga.Rdata
 # =====================================================================
 
 suppressPackageStartupMessages({

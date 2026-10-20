@@ -44,7 +44,7 @@ if (isTRUE(RUN_ALGORITHMS)) {
 HV_NJ <- round((2 - 0.1) * (2 - 0.1), 2)   # 3.61 (tree base normalizado en (0.1,0.1))
 
 # --- 3) build the results table from the resumen_*.csv files -----------------------
-rows_list <- list(); pvals <- numeric(0)
+rows_list <- list(); pvals <- numeric(0); best_v <- character(0)
 for (dsf in DATASETS) {
   ds <- tools::file_path_sans_ext(dsf)
   fn <- file.path(RESULTS_DIR, sprintf("resumen_NSGA_%s.csv", ds))
@@ -72,6 +72,9 @@ for (dsf in DATASETS) {
     p = p_kw, p_NSGA_MOSA = p_nm, p_NSGA_RS = p_nr, p_MOSA_RS = p_mr,
     stringsAsFactors = FALSE)
   pvals <- c(pvals, p_kw)
+  # best method on the unrounded means; a tie stays a tie
+  m3 <- c(mean(hv_n), mean(hv_m), mean(hv_r))
+  best_v <- c(best_v, paste(c("NSGA-II", "MOSA", "RS")[m3 == max(m3)], collapse = " = "))
 }
 if (length(rows_list) == 0)
   stop("No summary files were produced. Check that RUN_ALGORITHMS=TRUE in config.R and restart R ",
@@ -79,7 +82,7 @@ if (length(rows_list) == 0)
 results_table <- do.call(rbind, rows_list)
 results_table$p_holm      <- p.adjust(results_table$p, method = "holm")
 results_table$signif_holm <- results_table$p_holm < 0.05
-results_table$best       <- c("NSGA-II", "MOSA", "RS")[max.col(results_table[, c("NSGA", "MOSA", "RS")], ties.method = "first")]
+results_table$best       <- best_v
 
 write.csv(results_table, file.path(APP, "tabla_resultados.csv"), row.names = FALSE)
 message("\nTable (data) -> ", file.path(APP, "tabla_resultados.csv"))
@@ -87,9 +90,13 @@ message("\nTable (data) -> ", file.path(APP, "tabla_resultados.csv"))
 # --- 4) LaTeX table (3 methods + omnibus p) --------------------------------
 esc  <- function(x) gsub("_", "\\\\_", x)
 format_p <- function(p) if (is.na(p)) "--" else if (p < 0.001) "$<0.001$" else sprintf("%.3f", p)
+holm_txt <- if (all(results_table$signif_holm, na.rm = TRUE))
+  "All comparisons remain significant after Holm correction at family-wise $\\alpha=0.05$." else
+  sprintf("The difference is significant after Holm correction at family-wise $\\alpha=0.05$ in %d of %d data sets.",
+          sum(results_table$signif_holm, na.rm = TRUE), nrow(results_table))
 lineas <- c(
   "\\begin{table}[htbp]", "\\centering",
-  "\\caption{Mean hypervolume of NSGA-II, MOSA and Random Search (RS) over eleven runs, with the Kruskal--Wallis $p$-value across the three methods. All comparisons remain significant after Holm correction at family-wise $\\alpha=0.05$.}",
+  sprintf("\\caption{Mean hypervolume of NSGA-II, MOSA and Random Search (RS) over %d runs, with the Kruskal--Wallis $p$-value across the three methods. %s}", N_RUNS, holm_txt),
   "\\label{tab:hv}",
   "\\begin{tabular}{lrrrr}", "\\toprule",
   "\\textbf{Data set} & \\textbf{NSGA-II} & \\textbf{MOSA} & \\textbf{RS} & \\textbf{$p$}\\\\",

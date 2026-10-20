@@ -26,4 +26,4 @@ source(file.path(TUNE_DIR, "irace_mosa.R"))
 
 message("\nDone. Best configurations in:\n  ",
         file.path(TUNE_DIR, "best_nsga.csv"), "\n  ",
-        file.path(TUNE_DIR, "best_sa.csv"))
+        file.path(TUNE_DIR, "best_mosa.csv"))

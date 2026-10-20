@@ -17,7 +17,7 @@ Rscript tuning/irace_nsga.R      # -> tuning/best_nsga.csv y tuning/irace_nsga.R
 Rscript tuning/irace_mosa.R      # -> tuning/best_mosa.csv y tuning/irace_mosa.Rdata
 ```
 
-Si el paquete `irace` no está instalado, cada script lo instala. Con los valores de `config.R` el afinado toma unas 6 horas (3 por algoritmo). Al terminar, `run_tuning.R` anuncia `tuning/best_sa.csv`, que es un nombre antiguo: el archivo de MOSA que se escribe es `tuning/best_mosa.csv`. Del mismo modo, la cabecera de `irace_nsga.R` dice `tune/irace_nsga.Rdata`, pero el registro queda en `tuning/irace_nsga.Rdata`.
+Si el paquete `irace` no está instalado, cada script lo instala. Con los valores de `config.R` el afinado toma unas 6 horas (3 por algoritmo).
 
 ### Cómo funciona
 
@@ -62,7 +62,7 @@ Rscript tuning/irace_nsga.R      # -> tuning/best_nsga.csv and tuning/irace_nsga
 Rscript tuning/irace_mosa.R      # -> tuning/best_mosa.csv and tuning/irace_mosa.Rdata
 ```
 
-If the `irace` package is not installed, each script installs it. With the values in `config.R` the tuning takes about 6 hours (3 per algorithm). When it finishes, `run_tuning.R` announces `tuning/best_sa.csv`, an old name: the MOSA file that is written is `tuning/best_mosa.csv`. Likewise, the header of `irace_nsga.R` says `tune/irace_nsga.Rdata`, but the log is written to `tuning/irace_nsga.Rdata`.
+If the `irace` package is not installed, each script installs it. With the values in `config.R` the tuning takes about 6 hours (3 per algorithm).
 
 ### How it works
 

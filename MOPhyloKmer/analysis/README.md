@@ -12,7 +12,7 @@ Para correr el análisis completo:
 Rscript analysis/run_all_analysis.R
 ```
 
-o un script a la vez (`01_table_tests.R`, `02_violins.R`, ...). El comentario de cabecera de `run_all_analysis.R` todavía dice `Rscript analisis/_correr_todo.R`, que es un nombre antiguo; el comando correcto es el de arriba.
+o un script a la vez (`01_table_tests.R`, `02_violins.R`, ...).
 
 Las salidas quedan en `analysis/output/`, que `_common.R` crea si no existe. El análisis necesita que exista `results/` (si no, se detiene y pide correr `run_experiments.R`) y toma como conjuntos de datos los que tienen un `resumen_NSGA_<conjunto>.csv` ahí, en orden alfabético. Requiere `ggplot2` y usa `dplyr`, `tidyr` y `scales` cuando están instalados.
 
@@ -54,7 +54,7 @@ Run everything:
 Rscript analysis/run_all_analysis.R
 ```
 
-or one script at a time (`01_table_tests.R`, `02_violins.R`, ...). The header comment of `run_all_analysis.R` still says `Rscript analisis/_correr_todo.R`, an old name; the right command is the one above.
+or one script at a time (`01_table_tests.R`, `02_violins.R`, ...).
 
 Output goes to `analysis/output/`, which `_common.R` creates when it is missing. The analysis needs `results/` to exist (otherwise it stops and asks you to run `run_experiments.R`) and takes as data sets those that have a `resumen_NSGA_<data set>.csv` there, in alphabetical order. It requires `ggplot2` and uses `dplyr`, `tidyr` and `scales` when they are installed.
 
