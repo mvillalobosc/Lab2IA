@@ -30,8 +30,8 @@ entorno nuevo.
 | `09_tables_and_figures.R` | las métricas del paso 7, los SHAP del paso 8, `discharges.parquet`, `municipal_indicators.parquet` (opcional) y `data/external/feature_labels.csv` (opcional) | en `results/tables/`: `hypervolume.csv`, las Tablas 1, S1 y 2 en `.csv` y `.tex`, `tableS2_S4_municipal_profiles.csv`, `episodes_by_municipality.csv` y `record_flow.tex`; en `results/figures/`: `figure_shap_<escenario>.pdf`, `figure3_episodes_by_municipality.pdf` y `figureS<i>_subtype_<comuna>.pdf` |
 
 Los pasos 1, 2, 3 y 5 también agregan filas a `results/tables/record_flow.csv`,
-que registra cuántos registros quedan después de cada regla. Ningún paso borra
-ese archivo, así que conviene eliminarlo antes de repetir esos pasos.
+que registra cuántos registros quedan después de cada regla. Si se repite un
+paso, sus filas reemplazan a las anteriores en vez de duplicarse.
 
 Los pasos 7 y 8 aceptan uno o más nombres de escenario como argumentos (por
 ejemplo `Rscript R/08_consensus.R D1_ACV_GENERAL`); sin argumentos procesan los
@@ -87,8 +87,8 @@ a fresh environment.
 | `09_tables_and_figures.R` | the step 7 metrics, the step 8 SHAP files, `discharges.parquet`, `municipal_indicators.parquet` (optional) and `data/external/feature_labels.csv` (optional) | in `results/tables/`: `hypervolume.csv`, Tables 1, S1 and 2 as `.csv` and `.tex`, `tableS2_S4_municipal_profiles.csv`, `episodes_by_municipality.csv` and `record_flow.tex`; in `results/figures/`: `figure_shap_<scenario>.pdf`, `figure3_episodes_by_municipality.pdf` and `figureS<i>_subtype_<comuna>.pdf` |
 
 Steps 1, 2, 3 and 5 also append rows to `results/tables/record_flow.csv`, which
-records how many records remain after each rule. No step deletes that file, so
-remove it before re-running those steps.
+records how many records remain after each rule. When a step is re-run, its rows
+replace the earlier ones instead of being duplicated.
 
 Steps 7 and 8 accept one or more scenario names as arguments (for example
 `Rscript R/08_consensus.R D1_ACV_GENERAL`); without arguments they process the

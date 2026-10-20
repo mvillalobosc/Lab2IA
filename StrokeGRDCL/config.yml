@@ -10,12 +10,12 @@
 
 project:
   name: "stroke-drg-chile"
-  # Free text, written into every log file and into results/run_metadata.json.
+  # Free text, written into every log file (results/logs/<step>.log).
   label: "Stroke characterisation from Chilean DRG discharge records, 2019-2024"
 
 # -----------------------------------------------------------------------------
-# Paths. Relative paths are resolved from the repository root, which is where
-# every script must be launched from (Rscript R/01_ingest_grd.R, etc.).
+# Paths. Relative paths are resolved from the project folder (StrokeGRDCL/),
+# which is where every script must be launched from (Rscript R/01_ingest_grd.R).
 # -----------------------------------------------------------------------------
 paths:
   raw_grd:      "data/raw/grd"        # GRD_PUBLICO_YYYY.txt as published by FONASA

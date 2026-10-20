@@ -113,9 +113,9 @@ Rscript R/07_select_features.R D1_HEM_VS_ISQ
 
 Cada paso deja un registro con hora en `results/logs/<paso>.log` y una copia del
 entorno que lo produjo en `results/run_metadata_<paso>.txt`. Los pasos 1, 2, 3 y
-5 agregan filas a `results/tables/record_flow.csv` y nada vacía ese archivo, así
-que conviene borrarlo antes de repetir esos pasos; si no, el flujo de registros
-que el paso 9 escribe en `record_flow.tex` sale con filas repetidas.
+5 anotan en `results/tables/record_flow.csv` cuántos registros quedan después de
+cada regla; si se repite un paso, sus filas reemplazan a las anteriores, así que
+el flujo de registros que el paso 9 escribe en `record_flow.tex` no se duplica.
 
 **Tiempos aproximados:** 40 a 90 minutos para el paso 1 (unos 4 GB de texto), 20
 a 40 minutos para los pasos 2 a 6 y 3 a 6 horas para el paso 7 en una máquina de
@@ -609,9 +609,9 @@ Rscript R/07_select_features.R D1_HEM_VS_ISQ
 
 Every step writes a timestamped log to `results/logs/<step>.log` and a copy of
 the environment that produced it to `results/run_metadata_<step>.txt`. Steps 1,
-2, 3 and 5 append rows to `results/tables/record_flow.csv` and nothing empties
-it, so delete it before re-running those steps; otherwise the record flow that
-step 9 writes to `record_flow.tex` repeats rows.
+2, 3 and 5 record in `results/tables/record_flow.csv` how many records remain
+after each rule; when a step is re-run its rows replace the earlier ones, so the
+record flow that step 9 writes to `record_flow.tex` has no repeated rows.
 
 **Expect roughly:** 40 to 90 minutes for step 1 (about 4 GB of text), 20 to 40
 minutes for steps 2 to 6, and 3 to 6 hours for step 7 on a four-core machine.

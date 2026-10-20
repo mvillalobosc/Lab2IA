@@ -10,6 +10,7 @@
 #         results/tables/shap_summary_<scenario>.csv
 #         results/final_model/<scenario>_coefficients.csv
 #         results/final_model/<scenario>_shap_values.csv
+#         results/final_model/<scenario>_shap_features.csv
 #
 # Usage
 #   Rscript R/08_consensus.R                    all scenarios

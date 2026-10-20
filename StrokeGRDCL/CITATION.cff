@@ -1,16 +1,11 @@
 # -----------------------------------------------------------------------------
 # CITATION.cff
 #
-# Citation metadata for this repository, in Citation File Format 1.2.0.
-# GitHub reads it and offers a "Cite this repository" button.
+# Citation metadata for this project, in Citation File Format 1.2.0. GitHub
+# shows its "Cite this repository" link only when this file is at the root of a
+# repository; inside Lab2IA it serves citation tools such as cffconvert.
 #
-# TO COMPLETE BEFORE PUBLISHING
-#   1. The author list below holds the two names that appear in the delivered
-#      scripts and manuscript. Add the remaining co-authors, in the order used by
-#      the article, and fill in the ORCID identifiers.
-#   2. Once the archive is created, add the Zenodo DOI in the identifiers block
-#      and in preferred-citation.
-#   3. Update the version and date-released fields for each release.
+# Update the version and date-released fields for each release.
 # -----------------------------------------------------------------------------
 
 cff-version: 1.2.0
@@ -33,11 +28,6 @@ authors:
   - family-names: "Guzmán-Madriaga"
     given-names: "Ivania Elena"
     affiliation: "Departamento de Ingeniería Informática, Universidad de Santiago de Chile"
-    # orcid: "https://orcid.org/0000-0000-0000-0000"
-  # - family-names: ""
-  #   given-names: ""
-  #   affiliation: "Departamento de Ingeniería Informática, Universidad de Santiago de Chile"
-  #   orcid: ""
 
 keywords:
   - stroke
@@ -48,12 +38,7 @@ keywords:
   - health data science
   - Chile
 
-repository-code: "https://github.com/<organisation>/stroke-drg-chile"
-
-# identifiers:
-#   - type: doi
-#     value: "10.5281/zenodo.XXXXXXX"
-#     description: "Archived release of the analytical code"
+repository-code: "https://github.com/mvillalobosc/Lab2IA/tree/main/StrokeGRDCL"
 
 preferred-citation:
   type: article
@@ -62,5 +47,3 @@ preferred-citation:
     - family-names: "Guzmán-Madriaga"
       given-names: "Ivania Elena"
   year: 2026
-  # journal: ""
-  # doi: ""

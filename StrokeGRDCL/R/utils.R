@@ -81,7 +81,7 @@ load_config <- function(path = NULL) {
   if (!file.exists(path)) {
     fail(
       "Cannot find '", path, "'.\n",
-      "Run every script from the repository root, for example:\n",
+      "Run every script from the project folder (StrokeGRDCL/), for example:\n",
       "  Rscript R/01_ingest_grd.R"
     )
   }
@@ -441,13 +441,7 @@ outcome_guard_pattern <- function(cfg) {
 }
 
 
-#' Names of the diagnosis and procedure columns of the raw table.
-diagnosis_columns <- function(cfg) {
-  rng <- unlist(cfg$case_definition$secondary_columns_range)
-  c(cfg$case_definition$principal_column,
-    paste0("DIAGNOSTICO", seq(rng[1], rng[2])))
-}
-
+#' Names of the secondary diagnosis and procedure columns of the raw table.
 secondary_diagnosis_columns <- function(cfg) {
   rng <- unlist(cfg$case_definition$secondary_columns_range)
   paste0("DIAGNOSTICO", seq(rng[1], rng[2]))
@@ -570,7 +564,9 @@ record_flow_append <- function(cfg, stage, n_records, note = "") {
   )
   if (file.exists(path)) {
     prev <- read_csv_utf8(path)
-    row <- rbind(prev, row)
+    hit <- match(stage, prev$stage)
+    # A re-run replaces the row of its stage instead of appending a duplicate.
+    if (is.na(hit)) row <- rbind(prev, row) else { prev[hit, ] <- row; row <- prev }
   }
   write_csv_utf8(row, path)
   invisible(path)

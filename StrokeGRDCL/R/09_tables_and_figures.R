@@ -5,6 +5,7 @@
 #
 # Input : results/selection/metrics_<scenario>.csv       (step 7)
 #         results/final_model/<scenario>_shap_values.csv (step 8)
+#         results/final_model/<scenario>_shap_features.csv (step 8)
 #         results/tables/shap_summary_<scenario>.csv     (step 8)
 #         data/processed/discharges.parquet              (step 3)
 #         data/processed/municipal_indicators.parquet    (step 4, optional)
@@ -16,7 +17,7 @@
 #         results/tables/tableS2_S4_municipal_profiles.csv
 #         results/figures/figure_shap_<scenario>.pdf
 #         results/figures/figure3_episodes_by_municipality.pdf
-#         results/figures/figureS1_S3_subtype_<municipality>.pdf
+#         results/figures/figureS<i>_subtype_<municipality>.pdf  (S1 to S3)
 #
 # Why this script exists
 #   Every number in Table 1 and Table S1 is recomputed here from the per-replicate
@@ -264,7 +265,10 @@ for (i in seq_len(nrow(scen))) {
   feat_path <- cfg_path(cfg, "final_model", paste0(outcome, "_shap_features.csv"))
   summ_path <- cfg_path(cfg, "tables", paste0("shap_summary_", outcome, ".csv"))
 
-  if (!all(file.exists(c(shap_path, feat_path, summ_path)))) next
+  if (!all(file.exists(c(shap_path, feat_path, summ_path)))) {
+    log_warn("  ", outcome, ": missing step 8 SHAP files; figure skipped")
+    next
+  }
 
   shap_df <- read_csv_utf8(shap_path)
   feat_df <- read_csv_utf8(feat_path)
