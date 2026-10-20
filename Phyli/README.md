@@ -90,19 +90,36 @@ http://localhost:8000/
 
 ### 3.3 Repository contents
 
-The supplied application is intentionally compact:
+The application lives in a single file; the rest of the folder holds documentation, licence, screenshots and example trees:
 
 ```text
 Phyli/
 ├── index.html
 ├── htaccess
 ├── README.md
-└── assets/
-    ├── screenshot-main.png
-    ├── screenshot-radial.png
-    ├── screenshot-network.png
-    ├── screenshot-distance.png
-    └── screenshot-export.png
+├── LICENSE.md
+├── CITATION.cff
+├── assets/
+│   ├── README.md
+│   ├── screenshot-main.png
+│   ├── screenshot-radial.png
+│   ├── screenshot-network.png
+│   ├── screenshot-distance.png
+│   ├── screenshot-export.png
+│   ├── screenshot-home.png
+│   └── flags/
+│       ├── br.svg
+│       ├── cl.svg
+│       └── gb.svg
+├── docs/
+│   ├── README.md
+│   └── index.md
+└── examples/
+    ├── README.md
+    ├── 1011_REF.tree
+    ├── simple.nwk
+    ├── tree-of-life.nwk
+    └── vertebrates.nwk
 ```
 
 | Item | Purpose |
@@ -110,7 +127,11 @@ Phyli/
 | `index.html` | Complete application: HTML interface, CSS, parser, rendering, interaction, internationalisation, and export logic. |
 | `htaccess` | Apache rewrite configuration supplied without the leading dot. Rename it to `.htaccess` when deploying it as an Apache configuration file. |
 | `README.md` | Project documentation for GitHub or another repository browser. |
-| `assets/` | Real screenshots generated from the supplied application. |
+| `LICENSE.md` | Licence of the project, CC BY-SA 4.0. |
+| `CITATION.cff` | Citation metadata of the web version. |
+| [`assets/`](assets/README.md) | Screenshots used by this README. `screenshot-home.png` and `flags/` are not used by the README or by the application, which draws its own flags inline. |
+| [`docs/`](docs/README.md) | Short documentation page that points back to this README. |
+| [`examples/`](examples/README.md) | Four example trees to load by hand as local files; the interface does not list them. |
 
 ## 4. Input formats
 
@@ -158,7 +179,7 @@ The branch annotation model is:
 :length:support:gamma
 ```
 
-Empty intermediate values are allowed. Therefore, `:0.5::0.7` represents a branch length of `0.5`, no support value, and an inheritance probability `γ = 0.7`.
+Empty intermediate values are allowed, so `:0.5::0.7` represents a branch length of `0.5`, no support value, and an inheritance probability `γ = 0.7`.
 
 When repeated hybrid tags are found, Phyli folds the repeated occurrences into:
 
@@ -375,6 +396,8 @@ README.md
 assets/
 ```
 
+This folder does not include `.nojekyll`; create that empty file when the application is published from its own repository.
+
 ### 11.3 Apache under `/Phyli/`
 
 The supplied `htaccess` file contains rules for direct path input. Before deployment:
@@ -477,7 +500,7 @@ The application includes the following original-work citation:
 
 > Mardones Aguilar, R. I. N., Villalobos Cid, M. J., & Universidad de Santiago de Chile, Facultad de Ingeniería, Departamento de Ingeniería Informática. (2006). *Desarrollo de aplicación en línea para la interacción y visualización de árboles filogenéticos*. Universidad de Santiago de Chile.
 
-The About panel states that the base project is distributed under **Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)**. A repository release should also include an explicit `LICENSE` file so that the terms are visible outside the application.
+The About panel states that the base project is distributed under **Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)**. The repository states the same licence in [`LICENSE.md`](LICENSE.md), and [`CITATION.cff`](CITATION.cff) gives the citation metadata of the web version (Mardones Aguilar, Villalobos Cid and Kessi-Pérez, 2026), asking users to acknowledge the original 2006 work as well.
 
 Current continuity, documentation, and web-development credits:
 
@@ -544,19 +567,36 @@ http://localhost:8000/
 
 ### 3.3 Contenido del repositorio
 
-La aplicación entregada mantiene una estructura intencionalmente compacta:
+La aplicación vive en un solo archivo; el resto de la carpeta guarda la documentación, la licencia, las capturas y árboles de ejemplo:
 
 ```text
 Phyli/
 ├── index.html
 ├── htaccess
 ├── README.md
-└── assets/
-    ├── screenshot-main.png
-    ├── screenshot-radial.png
-    ├── screenshot-network.png
-    ├── screenshot-distance.png
-    └── screenshot-export.png
+├── LICENSE.md
+├── CITATION.cff
+├── assets/
+│   ├── README.md
+│   ├── screenshot-main.png
+│   ├── screenshot-radial.png
+│   ├── screenshot-network.png
+│   ├── screenshot-distance.png
+│   ├── screenshot-export.png
+│   ├── screenshot-home.png
+│   └── flags/
+│       ├── br.svg
+│       ├── cl.svg
+│       └── gb.svg
+├── docs/
+│   ├── README.md
+│   └── index.md
+└── examples/
+    ├── README.md
+    ├── 1011_REF.tree
+    ├── simple.nwk
+    ├── tree-of-life.nwk
+    └── vertebrates.nwk
 ```
 
 | Elemento | Propósito |
@@ -564,7 +604,11 @@ Phyli/
 | `index.html` | Aplicación completa: interfaz HTML, CSS, parser, renderizado, interacción, internacionalización y exportación. |
 | `htaccess` | Configuración de reescritura para Apache entregada sin el punto inicial. Debe renombrarse como `.htaccess` al desplegarla como configuración de Apache. |
 | `README.md` | Documentación del proyecto para GitHub u otro visor de repositorios. |
-| `assets/` | Capturas reales generadas desde la aplicación entregada. |
+| `LICENSE.md` | Licencia del proyecto, CC BY-SA 4.0. |
+| `CITATION.cff` | Metadatos de citación de la versión web. |
+| [`assets/`](assets/README.md) | Capturas que usa este README. `screenshot-home.png` y `flags/` no los usa ni el README ni la aplicación, que dibuja sus propias banderas dentro de la página. |
+| [`docs/`](docs/README.md) | Página breve de documentación que remite a este README. |
+| [`examples/`](examples/README.md) | Cuatro árboles de ejemplo para cargar a mano como archivos locales; la interfaz no los ofrece en su lista. |
 
 ## 4. Formatos de entrada
 
@@ -829,6 +873,8 @@ README.md
 assets/
 ```
 
+Esta carpeta no incluye `.nojekyll`; crea ese archivo vacío cuando publiques la aplicación desde un repositorio propio.
+
 ### 11.3 Apache bajo `/Phyli/`
 
 El archivo `htaccess` entregado contiene reglas para recibir Newick directamente en la ruta. Antes del despliegue:
@@ -931,7 +977,7 @@ La aplicación incluye la siguiente cita del trabajo original:
 
 > Mardones Aguilar, R. I. N., Villalobos Cid, M. J., & Universidad de Santiago de Chile, Facultad de Ingeniería, Departamento de Ingeniería Informática. (2006). *Desarrollo de aplicación en línea para la interacción y visualización de árboles filogenéticos*. Universidad de Santiago de Chile.
 
-El panel Acerca de declara que el proyecto base se distribuye bajo **Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)**. Una publicación formal del repositorio también debería incorporar un archivo `LICENSE` explícito para que las condiciones sean visibles fuera de la aplicación.
+El panel Acerca de declara que el proyecto base se distribuye bajo **Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)**. El repositorio declara la misma licencia en [`LICENSE.md`](LICENSE.md), y [`CITATION.cff`](CITATION.cff) entrega los metadatos de citación de la versión web (Mardones Aguilar, Villalobos Cid y Kessi-Pérez, 2026), además de pedir que se reconozca el trabajo original de 2006.
 
 Créditos actuales de continuidad, documentación y desarrollo web:
 
