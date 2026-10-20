@@ -1941,7 +1941,7 @@ function dlTemplate(){
   XLSX.utils.book_append_sheet(wb,XLSX.utils.json_to_sheet([
     {codigo:"MAT101",nombre:"Cálculo I",creditos:6,periodo:1,tel:"6-2-0",tipo:1,tasa:0.2},
     {codigo:"MAT102",nombre:"Cálculo II",creditos:6,periodo:null,tel:"6-2-0",tipo:1,tasa:0.3},
-    {codigo:"INF101",nombre:"Programación",creditos:5,periodo:null,tel:"4-2-0",tipo:7,tasa:0.25}]),"Asignaturas");
+    {codigo:"INF101",nombre:"Programación",creditos:5,periodo:null,tel:"4-2-0",tipo:3,tasa:0.25}]),"Asignaturas");
   XLSX.utils.book_append_sheet(wb,XLSX.utils.json_to_sheet([{prerrequisito:"MAT101",curso:"MAT102"}]),"Prerrequisitos");
   XLSX.utils.book_append_sheet(wb,XLSX.utils.json_to_sheet([{parametro:"plan",valor:"Mi plan de estudios"},{parametro:"periodos",valor:10}]),"Parametros");
   XLSX.writeFile(wb,"plantilla_plan_estudios.xlsx"); toast("Plantilla descargada","ok");
@@ -2696,7 +2696,7 @@ algoritmo:`<h3>NSGA-II</h3><p>Algoritmo evolutivo multiobjetivo. Mantiene una po
 pareto:`<h3>Frente de Pareto</h3><p><b>NSGA-II es una metaheurística: entrega una buena aproximación del frente de Pareto; no garantiza el óptimo global.</b> Cada punto es una malla no dominada; horizontal = carga máxima (f₁), vertical = desequilibrio (f₂). <b>Abajo-izquierda es mejor.</b> El rombo naranja ◆ es el punto de equilibrio (<i>knee</i>), la elección más razonable.</p>
 <div class="callout"><h4>▸ Frente convergido</h4><p>A menudo muchas mallas alcanzan la misma calidad y difieren solo en la disposición. En ese caso verás un panel <b>«Mejor malla hallada ×N»</b> y podrás comparar los N arreglos en «Todas las mallas».</p></div>`,
 archivo:`<h3>Formato del archivo Excel</h3><p>Tres hojas. Descarga la <i>plantilla vacía</i> como base.</p>
-<div class="sheet-demo"><div class="st">Hoja «Asignaturas»</div><table><tr><th>codigo</th><th>nombre</th><th>creditos</th><th>periodo</th><th>tipo</th><th>tasa</th></tr><tr><td>MAT101</td><td>Cálculo I</td><td>6</td><td>1</td><td>1</td><td>0.2</td></tr><tr><td>INF101</td><td>Programación</td><td>5</td><td></td><td>7</td><td>0.25</td></tr></table></div>
+<div class="sheet-demo"><div class="st">Hoja «Asignaturas»</div><table><tr><th>codigo</th><th>nombre</th><th>creditos</th><th>periodo</th><th>tipo</th><th>tasa</th></tr><tr><td>MAT101</td><td>Cálculo I</td><td>6</td><td>1</td><td>1</td><td>0.2</td></tr><tr><td>INF101</td><td>Programación</td><td>5</td><td></td><td>3</td><td>0.25</td></tr></table></div>
 <ul><li><b>codigo</b> (obligatorio), <b>creditos</b> (SCT).</li><li><b>periodo</b>: vacío = movible; número = fijo a ese semestre.</li><li><b>tipo</b>: clasificación FING/color (1 Ciencias Básicas, 2 Ciencias de la Ingeniería, 3 Área de la Especialidad, 4 Ciencias Sociales y Humanidades, 5 Formación Integral, 0 Otro).</li><li><b>tasa</b>: tasa de reprobación (0–1), usada por el Simulador de Progreso.</li><li><b>tel</b>: horas teoría-ejercicios-laboratorio (opcional).</li></ul>
 <div class="sheet-demo"><div class="st">Hoja «Prerrequisitos»</div><table><tr><th>prerrequisito</th><th>curso</th></tr><tr><td>MAT101</td><td>MAT102</td></tr></table></div>
 <div class="sheet-demo"><div class="st">Hoja «Parametros»</div><table><tr><th>parametro</th><th>valor</th></tr><tr><td>plan</td><td>Nombre de la carrera</td></tr><tr><td>periodos</td><td>10</td></tr></table></div>
