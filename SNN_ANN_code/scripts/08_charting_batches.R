@@ -7,7 +7,7 @@
 #
 # Inputs : data/processed/corpus.csv, data/results/screening_decisions.csv
 # Outputs: data/processed/charting_batches/charting_NN.txt
-#          data/screening/../charting/charting_ids.csv      record -> batch
+#          data/charting/charting_ids.csv                   record -> batch
 #          data/processed/charting_batches/verification_N.txt
 #          data/charting/verification_ids.csv
 # Usage: Rscript scripts/08_charting_batches.R <seed>     (review value: 20261015)

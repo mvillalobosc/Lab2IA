@@ -3,10 +3,10 @@
 # Lists the candidates for the full-text stage: studies included in the
 # map whose hardware-measurement indicator is Y or U, plus every study
 # in category C4 (lottery tickets in SNNs). Writes the public candidate
-# list and, when the local corpus is available, the batch files with
-# the bibliographic data that the full-text protocol expects.
+# list and the batch files with the bibliographic data that the
+# full-text protocol expects (always, even without the raw exports).
 #
-# Inputs : data/results/mapping.csv (and data/processed/corpus.csv if present)
+# Inputs : data/results/mapping.csv
 # Outputs: data/fulltext/candidates.csv
 #          data/processed/fulltext_batches/fulltext_NN.txt
 # Usage: Rscript scripts/11_fulltext_candidates.R <batch_size>   (review value: 5)

@@ -12,8 +12,6 @@ Esta carpeta guarda las decisiones del primer paso del cribado, en el que los re
 
 `04_check_screening_batches.R` verifica que cada archivo tenga exactamente los registros de su lote, sin repetidos y con decisiones y códigos válidos; `06_rescreen_set.R` y `07_consolidate_screening.R` los leen por nombre (`batch_%03d.tsv`). En `07`, la decisión del re-cribado reemplaza la de este paso para los 1.114 registros que se volvieron a cribar.
 
-`batch_057.tsv` es el único archivo sin salto de línea al final. `data.table::fread` lo lee completo, pero una herramienta que cuente líneas (por ejemplo `wc -l`) informa una menos.
-
 ## English
 
 This folder holds the decisions of the first screening pass, in which the reviewers saw the title, the author keywords (up to 200 characters) and the abstract (up to 1,400 characters) of each record. See [data/screening/](../README.md) for the context.
@@ -23,5 +21,3 @@ This folder holds the decisions of the first screening pass, in which the review
 | `batch_001.tsv` to `batch_064.tsv` | One file per batch in `batch_ids.csv`: 63 batches of 100 records and a last one of 34, 6,334 lines in total. Each line has the five screening fields (`record_id`, `decision`, `code`, `hardware`, `note`), without a header and in batch order. |
 
 `04_check_screening_batches.R` checks that each file holds exactly the records of its batch, without repeats and with valid decisions and codes; `06_rescreen_set.R` and `07_consolidate_screening.R` read them by name (`batch_%03d.tsv`). In `07`, the re-screening decision replaces the one from this pass for the 1,114 records that were screened again.
-
-`batch_057.tsv` is the only file without a final newline. `data.table::fread` reads it in full, but a tool that counts lines (for example `wc -l`) reports one fewer.
