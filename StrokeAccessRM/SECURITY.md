@@ -12,7 +12,7 @@ La última versión de la rama `main` recibe las actualizaciones de seguridad y 
 
 Reporta los problemas de seguridad en forma privada a:
 
-- Manuel Villalobos Cid: manuel.villalobos.c@usach.cl
+- Manuel Villalobos Cid: manuel.villalobos@usach.cl
 
 Incluye una descripción clara, los archivos o funciones afectados, los pasos para reproducir el problema y su posible impacto. No publiques detalles sensibles en un issue público antes de que los mantenedores revisen el reporte.
 
@@ -38,7 +38,7 @@ The latest version on the `main` branch receives security and maintenance update
 
 Please report security issues privately to:
 
-- Manuel Villalobos Cid: manuel.villalobos.c@usach.cl
+- Manuel Villalobos Cid: manuel.villalobos@usach.cl
 
 Include a clear description, affected files or functions, reproduction steps, and the potential impact. Do not disclose sensitive details in a public issue before the maintainers have reviewed the report.
 
