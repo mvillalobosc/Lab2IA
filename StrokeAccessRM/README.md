@@ -52,6 +52,8 @@ La aplicación integra resultados de microsimulación espacial, análisis de is�
 
 El visor también incorpora establecimientos hospitalarios de la Región Metropolitana, filtros por tipo, resúmenes comunales y una herramienta para consultar un punto mediante una dirección, la ubicación del navegador o un clic sobre el mapa.
 
+El proyecto hermano [StrokeAccessCL](../StrokeAccessCL/) cubre el país completo con 93 establecimientos y coberturas de 30, 45 y 60 minutos. Los dos visores traen copias idénticas de Leaflet 1.9.4 y Leaflet.markercluster, pero cada uno tiene sus propios datos y su propio código.
+
 ## 2. Funcionalidades principales
 
 ### Indicadores por zona censal
@@ -77,7 +79,7 @@ El visor también incorpora establecimientos hospitalarios de la Región Metropo
   - 7 institutos.
 - Filtro interactivo por tipo de establecimiento.
 - Agrupamiento visual de marcadores con Leaflet.markercluster.
-- Resaltado de los 21 hospitales que atendieron ACV isquémico en la base GRD 2019–2021.
+- Resaltado de los 21 hospitales que atendieron ACV isquémico en la base GRD 2019-2021.
 - Frecuencias de atención por hospital para 2019, 2020, 2021 y promedio anual.
 
 ### Isócronas y accesibilidad
@@ -100,7 +102,7 @@ El visor también incorpora establecimientos hospitalarios de la Región Metropo
 
 - Español, inglés y portugués.
 - Detección automática del idioma del navegador.
-- Persistencia local del idioma y de la preferencia de mostrar la guía inicial.
+- Persistencia local del idioma y de la preferencia de mostrar la guía inicial, en `localStorage` con las claves `msrm_lang` y `msrm_seen`. Para volver a ver la guía basta con borrar `msrm_seen` o el almacenamiento del sitio.
 - Diseño adaptable para escritorio y dispositivos móviles.
 - Ayuda integrada con metodología, fuentes, limitaciones y citas.
 
@@ -110,7 +112,7 @@ No se necesita instalar paquetes ni compilar el proyecto.
 
 ### Opción recomendada: servidor local
 
-Desde la carpeta del repositorio:
+Desde la carpeta `StrokeAccessRM/`:
 
 ```bash
 python -m http.server 8000
@@ -130,14 +132,14 @@ La mayor parte de la aplicación funciona al abrir `index.html` directamente. Se
 
 ## 4. Publicación en GitHub Pages
 
-El repositorio incluye `.github/workflows/pages.yml`, que publica automáticamente la aplicación cuando se actualiza la rama `main`.
+La aplicación se publica hoy en el servidor del DIINF (enlace al inicio). Esta carpeta no trae flujos de GitHub Actions, plantillas de GitHub ni archivo `.nojekyll`, así que para publicarla con GitHub Pages se usa la opción de desplegar desde una rama:
 
 1. Crea un repositorio en GitHub.
-2. Copia el contenido de esta carpeta en la raíz del repositorio.
+2. Copia el contenido de la carpeta `StrokeAccessRM/` en la raíz del repositorio.
 3. Sube los archivos a la rama `main`.
 4. Abre **Settings → Pages**.
-5. En **Source**, selecciona **GitHub Actions**.
-6. Revisa la ejecución del flujo **Deploy static site to Pages** en la pestaña **Actions**.
+5. En **Source**, selecciona **Deploy from a branch**, con la rama `main` y la carpeta `/ (root)`.
+6. Guarda la configuración y espera a que GitHub publique el sitio.
 
 La URL tendrá una forma similar a:
 
@@ -145,7 +147,7 @@ La URL tendrá una forma similar a:
 https://USUARIO.github.io/NOMBRE-DEL-REPOSITORIO/
 ```
 
-La aplicación utiliza rutas relativas, por lo que funciona correctamente dentro de un repositorio de proyecto. El archivo `.nojekyll` evita el procesamiento mediante Jekyll.
+La aplicación utiliza rutas relativas, por lo que funciona correctamente dentro de un repositorio de proyecto y también dentro de una subcarpeta, como `StrokeAccessRM/` en el repositorio Lab2IA. Ningún archivo ni carpeta de la aplicación empieza con guion bajo, de modo que el procesamiento de Jekyll de GitHub Pages no deja nada afuera; si en el futuro se agregan archivos así, conviene crear un archivo vacío `.nojekyll` en la raíz del sitio.
 
 ## 5. Flujo de uso
 
@@ -177,7 +179,7 @@ Los indicadores mostrados se concentran en población de 30 años o más e inclu
 
 ### Accesibilidad e isócronas
 
-Los hospitales que atendieron ACV isquémico se identificaron a partir de registros GRD 2019–2021 y códigos CIE relacionados con infarto cerebral. Las isócronas se generaron con ORS Tools/OpenRouteService sobre una red vial, usando tiempos de conducción en condiciones ideales.
+Los hospitales que atendieron ACV isquémico se identificaron a partir de registros GRD 2019-2021 y códigos CIE relacionados con infarto cerebral. Las isócronas se generaron con ORS Tools/OpenRouteService sobre una red vial, usando tiempos de conducción en condiciones ideales.
 
 ### Clustering
 
@@ -209,8 +211,10 @@ Contiene 2.371 zonas censales en `window.DATA_RESULTADOS`.
 | `POB_30_MAS` | Población de 30 años o más. |
 | `POB_60_MAS` | Población de 60 años o más. |
 | `TASA_ADULT` | Tasa de población de 60 años o más respecto de la población de 30 años o más. |
-| `minutos_vi` | Tiempo estimado de viaje al hospital. |
+| `minutos_vi` | Tiempo estimado de viaje al hospital, en tramos de 10 minutos: solo toma los valores 10, 20, 30, 40, 50, 60 y 70. El valor 70 (60 zonas) no tiene isócrona propia, porque las capas llegan a 60 minutos, y la leyenda lo agrupa en «> 60». |
 | `cluster` | Grupo K-Means, de 0 a 4. |
+
+Todos los campos de las zonas vienen completos, sin valores nulos. Los nombres truncados a diez caracteres (`P_DB_Diabe`, `Hipertensi`, `TASA_ADULT`, `minutos_vi`) se conservan tal como vienen en los datos.
 
 ### `data/comunas.js`
 
@@ -236,8 +240,10 @@ Contiene 113 establecimientos en `window.DATA_HOSPITALES`.
 | `tipo` | Hospital, clínica o instituto. |
 | `comuna` | Comuna del establecimiento. |
 | `acv` | Indica si el establecimiento forma parte de los hospitales que atendieron ACV en la base analizada. |
-| `f2019`, `f2020`, `f2021` | Frecuencia de atención de ACV por año. |
-| `fprom` | Promedio anual. |
+| `f2019`, `f2020`, `f2021` | Frecuencia de atención de ACV por año. Solo existe en los 21 establecimientos con `acv` igual a `true`. |
+| `fprom` | Promedio anual. Solo existe en los 21 establecimientos con `acv` igual a `true`. |
+
+El detalle de cada archivo, con sus tamaños y conteos, está en [data/README.md](data/README.md).
 
 ## 8. Dependencias
 
@@ -249,7 +255,7 @@ Contiene 113 establecimientos en `window.DATA_HOSPITALES`.
 
 ### Servicios remotos
 
-- Teselas CARTO/OpenStreetMap para el mapa base.
+- Teselas de OpenStreetMap (`tile.openstreetmap.org`) para el mapa base.
 - Nominatim/OpenStreetMap para búsqueda de direcciones.
 - Google Fonts para las tipografías Bricolage Grotesque e Inter.
 
@@ -316,9 +322,8 @@ StrokeAccessRM/
 ├── CONTRIBUTING.md
 ├── SECURITY.md
 ├── THIRD_PARTY_NOTICES.md
-├── .gitignore
-├── .nojekyll
 ├── assets/
+│   ├── README.md
 │   ├── screenshot-home.png
 │   ├── screenshot-guide.png
 │   ├── screenshot-comuna.png
@@ -326,26 +331,30 @@ StrokeAccessRM/
 │   ├── screenshot-query.png
 │   └── screenshot-help.png
 ├── data/
+│   ├── README.md
 │   ├── resultados.js
 │   ├── comunas.js
 │   ├── isocronas.js
 │   └── hospitales.js
 ├── lib/
+│   ├── README.md
 │   ├── leaflet.js
 │   ├── leaflet.css
 │   ├── leaflet.markercluster.js
-│   └── recursos asociados
-├── scripts/
-│   └── validate-data.mjs
-└── .github/
-    ├── workflows/
-    │   ├── pages.yml
-    │   └── validate.yml
-    ├── ISSUE_TEMPLATE/
-    │   ├── bug_report.yml
-    │   └── feature_request.yml
-    └── PULL_REQUEST_TEMPLATE.md
+│   ├── MarkerCluster.css
+│   ├── MarkerCluster.Default.css
+│   └── images/
+│       ├── layers.png
+│       ├── layers-2x.png
+│       ├── marker-icon.png
+│       ├── marker-icon-2x.png
+│       └── marker-shadow.png
+└── scripts/
+    ├── README.md
+    └── validate-data.mjs
 ```
+
+Cada carpeta tiene un README propio con el detalle de sus archivos: [assets/](assets/README.md), [data/](data/README.md), [lib/](lib/README.md) y [scripts/](scripts/README.md). Dentro del repositorio Lab2IA, la aplicación vive en la carpeta `StrokeAccessRM/`.
 
 ## 11. Desarrollo
 
@@ -359,15 +368,17 @@ La aplicación no utiliza un sistema de compilación. Para modificarla:
 6. ejecuta la validación de datos;
 7. actualiza las capturas cuando cambie la interfaz.
 
+Los cortes de clase de cada indicador, sus rampas de color y los colores de los grupos y de las isócronas están escritos en `index.html` (constantes `RAMPS`, `INDICATORS`, `CLUSTER_COLORS` e `ISO_COLORS`) y, según el comentario del código, reproducen los estilos de QGIS. Si cambian los datos, hay que revisar esos cortes a mano.
+
 ### Validación local
 
-Con Node.js 20 o superior:
+Con Node.js 20.11 o superior (el script usa `import.meta.dirname`):
 
 ```bash
 node scripts/validate-data.mjs
 ```
 
-El script comprueba la existencia de los archivos principales, la estructura GeoJSON, los campos requeridos y las cantidades esperadas de zonas, comunas, isócronas y establecimientos.
+El script comprueba la existencia de los archivos principales, la estructura GeoJSON, los campos requeridos y las cantidades esperadas de zonas, comunas, isócronas y establecimientos. Las cantidades esperadas (2.371 zonas, 52 comunas, 6 isócronas, 113 establecimientos y 21 hospitales ACV) están escritas en el script: si los datos cambian a propósito, hay que actualizarlas allí.
 
 ## 12. Lista de pruebas
 
@@ -421,7 +432,7 @@ La búsqueda de direcciones envía el texto escrito a Nominatim/OpenStreetMap. L
 - Los tiempos de viaje corresponden a condiciones ideales y no incorporan tráfico, hora del día ni respuesta de ambulancia.
 - Las isócronas se refieren a los hospitales incluidos en el análisis original y no se recalculan dinámicamente.
 - La cercanía calculada al consultar un punto usa distancia en línea recta, no una ruta vial.
-- Los indicadores combinan fuentes de distintos años: Censo 2017, GRD 2019–2021 y CASEN 2022.
+- Los indicadores combinan fuentes de distintos años: Censo 2017, GRD 2019-2021 y CASEN 2022.
 - La microsimulación genera estimaciones para zonas pequeñas; no reemplaza registros clínicos individuales.
 - La búsqueda de direcciones requiere conexión a Nominatim.
 - El mapa base requiere conexión a los servidores de teselas.
@@ -438,7 +449,7 @@ La búsqueda de direcciones envía el texto escrito a Nominatim/OpenStreetMap. L
 
 ### Artículo
 
-> Garrido-Delgado, D., Lillo-Vidal, J., Escudero-Bell, M., Hurtado-Meneses, V., & Villalobos-Cid, M. (2025). Spatiotemporal characterisation of stroke care accessibility and hospital coverage in the Santiago Metropolitan Region. *2025 21st International Symposium on Biomedical Image Processing and Analysis (SIPAIM)*, 1–5. <https://doi.org/10.1109/SIPAIM67325.2025.11283388>
+> Garrido-Delgado, D., Lillo-Vidal, J., Escudero-Bell, M., Hurtado-Meneses, V., & Villalobos-Cid, M. (2025). Spatiotemporal characterisation of stroke care accessibility and hospital coverage in the Santiago Metropolitan Region. *2025 21st International Symposium on Biomedical Image Processing and Analysis (SIPAIM)*, 1-5. <https://doi.org/10.1109/SIPAIM67325.2025.11283388>
 
 ### Créditos
 
@@ -473,6 +484,8 @@ The application combines spatial microsimulation, isochrone analysis, and cluste
 
 The viewer also includes hospital-level facilities, filters by facility type, municipality summaries, and a point-query tool based on an address, browser location, or map click.
 
+The sibling project [StrokeAccessCL](../StrokeAccessCL/) covers all of Chile with 93 facilities and 30, 45 and 60 minute coverage. Both viewers bundle identical copies of Leaflet 1.9.4 and Leaflet.markercluster, but each one has its own data and its own code.
+
 ## 2. Main capabilities
 
 ### Census-zone indicators
@@ -498,7 +511,7 @@ The viewer also includes hospital-level facilities, filters by facility type, mu
   - 7 institutes.
 - Interactive filtering by facility type.
 - Marker clustering with Leaflet.markercluster.
-- Highlighting of the 21 hospitals that treated ischaemic stroke in the 2019–2021 DRG dataset.
+- Highlighting of the 21 hospitals that treated ischaemic stroke in the 2019-2021 DRG dataset.
 - Hospital frequencies for 2019, 2020, 2021, and the annual mean.
 
 ### Isochrones and accessibility
@@ -521,7 +534,7 @@ The viewer also includes hospital-level facilities, filters by facility type, mu
 
 - Spanish, English, and Portuguese.
 - Automatic browser-language detection.
-- Local persistence of language and welcome-guide preference.
+- Local persistence of language and welcome-guide preference, in `localStorage` under the keys `msrm_lang` and `msrm_seen`. Deleting `msrm_seen`, or the site storage, shows the guide again.
 - Responsive desktop and mobile layout.
 - Integrated help covering methods, sources, limitations, and citation.
 
@@ -531,7 +544,7 @@ No package installation or build process is required.
 
 ### Recommended option: local server
 
-From the repository directory:
+From the `StrokeAccessRM/` folder:
 
 ```bash
 python -m http.server 8000
@@ -551,14 +564,14 @@ Most features work when `index.html` is opened directly. A local server is recom
 
 ## 4. Publishing with GitHub Pages
 
-The repository includes `.github/workflows/pages.yml`, which deploys the application when the `main` branch is updated.
+The application is currently published on the DIINF server (link at the top). This folder has no GitHub Actions workflows, GitHub templates or `.nojekyll` file, so publishing it with GitHub Pages uses the deploy-from-a-branch option:
 
 1. Create a GitHub repository.
-2. Copy this folder's contents to the repository root.
+2. Copy the contents of the `StrokeAccessRM/` folder to the repository root.
 3. Push the files to the `main` branch.
 4. Open **Settings → Pages**.
-5. Select **GitHub Actions** as the source.
-6. Review the **Deploy static site to Pages** workflow under **Actions**.
+5. Under **Source**, select **Deploy from a branch**, with the `main` branch and the `/ (root)` folder.
+6. Save the configuration and wait for GitHub to publish the site.
 
 The address will follow this pattern:
 
@@ -566,7 +579,7 @@ The address will follow this pattern:
 https://USERNAME.github.io/REPOSITORY-NAME/
 ```
 
-The application uses relative paths and works from a project repository. `.nojekyll` prevents Jekyll processing.
+The application uses relative paths, so it works from a project repository and also from a subfolder, such as `StrokeAccessRM/` in the Lab2IA repository. No file or folder of the application starts with an underscore, so GitHub Pages' Jekyll processing leaves nothing out; if such files are added later, create an empty `.nojekyll` file at the site root.
 
 ## 5. User workflow
 
@@ -582,7 +595,7 @@ Choose a municipality in step 2. The application fits the map, outlines the muni
 
 Enable **Facilities** to show hospitals, clinics, and institutes. Each category can be controlled separately. Hospitals treating stroke are highlighted.
 
-Enable **Travel-time isochrones** to display 10–60 minute coverage areas. Each interval can be hidden independently.
+Enable **Travel-time isochrones** to display 10-60 minute coverage areas. Each interval can be hidden independently.
 
 ### 5.4 Query a point
 
@@ -598,7 +611,7 @@ The displayed indicators focus on the population aged 30 or older and include di
 
 ### Accessibility and isochrones
 
-Hospitals treating ischaemic stroke were identified from 2019–2021 DRG records and ICD codes related to cerebral infarction. Isochrones were generated with ORS Tools/OpenRouteService over a road network, using ideal driving conditions.
+Hospitals treating ischaemic stroke were identified from 2019-2021 DRG records and ICD codes related to cerebral infarction. Isochrones were generated with ORS Tools/OpenRouteService over a road network, using ideal driving conditions.
 
 ### Clustering
 
@@ -630,8 +643,10 @@ Contains 2,371 census zones in `window.DATA_RESULTADOS`.
 | `POB_30_MAS` | Population aged 30 or older. |
 | `POB_60_MAS` | Population aged 60 or older. |
 | `TASA_ADULT` | Population aged 60 or older relative to the population aged 30 or older. |
-| `minutos_vi` | Estimated hospital travel time. |
+| `minutos_vi` | Estimated hospital travel time in 10 minute bands: it only takes the values 10, 20, 30, 40, 50, 60 and 70. The value 70 (60 zones) has no isochrone of its own, because the layers stop at 60 minutes, and the legend groups it under "> 60". |
 | `cluster` | K-Means group from 0 to 4. |
+
+Every census-zone field is filled, with no null values. The names truncated to ten characters (`P_DB_Diabe`, `Hipertensi`, `TASA_ADULT`, `minutos_vi`) are kept as they come in the data.
 
 ### `data/comunas.js`
 
@@ -657,8 +672,10 @@ Contains 113 facilities in `window.DATA_HOSPITALES`.
 | `tipo` | Hospital, clinic, or institute. |
 | `comuna` | Municipality. |
 | `acv` | Whether the facility belongs to the stroke-treating hospitals in the analysed dataset. |
-| `f2019`, `f2020`, `f2021` | Stroke-care frequency by year. |
-| `fprom` | Annual mean. |
+| `f2019`, `f2020`, `f2021` | Stroke-care frequency by year. Present only in the 21 facilities whose `acv` is `true`. |
+| `fprom` | Annual mean. Present only in the 21 facilities whose `acv` is `true`. |
+
+Details on each file, with sizes and counts, are in [data/README.md](data/README.md).
 
 ## 8. Dependencies
 
@@ -670,7 +687,7 @@ Contains 113 facilities in `window.DATA_HOSPITALES`.
 
 ### Remote services
 
-- CARTO/OpenStreetMap tiles for the base map.
+- OpenStreetMap tiles (`tile.openstreetmap.org`) for the base map.
 - Nominatim/OpenStreetMap for address search.
 - Google Fonts for Bricolage Grotesque and Inter.
 
@@ -737,14 +754,39 @@ StrokeAccessRM/
 ├── CONTRIBUTING.md
 ├── SECURITY.md
 ├── THIRD_PARTY_NOTICES.md
-├── .gitignore
-├── .nojekyll
 ├── assets/
+│   ├── README.md
+│   ├── screenshot-home.png
+│   ├── screenshot-guide.png
+│   ├── screenshot-comuna.png
+│   ├── screenshot-network.png
+│   ├── screenshot-query.png
+│   └── screenshot-help.png
 ├── data/
+│   ├── README.md
+│   ├── resultados.js
+│   ├── comunas.js
+│   ├── isocronas.js
+│   └── hospitales.js
 ├── lib/
-├── scripts/
-└── .github/
+│   ├── README.md
+│   ├── leaflet.js
+│   ├── leaflet.css
+│   ├── leaflet.markercluster.js
+│   ├── MarkerCluster.css
+│   ├── MarkerCluster.Default.css
+│   └── images/
+│       ├── layers.png
+│       ├── layers-2x.png
+│       ├── marker-icon.png
+│       ├── marker-icon-2x.png
+│       └── marker-shadow.png
+└── scripts/
+    ├── README.md
+    └── validate-data.mjs
 ```
+
+Each folder has its own README with details on its files: [assets/](assets/README.md), [data/](data/README.md), [lib/](lib/README.md) and [scripts/](scripts/README.md). Inside the Lab2IA repository, the application lives in the `StrokeAccessRM/` folder.
 
 ## 11. Development
 
@@ -758,15 +800,17 @@ The application has no build system. To modify it:
 6. run the data validation script;
 7. update screenshots after interface changes.
 
+The class breaks of each indicator, their colour ramps and the colours of the clusters and isochrones are written in `index.html` (the `RAMPS`, `INDICATORS`, `CLUSTER_COLORS` and `ISO_COLORS` constants) and, according to the code comment, reproduce the QGIS styles. If the data change, those breaks must be reviewed by hand.
+
 ### Local validation
 
-With Node.js 20 or newer:
+With Node.js 20.11 or newer (the script uses `import.meta.dirname`):
 
 ```bash
 node scripts/validate-data.mjs
 ```
 
-The script checks the main files, GeoJSON structures, required fields, and expected counts of zones, municipalities, isochrones, and facilities.
+The script checks the main files, GeoJSON structures, required fields, and expected counts of zones, municipalities, isochrones, and facilities. The expected counts (2,371 zones, 52 municipalities, 6 isochrones, 113 facilities and 21 stroke hospitals) are written in the script: if the data change on purpose, update them there.
 
 ## 12. Testing checklist
 
@@ -820,7 +864,7 @@ Address searches send the entered text to OpenStreetMap Nominatim. **My location
 - Travel times assume ideal conditions and do not include traffic, time of day, or ambulance response.
 - Isochrones refer to the hospitals in the original analysis and are not recalculated dynamically.
 - Point-query proximity uses straight-line distance rather than road routing.
-- Indicators combine sources from different years: 2017 Census, 2019–2021 DRG records, and 2022 CASEN.
+- Indicators combine sources from different years: 2017 Census, 2019-2021 DRG records, and 2022 CASEN.
 - Spatial microsimulation produces small-area estimates and does not replace individual clinical records.
 - Address search requires access to Nominatim.
 - Base-map tiles require an internet connection.
@@ -837,7 +881,7 @@ Address searches send the entered text to OpenStreetMap Nominatim. **My location
 
 ### Paper
 
-> Garrido-Delgado, D., Lillo-Vidal, J., Escudero-Bell, M., Hurtado-Meneses, V., & Villalobos-Cid, M. (2025). Spatiotemporal characterisation of stroke care accessibility and hospital coverage in the Santiago Metropolitan Region. *2025 21st International Symposium on Biomedical Image Processing and Analysis (SIPAIM)*, 1–5. <https://doi.org/10.1109/SIPAIM67325.2025.11283388>
+> Garrido-Delgado, D., Lillo-Vidal, J., Escudero-Bell, M., Hurtado-Meneses, V., & Villalobos-Cid, M. (2025). Spatiotemporal characterisation of stroke care accessibility and hospital coverage in the Santiago Metropolitan Region. *2025 21st International Symposium on Biomedical Image Processing and Analysis (SIPAIM)*, 1-5. <https://doi.org/10.1109/SIPAIM67325.2025.11283388>
 
 ### Credits
 
