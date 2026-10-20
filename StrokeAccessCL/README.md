@@ -174,7 +174,7 @@ Esta simulación:
 - No se guarda en `data/establecimientos.js`.
 - No modifica las isócronas reales.
 - Usa línea punteada y colores por tiempo.
-- Usa la clave de OpenRouteService que el usuario ingresó en la ayuda o, si no hay una, la clave de respaldo del proyecto (sección 10).
+- Usa la clave de OpenRouteService que el usuario ingresó en la ayuda (sección 10).
 
 ### 6. Arquitectura técnica / Technical architecture / Arquitetura técnica
 
@@ -287,9 +287,9 @@ La aplicación guarda en `localStorage` estas claves: `acv_key` (clave propia de
 
 ### 10. Clave de OpenRouteService
 
-`js/app.js` define una clave de respaldo del proyecto, `ORS_KEY_PROYECTO`. La aplicación la usa cuando el usuario no ingresó una clave propia, y `generar_isocronas.mjs` usa la misma clave cuando no se define la variable de entorno `ORS_KEY`. Si esa clave agota su límite diario o deja de ser válida, OpenRouteService rechaza las peticiones y la aplicación muestra un aviso que pide ingresar una clave propia.
+El código no trae ninguna clave de OpenRouteService. La aplicación usa la clave que cada usuario ingresa en la ayuda y la guarda en su navegador (`acv_key` en `localStorage`); sin clave, o si la clave agota su límite diario, OpenRouteService rechaza la petición y la aplicación muestra un aviso que pide ingresar una. `generar_isocronas.mjs` lee la clave de la variable de entorno `ORS_KEY` y se detiene con un mensaje si no está definida.
 
-La visualización normal funciona con `data/isocronas.js` y no consulta OpenRouteService. Para recalcular coberturas o usar la simulación de establecimientos conviene ingresar una clave propia (se obtiene gratis en openrouteservice.org) en:
+La visualización normal funciona con `data/isocronas.js` y no consulta OpenRouteService. Para recalcular coberturas o usar la simulación de establecimientos hay que ingresar una clave propia (se obtiene gratis en openrouteservice.org) en:
 
 ```text
 Ayuda y metodología → OpenRouteService key
@@ -407,11 +407,10 @@ window.ISOCRONAS = {
 
 Para regenerarlas puedes usar la app o el script `generar_isocronas.mjs`. Si usas la app, al terminar la preparación descarga `isocronas.js` desde la ventana de ayuda y súbelo a `data/`. El archivo que trae hoy el repositorio se descargó así: su encabezado dice «Generado desde la app».
 
-El script necesita Node 18 o superior y se corre desde la carpeta `StrokeAccessCL/`:
+El script necesita Node 18 o superior y una clave propia de OpenRouteService en la variable `ORS_KEY`, y se corre desde la carpeta `StrokeAccessCL/`:
 
 ```bash
-node generar_isocronas.mjs
-ORS_KEY=tu_clave node generar_isocronas.mjs   # con una clave propia de OpenRouteService
+ORS_KEY=tu_clave node generar_isocronas.mjs
 ```
 
 El script lee `data/establecimientos.js`, pide a OpenRouteService (perfil `driving-car`, rangos de 1800, 2700 y 3600 segundos) las coberturas de tres establecimientos por petición y espera entre lotes para no pasar el límite por minuto; si la API responde 429, espera 25 segundos y reintenta. La variable `ORS_URL` permite apuntar a otro servidor de OpenRouteService. Después de cada lote guarda el avance en `isocronas_progreso.json`, de modo que si se corta basta con volver a correrlo para que retome. Al terminar escribe `data/isocronas.js` con la fecha en el encabezado, avisa qué establecimientos quedaron sin los tres tiempos y borra el archivo de avance.
@@ -420,7 +419,7 @@ El script lee `data/establecimientos.js`, pide a OpenRouteService (perfil `drivi
 
 - [ ] `index.html` abre correctamente.
 - [ ] `README.md` se ve en GitHub con las imágenes de `assets/`.
-- [ ] La clave de respaldo de OpenRouteService (`ORS_KEY_PROYECTO` en `js/app.js` y el valor por defecto de `ORS_KEY` en `generar_isocronas.mjs`) es la que corresponde publicar.
+- [ ] El código no trae claves de OpenRouteService ni de otros servicios.
 - [ ] `data/establecimientos.js` carga 93 establecimientos o el número actualizado esperado.
 - [ ] `data/isocronas.js` contiene coberturas para los establecimientos vigentes.
 - [ ] Los filtros de región y comuna funcionan.
@@ -616,7 +615,7 @@ This simulation:
 - Is not saved in `data/establecimientos.js`.
 - Does not modify the real isochrones.
 - Uses dashed lines and time-specific colours.
-- Uses the OpenRouteService key that the user entered in the help window or, when there is none, the project's fallback key (section 10).
+- Uses the OpenRouteService key that the user entered in the help window (section 10).
 
 ### 6. Technical architecture
 
@@ -729,9 +728,9 @@ The application stores these keys in `localStorage`: `acv_key` (the user's own O
 
 ### 10. OpenRouteService key
 
-`js/app.js` defines a fallback project key, `ORS_KEY_PROYECTO`. The application uses it when the user has not entered a key of their own, and `generar_isocronas.mjs` uses the same key when the `ORS_KEY` environment variable is not set. If that key reaches its daily limit or stops being valid, OpenRouteService rejects the requests and the application shows a notice asking for a personal key.
+The code does not ship any OpenRouteService key. The application uses the key each user enters in the help window and stores it in their browser (`acv_key` in `localStorage`); without a key, or when the key reaches its daily limit, OpenRouteService rejects the request and the application shows a notice asking for one. `generar_isocronas.mjs` reads the key from the `ORS_KEY` environment variable and stops with a message when it is not set.
 
-Normal visualisation works with `data/isocronas.js` and does not query OpenRouteService. To recalculate coverage or use facility simulation, it is better to enter your own key (free at openrouteservice.org) under:
+Normal visualisation works with `data/isocronas.js` and does not query OpenRouteService. To recalculate coverage or use facility simulation, you need to enter your own key (free at openrouteservice.org) under:
 
 ```text
 Help and methodology → OpenRouteService key
@@ -849,11 +848,10 @@ window.ISOCRONAS = {
 
 Isochrones can be regenerated using the application or the `generar_isocronas.mjs` script. When using the application, download `isocronas.js` from the help window after preparation is complete and upload it to `data/`. The file currently in the repository was produced that way: its header says "Generado desde la app".
 
-The script needs Node 18 or newer and runs from the `StrokeAccessCL/` folder:
+The script needs Node 18 or newer and your own OpenRouteService key in the `ORS_KEY` variable, and it runs from the `StrokeAccessCL/` folder:
 
 ```bash
-node generar_isocronas.mjs
-ORS_KEY=your_key node generar_isocronas.mjs   # with your own OpenRouteService key
+ORS_KEY=your_key node generar_isocronas.mjs
 ```
 
 The script reads `data/establecimientos.js`, asks OpenRouteService (`driving-car` profile, ranges of 1800, 2700 and 3600 seconds) for the coverage of three facilities per request and waits between batches to stay under the per-minute limit; if the API answers 429, it waits 25 seconds and retries. The `ORS_URL` variable points the script to another OpenRouteService server. After each batch it saves its progress in `isocronas_progreso.json`, so if it stops, running it again resumes the work. At the end it writes `data/isocronas.js` with the date in its header, warns about facilities left without all three times and deletes the progress file.
@@ -862,7 +860,7 @@ The script reads `data/establecimientos.js`, asks OpenRouteService (`driving-car
 
 - [ ] `index.html` opens correctly.
 - [ ] `README.md` is displayed on GitHub with the images from `assets/`.
-- [ ] The fallback OpenRouteService key (`ORS_KEY_PROYECTO` in `js/app.js` and the default `ORS_KEY` in `generar_isocronas.mjs`) is the one meant to be published.
+- [ ] The code carries no OpenRouteService key or any other service key.
 - [ ] `data/establecimientos.js` loads 93 facilities or the expected updated number.
 - [ ] `data/isocronas.js` contains coverage for all current facilities.
 - [ ] Region and commune filters work correctly.
@@ -1058,7 +1056,7 @@ Essa simulação:
 - Não é salva em `data/establecimientos.js`.
 - Não modifica as isócronas reais.
 - Utiliza linha tracejada e cores específicas para cada tempo.
-- Usa a chave do OpenRouteService que o usuário informou na ajuda ou, se não houver uma, a chave de reserva do projeto (seção 10).
+- Usa a chave do OpenRouteService que o usuário informou na ajuda (seção 10).
 
 ### 6. Arquitetura técnica
 
@@ -1171,9 +1169,9 @@ A aplicação guarda estas chaves em `localStorage`: `acv_key` (chave própria d
 
 ### 10. Chave do OpenRouteService
 
-`js/app.js` define uma chave de reserva do projeto, `ORS_KEY_PROYECTO`. A aplicação a usa quando o usuário não informou uma chave própria, e `generar_isocronas.mjs` usa a mesma chave quando a variável de ambiente `ORS_KEY` não está definida. Se essa chave esgotar o limite diário ou deixar de ser válida, o OpenRouteService recusa as requisições e a aplicação mostra um aviso pedindo uma chave própria.
+O código não traz nenhuma chave do OpenRouteService. A aplicação usa a chave que cada usuário informa na ajuda e a guarda no navegador (`acv_key` em `localStorage`); sem chave, ou se a chave esgotar o limite diário, o OpenRouteService recusa a requisição e a aplicação mostra um aviso pedindo uma. `generar_isocronas.mjs` lê a chave da variável de ambiente `ORS_KEY` e para com uma mensagem quando ela não está definida.
 
-A visualização normal funciona com `data/isocronas.js` e não consulta o OpenRouteService. Para recalcular coberturas ou utilizar a simulação de estabelecimentos, é melhor informar sua própria chave (gratuita em openrouteservice.org) em:
+A visualização normal funciona com `data/isocronas.js` e não consulta o OpenRouteService. Para recalcular coberturas ou utilizar a simulação de estabelecimentos, é preciso informar sua própria chave (gratuita em openrouteservice.org) em:
 
 ```text
 Ajuda e metodologia → OpenRouteService key
@@ -1291,11 +1289,10 @@ window.ISOCRONAS = {
 
 Para regenerá-las, é possível utilizar a aplicação ou o script `generar_isocronas.mjs`. Ao utilizar a aplicação, depois que a preparação for concluída, baixe `isocronas.js` na janela de ajuda e envie o arquivo para `data/`. O arquivo que o repositório traz hoje foi obtido assim: seu cabeçalho diz «Generado desde la app».
 
-O script precisa do Node 18 ou superior e é executado a partir da pasta `StrokeAccessCL/`:
+O script precisa do Node 18 ou superior e de uma chave própria do OpenRouteService na variável `ORS_KEY`, e é executado a partir da pasta `StrokeAccessCL/`:
 
 ```bash
-node generar_isocronas.mjs
-ORS_KEY=sua_chave node generar_isocronas.mjs   # com uma chave própria do OpenRouteService
+ORS_KEY=sua_chave node generar_isocronas.mjs
 ```
 
 O script lê `data/establecimientos.js`, pede ao OpenRouteService (perfil `driving-car`, faixas de 1800, 2700 e 3600 segundos) as coberturas de três estabelecimentos por requisição e espera entre os lotes para não passar do limite por minuto; se a API responder 429, espera 25 segundos e tenta de novo. A variável `ORS_URL` permite apontar para outro servidor do OpenRouteService. Depois de cada lote, o script guarda o progresso em `isocronas_progreso.json`, de modo que, se for interrompido, basta executá-lo de novo para que continue. No final, grava `data/isocronas.js` com a data no cabeçalho, avisa quais estabelecimentos ficaram sem os três tempos e apaga o arquivo de progresso.
@@ -1304,7 +1301,7 @@ O script lê `data/establecimientos.js`, pede ao OpenRouteService (perfil `drivi
 
 - [ ] `index.html` abre corretamente.
 - [ ] `README.md` é exibido no GitHub com as imagens de `assets/`.
-- [ ] A chave de reserva do OpenRouteService (`ORS_KEY_PROYECTO` em `js/app.js` e o valor padrão de `ORS_KEY` em `generar_isocronas.mjs`) é a que deve ser publicada.
+- [ ] O código não traz chaves do OpenRouteService nem de outros serviços.
 - [ ] `data/establecimientos.js` carrega 93 estabelecimentos ou o número atualizado esperado.
 - [ ] `data/isocronas.js` contém coberturas para todos os estabelecimentos vigentes.
 - [ ] Os filtros de região e comuna funcionam corretamente.

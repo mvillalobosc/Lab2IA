@@ -1,14 +1,10 @@
 #!/usr/bin/env node
 /* =====================================================================
-   generar_isocronas.mjs — se corre UNA VEZ para dejar las coberturas
+   generar_isocronas.mjs: se corre UNA VEZ para dejar las coberturas
    precalculadas dentro de la app (data/isocronas.js).
 
-   Uso (desde la carpeta de la app, requiere Node 18+):
-
-       node generar_isocronas.mjs
-
-   Con clave propia de OpenRouteService (recomendado, gratis en
-   openrouteservice.org):
+   Uso (desde la carpeta de la app, requiere Node 18+ y una clave propia de
+   OpenRouteService, gratis en openrouteservice.org):
 
        ORS_KEY=tu_clave node generar_isocronas.mjs
 
@@ -25,7 +21,12 @@ import {fileURLToPath} from 'url';
 
 const AQUI = path.dirname(fileURLToPath(import.meta.url));
 const ORS_URL = process.env.ORS_URL || 'https://api.openrouteservice.org/v2/isochrones/driving-car';
-const ORS_KEY = process.env.ORS_KEY || 'CLAVE_RETIRADA';
+const ORS_KEY = process.env.ORS_KEY || '';
+if (!ORS_KEY) {
+  console.error('Falta la clave de OpenRouteService. Crea una gratis en openrouteservice.org y corre:\n'+
+    '    ORS_KEY=tu_clave node generar_isocronas.mjs');
+  process.exit(1);
+}
 const RANGOS = [1800,2700,3600];           // 30/45/60 min
 const PROGRESO = path.join(AQUI,'isocronas_progreso.json');
 const SALIDA = path.join(AQUI,'data','isocronas.js');

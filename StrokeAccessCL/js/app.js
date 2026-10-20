@@ -41,7 +41,6 @@ const SALUD_REGIONAL = {
 const TIERS = [30,45,60];
 const TIER_COLOR = {30:'#00A499',45:'#EAAA00',60:'#EA7600'};
 const ORS_URL = 'https://api.openrouteservice.org/v2/isochrones/driving-car';
-const ORS_KEY_PROYECTO = 'CLAVE_RETIRADA';
 const CHILE_BOUNDS = [[-56.2,-76.8],[-17.4,-66.2]];
 
 const $ = id => document.getElementById(id);
@@ -136,7 +135,7 @@ function initMap(){
   L.control.zoom({position:'topright'}).addTo(map);
   L.control.scale({position:'bottomleft',imperial:false}).addTo(map);
   L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-    {subdomains:'abcd',maxZoom:19,attribution:'© OpenStreetMap · © CARTO'}).addTo(map);
+    {subdomains:'abcd',maxZoom:19,attribution:'© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'}).addTo(map);
   map.fitBounds(CHILE_BOUNDS,{paddingTopLeft:[10,10]});
   capaIso=L.layerGroup().addTo(map);
   dibujarHospitales();
@@ -213,7 +212,7 @@ function aviso(txt,{error=false,ocultarEn=0}={}){
 /* =====================================================================
    Isócronas: carga nacional automática al abrir (con caché local)
 ===================================================================== */
-function orsKey(){ return (localStorage.getItem('acv_key')||'').trim() || ORS_KEY_PROYECTO; }
+function orsKey(){ return (localStorage.getItem('acv_key')||'').trim(); }
 function cacheGet(code){ try{const v=localStorage.getItem('iso_'+code);return v?JSON.parse(v):null;}catch(e){return null;} }
 function cacheSet(code,obj){
   try{ localStorage.setItem('iso_'+code,JSON.stringify(obj)); }

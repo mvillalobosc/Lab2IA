@@ -24,7 +24,7 @@ StrokeAccessRM incluye bibliotecas de terceros y usa servicios externos de mapas
 
 ### OpenStreetMap
 
-La aplicación pide las teselas del mapa base al servidor de OpenStreetMap (`tile.openstreetmap.org`). Los datos y las teselas están sujetos a sus propios términos y a sus requisitos de atribución. El texto de atribución que muestra el mapa nombra a OpenStreetMap y también a CARTO.
+La aplicación pide las teselas del mapa base al servidor de OpenStreetMap (`tile.openstreetmap.org`). Los datos y las teselas están sujetos a sus propios términos y a sus requisitos de atribución. El texto de atribución que muestra el mapa nombra a OpenStreetMap y enlaza a su página de derechos de autor.
 
 ### Nominatim
 
@@ -56,7 +56,7 @@ StrokeAccessRM includes third-party libraries and uses external map services. Th
 
 ### OpenStreetMap
 
-The application requests base-map tiles from the OpenStreetMap tile server (`tile.openstreetmap.org`). Map data and tiles are subject to their own terms and attribution requirements. The attribution text shown on the map names OpenStreetMap and also CARTO.
+The application requests base-map tiles from the OpenStreetMap tile server (`tile.openstreetmap.org`). Map data and tiles are subject to their own terms and attribution requirements. The attribution text shown on the map names OpenStreetMap and links to its copyright page.
 
 ### Nominatim
 
