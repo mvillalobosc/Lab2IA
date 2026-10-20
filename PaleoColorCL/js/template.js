@@ -1,5 +1,5 @@
-import { FRAMES, TEMPLATE, QR_PREFIX, frameOf, framePagePoints, markerPagePoints, qrPagePoints } from "./config.js?v=99";
-import { BRAND, CONTACT, citationLines } from "./credits.js?v=99";
+import { FRAMES, TEMPLATE, QR_PREFIX, frameOf, framePagePoints, markerPagePoints, qrPagePoints } from "./config.js?v=100";
+import { BRAND, CONTACT, citationLines } from "./credits.js?v=100";
 
 /**
  * Genera la hoja imprimible. La geometría (QR, marcas, rectángulo del personaje) es la misma

@@ -1,5 +1,5 @@
-import { listCharacters, loadSilhouette } from "./characters.js?v=99";
-import { BRAND } from "./credits.js?v=99";
+import { listCharacters, loadSilhouette } from "./characters.js?v=100";
+import { BRAND } from "./credits.js?v=100";
 
 /**
  * Portada.

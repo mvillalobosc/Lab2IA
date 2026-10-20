@@ -1,4 +1,4 @@
-export const APP_VERSION = "99";
+export const APP_VERSION = "100";
 
 export const TEMPLATE = Object.freeze({
   width: 1200,

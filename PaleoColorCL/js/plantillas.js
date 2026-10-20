@@ -1,7 +1,7 @@
-import { APP_VERSION } from "./config.js?v=99";
-import { BRAND, citationText, contactText } from "./credits.js?v=99";
-import { listCharacters, loadCharacter } from "./characters.js?v=99";
-import { loadBrandLogo, renderSheet } from "./template.js?v=99";
+import { APP_VERSION } from "./config.js?v=100";
+import { BRAND, citationText, contactText } from "./credits.js?v=100";
+import { listCharacters, loadCharacter } from "./characters.js?v=100";
+import { loadBrandLogo, renderSheet } from "./template.js?v=100";
 
 /**
  * Las hojas no se guardan como PNG: se generan desde el manifiesto de cada personaje.

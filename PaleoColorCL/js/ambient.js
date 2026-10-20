@@ -1,4 +1,4 @@
-import { BRAND } from "./credits.js?v=99";
+import { BRAND } from "./credits.js?v=100";
 
 /**
  * Ambiente por hábitat, sintetizado. Cero bytes de audio, igual que las voces.

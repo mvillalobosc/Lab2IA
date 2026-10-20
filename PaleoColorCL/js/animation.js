@@ -1,8 +1,8 @@
-import { DISPLAY } from "./config.js?v=99";
-import { animationOf, segmentAt, transformFor } from "./rig.js?v=99";
-import { TRANSLATIONS } from "./i18n.js?v=99";
-import { VoiceBox } from "./voice.js?v=99";
-import { AmbientBox } from "./ambient.js?v=99";
+import { DISPLAY } from "./config.js?v=100";
+import { animationOf, segmentAt, transformFor } from "./rig.js?v=100";
+import { TRANSLATIONS } from "./i18n.js?v=100";
+import { VoiceBox } from "./voice.js?v=100";
+import { AmbientBox } from "./ambient.js?v=100";
 
 // Nombres de voces que suelen ser femeninas o agudas en cada idioma. No hay una API para
 // pedir "voz linda", así que se elige por nombre y se cae con elegancia a lo que haya.

@@ -12,7 +12,7 @@ Esta carpeta contiene toda la lógica de [PaleoColor CL](../README.md), escrita 
 | `plantillas.html` | `vendor/qrcode.js` como script clásico y `plantillas.js` como módulo. |
 | `textos.html` | `textos.js` como módulo. |
 
-Todos los `import` relativos llevan el sufijo `?v=<versión>` (hoy `?v=99`). `tools/sellar_version.py` los reescribe cuando cambia `APP_VERSION` en `config.js`, para que el navegador no mezcle módulos de dos versiones guardados en su caché. Un módulo nuevo debe importarse con ese mismo sufijo.
+Todos los `import` relativos llevan el sufijo `?v=<versión>` (hoy `?v=100`). `tools/sellar_version.py` los reescribe cuando cambia `APP_VERSION` en `config.js`, para que el navegador no mezcle módulos de dos versiones guardados en su caché. Un módulo nuevo debe importarse con ese mismo sufijo.
 
 ### Módulos
 
@@ -49,7 +49,7 @@ This folder holds all the logic of [PaleoColor CL](../README.md), written as nat
 | `plantillas.html` | `vendor/qrcode.js` as a classic script and `plantillas.js` as a module. |
 | `textos.html` | `textos.js` as a module. |
 
-Every relative `import` carries the `?v=<version>` suffix (today `?v=99`). `tools/sellar_version.py` rewrites them when `APP_VERSION` changes in `config.js`, so that the browser does not mix cached modules from two versions. A new module must be imported with the same suffix.
+Every relative `import` carries the `?v=<version>` suffix (today `?v=100`). `tools/sellar_version.py` rewrites them when `APP_VERSION` changes in `config.js`, so that the browser does not mix cached modules from two versions. A new module must be imported with the same suffix.
 
 ### Modules
 

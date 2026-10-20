@@ -1,5 +1,5 @@
-import { ASSETS, QR_PREFIX, frameOf } from "./config.js?v=99";
-import { MOTION_NAMES } from "./rig.js?v=99";
+import { ASSETS, QR_PREFIX, frameOf } from "./config.js?v=100";
+import { MOTION_NAMES } from "./rig.js?v=100";
 
 /**
  * Un personaje vive en un manifiesto JSON. Los campos de imagen aceptan tanto una ruta

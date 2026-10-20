@@ -1,5 +1,5 @@
-import { CAPTURE } from "./config.js?v=99";
-import { transformPoint } from "./geometry.js?v=99";
+import { CAPTURE } from "./config.js?v=100";
+import { transformPoint } from "./geometry.js?v=100";
 
 function createCanvas(width, height, readFrequently = false) {
   const canvas = document.createElement("canvas");

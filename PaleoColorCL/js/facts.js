@@ -1,6 +1,6 @@
-import { BRAND } from "./credits.js?v=99";
-import { drawIcon, iconFor } from "./icons.js?v=99";
-import { HABITAT_COLOUR, HABITAT_LABEL } from "./ambient.js?v=99";
+import { BRAND } from "./credits.js?v=100";
+import { drawIcon, iconFor } from "./icons.js?v=100";
+import { HABITAT_COLOUR, HABITAT_LABEL } from "./ambient.js?v=100";
 
 /**
  * Datos en realidad aumentada.

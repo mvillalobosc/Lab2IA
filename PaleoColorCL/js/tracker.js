@@ -6,7 +6,7 @@ import {
   framePagePoints,
   markerPagePoints,
   qrPagePoints,
-} from "./config.js?v=99";
+} from "./config.js?v=100";
 import {
   averageSideLength,
   homographyLS,
@@ -16,8 +16,8 @@ import {
   reprojectionError,
   smoothPointSet,
   transformPoint,
-} from "./geometry.js?v=99";
-import { idFromPayload } from "./characters.js?v=99";
+} from "./geometry.js?v=100";
+import { idFromPayload } from "./characters.js?v=100";
 
 function grayscale(r, g, b) {
   return (r * 77 + g * 150 + b * 29) >> 8;

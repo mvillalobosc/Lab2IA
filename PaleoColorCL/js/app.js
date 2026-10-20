@@ -1,18 +1,18 @@
-import { APP_VERSION, ASSETS, CAPTURE } from "./config.js?v=99";
-import { averageSideLength } from "./geometry.js?v=99";
-import { createTranslator } from "./i18n.js?v=99";
-import { listCharacters, loadCharacter } from "./characters.js?v=99";
-import { renderCover } from "./cover.js?v=99";
-import { BRAND, citationText, contactText } from "./credits.js?v=99";
-import { drawFactCard } from "./facts.js?v=99";
-import { drawPaperPatch } from "./tear.js?v=99";
-import { SheetTracker } from "./tracker.js?v=99";
-import { TextureSampler } from "./texture.js?v=99";
-import { CharacterAnimator } from "./animation.js?v=99";
+import { APP_VERSION, ASSETS, CAPTURE } from "./config.js?v=100";
+import { averageSideLength } from "./geometry.js?v=100";
+import { createTranslator } from "./i18n.js?v=100";
+import { listCharacters, loadCharacter } from "./characters.js?v=100";
+import { renderCover } from "./cover.js?v=100";
+import { BRAND, citationText, contactText } from "./credits.js?v=100";
+import { drawFactCard } from "./facts.js?v=100";
+import { drawPaperPatch } from "./tear.js?v=100";
+import { SheetTracker } from "./tracker.js?v=100";
+import { TextureSampler } from "./texture.js?v=100";
+import { CharacterAnimator } from "./animation.js?v=100";
 
 // Sellado por tools/sellar_version.py. Debe coincidir con APP_VERSION de config.js:
 // si no coinciden, el navegador mezcló módulos de dos versiones desde su caché.
-const BUILD = "99";
+const BUILD = "100";
 
 const $ = (id) => document.getElementById(id);
 const stage = $("stage");

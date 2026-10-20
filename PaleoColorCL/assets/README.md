@@ -13,7 +13,7 @@ Esta carpeta reúne los recursos estáticos que cargan las tres páginas de [Pal
 | `brand/diinf.png` | Logo del Departamento de Ingeniería Informática (PNG de 329 x 110 px). `js/credits.js` lo declara en `BRAND.logo`; el visor lo muestra en la portada y en la barra superior, y `js/template.js` lo dibuja en el pie de cada plantilla imprimible y en el editor. |
 | [`characters/`](characters/README.md) | Catálogo `index.json` y los 50 manifiestos JSON de los personajes. Tiene su propio README con el formato de cada archivo. |
 
-Las tres páginas piden las hojas de estilo con el sufijo `?v=<versión>` (por ejemplo `assets/styles.css?v=99`). `tools/sellar_version.py` actualiza ese sufijo cuando cambia `APP_VERSION` en `js/config.js`, así que si se agrega otra hoja conviene enlazarla de la misma forma.
+Las tres páginas piden las hojas de estilo con el sufijo `?v=<versión>` (por ejemplo `assets/styles.css?v=100`). `tools/sellar_version.py` actualiza ese sufijo cuando cambia `APP_VERSION` en `js/config.js`, así que si se agrega otra hoja conviene enlazarla de la misma forma.
 
 ## English
 
@@ -26,4 +26,4 @@ This folder holds the static resources that the three pages of [PaleoColor CL](.
 | `brand/diinf.png` | Logo of the Department of Informatics Engineering (PNG, 329 x 110 px). `js/credits.js` declares it in `BRAND.logo`; the viewer shows it on the start screen and in the top bar, and `js/template.js` draws it in the footer of every printable template and in the editor. |
 | [`characters/`](characters/README.md) | The `index.json` catalogue and the 50 JSON character manifests. It has its own README that describes the format of each file. |
 
-The three pages request the stylesheets with a `?v=<version>` suffix (for example `assets/styles.css?v=99`). `tools/sellar_version.py` updates that suffix when `APP_VERSION` changes in `js/config.js`, so any new stylesheet should be linked the same way.
+The three pages request the stylesheets with a `?v=<version>` suffix (for example `assets/styles.css?v=100`). `tools/sellar_version.py` updates that suffix when `APP_VERSION` changes in `js/config.js`, so any new stylesheet should be linked the same way.

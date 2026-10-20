@@ -7,8 +7,8 @@ authors:
     given-names: "A. A."
   - family-names: "Villalobos Cid"
     given-names: "Manuel José"
-version: "99"
-date-released: "2026-07-23"
+version: "100"
+date-released: "2026-10-20"
 license: MIT
 keywords:
   - augmented reality

@@ -14,14 +14,13 @@ export const BRAND = Object.freeze({
 });
 
 /**
- * Cita de la memoria de origen, tal cual fue entregada.
- * OJO: el año dice "306 d. C.", que es un error del catálogo. Corregir acá cuando se sepa
- * el año real: se propaga al pie de todas las plantillas y a ambas aplicaciones.
+ * Cita de la memoria de origen, tal cual fue entregada pero sin año: el catálogo decía
+ * "306 d. C." y no se encontró el año real. Si aparece, agregarlo en citationText() y
+ * citationLines(): se propaga al pie de todas las plantillas y a ambas aplicaciones.
  */
 export const CITATION = Object.freeze({
   authors: "Rodríguez Zamorano, A. A., Villalobos Cid, M. J., & Universidad de Santiago de Chile. "
     + "Facultad de Ingeniería. Departamento de Ingeniería Informática.",
-  year: "306 d. C.",
   title: "Desarrollo de un prototipo de módulo de realidad aumentada, para un sistema de "
     + "visualización interactiva con fines pedagógicos.",
   publisher: "Universidad de Santiago de Chile.",
@@ -44,13 +43,13 @@ export function contactText() {
 }
 
 export function citationText() {
-  return `${CITATION.authors} (${CITATION.year}). ${CITATION.title} ${CITATION.publisher}`;
+  return `${CITATION.authors} ${CITATION.title} ${CITATION.publisher}`;
 }
 
 /** Cita partida en líneas para el pie de la hoja imprimible. */
 export function citationLines() {
   return [
-    `${CITATION.authors} (${CITATION.year}).`,
+    CITATION.authors,
     CITATION.title,
     CITATION.publisher,
   ];
