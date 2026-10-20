@@ -35,6 +35,7 @@ CFG <- list(
   alfa_chi2      = 0.01,             # umbral del filtro chi-cuadrado (sin corrección)
   n_muestra      = 100,              # tamaño de cada muestra bootstrap (50 + 50)
   n_iter         = 500,              # iteraciones bootstrap por signo
+  tamanos_sens   = c(10, 50, 100, 150, 200, 500, 1000),  # muestras de la sensibilidad (árbol de decisión)
   k_pliegues     = 5,                # validación cruzada estratificada
   n_diag         = 35,
   n_proc         = 30
@@ -78,7 +79,9 @@ leer_fecha <- function(x) {
   x <- trimws(as.character(x))
   x[x == ""] <- NA_character_
   salida <- as.IDate(rep(NA_integer_))[rep(1L, length(x))]
-  for (f in c("%Y-%m-%d", "%d-%m-%Y", "%d/%m/%Y", "%Y/%m/%d", "%Y-%m-%d %H:%M:%S")) {
+  # "%d-%m-%Y" va antes que "%Y-%m-%d": strptime acepta texto sobrante, así que
+  # "%Y-%m-%d" leería "21-03-1980" como el 19 de marzo del año 21.
+  for (f in c("%d-%m-%Y", "%Y-%m-%d", "%d/%m/%Y", "%Y/%m/%d", "%Y-%m-%d %H:%M:%S")) {
     faltan <- is.na(salida) & !is.na(x)
     if (!any(faltan)) break
     salida[faltan] <- as.IDate(x[faltan], format = f)

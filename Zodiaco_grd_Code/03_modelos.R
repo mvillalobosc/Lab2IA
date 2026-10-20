@@ -110,7 +110,7 @@ if ("ofiuco" %in% EJECUTAR) for (m in MODELOS)
   correr("ofiuco", file.path(R, "Ofiuco", paste0("modelo_", m), paste0(m, "_detalle.csv")),
          modelo = m, calendario = "13", reservorio = "entrenamiento")
 
-if ("sensibilidad" %in% EJECUTAR) for (n in c(10, 50, 100, 150, 200, 500, 1000))
+if ("sensibilidad" %in% EJECUTAR) for (n in CFG$tamanos_sens)
   correr("sensibilidad", file.path(R, "modelo_dt_sensibilidad_n", sprintf("dt_detalle_n%d.csv", n)),
          modelo = "dt", calendario = "12", reservorio = "entrenamiento",
          n_muestra = n, n_iter = 100)

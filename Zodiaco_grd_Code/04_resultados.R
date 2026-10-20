@@ -35,7 +35,7 @@ completo <- rbindlist(lapply(MODELOS, function(m)
   leer_detalle(paste0("modelo_", m, "_full_dataset"), paste0(m, "_full_detalle.csv"))), fill = TRUE)
 ofiuco <- rbindlist(lapply(MODELOS, function(m)
   leer_detalle("Ofiuco", paste0("modelo_", m), paste0(m, "_detalle.csv"))), fill = TRUE)
-TAMANOS <- c(10, 50, 100, 150, 200, 500, 1000)
+TAMANOS <- CFG$tamanos_sens
 sens <- rbindlist(lapply(TAMANOS, function(n) {
   d <- leer_detalle("modelo_dt_sensibilidad_n", sprintf("dt_detalle_n%d.csv", n))
   if (!is.null(d)) d[, n_sample := n]
@@ -57,6 +57,9 @@ for (nm in c("principal", "completo", "ofiuco")) {
 # pliegue toma valores discretos, así que se redondea a 6 decimales antes de la
 # prueba: sin eso, el ruido de punto flotante rompe empates y ceros reales y
 # cambia el resultado. Se informa también el p corregido por Bonferroni.
+if (nrow(principal) == 0)
+  stop("No está el experimento principal en ", RES,
+       " (modelo_rf/rf_detalle.csv y los demás modelos): corre 03_modelos.R con \"principal\" en EJECUTAR.")
 wilcoxon <- principal[!is.na(cv_roc_auc), {
   auc <- round(cv_roc_auc, 6)
   w <- wilcox.test(auc, mu = 0.5, alternative = "greater", exact = FALSE, correct = FALSE)
@@ -80,6 +83,8 @@ if (nrow(sens) > 0) {
 # Acepta la salida de 02_chi_cuadrado.R o el archivo del repositorio original.
 ruta_chi <- c(file.path(RES, "chi2_12.csv"), file.path(RES, "v2_chi2_resultados.csv"))
 ruta_chi <- ruta_chi[file.exists(ruta_chi)][1]
+if (is.na(ruta_chi))
+  stop("No está chi2_12.csv ni v2_chi2_resultados.csv en ", RES, ": corre antes 02_chi_cuadrado.R.")
 chi <- fread(ruta_chi)
 chi[, bonf := p_value < CFG$alfa_chi2 / .N]
 familias <- chi[, .(total = .N, p_001 = sum(p_value < CFG$alfa_chi2), bonferroni = sum(bonf)),
