@@ -23,7 +23,7 @@
 
 **PaleoColor CL** es una aplicación web educativa para niñas y niños que permite imprimir y colorear animales prehistóricos vinculados con Chile y observar cómo el dibujo cobra vida mediante realidad aumentada. La cámara reconoce el código QR de la plantilla, utiliza cuatro marcadores para registrar la hoja, captura los colores aplicados por el usuario y los incorpora a una animación 2D situada sobre el mismo dibujo.
 
-La versión incluida contiene **50 animales prehistóricos**, con especies terrestres, acuáticas y voladoras del Jurásico, Cretácico, Paleógeno, Neógeno y Cuaternario. La interfaz principal está disponible en español, inglés y portugués.
+La versión incluida contiene **50 animales prehistóricos**, con especies terrestres, acuáticas y voladoras del Jurásico, Cretácico, Paleógeno, Neógeno y Cuaternario. La interfaz principal está disponible en español, inglés y portugués, mientras que la galería de plantillas (`plantillas.html`) y el editor de textos (`textos.html`) están solo en castellano.
 
 ### Capturas de pantalla
 
@@ -68,15 +68,11 @@ http://localhost:8000
 
 No abras `index.html` directamente con `file://`, porque los módulos JavaScript y la cámara pueden ser bloqueados por el navegador.
 
-### Publicación en GitHub Pages
+### Publicación
 
-> **Importante:** copia el contenido del ZIP directamente en la raíz del repositorio. `index.html` debe quedar junto a `README.md`, no dentro de una carpeta adicional.
+PaleoColor CL es un sitio estático y no necesita servidor de aplicaciones. Para publicarlo, copia esta carpeta completa en un servidor web con HTTPS (la cámara solo funciona en un contexto seguro) sin cambiar su estructura, porque las tres páginas cargan `assets/` y `js/` con rutas relativas.
 
-
-1. Crea un repositorio y copia su contenido en la rama `main`.
-2. En GitHub, abre **Settings → Pages**.
-3. En **Build and deployment**, selecciona **GitHub Actions**.
-4. El flujo `.github/workflows/pages.yml` publicará la aplicación automáticamente.
+Si prefieres GitHub Pages, crea un repositorio con el contenido de esta carpeta en su raíz, abre **Settings → Pages** y, en **Build and deployment**, elige **Deploy from a branch** con la rama `main`. Este repositorio no incluye un flujo de GitHub Actions para la publicación.
 
 ### Estructura
 
@@ -85,17 +81,20 @@ PaleoColorCL/
 ├── index.html                  # Visor de realidad aumentada
 ├── plantillas.html             # Galería e impresión de plantillas
 ├── textos.html                 # Editor de contenidos
-├── styles.css                  # Estilos del visor
-├── shell.css                   # Estilos de herramientas auxiliares
 ├── js/                         # Seguimiento, captura, animación e interfaz
+│   └── vendor/                 # Lector y generador de códigos QR
 ├── assets/
+│   ├── styles.css              # Estilos del visor
+│   ├── shell.css               # Estilos de herramientas auxiliares
 │   ├── brand/                  # Identidad visual DIINF-USACH
-│   └── characters/             # 50 manifiestos de personajes
+│   └── characters/             # Catálogo y 50 manifiestos de personajes
 ├── tools/                      # Sellado de versión y empaquetado
 ├── docs/screenshots/           # Capturas usadas en este README
 ├── CITATION.cff
 └── LICENSE
 ```
+
+Las carpetas tienen su propio `README.md` con el detalle de cada archivo: [assets/](assets/README.md), [assets/characters/](assets/characters/README.md), [js/](js/README.md), [js/vendor/](js/vendor/README.md), [tools/](tools/README.md) y [docs/](docs/README.md).
 
 ### Añadir o modificar un personaje
 
@@ -109,15 +108,25 @@ Al cambiar `APP_VERSION` en `js/config.js`, ejecuta:
 python tools/sellar_version.py
 ```
 
-Esto actualiza las referencias versionadas de HTML y JavaScript para evitar que el navegador mezcle archivos antiguos y nuevos desde la caché.
+Esto actualiza las referencias versionadas de HTML y JavaScript para evitar que el navegador mezcle archivos antiguos y nuevos desde la caché. El script reescribe en el mismo repositorio los `import` de `js/*.js` (salvo `js/vendor/`), la constante `BUILD` de `js/app.js` y los `href` y `src` de los HTML de la raíz, y al final verifica que todos los módulos queden con la misma versión.
+
+### Empaquetado
+
+Para armar un zip con la aplicación, ejecuta:
+
+```bash
+python tools/reempacar_proyecto.py
+```
+
+El script sella la versión antes de empaquetar (salvo que reciba `--no-stamp`) y escribe `ColoreaEnRA_v<versión>.zip` en la carpeta que contiene a `PaleoColorCL/`. Dentro de este monorepo esa carpeta es la raíz del repositorio, donde el `.gitignore` ignora el zip. Si recibe una ruta como argumento, deja el zip ahí. La opción `--include-tests` incluiría una carpeta `tests/`, pero el proyecto no tiene esa carpeta. Las dos herramientas de `tools/` usan solo la biblioteca estándar de Python 3.
 
 ### Compatibilidad y privacidad
 
-Se recomienda una versión reciente de Chrome, Edge o Safari con acceso a cámara. El rendimiento depende de la resolución del dispositivo, la iluminación y la visibilidad completa de la plantilla. Todo el análisis de video ocurre dentro del navegador y este repositorio no incluye servicios de almacenamiento ni analítica remota.
+Se recomienda una versión reciente de Chrome, Edge o Safari con acceso a cámara. El rendimiento depende de la resolución del dispositivo, la iluminación y la visibilidad completa de la plantilla. El análisis de video ocurre por completo dentro del navegador y este repositorio no incluye servicios de almacenamiento ni analítica remota.
 
 ### Cita y licencia
 
-La información para citar el software está disponible en `CITATION.cff`. El código se distribuye bajo licencia MIT. Los contenidos paleontológicos deben revisarse periódicamente, ya que las interpretaciones taxonómicas pueden cambiar con nueva evidencia científica.
+La información para citar el software está disponible en `CITATION.cff`. El código se distribuye bajo licencia MIT. Los contenidos paleontológicos deben revisarse periódicamente, ya que las interpretaciones taxonómicas pueden cambiar con nueva evidencia científica. La cita de la memoria de origen que se imprime en cada plantilla y el correo de contacto para avisar errores están en `js/credits.js`.
 
 ---
 
@@ -127,7 +136,7 @@ La información para citar el software está disponible en `CITATION.cff`. El c�
 
 **PaleoColor CL** is an educational web application for children. Users print and colour prehistoric animals connected with Chile and then watch their own drawing come alive through augmented reality. The camera identifies the template QR code, uses four black markers to register the sheet, captures the colours applied on paper and transfers them to a 2D animation positioned over the original drawing.
 
-This version includes **50 prehistoric animals**, covering terrestrial, aquatic and flying forms from the Jurassic, Cretaceous, Palaeogene, Neogene and Quaternary. The main interface is available in Spanish, English and Portuguese.
+This version includes **50 prehistoric animals**, covering terrestrial, aquatic and flying forms from the Jurassic, Cretaceous, Palaeogene, Neogene and Quaternary. The main interface is available in Spanish, English and Portuguese, while the template gallery (`plantillas.html`) and the text editor (`textos.html`) are in Spanish only.
 
 ### Screenshots
 
@@ -172,15 +181,11 @@ http://localhost:8000
 
 Do not open `index.html` directly through `file://`, because JavaScript modules and camera access may be blocked by the browser.
 
-### GitHub Pages deployment
+### Deployment
 
-> **Important:** copy the ZIP contents directly to the repository root. `index.html` must be beside `README.md`, not inside an additional folder.
+PaleoColor CL is a static site and needs no application server. To publish it, copy this whole folder to a web server with HTTPS (the camera only works in a secure context) without changing its structure, because the three pages load `assets/` and `js/` through relative paths.
 
-
-1. Create a repository and copy the project to the `main` branch.
-2. Open **Settings → Pages** in GitHub.
-3. Under **Build and deployment**, select **GitHub Actions**.
-4. `.github/workflows/pages.yml` will publish the application automatically.
+To use GitHub Pages, create a repository with the contents of this folder at its root, open **Settings → Pages** and, under **Build and deployment**, choose **Deploy from a branch** with the `main` branch. This repository does not include a GitHub Actions workflow for deployment.
 
 ### Project structure
 
@@ -189,17 +194,20 @@ PaleoColorCL/
 ├── index.html                  # Augmented-reality viewer
 ├── plantillas.html             # Template gallery and printing
 ├── textos.html                 # Content editor
-├── styles.css                  # Viewer styles
-├── shell.css                   # Auxiliary-tool styles
 ├── js/                         # Tracking, capture, animation and interface
+│   └── vendor/                 # QR code reader and generator
 ├── assets/
+│   ├── styles.css              # Viewer styles
+│   ├── shell.css               # Auxiliary-tool styles
 │   ├── brand/                  # DIINF-USACH visual identity
-│   └── characters/             # 50 character manifests
+│   └── characters/             # Catalogue and 50 character manifests
 ├── tools/                      # Version stamping and packaging
 ├── docs/screenshots/           # README screenshots
 ├── CITATION.cff
 └── LICENSE
 ```
+
+Each folder has its own `README.md` that describes its files: [assets/](assets/README.md), [assets/characters/](assets/characters/README.md), [js/](js/README.md), [js/vendor/](js/vendor/README.md), [tools/](tools/README.md) and [docs/](docs/README.md).
 
 ### Adding or modifying a character
 
@@ -213,7 +221,17 @@ After changing `APP_VERSION` in `js/config.js`, run:
 python tools/sellar_version.py
 ```
 
-This updates versioned HTML and JavaScript references so that browsers do not combine old and new modules from their cache.
+This updates versioned HTML and JavaScript references so that browsers do not combine old and new modules from their cache. The script rewrites, in place, the `import` statements of `js/*.js` (except `js/vendor/`), the `BUILD` constant in `js/app.js` and the `href` and `src` attributes of the HTML files at the project root, and then checks that every module carries the same version.
+
+### Packaging
+
+To build a zip with the application, run:
+
+```bash
+python tools/reempacar_proyecto.py
+```
+
+The script stamps the version before packaging (unless it receives `--no-stamp`) and writes `ColoreaEnRA_v<version>.zip` to the folder that contains `PaleoColorCL/`. Inside this monorepo that folder is the repository root, where `.gitignore` ignores the zip. If it receives a path as an argument, it writes the zip there. The `--include-tests` option would include a `tests/` folder, but the project has no such folder. Both tools in `tools/` use only the Python 3 standard library.
 
 ### Compatibility and privacy
 
@@ -221,7 +239,7 @@ A recent version of Chrome, Edge or Safari with camera access is recommended. Pe
 
 ### Citation and licence
 
-Citation metadata are provided in `CITATION.cff`. The source code is distributed under the MIT Licence. Palaeontological facts should be reviewed periodically because taxonomic interpretations can change as new scientific evidence becomes available.
+Citation metadata are provided in `CITATION.cff`. The source code is distributed under the MIT Licence. Palaeontological facts should be reviewed periodically because taxonomic interpretations can change as new scientific evidence becomes available. The citation of the original thesis printed on every template and the contact address for reporting errors live in `js/credits.js`.
 
 ---
 
@@ -231,7 +249,7 @@ Citation metadata are provided in `CITATION.cff`. The source code is distributed
 
 **PaleoColor CL** é uma aplicação web educativa para crianças. Os usuários imprimem e pintam animais pré-históricos relacionados ao Chile e observam o próprio desenho ganhar vida por meio de realidade aumentada. A câmera identifica o código QR do modelo, usa quatro marcadores pretos para registrar a folha, captura as cores aplicadas no papel e transfere essas cores para uma animação 2D posicionada sobre o desenho original.
 
-Esta versão inclui **50 animais pré-históricos**, com formas terrestres, aquáticas e voadoras do Jurássico, Cretáceo, Paleógeno, Neógeno e Quaternário. A interface principal está disponível em espanhol, inglês e português.
+Esta versão inclui **50 animais pré-históricos**, com formas terrestres, aquáticas e voadoras do Jurássico, Cretáceo, Paleógeno, Neógeno e Quaternário. A interface principal está disponível em espanhol, inglês e português, enquanto a galeria de modelos (`plantillas.html`) e o editor de textos (`textos.html`) estão somente em espanhol.
 
 ### Capturas de tela
 
@@ -276,15 +294,11 @@ http://localhost:8000
 
 Não abra `index.html` diretamente com `file://`, pois os módulos JavaScript e o acesso à câmera podem ser bloqueados pelo navegador.
 
-### Publicação no GitHub Pages
+### Publicação
 
-> **Importante:** copie o conteúdo do ZIP diretamente para a raiz do repositório. `index.html` deve ficar ao lado de `README.md`, e não dentro de uma pasta adicional.
+O PaleoColor CL é um site estático e não precisa de servidor de aplicação. Para publicá-lo, copie esta pasta inteira para um servidor web com HTTPS (a câmera só funciona em um contexto seguro) sem alterar sua estrutura, pois as três páginas carregam `assets/` e `js/` com caminhos relativos.
 
-
-1. Crie um repositório e copie o projeto para a branch `main`.
-2. No GitHub, abra **Settings → Pages**.
-3. Em **Build and deployment**, selecione **GitHub Actions**.
-4. O fluxo `.github/workflows/pages.yml` publicará a aplicação automaticamente.
+Para usar o GitHub Pages, crie um repositório com o conteúdo desta pasta na raiz, abra **Settings → Pages** e, em **Build and deployment**, escolha **Deploy from a branch** com a branch `main`. Este repositório não inclui um fluxo do GitHub Actions para a publicação.
 
 ### Estrutura
 
@@ -293,17 +307,20 @@ PaleoColorCL/
 ├── index.html                  # Visualizador de realidade aumentada
 ├── plantillas.html             # Galeria e impressão de modelos
 ├── textos.html                 # Editor de conteúdo
-├── styles.css                  # Estilos do visualizador
-├── shell.css                   # Estilos das ferramentas auxiliares
 ├── js/                         # Rastreamento, captura, animação e interface
+│   └── vendor/                 # Leitor e gerador de códigos QR
 ├── assets/
+│   ├── styles.css              # Estilos do visualizador
+│   ├── shell.css               # Estilos das ferramentas auxiliares
 │   ├── brand/                  # Identidade visual DIINF-USACH
-│   └── characters/             # 50 manifestos de personagens
+│   └── characters/             # Catálogo e 50 manifestos de personagens
 ├── tools/                      # Versionamento e empacotamento
 ├── docs/screenshots/           # Capturas usadas neste README
 ├── CITATION.cff
 └── LICENSE
 ```
+
+Cada pasta tem seu próprio `README.md` com o detalhe dos arquivos (em espanhol e inglês): [assets/](assets/README.md), [assets/characters/](assets/characters/README.md), [js/](js/README.md), [js/vendor/](js/vendor/README.md), [tools/](tools/README.md) e [docs/](docs/README.md).
 
 ### Adicionar ou modificar uma personagem
 
@@ -317,7 +334,17 @@ Depois de alterar `APP_VERSION` em `js/config.js`, execute:
 python tools/sellar_version.py
 ```
 
-Isso atualiza as referências versionadas de HTML e JavaScript para impedir que o navegador misture módulos antigos e novos armazenados em cache.
+Isso atualiza as referências versionadas de HTML e JavaScript para impedir que o navegador misture módulos antigos e novos armazenados em cache. O script reescreve no próprio repositório os `import` de `js/*.js` (exceto `js/vendor/`), a constante `BUILD` de `js/app.js` e os `href` e `src` dos HTML da raiz do projeto e, no final, verifica que todos os módulos fiquem com a mesma versão.
+
+### Empacotamento
+
+Para montar um zip com a aplicação, execute:
+
+```bash
+python tools/reempacar_proyecto.py
+```
+
+O script sela a versão antes de empacotar (a menos que receba `--no-stamp`) e grava `ColoreaEnRA_v<versão>.zip` na pasta que contém `PaleoColorCL/`. Dentro deste monorepo essa pasta é a raiz do repositório, onde o `.gitignore` ignora o zip. Se receber um caminho como argumento, grava o zip ali. A opção `--include-tests` incluiria uma pasta `tests/`, mas o projeto não tem essa pasta. As duas ferramentas de `tools/` usam apenas a biblioteca padrão do Python 3.
 
 ### Compatibilidade e privacidade
 
@@ -325,7 +352,7 @@ Recomenda-se uma versão recente do Chrome, Edge ou Safari com acesso à câmera
 
 ### Citação e licença
 
-Os metadados de citação estão disponíveis em `CITATION.cff`. O código-fonte é distribuído sob a Licença MIT. As informações paleontológicas devem ser revisadas periodicamente, pois as interpretações taxonômicas podem mudar com novas evidências científicas.
+Os metadados de citação estão disponíveis em `CITATION.cff`. O código-fonte é distribuído sob a Licença MIT. As informações paleontológicas devem ser revisadas periodicamente, pois as interpretações taxonômicas podem mudar com novas evidências científicas. A citação do trabalho de origem impressa em cada modelo e o endereço de contato para avisar erros estão em `js/credits.js`.
 
 ---
 
