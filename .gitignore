@@ -1,0 +1,82 @@
+# Lab2IA: archivos que el código genera o que no se distribuyen.
+# Lab2IA: files that the code generates or that are not distributed.
+#
+# Cada bloque corresponde a un proyecto. Git solo ignora archivos nuevos: lo que
+# ya está versionado sigue versionado aunque calce con un patrón.
+# Each block belongs to one project. Git only ignores new files: anything that
+# is already tracked stays tracked even if it matches a pattern.
+
+# Sistema, editores y entornos / System, editors and environments
+.DS_Store
+Thumbs.db
+.Rhistory
+.RData
+.Rproj.user/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+node_modules/
+.venv/
+
+# BookAnalyses: textos con derechos, salidas del pipeline, modelo udpipe y corpus de demo
+BookAnalyses/datos/textos/
+BookAnalyses/output/
+BookAnalyses/models/
+BookAnalyses/demo/textos/
+BookAnalyses/demo/catalogo_demo.xlsx
+
+# MOPhyloKmer: resultados de las corridas, figuras y afinado
+MOPhyloKmer/results/
+MOPhyloKmer/figures/
+MOPhyloKmer/analysis/output/
+MOPhyloKmer/tabla_resultados.csv
+MOPhyloKmer/tabla_hv.tex
+MOPhyloKmer/tuning/best_*.csv
+MOPhyloKmer/tuning/*.Rdata
+
+# PaleoColorCL: tools/reempacar_proyecto.py deja el zip en la carpeta padre del proyecto
+/ColoreaEnRA_v*.zip
+
+# Papelucho: corpus descomprimido, intermedios y modelo udpipe.
+# docs/CORPUS.md explica cuándo descomentar la línea del tarball.
+Papelucho/data/raw/papelucho/
+Papelucho/data/raw/comparison/
+Papelucho/data/derived/
+Papelucho/models/
+# Papelucho/data/raw/corpus.tar.gz
+
+# PhyloGEOYeast: datos de entrada y resultados del pipeline R
+PhyloGEOYeast/EvolutiveEubayanus_CODE/DATA/
+PhyloGEOYeast/EvolutiveEubayanus_CODE/resultados/
+PhyloGEOYeast/EvolutiveSCerevisiae_CODE/DATA/
+PhyloGEOYeast/EvolutiveSCerevisiae_CODE/resultados/
+
+# PichintunNLP: intermedios, figuras y tablas regenerables
+PichintunNLP/data/processed/
+PichintunNLP/outputs/figures/
+PichintunNLP/outputs/tables/
+
+# StrokeAccessCL: progreso temporal del generador de isócronas
+StrokeAccessCL/isocronas_progreso.json
+
+# StrokeGRDCL: archivos de Fonasa, intermedios, insumos externos propios y resultados
+StrokeGRDCL/data/raw/
+StrokeGRDCL/data/interim/
+StrokeGRDCL/data/processed/
+StrokeGRDCL/data/external/municipal_indicators.csv
+StrokeGRDCL/data/external/feature_labels.csv
+StrokeGRDCL/results/
+
+# YeastForest_code: datos de entrada, resultados y temporales del bosque, salidas de la app y figuras
+YeastForest_code/Bosque_*/DATA/
+YeastForest_code/Bosque_*/Arboles/
+YeastForest_code/Bosque_*/.tmp_bosque_*/
+YeastForest_code/Bosque_cerevisiae/SCerevisiae_*
+YeastForest_code/Bosque_eubayanus/Eubayanus_*
+YeastForest_code/data/
+YeastForest_code/figs/
+
+# Zodiaco_grd_Code: archivos GRD de Fonasa, base preparada y resultados
+Zodiaco_grd_Code/datos_grd/
+Zodiaco_grd_Code/datos/
+Zodiaco_grd_Code/resultados/
