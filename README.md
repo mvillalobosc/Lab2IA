@@ -98,18 +98,17 @@ Los archivos de estos proyectos indican una versión publicada en el servidor de
 
 ### Licencias
 
-No hay una licencia común: cada proyecto trae la suya o ninguna.
+No hay una licencia común: cada proyecto trae la suya.
 
 | Licencia | Proyectos |
 | --- | --- |
-| MIT | BACPPlanner, PaleoColorCL, Papelucho, PichintunNLP, StrokeAccessRM, StrokeGRDCL, YeastForest_code |
+| MIT | BACPPlanner, BookAnalyses, MOPhyloKmer, PDF2JATS, PaleoColorCL, PaleoForest, Papelucho, PhyloGEOYeast, PichintunNLP, StrokeAccessRM, StrokeGRDCL, TE_worldwide_code, YeastForest, YeastForest_code, Zodiaco_grd_Code |
 | MIT para el código y CC BY 4.0 para los datos y protocolos | SNN_ANN_code |
 | CC BY-SA 4.0 | Phyli |
 | Licencia académica propia: permite revisión académica, docencia y reproducibilidad con atribución, y pide permiso para reutilizar o redistribuir | StrokeAccessCL |
 | Todos los derechos reservados | ResearchAnalyser |
-| Sin archivo de licencia | BookAnalyses, MOPhyloKmer, PDF2JATS, PaleoForest, PhyloGEOYeast, TE_worldwide_code, YeastForest, Zodiaco_grd_Code |
 
-Un proyecto sin archivo de licencia no concede permisos de reutilización, así que antes de usarlo conviene escribir a sus autores. Las licencias de los datos y de las librerías de terceros que trae cada proyecto se explican en su README.
+Salvo en SNN_ANN_code, que también licencia sus datos y protocolos, las licencias cubren el código. Los datos, los logos institucionales y las librerías de terceros que trae cada proyecto conservan sus propios términos, que explican su README y su archivo de licencia.
 
 ### Cómo citar
 
@@ -221,18 +220,17 @@ The files of these projects point to a version published on the DIINF server:
 
 ### Licences
 
-There is no common licence: each project carries its own or none.
+There is no common licence: each project carries its own.
 
 | Licence | Projects |
 | --- | --- |
-| MIT | BACPPlanner, PaleoColorCL, Papelucho, PichintunNLP, StrokeAccessRM, StrokeGRDCL, YeastForest_code |
+| MIT | BACPPlanner, BookAnalyses, MOPhyloKmer, PDF2JATS, PaleoColorCL, PaleoForest, Papelucho, PhyloGEOYeast, PichintunNLP, StrokeAccessRM, StrokeGRDCL, TE_worldwide_code, YeastForest, YeastForest_code, Zodiaco_grd_Code |
 | MIT for the code and CC BY 4.0 for the data and protocols | SNN_ANN_code |
 | CC BY-SA 4.0 | Phyli |
 | Own academic licence: it allows academic review, teaching and reproducibility with attribution, and asks for permission to reuse or redistribute | StrokeAccessCL |
 | All rights reserved | ResearchAnalyser |
-| No licence file | BookAnalyses, MOPhyloKmer, PDF2JATS, PaleoForest, PhyloGEOYeast, TE_worldwide_code, YeastForest, Zodiaco_grd_Code |
 
-A project without a licence file grants no reuse permissions, so it is best to write to its authors before using it. The licences of the data and third-party libraries shipped with each project are explained in its README.
+Except in SNN_ANN_code, which also licenses its data and protocols, the licences cover the code. The data, institutional logos and third-party libraries shipped with each project keep their own terms, which its README and its licence file explain.
 
 ### How to cite
 

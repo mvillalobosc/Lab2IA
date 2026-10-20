@@ -14,6 +14,7 @@ El proyecto trae los datos de entrada y los resultados ya generados, así que co
 
 ```
 TE_worldwide_code/
+├── LICENSE
 ├── README.md
 ├── run_all.R                            corre los pasos en orden
 ├── R/                                   ver R/README.md
@@ -106,7 +107,7 @@ Las medias y medianas anuales de los puntajes publicados que muestran las Tablas
 
 ### Licencia y cita
 
-Esta carpeta no trae archivo de licencia ni de cita. Los datos de entrada vienen del Banco Mundial, de Our World in Data y de la tesis fuente.
+El código se distribuye con licencia MIT ([LICENSE](LICENSE)) y la carpeta no trae archivo de cita. Los datos de entrada vienen del Banco Mundial, de Our World in Data y de la tesis fuente, y conservan sus propios términos.
 
 ## English
 
@@ -120,6 +121,7 @@ The project ships its input data and the results already generated, so it runs e
 
 ```
 TE_worldwide_code/
+├── LICENSE
 ├── README.md
 ├── run_all.R                            runs the steps in order
 ├── R/                                   see R/README.md
@@ -212,4 +214,4 @@ The annual means and medians of the published scores shown in Tables 1, S10 and 
 
 ### Licence and citation
 
-This folder has no licence file and no citation file. The input data come from the World Bank, Our World in Data and the source thesis.
+The code is distributed under the MIT licence ([LICENSE](LICENSE)) and the folder has no citation file. The input data come from the World Bank, Our World in Data and the source thesis, and keep their own terms.

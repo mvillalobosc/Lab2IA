@@ -100,7 +100,7 @@ Las tablas de `resultados/tablas` son las del manuscrito: `estadistica_kw_jt_com
 
 ### Autoría y licencia
 
-El proyecto no trae archivo de licencia ni de cita, y ningún archivo nombra el manuscrito asociado.
+El código se distribuye con licencia MIT ([LICENSE](LICENSE)), que no cubre los textos de los libros. El proyecto no trae archivo de cita y ningún archivo nombra el manuscrito asociado.
 
 ## English
 
@@ -200,4 +200,4 @@ The tables in `resultados/tablas` are the ones in the manuscript: `estadistica_k
 
 ### Authorship and licence
 
-The project has no licence or citation file, and no file names the associated manuscript.
+The code is distributed under the MIT licence ([LICENSE](LICENSE)), which does not cover the book texts. The project has no citation file and no file names the associated manuscript.

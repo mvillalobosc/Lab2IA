@@ -16,6 +16,7 @@ El análisis original se hizo con notebooks de scikit-learn. Este código lo tra
 
 ```
 Zodiaco_grd_Code/
+├── LICENSE
 ├── README.md
 ├── 00_funciones.R       configuración (rutas, semilla, parámetros) y funciones comunes
 ├── 01_preparar_datos.R  lectura de los seis archivos GRD, signo y variables clínicas
@@ -126,7 +127,7 @@ Según los comentarios de `04_resultados.R`, las tres figuras son las del artíc
 
 ### Licencia y cita
 
-Esta carpeta no trae archivo de licencia ni de cita.
+El código se distribuye con licencia MIT ([LICENSE](LICENSE)) y la carpeta no trae archivo de cita.
 
 ---
 
@@ -146,6 +147,7 @@ The original analysis was done with scikit-learn notebooks. This code translates
 
 ```
 Zodiaco_grd_Code/
+├── LICENSE
 ├── README.md
 ├── 00_funciones.R       settings (paths, seed, parameters) and shared functions
 ├── 01_preparar_datos.R  reads the six GRD files, computes the sign and the clinical variables
@@ -256,4 +258,4 @@ According to the comments in `04_resultados.R`, the three figures are those of t
 
 ### Licence and citation
 
-This folder has no licence file and no citation file.
+The code is distributed under the MIT licence ([LICENSE](LICENSE)) and the folder has no citation file.

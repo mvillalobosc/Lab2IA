@@ -85,6 +85,7 @@ Toda la ejecución ocurre en el navegador. La aplicación no necesita backend, b
 ├── index.html
 ├── inferencia.html
 ├── pipeline.html
+├── LICENSE
 ├── README.md
 ├── assets/
 │   ├── README.md
@@ -414,7 +415,7 @@ También se puede usar cualquier servidor estático, como Apache, nginx, `http-s
 
 GitHub Pages utilizará `index.html` como portada de la aplicación. El README se mostrará en la página principal del repositorio.
 
-Antes de publicar un repositorio abierto, añade una licencia adecuada. El código entregado originalmente no incluye un archivo `LICENSE`.
+El código se distribuye con licencia MIT ([LICENSE](LICENSE)). Los conjuntos de ejemplo conservan los términos de los estudios de donde vienen.
 
 ### 13. Mantención y actualización
 
@@ -510,7 +511,7 @@ La transferencia entre módulos usa el almacenamiento local del navegador con la
 - Mk/Mkv se usa para puntuar árboles existentes con una longitud de rama global; no sustituye una búsqueda completa de máxima verosimilitud.
 - La reproducción exacta de métodos estocásticos de R no está garantizada aunque se use una semilla equivalente.
 - Bajo `file://`, algunos navegadores limitan Web Workers o la lectura de archivos; se recomienda un servidor local.
-- El repositorio original no especifica una licencia de distribución.
+- La plataforma original no especificaba una licencia; esta versión se distribuye con licencia MIT ([LICENSE](LICENSE)).
 
 ### 17. Cita sugerida
 
@@ -605,6 +606,7 @@ Everything runs in the browser. The application requires no backend, database, b
 ├── index.html
 ├── inferencia.html
 ├── pipeline.html
+├── LICENSE
 ├── README.md
 ├── assets/
 │   ├── README.md
@@ -934,7 +936,7 @@ Any static server can be used, including Apache, nginx, `http-server` or the Vis
 
 GitHub Pages will use `index.html` as the application landing page. The README will appear on the repository home page.
 
-Before publishing an open repository, add an appropriate licence. The original supplied source does not contain a `LICENSE` file.
+The code is distributed under the MIT licence ([LICENSE](LICENSE)). The example datasets keep the terms of the studies they come from.
 
 ### 13. Maintenance and updates
 
@@ -1030,7 +1032,7 @@ The module handoff uses browser-local storage under the `pf_handoff` key: module
 - Mk/Mkv scores existing trees with a global branch length and does not replace a complete maximum-likelihood search.
 - Exact reproduction of stochastic R methods is not guaranteed even with an equivalent seed.
 - Under `file://`, some browsers restrict Web Workers or file access; a local server is recommended.
-- The original repository does not specify a distribution licence.
+- The original platform did not specify a licence; this version is distributed under the MIT licence ([LICENSE](LICENSE)).
 
 ### 17. Suggested citation
 
@@ -1125,6 +1127,7 @@ Toda a execução ocorre no navegador. A aplicação não precisa de backend, ba
 ├── index.html
 ├── inferencia.html
 ├── pipeline.html
+├── LICENSE
 ├── README.md
 ├── assets/
 │   ├── README.md
@@ -1454,7 +1457,7 @@ Também é possível usar qualquer servidor estático, como Apache, nginx, `http
 
 O GitHub Pages usará `index.html` como página inicial da aplicação. O README aparecerá na página principal do repositório.
 
-Antes de publicar um repositório aberto, adicione uma licença adequada. O código original fornecido não contém um arquivo `LICENSE`.
+O código é distribuído sob a licença MIT ([LICENSE](LICENSE)). Os conjuntos de exemplo mantêm os termos dos estudos de onde vêm.
 
 ### 13. Manutenção e atualização
 
@@ -1550,7 +1553,7 @@ A transferência entre módulos usa o armazenamento local do navegador com a cha
 - Mk/Mkv pontua árvores existentes com um comprimento global de ramo e não substitui uma busca completa de máxima verossimilhança.
 - A reprodução exata de métodos estocásticos do R não é garantida, mesmo com semente equivalente.
 - Em `file://`, alguns navegadores restringem Web Workers ou acesso a arquivos; recomenda-se um servidor local.
-- O repositório original não especifica uma licença de distribuição.
+- A plataforma original não especificava uma licença; esta versão é distribuída sob a licença MIT ([LICENSE](LICENSE)).
 
 ### 17. Citação sugerida
 

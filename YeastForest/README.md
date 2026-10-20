@@ -41,6 +41,7 @@ Los botones superiores 🇨🇱 ES, 🇬🇧 EN y 🇧🇷 BR alternan la interf
 ```
 YeastForest/
 ├── .htaccess
+├── LICENSE
 ├── README.md
 ├── index.html
 ├── i18n.js
@@ -97,7 +98,7 @@ Los datos de *S. cerevisiae* vienen del panel de 1.011 aislados de Peter et al. 
 
 ### Licencia
 
-Esta carpeta no trae archivo de licencia. El proyecto hermano [YeastForest_code](../YeastForest_code/) sí trae uno (MIT) en su propia carpeta.
+El código se distribuye con licencia MIT ([LICENSE](LICENSE)), igual que el del proyecto hermano [YeastForest_code](../YeastForest_code/). Los datos de cepas y genes conservan los términos de sus fuentes.
 
 ## English
 
@@ -138,6 +139,7 @@ The top buttons 🇨🇱 ES, 🇬🇧 EN and 🇧🇷 BR switch the interface, c
 ```
 YeastForest/
 ├── .htaccess
+├── LICENSE
 ├── README.md
 ├── index.html
 ├── i18n.js
@@ -194,4 +196,4 @@ The *S. cerevisiae* data come from the panel of 1,011 isolates of Peter et al. (
 
 ### Licence
 
-This folder has no licence file. The sibling project [YeastForest_code](../YeastForest_code/) has one (MIT) in its own folder.
+The code is distributed under the MIT licence ([LICENSE](LICENSE)), like the code of the sibling project [YeastForest_code](../YeastForest_code/). The strain and gene data keep the terms of their sources.

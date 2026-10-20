@@ -89,6 +89,7 @@ Al reutilizar análisis o figuras, cita el manuscrito asociado y las referencias
 ```text
 PhyloGEOYeast/
 ├── index.html                    App completa: interfaz, resultados embebidos y código del cliente
+├── LICENSE                       Licencia MIT del código
 ├── README.md                     Este archivo
 ├── EvolutiveEubayanus_CODE/      Pipeline en R configurado para S. eubayanus (20 scripts)
 └── EvolutiveSCerevisiae_CODE/    El mismo pipeline configurado para S. cerevisiae (20 scripts)
@@ -96,7 +97,7 @@ PhyloGEOYeast/
 
 ### Licencia
 
-Aquí no se declara una licencia de software. Antes de distribuir o reutilizar el código bajo términos de licencia, los responsables del proyecto deben agregar la licencia que elijan como un archivo `LICENSE` aparte.
+El código se distribuye con licencia MIT ([LICENSE](LICENSE)). Los resultados incrustados en `index.html` conservan los términos de los datos de origen, y las librerías Leaflet y D3 incrustadas conservan sus propias licencias.
 
 ## English
 
@@ -185,6 +186,7 @@ Please cite the associated manuscript and the original references listed in its 
 ```text
 PhyloGEOYeast/
 ├── index.html                    Self-contained app, bundled data, and client-side code
+├── LICENSE                       MIT licence of the code
 ├── README.md                     This file
 ├── EvolutiveEubayanus_CODE/      R pipeline configured for S. eubayanus (20 scripts)
 └── EvolutiveSCerevisiae_CODE/    The same pipeline configured for S. cerevisiae (20 scripts)
@@ -192,4 +194,4 @@ PhyloGEOYeast/
 
 ### License
 
-No software license is declared here. Add the license selected by the project owners as a separate `LICENSE` file before distributing or reusing the code under license terms.
+The code is distributed under the MIT license ([LICENSE](LICENSE)). The results embedded in `index.html` keep the terms of the source data, and the embedded Leaflet and D3 libraries keep their own licenses.

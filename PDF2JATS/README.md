@@ -109,6 +109,7 @@ PDF2JATS/
 ├── CHANGELOG.md
 ├── CITATION.cff
 ├── CONTRIBUTING.md
+├── LICENSE
 └── SECURITY.md
 ```
 
@@ -229,7 +230,7 @@ Más detalle en [docs/ARQUITECTURA.md](docs/ARQUITECTURA.md) y en la [guía de u
 
 ### Autoría y citación
 
-**Manuel José Villalobos Cid** y el **Departamento de Ingeniería Informática (DIINF), Universidad de Santiago de Chile** se presentan como autores institucionales del proyecto ([AUTHORS.md](AUTHORS.md)). Para citar el software, el repositorio incluye `CITATION.cff`. El proyecto no incluye un archivo de licencia.
+**Manuel José Villalobos Cid** y el **Departamento de Ingeniería Informática (DIINF), Universidad de Santiago de Chile** se presentan como autores institucionales del proyecto ([AUTHORS.md](AUTHORS.md)). Para citar el software, el repositorio incluye `CITATION.cff`. El código se distribuye con licencia MIT ([LICENSE](LICENSE)).
 
 ### Estado del proyecto
 
@@ -344,6 +345,7 @@ PDF2JATS/
 ├── CHANGELOG.md
 ├── CITATION.cff
 ├── CONTRIBUTING.md
+├── LICENSE
 └── SECURITY.md
 ```
 
@@ -464,7 +466,7 @@ More detail in [docs/ARQUITECTURA.md](docs/ARQUITECTURA.md) and in the [user gui
 
 ### Authorship and citation
 
-**Manuel José Villalobos Cid** and the **Departamento de Ingeniería Informática (DIINF), Universidad de Santiago de Chile** are presented as the institutional authors of the project ([AUTHORS.md](AUTHORS.md)). To cite the software, the repository includes `CITATION.cff`. The project does not include a licence file.
+**Manuel José Villalobos Cid** and the **Departamento de Ingeniería Informática (DIINF), Universidad de Santiago de Chile** are presented as the institutional authors of the project ([AUTHORS.md](AUTHORS.md)). To cite the software, the repository includes `CITATION.cff`. The code is distributed under the MIT licence ([LICENSE](LICENSE)).
 
 ### Project status
 

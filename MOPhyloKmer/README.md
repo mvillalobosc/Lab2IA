@@ -17,6 +17,7 @@ La calidad se mide con el indicador de **hipervolumen**, con punto de referencia
 
 ```
 MOPhyloKmer/
+├── LICENSE                  Licencia MIT del código.
 ├── config.R                 Configuración central. Es el único archivo que se edita.
 ├── main.R                   Un conjunto de datos: NSGA-II + MOSA + figuras.
 ├── run_experiments.R        Todos los conjuntos x 3 métodos + tabla comparativa.
@@ -140,6 +141,10 @@ Los scripts generan los archivos de `results/`, `figures/` y `analysis/output/`,
 * El **árbol medoide** es el punto del frente con la menor suma de distancias a los demás puntos, en el espacio de objetivos normalizado. Es una solución de compromiso representativa, no la mejor en ninguno de los dos objetivos.
 * Cada corrida usa la semilla `SEED + run`, así que los resultados son los mismos en serie y en paralelo.
 
+### Licencia
+
+El código se distribuye con licencia MIT ([LICENSE](LICENSE)). Los alineamientos de `data/` conservan los términos de sus fuentes originales.
+
 ## English
 
 MOPhyloKmer compares multi-objective metaheuristics for alignment-free phylogenetic inference.
@@ -155,6 +160,7 @@ Quality is measured with the **hypervolume** indicator, with reference point (2,
 
 ```
 MOPhyloKmer/
+├── LICENSE                  MIT licence of the code.
 ├── config.R                 Central configuration. The only file you edit.
 ├── main.R                   One data set: NSGA-II + MOSA + figures.
 ├── run_experiments.R        All data sets x 3 methods + comparison table.
@@ -277,3 +283,7 @@ Everything under `results/`, `figures/` and `analysis/output/`, plus `tabla_resu
 * **Random Search** generates candidates with the same perturbation operator as MOSA, always starting from the base tree, with no selection and no crossover. It is the baseline that shows how much of the result comes from the search itself.
 * The **medoid tree** is the point of the front with the smallest sum of distances to the other points, in normalised objective space. It is a representative compromise solution, not the best in either objective.
 * Each run uses the seed `SEED + run`, so results are the same in serial and in parallel mode.
+
+### Licence
+
+The code is distributed under the MIT licence ([LICENSE](LICENSE)). The alignments in `data/` keep the terms of their original sources.
