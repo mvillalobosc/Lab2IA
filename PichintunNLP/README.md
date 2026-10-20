@@ -11,7 +11,7 @@ El análisis cubre cinco dimensiones: composición léxica (español genérico f
 ## Contenido del repositorio
 
 ```
-pichintun-nlp/
+PichintunNLP/
 ├── run_all.R                  Punto de entrada único
 ├── R/
 │   ├── 00_config.R            Rutas, parámetros y estilo
@@ -30,13 +30,23 @@ pichintun-nlp/
 │       └── stats_helpers.R    Distancias, dendrogramas, clustering
 ├── data/
 │   ├── raw/                   Datos de entrada, versionados
-│   └── processed/             Artefactos intermedios (.rds), regenerables
+│   │   ├── dialogues_es.csv, dialogues_en.csv
+│   │   ├── metadata/          episodes.csv, youtube_stats.csv
+│   │   ├── lexicons/          word_topics.csv, stopwords_extra.csv
+│   │   └── dictionaries/      es_ES.dic, es_ES.aff, es_ES.README.txt
+│   └── processed/             Artefactos intermedios (.rds), se crean al correr
 ├── outputs/
-│   ├── figures/               97 figuras PNG
-│   └── tables/                31 tablas CSV y 1 libro Excel
-└── report/
-    └── pichintun_report.Rmd   Informe HTML a partir de las salidas
+│   ├── pichintun_resultados.xlsx   Copia versionada del libro Excel
+│   ├── figures/               97 figuras PNG, se crean al correr
+│   └── tables/                31 tablas CSV y 1 libro Excel, se crean al correr
+├── report/
+│   └── pichintun_report.Rmd   Informe HTML a partir de las salidas
+├── README.md, README.en.md
+├── CITATION.cff
+└── LICENSE
 ```
+
+Las carpetas [R/](R/), [R/lib/](R/lib/), [data/](data/), [data/raw/](data/raw/) y sus tres subcarpetas, [outputs/](outputs/) y [report/](report/) tienen su propio README.md.
 
 ---
 
@@ -62,13 +72,15 @@ Cada módulo guarda su resultado en `data/processed`, de modo que se puede reeje
 Rscript run_all.R 5 6 7     # solo sentimiento, legibilidad y popularidad
 ```
 
+Los módulos no se corren sueltos con `Rscript R/0N_*.R`: dependen de que `run_all.R` cargue antes los paquetes, `R/00_config.R` y las funciones de `R/lib/`. Para repetir uno, se pasa su número a `run_all.R`.
+
 Tiempo de ejecución completo: alrededor de **6 minutos** en una máquina de escritorio corriente. El módulo 03 es el más costoso por las 34 nubes de palabras.
 
 ### Dependencias
 
 `dplyr`, `tidyr`, `purrr`, `readr`, `stringr`, `tibble`, `ggplot2`, `tokenizers`, `tm`, `hunspell`, `quanteda`, `quanteda.textstats`, `quanteda.textplots`, `sentimentr`, `koRpus`, `koRpus.lang.es`, `fmsb`, `corrplot`, `dendextend`, `amap`, `mstknnclust`, `ggwordcloud`, `patchwork`, `gridExtra`, `scales`, `igraph`, `caret`, `randomForest`, `writexl`.
 
-`koRpus.lang.es` no está en CRAN. Se instala desde el repositorio del autor:
+`koRpus.lang.es` no está en CRAN. Conviene instalarlo antes de `check_packages()`, desde el repositorio del autor; si falta, `check_packages(install_missing = TRUE)` intenta bajarlo de CRAN, no lo encuentra y se detiene avisando que falta:
 
 ```r
 install.packages("koRpus.lang.es",
@@ -77,7 +89,9 @@ install.packages("koRpus.lang.es",
 
 ### Conteo de archivos
 
-El repositorio versionado son **29 archivos**: 14 de código, 9 de datos, 5 de documentación y 1 informe, más los marcadores `.gitkeep`. Las 97 figuras y las 31 tablas de `outputs/` se regeneran con `Rscript run_all.R` y están excluidas por `.gitignore`, de modo que el repositorio se mantiene bajo el límite de 100 archivos de la carga por interfaz web de GitHub.
+El proyecto versionado tiene **38 archivos**: 14 de código, 9 de datos, 4 de documentación (los dos README, `CITATION.cff` y `LICENSE`), 1 informe, 1 libro Excel y 9 README de carpetas. Las 97 figuras y las 31 tablas de `outputs/` se regeneran con `Rscript run_all.R`, y el `.gitignore` de la raíz del repositorio Lab2IA ignora `data/processed/`, `outputs/figures/` y `outputs/tables/`, de modo que el proyecto se mantiene bajo el límite de 100 archivos de la carga por interfaz web de GitHub.
+
+`outputs/pichintun_resultados.xlsx` es una copia versionada del libro Excel. `08_export.R` escribe el libro en `outputs/tables/`, así que esa copia no se actualiza al volver a correr el pipeline.
 
 ---
 
@@ -92,7 +106,7 @@ Todos los datos de entrada están incluidos en `data/raw`, en UTF-8.
 | `dialogues_es.csv` | Transcripciones en español, una fila por capítulo |
 | `dialogues_en.csv` | Traducciones al inglés, una fila por capítulo, requeridas por `sentimentr` |
 | `lexicons/word_topics.csv` | 3.051 palabras clasificadas en 16 temas más "sin definir" |
-| `lexicons/stopwords_extra.csv` | 450 stopwords propias del contexto, sumadas a las de `tm` |
+| `lexicons/stopwords_extra.csv` | 449 stopwords propias del contexto, sumadas a las de `tm` |
 | `dictionaries/es_ES.dic`, `.aff` | Diccionario hunspell del español |
 
 Los cuatro archivos se unen por `episode_id`. `episodes.csv` es la única fuente de verdad: para agregar un capítulo basta con añadir una fila a cada uno de los cuatro CSV. Ningún script contiene listas de títulos, rutas ni rangos de filas escritos a mano.
@@ -107,6 +121,8 @@ geografía, ecosistema, aprendizaje, trabajo, cultura/tradiciones, cocina, expre
 
 Las palabras que no caen en ninguno de los 16 quedan bajo `sin definir` y se excluyen de las matrices temáticas. Cobertura efectiva: **94,1 %** de los tokens.
 
+Las etiquetas de los temas se mantienen en castellano en el código y en las tablas de salida, porque son parte del léxico anotado y no de la interfaz del software.
+
 ---
 
 ## Salidas principales
@@ -115,7 +131,7 @@ Las palabras que no caen en ninguno de los 16 quedan bajo `sin definir` y se exc
 
 - `08_maestro_capitulos.csv`: una fila por capítulo con todas las métricas del pipeline
 - `08_maestro_temporadas.csv`: lo mismo agregado por temporada
-- `pichintun_resultados.xlsx`: 17 hojas con todo lo anterior más importancias, coeficientes y clusters
+- `pichintun_resultados.xlsx`: 17 hojas con las dos tablas maestras, la partición léxica, los temas, las emociones, la complejidad, los vecinos por complejidad, el resumen de los modelos y la importancia y los coeficientes de cada modelo; los clusters quedan solo en los CSV `0N_clusters_capitulos.csv`
 - `08_verificacion.csv`: chequeos de integridad de la corrida
 
 **Diagnósticos** (relevantes al interpretar resultados)
@@ -124,9 +140,17 @@ Las palabras que no caen en ninguno de los 16 quedan bajo `sin definir` y se exc
 - `02_diag_forzar_culturales.csv`: efecto de reclasificar palabras como culturales
 - `07_resumen_modelos.csv`: R² ajustado, grados de libertad residuales y bandera de sobreparametrización
 
-Todas las salidas se regeneran con `Rscript run_all.R` y están excluidas del control de versiones por `.gitignore`.
+Todas las salidas se regeneran con `Rscript run_all.R`, y el `.gitignore` de la raíz del repositorio Lab2IA las excluye del control de versiones.
 
 **Figuras** (`outputs/figures/`): nubes de palabras, gráficos de keyness, radar charts temáticos, curvas de sentimiento, dendrogramas, matrices de correlación, clusters MST-kNN y curvas de tendencia.
+
+**Informe** (`report/`): `pichintun_report.Rmd` arma un informe HTML con las tablas y figuras de `outputs/`, sin recalcular nada. Se genera después de correr el pipeline:
+
+```bash
+Rscript -e 'rmarkdown::render("report/pichintun_report.Rmd")'
+```
+
+El resultado queda en `report/pichintun_report.html`. Necesita los paquetes knitr y rmarkdown, que no están en `PKGS_CRAN`, y pandoc, que rmarkdown usa para generar el HTML.
 
 ---
 
@@ -146,7 +170,7 @@ Todas las salidas se regeneran con `Rscript run_all.R` y están excluidas del co
 
 ## Advertencia sobre los modelos de popularidad
 
-El criterio original selecciona para la regresión lineal toda variable con importancia de Random Forest sobre el 20 %. Con 34 capítulos eso deja pasar **27 predictores para Likes (6 grados de libertad residuales) y 26 para Visualizaciones (7 gl)**.
+El criterio original selecciona para la regresión lineal toda variable con importancia de Random Forest de 20 % o más. Con 34 capítulos eso deja pasar **27 predictores para Likes (6 grados de libertad residuales) y 27 para Visualizaciones (7 gl)**. En el modelo de Visualizaciones entran los 16 temas, y como sus proporciones suman 1, `lm()` no puede estimar el coeficiente de `aprendizaje`: quedan 26 coeficientes, que es la cifra que da el `warning()`.
 
 Esos dos modelos están sobreparametrizados: el R² ajustado (0,79 y 0,65) está inflado y los p-valores no son interpretables en el sentido habitual. El modelo de Suscriptores queda en 13 gl residuales, que es defendible.
 
@@ -160,7 +184,7 @@ El punto de partida fue un único `Pichintun.Rmd` de 2.098 líneas con 61 chunks
 
 **Errores que impedían la ejecución**
 
-1. Las fechas venían como `"Mayo 2, 2016"` y se parseaban con `as.Date(x, "%B %d, %Y")`, que depende del locale. Bajo locale C, habitual en servidores Linux, devuelve `NA` y todo el módulo de popularidad colapsaba a `NA` sin aviso. Las fechas ahora están en ISO 8601.
+1. Las fechas venían como `"Mayo 2, 2016"` y se parseaban con `as.Date(x, "%B %d, %Y")`, que depende del locale. Bajo locale C, habitual en servidores Linux, devuelve `NA` y el módulo de popularidad completo colapsaba a `NA` sin aviso. Las fechas ahora están en ISO 8601.
 2. `tokenize_sentence()` (singular) no existe en el paquete `tokenizers`. La función es `tokenize_sentences()`.
 3. `plotly::as.widget()` fue retirado del paquete. Las curvas de tendencia se generan ahora con `ggplot2`.
 4. `if (is.na(temas_cap[i, tema]))` con índice de largo cero es error en R 4.2 o superior, no aviso.
@@ -168,7 +192,7 @@ El punto de partida fue un único `Pichintun.Rmd` de 2.098 líneas con 61 chunks
 
 **Errores que alteraban resultados en silencio**
 
-6. **La canción introductoria no se eliminaba en 18 de los 34 capítulos.** El patrón se aplicaba con `stringr::fixed()` sobre una cadena cuyas tildes no coincidían con las del archivo, y dejaba residuos ("islas", "pampa", "salar") contaminando las frecuencias. Detalle relevante: la temporada 3 no incluye la canción.
+6. **La canción introductoria no se eliminaba en 18 de los 34 capítulos.** El patrón se aplicaba con `stringr::fixed()` sobre una cadena cuyas tildes no coincidían con las del archivo, y dejaba residuos ("islas", "pampa", "salar") contaminando las frecuencias. En los diálogos actuales, la canción aparece en los 16 capítulos de las temporadas 1 y 2 y en ninguno de las temporadas 3 y 4.
 7. `as.integer(labels(dend))` devolvía `NA` cuando la matriz tenía nombres de fila, y el coloreado de los dendrogramas por temporada quedaba mal asignado.
 8. La reclasificación de "chile" como palabra cultural ocurría a mitad del módulo de frecuencias, **después** de calcular el porcentaje de modismos que alimenta los modelos. Nubes por temporada y Random Forest usaban particiones léxicas distintas. Ahora se aplica una sola vez, en `02_clean.R`. Efecto cuantificado: hasta 3,3 puntos porcentuales en 10 capítulos, tabla en `02_diag_forzar_culturales.csv`.
 
@@ -198,8 +222,8 @@ Las semillas de los tres modelos Random Forest están fijas en `R/00_config.R` (
 
 ## Cita
 
-Véase `CITATION.cff`.
+Véase [CITATION.cff](CITATION.cff).
 
 ## Licencia
 
-Código bajo licencia MIT. Los diálogos de la serie son material de terceros incluido con fines de investigación académica. Véase `LICENSE`.
+Código bajo licencia MIT. Véase [LICENSE](LICENSE). Los diálogos de la serie son material de terceros incluido con fines de investigación académica. El diccionario hunspell también es de terceros y se distribuye bajo la licencia que se elija entre GPL 3 o posterior, LGPL 3 o posterior y MPL 1.1 o posterior; el README de [data/raw/dictionaries/](data/raw/dictionaries/) da los detalles.

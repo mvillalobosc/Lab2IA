@@ -1,4 +1,4 @@
-# pichintun-nlp
+# PichintunNLP
 
 **English** | [Español](README.md)
 
@@ -11,7 +11,7 @@ The analysis covers five dimensions: lexical composition (standard Spanish again
 ## Repository layout
 
 ```
-pichintun-nlp/
+PichintunNLP/
 ├── run_all.R                  Single entry point
 ├── R/
 │   ├── 00_config.R            Paths, parameters and styling
@@ -30,13 +30,23 @@ pichintun-nlp/
 │       └── stats_helpers.R    Distances, dendrograms, clustering
 ├── data/
 │   ├── raw/                   Input data, versioned
-│   └── processed/             Intermediate artefacts (.rds), regenerable
+│   │   ├── dialogues_es.csv, dialogues_en.csv
+│   │   ├── metadata/          episodes.csv, youtube_stats.csv
+│   │   ├── lexicons/          word_topics.csv, stopwords_extra.csv
+│   │   └── dictionaries/      es_ES.dic, es_ES.aff, es_ES.README.txt
+│   └── processed/             Intermediate artefacts (.rds), created when the pipeline runs
 ├── outputs/
-│   ├── figures/               97 PNG figures
-│   └── tables/                31 CSV tables and 1 Excel workbook
-└── report/
-    └── pichintun_report.Rmd   HTML report built from the outputs
+│   ├── pichintun_resultados.xlsx   Versioned copy of the Excel workbook
+│   ├── figures/               97 PNG figures, created when the pipeline runs
+│   └── tables/                31 CSV tables and 1 Excel workbook, created when the pipeline runs
+├── report/
+│   └── pichintun_report.Rmd   HTML report built from the outputs
+├── README.md, README.en.md
+├── CITATION.cff
+└── LICENSE
 ```
+
+The folders [R/](R/), [R/lib/](R/lib/), [data/](data/), [data/raw/](data/raw/) and its three subfolders, [outputs/](outputs/) and [report/](report/) have their own README.md.
 
 ---
 
@@ -62,13 +72,15 @@ Each module writes its result to `data/processed`, so a module can be re-run wit
 Rscript run_all.R 5 6 7     # sentiment, readability and popularity only
 ```
 
+The modules do not run on their own with `Rscript R/0N_*.R`: they rely on `run_all.R` to load the packages, `R/00_config.R` and the functions in `R/lib/` first. To repeat one, pass its number to `run_all.R`.
+
 Full runtime: roughly **6 minutes** on an ordinary desktop machine. Module 03 dominates, because of the 34 word clouds.
 
 ### Dependencies
 
 `dplyr`, `tidyr`, `purrr`, `readr`, `stringr`, `tibble`, `ggplot2`, `tokenizers`, `tm`, `hunspell`, `quanteda`, `quanteda.textstats`, `quanteda.textplots`, `sentimentr`, `koRpus`, `koRpus.lang.es`, `fmsb`, `corrplot`, `dendextend`, `amap`, `mstknnclust`, `ggwordcloud`, `patchwork`, `gridExtra`, `scales`, `igraph`, `caret`, `randomForest`, `writexl`.
 
-`koRpus.lang.es` is not on CRAN. Install it from the maintainer's repository:
+`koRpus.lang.es` is not on CRAN. Install it from the maintainer's repository before calling `check_packages()`; if it is missing, `check_packages(install_missing = TRUE)` tries to fetch it from CRAN, cannot find it and stops reporting it as missing:
 
 ```r
 install.packages("koRpus.lang.es",
@@ -77,7 +89,9 @@ install.packages("koRpus.lang.es",
 
 ### File count
 
-The versioned repository is **29 files**: 14 of code, 9 of data, 5 of documentation and 1 report, plus the `.gitkeep` placeholders. The 97 figures and 31 tables under `outputs/` regenerate with `Rscript run_all.R` and are excluded by `.gitignore`, keeping the repository below the 100-file limit of GitHub's web uploader.
+The versioned project has **38 files**: 14 of code, 9 of data, 4 of documentation (the two READMEs, `CITATION.cff` and `LICENSE`), 1 report, 1 Excel workbook and 9 folder READMEs. The 97 figures and 31 tables under `outputs/` regenerate with `Rscript run_all.R`, and the `.gitignore` at the root of the Lab2IA repository ignores `data/processed/`, `outputs/figures/` and `outputs/tables/`, which keeps the project below the 100-file limit of GitHub's web uploader.
+
+`outputs/pichintun_resultados.xlsx` is a versioned copy of the Excel workbook. `08_export.R` writes the workbook to `outputs/tables/`, so that copy is not updated when the pipeline runs again.
 
 ---
 
@@ -92,7 +106,7 @@ All input data is included under `data/raw`, in UTF-8.
 | `dialogues_es.csv` | Spanish transcripts, one row per episode |
 | `dialogues_en.csv` | English translations, one row per episode, required by `sentimentr` |
 | `lexicons/word_topics.csv` | 3,051 words classified into 16 topics plus "sin definir" |
-| `lexicons/stopwords_extra.csv` | 450 domain-specific stopwords, added to those from `tm` |
+| `lexicons/stopwords_extra.csv` | 449 domain-specific stopwords, added to those from `tm` |
 | `dictionaries/es_ES.dic`, `.aff` | Spanish hunspell dictionary |
 
 The four files join on `episode_id`. `episodes.csv` is the single source of truth: to add an episode, append one row to each of the four CSVs. No script contains hand-written title lists, file paths or row ranges.
@@ -117,7 +131,7 @@ Topic labels are kept in Spanish throughout the code and the output tables, sinc
 
 - `08_maestro_capitulos.csv`: one row per episode with every metric in the pipeline
 - `08_maestro_temporadas.csv`: the same aggregated by season
-- `pichintun_resultados.xlsx`: 17 sheets covering the above plus importances, coefficients and clusters
+- `pichintun_resultados.xlsx`: 17 sheets with the two master tables, the lexical partition, the topics, the emotions, complexity, the complexity neighbours, the model summary and the importances and coefficients of each model; the clusters are only in the `0N_clusters_capitulos.csv` files
 - `08_verificacion.csv`: integrity checks for the run
 
 **Diagnostics** (relevant when interpreting results)
@@ -126,9 +140,17 @@ Topic labels are kept in Spanish throughout the code and the output tables, sinc
 - `02_diag_forzar_culturales.csv`: effect of reclassifying words as culturally marked
 - `07_resumen_modelos.csv`: adjusted R², residual degrees of freedom and an overparameterisation flag
 
-All outputs regenerate with `Rscript run_all.R` and are excluded from version control by `.gitignore`.
+All outputs regenerate with `Rscript run_all.R`, and the `.gitignore` at the root of the Lab2IA repository keeps them out of version control.
 
 **Figures** (`outputs/figures/`): word clouds, keyness plots, topic radar charts, sentiment curves, dendrograms, correlation matrices, MST-kNN clusters and trend curves.
+
+**Report** (`report/`): `pichintun_report.Rmd` builds an HTML report from the tables and figures in `outputs/`, without recomputing anything. Render it after running the pipeline:
+
+```bash
+Rscript -e 'rmarkdown::render("report/pichintun_report.Rmd")'
+```
+
+The result is `report/pichintun_report.html`. It needs the knitr and rmarkdown packages, which are not in `PKGS_CRAN`, and pandoc, which rmarkdown uses to produce the HTML.
 
 ---
 
@@ -148,7 +170,7 @@ All outputs regenerate with `Rscript run_all.R` and are excluded from version co
 
 ## Caveat on the popularity models
 
-The original criterion feeds the linear regression every variable with Random Forest importance above 20 %. With 34 episodes that admits **27 predictors for Likes (6 residual degrees of freedom) and 26 for Views (7 df)**.
+The original criterion feeds the linear regression every variable with Random Forest importance of 20 % or more. With 34 episodes that admits **27 predictors for Likes (6 residual degrees of freedom) and 27 for Views (7 df)**. All 16 topics enter the Views model, and since their proportions add up to 1, `lm()` cannot estimate the coefficient of `aprendizaje`: 26 coefficients remain, which is the number the `warning()` reports.
 
 Those two models are overparameterised: the adjusted R² (0.79 and 0.65) is inflated and the p-values are not interpretable in the usual sense. The Subscribers model lands at 13 residual df, which is defensible.
 
@@ -170,9 +192,9 @@ The starting point was a single 2,098-line `Pichintun.Rmd` with 61 chunks. The s
 
 **Errors that silently altered results**
 
-6. **The opening song was not removed from 18 of the 34 episodes.** The pattern was applied with `stringr::fixed()` against a string whose accents did not match those in the file, leaving residue ("islas", "pampa", "salar") contaminating the frequency counts. Worth noting: season 3 does not carry the song at all.
+6. **The opening song was not removed from 18 of the 34 episodes.** The pattern was applied with `stringr::fixed()` against a string whose accents did not match those in the file, leaving residue ("islas", "pampa", "salar") contaminating the frequency counts. In the current dialogue files, the song appears in the 16 episodes of seasons 1 and 2 and in none of seasons 3 and 4.
 7. `as.integer(labels(dend))` returned `NA` when the matrix carried row names, so dendrogram colouring by season was misassigned.
-8. Reclassifying "chile" as culturally marked happened midway through the frequency module, **after** computing the idiom percentage that feeds the models. Season word clouds and the Random Forest were therefore using different lexical partitions. It now happens once, in `02_clean.R`. Quantified effect: up to 3.3 percentage points across 10 episodes, tabulated in `02_diag_forzar_culturales.csv`.
+8. Reclassifying "chile" as culturally marked happened midway through the frequency module, **after** computing the idiom percentage that feeds the models. As a result, the season word clouds and the Random Forest used different lexical partitions. It now happens once, in `02_clean.R`. Quantified effect: up to 3.3 percentage points across 10 episodes, tabulated in `02_diag_forzar_culturales.csv`.
 
 **Structural fragility**
 
@@ -200,8 +222,8 @@ Seeds for the three Random Forest models are fixed in `R/00_config.R` (`seed_lik
 
 ## Citation
 
-See `CITATION.cff`.
+See [CITATION.cff](CITATION.cff).
 
 ## Licence
 
-Code released under the MIT licence. The series dialogues are third-party material included for academic research purposes. See `LICENSE`.
+Code released under the MIT licence. See [LICENSE](LICENSE). The series dialogues are third-party material included for academic research purposes. The hunspell dictionary is also third-party material, distributed under the user's choice of GPL 3 or later, LGPL 3 or later and MPL 1.1 or later; the README in [data/raw/dictionaries/](data/raw/dictionaries/) gives the details.
