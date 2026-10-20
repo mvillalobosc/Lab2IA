@@ -38,13 +38,13 @@
 #     ademas guarda el motivo en FILO_DETENIDO para poder inspeccionarlo.
 #
 #  3. commandArgs(). No hay argumentos de linea de comandos en una sesion
-#     interactiva. 99_correr_todo.R lee options(filo.desde) y options(filo.hasta)
-#     cuando no los encuentra.
+#     interactiva. 99_correr_todo.R usa entonces PASO_DESDE y PASO_HASTA, que
+#     se fijan mas abajo en este archivo.
 #
 #  Para correr todo desde RStudio, con el proyecto abierto en esta carpeta:
 #
-#      source("99_correr_todo.R")                       # los 12 pasos
-#      options(filo.desde = "06", filo.hasta = "09")    # solo un tramo
+#      source("99_correr_todo.R")                       # los 18 pasos
+#      (para un tramo, editar PASO_DESDE y PASO_HASTA mas abajo)
 #      source("99_correr_todo.R")
 #
 #  Y para correr un paso suelto, alcanza con abrirlo y apretar Source: cada uno
@@ -96,7 +96,7 @@ EXCLUIR_LINAJE <- if (!is.null(.esc)) .esc$excluir else character(0)
 # =============================================================================
 #  ESCENARIOS
 #
-#  Cada uno es una corrida completa de los 12 pasos, con su propia carpeta bajo
+#  Cada uno es una corrida completa de los 18 pasos, con su propia carpeta bajo
 #  resultados/. 99_correr_todo.R los recorre en orden, de modo que un solo
 #  lanzamiento deja todos los analisis hechos.
 #
@@ -168,7 +168,7 @@ SEMILLA     <- 20260819L
 # entero corra en minutos. Sirve para ver si los NUMEROS tienen sentido antes de
 # largar la corrida larga: un Ne absurdo o un ranking encabezado por un grupo de
 # una cepa se detectan aca y no despues de dos horas.
-#     options(filo.rapido = TRUE); source("99_correr_todo.R")
+#     RAPIDO <- TRUE (aca abajo) y despues source("99_correr_todo.R")
 # Se edita ACA, no con options(). rstudioapi::jobRunScript abre una sesion
 # nueva que no hereda options() de la consola, asi que un ajuste puesto en la
 # consola nunca llegaria al job.

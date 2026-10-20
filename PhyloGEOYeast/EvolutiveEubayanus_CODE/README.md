@@ -59,7 +59,6 @@ Ten en cuenta estos puntos antes de correr:
 - `02_variantes.R` es el paso caro porque vuelve a leer el VCF completo cada vez que corre. Solo lo evita si en `resultados/<escenario>/` hay un `paso_conteos.rds` de la versión anterior del pipeline. Para repetir un tramo sin releer el VCF, empieza desde el paso 03 o uno posterior.
 - `RAPIDO <- TRUE` en `00_config.R` submuestrea el panel y baja las réplicas, para revisar en minutos si los números tienen sentido. Esos resultados no son finales.
 - Cuando `12_validar.R` encuentra comprobaciones en FALLA, lo deja escrito en el log y en `12_validacion.tsv`, pero termina con estado 0. Para que corte con estado 1, corre antes `options(filo.cortar_si_falla = TRUE)`.
-- Los comentarios de `00_config.R` y `99_correr_todo.R` mencionan `options(filo.desde)`, `options(filo.hasta)` y `options(filo.ignorar_validacion)`, pero el código no las lee.
 - Cada paso también corre suelto (abrirlo y apretar Source). Sin escenario activo usa los valores por defecto de `00_config.R` (grupo `Site`, fusión por coordenada y sin exclusiones) y escribe directamente en `resultados/`, no en una subcarpeta de escenario.
 
 ### Escenarios
@@ -174,7 +173,6 @@ Keep these points in mind before running it:
 - `02_variantes.R` is the expensive step because it reads the whole VCF again every time it runs. It only skips that when `resultados/<scenario>/` holds a `paso_conteos.rds` from the previous version of the pipeline. To repeat a range without reading the VCF, start from step 03 or later.
 - `RAPIDO <- TRUE` in `00_config.R` subsamples the panel and lowers the number of replicates, so you can check in minutes whether the numbers make sense. Those results are not final.
 - When `12_validar.R` finds checks in FALLA, it writes them to the log and to `12_validacion.tsv` but ends with exit status 0. To make it stop with status 1, run `options(filo.cortar_si_falla = TRUE)` first.
-- The comments in `00_config.R` and `99_correr_todo.R` mention `options(filo.desde)`, `options(filo.hasta)`, and `options(filo.ignorar_validacion)`, but the code does not read them.
 - Each step also runs on its own (open it and press Source). Without an active scenario it uses the defaults in `00_config.R` (group `Site`, merging by coordinate, no exclusions) and writes straight to `resultados/`, not to a scenario subfolder.
 
 ### Scenarios

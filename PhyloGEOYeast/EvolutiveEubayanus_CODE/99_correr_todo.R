@@ -6,12 +6,12 @@
 #  cambiar un umbral solo obliga a repetir desde el paso afectado. El unico caro
 #  es 02_variantes.R, que lee el VCF; si su resultado ya existe se saltea.
 #
-#  CORTE DURO
-#  Si 12_validar.R encuentra alguna comprobacion en FALLA, el corredor se
-#  detiene con estado 1. Es la diferencia con la version anterior: antes los
-#  resultados podian contradecirse entre si y seguir su curso hasta el
-#  manuscrito. Para inspeccionar sin cortar, correr con
-#      options(filo.ignorar_validacion = TRUE)
+#  VALIDACION
+#  Si 12_validar.R encuentra alguna comprobacion en FALLA, lo deja escrito en
+#  su log y en 12_validacion.tsv, y el corredor termina igual con estado 0.
+#  Para que se detenga con estado 1, por ejemplo en una corrida automatica,
+#  correr antes
+#      options(filo.cortar_si_falla = TRUE)
 #
 #  USO DESDE LA TERMINAL
 #      Rscript 99_correr_todo.R
@@ -34,9 +34,9 @@
 #  se para solo en la carpeta correcta, asi que no importa donde este parada la
 #  sesion ni hace falta setwd().
 #
-#  Para correr un tramo, y solo para eso, se limita con options():
-#      options(filo.desde = "06", filo.hasta = "09"); source("99_correr_todo.R")
-#      options(filo.desde = NULL,  filo.hasta = NULL)   <- volver a todos
+#  Para correr un tramo desde RStudio se editan PASO_DESDE y PASO_HASTA en
+#  00_config.R; con Rscript se pasan como argumentos:
+#      Rscript 99_correr_todo.R 06 09
 #  En sesion interactiva nunca se llama a quit(): un paso que decide no seguir
 #  corta el recorrido y deja el motivo en FILO_DETENIDO, con la sesion viva.
 # =============================================================================
@@ -103,15 +103,15 @@ PASOS <- c(
   "12_validar.R"          # control de salida, cruza todo lo anterior
 )
 
-# Los pasos a correr salen de la linea de comandos con Rscript, y de options()
-# en una sesion interactiva, donde commandArgs() no trae nada.
+# Los pasos a correr salen de la linea de comandos con Rscript y, en una sesion
+# interactiva, donde commandArgs() no trae nada, de PASO_DESDE y PASO_HASTA.
 args  <- commandArgs(trailingOnly = TRUE)
 args  <- args[grepl("^[0-9]{2}$", args)]
 desde <- if (length(args) >= 1) args[1] else PASO_DESDE
 hasta <- if (length(args) >= 2) args[2] else PASO_HASTA
-# options() sobrevive a toda la sesion. Si en una corrida anterior se limito el
-# tramo y despues se pide todo, el pipeline correria en silencio solo ese tramo.
-# Se avisa, y se ofrece como quitarlo.
+# Si el tramo no es el completo se avisa, para que una corrida parcial no se
+# confunda con una completa.
+#
 if (desde != "01" || hasta != "12")
   message("Tramo limitado a ", desde, "-", hasta,
           " por PASO_DESDE y PASO_HASTA en 00_config.R")
