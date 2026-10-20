@@ -15,7 +15,7 @@ Esta carpeta guarda el corpus y su metadata. [docs/CORPUS.md](../docs/CORPUS.md)
 
 ### raw/
 
-`corpus.tar.gz` (15 MB) trae los 75 textos en UTF-8 dentro de dos carpetas, `papelucho/` y `comparison/`, cada una con su `.gitkeep`. Se versiona como un solo archivo para no sumar 75 archivos sueltos al repositorio. `Rscript scripts/unpack_corpus.R` lo descomprime en `raw/papelucho/` y `raw/comparison/`, que el `.gitignore` de la raíz del repositorio Lab2IA ignora. Los nombres de archivo no llevan tildes y deben coincidir exactamente con la columna `filename` de la metadata. Los textos tienen derechos de autor vigentes: antes de compartir una copia del repositorio conviene leer [docs/CORPUS.md](../docs/CORPUS.md).
+`corpus.7z` (10,5 MB) trae los 75 textos en UTF-8 dentro de dos carpetas, `papelucho/` y `comparison/`, cifrados con AES-256 junto con los nombres de archivo. Se versiona como un solo archivo para no sumar 75 archivos sueltos al repositorio, y va cifrado porque los textos tienen derechos de autor vigentes: la contraseña no está en el repositorio y hay que pedírsela a los autores. Desde la carpeta del proyecto, `7z x data/raw/corpus.7z -odata/raw` lo descomprime en `raw/papelucho/` y `raw/comparison/`, que el `.gitignore` de la raíz del repositorio Lab2IA ignora, igual que un `corpus.tar.gz` sin cifrar. Después, `Rscript scripts/unpack_corpus.R` verifica cada texto. Los nombres de archivo no llevan tildes y deben coincidir exactamente con la columna `filename` de la metadata. Antes de compartir la contraseña conviene leer [docs/CORPUS.md](../docs/CORPUS.md).
 
 ### derived/
 
@@ -34,7 +34,7 @@ This folder holds the corpus and its metadata. [docs/CORPUS.md](../docs/CORPUS.m
 
 ### raw/
 
-`corpus.tar.gz` (15 MB) holds the 75 UTF-8 texts in two folders, `papelucho/` and `comparison/`, each with its `.gitkeep`. It is versioned as a single file so the repository does not gain 75 loose files. `Rscript scripts/unpack_corpus.R` unpacks it into `raw/papelucho/` and `raw/comparison/`, which the `.gitignore` at the root of the Lab2IA repository ignores. File names carry no accents and must match the `filename` column of the metadata exactly. The texts are under copyright: read [docs/CORPUS.md](../docs/CORPUS.md) before sharing a copy of the repository.
+`corpus.7z` (10.5 MB) holds the 75 UTF-8 texts in two folders, `papelucho/` and `comparison/`, encrypted with AES-256 together with the file names. It is versioned as a single file so the repository does not gain 75 loose files, and it is encrypted because the texts are under copyright: the password is not in the repository, so ask the authors for it. From the project folder, `7z x data/raw/corpus.7z -odata/raw` unpacks it into `raw/papelucho/` and `raw/comparison/`, which the `.gitignore` at the root of the Lab2IA repository ignores, as it ignores an unencrypted `corpus.tar.gz`. Then `Rscript scripts/unpack_corpus.R` verifies every text. File names carry no accents and must match the `filename` column of the metadata exactly. Read [docs/CORPUS.md](../docs/CORPUS.md) before sharing the password.
 
 ### derived/
 

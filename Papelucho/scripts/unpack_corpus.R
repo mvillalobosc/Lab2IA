@@ -11,9 +11,11 @@
 #     trailing newline. A checksum mismatch is reported per file so the culprit
 #     is obvious.
 #
-#     If corpus.tar.gz is absent because the corpus was not redistributed, this
-#     script still runs: it verifies whatever files are already in place and
-#     reports which of the 75 are missing.
+#     The repository ships the corpus only as data/raw/corpus.7z, encrypted with
+#     a password, which 7-Zip unpacks into the same two folders (see
+#     docs/CORPUS.md). Without corpus.tar.gz this script still runs: it verifies
+#     whatever files are already in place and reports which of the 75 are
+#     missing.
 #
 #         Rscript scripts/unpack_corpus.R
 #
@@ -27,9 +29,10 @@
 #     editor que agrega un salto final. Una discrepancia de checksum se reporta
 #     por archivo para que el culpable sea obvio.
 #
-#     Si corpus.tar.gz no esta porque el corpus no se redistribuyo, este script
-#     igual corre: verifica los archivos que ya esten en su lugar y reporta
-#     cuales de los 75 faltan.
+#     El repositorio trae el corpus solo como data/raw/corpus.7z, cifrado con
+#     contrasena, que 7-Zip descomprime en las mismas dos carpetas (ver
+#     docs/CORPUS.md). Sin corpus.tar.gz este script igual corre: verifica los
+#     archivos que ya esten en su lugar y reporta cuales de los 75 faltan.
 # =============================================================================
 
 archive   <- file.path("data", "raw", "corpus.tar.gz")

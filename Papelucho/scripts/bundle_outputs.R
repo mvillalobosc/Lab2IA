@@ -194,11 +194,11 @@ count_files <- function(path, pattern = NULL) {
 
 n_code    <- length(list.files("R", pattern = "\\.R$")) +
              length(list.files("scripts", pattern = "\\.R$")) + 1L
-n_docs    <- length(list.files(".", pattern = "\\.md$")) +
-             length(list.files("docs", pattern = "\\.md$")) + 2L
+# Every .md file in the project and its subfolders, plus LICENSE.
+n_docs    <- length(list.files(".", pattern = "\\.md$", recursive = TRUE)) + 1L
 n_meta    <- count_files(PATHS$metadata)
 # The packed corpus, when it is being distributed, is one more tracked file.
-n_corpus  <- as.integer(file.exists(file.path("data", "raw", "corpus.tar.gz")))
+n_corpus  <- as.integer(file.exists(file.path("data", "raw", "corpus.7z")))
 n_tables  <- count_files(PATHS$tables)
 n_figures <- count_files(PATHS$figures)
 n_logs    <- count_files(PATHS$logs)

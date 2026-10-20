@@ -37,13 +37,13 @@ MOPhyloKmer/tuning/*.Rdata
 # PaleoColorCL: tools/reempacar_proyecto.py deja el zip en la carpeta padre del proyecto
 /ColoreaEnRA_v*.zip
 
-# Papelucho: corpus descomprimido, intermedios y modelo udpipe.
-# docs/CORPUS.md explica cuándo descomentar la línea del tarball.
+# Papelucho: corpus descomprimido, intermedios y modelo udpipe. El corpus se
+# versiona solo cifrado (data/raw/corpus.7z); el tarball sin cifrar no se sube.
 Papelucho/data/raw/papelucho/
 Papelucho/data/raw/comparison/
 Papelucho/data/derived/
 Papelucho/models/
-# Papelucho/data/raw/corpus.tar.gz
+Papelucho/data/raw/corpus.tar.gz
 
 # PhyloGEOYeast: datos de entrada y resultados del pipeline R
 PhyloGEOYeast/EvolutiveEubayanus_CODE/DATA/

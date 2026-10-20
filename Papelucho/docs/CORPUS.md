@@ -7,69 +7,59 @@
 > the 12 Papelucho titles. All 75 are under copyright. Marcela Paz died in 1985,
 > so the Papelucho books are protected in Chile until 2055.
 >
-> Publishing `data/raw/corpus.tar.gz` in a **public** repository redistributes
-> them in full and is copyright infringement, exposed to a DMCA takedown against
-> the repository and its owner.
+> Publishing the texts in a **public** repository redistributes them in full and
+> is copyright infringement, exposed to a DMCA takedown against the repository
+> and its owner. To limit that exposure, the repository carries them only inside
+> `data/raw/corpus.7z`, a 7z archive encrypted with AES-256, file names included.
+> Its password is not published in the repository; ask the authors for it.
+> Whoever has the password has the full texts, so it should go only to the
+> people who need to reproduce the analysis.
 >
-> Safe options, in order of preference:
->
-> 1. **Publish without the texts.** In the `.gitignore` at the root of the Lab2IA
->    repository, uncomment the line `# Papelucho/data/raw/corpus.tar.gz`, and stop
->    tracking the archive with `git rm --cached data/raw/corpus.tar.gz`: ignoring a
->    file that is already tracked does not remove it, and earlier commits keep
->    their copy. `data/metadata/corpus_checksums.csv` still lets anyone
->    verify byte-for-byte that they have assembled the identical corpus, so
->    reproducibility is preserved. This is standard practice in corpus
->    linguistics and is what the field expects.
-> 2. **Keep the repository private** and share access with reviewers and
->    collaborators only.
-> 3. **Publish only derived data**: the frequency tables and counts already in
->    `outputs/tables/`, which are not the original text.
->
-> The archive is included because it was requested.
+> The `.gitignore` at the root of the Lab2IA repository ignores the unpacked
+> folders and `data/raw/corpus.tar.gz`, so an unencrypted copy is not committed
+> by accident. Without the password, `data/metadata/corpus_checksums.csv` still
+> lets anyone verify byte for byte that they have assembled the identical
+> corpus, so reproducibility is preserved. The frequency tables and counts in
+> `outputs/tables/` are derived data, not the original text.
 >
 > **ES.** El corpus contiene 63 novelas publicadas comercialmente (Stephen King,
 > J. K. Rowling, Stephenie Meyer, R. A. Salvatore, Umberto Eco y otros) y los 12
 > títulos de Papelucho. Los 75 están protegidos por derechos de autor. Marcela
 > Paz murió en 1985, así que los Papelucho están protegidos en Chile hasta 2055.
 >
-> Publicar `data/raw/corpus.tar.gz` en un repositorio **público** los
-> redistribuye completos y es infracción de derechos de autor, expuesta a un
-> takedown DMCA contra el repositorio y su dueño.
+> Publicar los textos en un repositorio **público** los redistribuye completos y
+> es infracción de derechos de autor, expuesta a un takedown DMCA contra el
+> repositorio y su dueño. Para limitar esa exposición, el repositorio los lleva
+> solo dentro de `data/raw/corpus.7z`, un archivo 7z cifrado con AES-256,
+> nombres de archivo incluidos. Su contraseña no se publica en el repositorio;
+> hay que pedírsela a los autores. Quien tiene la contraseña tiene los textos
+> completos, así que conviene darla solo a quienes necesiten reproducir el
+> análisis.
 >
-> Opciones seguras, en orden de preferencia:
->
-> 1. **Publicar sin los textos.** En el `.gitignore` de la raíz del repositorio
->    Lab2IA, descomentar la línea `# Papelucho/data/raw/corpus.tar.gz` y dejar de
->    versionar el archivo con `git rm --cached data/raw/corpus.tar.gz`: ignorar un
->    archivo que ya está versionado no lo saca, y los commits anteriores conservan
->    su copia. El archivo
->    `data/metadata/corpus_checksums.csv` igual permite verificar byte a byte que
->    se armó el corpus idéntico, así que la reproducibilidad se conserva. Es la
->    práctica estándar en lingüística de corpus y es lo que el área espera.
-> 2. **Mantener el repositorio privado** y dar acceso solo a revisores y
->    colaboradores.
-> 3. **Publicar solo datos derivados**: las tablas de frecuencias y conteos que
->    ya están en `outputs/tables/`, que no son el texto original.
->
-> El archivo va incluido porque así se pidió.
+> El `.gitignore` de la raíz del repositorio Lab2IA ignora las carpetas
+> descomprimidas y `data/raw/corpus.tar.gz`, así que una copia sin cifrar no
+> entra a un commit por descuido. Sin la contraseña, el archivo
+> `data/metadata/corpus_checksums.csv` igual permite verificar byte a byte que
+> se armó el corpus idéntico, así que la reproducibilidad se conserva. Las
+> tablas de frecuencias y conteos de `outputs/tables/` son datos derivados, no
+> el texto original.
 
 **EN.** The book texts analysed in this project are under copyright. The
-repository carries them in `data/raw/corpus.tar.gz` (see the warning above). This
-document explains how the corpus is packed and verified, and how to reconstruct it
-if the archive is removed.
+repository carries them encrypted in `data/raw/corpus.7z` (see the warning
+above). This document explains how the corpus is packed, unpacked and verified,
+and how to reconstruct it without the archive.
 
 **ES.** Los textos de los libros analizados en este proyecto están protegidos por
-derechos de autor. El repositorio los lleva en `data/raw/corpus.tar.gz` (ver la
-advertencia de arriba). Este documento explica cómo se empaqueta y se verifica el
-corpus, y cómo reconstruirlo si se saca el archivo comprimido.
+derechos de autor. El repositorio los lleva cifrados en `data/raw/corpus.7z` (ver
+la advertencia de arriba). Este documento explica cómo se empaqueta, se
+descomprime y se verifica el corpus, y cómo reconstruirlo sin ese archivo.
 
 ---
 
 ## 1. Layout and packing / Estructura y empaquetado
 
 ```
-data/raw/corpus.tar.gz          the 75 texts as ONE tracked file
+data/raw/corpus.7z              the 75 texts as ONE tracked archive, AES-256 with password
 data/raw/papelucho/             12 .txt files, UTF-8   (unpacked, gitignored)
 data/raw/comparison/            63 .txt files, UTF-8   (unpacked, gitignored)
 data/metadata/corpus_checksums.csv   MD5 and byte size for all 75
@@ -78,27 +68,36 @@ data/metadata/corpus_checksums.csv   MD5 and byte size for all 75
 **EN.** The texts are tracked as a single archive rather than 75 loose files.
 That is what keeps the repository under the 100-file limit of the GitHub web
 uploader; 75 loose texts plus the code alone would be 94 files with no room for
-anything else.
+anything else. The archive opens with 7-Zip or any program compatible with it:
+`7z` on Linux, or Extract Here from the 7-Zip menu on Windows, inside
+`data/raw/`. The commands run from the project folder:
 
 ```bash
-Rscript scripts/unpack_corpus.R      # unpack and verify every checksum
-tar -czf data/raw/corpus.tar.gz -C data/raw papelucho comparison   # repack
+7z x data/raw/corpus.7z -odata/raw   # unpack (asks for the password)
+Rscript scripts/unpack_corpus.R      # verify every checksum
+cd data/raw && 7z a -t7z -mx=9 -mhe=on -p corpus_nuevo.7z papelucho comparison && mv corpus_nuevo.7z corpus.7z   # repack (asks for the password)
 ```
 
-`unpack_corpus.R` also runs without the archive: it verifies whichever files are
-already in place and names the missing ones. A checksum mismatch means the file
-is not byte-identical to the one the published results were computed on, usually
-through a re-encoding or a line-ending conversion.
+`unpack_corpus.R` verifies whichever files are already in place and names the
+missing ones; if it finds an unencrypted `data/raw/corpus.tar.gz`, it unpacks it
+first. A checksum mismatch means the file is not byte-identical to the one the
+published results were computed on, usually through a re-encoding or a
+line-ending conversion.
 
 **ES.** Los textos se versionan como un solo archivo comprimido y no como 75
 sueltos. Eso es lo que mantiene el repositorio bajo el límite de 100 archivos del
 uploader web de GitHub; 75 textos sueltos más el código serían 94 archivos sin
-espacio para nada más.
+espacio para nada más. El archivo se abre con 7-Zip o cualquier programa
+compatible: `7z` en Linux, o Extraer aquí del menú de 7-Zip en Windows, dentro de
+`data/raw/`. Los comandos de arriba se corren desde la carpeta del proyecto: el
+primero descomprime y pide la contraseña, el segundo verifica cada checksum y el
+tercero vuelve a empaquetar con contraseña.
 
-`unpack_corpus.R` también corre sin el archivo: verifica los que ya estén en su
-lugar y nombra los que faltan. Una discrepancia de checksum significa que el
-archivo no es idéntico byte a byte al que produjo los resultados publicados,
-normalmente por una recodificación o una conversión de fin de línea.
+`unpack_corpus.R` verifica los archivos que ya estén en su lugar y nombra los que
+faltan; si encuentra un `data/raw/corpus.tar.gz` sin cifrar, primero lo
+descomprime. Una discrepancia de checksum significa que el archivo no es idéntico
+byte a byte al que produjo los resultados publicados, normalmente por una
+recodificación o una conversión de fin de línea.
 
 **EN.** Filenames must match the `filename` column of
 `data/metadata/corpus_metadata.csv` exactly, including spaces and the absence of

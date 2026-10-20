@@ -26,8 +26,9 @@ SOFTWARE.
 NOTE ON THE CORPUS / NOTA SOBRE EL CORPUS
 
 This license covers the code only. The book texts analysed by this software are
-protected by copyright and are not distributed with this repository.
+protected by copyright and this license does not cover them. The repository
+carries them only inside the password-protected archive data/raw/corpus.7z.
 
 Esta licencia cubre solo el código. Los textos de los libros analizados por este
-software están protegidos por derechos de autor y no se distribuyen con este
-repositorio.
+software están protegidos por derechos de autor y esta licencia no los cubre. El
+repositorio los lleva solo dentro del archivo con contraseña data/raw/corpus.7z.

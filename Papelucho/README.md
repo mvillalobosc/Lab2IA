@@ -26,10 +26,11 @@ Rscript -e 'install.packages(c(
 # 2. Fetch the Spanish POS model (28 MB, not tracked in git)
 Rscript scripts/download_udpipe_model.R
 
-# 3. Unpack the corpus shipped in data/raw/corpus.tar.gz and verify every checksum
-Rscript scripts/unpack_corpus.R
+# 3. Unpack the encrypted corpus (7-Zip asks for the password) and verify every checksum
+7z x data/raw/corpus.7z -odata/raw
 #    -> data/raw/papelucho/*.txt   12 files
 #    -> data/raw/comparison/*.txt  63 files
+Rscript scripts/unpack_corpus.R
 
 # 4. Run everything
 Rscript run_all.R
@@ -38,7 +39,7 @@ Rscript run_all.R
 Rscript run_all.R 02
 ```
 
-Every command runs from the project folder (`Papelucho/`), which is what the code comments call the repository root; there is no `.Rproj` file. `R/00_config.R` checks 17 of these packages before running (`REQUIRED_PACKAGES`). `cluster` and `scales` are not in that list, although steps 08 and 09 use them, so install all 19 as above. A run without arguments ends by calling `scripts/bundle_outputs.R`; a run of selected steps does not. `docs/CORPUS.md` explains how the corpus is packed and how to rebuild it if the archive is removed.
+Every command runs from the project folder (`Papelucho/`), which is what the code comments call the repository root; there is no `.Rproj` file. `R/00_config.R` checks 17 of these packages before running (`REQUIRED_PACKAGES`). `cluster` and `scales` are not in that list, although steps 08 and 09 use them, so install all 19 as above. A run without arguments ends by calling `scripts/bundle_outputs.R`; a run of selected steps does not. The password of `data/raw/corpus.7z` is not in the repository; `docs/CORPUS.md` explains how the archive is packed and how to rebuild the corpus without it.
 
 Before a long run, or before committing, the static audit catches unresolved
 function calls and silent `summarise()` shadowing without executing anything:
@@ -181,9 +182,9 @@ Papelucho/
 │   └── 01_…09_*.R               Analysis steps
 ├── data/
 │   ├── metadata/                corpus_metadata.csv (curated) and corpus_checksums.csv (MD5)
-│   ├── raw/corpus.tar.gz        The 75 book texts packed in one tracked file
-│   ├── raw/papelucho/           12 texts, created by unpack_corpus.R (ignored)
-│   ├── raw/comparison/          63 texts, created by unpack_corpus.R (ignored)
+│   ├── raw/corpus.7z            The 75 book texts in one tracked archive, with a password
+│   ├── raw/papelucho/           12 texts, created by unpacking corpus.7z (ignored)
+│   ├── raw/comparison/          63 texts, created by unpacking corpus.7z (ignored)
 │   └── derived/                 Pipeline intermediates, created by the steps (ignored)
 ├── models/                      UDPipe model, created by download_udpipe_model.R (ignored)
 ├── outputs/
@@ -192,7 +193,7 @@ Papelucho/
 │   └── logs/                    session_info.txt
 ├── scripts/
 │   ├── download_udpipe_model.R  Fetch the Spanish UDPipe model
-│   ├── unpack_corpus.R          Unpack the corpus and verify every checksum
+│   ├── unpack_corpus.R          Verify every checksum of the unpacked corpus
 │   ├── audit_pipeline.R         Static checks: unresolved calls, shadowing, labels
 │   └── bundle_outputs.R         Merge LaTeX tables and logs after a full run
 ├── docs/                        CORPUS.md, CHANGES.md, RESULTS.md
@@ -216,7 +217,7 @@ The folders [R/](R/), [data/](data/), [outputs/](outputs/), [scripts/](scripts/)
 
 ## Corpus availability
 
-The book texts are under copyright. This repository does include them, packed in `data/raw/corpus.tar.gz` (the 12 Papelucho books and the 63 comparison novels), and `docs/CORPUS.md` explains what that implies and how to publish without them. `data/metadata/corpus_metadata.csv` lists every title, author, and edition so the corpus can be reconstructed, and `data/metadata/corpus_checksums.csv` lets anyone check byte for byte that a reconstructed corpus matches the one analysed.
+The book texts are under copyright. This repository includes them only inside `data/raw/corpus.7z` (the 12 Papelucho books and the 63 comparison novels), an archive encrypted with AES-256 whose password is not published in the repository; ask the authors for it. `docs/CORPUS.md` explains why, and how to unpack and verify the archive. `data/metadata/corpus_metadata.csv` lists every title, author, and edition so the corpus can be reconstructed without the archive, and `data/metadata/corpus_checksums.csv` lets anyone check byte for byte that a reconstructed corpus matches the one analysed.
 
 ---
 
@@ -234,7 +235,7 @@ The book texts are under copyright. This repository does include them, packed in
 
 ## License
 
-Code released under the MIT License (see `LICENSE`). The corpus texts in `data/raw/corpus.tar.gz` are not covered by this license.
+Code released under the MIT License (see `LICENSE`). The corpus texts in `data/raw/corpus.7z` are not covered by this license.
 
 ---
 

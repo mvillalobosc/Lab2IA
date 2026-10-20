@@ -26,10 +26,11 @@ Rscript -e 'install.packages(c(
 # 2. Descargar el modelo POS del español (28 MB, no versionado en git)
 Rscript scripts/download_udpipe_model.R
 
-# 3. Descomprimir el corpus que viene en data/raw/corpus.tar.gz y verificar los checksums
-Rscript scripts/unpack_corpus.R
+# 3. Descomprimir el corpus cifrado (7-Zip pide la contraseña) y verificar los checksums
+7z x data/raw/corpus.7z -odata/raw
 #    -> data/raw/papelucho/*.txt   12 archivos
 #    -> data/raw/comparison/*.txt  63 archivos
+Rscript scripts/unpack_corpus.R
 
 # 4. Correr todo
 Rscript run_all.R
@@ -38,7 +39,7 @@ Rscript run_all.R
 Rscript run_all.R 02
 ```
 
-Cada comando se corre desde la carpeta del proyecto (`Papelucho/`), que es lo que los comentarios del código llaman raíz del repositorio; no hay archivo `.Rproj`. `R/00_config.R` revisa 17 de estos paquetes antes de correr (`REQUIRED_PACKAGES`). `cluster` y `scales` no están en esa lista, aunque los usan los pasos 08 y 09, así que conviene instalar los 19 como arriba. Una corrida sin argumentos termina llamando a `scripts/bundle_outputs.R`; una corrida de pasos sueltos no lo hace. `docs/CORPUS.md` explica cómo está empaquetado el corpus y cómo reconstruirlo si se saca el archivo comprimido.
+Cada comando se corre desde la carpeta del proyecto (`Papelucho/`), que es lo que los comentarios del código llaman raíz del repositorio; no hay archivo `.Rproj`. `R/00_config.R` revisa 17 de estos paquetes antes de correr (`REQUIRED_PACKAGES`). `cluster` y `scales` no están en esa lista, aunque los usan los pasos 08 y 09, así que conviene instalar los 19 como arriba. Una corrida sin argumentos termina llamando a `scripts/bundle_outputs.R`; una corrida de pasos sueltos no lo hace. La contraseña de `data/raw/corpus.7z` no está en el repositorio; `docs/CORPUS.md` explica cómo está empaquetado el archivo y cómo reconstruir el corpus sin él.
 
 Antes de una corrida larga, o antes de un commit, la auditoría estática detecta
 llamadas a funciones que no resuelven y shadowing silencioso en `summarise()` sin
@@ -182,9 +183,9 @@ Papelucho/
 │   └── 01_…09_*.R               Pasos de análisis
 ├── data/
 │   ├── metadata/                corpus_metadata.csv (curado) y corpus_checksums.csv (MD5)
-│   ├── raw/corpus.tar.gz        Los 75 textos empaquetados en un solo archivo versionado
-│   ├── raw/papelucho/           12 textos, los crea unpack_corpus.R (ignorada)
-│   ├── raw/comparison/          63 textos, los crea unpack_corpus.R (ignorada)
+│   ├── raw/corpus.7z            Los 75 textos en un solo archivo versionado, con contraseña
+│   ├── raw/papelucho/           12 textos, salen al descomprimir corpus.7z (ignorada)
+│   ├── raw/comparison/          63 textos, salen al descomprimir corpus.7z (ignorada)
 │   └── derived/                 Intermedios del pipeline, los crean los pasos (ignorada)
 ├── models/                      Modelo UDPipe, lo crea download_udpipe_model.R (ignorada)
 ├── outputs/
@@ -193,7 +194,7 @@ Papelucho/
 │   └── logs/                    session_info.txt
 ├── scripts/
 │   ├── download_udpipe_model.R  Descarga el modelo UDPipe del español
-│   ├── unpack_corpus.R          Descomprime el corpus y verifica cada checksum
+│   ├── unpack_corpus.R          Verifica cada checksum del corpus descomprimido
 │   ├── audit_pipeline.R         Chequeos estáticos: llamadas sin resolver, shadowing, etiquetas
 │   └── bundle_outputs.R         Junta tablas LaTeX y logs tras una corrida completa
 ├── docs/                        CORPUS.md, CHANGES.md, RESULTS.md
@@ -217,7 +218,7 @@ Las carpetas [R/](R/), [data/](data/), [outputs/](outputs/), [scripts/](scripts/
 
 ## Disponibilidad del corpus
 
-Los textos de los libros están protegidos por derechos de autor. Este repositorio sí los incluye, empaquetados en `data/raw/corpus.tar.gz` (los 12 libros de Papelucho y las 63 novelas de comparación), y `docs/CORPUS.md` explica qué implica eso y cómo publicar sin ellos. `data/metadata/corpus_metadata.csv` lista cada título, autor y edición para que el corpus pueda reconstruirse, y `data/metadata/corpus_checksums.csv` permite verificar byte a byte que un corpus reconstruido es el mismo que se analizó.
+Los textos de los libros están protegidos por derechos de autor. Este repositorio los incluye solo dentro de `data/raw/corpus.7z` (los 12 libros de Papelucho y las 63 novelas de comparación), un archivo cifrado con AES-256 cuya contraseña no se publica en el repositorio; hay que pedírsela a los autores. `docs/CORPUS.md` explica por qué, y cómo descomprimir y verificar el archivo. `data/metadata/corpus_metadata.csv` lista cada título, autor y edición para que el corpus pueda reconstruirse sin ese archivo, y `data/metadata/corpus_checksums.csv` permite verificar byte a byte que un corpus reconstruido es el mismo que se analizó.
 
 ---
 
@@ -235,7 +236,7 @@ Los textos de los libros están protegidos por derechos de autor. Este repositor
 
 ## Licencia
 
-Código bajo licencia MIT (ver `LICENSE`). Los textos del corpus en `data/raw/corpus.tar.gz` no están cubiertos por esta licencia.
+Código bajo licencia MIT (ver `LICENSE`). Los textos del corpus en `data/raw/corpus.7z` no están cubiertos por esta licencia.
 
 ---
 
