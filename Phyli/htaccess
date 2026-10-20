@@ -17,6 +17,3 @@ RewriteCond %{REQUEST_FILENAME} !-d
 
 # Todo lo demás -> la app
 RewriteRule ^ index.html [L]
-
-# Permitir paréntesis/caracteres del Newick en la ruta
-AllowEncodedSlashes NoDecode

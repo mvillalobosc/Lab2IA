@@ -406,7 +406,7 @@ The supplied `htaccess` file contains rules for direct path input. Before deploy
 2. Confirm that `mod_rewrite` is enabled.
 3. Keep `RewriteBase /Phyli/` only when the application is actually installed under `/Phyli/`.
 4. Change `RewriteBase` when using another subdirectory.
-5. Ensure the server permits the `AllowEncodedSlashes NoDecode` directive where required.
+5. If a route must carry an encoded slash (`%2F`), add `AllowEncodedSlashes NoDecode` to the server or virtual host configuration, because Apache does not accept that directive in `.htaccess`.
 
 The rewrite sends non-existent paths to `index.html`, allowing routes such as:
 
@@ -418,7 +418,7 @@ In extended Newick placed in the path, encode hybrid markers as `%23`.
 
 ## 12. Privacy and data handling
 
-Local files are read with `FileReader` and are not uploaded to a Phyli backend because no such backend exists. Remote loading sends a request only to the URL supplied by the user. Share links place compressed project data in the URL, so they should not be used for private or sensitive trees unless exposure through the address is acceptable.
+Local files are read with `FileReader` and are not uploaded to a Phyli backend because no such backend exists. Remote loading sends a request only to the URL supplied by the user. Share links place compressed project data in the URL, so they should not be used for private or sensitive trees unless exposure through the address is acceptable. Every time the page opens, the browser also requests the Bebas Neue display font from `fonts.googleapis.com` and `fonts.gstatic.com`, so Google receives the visitor's IP address; without a connection, the interface uses the fallback font.
 
 ## 13. Performance
 
@@ -455,6 +455,7 @@ The target environment is a current desktop version of:
 5. Network distance currently follows only the base tree and excludes reticulation edges.
 6. Rooting is intentionally unavailable for networks.
 7. Path-based Newick requires server-side rewrite support; hash-based input does not.
+8. The two remote examples, **Remote tree** and **Remote network**, load files from third-party GitHub repositories (`veg/phylotree.js` and `JuliaPhylo/PhyloNetworks.jl`, `master` branch); they need an internet connection and stop working if those files are moved or renamed.
 
 ## 16. Validation checklist
 
@@ -883,7 +884,7 @@ El archivo `htaccess` entregado contiene reglas para recibir Newick directamente
 2. Confirma que `mod_rewrite` esté habilitado.
 3. Conserva `RewriteBase /Phyli/` únicamente cuando la aplicación esté instalada realmente bajo `/Phyli/`.
 4. Cambia `RewriteBase` al usar otro subdirectorio.
-5. Verifica que el servidor permita `AllowEncodedSlashes NoDecode` cuando corresponda.
+5. Si una ruta debe llevar una barra codificada (`%2F`), agrega `AllowEncodedSlashes NoDecode` a la configuración del servidor o del VirtualHost, porque Apache no acepta esa directiva en `.htaccess`.
 
 La regla envía las rutas inexistentes a `index.html`, permitiendo direcciones como:
 
@@ -895,7 +896,7 @@ En Newick extendido incluido en la ruta, las marcas híbridas deben codificarse 
 
 ## 12. Privacidad y manejo de datos
 
-Los archivos locales se leen mediante `FileReader` y no se suben a un backend de Phyli porque dicho backend no existe. La carga remota envía una solicitud únicamente a la URL indicada por el usuario. Los enlaces compartidos colocan datos comprimidos del proyecto dentro de la URL, por lo que no deben utilizarse con árboles privados o sensibles si su exposición en la dirección no es aceptable.
+Los archivos locales se leen mediante `FileReader` y no se suben a un backend de Phyli porque dicho backend no existe. La carga remota envía una solicitud únicamente a la URL indicada por el usuario. Los enlaces compartidos colocan datos comprimidos del proyecto dentro de la URL, por lo que no deben utilizarse con árboles privados o sensibles si su exposición en la dirección no es aceptable. Cada vez que se abre la página, el navegador pide además la tipografía Bebas Neue a `fonts.googleapis.com` y `fonts.gstatic.com`, así que Google recibe la dirección IP de quien la visita; sin conexión, la interfaz usa la tipografía de reserva.
 
 ## 13. Rendimiento
 
@@ -932,6 +933,7 @@ El entorno objetivo corresponde a versiones actuales de escritorio de:
 5. La distancia en redes sigue actualmente solo el árbol base y excluye las aristas de reticulación.
 6. El enraizamiento se encuentra deshabilitado intencionalmente para las redes.
 7. Newick incluido directamente en la ruta requiere reescritura en el servidor; la entrada mediante hash no la requiere.
+8. Los dos ejemplos remotos, **Árbol remoto** y **Red remota**, cargan archivos de repositorios de GitHub ajenos (`veg/phylotree.js` y `JuliaPhylo/PhyloNetworks.jl`, rama `master`); necesitan conexión a Internet y dejan de funcionar si esos archivos cambian de lugar o de nombre.
 
 ## 16. Checklist de validación
 
