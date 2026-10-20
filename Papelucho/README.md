@@ -39,7 +39,7 @@ Rscript run_all.R
 Rscript run_all.R 02
 ```
 
-Every command runs from the project folder (`Papelucho/`), which is what the code comments call the repository root; there is no `.Rproj` file. `R/00_config.R` checks 17 of these packages before running (`REQUIRED_PACKAGES`). `cluster` and `scales` are not in that list, although steps 08 and 09 use them, so install all 19 as above. A run without arguments ends by calling `scripts/bundle_outputs.R`; a run of selected steps does not. The password of `data/raw/corpus.7z` is not in the repository; `docs/CORPUS.md` explains how the archive is packed and how to rebuild the corpus without it.
+Every command runs from the project folder (`Papelucho/`), which is what the code comments call the repository root; there is no `.Rproj` file. `R/00_config.R` checks these 19 packages before running (`REQUIRED_PACKAGES`). A run without arguments ends by calling `scripts/bundle_outputs.R`; a run of selected steps does not. The password of `data/raw/corpus.7z` is not in the repository; `docs/CORPUS.md` explains how the archive is packed and how to rebuild the corpus without it.
 
 Before a long run, or before committing, the static audit catches unresolved
 function calls and silent `summarise()` shadowing without executing anything:

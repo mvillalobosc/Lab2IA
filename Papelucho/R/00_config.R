@@ -38,7 +38,7 @@ options(stringsAsFactors = FALSE, encoding = "UTF-8")
 # -----------------------------------------------------------------------------
 # 2. Project paths
 #    EN: All paths are relative to the repository root. Run scripts with the
-#        repository root as the working directory (or open the .Rproj).
+#        repository root as the working directory.
 #    ES: Todas las rutas son relativas a la raiz del repositorio. Ejecuta los
 #        scripts con la raiz del repositorio como directorio de trabajo.
 # -----------------------------------------------------------------------------
@@ -292,7 +292,7 @@ label_for <- function(key, lang = c("en", "es")) {
 REQUIRED_PACKAGES <- c(
   "dplyr", "tidyr", "readr", "purrr", "tibble", "stringr", "stringi",
   "ggplot2", "tidytext", "stopwords", "udpipe", "sentimentr", "syuzhet",
-  "zoo", "ggdendro", "ggrepel", "uwot"
+  "zoo", "ggdendro", "ggrepel", "uwot", "cluster", "scales"
 )
 
 #' Verify that every required package is installed

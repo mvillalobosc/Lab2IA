@@ -39,7 +39,7 @@ Rscript run_all.R
 Rscript run_all.R 02
 ```
 
-Cada comando se corre desde la carpeta del proyecto (`Papelucho/`), que es lo que los comentarios del código llaman raíz del repositorio; no hay archivo `.Rproj`. `R/00_config.R` revisa 17 de estos paquetes antes de correr (`REQUIRED_PACKAGES`). `cluster` y `scales` no están en esa lista, aunque los usan los pasos 08 y 09, así que conviene instalar los 19 como arriba. Una corrida sin argumentos termina llamando a `scripts/bundle_outputs.R`; una corrida de pasos sueltos no lo hace. La contraseña de `data/raw/corpus.7z` no está en el repositorio; `docs/CORPUS.md` explica cómo está empaquetado el archivo y cómo reconstruir el corpus sin él.
+Cada comando se corre desde la carpeta del proyecto (`Papelucho/`), que es lo que los comentarios del código llaman raíz del repositorio; no hay archivo `.Rproj`. `R/00_config.R` revisa estos 19 paquetes antes de correr (`REQUIRED_PACKAGES`). Una corrida sin argumentos termina llamando a `scripts/bundle_outputs.R`; una corrida de pasos sueltos no lo hace. La contraseña de `data/raw/corpus.7z` no está en el repositorio; `docs/CORPUS.md` explica cómo está empaquetado el archivo y cómo reconstruir el corpus sin él.
 
 Antes de una corrida larga, o antes de un commit, la auditoría estática detecta
 llamadas a funciones que no resuelven y shadowing silencioso en `summarise()` sin
