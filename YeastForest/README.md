@@ -34,7 +34,7 @@ En la barra de grupos de cepas eliges la variable que colorea el anillo. Un clic
 
 ### Idiomas
 
-Los botones superiores 🇨🇱 ES, 🇬🇧 EN y 🇧🇷 BR alternan la interfaz, las fichas, los mensajes, las búsquedas, las tablas y las ayudas técnicas entre español, inglés y portugués de Brasil. El navegador recuerda la elección en la clave `bf-interface-language` de `localStorage`. Las traducciones vienen en el paquete (`i18n.js`, `i18n-dictionary.js` e `i18n-help.js`) y funcionan sin un servicio de traducción externo. Los identificadores científicos y los valores originales de la metadata se conservan. Los nombres de capa de *S. eubayanus* (Linaje, Localidad, Hospedero) y los motivos de los genes sin ubicar no tienen traducción, así que se ven en castellano en los tres idiomas.
+Los botones superiores 🇨🇱 ES, 🇬🇧 EN y 🇧🇷 BR alternan la interfaz, las fichas, los mensajes, las búsquedas, las tablas y las ayudas técnicas entre español, inglés y portugués de Brasil. El navegador recuerda la elección en la clave `bf-interface-language` de `localStorage`. Las traducciones vienen en el paquete (`i18n.js`, `i18n-dictionary.js` e `i18n-help.js`) y funcionan sin un servicio de traducción externo. Los identificadores científicos y los valores originales de la metadata se conservan.
 
 ### Contenido de la carpeta
 
@@ -132,7 +132,7 @@ In the strain group bar you choose the variable that colours the ring. Clicking 
 
 ### Languages
 
-The top buttons 🇨🇱 ES, 🇬🇧 EN and 🇧🇷 BR switch the interface, cards, messages, searches, tables and technical help between Spanish, English and Brazilian Portuguese. The browser remembers the choice in the `bf-interface-language` key of `localStorage`. The translations ship with the package (`i18n.js`, `i18n-dictionary.js` and `i18n-help.js`) and work without an external translation service. Scientific identifiers and the original metadata values are kept as they are. The *S. eubayanus* layer names (Linaje, Localidad, Hospedero) and the reasons given for unplaced genes have no translation, so they appear in Spanish in all three languages.
+The top buttons 🇨🇱 ES, 🇬🇧 EN and 🇧🇷 BR switch the interface, cards, messages, searches, tables and technical help between Spanish, English and Brazilian Portuguese. The browser remembers the choice in the `bf-interface-language` key of `localStorage`. The translations ship with the package (`i18n.js`, `i18n-dictionary.js` and `i18n-help.js`) and work without an external translation service. Scientific identifiers and the original metadata values are kept as they are.
 
 ### Folder contents
 

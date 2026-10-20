@@ -1570,5 +1570,37 @@ window.BF_TRANSLATIONS={
   "A en B:": [
     "A in B:",
     "A em B:"
+  ],
+  "Linaje": [
+    "Lineage",
+    "Linhagem evolutiva"
+  ],
+  "Hospedero": [
+    "Host",
+    "Hospedeiro"
+  ],
+  "Localidad": [
+    "Locality",
+    "Localidade"
+  ],
+  "sin ubicar en el genoma del VCF": [
+    "not located in the VCF genome",
+    "não localizado no genoma do VCF"
+  ],
+  "extremo inicial repetido o ausente en GCA_003327605.1": [
+    "Gene start repeated or absent in GCA_003327605.1",
+    "Início do gene repetido ou ausente em GCA_003327605.1"
+  ],
+  "extremo final repetido o ausente en GCA_003327605.1": [
+    "Gene end repeated or absent in GCA_003327605.1",
+    "Fim do gene repetido ou ausente em GCA_003327605.1"
+  ],
+  "extremos en contigs, hebras o distancias que no calzan": [
+    "Gene ends on different contigs or strands, or at an inconsistent distance",
+    "Extremos do gene em contigs ou fitas diferentes, ou a uma distância incoerente"
+  ],
+  "sin coordenadas en gene_result.txt": [
+    "No coordinates in gene_result.txt",
+    "Sem coordenadas em gene_result.txt"
   ]
 };
