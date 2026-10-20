@@ -30,7 +30,7 @@ PichintunNLP/
 │       └── stats_helpers.R    Distancias, dendrogramas, clustering
 ├── data/
 │   ├── raw/                   Datos de entrada, versionados
-│   │   ├── dialogues_es.csv, dialogues_en.csv
+│   │   ├── dialogues.7z       dialogues_es.csv y dialogues_en.csv, cifrados con contraseña
 │   │   ├── metadata/          episodes.csv, youtube_stats.csv
 │   │   ├── lexicons/          word_topics.csv, stopwords_extra.csv
 │   │   └── dictionaries/      es_ES.dic, es_ES.aff, es_ES.README.txt
@@ -58,11 +58,13 @@ Requiere **R 4.2 o superior**. Verificado en R 4.3.3 sobre Ubuntu 24.04.
 # 1. Instalar dependencias (una sola vez)
 source("R/lib/packages.R")
 check_packages(install_missing = TRUE)
-
-# 2. Ejecutar el pipeline completo
 ```
 
 ```bash
+# 2. Descomprimir los diálogos (7-Zip pide la contraseña)
+7z x data/raw/dialogues.7z -odata/raw
+
+# 3. Ejecutar el pipeline completo
 Rscript run_all.R
 ```
 
@@ -89,7 +91,7 @@ install.packages("koRpus.lang.es",
 
 ### Conteo de archivos
 
-El proyecto versionado tiene **38 archivos**: 14 de código, 9 de datos, 4 de documentación (los dos README, `CITATION.cff` y `LICENSE`), 1 informe, 1 libro Excel y 9 README de carpetas. Las 97 figuras y las 31 tablas de `outputs/` se regeneran con `Rscript run_all.R`, y el `.gitignore` de la raíz del repositorio Lab2IA ignora `data/processed/`, `outputs/figures/` y `outputs/tables/`, de modo que el proyecto se mantiene bajo el límite de 100 archivos de la carga por interfaz web de GitHub.
+El proyecto versionado tiene **37 archivos**: 14 de código, 8 de datos, 4 de documentación (los dos README, `CITATION.cff` y `LICENSE`), 1 informe, 1 libro Excel y 9 README de carpetas. Las 97 figuras y las 31 tablas de `outputs/` se regeneran con `Rscript run_all.R`, y el `.gitignore` de la raíz del repositorio Lab2IA ignora `data/processed/`, `outputs/figures/` y `outputs/tables/`, de modo que el proyecto se mantiene bajo el límite de 100 archivos de la carga por interfaz web de GitHub.
 
 `outputs/pichintun_resultados.xlsx` es una copia versionada del libro Excel. `08_export.R` escribe el libro en `outputs/tables/`, así que esa copia no se actualiza al volver a correr el pipeline.
 
@@ -97,21 +99,21 @@ El proyecto versionado tiene **38 archivos**: 14 de código, 9 de datos, 4 de do
 
 ## Datos
 
-Todos los datos de entrada están incluidos en `data/raw`, en UTF-8.
+Todos los datos de entrada están incluidos en `data/raw`, en UTF-8. Los dos CSV de diálogos van cifrados dentro de `data/raw/dialogues.7z`, porque son transcripciones de una serie de terceros en las que los niños que narran cada capítulo dicen sus nombres reales. La contraseña no se publica en el repositorio; hay que pedírsela a los autores. Antes de correr el pipeline se descomprimen desde la carpeta del proyecto con `7z x data/raw/dialogues.7z -odata/raw`, o con Extraer aquí del menú de 7-Zip dentro de `data/raw/`. El `.gitignore` de la raíz del repositorio Lab2IA ignora los CSV descomprimidos, así que no se suben por descuido, y si faltan, `R/01_ingest.R` se detiene con un mensaje que explica cómo descomprimirlos.
 
 | Ruta | Contenido |
 |---|---|
 | `metadata/episodes.csv` | Llave maestra: 34 capítulos con temporada, orden, título, id de YouTube, fecha ISO y equipo de animación |
 | `metadata/youtube_stats.csv` | Visualizaciones, likes, suscriptores, impresiones y CTR por capítulo |
-| `dialogues_es.csv` | Transcripciones en español, una fila por capítulo |
-| `dialogues_en.csv` | Traducciones al inglés, una fila por capítulo, requeridas por `sentimentr` |
+| `dialogues_es.csv` (en `dialogues.7z`) | Transcripciones en español, una fila por capítulo |
+| `dialogues_en.csv` (en `dialogues.7z`) | Traducciones al inglés, una fila por capítulo, requeridas por `sentimentr` |
 | `lexicons/word_topics.csv` | 3.051 palabras clasificadas en 16 temas más "sin definir" |
 | `lexicons/stopwords_extra.csv` | 449 stopwords propias del contexto, sumadas a las de `tm` |
 | `dictionaries/es_ES.dic`, `.aff` | Diccionario hunspell del español |
 
 Los cuatro archivos se unen por `episode_id`. `episodes.csv` es la única fuente de verdad: para agregar un capítulo basta con añadir una fila a cada uno de los cuatro CSV. Ningún script contiene listas de títulos, rutas ni rangos de filas escritos a mano.
 
-Los diálogos van en dos CSV en vez de 68 archivos sueltos para mantener el repositorio bajo el límite de 100 archivos que impone la carga por interfaz web de GitHub. Cada texto ocupa una sola línea, de modo que los diffs siguen siendo legibles capítulo a capítulo.
+Los diálogos van en dos CSV, guardados en un solo archivo cifrado, en vez de 68 archivos sueltos, para mantener el repositorio bajo el límite de 100 archivos que impone la carga por interfaz web de GitHub. Cada texto ocupa una sola línea del CSV.
 
 ---
 
@@ -226,4 +228,4 @@ Véase [CITATION.cff](CITATION.cff).
 
 ## Licencia
 
-Código bajo licencia MIT. Véase [LICENSE](LICENSE). Los diálogos de la serie son material de terceros incluido con fines de investigación académica. El diccionario hunspell también es de terceros y se distribuye bajo la licencia que se elija entre GPL 3 o posterior, LGPL 3 o posterior y MPL 1.1 o posterior; el README de [data/raw/dictionaries/](data/raw/dictionaries/) da los detalles.
+Código bajo licencia MIT. Véase [LICENSE](LICENSE). Los diálogos de la serie son material de terceros incluido con fines de investigación académica, y por eso van cifrados en `data/raw/dialogues.7z`. El diccionario hunspell también es de terceros y se distribuye bajo la licencia que se elija entre GPL 3 o posterior, LGPL 3 o posterior y MPL 1.1 o posterior; el README de [data/raw/dictionaries/](data/raw/dictionaries/) da los detalles.

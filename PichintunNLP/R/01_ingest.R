@@ -4,7 +4,8 @@
 # El codigo original abria los 34 capitulos con 34 llamadas read_lines()
 # escritas a mano, con el prefijo del nombre de archivo ("C-", "A-", ninguno)
 # distinto por temporada. Aqui la unica fuente de verdad es episodes.csv, y los
-# dialogos viven en dos CSV (uno por idioma) unidos por episode_id.
+# dialogos viven en dos CSV (uno por idioma) unidos por episode_id. Esos CSV
+# llegan cifrados en data/raw/dialogues.7z y hay que descomprimirlos antes.
 # =============================================================================
 
 log_step("01  Ingesta de datos")
@@ -20,6 +21,12 @@ episodios$publish_date <- as.Date(episodios$publish_date)
 rownames(episodios) <- NULL
 
 leer_dialogos <- function(ruta, columna) {
+  if (!file.exists(ruta)) {
+    stop("Falta data/raw/", basename(ruta), ". Los dialogos vienen cifrados en ",
+         "data/raw/dialogues.7z: descomprimalo con 7-Zip desde la carpeta del ",
+         "proyecto (7z x data/raw/dialogues.7z -odata/raw). La contrasena no esta ",
+         "en el repositorio; pidala a los autores.", call. = FALSE)
+  }
   d <- readr::read_csv(ruta, show_col_types = FALSE)
   if (!all(c("episode_id", "text") %in% names(d))) {
     stop("El archivo ", basename(ruta), " debe tener las columnas episode_id y text.")

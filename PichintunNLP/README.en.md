@@ -30,7 +30,7 @@ PichintunNLP/
 │       └── stats_helpers.R    Distances, dendrograms, clustering
 ├── data/
 │   ├── raw/                   Input data, versioned
-│   │   ├── dialogues_es.csv, dialogues_en.csv
+│   │   ├── dialogues.7z       dialogues_es.csv and dialogues_en.csv, password-protected
 │   │   ├── metadata/          episodes.csv, youtube_stats.csv
 │   │   ├── lexicons/          word_topics.csv, stopwords_extra.csv
 │   │   └── dictionaries/      es_ES.dic, es_ES.aff, es_ES.README.txt
@@ -58,11 +58,13 @@ Requires **R 4.2 or later**. Verified on R 4.3.3 under Ubuntu 24.04.
 # 1. Install dependencies (once)
 source("R/lib/packages.R")
 check_packages(install_missing = TRUE)
-
-# 2. Run the full pipeline
 ```
 
 ```bash
+# 2. Unpack the dialogues (7-Zip asks for the password)
+7z x data/raw/dialogues.7z -odata/raw
+
+# 3. Run the full pipeline
 Rscript run_all.R
 ```
 
@@ -89,7 +91,7 @@ install.packages("koRpus.lang.es",
 
 ### File count
 
-The versioned project has **38 files**: 14 of code, 9 of data, 4 of documentation (the two READMEs, `CITATION.cff` and `LICENSE`), 1 report, 1 Excel workbook and 9 folder READMEs. The 97 figures and 31 tables under `outputs/` regenerate with `Rscript run_all.R`, and the `.gitignore` at the root of the Lab2IA repository ignores `data/processed/`, `outputs/figures/` and `outputs/tables/`, which keeps the project below the 100-file limit of GitHub's web uploader.
+The versioned project has **37 files**: 14 of code, 8 of data, 4 of documentation (the two READMEs, `CITATION.cff` and `LICENSE`), 1 report, 1 Excel workbook and 9 folder READMEs. The 97 figures and 31 tables under `outputs/` regenerate with `Rscript run_all.R`, and the `.gitignore` at the root of the Lab2IA repository ignores `data/processed/`, `outputs/figures/` and `outputs/tables/`, which keeps the project below the 100-file limit of GitHub's web uploader.
 
 `outputs/pichintun_resultados.xlsx` is a versioned copy of the Excel workbook. `08_export.R` writes the workbook to `outputs/tables/`, so that copy is not updated when the pipeline runs again.
 
@@ -97,21 +99,21 @@ The versioned project has **38 files**: 14 of code, 9 of data, 4 of documentatio
 
 ## Data
 
-All input data is included under `data/raw`, in UTF-8.
+All input data is included under `data/raw`, in UTF-8. The two dialogue CSVs are encrypted inside `data/raw/dialogues.7z`, because they are transcripts of a third-party series in which the children who narrate each episode give their real names. The password is not published in the repository; ask the authors for it. Before running the pipeline, unpack them from the project folder with `7z x data/raw/dialogues.7z -odata/raw`, or with Extract Here from the 7-Zip menu inside `data/raw/`. The `.gitignore` at the root of the Lab2IA repository ignores the unpacked CSVs, so they are not uploaded by accident, and if they are missing, `R/01_ingest.R` stops with a message that explains how to unpack them.
 
 | Path | Contents |
 |---|---|
 | `metadata/episodes.csv` | Master key: 34 episodes with season, order, title, YouTube id, ISO date and animation team |
 | `metadata/youtube_stats.csv` | Views, likes, subscribers, impressions and CTR per episode |
-| `dialogues_es.csv` | Spanish transcripts, one row per episode |
-| `dialogues_en.csv` | English translations, one row per episode, required by `sentimentr` |
+| `dialogues_es.csv` (in `dialogues.7z`) | Spanish transcripts, one row per episode |
+| `dialogues_en.csv` (in `dialogues.7z`) | English translations, one row per episode, required by `sentimentr` |
 | `lexicons/word_topics.csv` | 3,051 words classified into 16 topics plus "sin definir" |
 | `lexicons/stopwords_extra.csv` | 449 domain-specific stopwords, added to those from `tm` |
 | `dictionaries/es_ES.dic`, `.aff` | Spanish hunspell dictionary |
 
 The four files join on `episode_id`. `episodes.csv` is the single source of truth: to add an episode, append one row to each of the four CSVs. No script contains hand-written title lists, file paths or row ranges.
 
-Dialogues live in two CSVs rather than 68 loose files so the repository stays under the 100-file limit imposed by GitHub's web uploader. Each text occupies a single line, so diffs remain readable episode by episode.
+Dialogues live in two CSVs, kept in a single encrypted archive, rather than 68 loose files, so the repository stays under the 100-file limit imposed by GitHub's web uploader. Each text occupies a single line of the CSV.
 
 ---
 
@@ -226,4 +228,4 @@ See [CITATION.cff](CITATION.cff).
 
 ## Licence
 
-Code released under the MIT licence. See [LICENSE](LICENSE). The series dialogues are third-party material included for academic research purposes. The hunspell dictionary is also third-party material, distributed under the user's choice of GPL 3 or later, LGPL 3 or later and MPL 1.1 or later; the README in [data/raw/dictionaries/](data/raw/dictionaries/) gives the details.
+Code released under the MIT licence. See [LICENSE](LICENSE). The series dialogues are third-party material included for academic research purposes, which is why they are encrypted in `data/raw/dialogues.7z`. The hunspell dictionary is also third-party material, distributed under the user's choice of GPL 3 or later, LGPL 3 or later and MPL 1.1 or later; the README in [data/raw/dictionaries/](data/raw/dictionaries/) gives the details.

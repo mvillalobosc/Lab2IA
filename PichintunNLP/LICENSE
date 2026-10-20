@@ -26,9 +26,10 @@ SOFTWARE.
 NOTA SOBRE LOS DATOS
 
 La licencia MIT cubre el codigo de este repositorio. Los dialogos de la serie
-Pichintun contenidos en data/raw/dialogues_es y data/raw/dialogues_en son
-transcripciones de material audiovisual cuyos derechos pertenecen a sus
-titulares, y se incluyen unicamente con fines de investigacion academica.
+Pichintun contenidos en data/raw/dialogues.7z (dialogues_es.csv y
+dialogues_en.csv, cifrados con contrasena) son transcripciones de material
+audiovisual cuyos derechos pertenecen a sus titulares, y se incluyen
+unicamente con fines de investigacion academica.
 
 El diccionario ortografico de espanol en data/raw/dictionaries se distribuye
 bajo sus licencias originales GPL 3.0 / LGPL 3.0 / MPL 1.1. Vease
