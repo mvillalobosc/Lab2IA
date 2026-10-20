@@ -1,0 +1,39 @@
+# TE_worldwide_code/results
+
+[Español](#español) · [English](#english)
+
+## Español
+
+Esta carpeta guarda las salidas del pipeline tal como las produjo la corrida del artículo. `run_all.R` las sobrescribe cada vez que corre, así que conviene copiar la carpeta antes de una corrida nueva si se quiere comparar. Los fragmentos LaTeX de las tablas están en [`tables/`](tables/README.md) y el README del proyecto es [`../README.md`](../README.md).
+
+| Archivo | Lo escribe | Contenido |
+|---|---|---|
+| `fresh_annual_scores.csv` | `04_validate_extraction.R` | 466 filas, los país-año del análisis principal: todas las columnas de la base más `fresh_crs` y `fresh_vrs` (puntajes IO-CRS e IO-VRS reestimados por año con la extracción de 2026) y `diff` (reestimado menos publicado). Es la entrada de los pasos 05 y 06 |
+| `robustness.rds` | `05_reference_sets_and_robustness.R` | lista con todas las estadísticas de los conjuntos de referencia y la robustez: `annual`, `annual_by_income`, `fixed_set`, `fixed_set_published`, `rank_corr_published_39`, `transition`, `scale_by_year`, `scale_by_income`, `scale_lowest_countries`, `pooled_by_year`, `pooled_kept48`, `fixed_by_year`, `rank_corr_fixed`, `percap_by_year`, `percap_largest_drop`, `percap_largest_gain`, `percap_spearman_pooled`, `percap_spearman_high`, `meta_by_year`, `meta_pooled`, `meta_examples` y `meta_lowest_group` |
+| `robustness_scores.csv` | `05_reference_sets_and_robustness.R` | 466 filas con los puntajes de cada país-año en cada conjunto de referencia: `code`, `year`, `income`, `group` (grupo de la metafrontera: `L+LM`, `UM` o `H`), `te_io_crs` y `te_io_vrs` (publicados), `scale_eff` (IO-CRS / IO-VRS), `fresh_crs` (frontera anual), `pooled_crs` (frontera agrupada), `fixed_crs` (muestra fija de 39 países; vacío para el resto), `pc_crs` (gasto per cápita como insumo), `group_crs` (frontera del grupo de ingreso) y `tgr` (razón de brecha tecnológica, puntaje global / puntaje del grupo) |
+| `second_stage.rds` | `06_second_stage.R` | lista con `n`, `n_at_1`, `vif_full`, `vif_main`, `corr`, `tobit_full`, `tobit_main`, `tobit_main_noSGP`, `ols_main`, `sw1_main`, `sw2_main`, `sw2_by_year` y `tobit_by_year` |
+| `second_stage_coefficients.csv` | `06_second_stage.R` | 54 filas con `model`, `term`, `coef`, `se`, `p`, `ci_lo` y `ci_hi` de seis modelos: Tobit con ocho predictores, Tobit principal, Tobit principal sin Singapur, mínimos cuadrados con HC1 y los algoritmos 1 y 2 de Simar y Wilson (estos dos sin `se` ni `p`). Los coeficientes de Simar y Wilson están en la escala de la distancia de Shephard, así que su signo es el opuesto al de los demás |
+| `sw2_bias_corrected_scores.csv` | `06_second_stage.R` | 445 filas del algoritmo 2 de Simar y Wilson: `code`, `year`, `theta` (puntaje DEA), `delta` (distancia de Shephard, 1 / `theta`), `bias` (sesgo estimado por bootstrap), `delta_bc` y `theta_bc` (distancia y puntaje corregidos por sesgo) |
+| `covid_model.rds` | `07_covid_model.R` | lista con `corr_cases_deaths`, `corr_cases_r`, `corr_deaths_r`, `desc` y los cuatro modelos Tobit: `full`, `no_r`, `cases_only` y `deaths_only` |
+| `covid_2020_model_data.csv` | `07_covid_model.R` | 59 filas con los datos del modelo de 2020: `code`, `country`, `income`, `te_io_crs`, `cases_pm`, `deaths_pm`, `r_mean`, `r_days`, `cases_k` (casos por 1.000 habitantes) y `deaths_h` (muertes por 100.000 habitantes) |
+| `Figure_S1.png` | `09_figure_S1_workflow.R` | Figura Suplementaria S1, el diagrama de flujo del estudio fuente, de 1850 x 1830 píxeles |
+
+Los `.rds` solo se pueden abrir desde R (`readRDS()`). Parte de su contenido no tiene equivalente en CSV, por ejemplo la transición 2019-2020 de `robustness.rds`, los VIF y los Tobit por año de `second_stage.rds` o los descriptivos de `covid_model.rds`. `08_tables.R` lee estas listas para escribir las tablas, aunque algunos elementos (`annual_by_income` y `meta_lowest_group` de `robustness.rds`; `corr_cases_r`, `corr_deaths_r` y `desc` de `covid_model.rds`) no alimentan ninguna tabla y quedan solo para consulta.
+
+## English
+
+This folder holds the pipeline outputs as the run of the article produced them. `run_all.R` overwrites them every time it runs, so copy the folder before a new run if you want to compare. The LaTeX fragments of the tables are in [`tables/`](tables/README.md) and the project README is [`../README.md`](../README.md).
+
+| File | Written by | Content |
+|---|---|---|
+| `fresh_annual_scores.csv` | `04_validate_extraction.R` | 466 rows, the country-years of the main analysis: every database column plus `fresh_crs` and `fresh_vrs` (IO-CRS and IO-VRS scores re-estimated by year with the 2026 extraction) and `diff` (re-estimated minus published). It is the input of steps 05 and 06 |
+| `robustness.rds` | `05_reference_sets_and_robustness.R` | list with every statistic of the reference sets and robustness analyses: `annual`, `annual_by_income`, `fixed_set`, `fixed_set_published`, `rank_corr_published_39`, `transition`, `scale_by_year`, `scale_by_income`, `scale_lowest_countries`, `pooled_by_year`, `pooled_kept48`, `fixed_by_year`, `rank_corr_fixed`, `percap_by_year`, `percap_largest_drop`, `percap_largest_gain`, `percap_spearman_pooled`, `percap_spearman_high`, `meta_by_year`, `meta_pooled`, `meta_examples` and `meta_lowest_group` |
+| `robustness_scores.csv` | `05_reference_sets_and_robustness.R` | 466 rows with the score of each country-year under each reference set: `code`, `year`, `income`, `group` (metafrontier group: `L+LM`, `UM` or `H`), `te_io_crs` and `te_io_vrs` (published), `scale_eff` (IO-CRS / IO-VRS), `fresh_crs` (annual frontier), `pooled_crs` (pooled frontier), `fixed_crs` (fixed sample of 39 countries; empty for the rest), `pc_crs` (per-capita expenditure as input), `group_crs` (income-group frontier) and `tgr` (technology gap ratio, global score / group score) |
+| `second_stage.rds` | `06_second_stage.R` | list with `n`, `n_at_1`, `vif_full`, `vif_main`, `corr`, `tobit_full`, `tobit_main`, `tobit_main_noSGP`, `ols_main`, `sw1_main`, `sw2_main`, `sw2_by_year` and `tobit_by_year` |
+| `second_stage_coefficients.csv` | `06_second_stage.R` | 54 rows with `model`, `term`, `coef`, `se`, `p`, `ci_lo` and `ci_hi` for six models: Tobit with eight predictors, main Tobit, main Tobit without Singapore, least squares with HC1, and Simar and Wilson's Algorithms 1 and 2 (these two without `se` or `p`). The Simar and Wilson coefficients are on the Shephard distance scale, so their sign is the opposite of the others |
+| `sw2_bias_corrected_scores.csv` | `06_second_stage.R` | 445 rows from Simar and Wilson's Algorithm 2: `code`, `year`, `theta` (DEA score), `delta` (Shephard distance, 1 / `theta`), `bias` (bootstrap bias estimate), `delta_bc` and `theta_bc` (bias-corrected distance and score) |
+| `covid_model.rds` | `07_covid_model.R` | list with `corr_cases_deaths`, `corr_cases_r`, `corr_deaths_r`, `desc` and the four Tobit models: `full`, `no_r`, `cases_only` and `deaths_only` |
+| `covid_2020_model_data.csv` | `07_covid_model.R` | 59 rows with the data of the 2020 model: `code`, `country`, `income`, `te_io_crs`, `cases_pm`, `deaths_pm`, `r_mean`, `r_days`, `cases_k` (cases per 1,000 people) and `deaths_h` (deaths per 100,000 people) |
+| `Figure_S1.png` | `09_figure_S1_workflow.R` | Supplementary Figure S1, the workflow diagram of the source study, 1850 x 1830 pixels |
+
+The `.rds` files can only be opened from R (`readRDS()`). Part of their content has no CSV counterpart, for example the 2019-2020 transition in `robustness.rds`, the VIFs and the year-specific Tobit models in `second_stage.rds` or the descriptive statistics in `covid_model.rds`. `08_tables.R` reads these lists to write the tables, although some elements (`annual_by_income` and `meta_lowest_group` in `robustness.rds`; `corr_cases_r`, `corr_deaths_r` and `desc` in `covid_model.rds`) feed no table and are kept for reference only.
