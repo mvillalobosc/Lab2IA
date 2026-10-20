@@ -14,7 +14,8 @@ import tempfile
 import uuid
 import zipfile
 
-from flask import Flask, Response, jsonify, request, send_file
+from flask import Flask, Response, jsonify, request, send_file, send_from_directory
+from werkzeug.exceptions import NotFound
 
 from core.extractor import extraer
 from core import doi_metadata, reference_metadata, scielo_metadata
@@ -112,11 +113,14 @@ def index():
 
 @app.route("/web/<path:archivo>")
 def estatico(archivo):
-    """Sirve recursos de la interfaz, incluidos archivos binarios como el logo."""
-    ruta = os.path.join(AQUI, "web", archivo)
-    if not os.path.isfile(ruta):
+    """Sirve recursos de la interfaz, incluidos archivos binarios como el logo.
+
+    send_from_directory solo entrega archivos que quedan dentro de web/: una ruta
+    que intenta salir de la carpeta (por ejemplo ../app.py) recibe 404."""
+    try:
+        return send_from_directory(os.path.join(AQUI, "web"), archivo)
+    except NotFound:
         return "no encontrado", 404
-    return send_file(ruta)
 
 
 @app.route("/api/extraer", methods=["POST"])
