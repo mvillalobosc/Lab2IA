@@ -643,17 +643,17 @@ function clAcc(n){ return t('cluster.'+n+'.acc'); }
 function clGroup(n){ return t('cluster.group')+' '+n; }
 
 const INDICATORS = {
-  fonasa:{ label:'FONASA A/B', unit:'% del tramo', field:'P_AB',
+  fonasa:{ field:'P_AB',
     breaks:[34.78,43.23,47.82,52.65,57.29,62.78], ramp:RAMPS.fonasa, fmt:v=>v.toFixed(1)+' %' },
-  diab:{ label:'Diabetes', unit:'% prevalencia', field:'P_DB_Diabe',
+  diab:{ field:'P_DB_Diabe',
     breaks:[5.64,6.85,8.44,9.47,10.43,11.76], ramp:RAMPS.diab, fmt:v=>v.toFixed(1)+' %' },
-  hta:{ label:'Hipertensión', unit:'% prevalencia', field:'P_HT',
+  hta:{ field:'P_HT',
     breaks:[12.99,15.04,16.44,17.62,18.79,20.24], ramp:RAMPS.hta, fmt:v=>v.toFixed(1)+' %' },
-  aged:{ label:'Adulto mayor', unit:'tasa 60+ / 30+', field:'TASA_ADULT',
+  aged:{ field:'TASA_ADULT',
     breaks:[25,30,35,40,45], ramp:RAMPS.aged.slice(0,6), fmt:v=>v.toFixed(1) },
-  acc:{ label:'Minutos a hospital', unit:'viaje en auto', field:'minutos_vi',
+  acc:{ field:'minutos_vi',
     breaks:[10,20,30,40,50,60], ramp:RAMPS.acc, fmt:v=>Math.round(v)+' min' },
-  cluster:{ label:'Clustering', unit:'grupos de zonas', field:'cluster', categorical:true,
+  cluster:{ field:'cluster', categorical:true,
     colors:CLUSTER_COLORS, fmt:v=>clGroup(v) }
 };
 const ISO_COLORS = {10:'#fed4d4',20:'#fea9a9',30:'#ff7f7f',40:'#ff5555',50:'#ff2a2a',60:'#ff0000'};
@@ -670,7 +670,7 @@ const map = L.map('map',{zoomControl:false, preferCanvas:true, minZoom:8, maxZoo
 L.control.zoom({position:'bottomright'}).addTo(map);
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{
   attribution:'© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-  subdomains:'abcd', maxZoom:19
+  maxZoom:19
 }).addTo(map);
 
 const canvasRenderer = L.canvas({padding:0.5});
@@ -920,7 +920,7 @@ const addrInput=document.getElementById('addr');
 document.getElementById('btnSearch').onclick=doSearch;
 addrInput.addEventListener('keydown',e=>{ if(e.key==='Enter') doSearch(); });
 document.getElementById('btnGeo').onclick=doGeo;
-map.on('click',e=>{ if(map._popupClickBlock) return; queryPoint(e.latlng.lat,e.latlng.lng); });
+map.on('click',e=>queryPoint(e.latlng.lat,e.latlng.lng));
 
 function doSearch(){
   const q=addrInput.value.trim(); if(!q) return;
@@ -1030,9 +1030,10 @@ document.getElementById('panelToggle').onclick=()=>document.getElementById('pane
 document.querySelectorAll('.lang-btn').forEach(b=>b.onclick=()=>setLang(b.getAttribute('data-lang')));
 
 /* ---------- Init ---------- */
-let lang0='es';
-try{ const saved=localStorage.getItem('msrm_lang'); if(saved&&I18N[saved]) lang0=saved;
-  else{ const nav=(navigator.language||'es').slice(0,2); if(I18N[nav]) lang0=nav; } }catch(e){}
+let lang0='es', saved=null;
+try{ saved=localStorage.getItem('msrm_lang'); }catch(e){}
+if(saved&&I18N[saved]) lang0=saved;
+else{ const nav=(navigator.language||'es').slice(0,2); if(I18N[nav]) lang0=nav; }
 setLang(lang0);
 try{ if(!localStorage.getItem('msrm_seen')) openModal('guideModal'); }catch(e){ openModal('guideModal'); }
 </script>
