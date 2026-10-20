@@ -95,7 +95,7 @@ for (j in seq_len(ncol(GT))) {
     asignado = gg[o[1]], segundo = gg[o[2]],
     ll_asignado = round(ll[o[1]], 2), ll_segundo = round(ll[o[2]], 2),
     margen = round(ll[o[1]] - ll[o[2]], 2),
-    correcto = identical(gg[o[1]], gj),
+    correcto = as.character(gg[o[1]]) == as.character(gj),
     n_cepas_origen = v$n_cepas[usar][match(gj, gg)],
     stringsAsFactors = FALSE)
 }

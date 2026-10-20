@@ -54,7 +54,7 @@ rstudioapi::jobRunScript("99_correr_todo.R", name = "filogeografia",
 
 Ten en cuenta estos puntos antes de correr:
 
-- `00_config.R` quedó con `PASO_DESDE <- "16"` y `PASO_HASTA <- "16"`. Sin argumentos, `Rscript 99_correr_todo.R` corre solo el paso 16 en cada escenario, y ese paso necesita los intermedios de una corrida anterior. Para la corrida completa pasa `01 12` o cambia los dos valores a `"01"` y `"12"`. En RStudio el tramo sale siempre de esos dos valores.
+- `00_config.R` trae `PASO_DESDE <- "01"` y `PASO_HASTA <- "12"`, de modo que sin argumentos `Rscript 99_correr_todo.R` corre el pipeline completo. En RStudio el tramo sale siempre de esos dos valores.
 - `99_correr_todo.R` corre los pasos en el orden de su vector `PASOS`: 01 a 11, 13 a 18 y al final 12, de modo que el tramo `01 12` cubre los 18 pasos.
 - `02_variantes.R` es el paso caro porque vuelve a leer el VCF completo cada vez que corre. Solo lo evita si en `resultados/<escenario>/` hay un `paso_conteos.rds` de la versión anterior del pipeline. Para repetir un tramo sin releer el VCF, empieza desde el paso 03 o uno posterior.
 - `RAPIDO <- TRUE` en `00_config.R` submuestrea el panel y baja las réplicas, para revisar en minutos si los números tienen sentido. Esos resultados no son finales.
@@ -94,7 +94,7 @@ Cada paso deja en `resultados/<escenario>/` un intermedio `paso_<nombre>.rds`, q
 | `13_estructura.R` | Hace el PCA de frecuencias por grupo y la prueba f3 de mezcla, con error estándar por bloques. Su log es `13_mezcla.log` y su intermedio `paso_mezcla.rds`. | `13_pca.tsv`, `13_f3.tsv` |
 | `14_indicadores.R` | Calcula Ho, Fis, LD, alelos privados, D de Tajima, la partición de varianza tipo AMOVA y Procrustes entre el mapa genético y el geográfico. | `14_indicadores_poblacion.tsv`, `14_indicadores_globales.tsv` |
 | `15_asignacion.R` | Asigna cada cepa al grupo de mayor verosimilitud, restando antes sus propios alelos de las frecuencias de su grupo. | `15_asignacion.tsv`, `15_exactitud_por_grupo.tsv` |
-| `16_marcadores.R` | Busca marcadores diagnósticos por grupo (diferencia de frecuencia y prueba de Fisher con corrección de Benjamini y Hochberg) y los anota en genes si hay anotación. | `16_marcadores.tsv`, `16_resumen_grupos.tsv` y, con anotación, `16_genes.tsv` |
+| `16_marcadores.R` | Busca marcadores diagnósticos por grupo (diferencia de frecuencia y prueba de Fisher con corrección de Benjamini y Hochberg) y los anota en genes si hay anotación. Para cruzar la anotación con el VCF lleva cada nombre de cromosoma a un número, de modo que `chrIV`, `IV` y `CBS12357_Chr04_polished` dan 4. | `16_marcadores.tsv`, `16_resumen_grupos.tsv` y, con anotación, `16_genes.tsv` |
 | `17_potencia.R` | Estima por simulación la potencia, la identificabilidad, la sensibilidad a decisiones del análisis y dónde convendría colectar la próxima campaña. | `17_potencia.tsv`, `17_sensibilidad.tsv`, `17_diseno_optimo.tsv` |
 | `18_origen_cepa.R` | Estima la ancestría por cepa (factorización no negativa con K = 6), el vecino genético más cercano, las cepas atípicas y los alelos privados rarefaccionados. | `18_ancestria.tsv`, `18_vecino_cercano.tsv`, `18_atipicas.tsv`, `18_privados_rarefaccionados.tsv` |
 | `99_correr_todo.R` | Recorre los tres escenarios y, en cada uno, el tramo de pasos pedido. Si un escenario falla, lo anota y sigue con el siguiente. | `resultados/tiempos.tsv` (escenario, paso, segundos) |
@@ -169,7 +169,7 @@ rstudioapi::jobRunScript("99_correr_todo.R", name = "filogeografia",
 
 Keep these points in mind before running it:
 
-- `00_config.R` was left with `PASO_DESDE <- "16"` and `PASO_HASTA <- "16"`. Without arguments, `Rscript 99_correr_todo.R` runs only step 16 in each scenario, and that step needs the intermediate files of an earlier run. For the full run, pass `01 12` or change both values to `"01"` and `"12"`. In RStudio the step range always comes from those two values.
+- `00_config.R` sets `PASO_DESDE <- "01"` and `PASO_HASTA <- "12"`, so without arguments `Rscript 99_correr_todo.R` runs the full pipeline. In RStudio the step range always comes from those two values.
 - `99_correr_todo.R` runs the steps in the order of its `PASOS` vector: 01 to 11, 13 to 18, and 12 last, so the `01 12` range covers all 18 steps.
 - `02_variantes.R` is the expensive step because it reads the whole VCF again every time it runs. It only skips that when `resultados/<scenario>/` holds a `paso_conteos.rds` from the previous version of the pipeline. To repeat a range without reading the VCF, start from step 03 or later.
 - `RAPIDO <- TRUE` in `00_config.R` subsamples the panel and lowers the number of replicates, so you can check in minutes whether the numbers make sense. Those results are not final.
@@ -209,7 +209,7 @@ Each step writes to `resultados/<scenario>/` an intermediate file `paso_<name>.r
 | `13_estructura.R` | Runs the PCA of group frequencies and the f3 admixture test, with block standard errors. Its log is `13_mezcla.log` and its intermediate file is `paso_mezcla.rds`. | `13_pca.tsv`, `13_f3.tsv` |
 | `14_indicadores.R` | Computes Ho, Fis, LD, private alleles, Tajima's D, an AMOVA-style variance partition, and Procrustes between the genetic and the geographic map. | `14_indicadores_poblacion.tsv`, `14_indicadores_globales.tsv` |
 | `15_asignacion.R` | Assigns each strain to the group with the highest likelihood, after removing its own alleles from its group's frequencies. | `15_asignacion.tsv`, `15_exactitud_por_grupo.tsv` |
-| `16_marcadores.R` | Finds diagnostic markers per group (frequency difference and Fisher's test with Benjamini-Hochberg correction) and annotates them on genes when an annotation is available. | `16_marcadores.tsv`, `16_resumen_grupos.tsv` and, with an annotation, `16_genes.tsv` |
+| `16_marcadores.R` | Finds diagnostic markers per group (frequency difference and Fisher's test with Benjamini-Hochberg correction) and annotates them on genes when an annotation is available. To match the annotation with the VCF it turns each chromosome name into a number, so `chrIV`, `IV` and `CBS12357_Chr04_polished` all give 4. | `16_marcadores.tsv`, `16_resumen_grupos.tsv` and, with an annotation, `16_genes.tsv` |
 | `17_potencia.R` | Estimates by simulation the power, identifiability, sensitivity to analysis decisions, and where the next sampling campaign would help most. | `17_potencia.tsv`, `17_sensibilidad.tsv`, `17_diseno_optimo.tsv` |
 | `18_origen_cepa.R` | Estimates ancestry per strain (non-negative factorisation with K = 6), the nearest genetic neighbour, atypical strains, and rarefied private alleles. | `18_ancestria.tsv`, `18_vecino_cercano.tsv`, `18_atipicas.tsv`, `18_privados_rarefaccionados.tsv` |
 | `99_correr_todo.R` | Loops over the three scenarios and runs the requested step range in each one. If a scenario fails, it records the error and moves on to the next one. | `resultados/tiempos.tsv` (scenario, step, seconds) |

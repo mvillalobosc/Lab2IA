@@ -52,7 +52,7 @@ Rscript 99_correr_todo.R 01 12    # todos los pasos, en los tres escenarios
 Rscript 99_correr_todo.R 06 09    # del paso 06 al 09
 ```
 
-Igual que en *S. eubayanus*, `00_config.R` quedó con `PASO_DESDE <- "16"` y `PASO_HASTA <- "16"`, así que sin argumentos el orquestador corre solo el paso 16 en cada escenario. Para la corrida completa pasa `01 12` o cambia esos valores a `"01"` y `"12"`. El resto de las advertencias (relectura del VCF en el paso 02, modo `RAPIDO`, estado de salida de `12_validar.R`) está en el [README de S. eubayanus](../EvolutiveEubayanus_CODE/README.md#cómo-se-corre).
+Igual que en *S. eubayanus*, `00_config.R` trae `PASO_DESDE <- "01"` y `PASO_HASTA <- "12"`, así que sin argumentos el orquestador corre el pipeline completo. El resto de las advertencias (relectura del VCF en el paso 02, modo `RAPIDO`, estado de salida de `12_validar.R`) está en el [README de S. eubayanus](../EvolutiveEubayanus_CODE/README.md#cómo-se-corre).
 
 ### Salidas
 
@@ -108,7 +108,7 @@ Rscript 99_correr_todo.R 01 12    # all steps, in the three scenarios
 Rscript 99_correr_todo.R 06 09    # from step 06 to step 09
 ```
 
-As in *S. eubayanus*, `00_config.R` was left with `PASO_DESDE <- "16"` and `PASO_HASTA <- "16"`, so without arguments the runner executes only step 16 in each scenario. For the full run, pass `01 12` or change those values to `"01"` and `"12"`. The other warnings (VCF re-read in step 02, `RAPIDO` mode, exit status of `12_validar.R`) are in the [S. eubayanus README](../EvolutiveEubayanus_CODE/README.md#how-to-run-it).
+As in *S. eubayanus*, `00_config.R` sets `PASO_DESDE <- "01"` and `PASO_HASTA <- "12"`, so without arguments the runner executes the full pipeline. The other warnings (VCF re-read in step 02, `RAPIDO` mode, exit status of `12_validar.R`) are in the [S. eubayanus README](../EvolutiveEubayanus_CODE/README.md#how-to-run-it).
 
 ### Outputs
 

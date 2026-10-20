@@ -118,27 +118,89 @@ if (is.na(ann)) {
                             fill = TRUE, stringsAsFactors = FALSE), error = function(e) NULL)
   if (is.null(tb)) log("  No se pudo leer la anotacion.") else {
     # se detectan las columnas de cromosoma, inicio, fin y nombre por contenido
+    # Los nombres de cromosoma casi nunca coinciden entre la anotacion y el VCF.
+    # gene_result.txt de NCBI usa numeros romanos, SGD_features.tab usa chrI, y
+    # el VCF de eubayanus usa CBS12357_Chr01_polished. Cruzar por texto no
+    # funciona y deja la tabla de genes vacia sin avisar, que es lo que pasaba.
+    # Se normaliza todo a un numero de cromosoma.
+    ROMANOS <- c(I=1,II=2,III=3,IV=4,V=5,VI=6,VII=7,VIII=8,IX=9,X=10,
+                 XI=11,XII=12,XIII=13,XIV=14,XV=15,XVI=16)
+    num_crom <- function(z) {
+      z <- toupper(trimws(as.character(z)))
+      # Primero el numero que sigue a "CHR", porque el nombre del contig suele
+      # traer otros digitos antes: en CBS12357_CHR01_POLISHED el 12357 es la cepa
+      # y el cromosoma es el 01. Tomar el primer numero da 12357 y no cruza nada.
+      a1 <- suppressWarnings(as.integer(
+        ifelse(grepl("CHR[^0-9]*[0-9]+", z), sub(".*CHR[^0-9]*([0-9]+).*", "\\1", z), NA)))
+      r  <- unname(ROMANOS[sub("^CHR[^IVX]*", "", z)])
+      a2 <- suppressWarnings(as.integer(
+        ifelse(grepl("^[0-9]+$", z), z, NA)))
+      out <- ifelse(!is.na(a1), a1, ifelse(!is.na(r), r, a2))
+      out[!is.na(out) & (out < 1 | out > 32)] <- NA
+      out
+    }
+    crom_vcf <- num_crom(INFO$chrom)
+    log("  Cromosomas del VCF reconocidos: ",
+        length(unique(na.omit(crom_vcf))), " de ", length(unique(INFO$chrom)))
+
     num <- vapply(tb, function(z) mean(!is.na(suppressWarnings(as.numeric(z)))), numeric(1))
-    cn <- which(num > .9)
-    if (length(cn) < 2) log("  Formato de anotacion no reconocido.") else {
-      ini <- suppressWarnings(as.numeric(tb[[cn[1]]])); fin <- suppressWarnings(as.numeric(tb[[cn[2]]]))
-      nom <- tb[[which.max(vapply(tb, function(z) mean(grepl("^[A-Z]{2,4}[0-9]", z)), numeric(1)))]]
-      crom <- tb[[which.max(vapply(tb, function(z) mean(z %in% unique(INFO$chrom)), numeric(1)))]]
-      largo <- abs(fin - ini) + 1
-      ok <- is.finite(ini) & is.finite(fin) & nzchar(nom)
-      log("  Genes con coordenadas: ", sum(ok))
-      if (sum(ok) > 10) {
-        gi <- which(ok)
-        dens <- nrow(marc) / max(sum(largo[gi], na.rm = TRUE), 1)
-        cuenta <- integer(length(gi)); lug <- integer(length(gi))
-        for (z in seq_along(gi)) {
-          i2 <- gi[z]
-          h <- marc$chrom == crom[i2] & marc$pos >= min(ini[i2], fin[i2]) &
-               marc$pos <= max(ini[i2], fin[i2])
-          cuenta[z] <- sum(h); lug[z] <- length(unique(marc$grupo[h]))
-        }
-        esp <- pmax(dens * largo[gi], 1e-9)
-        genes <- data.frame(gen = nom[gi], chrom = crom[gi], largo_pb = largo[gi],
+    # Inicio y fin del gen: se busca el PAR de columnas numericas cuya diferencia
+    # cae en el rango de un gen de levadura. Elegir las dos columnas de mayor
+    # rango agarra GeneID y taxid, que son numeros grandes sin relacion con
+    # coordenadas, y entonces cada gen abarca medio genoma.
+    numc <- which(vapply(tb, function(z)
+      mean(!is.na(suppressWarnings(as.numeric(z)))) > .9, logical(1)))
+    mejor <- NULL; mejor_p <- -1
+    for (i1 in numc) for (j1 in numc) {
+      if (j1 <= i1) next
+      v1 <- suppressWarnings(as.numeric(tb[[i1]])); v2 <- suppressWarnings(as.numeric(tb[[j1]]))
+      d1 <- abs(v2 - v1)
+      p <- mean(d1 >= 100 & d1 <= 5e4, na.rm = TRUE)
+      if (is.finite(p) && p > mejor_p) { mejor_p <- p; mejor <- c(i1, j1) }
+    }
+    if (is.null(mejor) || mejor_p < .5) {
+      log("  No se reconocieron columnas de coordenadas de gen (mejor ajuste ",
+          round(100 * max(mejor_p, 0)), "%). No se anotan genes.")
+      mejor <- c(NA, NA)
+    }
+    ini_g <- if (is.na(mejor[1])) rep(NA_real_, nrow(tb)) else suppressWarnings(as.numeric(tb[[mejor[1]]]))
+    fin_g <- if (is.na(mejor[2])) rep(NA_real_, nrow(tb)) else suppressWarnings(as.numeric(tb[[mejor[2]]]))
+    if (!is.na(mejor[1]))
+      log("  Columnas de coordenadas: ", mejor[1], " y ", mejor[2],
+          " (", round(100 * mejor_p), "% de los genes con largo plausible)")
+    # Nombre del gen: se prefiere el simbolo corto tipo PDR5 o SNC2 sobre el
+    # identificador de locus tipo DI49_0078, que no dice nada al leerlo.
+    nom <- tb[[which.max(vapply(tb, function(z)
+      mean(grepl("^[A-Z]{2,4}[0-9]{1,3}$", toupper(trimws(z)))), numeric(1)))]]
+    # la columna de cromosoma es la que mas valores traduce a 1..16
+    puntaje <- vapply(tb, function(z) mean(num_crom(z) %in% 1:16, na.rm = TRUE), numeric(1))
+    crom_ann <- num_crom(tb[[which.max(puntaje)]])
+    log("  Genes con cromosoma reconocido: ", sum(!is.na(crom_ann)))
+    largo <- abs(fin_g - ini_g) + 1
+    ok <- is.finite(ini_g) & is.finite(fin_g) & nzchar(nom) & !is.na(crom_ann)
+    log("  Genes con coordenadas: ", sum(ok))
+    if (sum(ok) > 10) {
+      gi <- which(ok)
+      # Un mismo SITIO puede ser marcador de varios grupos y aparece una vez por
+      # grupo. Para la densidad en genes hay que contar SITIOS unicos, o el mismo
+      # SNP se cuenta tantas veces como grupos lo declaren y el enriquecimiento
+      # se dispara sin significar nada.
+      sitios_u <- !duplicated(marc[, c("chrom", "pos")])
+      mu2 <- marc[sitios_u, ]
+      marc_crom <- num_crom(mu2$chrom)
+      log("  Sitios marcadores unicos: ", nrow(mu2), " de ", nrow(marc), " filas")
+      dens <- nrow(mu2) / max(sum(largo[gi], na.rm = TRUE), 1)
+      cuenta <- integer(length(gi)); lug <- integer(length(gi))
+      for (z in seq_along(gi)) {
+        i2 <- gi[z]
+        h <- !is.na(marc_crom) & marc_crom == crom_ann[i2] &
+             mu2$pos >= min(ini_g[i2], fin_g[i2]) & mu2$pos <= max(ini_g[i2], fin_g[i2])
+        cuenta[z] <- sum(h)
+        lug[z] <- length(unique(marc$grupo[
+          marc$chrom %in% mu2$chrom[h] & marc$pos %in% mu2$pos[h]]))
+      }
+      esp <- pmax(dens * largo[gi], 1e-9)
+        genes <- data.frame(gen = nom[gi], chrom = crom_ann[gi], largo_pb = largo[gi],
           n_marcadores = cuenta, n_grupos = lug,
           enriquecimiento = round(cuenta / esp, 3),
           p_poisson = signif(ppois(cuenta - 1, esp, lower.tail = FALSE), 3),
@@ -164,7 +226,6 @@ if (is.na(ann)) {
           log(sprintf("  %-14s %6d marcadores  %6.1fx  %s", genes$gen[i],
                       genes$n_marcadores[i], genes$enriquecimiento[i],
                       ifelse(is.na(genes$familia[i]), "", "familia multigenica")))
-      }
     }
   }
 }

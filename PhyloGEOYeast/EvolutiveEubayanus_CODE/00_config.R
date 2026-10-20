@@ -183,8 +183,8 @@ if (RAPIDO) {
 FRAC_RAPIDO <- 0.05
 
 # Tramo de pasos a ejecutar. Tambien aca y no con options(), por lo mismo.
-PASO_DESDE <- "16"
-PASO_HASTA <- "16"
+PASO_DESDE <- "01"
+PASO_HASTA <- "12"
 
 # --- Origen ------------------------------------------------------------------
 GRILLA_PASO   <- 0.5

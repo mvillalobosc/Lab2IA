@@ -64,7 +64,7 @@ Rscript 99_correr_todo.R 01 12    # pipeline completo, en los tres escenarios
 Rscript 99_correr_todo.R 06 09    # solo un tramo de pasos
 ```
 
-`00_config.R` quedó con `PASO_DESDE <- "16"` y `PASO_HASTA <- "16"`. Con esos valores, `Rscript 99_correr_todo.R` sin argumentos corre solo el paso 16 en cada escenario, y ese paso necesita los intermedios de una corrida anterior. Para la corrida completa pasa `01 12` como arriba, o cambia los dos valores a `"01"` y `"12"`.
+`00_config.R` trae `PASO_DESDE <- "01"` y `PASO_HASTA <- "12"`, así que `Rscript 99_correr_todo.R` sin argumentos corre el pipeline completo; los argumentos sirven para repetir solo un tramo.
 
 **Escenarios y salidas.** `99_correr_todo.R` recorre tres escenarios definidos en `00_config.R` y deja cada uno en `resultados/<escenario>/`:
 
@@ -74,7 +74,7 @@ Rscript 99_correr_todo.R 06 09    # solo un tramo de pasos
 | `sitio_linaje` | `Site` + `Population`, sin las cepas `Admix` | Diversidad dentro de linaje con geografía | Localidad × linaje |
 | `linaje` | `Population` | Árbol de linajes, f3 y tiempos de divergencia | Linaje |
 
-**Relación con la app.** `index.html` trae embebidos los resultados de seis corridas (dos especies por tres escenarios) y el texto de los 20 scripts, que muestra en la pestaña de método. El repositorio no incluye un paso que convierta `resultados/` en esos datos embebidos, así que una corrida nueva no actualiza la app por sí sola. Además, el código que muestra la app difiere del de las carpetas en tres scripts: en `00_config.R` la app trae el tramo `01` a `12`; en `15_asignacion.R` cambia la comparación que marca una asignación como correcta; y en `16_marcadores.R` la app trae una versión más larga, que normaliza los nombres de cromosoma entre la anotación y el VCF y busca las columnas de inicio y fin de cada gen.
+**Relación con la app.** `index.html` trae embebidos los resultados de seis corridas (dos especies por tres escenarios) y el texto de los 20 scripts, que muestra en la pestaña de método. El repositorio no incluye un paso que convierta `resultados/` en esos datos embebidos, así que una corrida nueva no actualiza la app por sí sola. Los 20 scripts de `EvolutiveEubayanus_CODE/` son idénticos al código que muestra la app; `EvolutiveSCerevisiae_CODE/` solo cambia los valores de especie de `00_config.R`.
 
 ### Datos y atribución
 
@@ -160,7 +160,7 @@ Rscript 99_correr_todo.R 01 12    # full pipeline, in the three scenarios
 Rscript 99_correr_todo.R 06 09    # only a range of steps
 ```
 
-`00_config.R` was left with `PASO_DESDE <- "16"` and `PASO_HASTA <- "16"`. With those values, `Rscript 99_correr_todo.R` without arguments runs only step 16 in each scenario, and that step needs the intermediate files of an earlier run. For the full run, pass `01 12` as above, or change both values to `"01"` and `"12"`.
+`00_config.R` sets `PASO_DESDE <- "01"` and `PASO_HASTA <- "12"`, so `Rscript 99_correr_todo.R` without arguments runs the full pipeline; the arguments are there to repeat a single range.
 
 **Scenarios and outputs.** `99_correr_todo.R` loops over three scenarios defined in `00_config.R` and writes each one to `resultados/<scenario>/`:
 
@@ -170,7 +170,7 @@ Rscript 99_correr_todo.R 06 09    # only a range of steps
 | `sitio_linaje` | `Site` + `Population`, without the `Admix` strains | Within-lineage diversity with geography | Locality × lineage |
 | `linaje` | `Population` | Lineage tree, f3, and divergence times | Lineage |
 
-**Relation to the app.** `index.html` bundles the results of six runs (two species by three scenarios) and the text of the 20 scripts, which it shows in the method tab. The repository does not include a step that turns `resultados/` into that bundled data, so a new run does not update the app by itself. The code shown in the app also differs from the code in the folders in three scripts: in `00_config.R` the app has the `01` to `12` step range; in `15_asignacion.R` the comparison that marks an assignment as correct changes; and in `16_marcadores.R` the app has a longer version that harmonises chromosome names between the annotation and the VCF and searches for the start and end columns of each gene.
+**Relation to the app.** `index.html` bundles the results of six runs (two species by three scenarios) and the text of the 20 scripts, which it shows in the method tab. The repository does not include a step that turns `resultados/` into that bundled data, so a new run does not update the app by itself. The 20 scripts in `EvolutiveEubayanus_CODE/` are identical to the code shown in the app; `EvolutiveSCerevisiae_CODE/` only changes the species values of `00_config.R`.
 
 ### Data and attribution
 
