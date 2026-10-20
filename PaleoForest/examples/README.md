@@ -24,8 +24,6 @@ Esta carpeta trae tres conjuntos de datos morfológicos para cargar a mano en el
 | `ages.csv` | Rangos fósiles con 26 columnas separadas por `;` (UTF-8 con BOM), las mismas de [`../data/arackar/ages.csv`](../data/README.md). Solo lo traen Arackar y Burkesuchus; para Chilesaurus, las edades se completan en el paso Edades con PaleoDB, Macrostrat o a mano. |
 | `info.json` | Especie, número de árboles, taxones y edades emparejadas, una nota y la lista de archivos. Lo escribió `tools/prep.py` y la aplicación no lo lee. |
 
-El aviso del paso Datos (clave `ds_more_p` de `js/i18n.js`) menciona además los conjuntos de Orretherium y de Punatitan/Bravasaurus. Esos dos figuran en el catálogo de `tools/prep.py`, pero no vienen en esta carpeta.
-
 ## English
 
 This folder holds three morphological datasets to load by hand in the Data step of module 2 of [PaleoForest](../README.md), using their `matrix.tnt`, their `trees.tre` and, when present, their `ages.csv`. The application does not list them in a selector and reads nothing from here on its own.
@@ -47,5 +45,3 @@ This folder holds three morphological datasets to load by hand in the Data step 
 | `trees.nwk` | The same trees in Newick with taxon names, one per line, in case they are needed in another tool. |
 | `ages.csv` | Fossil ranges with 26 columns separated by `;` (UTF-8 with a BOM), the same as [`../data/arackar/ages.csv`](../data/README.md). Only Arackar and Burkesuchus have one; for Chilesaurus, ages are completed in the Ages step with PaleoDB, Macrostrat or by hand. |
 | `info.json` | Species, number of trees, taxa and matched ages, a note and the list of files. `tools/prep.py` wrote it, and the application does not read it. |
-
-The notice in the Data step (key `ds_more_p` in `js/i18n.js`) also mentions the Orretherium and Punatitan/Bravasaurus datasets. Both appear in the `tools/prep.py` catalogue, but they are not included in this folder.

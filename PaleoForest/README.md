@@ -499,7 +499,7 @@ Las únicas consultas externas se realizan cuando el usuario solicita informaci�
 | Paleobiology Database | Buscar ocurrencias y rangos temporales por taxón. |
 | Macrostrat | Buscar la edad de una formación o unidad estratigráfica. |
 
-La transferencia entre módulos usa el almacenamiento local del navegador con la clave `pf_handoff`: el módulo 1 la escribe al pulsar **Enviar al módulo 2** y el módulo 2 la lee y la borra cada vez que se abre, descartando los envíos con más de 10 minutos. El idioma elegido se guarda con la clave `pf_lang`. Los datos no se guardan en una base de datos remota.
+La transferencia entre módulos usa el almacenamiento local del navegador con la clave `pf_handoff`: el módulo 1 la escribe al pulsar **Enviar al módulo 2** y el módulo 2 la lee y la borra cada vez que se abre, descartando los envíos con más de 10 minutos. La portada y el módulo 1 guardan el idioma elegido con la clave `pf_lang`; el módulo 2 parte siempre en castellano. Los datos no se guardan en una base de datos remota.
 
 ### 16. Limitaciones conocidas
 
@@ -1020,7 +1020,7 @@ External requests occur only when the user asks for age information:
 | Paleobiology Database | Search occurrences and temporal ranges by taxon. |
 | Macrostrat | Search the age of a formation or stratigraphic unit. |
 
-The module handoff uses browser-local storage under the `pf_handoff` key: module 1 writes it when the user clicks **Send to module 2**, and module 2 reads and deletes it every time it opens, discarding handoffs older than 10 minutes. The chosen language is stored under the `pf_lang` key. Data are not stored in a remote database.
+The module handoff uses browser-local storage under the `pf_handoff` key: module 1 writes it when the user clicks **Send to module 2**, and module 2 reads and deletes it every time it opens, discarding handoffs older than 10 minutes. The landing page and module 1 store the chosen language under the `pf_lang` key; module 2 always starts in Spanish. Data are not stored in a remote database.
 
 ### 16. Known limitations
 
@@ -1541,7 +1541,7 @@ As consultas externas ocorrem apenas quando o usuário solicita informações de
 | Paleobiology Database | Buscar ocorrências e intervalos temporais por táxon. |
 | Macrostrat | Buscar a idade de uma formação ou unidade estratigráfica. |
 
-A transferência entre módulos usa o armazenamento local do navegador com a chave `pf_handoff`: o módulo 1 a grava ao clicar em **Enviar ao módulo 2** e o módulo 2 a lê e a apaga sempre que é aberto, descartando envios com mais de 10 minutos. O idioma escolhido é salvo com a chave `pf_lang`. Os dados não são armazenados em um banco de dados remoto.
+A transferência entre módulos usa o armazenamento local do navegador com a chave `pf_handoff`: o módulo 1 a grava ao clicar em **Enviar ao módulo 2** e o módulo 2 a lê e a apaga sempre que é aberto, descartando envios com mais de 10 minutos. A página inicial e o módulo 1 salvam o idioma escolhido com a chave `pf_lang`; o módulo 2 sempre começa em espanhol. Os dados não são armazenados em um banco de dados remoto.
 
 ### 16. Limitações conhecidas
 
