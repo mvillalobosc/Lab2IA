@@ -33,6 +33,8 @@ La aplicación está implementada como un sitio web del lado del cliente. No req
 
 Despliegue público actual: [https://mvillalobosc.diinf.usach.cl/StrokeAccessCL/](https://mvillalobosc.diinf.usach.cl/StrokeAccessCL/)
 
+El proyecto hermano [StrokeAccessRM](../StrokeAccessRM/) trabaja a escala de zona censal en la Región Metropolitana de Santiago. Los dos visores traen copias idénticas de Leaflet 1.9.4 y Leaflet.markercluster, pero cada uno tiene sus propios datos y su propio código.
+
 ### 2. Funcionalidades principales
 
 - Visualiza **93 establecimientos** con atención ACV georreferenciados en Chile.
@@ -47,6 +49,8 @@ Despliegue público actual: [https://mvillalobosc.diinf.usach.cl/StrokeAccessCL/
 
 ### 3. Estructura del repositorio
 
+Dentro del repositorio Lab2IA, la aplicación vive en la carpeta `StrokeAccessCL/` y todas sus rutas son relativas a esa carpeta.
+
 ```text
 .
 ├── index.html
@@ -54,10 +58,9 @@ Despliegue público actual: [https://mvillalobosc.diinf.usach.cl/StrokeAccessCL/
 ├── CITATION.cff
 ├── LICENSE
 ├── package.json
-├── .nojekyll
-├── .gitignore
 ├── generar_isocronas.mjs
 ├── assets/
+│   ├── README.md
 │   ├── screenshot-main.png
 │   ├── screenshot-region.png
 │   ├── screenshot-help.png
@@ -65,16 +68,20 @@ Despliegue público actual: [https://mvillalobosc.diinf.usach.cl/StrokeAccessCL/
 │   ├── pipeline-code.png
 │   └── logo.svg
 ├── css/
+│   ├── README.md
 │   └── estilos.css
 ├── js/
+│   ├── README.md
 │   ├── app.js
 │   └── i18n.js
 ├── data/
+│   ├── README.md
 │   ├── establecimientos.js
 │   ├── regiones.js
 │   ├── comunas.js
 │   └── isocronas.js
 └── vendor/
+    ├── README.md
     ├── leaflet.css
     ├── leaflet.js
     ├── MarkerCluster.css
@@ -86,14 +93,21 @@ Despliegue público actual: [https://mvillalobosc.diinf.usach.cl/StrokeAccessCL/
 | `index.html` | Define la estructura de la interfaz: encabezado, panel lateral, mapa, bienvenida y ayuda. |
 | `css/estilos.css` | Contiene el diseño visual, los colores, las tarjetas, el panel lateral, los modales y la respuesta móvil. |
 | `js/app.js` | Contiene la lógica principal: estado, mapa Leaflet, filtros, isócronas, consulta de puntos, simulación y descargas. |
-| `js/i18n.js` | Diccionario multilingüe usado por la interfaz. |
+| `js/i18n.js` | Diccionario multilingüe usado por la interfaz, con 187 claves en cada idioma. |
 | `data/establecimientos.js` | Lista de establecimientos con coordenadas, región, comuna, código e identificador interno. |
 | `data/regiones.js` | Capa GeoJSON de regiones usada para filtros y encuadre del mapa. |
 | `data/comunas.js` | Capa GeoJSON de comunas usada para filtros y consulta territorial. |
 | `data/isocronas.js` | Coberturas precalculadas para 30, 45 y 60 minutos por establecimiento. |
 | `vendor/` | Dependencias locales de Leaflet y MarkerCluster. |
-| `generar_isocronas.mjs` | Script auxiliar para generar o regenerar isócronas. |
-| `assets/` | Imágenes usadas por este README. |
+| `generar_isocronas.mjs` | Script de Node 18 o superior que pide las isócronas a OpenRouteService y escribe `data/isocronas.js` (sección 13.3). |
+| `package.json` | Define `npm run start` y `npm run start:py`, que levantan un servidor estático con Python; no declara dependencias. |
+| `CITATION.cff` | Metadatos de cita del proyecto (sección 16). |
+| `LICENSE` | Condiciones de uso del paquete (sección 18). |
+| `assets/` | Logo, capturas y diagramas que usa este README; la aplicación no carga ninguno. |
+
+Cada carpeta tiene un README propio con el detalle de sus archivos: [assets/](assets/README.md), [css/](css/README.md), [data/](data/README.md), [js/](js/README.md) y [vendor/](vendor/README.md).
+
+El repositorio Lab2IA tiene un `.gitignore` en su raíz que ignora `StrokeAccessCL/isocronas_progreso.json`, el archivo de avance que deja `generar_isocronas.mjs` mientras trabaja.
 
 ### 4. Capturas / Screenshots / Capturas
 
@@ -139,6 +153,8 @@ El paso 3 del panel muestra tarjetas de cobertura. El contenido cambia según el
 - Si hay comuna seleccionada, estima cobertura comunal con las geometrías disponibles.
 - Si hay un establecimiento destacado, muestra información del establecimiento, comuna, región y cobertura asociada.
 
+Los porcentajes regionales y los indicadores de salud regionales son resultados de la memoria de título que están escritos en `js/app.js`: las constantes `COBERTURA_REGIONAL`, `POB_CUBIERTA` y `SALUD_REGIONAL` corresponden a las tablas 5.1, 5.2 y A.6, esta última con datos de CASEN 2022. La cifra nacional se obtiene ponderando esas tablas por población y superficie, y la aplicación no recalcula ninguna de ellas a partir de las isócronas. La cifra comunal sí se calcula en el navegador: la aplicación sortea hasta 420 puntos al azar dentro de la comuna y cuenta cuántos caen en alguna isócrona de 45 minutos de los establecimientos de su región, así que el resultado puede variar levemente entre una consulta y otra.
+
 #### 5.4 Consultar un punto
 
 La aplicación permite consultar un punto de tres formas:
@@ -158,7 +174,7 @@ Esta simulación:
 - No se guarda en `data/establecimientos.js`.
 - No modifica las isócronas reales.
 - Usa línea punteada y colores por tiempo.
-- Requiere clave de OpenRouteService si se ejecuta desde la versión pública de GitHub.
+- Usa la clave de OpenRouteService que el usuario ingresó en la ayuda o, si no hay una, la clave de respaldo del proyecto (sección 10).
 
 ### 6. Arquitectura técnica / Technical architecture / Arquitetura técnica
 
@@ -252,7 +268,9 @@ Activar capas de 30, 45 o 60 minutos
 Consultar punto, geolocalización o simulación
 ```
 
-Si `data/isocronas.js` no existe o está incompleto, la aplicación intenta completar las coberturas usando OpenRouteService. Los resultados pueden guardarse en `localStorage` y descargarse como un nuevo `isocronas.js`.
+Si `data/isocronas.js` no existe o le faltan establecimientos, la aplicación calcula las coberturas que faltan con OpenRouteService, en lotes de tres establecimientos. Cada cobertura calculada queda guardada en `localStorage` con la clave `iso_<id>` y, cuando están todas, se puede descargar como un nuevo `isocronas.js` desde la ventana de ayuda.
+
+La aplicación guarda en `localStorage` estas claves: `acv_key` (clave propia de OpenRouteService), `acv_bienv` (no volver a mostrar la bienvenida), `acv_lang` (idioma elegido) e `iso_<id>` (coberturas calculadas en vivo). Para empezar de cero basta con borrar el almacenamiento del sitio en el navegador.
 
 ### 9. APIs y dependencias externas
 
@@ -260,26 +278,28 @@ Si `data/isocronas.js` no existe o está incompleto, la aplicación intenta comp
 |---|---|---|
 | Leaflet | Renderizado del mapa y capas GeoJSON. | `vendor/leaflet.js`, `js/app.js` |
 | Leaflet MarkerCluster | Agrupación visual de marcadores. | `vendor/leaflet.markercluster.js` |
-| CARTO / OpenStreetMap | Teselas del mapa base. | `js/app.js` |
+| OpenStreetMap | Teselas del mapa base, pedidas a `tile.openstreetmap.org`. | `js/app.js` |
 | OpenRouteService | Cálculo de isócronas para coberturas y simulaciones. | `js/app.js`, `generar_isocronas.mjs` |
 | Nominatim / OpenStreetMap | Búsqueda de direcciones en Chile. | `js/app.js` |
 | Google Maps | Enlaces externos de ruta. | `js/app.js` |
+| Google Fonts | Tipografía Bebas Neue de los títulos; sin conexión, el navegador usa una tipografía de reemplazo. | `index.html` |
+| Sitio del DIINF (`informatica.usach.cl`) | Logo del encabezado; si no carga, la página lo oculta. | `index.html` |
 
 ### 10. Clave de OpenRouteService
 
-La versión preparada para GitHub no publica una clave de OpenRouteService dentro de `js/app.js`. Esto evita subir una credencial a un repositorio público.
+`js/app.js` define una clave de respaldo del proyecto, `ORS_KEY_PROYECTO`. La aplicación la usa cuando el usuario no ingresó una clave propia, y `generar_isocronas.mjs` usa la misma clave cuando no se define la variable de entorno `ORS_KEY`. Si esa clave agota su límite diario o deja de ser válida, OpenRouteService rechaza las peticiones y la aplicación muestra un aviso que pide ingresar una clave propia.
 
-La visualización normal funciona con `data/isocronas.js`. Para recalcular coberturas o usar simulación de establecimientos, ingresa una clave propia en:
+La visualización normal funciona con `data/isocronas.js` y no consulta OpenRouteService. Para recalcular coberturas o usar la simulación de establecimientos conviene ingresar una clave propia (se obtiene gratis en openrouteservice.org) en:
 
 ```text
 Ayuda y metodología → OpenRouteService key
 ```
 
-La clave se guarda solo en el navegador mediante `localStorage`.
+La clave se guarda solo en el navegador mediante `localStorage`, con el nombre `acv_key`.
 
 ### 11. Ejecución local
 
-No se necesita instalar dependencias para ver la app. Basta con servir la carpeta como sitio estático.
+No se necesita instalar dependencias para ver la app. Basta con servir la carpeta como sitio estático. La página también abre con doble clic en `index.html`, porque los datos son archivos `.js` que se cargan con etiquetas `<script>`; para probar el GPS conviene usar `http://localhost`.
 
 Con Python 3:
 
@@ -302,8 +322,8 @@ npm run start
 ### 12. Despliegue manual en GitHub Pages
 
 1. Crea un repositorio vacío en GitHub.
-2. Descomprime este ZIP.
-3. Sube el contenido completo a la raíz del repositorio, no el ZIP.
+2. Copia el contenido de la carpeta `StrokeAccessCL/`, no la carpeta misma.
+3. Sube ese contenido a la raíz del repositorio nuevo.
 4. Verifica que `index.html` y `README.md` queden en la raíz.
 5. En GitHub, entra a:
 
@@ -352,6 +372,8 @@ Reglas prácticas:
 - `cod_comuna` debe coincidir con `data/comunas.js`.
 - Si agregas un establecimiento, también debes generar sus isócronas.
 
+Si cambia la cantidad de establecimientos, también hay que corregir a mano la cifra 93, que aparece escrita en 18 textos de `js/i18n.js` (6 por idioma), en 3 textos de `index.html` y en el encabezado que `descargarIsocronas` escribe en `js/app.js`. Las tablas de resultados de la memoria (`COBERTURA_REGIONAL`, `POB_CUBIERTA` y `SALUD_REGIONAL` en `js/app.js`) no cambian al agregar establecimientos: si los resultados regionales cambian, hay que editarlas.
+
 #### 13.2 Actualizar límites territoriales
 
 Los archivos `data/regiones.js` y `data/comunas.js` deben exponer objetos GeoJSON en variables globales:
@@ -361,7 +383,7 @@ window.REGIONES = {...};
 window.COMUNAS = {...};
 ```
 
-La app usa estos polígonos para encuadrar el mapa, filtrar comunas y determinar en qué comuna cae un punto consultado.
+La app usa estos polígonos para encuadrar el mapa, filtrar comunas y determinar en qué comuna cae un punto consultado. Cada región lleva las propiedades `codregion` y `Region`; cada comuna lleva `cod_comuna`, `codregion`, `Comuna`, `Provincia` y `Region`.
 
 #### 13.3 Regenerar isócronas
 
@@ -383,13 +405,22 @@ window.ISOCRONAS = {
 };
 ```
 
-Para regenerarlas puedes usar la app o el script `generar_isocronas.mjs`. Si usas la app, al terminar la preparación descarga `isocronas.js` desde la ventana de ayuda y súbelo a `data/`.
+Para regenerarlas puedes usar la app o el script `generar_isocronas.mjs`. Si usas la app, al terminar la preparación descarga `isocronas.js` desde la ventana de ayuda y súbelo a `data/`. El archivo que trae hoy el repositorio se descargó así: su encabezado dice «Generado desde la app».
+
+El script necesita Node 18 o superior y se corre desde la carpeta `StrokeAccessCL/`:
+
+```bash
+node generar_isocronas.mjs
+ORS_KEY=tu_clave node generar_isocronas.mjs   # con una clave propia de OpenRouteService
+```
+
+El script lee `data/establecimientos.js`, pide a OpenRouteService (perfil `driving-car`, rangos de 1800, 2700 y 3600 segundos) las coberturas de tres establecimientos por petición y espera entre lotes para no pasar el límite por minuto; si la API responde 429, espera 25 segundos y reintenta. La variable `ORS_URL` permite apuntar a otro servidor de OpenRouteService. Después de cada lote guarda el avance en `isocronas_progreso.json`, de modo que si se corta basta con volver a correrlo para que retome. Al terminar escribe `data/isocronas.js` con la fecha en el encabezado, avisa qué establecimientos quedaron sin los tres tiempos y borra el archivo de avance.
 
 ### 14. Checklist antes de publicar
 
 - [ ] `index.html` abre correctamente.
 - [ ] `README.md` se ve en GitHub con las imágenes de `assets/`.
-- [ ] No hay claves privadas publicadas en `js/app.js`.
+- [ ] La clave de respaldo de OpenRouteService (`ORS_KEY_PROYECTO` en `js/app.js` y el valor por defecto de `ORS_KEY` en `generar_isocronas.mjs`) es la que corresponde publicar.
 - [ ] `data/establecimientos.js` carga 93 establecimientos o el número actualizado esperado.
 - [ ] `data/isocronas.js` contiene coberturas para los establecimientos vigentes.
 - [ ] Los filtros de región y comuna funcionan.
@@ -403,8 +434,9 @@ Para regenerarlas puedes usar la app o el script `generar_isocronas.mjs`. Si usa
 - Las isócronas dependen de la red vial y del servicio OpenRouteService cuando se recalculan.
 - El GPS del navegador requiere `https` o `localhost`.
 - La búsqueda de direcciones depende de Nominatim y de conexión a internet.
-- La cobertura comunal en línea se estima con muestreo de puntos, no reemplaza una estimación censal completa.
+- La cobertura comunal en línea se estima con un muestreo aleatorio de puntos: puede cambiar levemente entre consultas y no reemplaza una estimación censal completa.
 - Si se agregan nuevos establecimientos, deben actualizarse también las coberturas.
+- La columna `codigo` del CSV que descarga la app trae el identificador interno `id` (1 a 93), no el código del establecimiento (`code`).
 - En árboles de datos muy pesados o muchas geometrías activas, el navegador puede tardar más en renderizar.
 
 ### 16. Cita sugerida
@@ -425,7 +457,11 @@ Autores reconocidos en la cita del proyecto:
 | Manuel José Villalobos Cid | Profesor guía / colaboración académica. |
 | Juan Giglio Gutiérrez | Profesor co-guía / colaboración académica. |
 
-Nota de preparación del repositorio: este paquete fue organizado con apoyo de ChatGPT para dejar una estructura publicable en GitHub, concentrando la documentación en un único `README.md`, sin generar documentación separada en múltiples archivos Markdown.
+Nota de preparación del repositorio: este paquete fue organizado con apoyo de ChatGPT para dejar una estructura publicable en GitHub. Además de este README, cada carpeta (`assets/`, `css/`, `data/`, `js/` y `vendor/`) tiene un `README.md` que describe sus archivos.
+
+### 18. Licencia
+
+El archivo `LICENSE` no es una licencia de código abierto estándar. Dice que, mientras el dueño del repositorio no agregue una licencia abierta, todos los derechos quedan en manos de los autores. Permite usar el repositorio para revisión académica, demostraciones docentes y reproducibilidad de la aplicación, siempre con atribución, y pide contactar a los autores antes de reutilizar, redistribuir o crear obras derivadas. Leaflet y Leaflet.markercluster, en `vendor/`, mantienen sus propias licencias ([vendor/README.md](vendor/README.md)).
 
 ---
 
@@ -438,6 +474,8 @@ Nota de preparación del repositorio: este paquete fue organizado con apoyo de C
 The application is implemented as a client-side website. It does not require a dedicated backend to display the data already included in the repository. The browser loads local JavaScript files containing facilities, administrative boundaries and precomputed isochrones, and uses Leaflet to render the map.
 
 Current public deployment: [https://mvillalobosc.diinf.usach.cl/StrokeAccessCL/](https://mvillalobosc.diinf.usach.cl/StrokeAccessCL/)
+
+The sibling project [StrokeAccessRM](../StrokeAccessRM/) works at census-zone level in the Santiago Metropolitan Region. Both viewers bundle identical copies of Leaflet 1.9.4 and Leaflet.markercluster, but each one has its own data and its own code.
 
 ### 2. Main features
 
@@ -453,6 +491,8 @@ Current public deployment: [https://mvillalobosc.diinf.usach.cl/StrokeAccessCL/]
 
 ### 3. Repository structure
 
+Inside the Lab2IA repository, the application lives in the `StrokeAccessCL/` folder and all its paths are relative to that folder.
+
 ```text
 .
 ├── index.html
@@ -460,10 +500,9 @@ Current public deployment: [https://mvillalobosc.diinf.usach.cl/StrokeAccessCL/]
 ├── CITATION.cff
 ├── LICENSE
 ├── package.json
-├── .nojekyll
-├── .gitignore
 ├── generar_isocronas.mjs
 ├── assets/
+│   ├── README.md
 │   ├── screenshot-main.png
 │   ├── screenshot-region.png
 │   ├── screenshot-help.png
@@ -471,16 +510,20 @@ Current public deployment: [https://mvillalobosc.diinf.usach.cl/StrokeAccessCL/]
 │   ├── pipeline-code.png
 │   └── logo.svg
 ├── css/
+│   ├── README.md
 │   └── estilos.css
 ├── js/
+│   ├── README.md
 │   ├── app.js
 │   └── i18n.js
 ├── data/
+│   ├── README.md
 │   ├── establecimientos.js
 │   ├── regiones.js
 │   ├── comunas.js
 │   └── isocronas.js
 └── vendor/
+    ├── README.md
     ├── leaflet.css
     ├── leaflet.js
     ├── MarkerCluster.css
@@ -492,14 +535,21 @@ Current public deployment: [https://mvillalobosc.diinf.usach.cl/StrokeAccessCL/]
 | `index.html` | Defines the interface structure: header, sidebar, map, welcome screen and help panel. |
 | `css/estilos.css` | Contains the visual design, colours, cards, sidebar, modals and responsive behaviour. |
 | `js/app.js` | Contains the main logic: state, Leaflet map, filters, isochrones, point queries, simulation and downloads. |
-| `js/i18n.js` | Multilingual dictionary used by the interface. |
+| `js/i18n.js` | Multilingual dictionary used by the interface, with 187 keys per language. |
 | `data/establecimientos.js` | List of facilities with coordinates, region, commune, code and internal identifier. |
 | `data/regiones.js` | GeoJSON region layer used for filtering and map framing. |
 | `data/comunas.js` | GeoJSON commune layer used for filtering and territorial queries. |
 | `data/isocronas.js` | Precomputed 30, 45 and 60 minute coverage for each facility. |
 | `vendor/` | Local Leaflet and MarkerCluster dependencies. |
-| `generar_isocronas.mjs` | Auxiliary script for generating or regenerating isochrones. |
-| `assets/` | Images used by this README. |
+| `generar_isocronas.mjs` | Node 18 (or newer) script that requests the isochrones from OpenRouteService and writes `data/isocronas.js` (section 13.3). |
+| `package.json` | Defines `npm run start` and `npm run start:py`, which start a static server with Python; it declares no dependencies. |
+| `CITATION.cff` | Citation metadata for the project (section 16). |
+| `LICENSE` | Terms of use of the package (section 18). |
+| `assets/` | Logo, screenshots and diagrams used by this README; the application loads none of them. |
+
+Each folder has its own README with details on its files: [assets/](assets/README.md), [css/](css/README.md), [data/](data/README.md), [js/](js/README.md) and [vendor/](vendor/README.md).
+
+The Lab2IA repository has a `.gitignore` at its root that ignores `StrokeAccessCL/isocronas_progreso.json`, the progress file that `generar_isocronas.mjs` keeps while it runs.
 
 ### 4. Screenshots
 
@@ -545,6 +595,8 @@ Step 3 of the sidebar displays coverage cards. Their content changes according t
 - If a commune is selected, it estimates commune-level coverage using the available geometries.
 - If a facility is highlighted, it displays information about the facility, commune, region and associated coverage.
 
+The regional percentages and the regional health indicators are results of the undergraduate thesis written into `js/app.js`: the constants `COBERTURA_REGIONAL`, `POB_CUBIERTA` and `SALUD_REGIONAL` correspond to tables 5.1, 5.2 and A.6, the last one with CASEN 2022 data. The national figure is obtained by weighting those tables by population and area, and the application does not recompute any of them from the isochrones. The commune figure is computed in the browser: the application draws up to 420 random points inside the commune and counts how many fall within any 45 minute isochrone of the facilities in its region, so the result can vary slightly from one query to the next.
+
 #### 5.4 Query a point
 
 The application allows a point to be queried in three ways:
@@ -564,7 +616,7 @@ This simulation:
 - Is not saved in `data/establecimientos.js`.
 - Does not modify the real isochrones.
 - Uses dashed lines and time-specific colours.
-- Requires an OpenRouteService key when run from the public GitHub version.
+- Uses the OpenRouteService key that the user entered in the help window or, when there is none, the project's fallback key (section 10).
 
 ### 6. Technical architecture
 
@@ -658,7 +710,9 @@ Activate 30, 45 or 60 minute layers
 Query a point, use geolocation or run a simulation
 ```
 
-If `data/isocronas.js` does not exist or is incomplete, the application attempts to complete the coverage data using OpenRouteService. Results can be stored in `localStorage` and downloaded as a new `isocronas.js` file.
+If `data/isocronas.js` does not exist or lacks some facilities, the application computes the missing coverage with OpenRouteService, in batches of three facilities. Each computed coverage is stored in `localStorage` under the key `iso_<id>` and, once all of them are available, it can be downloaded as a new `isocronas.js` file from the help window.
+
+The application stores these keys in `localStorage`: `acv_key` (the user's own OpenRouteService key), `acv_bienv` (do not show the welcome screen again), `acv_lang` (selected language) and `iso_<id>` (coverage computed live). Clearing the site storage in the browser resets all of them.
 
 ### 9. APIs and external dependencies
 
@@ -666,26 +720,28 @@ If `data/isocronas.js` does not exist or is incomplete, the application attempts
 |---|---|---|
 | Leaflet | Rendering the map and GeoJSON layers. | `vendor/leaflet.js`, `js/app.js` |
 | Leaflet MarkerCluster | Visual grouping of markers. | `vendor/leaflet.markercluster.js` |
-| CARTO / OpenStreetMap | Base-map tiles. | `js/app.js` |
+| OpenStreetMap | Base-map tiles, requested from `tile.openstreetmap.org`. | `js/app.js` |
 | OpenRouteService | Isochrone calculation for coverage and simulations. | `js/app.js`, `generar_isocronas.mjs` |
 | Nominatim / OpenStreetMap | Address search in Chile. | `js/app.js` |
 | Google Maps | External route links. | `js/app.js` |
+| Google Fonts | Bebas Neue typeface for headings; without a connection the browser uses a fallback typeface. | `index.html` |
+| DIINF website (`informatica.usach.cl`) | Header logo; if it does not load, the page hides it. | `index.html` |
 
 ### 10. OpenRouteService key
 
-The GitHub-ready version does not publish an OpenRouteService key inside `js/app.js`. This prevents a private credential from being uploaded to a public repository.
+`js/app.js` defines a fallback project key, `ORS_KEY_PROYECTO`. The application uses it when the user has not entered a key of their own, and `generar_isocronas.mjs` uses the same key when the `ORS_KEY` environment variable is not set. If that key reaches its daily limit or stops being valid, OpenRouteService rejects the requests and the application shows a notice asking for a personal key.
 
-Normal visualisation works with `data/isocronas.js`. To recalculate coverage or use facility simulation, enter your own key under:
+Normal visualisation works with `data/isocronas.js` and does not query OpenRouteService. To recalculate coverage or use facility simulation, it is better to enter your own key (free at openrouteservice.org) under:
 
 ```text
 Help and methodology → OpenRouteService key
 ```
 
-The key is stored only in the browser through `localStorage`.
+The key is stored only in the browser through `localStorage`, under the name `acv_key`.
 
 ### 11. Local execution
 
-No dependencies need to be installed to view the application. The directory only needs to be served as a static website.
+No dependencies need to be installed to view the application. The directory only needs to be served as a static website. The page also opens by double-clicking `index.html`, because the data are `.js` files loaded through `<script>` tags; to test GPS, use `http://localhost`.
 
 With Python 3:
 
@@ -708,8 +764,8 @@ npm run start
 ### 12. Manual deployment to GitHub Pages
 
 1. Create an empty repository on GitHub.
-2. Extract this ZIP file.
-3. Upload the complete contents to the repository root, not the ZIP file itself.
+2. Copy the contents of the `StrokeAccessCL/` folder, not the folder itself.
+3. Upload those contents to the root of the new repository.
 4. Check that `index.html` and `README.md` are in the root directory.
 5. In GitHub, open:
 
@@ -758,6 +814,8 @@ Practical rules:
 - `cod_comuna` must match `data/comunas.js`.
 - When a facility is added, its isochrones must also be generated.
 
+If the number of facilities changes, the figure 93 must also be edited by hand: it is written in 18 strings of `js/i18n.js` (6 per language), in 3 strings of `index.html` and in the header that `descargarIsocronas` writes in `js/app.js`. The thesis result tables (`COBERTURA_REGIONAL`, `POB_CUBIERTA` and `SALUD_REGIONAL` in `js/app.js`) do not change when facilities are added: if the regional results change, those tables must be edited.
+
 #### 13.2 Update territorial boundaries
 
 The `data/regiones.js` and `data/comunas.js` files must expose GeoJSON objects as global variables:
@@ -767,7 +825,7 @@ window.REGIONES = {...};
 window.COMUNAS = {...};
 ```
 
-The application uses these polygons to frame the map, filter communes and determine which commune contains a queried point.
+The application uses these polygons to frame the map, filter communes and determine which commune contains a queried point. Each region carries the properties `codregion` and `Region`; each commune carries `cod_comuna`, `codregion`, `Comuna`, `Provincia` and `Region`.
 
 #### 13.3 Regenerate isochrones
 
@@ -789,13 +847,22 @@ window.ISOCRONAS = {
 };
 ```
 
-Isochrones can be regenerated using the application or the `generar_isocronas.mjs` script. When using the application, download `isocronas.js` from the help window after preparation is complete and upload it to `data/`.
+Isochrones can be regenerated using the application or the `generar_isocronas.mjs` script. When using the application, download `isocronas.js` from the help window after preparation is complete and upload it to `data/`. The file currently in the repository was produced that way: its header says "Generado desde la app".
+
+The script needs Node 18 or newer and runs from the `StrokeAccessCL/` folder:
+
+```bash
+node generar_isocronas.mjs
+ORS_KEY=your_key node generar_isocronas.mjs   # with your own OpenRouteService key
+```
+
+The script reads `data/establecimientos.js`, asks OpenRouteService (`driving-car` profile, ranges of 1800, 2700 and 3600 seconds) for the coverage of three facilities per request and waits between batches to stay under the per-minute limit; if the API answers 429, it waits 25 seconds and retries. The `ORS_URL` variable points the script to another OpenRouteService server. After each batch it saves its progress in `isocronas_progreso.json`, so if it stops, running it again resumes the work. At the end it writes `data/isocronas.js` with the date in its header, warns about facilities left without all three times and deletes the progress file.
 
 ### 14. Checklist before publication
 
 - [ ] `index.html` opens correctly.
 - [ ] `README.md` is displayed on GitHub with the images from `assets/`.
-- [ ] No private keys are published in `js/app.js`.
+- [ ] The fallback OpenRouteService key (`ORS_KEY_PROYECTO` in `js/app.js` and the default `ORS_KEY` in `generar_isocronas.mjs`) is the one meant to be published.
 - [ ] `data/establecimientos.js` loads 93 facilities or the expected updated number.
 - [ ] `data/isocronas.js` contains coverage for all current facilities.
 - [ ] Region and commune filters work correctly.
@@ -809,8 +876,9 @@ Isochrones can be regenerated using the application or the `generar_isocronas.mj
 - Isochrones depend on the road network and on OpenRouteService when recalculated.
 - Browser GPS requires `https` or `localhost`.
 - Address search depends on Nominatim and an internet connection.
-- Online commune-level coverage is estimated by point sampling and does not replace a complete census-based estimate.
+- Online commune-level coverage is estimated by random point sampling: it can change slightly between queries and does not replace a complete census-based estimate.
 - When new facilities are added, their coverage data must also be updated.
+- The `codigo` column of the CSV downloaded from the application holds the internal identifier `id` (1 to 93), not the facility code (`code`).
 - With very large data trees or many active geometries, the browser may take longer to render the map.
 
 ### 16. Suggested citation
@@ -831,7 +899,11 @@ Authors acknowledged in the project citation:
 | Manuel José Villalobos Cid | Supervisor / academic collaboration. |
 | Juan Giglio Gutiérrez | Co-supervisor / academic collaboration. |
 
-Repository preparation note: this package was organised with support from ChatGPT to provide a GitHub-ready structure, concentrating all documentation in a single `README.md` instead of creating multiple separate Markdown files.
+Repository preparation note: this package was organised with support from ChatGPT to provide a GitHub-ready structure. Besides this README, each folder (`assets/`, `css/`, `data/`, `js/` and `vendor/`) has a `README.md` that describes its files.
+
+### 18. Licence
+
+The `LICENSE` file is not a standard open-source licence. It states that, until the repository owner adds an open licence, all rights remain with the authors. It allows the repository to be used for academic review, teaching demonstrations and reproducibility of the application, always with attribution, and asks users to contact the authors before reusing, redistributing or creating derivative works. Leaflet and Leaflet.markercluster, in `vendor/`, keep their own licences ([vendor/README.md](vendor/README.md)).
 
 ---
 
@@ -844,6 +916,8 @@ Repository preparation note: this package was organised with support from ChatGP
 A aplicação foi implementada como um site do lado do cliente. Ela não requer um backend próprio para visualizar os dados já incluídos no repositório. O navegador carrega arquivos JavaScript locais com estabelecimentos, limites administrativos e isócronas pré-calculadas, e utiliza o Leaflet para desenhar o mapa.
 
 Implantação pública atual: [https://mvillalobosc.diinf.usach.cl/StrokeAccessCL/](https://mvillalobosc.diinf.usach.cl/StrokeAccessCL/)
+
+O projeto irmão [StrokeAccessRM](../StrokeAccessRM/) trabalha no nível de zona censitária na Região Metropolitana de Santiago. Os dois visualizadores trazem cópias idênticas do Leaflet 1.9.4 e do Leaflet.markercluster, mas cada um tem seus próprios dados e seu próprio código.
 
 ### 2. Funcionalidades principais
 
@@ -859,6 +933,8 @@ Implantação pública atual: [https://mvillalobosc.diinf.usach.cl/StrokeAccessC
 
 ### 3. Estrutura do repositório
 
+Dentro do repositório Lab2IA, a aplicação fica na pasta `StrokeAccessCL/` e todos os seus caminhos são relativos a essa pasta.
+
 ```text
 .
 ├── index.html
@@ -866,10 +942,9 @@ Implantação pública atual: [https://mvillalobosc.diinf.usach.cl/StrokeAccessC
 ├── CITATION.cff
 ├── LICENSE
 ├── package.json
-├── .nojekyll
-├── .gitignore
 ├── generar_isocronas.mjs
 ├── assets/
+│   ├── README.md
 │   ├── screenshot-main.png
 │   ├── screenshot-region.png
 │   ├── screenshot-help.png
@@ -877,16 +952,20 @@ Implantação pública atual: [https://mvillalobosc.diinf.usach.cl/StrokeAccessC
 │   ├── pipeline-code.png
 │   └── logo.svg
 ├── css/
+│   ├── README.md
 │   └── estilos.css
 ├── js/
+│   ├── README.md
 │   ├── app.js
 │   └── i18n.js
 ├── data/
+│   ├── README.md
 │   ├── establecimientos.js
 │   ├── regiones.js
 │   ├── comunas.js
 │   └── isocronas.js
 └── vendor/
+    ├── README.md
     ├── leaflet.css
     ├── leaflet.js
     ├── MarkerCluster.css
@@ -898,14 +977,21 @@ Implantação pública atual: [https://mvillalobosc.diinf.usach.cl/StrokeAccessC
 | `index.html` | Define a estrutura da interface: cabeçalho, painel lateral, mapa, boas-vindas e ajuda. |
 | `css/estilos.css` | Contém o design visual, as cores, os cartões, o painel lateral, os modais e o comportamento responsivo. |
 | `js/app.js` | Contém a lógica principal: estado, mapa Leaflet, filtros, isócronas, consulta de pontos, simulação e downloads. |
-| `js/i18n.js` | Dicionário multilíngue utilizado pela interface. |
+| `js/i18n.js` | Dicionário multilíngue utilizado pela interface, com 187 chaves em cada idioma. |
 | `data/establecimientos.js` | Lista de estabelecimentos com coordenadas, região, comuna, código e identificador interno. |
 | `data/regiones.js` | Camada GeoJSON de regiões utilizada para filtros e enquadramento do mapa. |
 | `data/comunas.js` | Camada GeoJSON de comunas utilizada para filtros e consultas territoriais. |
 | `data/isocronas.js` | Coberturas pré-calculadas de 30, 45 e 60 minutos para cada estabelecimento. |
 | `vendor/` | Dependências locais do Leaflet e do MarkerCluster. |
-| `generar_isocronas.mjs` | Script auxiliar para gerar ou regenerar isócronas. |
-| `assets/` | Imagens utilizadas neste README. |
+| `generar_isocronas.mjs` | Script para Node 18 ou superior que pede as isócronas ao OpenRouteService e grava `data/isocronas.js` (seção 13.3). |
+| `package.json` | Define `npm run start` e `npm run start:py`, que iniciam um servidor estático com Python; não declara dependências. |
+| `CITATION.cff` | Metadados de citação do projeto (seção 16). |
+| `LICENSE` | Condições de uso do pacote (seção 18). |
+| `assets/` | Logo, capturas e diagramas usados neste README; a aplicação não carrega nenhum deles. |
+
+Cada pasta tem um README próprio com o detalhe de seus arquivos: [assets/](assets/README.md), [css/](css/README.md), [data/](data/README.md), [js/](js/README.md) e [vendor/](vendor/README.md).
+
+O repositório Lab2IA tem um `.gitignore` na raiz que ignora `StrokeAccessCL/isocronas_progreso.json`, o arquivo de progresso que `generar_isocronas.mjs` mantém enquanto trabalha.
 
 ### 4. Capturas de tela
 
@@ -951,6 +1037,8 @@ A etapa 3 do painel mostra cartões de cobertura. O conteúdo muda conforme o co
 - Se uma comuna estiver selecionada, estima a cobertura comunal com as geometrias disponíveis.
 - Se um estabelecimento estiver destacado, mostra informações sobre o estabelecimento, a comuna, a região e a cobertura associada.
 
+As porcentagens regionais e os indicadores de saúde regionais são resultados da dissertação de graduação escritos em `js/app.js`: as constantes `COBERTURA_REGIONAL`, `POB_CUBIERTA` e `SALUD_REGIONAL` correspondem às tabelas 5.1, 5.2 e A.6, esta última com dados da CASEN 2022. O valor nacional é obtido ponderando essas tabelas por população e superfície, e a aplicação não recalcula nenhuma delas a partir das isócronas. O valor comunal é calculado no navegador: a aplicação sorteia até 420 pontos ao acaso dentro da comuna e conta quantos caem em alguma isócrona de 45 minutos dos estabelecimentos de sua região, por isso o resultado pode variar um pouco de uma consulta para outra.
+
 #### 5.4 Consultar um ponto
 
 A aplicação permite consultar um ponto de três formas:
@@ -970,7 +1058,7 @@ Essa simulação:
 - Não é salva em `data/establecimientos.js`.
 - Não modifica as isócronas reais.
 - Utiliza linha tracejada e cores específicas para cada tempo.
-- Requer uma chave do OpenRouteService quando executada a partir da versão pública no GitHub.
+- Usa a chave do OpenRouteService que o usuário informou na ajuda ou, se não houver uma, a chave de reserva do projeto (seção 10).
 
 ### 6. Arquitetura técnica
 
@@ -1064,7 +1152,9 @@ Ativar camadas de 30, 45 ou 60 minutos
 Consultar um ponto, usar geolocalização ou executar uma simulação
 ```
 
-Se `data/isocronas.js` não existir ou estiver incompleto, a aplicação tenta completar as coberturas utilizando o OpenRouteService. Os resultados podem ser armazenados em `localStorage` e baixados como um novo arquivo `isocronas.js`.
+Se `data/isocronas.js` não existir ou não tiver todos os estabelecimentos, a aplicação calcula as coberturas que faltam com o OpenRouteService, em lotes de três estabelecimentos. Cada cobertura calculada fica guardada em `localStorage` com a chave `iso_<id>` e, quando todas estiverem prontas, pode ser baixada como um novo arquivo `isocronas.js` na janela de ajuda.
+
+A aplicação guarda estas chaves em `localStorage`: `acv_key` (chave própria do OpenRouteService), `acv_bienv` (não mostrar de novo as boas-vindas), `acv_lang` (idioma escolhido) e `iso_<id>` (coberturas calculadas ao vivo). Para começar do zero, basta apagar o armazenamento do site no navegador.
 
 ### 9. APIs e dependências externas
 
@@ -1072,26 +1162,28 @@ Se `data/isocronas.js` não existir ou estiver incompleto, a aplicação tenta c
 |---|---|---|
 | Leaflet | Renderização do mapa e das camadas GeoJSON. | `vendor/leaflet.js`, `js/app.js` |
 | Leaflet MarkerCluster | Agrupamento visual dos marcadores. | `vendor/leaflet.markercluster.js` |
-| CARTO / OpenStreetMap | Blocos do mapa-base. | `js/app.js` |
+| OpenStreetMap | Blocos do mapa-base, pedidos a `tile.openstreetmap.org`. | `js/app.js` |
 | OpenRouteService | Cálculo de isócronas para coberturas e simulações. | `js/app.js`, `generar_isocronas.mjs` |
 | Nominatim / OpenStreetMap | Busca de endereços no Chile. | `js/app.js` |
 | Google Maps | Links externos de rota. | `js/app.js` |
+| Google Fonts | Fonte Bebas Neue dos títulos; sem conexão, o navegador usa uma fonte substituta. | `index.html` |
+| Site do DIINF (`informatica.usach.cl`) | Logo do cabeçalho; se não carregar, a página o oculta. | `index.html` |
 
 ### 10. Chave do OpenRouteService
 
-A versão preparada para o GitHub não publica uma chave do OpenRouteService dentro de `js/app.js`. Isso evita o envio de uma credencial privada para um repositório público.
+`js/app.js` define uma chave de reserva do projeto, `ORS_KEY_PROYECTO`. A aplicação a usa quando o usuário não informou uma chave própria, e `generar_isocronas.mjs` usa a mesma chave quando a variável de ambiente `ORS_KEY` não está definida. Se essa chave esgotar o limite diário ou deixar de ser válida, o OpenRouteService recusa as requisições e a aplicação mostra um aviso pedindo uma chave própria.
 
-A visualização normal funciona com `data/isocronas.js`. Para recalcular coberturas ou utilizar a simulação de estabelecimentos, informe sua própria chave em:
+A visualização normal funciona com `data/isocronas.js` e não consulta o OpenRouteService. Para recalcular coberturas ou utilizar a simulação de estabelecimentos, é melhor informar sua própria chave (gratuita em openrouteservice.org) em:
 
 ```text
 Ajuda e metodologia → OpenRouteService key
 ```
 
-A chave é armazenada somente no navegador por meio de `localStorage`.
+A chave é armazenada somente no navegador por meio de `localStorage`, com o nome `acv_key`.
 
 ### 11. Execução local
 
-Não é necessário instalar dependências para visualizar a aplicação. Basta servir a pasta como um site estático.
+Não é necessário instalar dependências para visualizar a aplicação. Basta servir a pasta como um site estático. A página também abre com duplo clique em `index.html`, porque os dados são arquivos `.js` carregados com tags `<script>`; para testar o GPS, use `http://localhost`.
 
 Com Python 3:
 
@@ -1114,8 +1206,8 @@ npm run start
 ### 12. Implantação manual no GitHub Pages
 
 1. Crie um repositório vazio no GitHub.
-2. Descompacte este arquivo ZIP.
-3. Envie todo o conteúdo para a raiz do repositório, e não o arquivo ZIP.
+2. Copie o conteúdo da pasta `StrokeAccessCL/`, e não a pasta em si.
+3. Envie esse conteúdo para a raiz do repositório novo.
 4. Verifique se `index.html` e `README.md` estão na raiz.
 5. No GitHub, acesse:
 
@@ -1164,6 +1256,8 @@ Regras práticas:
 - `cod_comuna` deve coincidir com `data/comunas.js`.
 - Ao adicionar um estabelecimento, também é necessário gerar suas isócronas.
 
+Se a quantidade de estabelecimentos mudar, também é preciso corrigir à mão o número 93, que aparece escrito em 18 textos de `js/i18n.js` (6 por idioma), em 3 textos de `index.html` e no cabeçalho que `descargarIsocronas` grava em `js/app.js`. As tabelas de resultados da dissertação (`COBERTURA_REGIONAL`, `POB_CUBIERTA` e `SALUD_REGIONAL` em `js/app.js`) não mudam ao adicionar estabelecimentos: se os resultados regionais mudarem, é preciso editá-las.
+
 #### 13.2 Atualizar limites territoriais
 
 Os arquivos `data/regiones.js` e `data/comunas.js` devem expor objetos GeoJSON em variáveis globais:
@@ -1173,7 +1267,7 @@ window.REGIONES = {...};
 window.COMUNAS = {...};
 ```
 
-A aplicação utiliza esses polígonos para enquadrar o mapa, filtrar comunas e determinar em qual comuna está localizado um ponto consultado.
+A aplicação utiliza esses polígonos para enquadrar o mapa, filtrar comunas e determinar em qual comuna está localizado um ponto consultado. Cada região traz as propriedades `codregion` e `Region`; cada comuna traz `cod_comuna`, `codregion`, `Comuna`, `Provincia` e `Region`.
 
 #### 13.3 Regenerar isócronas
 
@@ -1195,13 +1289,22 @@ window.ISOCRONAS = {
 };
 ```
 
-Para regenerá-las, é possível utilizar a aplicação ou o script `generar_isocronas.mjs`. Ao utilizar a aplicação, depois que a preparação for concluída, baixe `isocronas.js` na janela de ajuda e envie o arquivo para `data/`.
+Para regenerá-las, é possível utilizar a aplicação ou o script `generar_isocronas.mjs`. Ao utilizar a aplicação, depois que a preparação for concluída, baixe `isocronas.js` na janela de ajuda e envie o arquivo para `data/`. O arquivo que o repositório traz hoje foi obtido assim: seu cabeçalho diz «Generado desde la app».
+
+O script precisa do Node 18 ou superior e é executado a partir da pasta `StrokeAccessCL/`:
+
+```bash
+node generar_isocronas.mjs
+ORS_KEY=sua_chave node generar_isocronas.mjs   # com uma chave própria do OpenRouteService
+```
+
+O script lê `data/establecimientos.js`, pede ao OpenRouteService (perfil `driving-car`, faixas de 1800, 2700 e 3600 segundos) as coberturas de três estabelecimentos por requisição e espera entre os lotes para não passar do limite por minuto; se a API responder 429, espera 25 segundos e tenta de novo. A variável `ORS_URL` permite apontar para outro servidor do OpenRouteService. Depois de cada lote, o script guarda o progresso em `isocronas_progreso.json`, de modo que, se for interrompido, basta executá-lo de novo para que continue. No final, grava `data/isocronas.js` com a data no cabeçalho, avisa quais estabelecimentos ficaram sem os três tempos e apaga o arquivo de progresso.
 
 ### 14. Checklist antes da publicação
 
 - [ ] `index.html` abre corretamente.
 - [ ] `README.md` é exibido no GitHub com as imagens de `assets/`.
-- [ ] Não há chaves privadas publicadas em `js/app.js`.
+- [ ] A chave de reserva do OpenRouteService (`ORS_KEY_PROYECTO` em `js/app.js` e o valor padrão de `ORS_KEY` em `generar_isocronas.mjs`) é a que deve ser publicada.
 - [ ] `data/establecimientos.js` carrega 93 estabelecimentos ou o número atualizado esperado.
 - [ ] `data/isocronas.js` contém coberturas para todos os estabelecimentos vigentes.
 - [ ] Os filtros de região e comuna funcionam corretamente.
@@ -1215,8 +1318,9 @@ Para regenerá-las, é possível utilizar a aplicação ou o script `generar_iso
 - As isócronas dependem da rede viária e do serviço OpenRouteService quando são recalculadas.
 - O GPS do navegador requer `https` ou `localhost`.
 - A busca de endereços depende do Nominatim e de conexão à internet.
-- A cobertura comunal on-line é estimada por amostragem de pontos e não substitui uma estimativa censitária completa.
+- A cobertura comunal on-line é estimada por amostragem aleatória de pontos: pode mudar um pouco entre consultas e não substitui uma estimativa censitária completa.
 - Ao adicionar novos estabelecimentos, também é necessário atualizar suas coberturas.
+- A coluna `codigo` do CSV que a aplicação baixa traz o identificador interno `id` (1 a 93), e não o código do estabelecimento (`code`).
 - Com árvores de dados muito grandes ou muitas geometrias ativas, o navegador pode levar mais tempo para renderizar o mapa.
 
 ### 16. Citação sugerida
@@ -1237,4 +1341,8 @@ Autores reconhecidos na citação do projeto:
 | Manuel José Villalobos Cid | Professor orientador / colaboração acadêmica. |
 | Juan Giglio Gutiérrez | Professor coorientador / colaboração acadêmica. |
 
-Nota de preparação do repositório: este pacote foi organizado com apoio do ChatGPT para oferecer uma estrutura pronta para publicação no GitHub, concentrando toda a documentação em um único `README.md`, sem gerar documentos separados em vários arquivos Markdown.
+Nota de preparação do repositório: este pacote foi organizado com apoio do ChatGPT para oferecer uma estrutura pronta para publicação no GitHub. Além deste README, cada pasta (`assets/`, `css/`, `data/`, `js/` e `vendor/`) tem um `README.md` que descreve seus arquivos.
+
+### 18. Licença
+
+O arquivo `LICENSE` não é uma licença de código aberto padrão. Ele diz que, enquanto o dono do repositório não adicionar uma licença aberta, todos os direitos ficam com os autores. Permite usar o repositório para revisão acadêmica, demonstrações de ensino e reprodutibilidade da aplicação, sempre com atribuição, e pede contato com os autores antes de reutilizar, redistribuir ou criar obras derivadas. O Leaflet e o Leaflet.markercluster, em `vendor/`, mantêm suas próprias licenças ([vendor/README.md](vendor/README.md)).
