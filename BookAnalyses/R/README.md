@@ -33,8 +33,8 @@ Esta carpeta guarda el código del pipeline. `run_all.R` carga `config.R`, `R/ut
 | Archivo | Para qué sirve |
 |---|---|
 | `paso0_traer_textos.R` | Busca el zip bajado de Drive (`drive-download*.zip` o `Libros*.zip`) en Descargas, Downloads, el home y el proyecto, y lo descomprime aplanado en `config$carpeta_textos`. En modo interactivo abre el selector de archivos si no lo encuentra. |
-| `paso1_listar_drive.R` | Lista la carpeta de Drive de `config$drive_url` sin bajar nada, para confirmar el acceso. |
-| `descarga_drive.R` | Baja de Drive los txt, pdf, epub y docx, exporta a txt los Google Docs, no repite archivos ya presentes y deja el detalle en `output/tablas/descarga_drive.csv`. Prueba sin autenticación y, si Google la exige, usa `drive_auth()`. |
+| `paso1_listar_drive.R` | Lista la carpeta de Drive de `config$drive_url` sin bajar nada, para confirmar el acceso. El enlace sale de la variable de entorno `BOOKANALYSES_DRIVE_URL`; sin ella, el script se detiene. |
+| `descarga_drive.R` | Baja de Drive los txt, pdf, epub y docx, exporta a txt los Google Docs, no repite archivos ya presentes y deja el detalle en `output/tablas/descarga_drive.csv`. Prueba sin autenticación y, si Google la exige, usa `drive_auth()`. Igual que el anterior, necesita `BOOKANALYSES_DRIVE_URL`. |
 | `prevuelo.R` | Revisa en un minuto el catálogo y el emparejamiento por número, sin leer ni anotar textos, y da un veredicto antes de la corrida larga. |
 | `diagnostico.R` | Imprime un diagnóstico para pegar cuando el emparejamiento no funciona: los archivos de la carpeta de textos, si están pdftools y tesseract, una muestra de la extracción de texto, el estado de `mapeo_confirmado.csv` y las advertencias por motivo. |
 | `emparejar_contenido.R` | Identifica qué obra es cada archivo por sus metadatos y sus primeras páginas, con OCR opcional de la portada. Escribe `mapeo_confirmado.csv` junto al catálogo y `output/tablas/mapeo_revision.csv` y `output/tablas/archivos_sin_obra.csv` para revisar a mano. |
@@ -72,8 +72,8 @@ This folder holds the pipeline code. `run_all.R` loads `config.R`, `R/utils.R` a
 | File | Purpose |
 |---|---|
 | `paso0_traer_textos.R` | Looks for the zip downloaded from Drive (`drive-download*.zip` or `Libros*.zip`) in the Downloads folders, the home folder and the project, and unpacks it flat into `config$carpeta_textos`. In interactive mode it opens the file picker if it cannot find one. |
-| `paso1_listar_drive.R` | Lists the Drive folder in `config$drive_url` without downloading anything, to confirm access. |
-| `descarga_drive.R` | Downloads the txt, pdf, epub and docx files from Drive, exports Google Docs to txt, skips files already present and records the details in `output/tablas/descarga_drive.csv`. It tries without authentication first and uses `drive_auth()` if Google requires it. |
+| `paso1_listar_drive.R` | Lists the Drive folder in `config$drive_url` without downloading anything, to confirm access. The link comes from the `BOOKANALYSES_DRIVE_URL` environment variable; without it, the script stops. |
+| `descarga_drive.R` | Downloads the txt, pdf, epub and docx files from Drive, exports Google Docs to txt, skips files already present and records the details in `output/tablas/descarga_drive.csv`. It tries without authentication first and uses `drive_auth()` if Google requires it. Like the previous one, it needs `BOOKANALYSES_DRIVE_URL`. |
 | `prevuelo.R` | Checks the catalogue and the number-based matching in one minute, without reading or annotating texts, and gives a verdict before the long run. |
 | `diagnostico.R` | Prints a report to paste when matching does not work: the files in the texts folder, whether pdftools and tesseract are available, a sample of the text extraction, the state of `mapeo_confirmado.csv` and the warnings grouped by reason. |
 | `emparejar_contenido.R` | Works out which catalogue entry each file is from its metadata and first pages, with optional OCR of the cover. It writes `mapeo_confirmado.csv` next to the catalogue, plus `output/tablas/mapeo_revision.csv` and `output/tablas/archivos_sin_obra.csv` for manual review. |

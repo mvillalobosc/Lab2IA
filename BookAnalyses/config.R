@@ -14,9 +14,12 @@ config <- list(
   # Para el smoke test sintetico: ruta_xlsx = "demo/catalogo_demo.xlsx",
   # carpeta_textos = "demo/textos", col_titulo = "Titulo",
   # col_archivo = "Archivo", col_nivel = "Curso", filtros vacios list().
-  # Carpeta de Drive con los textos. Bajarlos una vez con:
+  # Carpeta de Drive con los textos. El enlace no se versiona: se lee de la
+  # variable de entorno BOOKANALYSES_DRIVE_URL, que se define una vez con una
+  # linea en ~/.Renviron que diga BOOKANALYSES_DRIVE_URL= seguido del enlace
+  # (R lee ese archivo al partir). Despues bajar los textos una vez con:
   #   Rscript R/descarga_drive.R
-  drive_url = "https://drive.google.com/drive/folders/ID_DE_CARPETA_RETIRADO?usp=sharing",
+  drive_url = Sys.getenv("BOOKANALYSES_DRIVE_URL"),
 
   ruta_xlsx      = "demo/catalogo_demo.xlsx",
   hoja_xlsx      = NA,

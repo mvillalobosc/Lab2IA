@@ -5,6 +5,11 @@
 # =============================================================================
 source("config.R")
 source("R/utils.R")
+if (!nzchar(config$drive_url))
+  stop("Falta el enlace de la carpeta de Drive. Definir la variable de entorno ",
+       "BOOKANALYSES_DRIVE_URL con el enlace (por ejemplo, con una linea en ",
+       "~/.Renviron) y abrir una sesion nueva de R. Ver drive_url en config.R.",
+       call. = FALSE)
 if (!requireNamespace("googledrive", quietly = TRUE))
   install.packages("googledrive", repos = "https://cloud.r-project.org")
 library(googledrive)

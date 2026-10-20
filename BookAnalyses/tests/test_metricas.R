@@ -116,8 +116,8 @@ stopifnot(is.na(parse_niveles_multi("sin dato")[[1]]))
 
 # --- extraer_id_drive --------------------------------------------------------
 stopifnot(identical(
-  extraer_id_drive("https://drive.google.com/drive/folders/ID_DE_CARPETA_RETIRADO?usp=sharing"),
-  "ID_DE_CARPETA_RETIRADO"))
+  extraer_id_drive("https://drive.google.com/drive/folders/1AbCdEfGhIjKlMnOpQrStUvWx-?usp=sharing"),
+  "1AbCdEfGhIjKlMnOpQrStUvWx-"))
 stopifnot(identical(extraer_id_drive("https://drive.google.com/file/d/ABC123def456_-x/view"),
                     "ABC123def456_-x"))
 stopifnot(is.na(extraer_id_drive("sin url")))
