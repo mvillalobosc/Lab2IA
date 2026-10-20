@@ -126,7 +126,7 @@ Se recomienda una versión reciente de Chrome, Edge o Safari con acceso a cámar
 
 ### Cita y licencia
 
-La información para citar el software está disponible en `CITATION.cff`. El código se distribuye bajo licencia MIT. Los contenidos paleontológicos deben revisarse periódicamente, ya que las interpretaciones taxonómicas pueden cambiar con nueva evidencia científica. La cita de la memoria de origen que se imprime en cada plantilla y el correo de contacto para avisar errores están en `js/credits.js`.
+La información para citar el software está disponible en `CITATION.cff`. El código se distribuye bajo licencia MIT, salvo las dos bibliotecas de `js/vendor/`, que conservan las suyas (MIT en `qrcode.js` y Apache 2.0 en `jsQR.js`). Los contenidos paleontológicos deben revisarse periódicamente, ya que las interpretaciones taxonómicas pueden cambiar con nueva evidencia científica. La cita de la memoria de origen que se imprime en cada plantilla y el correo de contacto para avisar errores están en `js/credits.js`.
 
 ---
 
@@ -239,7 +239,7 @@ A recent version of Chrome, Edge or Safari with camera access is recommended. Pe
 
 ### Citation and licence
 
-Citation metadata are provided in `CITATION.cff`. The source code is distributed under the MIT Licence. Palaeontological facts should be reviewed periodically because taxonomic interpretations can change as new scientific evidence becomes available. The citation of the original thesis printed on every template and the contact address for reporting errors live in `js/credits.js`.
+Citation metadata are provided in `CITATION.cff`. The source code is distributed under the MIT Licence, except for the two libraries in `js/vendor/`, which keep their own (MIT for `qrcode.js` and Apache 2.0 for `jsQR.js`). Palaeontological facts should be reviewed periodically because taxonomic interpretations can change as new scientific evidence becomes available. The citation of the original thesis printed on every template and the contact address for reporting errors live in `js/credits.js`.
 
 ---
 
@@ -352,7 +352,7 @@ Recomenda-se uma versão recente do Chrome, Edge ou Safari com acesso à câmera
 
 ### Citação e licença
 
-Os metadados de citação estão disponíveis em `CITATION.cff`. O código-fonte é distribuído sob a Licença MIT. As informações paleontológicas devem ser revisadas periodicamente, pois as interpretações taxonômicas podem mudar com novas evidências científicas. A citação do trabalho de origem impressa em cada modelo e o endereço de contato para avisar erros estão em `js/credits.js`.
+Os metadados de citação estão disponíveis em `CITATION.cff`. O código-fonte é distribuído sob a Licença MIT, exceto as duas bibliotecas de `js/vendor/`, que mantêm as suas (MIT em `qrcode.js` e Apache 2.0 em `jsQR.js`). As informações paleontológicas devem ser revisadas periodicamente, pois as interpretações taxonômicas podem mudar com novas evidências científicas. A citação do trabalho de origem impressa em cada modelo e o endereço de contato para avisar erros estão em `js/credits.js`.
 
 ---
 
