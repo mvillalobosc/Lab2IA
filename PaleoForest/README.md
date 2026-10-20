@@ -34,7 +34,7 @@ La suite se divide en dos módulos independientes y conectados:
 | Módulo | Propósito |
 |---|---|
 | **Inferencia filogenética** | Permite cargar, crear y editar matrices TNT, configurar el tratamiento de los caracteres y buscar árboles más parsimoniosos. |
-| **Paisajes topológicos** | Calcula distancias Robinson–Foulds, agrupa topologías, selecciona árboles medoides y representa los resultados en el tiempo geológico. |
+| **Paisajes topológicos** | Calcula distancias Robinson-Foulds, agrupa topologías, selecciona árboles medoides y representa los resultados en el tiempo geológico. |
 
 Toda la ejecución ocurre en el navegador. La aplicación no necesita backend, base de datos, compilación ni instalación de dependencias para usar los archivos incluidos.
 
@@ -64,11 +64,11 @@ Toda la ejecución ocurre en el navegador. La aplicación no necesita backend, b
 - Carga árboles en `.tre`, `.tree`, `.nwk` o `.newick`.
 - Usa una matriz TNT para comprobar parsimonia y configuración de caracteres.
 - Lee rangos fósiles desde `ages.csv`.
-- Calcula la matriz de distancias Robinson–Foulds normalizadas.
+- Calcula la matriz de distancias Robinson-Foulds normalizadas.
 - Detecta y excluye automáticamente un consenso estricto agregado al final del archivo de árboles.
 - Implementa **PAM, K-Means, FANNY, CLARA, SOM, DBSCAN y MST-kNN**.
 - Evalúa las particiones mediante Dunn, Connectivity y Silhouette.
-- Selecciona la combinación método–número de clústeres mediante hipervolumen multiobjetivo.
+- Selecciona la combinación de método y número de clústeres mediante hipervolumen multiobjetivo.
 - Identifica el medoide general y los medoides de cada clúster.
 - Proyecta el conjunto con PCA o MDS clásico.
 - Muestra el bosque filogenético como un gráfico interactivo.
@@ -87,6 +87,7 @@ Toda la ejecución ocurre en el navegador. La aplicación no necesita backend, b
 ├── pipeline.html
 ├── README.md
 ├── assets/
+│   ├── README.md
 │   ├── favicon.svg
 │   ├── styles.css
 │   └── readme/
@@ -95,6 +96,7 @@ Toda la ejecución ocurre en el navegador. La aplicación no necesita backend, b
 │       ├── screenshot-pipeline.png
 │       └── screenshot-forest.png
 ├── js/
+│   ├── README.md
 │   ├── hub.js
 │   ├── inferencia.js
 │   ├── search.js
@@ -111,6 +113,7 @@ Toda la ejecución ocurre en el navegador. La aplicación no necesita backend, b
 │   ├── cite.js
 │   └── tour.js
 ├── data/
+│   ├── README.md
 │   └── arackar/
 │       ├── dataset.js
 │       ├── matrix.tnt
@@ -119,10 +122,12 @@ Toda la ejecución ocurre en el navegador. La aplicación no necesita backend, b
 │       ├── ages.csv
 │       └── meta.json
 ├── examples/
+│   ├── README.md
 │   ├── Arackar_licanantay/
 │   ├── Burkesuchus_mallingrandensis/
 │   └── Chilesaurus_diegosuarezi/
 └── tools/
+    ├── README.md
     └── prep.py
 ```
 
@@ -142,10 +147,14 @@ Toda la ejecución ocurre en el navegador. La aplicación no necesita backend, b
 | `js/paleodb.js` | Consulta y emparejamiento de taxones con Paleobiology Database. |
 | `js/macrostrat.js` | Consulta opcional de unidades estratigráficas en Macrostrat. |
 | `js/geoscale.js` | Escala cronoestratigráfica usada en la temporalidad. |
-| `js/i18n.js` y `js/i18n-inf.js` | Diccionarios ES/EN/PT de la aplicación. |
+| `js/i18n.js` y `js/i18n-inf.js` | Diccionarios ES/EN/PT de la aplicación. El bloque `UX` al inicio de `js/app.js` guarda otros textos del módulo 2. |
+| `js/cite.js` | Pie de referencias compartido; arma la cita y el BibTeX del artículo. |
+| `js/tour.js` | Recorrido guiado que usan ambos módulos. |
 | `data/arackar/` | Conjunto precargado de *Arackar licanantay*. |
 | `examples/` | Conjuntos adicionales para carga manual. |
-| `tools/prep.py` | Utilidad para preparar los archivos web desde datos de origen. |
+| `tools/prep.py` | Utilidad para preparar los archivos web desde datos de origen. Depende de carpetas que no están en este repositorio (ver 13.1). |
+
+Las carpetas tienen su propio `README.md` con el detalle de cada archivo: [assets/](assets/README.md), [data/](data/README.md), [examples/](examples/README.md), [js/](js/README.md) y [tools/](tools/README.md).
 
 ### 4. Capturas
 
@@ -303,7 +312,7 @@ flowchart TD
     M[Matriz morfológica TNT] --> C[Configurar Fitch, Wagner, Sankoff,<br/>pesos, activación y gaps]
     C --> B[Búsqueda parsimoniosa]
     B --> T[Conjunto de árboles óptimos]
-    T --> R[Matriz Robinson–Foulds]
+    T --> R[Matriz Robinson-Foulds]
     R --> G[Agrupamiento con siete métodos]
     G --> H[Selección por hipervolumen]
     H --> MD[Medoide general y medoides de clúster]
@@ -332,7 +341,7 @@ El cálculo Mk/Mkv no realiza una búsqueda completa de máxima verosimilitud. O
 
 | Componente | Métodos disponibles |
 |---|---|
-| Distancia | Robinson–Foulds normalizada. |
+| Distancia | Robinson-Foulds normalizada. |
 | Agrupamiento | PAM, K-Means, FANNY, CLARA, SOM, DBSCAN y MST-kNN. |
 | Evaluación | Dunn, Connectivity y Silhouette. |
 | Selección | Hipervolumen sobre cuatro objetivos: minimizar `k`, maximizar Dunn, minimizar Connectivity y maximizar Silhouette. |
@@ -366,14 +375,14 @@ El archivo de edades incluido usa `;` como separador y contiene, entre otras, la
 
 ### 10. Conjuntos incluidos
 
-| Carpeta | Árboles | Taxones | Edades |
-|---|---:|---:|---:|
-| `data/arackar/` | 97 líneas de árbol; 96 MPT después de excluir el consenso estricto | 88 | 88 |
-| `examples/Arackar_licanantay/` | 97 | 88 | 88 |
-| `examples/Burkesuchus_mallingrandensis/` | 100 | 111 | 111 |
-| `examples/Chilesaurus_diegosuarezi/` | 100 | 62 | No incluidas |
+| Carpeta | Árboles | Taxones | Caracteres | Edades |
+|---|---:|---:|---:|---:|
+| `data/arackar/` | 97 líneas de árbol; 96 MPT después de excluir el consenso estricto | 88 | 405 | 88 |
+| `examples/Arackar_licanantay/` | 97 | 88 | 405 | 88 |
+| `examples/Burkesuchus_mallingrandensis/` | 100 | 111 | 448 | 111 |
+| `examples/Chilesaurus_diegosuarezi/` | 100 | 62 | 412 | No incluidas |
 
-Los conjuntos de `examples/` se cargan manualmente. El conjunto de `data/arackar/` es el ejemplo integrado en la interfaz.
+Los conjuntos de `examples/` se cargan manualmente. El conjunto de `data/arackar/` es el ejemplo integrado en la interfaz. `examples/Arackar_licanantay/` es una copia exacta de `data/arackar/` (sus cuatro archivos de datos tienen el mismo contenido) más un `info.json`. Los archivos `meta.json` e `info.json` solo registran conteos y procedencia; la aplicación no los lee.
 
 ### 11. Ejecución local
 
@@ -420,7 +429,7 @@ El ejemplo integrado se encuentra en `data/arackar/`. Para reemplazarlo, se debe
 - `ages.csv`
 - `meta.json`
 
-El script `tools/prep.py` sirve como base para regenerar los archivos web desde los datos de origen.
+El script `tools/prep.py` generó estos archivos desde los datos de origen de la memoria y sirve como base para regenerarlos. Usa rutas relativas al directorio desde el que se ejecuta: lee `codigo/tesis-disenio_final/data/`, borra `project/data/` y `project/examples/` y vuelve a escribir allí `arackar/` y una carpeta por especie, más un `README.md` para los ejemplos. Esas carpetas no existen en este repositorio, así que el script no se puede ejecutar aquí sin los datos de origen, y su salida se copia a mano en `data/` y `examples/`. Su catálogo `CASES` incluye cinco especies, de las cuales tres vienen en `examples/`. El detalle está en [tools/README.md](tools/README.md).
 
 #### 13.2 Añadir conjuntos adicionales
 
@@ -434,13 +443,14 @@ ages.csv      # opcional
 info.json
 ```
 
-Los conjuntos de esta carpeta no aparecen automáticamente en un selector; se cargan manualmente desde el módulo 2.
+Los conjuntos de esta carpeta no aparecen automáticamente en un selector; se cargan manualmente desde el módulo 2. El `info.json` documenta conteos y procedencia para quien revise la carpeta, porque la aplicación no lo lee.
 
 #### 13.3 Actualizar textos o idiomas
 
 - Textos del módulo 2 y elementos compartidos: `js/i18n.js`.
 - Textos de la portada y del módulo 1: `js/i18n-inf.js`.
 - Referencias y botones de cita: `js/cite.js`.
+- Ayudas, recorrido guiado, glosario y atajos del módulo 2: bloque `UX` al inicio de `js/app.js`.
 
 Cada clave debe mantenerse en los tres idiomas para evitar que la interfaz muestre el nombre interno de la clave.
 
@@ -488,7 +498,7 @@ Las únicas consultas externas se realizan cuando el usuario solicita informaci�
 | Paleobiology Database | Buscar ocurrencias y rangos temporales por taxón. |
 | Macrostrat | Buscar la edad de una formación o unidad estratigráfica. |
 
-La transferencia entre módulos usa almacenamiento local del navegador y se consume al abrir el módulo 2. Los datos no se guardan en una base de datos remota.
+La transferencia entre módulos usa el almacenamiento local del navegador con la clave `pf_handoff`: el módulo 1 la escribe al pulsar **Enviar al módulo 2** y el módulo 2 la lee y la borra cada vez que se abre, descartando los envíos con más de 10 minutos. El idioma elegido se guarda con la clave `pf_lang`. Los datos no se guardan en una base de datos remota.
 
 ### 16. Limitaciones conocidas
 
@@ -522,7 +532,7 @@ La transferencia entre módulos usa almacenamiento local del navegador y se cons
 
 ### 18. Créditos
 
-Desarrollo académico vinculado al **Departamento de Ingeniería en Informática de la Universidad de Santiago de Chile (DIINF–USACH)**.
+Desarrollo académico vinculado al **Departamento de Ingeniería en Informática de la Universidad de Santiago de Chile (DIINF-USACH)**.
 
 Fuentes y servicios complementarios:
 
@@ -544,7 +554,7 @@ The suite is divided into two independent but connected modules:
 | Module | Purpose |
 |---|---|
 | **Phylogenetic inference** | Loads, creates and edits TNT matrices, configures character treatment and searches for most-parsimonious trees. |
-| **Topological landscapes** | Computes Robinson–Foulds distances, clusters topologies, selects medoid trees and represents results in geological time. |
+| **Topological landscapes** | Computes Robinson-Foulds distances, clusters topologies, selects medoid trees and represents results in geological time. |
 
 Everything runs in the browser. The application requires no backend, database, build process or dependency installation to use the included files.
 
@@ -574,11 +584,11 @@ Everything runs in the browser. The application requires no backend, database, b
 - Loads trees from `.tre`, `.tree`, `.nwk` or `.newick` files.
 - Uses a TNT matrix to check parsimony and character settings.
 - Reads fossil ranges from `ages.csv`.
-- Computes a normalised Robinson–Foulds distance matrix.
+- Computes a normalised Robinson-Foulds distance matrix.
 - Automatically detects and excludes a strict consensus appended to the tree file.
 - Implements **PAM, K-Means, FANNY, CLARA, SOM, DBSCAN and MST-kNN**.
 - Evaluates partitions with Dunn, Connectivity and Silhouette.
-- Selects the method–cluster-count combination through multiobjective hypervolume.
+- Selects the combination of method and number of clusters through multiobjective hypervolume.
 - Identifies the global medoid and each cluster medoid.
 - Projects the tree set with PCA or classical MDS.
 - Displays the phylogenetic forest as an interactive plot.
@@ -597,6 +607,7 @@ Everything runs in the browser. The application requires no backend, database, b
 ├── pipeline.html
 ├── README.md
 ├── assets/
+│   ├── README.md
 │   ├── favicon.svg
 │   ├── styles.css
 │   └── readme/
@@ -605,6 +616,7 @@ Everything runs in the browser. The application requires no backend, database, b
 │       ├── screenshot-pipeline.png
 │       └── screenshot-forest.png
 ├── js/
+│   ├── README.md
 │   ├── hub.js
 │   ├── inferencia.js
 │   ├── search.js
@@ -621,6 +633,7 @@ Everything runs in the browser. The application requires no backend, database, b
 │   ├── cite.js
 │   └── tour.js
 ├── data/
+│   ├── README.md
 │   └── arackar/
 │       ├── dataset.js
 │       ├── matrix.tnt
@@ -629,10 +642,12 @@ Everything runs in the browser. The application requires no backend, database, b
 │       ├── ages.csv
 │       └── meta.json
 ├── examples/
+│   ├── README.md
 │   ├── Arackar_licanantay/
 │   ├── Burkesuchus_mallingrandensis/
 │   └── Chilesaurus_diegosuarezi/
 └── tools/
+    ├── README.md
     └── prep.py
 ```
 
@@ -652,10 +667,14 @@ Everything runs in the browser. The application requires no backend, database, b
 | `js/paleodb.js` | Taxon queries and matching against the Paleobiology Database. |
 | `js/macrostrat.js` | Optional stratigraphic-unit queries to Macrostrat. |
 | `js/geoscale.js` | Chronostratigraphic scale used for time-scaling. |
-| `js/i18n.js` and `js/i18n-inf.js` | ES/EN/PT application dictionaries. |
+| `js/i18n.js` and `js/i18n-inf.js` | ES/EN/PT application dictionaries. The `UX` block at the top of `js/app.js` holds further module 2 texts. |
+| `js/cite.js` | Shared references footer; it builds the article citation and BibTeX. |
+| `js/tour.js` | Guided tour used by both modules. |
 | `data/arackar/` | Preloaded *Arackar licanantay* dataset. |
 | `examples/` | Additional datasets for manual loading. |
-| `tools/prep.py` | Utility for preparing browser-ready files from source data. |
+| `tools/prep.py` | Utility for preparing browser-ready files from source data. It depends on folders that are not in this repository (see 13.1). |
+
+Each folder has its own `README.md` that describes its files: [assets/](assets/README.md), [data/](data/README.md), [examples/](examples/README.md), [js/](js/README.md) and [tools/](tools/README.md).
 
 ### 4. Screenshots
 
@@ -813,7 +832,7 @@ flowchart TD
     M[Morphological TNT matrix] --> C[Configure Fitch, Wagner, Sankoff,<br/>weights, activation and gaps]
     C --> B[Parsimony search]
     B --> T[Set of optimal trees]
-    T --> R[Robinson–Foulds matrix]
+    T --> R[Robinson-Foulds matrix]
     R --> G[Clustering with seven methods]
     G --> H[Hypervolume selection]
     H --> MD[Global and cluster medoids]
@@ -842,7 +861,7 @@ The Mk/Mkv calculation is not a full maximum-likelihood search. It optimises one
 
 | Component | Available methods |
 |---|---|
-| Distance | Normalised Robinson–Foulds. |
+| Distance | Normalised Robinson-Foulds. |
 | Clustering | PAM, K-Means, FANNY, CLARA, SOM, DBSCAN and MST-kNN. |
 | Evaluation | Dunn, Connectivity and Silhouette. |
 | Selection | Hypervolume over four objectives: minimise `k`, maximise Dunn, minimise Connectivity and maximise Silhouette. |
@@ -876,14 +895,14 @@ The bundled age file uses `;` as delimiter and includes the `TIPS`, `FIRST` and 
 
 ### 10. Bundled datasets
 
-| Folder | Trees | Taxa | Ages |
-|---|---:|---:|---:|
-| `data/arackar/` | 97 tree lines; 96 MPTs after excluding the strict consensus | 88 | 88 |
-| `examples/Arackar_licanantay/` | 97 | 88 | 88 |
-| `examples/Burkesuchus_mallingrandensis/` | 100 | 111 | 111 |
-| `examples/Chilesaurus_diegosuarezi/` | 100 | 62 | Not included |
+| Folder | Trees | Taxa | Characters | Ages |
+|---|---:|---:|---:|---:|
+| `data/arackar/` | 97 tree lines; 96 MPTs after excluding the strict consensus | 88 | 405 | 88 |
+| `examples/Arackar_licanantay/` | 97 | 88 | 405 | 88 |
+| `examples/Burkesuchus_mallingrandensis/` | 100 | 111 | 448 | 111 |
+| `examples/Chilesaurus_diegosuarezi/` | 100 | 62 | 412 | Not included |
 
-Datasets under `examples/` are loaded manually. `data/arackar/` is the example integrated into the interface.
+Datasets under `examples/` are loaded manually. `data/arackar/` is the example integrated into the interface. `examples/Arackar_licanantay/` is an exact copy of `data/arackar/` (its four data files have the same content) plus an `info.json`. The `meta.json` and `info.json` files only record counts and provenance; the application does not read them.
 
 ### 11. Local execution
 
@@ -930,7 +949,7 @@ The integrated example is stored under `data/arackar/`. Replacing it requires ke
 - `ages.csv`
 - `meta.json`
 
-The `tools/prep.py` script provides a basis for regenerating browser-ready files from source data.
+The `tools/prep.py` script generated these files from the thesis source data and provides a basis for regenerating them. It uses paths relative to the directory it runs from: it reads `codigo/tesis-disenio_final/data/`, deletes `project/data/` and `project/examples/` and writes `arackar/` and one folder per species there again, plus a `README.md` for the examples. Those folders do not exist in this repository, so the script cannot run here without the source data, and its output is copied by hand into `data/` and `examples/`. Its `CASES` catalogue lists five species, three of which are included in `examples/`. Details are in [tools/README.md](tools/README.md).
 
 #### 13.2 Add extra datasets
 
@@ -944,13 +963,14 @@ ages.csv      # optional
 info.json
 ```
 
-Datasets in this folder are not automatically added to a selector; they are loaded manually from module 2.
+Datasets in this folder are not automatically added to a selector; they are loaded manually from module 2. The `info.json` file documents counts and provenance for whoever reviews the folder, because the application does not read it.
 
 #### 13.3 Update text or languages
 
 - Module 2 and shared text: `js/i18n.js`.
 - Landing page and module 1 text: `js/i18n-inf.js`.
 - References and citation buttons: `js/cite.js`.
+- Help, guided tour, glossary and shortcuts of module 2: the `UX` block at the top of `js/app.js`.
 
 Every key should be maintained in all three languages to prevent the interface from displaying an internal key name.
 
@@ -998,7 +1018,7 @@ External requests occur only when the user asks for age information:
 | Paleobiology Database | Search occurrences and temporal ranges by taxon. |
 | Macrostrat | Search the age of a formation or stratigraphic unit. |
 
-The module handoff uses browser-local storage and is consumed when module 2 opens. Data are not stored in a remote database.
+The module handoff uses browser-local storage under the `pf_handoff` key: module 1 writes it when the user clicks **Send to module 2**, and module 2 reads and deletes it every time it opens, discarding handoffs older than 10 minutes. The chosen language is stored under the `pf_lang` key. Data are not stored in a remote database.
 
 ### 16. Known limitations
 
@@ -1032,7 +1052,7 @@ The module handoff uses browser-local storage and is consumed when module 2 open
 
 ### 18. Credits
 
-Academic development associated with the **Department of Computer Science, Universidad de Santiago de Chile (DIINF–USACH)**.
+Academic development associated with the **Department of Computer Science, Universidad de Santiago de Chile (DIINF-USACH)**.
 
 Complementary sources and services:
 
@@ -1054,7 +1074,7 @@ A suíte é dividida em dois módulos independentes, mas conectados:
 | Módulo | Finalidade |
 |---|---|
 | **Inferência filogenética** | Carrega, cria e edita matrizes TNT, configura o tratamento dos caracteres e busca árvores mais parcimoniosas. |
-| **Paisagens topológicas** | Calcula distâncias Robinson–Foulds, agrupa topologias, seleciona árvores medoides e representa os resultados no tempo geológico. |
+| **Paisagens topológicas** | Calcula distâncias Robinson-Foulds, agrupa topologias, seleciona árvores medoides e representa os resultados no tempo geológico. |
 
 Toda a execução ocorre no navegador. A aplicação não precisa de backend, banco de dados, compilação nem instalação de dependências para usar os arquivos incluídos.
 
@@ -1084,11 +1104,11 @@ Toda a execução ocorre no navegador. A aplicação não precisa de backend, ba
 - Carrega árvores em `.tre`, `.tree`, `.nwk` ou `.newick`.
 - Usa uma matriz TNT para verificar parcimônia e configuração dos caracteres.
 - Lê intervalos fósseis de `ages.csv`.
-- Calcula a matriz de distâncias Robinson–Foulds normalizadas.
+- Calcula a matriz de distâncias Robinson-Foulds normalizadas.
 - Detecta e exclui automaticamente um consenso estrito anexado ao final do arquivo de árvores.
 - Implementa **PAM, K-Means, FANNY, CLARA, SOM, DBSCAN e MST-kNN**.
 - Avalia as partições com Dunn, Connectivity e Silhouette.
-- Seleciona a combinação método–número de clusters por hipervolume multiobjetivo.
+- Seleciona a combinação de método e número de clusters por hipervolume multiobjetivo.
 - Identifica o medoide global e os medoides de cada cluster.
 - Projeta o conjunto com PCA ou MDS clássico.
 - Exibe a floresta filogenética como gráfico interativo.
@@ -1107,6 +1127,7 @@ Toda a execução ocorre no navegador. A aplicação não precisa de backend, ba
 ├── pipeline.html
 ├── README.md
 ├── assets/
+│   ├── README.md
 │   ├── favicon.svg
 │   ├── styles.css
 │   └── readme/
@@ -1115,6 +1136,7 @@ Toda a execução ocorre no navegador. A aplicação não precisa de backend, ba
 │       ├── screenshot-pipeline.png
 │       └── screenshot-forest.png
 ├── js/
+│   ├── README.md
 │   ├── hub.js
 │   ├── inferencia.js
 │   ├── search.js
@@ -1131,6 +1153,7 @@ Toda a execução ocorre no navegador. A aplicação não precisa de backend, ba
 │   ├── cite.js
 │   └── tour.js
 ├── data/
+│   ├── README.md
 │   └── arackar/
 │       ├── dataset.js
 │       ├── matrix.tnt
@@ -1139,10 +1162,12 @@ Toda a execução ocorre no navegador. A aplicação não precisa de backend, ba
 │       ├── ages.csv
 │       └── meta.json
 ├── examples/
+│   ├── README.md
 │   ├── Arackar_licanantay/
 │   ├── Burkesuchus_mallingrandensis/
 │   └── Chilesaurus_diegosuarezi/
 └── tools/
+    ├── README.md
     └── prep.py
 ```
 
@@ -1162,10 +1187,14 @@ Toda a execução ocorre no navegador. A aplicação não precisa de backend, ba
 | `js/paleodb.js` | Consultas e correspondência de táxons com a Paleobiology Database. |
 | `js/macrostrat.js` | Consulta opcional de unidades estratigráficas no Macrostrat. |
 | `js/geoscale.js` | Escala cronoestratigráfica usada na temporalidade. |
-| `js/i18n.js` e `js/i18n-inf.js` | Dicionários ES/EN/PT da aplicação. |
+| `js/i18n.js` e `js/i18n-inf.js` | Dicionários ES/EN/PT da aplicação. O bloco `UX` no início de `js/app.js` guarda outros textos do módulo 2. |
+| `js/cite.js` | Rodapé de referências compartilhado; monta a citação e o BibTeX do artigo. |
+| `js/tour.js` | Tour guiado usado pelos dois módulos. |
 | `data/arackar/` | Conjunto pré-carregado de *Arackar licanantay*. |
 | `examples/` | Conjuntos adicionais para carregamento manual. |
-| `tools/prep.py` | Utilitário para preparar arquivos web a partir dos dados de origem. |
+| `tools/prep.py` | Utilitário para preparar arquivos web a partir dos dados de origem. Depende de pastas que não estão neste repositório (ver 13.1). |
+
+Cada pasta tem seu próprio `README.md` com o detalhe dos arquivos (em espanhol e inglês): [assets/](assets/README.md), [data/](data/README.md), [examples/](examples/README.md), [js/](js/README.md) e [tools/](tools/README.md).
 
 ### 4. Capturas de tela
 
@@ -1323,7 +1352,7 @@ flowchart TD
     M[Matriz morfológica TNT] --> C[Configurar Fitch, Wagner, Sankoff,<br/>pesos, ativação e lacunas]
     C --> B[Busca por parcimônia]
     B --> T[Conjunto de árvores ótimas]
-    T --> R[Matriz Robinson–Foulds]
+    T --> R[Matriz Robinson-Foulds]
     R --> G[Agrupamento com sete métodos]
     G --> H[Seleção por hipervolume]
     H --> MD[Medoide global e medoides de cluster]
@@ -1352,7 +1381,7 @@ O cálculo Mk/Mkv não realiza uma busca completa de máxima verossimilhança. E
 
 | Componente | Métodos disponíveis |
 |---|---|
-| Distância | Robinson–Foulds normalizada. |
+| Distância | Robinson-Foulds normalizada. |
 | Agrupamento | PAM, K-Means, FANNY, CLARA, SOM, DBSCAN e MST-kNN. |
 | Avaliação | Dunn, Connectivity e Silhouette. |
 | Seleção | Hipervolume com quatro objetivos: minimizar `k`, maximizar Dunn, minimizar Connectivity e maximizar Silhouette. |
@@ -1386,14 +1415,14 @@ O arquivo de idades incluído usa `;` como separador e contém, entre outras, as
 
 ### 10. Conjuntos incluídos
 
-| Pasta | Árvores | Táxons | Idades |
-|---|---:|---:|---:|
-| `data/arackar/` | 97 linhas de árvore; 96 MPT após excluir o consenso estrito | 88 | 88 |
-| `examples/Arackar_licanantay/` | 97 | 88 | 88 |
-| `examples/Burkesuchus_mallingrandensis/` | 100 | 111 | 111 |
-| `examples/Chilesaurus_diegosuarezi/` | 100 | 62 | Não incluídas |
+| Pasta | Árvores | Táxons | Caracteres | Idades |
+|---|---:|---:|---:|---:|
+| `data/arackar/` | 97 linhas de árvore; 96 MPT após excluir o consenso estrito | 88 | 405 | 88 |
+| `examples/Arackar_licanantay/` | 97 | 88 | 405 | 88 |
+| `examples/Burkesuchus_mallingrandensis/` | 100 | 111 | 448 | 111 |
+| `examples/Chilesaurus_diegosuarezi/` | 100 | 62 | 412 | Não incluídas |
 
-Os conjuntos em `examples/` são carregados manualmente. `data/arackar/` é o exemplo integrado à interface.
+Os conjuntos em `examples/` são carregados manualmente. `data/arackar/` é o exemplo integrado à interface. `examples/Arackar_licanantay/` é uma cópia exata de `data/arackar/` (seus quatro arquivos de dados têm o mesmo conteúdo) mais um `info.json`. Os arquivos `meta.json` e `info.json` apenas registram contagens e procedência; a aplicação não os lê.
 
 ### 11. Execução local
 
@@ -1440,7 +1469,7 @@ O exemplo integrado está em `data/arackar/`. Para substituí-lo, mantenha sincr
 - `ages.csv`
 - `meta.json`
 
-O script `tools/prep.py` serve como base para regenerar os arquivos web a partir dos dados de origem.
+O script `tools/prep.py` gerou estes arquivos a partir dos dados de origem da tese e serve como base para regenerá-los. Ele usa caminhos relativos ao diretório de onde é executado: lê `codigo/tesis-disenio_final/data/`, apaga `project/data/` e `project/examples/` e volta a gravar ali `arackar/` e uma pasta por espécie, além de um `README.md` para os exemplos. Essas pastas não existem neste repositório, portanto o script não pode ser executado aqui sem os dados de origem, e sua saída é copiada à mão para `data/` e `examples/`. Seu catálogo `CASES` inclui cinco espécies, das quais três estão em `examples/`. O detalhe está em [tools/README.md](tools/README.md).
 
 #### 13.2 Adicionar conjuntos extras
 
@@ -1454,13 +1483,14 @@ ages.csv      # opcional
 info.json
 ```
 
-Os conjuntos dessa pasta não são adicionados automaticamente a um seletor; eles são carregados manualmente pelo módulo 2.
+Os conjuntos dessa pasta não são adicionados automaticamente a um seletor; eles são carregados manualmente pelo módulo 2. O `info.json` documenta contagens e procedência para quem revisar a pasta, pois a aplicação não o lê.
 
 #### 13.3 Atualizar textos ou idiomas
 
 - Textos do módulo 2 e compartilhados: `js/i18n.js`.
 - Textos da página inicial e do módulo 1: `js/i18n-inf.js`.
 - Referências e botões de citação: `js/cite.js`.
+- Ajudas, tour guiado, glossário e atalhos do módulo 2: bloco `UX` no início de `js/app.js`.
 
 Cada chave deve ser mantida nos três idiomas para evitar que a interface mostre o nome interno da chave.
 
@@ -1508,7 +1538,7 @@ As consultas externas ocorrem apenas quando o usuário solicita informações de
 | Paleobiology Database | Buscar ocorrências e intervalos temporais por táxon. |
 | Macrostrat | Buscar a idade de uma formação ou unidade estratigráfica. |
 
-A transferência entre módulos usa armazenamento local do navegador e é consumida quando o módulo 2 é aberto. Os dados não são armazenados em um banco de dados remoto.
+A transferência entre módulos usa o armazenamento local do navegador com a chave `pf_handoff`: o módulo 1 a grava ao clicar em **Enviar ao módulo 2** e o módulo 2 a lê e a apaga sempre que é aberto, descartando envios com mais de 10 minutos. O idioma escolhido é salvo com a chave `pf_lang`. Os dados não são armazenados em um banco de dados remoto.
 
 ### 16. Limitações conhecidas
 
@@ -1542,7 +1572,7 @@ A transferência entre módulos usa armazenamento local do navegador e é consum
 
 ### 18. Créditos
 
-Desenvolvimento acadêmico associado ao **Departamento de Engenharia Informática da Universidad de Santiago de Chile (DIINF–USACH)**.
+Desenvolvimento acadêmico associado ao **Departamento de Engenharia Informática da Universidad de Santiago de Chile (DIINF-USACH)**.
 
 Fontes e serviços complementares:
 
