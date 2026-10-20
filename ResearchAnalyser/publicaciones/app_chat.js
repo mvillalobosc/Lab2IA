@@ -1,6 +1,6 @@
 /* ============================================================
    ASISTENTE BIBLIOMÉTRICO LOCAL
-   La comprensión de la pregunta vive en ../asistente.js (motor
+   La comprensión de la pregunta vive en ../shared/asistente.js (motor
    compartido con el módulo de tesis). Este archivo solo le dice
    al motor cómo leer los campos de las publicaciones y cómo
    dibujar cada tipo de respuesta. Sin API ni servidor.

@@ -1,6 +1,6 @@
 /* ============================================================
    Asistente local de memorias, sin API ni servidor.
-   La comprensión de la pregunta vive en ../asistente.js (motor
+   La comprensión de la pregunta vive en ../shared/asistente.js (motor
    compartido con el módulo de publicaciones). Aquí solo se le
    explica cómo leer las memorias (state.filtered) y cómo dibujar
    cada respuesta. Todo se calcula en el navegador.

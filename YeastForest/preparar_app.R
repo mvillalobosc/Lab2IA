@@ -17,7 +17,8 @@
 #   <prefijo>_clusters_resumen.tsv         opcional
 #   <prefijo>_enriquecimiento.tsv          opcional (si falta, la app marca "pendiente")
 #   <prefijo>_genes_sin_ubicar.tsv         opcional (solo S. eubayanus)
-# ARCHIVOS OPCIONALES QUE SE INDICAN EN CONFIG
+# ARCHIVOS OPCIONALES QUE SE INDICAN EN CONFIG (aqui viven en data/, al lado de
+# especies.js; el script solo borra y rehace las carpetas data/<clave>/)
 #   cepas:  TSV: primera columna cepa y despues una columna por capa categorica
 #           (linaje, pais, localidad, hospedero...). La primera capa pinta el anillo
 #           por defecto; las demas se eligen en la app. Las cepas que no esten quedan
@@ -52,14 +53,14 @@ CONFIG <- list(
   especies = list(
     list(clave = "cerevisiae", nombre = "Saccharomyces cerevisiae", corto = "S. cerevisiae",
          prefijo = "SCerevisiae", carpeta = "Bosque_cerevisiae",
-         cepas = "cepas_cerevisiae.tsv",      # cepa, Población (Peter et al. 2018)
-         genes = c("~/EvolutiveSCerevisiae/DATA/SGD_features.tab", "genes_cerevisiae.tsv"),  # usa el primero que exista
+         cepas = "data/cepas_cerevisiae.tsv",      # cepa, Población (Peter et al. 2018)
+         genes = c("~/EvolutiveSCerevisiae/DATA/SGD_features.tab", "data/genes_cerevisiae.tsv"),  # usa el primero que exista
          enlace_gen = "https://www.yeastgenome.org/locus/{orf}",
          fuente = "Panel de 1.011 aislados (Peter et al. 2018); VCF 1011Matrix; ORFs de SGD_features.tab"),
     list(clave = "eubayanus", nombre = "Saccharomyces eubayanus", corto = "S. eubayanus",
          prefijo = "Eubayanus", carpeta = "Bosque_eubayanus",
-         cepas = "cepas_eubayanus.tsv",       # cepa, Linaje, Pais, Localidad, Hospedero, Sustrato, Continente (MetaData_SEu.csv)
-         genes = c("gene_result_eubayanus.txt", "~/EvolutiveEubayanus/DATA/gene_result.txt"),  # usa el primero que exista
+         cepas = "data/cepas_eubayanus.tsv",       # cepa, Linaje, Pais, Localidad, Hospedero, Sustrato, Continente (MetaData_SEu.csv)
+         genes = c("data/gene_result_eubayanus.txt", "~/EvolutiveEubayanus/DATA/gene_result.txt"),  # usa el primero que exista
          enlace_gen = "https://www.ncbi.nlm.nih.gov/gene/?term={orf}+Saccharomyces+eubayanus",
          fuente = "VCF filtered_eub sobre CBS12357 (GCA_003327605.1); genes de NCBI (FM1318) ubicados por secuencia")
   )
