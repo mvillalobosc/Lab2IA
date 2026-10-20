@@ -197,7 +197,7 @@
       <p data-i18n-html="ayuda.p.iso">Es el área alcanzable desde un punto en un tiempo fijo de viaje. Aquí cada mancha de color delimita el territorio que queda a 30, 45 o 60 minutos en auto de un establecimiento, considerando la red vial real.</p>
 
       <h3 data-i18n="ayuda.h.calc">¿Cómo se calculan?</h3>
-      <p data-i18n-html="ayuda.p.calc">Con la API de <a href="https://openrouteservice.org" target="_blank" rel="noopener">OpenRouteService</a> (perfil <code>driving-car</code>, rangos de 1800, 2700 y 3600 segundos), el mismo método del sistema original de la tesis. Se calculan la primera vez que abres una región y quedan guardadas en tu navegador, por eso la primera carga tarda unos segundos.</p>
+      <p data-i18n-html="ayuda.p.calc">Con la API de <a href="https://openrouteservice.org" target="_blank" rel="noopener">OpenRouteService</a> (perfil <code>driving-car</code>, rangos de 1800, 2700 y 3600 segundos), el mismo método del sistema original de la tesis. Las coberturas de los establecimientos ya vienen calculadas en <code>data/isocronas.js</code>; la app solo calcula en vivo las que falten y las guarda en tu navegador.</p>
       <div class="cajita"><span data-i18n-html="ayuda.box.iso"><b>¿Las isócronas no aparecen?</b>
       El cálculo necesita conexión a internet y una clave de OpenRouteService. Para recalcular coberturas o simular establecimientos necesitas una clave de OpenRouteService; crea una gratis en openrouteservice.org y pégala aquí:</span>
       <input type="text" id="inpKey" data-i18n-ph="ayuda.keyPlaceholder" placeholder="Clave de OpenRouteService" autocomplete="off">

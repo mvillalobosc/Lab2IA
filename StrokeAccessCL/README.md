@@ -238,11 +238,12 @@ const S = {
   simModo: false,
   sim: null,
   nacional: null,
-  nacionalSalud: null
+  nacionalSalud: null,
+  ultimoPunto: null
 };
 ```
 
-Este estado separa filtros territoriales, tiempos activos, geometrías de isócronas, capas dibujadas, establecimiento destacado, modo de consulta por punto y modo de simulación.
+Este estado separa filtros territoriales, tiempos activos, geometrías de isócronas, capas dibujadas, establecimiento destacado, modo de consulta por punto, modo de simulación y el último punto consultado (`ultimoPunto`), que la aplicación vuelve a evaluar cuando cambian las coberturas o el idioma.
 
 ### 8. Flujo de datos
 
@@ -270,7 +271,7 @@ Consultar punto, geolocalización o simulación
 
 Si `data/isocronas.js` no existe o le faltan establecimientos, la aplicación calcula las coberturas que faltan con OpenRouteService, en lotes de tres establecimientos. Cada cobertura calculada queda guardada en `localStorage` con la clave `iso_<id>` y, cuando están todas, se puede descargar como un nuevo `isocronas.js` desde la ventana de ayuda.
 
-La aplicación guarda en `localStorage` estas claves: `acv_key` (clave propia de OpenRouteService), `acv_bienv` (no volver a mostrar la bienvenida), `acv_lang` (idioma elegido) e `iso_<id>` (coberturas calculadas en vivo). Para empezar de cero basta con borrar el almacenamiento del sitio en el navegador.
+La aplicación guarda en `localStorage` estas claves: `acv_key` (clave propia de OpenRouteService), `acv_bienv` (no volver a mostrar la bienvenida), `acv_lang` (idioma elegido) e `iso_<id>` (coberturas calculadas en vivo). Para empezar de cero basta con borrar el almacenamiento del sitio en el navegador. Si el navegador bloquea este almacenamiento, la aplicación igual abre y funciona, pero no recuerda nada entre visitas y no puede guardar ni usar la clave que se escribe en la ayuda, de modo que la simulación y el cálculo en vivo no están disponibles.
 
 ### 9. APIs y dependencias externas
 
@@ -435,7 +436,6 @@ El script lee `data/establecimientos.js`, pide a OpenRouteService (perfil `drivi
 - La búsqueda de direcciones depende de Nominatim y de conexión a internet.
 - La cobertura comunal en línea se estima con un muestreo aleatorio de puntos: puede cambiar levemente entre consultas y no reemplaza una estimación censal completa.
 - Si se agregan nuevos establecimientos, deben actualizarse también las coberturas.
-- La columna `codigo` del CSV que descarga la app trae el identificador interno `id` (1 a 93), no el código del establecimiento (`code`).
 - En árboles de datos muy pesados o muchas geometrías activas, el navegador puede tardar más en renderizar.
 
 ### 16. Cita sugerida
@@ -679,11 +679,12 @@ const S = {
   simModo: false,
   sim: null,
   nacional: null,
-  nacionalSalud: null
+  nacionalSalud: null,
+  ultimoPunto: null
 };
 ```
 
-This state separates territorial filters, active travel times, isochrone geometries, rendered layers, the highlighted facility, point-query mode and simulation mode.
+This state separates territorial filters, active travel times, isochrone geometries, rendered layers, the highlighted facility, point-query mode, simulation mode and the last queried point (`ultimoPunto`), which the application evaluates again when the coverage or the language changes.
 
 ### 8. Data flow
 
@@ -711,7 +712,7 @@ Query a point, use geolocation or run a simulation
 
 If `data/isocronas.js` does not exist or lacks some facilities, the application computes the missing coverage with OpenRouteService, in batches of three facilities. Each computed coverage is stored in `localStorage` under the key `iso_<id>` and, once all of them are available, it can be downloaded as a new `isocronas.js` file from the help window.
 
-The application stores these keys in `localStorage`: `acv_key` (the user's own OpenRouteService key), `acv_bienv` (do not show the welcome screen again), `acv_lang` (selected language) and `iso_<id>` (coverage computed live). Clearing the site storage in the browser resets all of them.
+The application stores these keys in `localStorage`: `acv_key` (the user's own OpenRouteService key), `acv_bienv` (do not show the welcome screen again), `acv_lang` (selected language) and `iso_<id>` (coverage computed live). Clearing the site storage in the browser resets all of them. If the browser blocks this storage, the application still opens and works, but it remembers nothing between visits and cannot store or use the key typed in the help window, so the simulation and the live computation are not available.
 
 ### 9. APIs and external dependencies
 
@@ -876,7 +877,6 @@ The script reads `data/establecimientos.js`, asks OpenRouteService (`driving-car
 - Address search depends on Nominatim and an internet connection.
 - Online commune-level coverage is estimated by random point sampling: it can change slightly between queries and does not replace a complete census-based estimate.
 - When new facilities are added, their coverage data must also be updated.
-- The `codigo` column of the CSV downloaded from the application holds the internal identifier `id` (1 to 93), not the facility code (`code`).
 - With very large data trees or many active geometries, the browser may take longer to render the map.
 
 ### 16. Suggested citation
@@ -1120,11 +1120,12 @@ const S = {
   simModo: false,
   sim: null,
   nacional: null,
-  nacionalSalud: null
+  nacionalSalud: null,
+  ultimoPunto: null
 };
 ```
 
-Esse estado separa os filtros territoriais, os tempos ativos, as geometrias das isócronas, as camadas desenhadas, o estabelecimento destacado, o modo de consulta por ponto e o modo de simulação.
+Esse estado separa os filtros territoriais, os tempos ativos, as geometrias das isócronas, as camadas desenhadas, o estabelecimento destacado, o modo de consulta por ponto, o modo de simulação e o último ponto consultado (`ultimoPunto`), que a aplicação avalia de novo quando mudam as coberturas ou o idioma.
 
 ### 8. Fluxo de dados
 
@@ -1152,7 +1153,7 @@ Consultar um ponto, usar geolocalização ou executar uma simulação
 
 Se `data/isocronas.js` não existir ou não tiver todos os estabelecimentos, a aplicação calcula as coberturas que faltam com o OpenRouteService, em lotes de três estabelecimentos. Cada cobertura calculada fica guardada em `localStorage` com a chave `iso_<id>` e, quando todas estiverem prontas, pode ser baixada como um novo arquivo `isocronas.js` na janela de ajuda.
 
-A aplicação guarda estas chaves em `localStorage`: `acv_key` (chave própria do OpenRouteService), `acv_bienv` (não mostrar de novo as boas-vindas), `acv_lang` (idioma escolhido) e `iso_<id>` (coberturas calculadas ao vivo). Para começar do zero, basta apagar o armazenamento do site no navegador.
+A aplicação guarda estas chaves em `localStorage`: `acv_key` (chave própria do OpenRouteService), `acv_bienv` (não mostrar de novo as boas-vindas), `acv_lang` (idioma escolhido) e `iso_<id>` (coberturas calculadas ao vivo). Para começar do zero, basta apagar o armazenamento do site no navegador. Se o navegador bloquear esse armazenamento, a aplicação abre e funciona do mesmo modo, mas não lembra nada entre visitas e não consegue guardar nem usar a chave digitada na ajuda, de modo que a simulação e o cálculo ao vivo não ficam disponíveis.
 
 ### 9. APIs e dependências externas
 
@@ -1317,7 +1318,6 @@ O script lê `data/establecimientos.js`, pede ao OpenRouteService (perfil `drivi
 - A busca de endereços depende do Nominatim e de conexão à internet.
 - A cobertura comunal on-line é estimada por amostragem aleatória de pontos: pode mudar um pouco entre consultas e não substitui uma estimativa censitária completa.
 - Ao adicionar novos estabelecimentos, também é necessário atualizar suas coberturas.
-- A coluna `codigo` do CSV que a aplicação baixa traz o identificador interno `id` (1 a 93), e não o código do estabelecimento (`code`).
 - Com árvores de dados muito grandes ou muitas geometrias ativas, o navegador pode levar mais tempo para renderizar o mapa.
 
 ### 16. Citação sugerida

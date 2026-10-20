@@ -96,7 +96,7 @@
       'ayuda.h.iso': '¿Qué es una isócrona?',
       'ayuda.p.iso': 'Es el área alcanzable desde un punto en un tiempo fijo de viaje. Aquí cada mancha de color delimita el territorio que queda a 30, 45 o 60 minutos en auto de un establecimiento, considerando la red vial real.',
       'ayuda.h.calc': '¿Cómo se calculan?',
-      'ayuda.p.calc': 'Con la API de <a href="https://openrouteservice.org" target="_blank" rel="noopener">OpenRouteService</a> (perfil <code>driving-car</code>, rangos de 1800, 2700 y 3600 segundos), el mismo método del sistema original de la tesis. Se calculan la primera vez que abres una región y quedan guardadas en tu navegador, por eso la primera carga tarda unos segundos.',
+      'ayuda.p.calc': 'Con la API de <a href="https://openrouteservice.org" target="_blank" rel="noopener">OpenRouteService</a> (perfil <code>driving-car</code>, rangos de 1800, 2700 y 3600 segundos), el mismo método del sistema original de la tesis. Las coberturas de los establecimientos ya vienen calculadas en <code>data/isocronas.js</code>; la app solo calcula en vivo las que falten y las guarda en tu navegador.',
       'ayuda.box.iso': '<b>¿Las isócronas no aparecen?</b> El cálculo necesita conexión a internet y una clave de OpenRouteService. Para recalcular coberturas o simular establecimientos necesitas una clave de OpenRouteService; crea una gratis en openrouteservice.org y pégala aquí:',
       'ayuda.keyPlaceholder': 'Clave de OpenRouteService',
       'ayuda.box.mini': 'Se guarda solo en este navegador.',
@@ -303,8 +303,8 @@
       'ayuda.h.iso': 'What is an isochrone?',
       'ayuda.p.iso': 'It is the area reachable from a point within a fixed travel time. Here each colored patch outlines the territory that is 30, 45 or 60 minutes by car from a facility, considering the real road network.',
       'ayuda.h.calc': 'How are they computed?',
-      'ayuda.p.calc': 'With the <a href="https://openrouteservice.org" target="_blank" rel="noopener">OpenRouteService</a> API (<code>driving-car</code> profile, ranges of 1800, 2700 and 3600 seconds), the same method as the original thesis system. They are computed the first time you open a region and are saved in your browser, which is why the first load takes a few seconds.',
-      'ayuda.box.iso': '<b>Isochrones not showing?</b> The computation needs an internet connection and an OpenRouteService key. The included key belongs to the project and has a shared daily limit; if it runs out, create a free one at openrouteservice.org and paste it here:',
+      'ayuda.p.calc': 'With the <a href="https://openrouteservice.org" target="_blank" rel="noopener">OpenRouteService</a> API (<code>driving-car</code> profile, ranges of 1800, 2700 and 3600 seconds), the same method as the original thesis system. The facility coverages come precomputed in <code>data/isocronas.js</code>; the app only computes live the ones that are missing and saves them in your browser.',
+      'ayuda.box.iso': '<b>Isochrones not showing?</b> The computation needs an internet connection and an OpenRouteService key. To recompute coverage or simulate facilities you need an OpenRouteService key; create a free one at openrouteservice.org and paste it here:',
       'ayuda.keyPlaceholder': 'OpenRouteService key',
       'ayuda.box.mini': 'Stored only in this browser.',
       'ayuda.h.cob': 'Population and territory coverage',
@@ -509,8 +509,8 @@
       'ayuda.h.iso': 'O que é uma isócrona?',
       'ayuda.p.iso': 'É a área alcançável a partir de um ponto num tempo fixo de viagem. Aqui cada mancha colorida delimita o território a 30, 45 ou 60 minutos de carro de um estabelecimento, considerando a malha viária real.',
       'ayuda.h.calc': 'Como são calculadas?',
-      'ayuda.p.calc': 'Com a API do <a href="https://openrouteservice.org" target="_blank" rel="noopener">OpenRouteService</a> (perfil <code>driving-car</code>, faixas de 1800, 2700 e 3600 segundos), o mesmo método do sistema original da tese. São calculadas na primeira vez que você abre uma região e ficam salvas no navegador; por isso a primeira carga demora alguns segundos.',
-      'ayuda.box.iso': '<b>As isócronas não aparecem?</b> O cálculo precisa de conexão à internet e de uma chave do OpenRouteService. A chave incluída é a do projeto e tem um limite diário compartilhado; se acabar, crie uma grátis em openrouteservice.org e cole aqui:',
+      'ayuda.p.calc': 'Com a API do <a href="https://openrouteservice.org" target="_blank" rel="noopener">OpenRouteService</a> (perfil <code>driving-car</code>, faixas de 1800, 2700 e 3600 segundos), o mesmo método do sistema original da tese. As coberturas dos estabelecimentos já vêm calculadas em <code>data/isocronas.js</code>; a aplicação só calcula ao vivo as que faltarem e as guarda no navegador.',
+      'ayuda.box.iso': '<b>As isócronas não aparecem?</b> O cálculo precisa de conexão à internet e de uma chave do OpenRouteService. Para recalcular coberturas ou simular estabelecimentos você precisa de uma chave do OpenRouteService; crie uma grátis em openrouteservice.org e cole aqui:',
       'ayuda.keyPlaceholder': 'Chave do OpenRouteService',
       'ayuda.box.mini': 'Guardada só neste navegador.',
       'ayuda.h.cob': 'Cobertura populacional e territorial',
@@ -634,7 +634,8 @@
   const SUPPORTED = ['es', 'en', 'pt'];
 
   function detect() {
-    const saved = localStorage.getItem(STORAGE);
+    let saved = null;
+    try { saved = localStorage.getItem(STORAGE); } catch (e) {}
     if (saved && SUPPORTED.includes(saved)) return saved;
     const nav = (navigator.language || 'es').slice(0, 2).toLowerCase();
     return SUPPORTED.includes(nav) ? nav : 'es';
@@ -668,7 +669,7 @@
       return;
     }
     lang = next;
-    localStorage.setItem(STORAGE, lang);
+    try { localStorage.setItem(STORAGE, lang); } catch (e) {}
     applyStatic();
     syncSwitcher();
     listeners.forEach(fn => { try { fn(lang); } catch (e) { console.error(e); } });

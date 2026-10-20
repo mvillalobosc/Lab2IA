@@ -1,6 +1,8 @@
 cff-version: 1.2.0
 message: "If you use StrokeAccessCL, please cite this work."
 title: "StrokeAccessCL: visualisation system for stroke-care accessibility in Chile"
+type: software
+version: "1.0.0"
 authors:
   - family-names: "Guajardo Arias"
     given-names: "Iván Alejandro"
@@ -8,6 +10,18 @@ authors:
     given-names: "Manuel José"
   - family-names: "Giglio Gutiérrez"
     given-names: "Juan"
-year: 2025
-institution: "Universidad de Santiago de Chile, Facultad de Ingeniería, Departamento de Ingeniería Informática"
 url: "https://mvillalobosc.diinf.usach.cl/StrokeAccessCL/"
+preferred-citation:
+  type: thesis
+  thesis-type: "Memoria de título"
+  title: "Implementación de un sistema de visualización para el análisis espacio-temporal de la cobertura hospitalaria y la accesibilidad de los servicios de atención para el ataque cerebrovascular a nivel nacional en Chile"
+  authors:
+    - family-names: "Guajardo Arias"
+      given-names: "Iván Alejandro"
+    - family-names: "Villalobos Cid"
+      given-names: "Manuel José"
+    - family-names: "Giglio Gutiérrez"
+      given-names: "Juan"
+  year: 2025
+  institution:
+    name: "Universidad de Santiago de Chile, Facultad de Ingeniería, Departamento de Ingeniería Informática"

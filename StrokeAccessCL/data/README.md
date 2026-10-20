@@ -29,7 +29,7 @@ Cada registro tiene diez campos:
 | `comuna`, `provincia`, `region` | Nombres de la comuna, la provincia y la región. |
 | `cod_comuna` | Código CUT de la comuna; debe existir en `comunas.js`. |
 | `codregion` | Código de la región; debe existir en `regiones.js`. |
-| `id` | Identificador interno único, de 1 a 93. Es la clave que usan `isocronas.js`, el estado de `js/app.js`, la caché del navegador (`iso_<id>`) y la columna `codigo` del CSV que descarga la app. |
+| `id` | Identificador interno único, de 1 a 93. Es la clave que usan `isocronas.js`, el estado de `js/app.js`, la caché del navegador (`iso_<id>`) y la columna `id` del CSV que descarga la app. |
 
 `generar_isocronas.mjs` lee este archivo quitando el prefijo `window.ESTABLISHMENTS=` y el punto y coma final, así que el contenido debe seguir siendo JSON válido.
 
@@ -70,7 +70,7 @@ Each record has ten fields:
 | `comuna`, `provincia`, `region` | Names of the commune, province and region. |
 | `cod_comuna` | CUT code of the commune; it must exist in `comunas.js`. |
 | `codregion` | Region code; it must exist in `regiones.js`. |
-| `id` | Unique internal identifier, from 1 to 93. It is the key used by `isocronas.js`, the state in `js/app.js`, the browser cache (`iso_<id>`) and the `codigo` column of the CSV downloaded from the application. |
+| `id` | Unique internal identifier, from 1 to 93. It is the key used by `isocronas.js`, the state in `js/app.js`, the browser cache (`iso_<id>`) and the `id` column of the CSV downloaded from the application. |
 
 `generar_isocronas.mjs` reads this file by removing the `window.ESTABLISHMENTS=` prefix and the final semicolon, so the content must remain valid JSON.
 

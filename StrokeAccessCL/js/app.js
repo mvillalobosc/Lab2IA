@@ -5,10 +5,11 @@
 
    Comportamiento:
    - Al abrir, el mapa muestra TODO: los 93 establecimientos y sus
-     isócronas de 30/45/60 min. Las isócronas se calculan con
-     OpenRouteService (driving-car, método de la tesis) la primera vez
-     y quedan guardadas en el navegador; mientras se calculan se van
-     pintando progresivamente.
+     isócronas de 30/45/60 min, que vienen precalculadas en
+     data/isocronas.js. Si al archivo le falta algún establecimiento,
+     sus isócronas se calculan con OpenRouteService (driving-car,
+     método de la tesis), quedan guardadas en el navegador y se van
+     pintando a medida que llegan.
    - Desde ahí el usuario filtra: apaga tiempos, elige región/comuna,
      o pincha un hospital para destacar su cobertura.
    ===================================================================== */
@@ -54,14 +55,15 @@ const S = {
   region:'', comuna:'',
   filtroHosp:new Set(),   // ids elegidos en el buscador (si hay, mandan)
   activos:{30:false,45:false,60:false},
-  iso:{},              // code -> {30:geom,45:geom,60:geom}
-  capas:{},            // code -> {30:L.GeoJSON,45:…,60:…} dibujadas
-  sel:null,            // code del hospital destacado
+  iso:{},              // id -> {30:geom,45:geom,60:geom}
+  capas:{},            // id -> {30:L.GeoJSON,45:…,60:…} dibujadas
+  sel:null,            // id del hospital destacado
   cargando:null,       // AbortController de la carga en curso
   puntoModo:false,
   simModo:false,
   sim:null,             // {marker, capas:[], lat, lon}
-  nacional:null, nacionalSalud:null
+  nacional:null, nacionalSalud:null,
+  ultimoPunto:null     // {lat,lon,esEmergencia} del último punto consultado
 };
 
 /* =====================================================================
@@ -135,7 +137,7 @@ function initMap(){
   L.control.zoom({position:'topright'}).addTo(map);
   L.control.scale({position:'bottomleft',imperial:false}).addTo(map);
   L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-    {subdomains:'abcd',maxZoom:19,attribution:'© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'}).addTo(map);
+    {maxZoom:19,attribution:'© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'}).addTo(map);
   map.fitBounds(CHILE_BOUNDS,{paddingTopLeft:[10,10]});
   capaIso=L.layerGroup().addTo(map);
   dibujarHospitales();
@@ -212,7 +214,7 @@ function aviso(txt,{error=false,ocultarEn=0}={}){
 /* =====================================================================
    Isócronas: carga nacional automática al abrir (con caché local)
 ===================================================================== */
-function orsKey(){ return (localStorage.getItem('acv_key')||'').trim(); }
+function orsKey(){ try{ return (localStorage.getItem('acv_key')||'').trim(); }catch(e){ return ''; } }
 function cacheGet(code){ try{const v=localStorage.getItem('iso_'+code);return v?JSON.parse(v):null;}catch(e){return null;} }
 function cacheSet(code,obj){
   try{ localStorage.setItem('iso_'+code,JSON.stringify(obj)); }
@@ -278,7 +280,6 @@ function restilarIsocronas(){
       if(S.sel===e.id) capas[t].bringToFront();
     }
   }
-  if(S.sel!==null && marcadores[S.sel]) { /* pin arriba de todo */ }
 }
 function alternarTier(t){
   S.activos[t]=!S.activos[t];
@@ -871,11 +872,11 @@ function quitarSim(){
 ===================================================================== */
 function wireAyudas(){
   const bienv=$('veloBienv'), ayuda=$('veloAyuda');
-  if(!localStorage.getItem('acv_bienv')) bienv.classList.add('on');
-  $('btnEmpezar').onclick=()=>{ if($('chkNoMostrar').checked) localStorage.setItem('acv_bienv','1');
+  try{ if(!localStorage.getItem('acv_bienv')) bienv.classList.add('on'); }catch(e){ bienv.classList.add('on'); }
+  $('btnEmpezar').onclick=()=>{ if($('chkNoMostrar').checked) try{localStorage.setItem('acv_bienv','1');}catch(e){}
     bienv.classList.remove('on'); };
   $('btnGuia').onclick=()=>bienv.classList.add('on');
-  const abrirAyuda=()=>{ $('inpKey').value=localStorage.getItem('acv_key')||''; ayuda.classList.add('on'); };
+  const abrirAyuda=()=>{ try{ $('inpKey').value=localStorage.getItem('acv_key')||''; }catch(e){} ayuda.classList.add('on'); };
   $('btnAyuda').onclick=abrirAyuda;
   $('linkAyudaFoot').onclick=ev=>{ev.preventDefault();abrirAyuda();};
   $('ayudaCerrar').onclick=()=>ayuda.classList.remove('on');
@@ -883,7 +884,7 @@ function wireAyudas(){
   document.addEventListener('keydown',ev=>{ if(ev.key==='Escape'){bienv.classList.remove('on');ayuda.classList.remove('on');$('popQ').classList.remove('on');
     if(S.puntoModo) activarPunto();
     if(S.simModo) desarmarSim(); } });
-  $('inpKey').addEventListener('change',ev=>localStorage.setItem('acv_key',ev.target.value.trim()));
+  $('inpKey').addEventListener('change',ev=>{ try{localStorage.setItem('acv_key',ev.target.value.trim());}catch(e){} });
   $('btnCSV').onclick=ev=>{ ev.preventDefault(); descargarCSV(); };
   $('btnExpIso').onclick=ev=>{ ev.preventDefault(); descargarIsocronas(); };
 
@@ -917,8 +918,8 @@ function descargarIsocronas(){
   aviso(tr('exp.done'),{ocultarEn:9000});
 }
 function descargarCSV(){
-  const filas=[['codigo','nombre','comuna','provincia','region','lat','lon'].join(',')];
-  ESTS.forEach(e=>filas.push([e.id??'',`"${e.name.replace(/"/g,'""')}"`,`"${e.comuna}"`,
+  const filas=[['id','codigo','nombre','comuna','provincia','region','lat','lon'].join(',')];
+  ESTS.forEach(e=>filas.push([e.id??'',e.code??'',`"${e.name.replace(/"/g,'""')}"`,`"${e.comuna}"`,
     `"${e.provincia}"`,`"${e.region}"`,e.lat,e.lon].join(',')));
   const blob=new Blob(['\ufeff'+filas.join('\n')],{type:'text/csv;charset=utf-8'});
   const a=document.createElement('a');a.href=URL.createObjectURL(blob);
