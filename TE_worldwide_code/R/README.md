@@ -19,8 +19,8 @@ Esta carpeta tiene los scripts del pipeline. Cada paso empieza con `source(file.
 
 | Script | Lee | Escribe |
 |---|---|---|
-| `01_download_worldbank.R` (opcional, internet, paquete `WDI`) | la lista de los 120 países de `data/raw/published_scores_2024.csv` y, para comparar, la instantánea `data/raw/worldbank_2026-09-27.csv` | `data/raw/worldbank_<fecha de hoy>.csv`; nunca sobrescribe la instantánea |
-| `02_download_owid.R` (opcional, internet) | el CSV de Our World in Data, descargado a una carpeta temporal, y los países de 2020 de `published_scores_2024.csv` | `data/raw/covid_2020_owid.csv` (lo sobrescribe) |
+| `01_download_worldbank.R` (opcional, internet, paquete `WDI`) | la lista de los 120 países de `data/raw/published_scores_2024.csv` y, para comparar, la instantánea `data/raw/worldbank_2026-09-27.csv` | `data/raw/worldbank_AAAA-MM-DD.csv`; nunca sobrescribe la instantánea |
+| `02_download_owid.R` (opcional, internet) | el CSV de Our World in Data, descargado a una carpeta temporal, y los países de 2020 de `published_scores_2024.csv` | `data/raw/covid_2020_owid_AAAA-MM-DD.csv`; nunca sobrescribe el archivo del artículo |
 | `03_build_dataset.R` | los tres archivos de `data/raw/` | `data/dataset_country_year.csv` |
 | `04_validate_extraction.R` | la base | `results/fresh_annual_scores.csv` |
 | `05_reference_sets_and_robustness.R` | `results/fresh_annual_scores.csv` | `results/robustness.rds`, `results/robustness_scores.csv` |
@@ -50,8 +50,8 @@ This folder holds the pipeline scripts. Every step starts with `source(file.path
 
 | Script | Reads | Writes |
 |---|---|---|
-| `01_download_worldbank.R` (optional, internet, `WDI` package) | the list of 120 countries in `data/raw/published_scores_2024.csv` and, for comparison, the snapshot `data/raw/worldbank_2026-09-27.csv` | `data/raw/worldbank_<today's date>.csv`; it never overwrites the snapshot |
-| `02_download_owid.R` (optional, internet) | the Our World in Data CSV, downloaded to a temporary folder, and the 2020 countries of `published_scores_2024.csv` | `data/raw/covid_2020_owid.csv` (it overwrites it) |
+| `01_download_worldbank.R` (optional, internet, `WDI` package) | the list of 120 countries in `data/raw/published_scores_2024.csv` and, for comparison, the snapshot `data/raw/worldbank_2026-09-27.csv` | `data/raw/worldbank_YYYY-MM-DD.csv`; it never overwrites the snapshot |
+| `02_download_owid.R` (optional, internet) | the Our World in Data CSV, downloaded to a temporary folder, and the 2020 countries of `published_scores_2024.csv` | `data/raw/covid_2020_owid_YYYY-MM-DD.csv`; it never overwrites the file of the article |
 | `03_build_dataset.R` | the three files in `data/raw/` | `data/dataset_country_year.csv` |
 | `04_validate_extraction.R` | the database | `results/fresh_annual_scores.csv` |
 | `05_reference_sets_and_robustness.R` | `results/fresh_annual_scores.csv` | `results/robustness.rds`, `results/robustness_scores.csv` |

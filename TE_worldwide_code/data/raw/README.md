@@ -14,7 +14,7 @@ Esta carpeta guarda las tres fuentes desde las que `R/03_build_dataset.R` arma l
 
 `worldbank_2026-09-27.csv` y `published_scores_2024.csv` tienen fin de línea CRLF; `read.csv` los lee igual.
 
-Si se vuelve a correr `R/01_download_worldbank.R`, el archivo nuevo queda en esta carpeta con la fecha del día en el nombre y la instantánea no se toca. `R/02_download_owid.R`, en cambio, sobrescribe `covid_2020_owid.csv`.
+Si se vuelve a correr `R/01_download_worldbank.R` o `R/02_download_owid.R`, el archivo nuevo queda en esta carpeta con la fecha del día en el nombre y los archivos del artículo no se tocan.
 
 ## English
 
@@ -28,4 +28,4 @@ This folder holds the three sources from which `R/03_build_dataset.R` builds the
 
 `worldbank_2026-09-27.csv` and `published_scores_2024.csv` use CRLF line endings; `read.csv` reads them all the same.
 
-If `R/01_download_worldbank.R` runs again, the new file lands in this folder with the day's date in its name and the snapshot is left untouched. `R/02_download_owid.R`, by contrast, overwrites `covid_2020_owid.csv`.
+If `R/01_download_worldbank.R` or `R/02_download_owid.R` runs again, the new file lands in this folder with the day's date in its name and the files of the article are left untouched.

@@ -55,10 +55,10 @@ La Figura S1 (paso 09) se dibuja con `png(type = "cairo")` y la familia tipográ
 Rscript run_all.R
 ```
 
-`run_all.R` se puede lanzar desde cualquier carpeta, porque se mueve a la suya. En R o RStudio:
+`run_all.R` se puede lanzar desde cualquier carpeta, porque se mueve a la suya. En R o RStudio hay que dejar antes como carpeta de trabajo la del proyecto, la que contiene `run_all.R` (con `setwd()` o, en RStudio, con Session > Set Working Directory), y después correr:
 
 ```r
-setwd("<carpeta de run_all.R>"); source("run_all.R")
+source("run_all.R")
 ```
 
 Un paso suelto se corre desde la carpeta del proyecto, por ejemplo `Rscript R/04_validate_extraction.R`; desde otra carpeta el script no encuentra `R/00_setup.R` ni `data/raw/` y se detiene. Como `data/` y `results/` vienen completos, cualquier paso desde el 04 se puede correr solo: cada uno lee lo que dejaron los anteriores.
@@ -71,15 +71,15 @@ Correr `run_all.R` sobrescribe los archivos de `results/`. Si quiere comparar un
 
 `run_all.R` empieza con `DOWNLOAD <- FALSE`. Con `TRUE`, antepone los pasos 01 y 02, que necesitan internet:
 
-- `01_download_worldbank.R` descarga los 15 indicadores con el paquete `WDI` y escribe un archivo nuevo, `data/raw/worldbank_<fecha de hoy>.csv`. Nunca sobrescribe la instantánea del artículo (se detiene si el nombre coincide) y muestra, por indicador, cuántas celdas difieren de ella. Para usar el archivo nuevo hay que apuntar `WB_FILE` en `R/00_setup.R` hacia él y volver a correr `run_all.R`.
-- `02_download_owid.R` descarga el CSV completo de Our World in Data (unos 100 MB, a una carpeta temporal) y **sobrescribe** `data/raw/covid_2020_owid.csv`, que es el archivo que usó el artículo. OWID sigue actualizando sus datos, así que el resultado puede cambiar; copie el archivo antes si quiere conservarlo.
+- `01_download_worldbank.R` descarga los 15 indicadores con el paquete `WDI` y escribe un archivo nuevo, `data/raw/worldbank_AAAA-MM-DD.csv`, con la fecha del día en el nombre. Nunca sobrescribe la instantánea del artículo (se detiene si el nombre coincide) y muestra, por indicador, cuántas celdas difieren de ella. Para usar el archivo nuevo hay que apuntar `WB_FILE` en `R/00_setup.R` hacia él y volver a correr `run_all.R`.
+- `02_download_owid.R` descarga el CSV completo de Our World in Data (unos 100 MB, a una carpeta temporal) y escribe un archivo nuevo, `data/raw/covid_2020_owid_AAAA-MM-DD.csv`, con la fecha del día en el nombre. Nunca sobrescribe `data/raw/covid_2020_owid.csv`, que es el archivo que usó el artículo. OWID sigue actualizando sus datos, así que el archivo nuevo puede diferir; para usarlo hay que apuntar `COVID_FILE` en `R/00_setup.R` hacia él y volver a correr `run_all.R`.
 
 ### Los pasos
 
 | Paso | Qué hace | Escribe | Partes del artículo |
 |---|---|---|---|
-| `01_download_worldbank.R` | descarga los 15 indicadores del Banco Mundial para los 120 países, 2015-2020 (opcional) | `data/raw/worldbank_<fecha>.csv` | Tabla S3 (lista de indicadores) |
-| `02_download_owid.R` | rehace las variables de la pandemia de los 59 países de la frontera de 2020 (opcional) | `data/raw/covid_2020_owid.csv` | insumo de la Tabla S17 |
+| `01_download_worldbank.R` | descarga los 15 indicadores del Banco Mundial para los 120 países, 2015-2020 (opcional) | `data/raw/worldbank_AAAA-MM-DD.csv` | Tabla S3 (lista de indicadores) |
+| `02_download_owid.R` | rehace las variables de la pandemia de los 59 países de la frontera de 2020 (opcional) | `data/raw/covid_2020_owid_AAAA-MM-DD.csv` | insumo de la Tabla S17 |
 | `03_build_dataset.R` | une las tres fuentes en una base de 720 filas (120 países por 6 años, 466 del análisis principal), interpola el único dato imputado (médicos de Albania 2018) y revisa dimensiones y faltantes | `data/dataset_country_year.csv` | base de los pasos siguientes |
 | `04_validate_extraction.R` | reestima por año las fronteras IO-CRS e IO-VRS con la extracción de 2026 y las compara con los puntajes publicados | `results/fresh_annual_scores.csv` | Sección 2.7 y apéndice de datos |
 | `05_reference_sets_and_robustness.R` | describe las fronteras publicadas y calcula la eficiencia de escala, la frontera agrupada, la muestra fija de 39 países, la frontera con gasto per cápita y las fronteras por grupo de ingreso con sus razones de brecha tecnológica | `results/robustness.rds`, `results/robustness_scores.csv` | Tablas 1 y 2, S6 a S8 y S10 a S13 |
@@ -94,7 +94,7 @@ Correr `run_all.R` sobrescribe los archivos de `results/`. Si quiere comparar un
 
 Las semillas y los tamaños de bootstrap están en `R/00_setup.R`: `SEED = 20260927` para los bootstrap de la segunda etapa, `SEED_COVID = 2020` para el modelo de la pandemia, 5.000 réplicas en cada Tobit (`B_TOBIT`), 2.000 en el algoritmo 1 de Simar y Wilson (`L_SW1`) y 100 y 1.000 en el algoritmo 2 (`L1_SW2`, `L2_SW2`).
 
-En una corrida con R 4.3.3 en Linux, `run_all.R` volvió a producir `results/` tal como está en el repositorio: los CSV, `Figure_S1.png` y los 15 fragmentos `.tex` salieron idénticos byte a byte, y los tres `.rds` con el mismo contenido (solo cambia su compresión).
+En una corrida con R 4.3.3 en Linux (lpSolve 5.6.20, AER 1.2.12, sandwich 3.1.0 y survival 3.5.8), `run_all.R` volvió a producir `results/` tal como está en el repositorio: los CSV, `Figure_S1.png`, los 15 fragmentos `.tex` y los tres `.rds` salieron idénticos byte a byte.
 
 Las medias y medianas anuales de los puntajes publicados que muestran las Tablas 1, S10 y S16 se recalculan aquí desde los valores con dos decimales, así que pueden diferir hasta en 0,005 de los valores sin redondear de la tesis que informa el artículo. Los fragmentos lo anotan en una línea de comentario.
 
@@ -162,10 +162,10 @@ Figure S1 (step 09) is drawn with `png(type = "cairo")` and the `Helvetica` font
 Rscript run_all.R
 ```
 
-`run_all.R` can be launched from any folder, because it moves to its own. In R or RStudio:
+`run_all.R` can be launched from any folder, because it moves to its own. In R or RStudio, first set the project folder, the one that holds `run_all.R`, as the working directory (with `setwd()` or, in RStudio, with Session > Set Working Directory) and then run:
 
 ```r
-setwd("<folder of run_all.R>"); source("run_all.R")
+source("run_all.R")
 ```
 
 A single step runs from the project folder, for example `Rscript R/04_validate_extraction.R`; from any other folder the script cannot find `R/00_setup.R` or `data/raw/` and stops. Since `data/` and `results/` ship complete, any step from 04 onwards can run on its own: each one reads what the previous steps left.
@@ -178,15 +178,15 @@ Running `run_all.R` overwrites the files in `results/`. Copy the folder first if
 
 `run_all.R` starts with `DOWNLOAD <- FALSE`. With `TRUE` it runs steps 01 and 02 first, which need internet access:
 
-- `01_download_worldbank.R` downloads the 15 indicators with the `WDI` package and writes a new file, `data/raw/worldbank_<today's date>.csv`. It never overwrites the snapshot of the article (it stops if the name matches) and reports, per indicator, how many cells differ from it. To use the new file, point `WB_FILE` in `R/00_setup.R` to it and run `run_all.R` again.
-- `02_download_owid.R` downloads the full Our World in Data CSV (about 100 MB, to a temporary folder) and **overwrites** `data/raw/covid_2020_owid.csv`, the file the article used. OWID keeps updating its data, so the result can change; copy the file first if you want to keep it.
+- `01_download_worldbank.R` downloads the 15 indicators with the `WDI` package and writes a new file, `data/raw/worldbank_YYYY-MM-DD.csv`, named with the day's date. It never overwrites the snapshot of the article (it stops if the name matches) and reports, per indicator, how many cells differ from it. To use the new file, point `WB_FILE` in `R/00_setup.R` to it and run `run_all.R` again.
+- `02_download_owid.R` downloads the full Our World in Data CSV (about 100 MB, to a temporary folder) and writes a new file, `data/raw/covid_2020_owid_YYYY-MM-DD.csv`, named with the day's date. It never overwrites `data/raw/covid_2020_owid.csv`, the file the article used. OWID keeps updating its data, so the new file can differ; to use it, point `COVID_FILE` in `R/00_setup.R` to it and run `run_all.R` again.
 
 ### The steps
 
 | Step | What it does | Writes | Parts of the article |
 |---|---|---|---|
-| `01_download_worldbank.R` | downloads the 15 World Bank indicators for the 120 countries, 2015-2020 (optional) | `data/raw/worldbank_<date>.csv` | Table S3 (list of indicators) |
-| `02_download_owid.R` | rebuilds the pandemic variables of the 59 countries of the 2020 frontier (optional) | `data/raw/covid_2020_owid.csv` | input of Table S17 |
+| `01_download_worldbank.R` | downloads the 15 World Bank indicators for the 120 countries, 2015-2020 (optional) | `data/raw/worldbank_YYYY-MM-DD.csv` | Table S3 (list of indicators) |
+| `02_download_owid.R` | rebuilds the pandemic variables of the 59 countries of the 2020 frontier (optional) | `data/raw/covid_2020_owid_YYYY-MM-DD.csv` | input of Table S17 |
 | `03_build_dataset.R` | joins the three sources into a 720-row database (120 countries by 6 years, 466 in the main analysis), interpolates the only imputed value (physicians of Albania 2018) and checks dimensions and missing values | `data/dataset_country_year.csv` | basis of the following steps |
 | `04_validate_extraction.R` | re-estimates the annual IO-CRS and IO-VRS frontiers with the 2026 extraction and compares them with the published scores | `results/fresh_annual_scores.csv` | Section 2.7 and the data appendix |
 | `05_reference_sets_and_robustness.R` | describes the published frontiers and computes scale efficiency, the pooled frontier, the fixed sample of 39 countries, the per-capita expenditure frontier and the income-group frontiers with their technology gap ratios | `results/robustness.rds`, `results/robustness_scores.csv` | Tables 1 and 2, S6 to S8 and S10 to S13 |
@@ -201,7 +201,7 @@ Running `run_all.R` overwrites the files in `results/`. Copy the folder first if
 
 Seeds and bootstrap sizes are set in `R/00_setup.R`: `SEED = 20260927` for the second-stage bootstraps, `SEED_COVID = 2020` for the pandemic model, 5,000 replicates for every Tobit model (`B_TOBIT`), 2,000 for Simar and Wilson's Algorithm 1 (`L_SW1`) and 100 and 1,000 for Algorithm 2 (`L1_SW2`, `L2_SW2`).
 
-In a run with R 4.3.3 on Linux, `run_all.R` produced `results/` again exactly as it is in the repository: the CSV files, `Figure_S1.png` and the 15 `.tex` fragments came out byte-identical, and the three `.rds` files with the same content (only their compression differs).
+In a run with R 4.3.3 on Linux (lpSolve 5.6.20, AER 1.2.12, sandwich 3.1.0 and survival 3.5.8), `run_all.R` produced `results/` again exactly as it is in the repository: the CSV files, `Figure_S1.png`, the 15 `.tex` fragments and the three `.rds` files came out byte-identical.
 
 The annual means and medians of the published scores shown in Tables 1, S10 and S16 are recomputed here from the two-decimal values, so they can differ by up to 0.005 from the unrounded thesis values that the article reports. The fragments note this in a comment line.
 

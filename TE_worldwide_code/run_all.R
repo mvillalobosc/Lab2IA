@@ -4,7 +4,7 @@
 # a global frontier, 2015-2020" from the data shipped in data/. Total run time: about 4 minutes on one core.
 #
 #   Rscript run_all.R          (from any folder; the script moves to its own folder)
-#   or, in R/RStudio:          setwd("<folder of this file>"); source("run_all.R")
+#   or, in R/RStudio:          source("run_all.R"), with the folder of this file as the working directory
 #
 # Steps (results go to results/, LaTeX table fragments to results/tables/):
 #   01_download_worldbank.R            optional: re-downloads the World Bank indicators (needs internet; package WDI)

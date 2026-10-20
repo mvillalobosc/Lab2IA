@@ -6,7 +6,9 @@
 #   deaths_pm  cumulative confirmed deaths per million people on that day
 #   r_mean     mean over the days of 2020 of the daily effective reproduction number (Arroyo-Marioli et al. 2021,
 #              as distributed by OWID); r_days = number of days with an estimate (Laos has none)
-# Output: data/raw/covid_2020_owid.csv (the shipped file is the extraction used in the paper; this script rebuilds it).
+# Output: data/raw/covid_2020_owid_YYYY-MM-DD.csv, a new file named with the download date. The shipped
+# data/raw/covid_2020_owid.csv is the extraction used in the paper and is never overwritten; to use the new file,
+# point COVID_FILE in R/00_setup.R to it and run run_all.R again.
 # The 100 MB source file is downloaded to a temporary folder and is not kept in the repository.
 # =====================================================================
 source(file.path("R", "00_setup.R"))
@@ -39,5 +41,6 @@ out <- do.call(rbind, lapply(codes, function(cc) {
 }))
 message("countries without OWID rows: ", paste(setdiff(codes, owid$iso_code), collapse = ", "))
 message("countries without a reproduction-number estimate: ", paste(out$code[out$r_days == 0], collapse = ", "))
-write.csv(out, COVID_FILE, row.names = FALSE, na = "")
-message("saved ", COVID_FILE)
+target <- file.path(RAW, paste0("covid_2020_owid_", format(Sys.Date(), "%Y-%m-%d"), ".csv"))
+write.csv(out, target, row.names = FALSE, na = "")
+message("saved ", target, "; to use it, point COVID_FILE in R/00_setup.R to it")
