@@ -2,7 +2,7 @@
 # genera_corpus_demo.R : corpus sintetico para verificar el pipeline completo.
 #   36 libros (3 por nivel, 12 niveles) con complejidad lexica, largo de
 #   oracion y carga afectiva graduadas por nivel. Incluye a proposito:
-#     1 titulo duplicado con contenido identico en niveles 3 y 6
+#     1 titulo duplicado con contenido identico en niveles 2 y 4
 #     1 fila del catalogo con archivo inexistente (ejercita exclusion)
 #     1 libro corto bajo min_palabras (ejercita advertencia)
 #   Uso: Rscript demo/genera_corpus_demo.R
@@ -103,7 +103,7 @@ for (i in seq_along(titulos)) {
   n_obj <- 1200 + 140 * nv + sample(0:300, 1)
   if (i == 7) n_obj <- 180   # libro corto a proposito: dispara advertencia
   txt <- libro(nv, n_obj)
-  # duplicado exacto: "La cenicienta" del nivel 3 (i = 5) se copia al 6 (i = 12)
+  # duplicado exacto: "La cenicienta" del nivel 2 (i = 5) se copia al 4 (i = 12)
   if (i == 12) txt <- readLines("demo/textos/05_la_cenicienta.txt",
                                 warn = FALSE) |> paste(collapse = "\n")
   writeLines(txt, file.path("demo/textos", archivo), useBytes = TRUE)

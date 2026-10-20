@@ -92,11 +92,11 @@ El primer comando crea 36 libros sintéticos en `demo/textos/` y el catálogo `d
 
 ### Control de versiones
 
-El `.gitignore` de la raíz del repositorio Lab2IA ignora `datos/textos/`, `output/`, `models/`, `demo/textos/` y `demo/catalogo_demo.xlsx`, así que los libros, las salidas, el modelo y el corpus de demo no se suben aunque estén en la carpeta. `mapeo_confirmado.csv` no está ignorado, porque guarda decisiones de emparejamiento revisadas a mano.
+El `.gitignore` de la raíz del repositorio Lab2IA ignora `datos/textos/`, `output/`, `models/`, `demo/textos/`, `demo/catalogo_demo.xlsx` y los zip de Drive (`drive-download*.zip` y `Libros*.zip`) que queden en la carpeta del proyecto, así que los libros, las salidas, el modelo y el corpus de demo no se suben aunque estén en la carpeta. `mapeo_confirmado.csv` no está ignorado, porque guarda decisiones de emparejamiento revisadas a mano.
 
 ### Los números del paper
 
-Las tablas de `resultados/tablas` son las del manuscrito: `estadistica_kw_jt_completo.csv` (Kruskal-Wallis, Jonckheere-Terpstra con 2000 permutaciones, epsilon cuadrado y Cliff), `estadistica_gam_por_metrica.csv` y `gam_predicciones.csv` (trayectorias), `libros_desajustados.csv` (predicción de nivel y screening) y `metricas_maestras_por_libro.csv` (las métricas de cada obra, el listado que promete el apéndice). Correr `run_all.R` sobre los textos regenera estas tablas en `output/tablas` con la misma semilla (`config$semilla`), salvo `gam_predicciones.csv`: `R/10_estadistica_nivel.R` calcula esas predicciones para dibujar `10_gam_trayectorias`, pero no las guarda en un CSV. Las ocho figuras de `resultados/figuras_paper/` tampoco salen de ningún script del repositorio. [resultados/README.md](resultados/README.md) da el detalle.
+Las tablas de `resultados/tablas` son las del manuscrito: `estadistica_kw_jt_completo.csv` (Kruskal-Wallis, Jonckheere-Terpstra con 2000 permutaciones, epsilon cuadrado y Cliff), `estadistica_gam_por_metrica.csv` y `gam_predicciones.csv` (trayectorias), `libros_desajustados.csv` (predicción de nivel y screening) y `metricas_maestras_por_libro.csv` (las métricas de cada obra, el listado que promete el apéndice). Correr `run_all.R` sobre los textos regenera estas tablas en `output/tablas` con la misma semilla (`config$semilla`). Ningún script del repositorio produce las ocho figuras de `resultados/figuras_paper/`. [resultados/README.md](resultados/README.md) da el detalle.
 
 ### Autoría y licencia
 
@@ -192,11 +192,11 @@ The first command creates 36 synthetic books in `demo/textos/` and the catalogue
 
 ### Version control
 
-The `.gitignore` at the root of the Lab2IA repository ignores `datos/textos/`, `output/`, `models/`, `demo/textos/` and `demo/catalogo_demo.xlsx`, so the books, the outputs, the model and the demo corpus are not uploaded even if they sit in the folder. `mapeo_confirmado.csv` is not ignored, because it stores matching decisions reviewed by hand.
+The `.gitignore` at the root of the Lab2IA repository ignores `datos/textos/`, `output/`, `models/`, `demo/textos/`, `demo/catalogo_demo.xlsx` and the Drive zips (`drive-download*.zip` and `Libros*.zip`) left in the project folder, so the books, the outputs, the model and the demo corpus are not uploaded even if they sit in the folder. `mapeo_confirmado.csv` is not ignored, because it stores matching decisions reviewed by hand.
 
 ### The numbers in the paper
 
-The tables in `resultados/tablas` are the ones in the manuscript: `estadistica_kw_jt_completo.csv` (Kruskal-Wallis, Jonckheere-Terpstra with 2000 permutations, epsilon squared and Cliff), `estadistica_gam_por_metrica.csv` and `gam_predicciones.csv` (trajectories), `libros_desajustados.csv` (grade prediction and screening) and `metricas_maestras_por_libro.csv` (the metrics of each work, the listing promised in the appendix). Running `run_all.R` on the texts regenerates these tables in `output/tablas` with the same seed (`config$semilla`), except `gam_predicciones.csv`: `R/10_estadistica_nivel.R` computes those predictions to draw `10_gam_trayectorias`, but does not save them to a CSV. The eight figures in `resultados/figuras_paper/` do not come from any script in the repository either. [resultados/README.md](resultados/README.md) has the details.
+The tables in `resultados/tablas` are the ones in the manuscript: `estadistica_kw_jt_completo.csv` (Kruskal-Wallis, Jonckheere-Terpstra with 2000 permutations, epsilon squared and Cliff), `estadistica_gam_por_metrica.csv` and `gam_predicciones.csv` (trajectories), `libros_desajustados.csv` (grade prediction and screening) and `metricas_maestras_por_libro.csv` (the metrics of each work, the listing promised in the appendix). Running `run_all.R` on the texts regenerates these tables in `output/tablas` with the same seed (`config$semilla`). No script in the repository produces the eight figures in `resultados/figuras_paper/`. [resultados/README.md](resultados/README.md) has the details.
 
 ### Authorship and licence
 

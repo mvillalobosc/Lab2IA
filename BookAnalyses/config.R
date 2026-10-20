@@ -8,12 +8,13 @@ config <- list(
   version_pipeline = "2026-08-19-b",
 
   # --- RUTAS -----------------------------------------------------------------
-  # Catalogo real (hoja Libros de Principal_guia.xlsx). Los textos van en
-  # datos/textos con nombre parecido al titulo; el emparejamiento es por
-  # titulo normalizado y queda auditable en output/tablas/mapeo_archivos.csv.
-  # Para el smoke test sintetico: ruta_xlsx = "demo/catalogo_demo.xlsx",
-  # carpeta_textos = "demo/textos", col_titulo = "Titulo",
-  # col_archivo = "Archivo", col_nivel = "Curso", filtros vacios list().
+  # Estos valores apuntan al corpus sintetico del demo, que se crea con
+  # Rscript demo/genera_corpus_demo.R. Para el catalogo real (hoja Libros de
+  # datos/Principal_guia.xlsx, textos en datos/textos con el numero de
+  # catalogo como prefijo del nombre) hay que cambiar las rutas, las
+  # columnas, los filtros y pvclust_nboot como indica la seccion "Configurar
+  # el catalogo real" del README. El emparejamiento queda auditable en
+  # output/tablas/mapeo_archivos.csv.
   # Carpeta de Drive con los textos. El enlace no se versiona: se lee de la
   # variable de entorno BOOKANALYSES_DRIVE_URL, que se define una vez con una
   # linea en ~/.Renviron que diga BOOKANALYSES_DRIVE_URL= seguido del enlace
@@ -30,7 +31,7 @@ config <- list(
   # Nombres exactos de las columnas. col_archivo = NA: se empareja por titulo.
   col_titulo  = "Titulo",
   col_archivo = "Archivo",
-  col_nivel   = "Curso",
+  col_nivel   = "Curso",  # acepta "5 basico", "3 o 4 medio", listas con coma
   col_autor   = NA,     # para el emparejador por contenido
   col_numero  = NA,       # los archivos del Drive van prefijados con este
                              # numero ("0639_Titulo.pdf"): match deterministico
@@ -41,7 +42,9 @@ config <- list(
   # --- EMPAREJADOR POR CONTENIDO (R/emparejar_contenido.R) -------------------
   umbral_auto     = 70,      # puntaje minimo para asignar automatico
   margen_auto     = 15,      # ventaja minima sobre el segundo candidato
-  n_chars_inicio  = 2500,    # cuanto texto inicial se usa para reconocer    # acepta "5 basico", "3 o 4 medio", listas con coma
+  n_chars_inicio  = 2500,    # cuanto texto inicial se usa para reconocer
+  umbral_auto_emparejador = 0.3,  # 01_ingesta corre el emparejador solo si
+                                  # queda sin archivo mas de esta fraccion
 
   # --- FILTROS DEL CATALOGO ---------------------------------------------------
   # filtros_mantener: conserva solo las filas con esos valores exactos.

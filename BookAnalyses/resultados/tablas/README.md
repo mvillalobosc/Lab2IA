@@ -4,7 +4,7 @@
 
 ## Español
 
-Estas 24 tablas CSV (UTF-8, separadas por coma) salen de la corrida del manuscrito y llevan los mismos nombres que escriben los módulos en `output/tablas`. La columna "Módulo" dice qué script de [R/](../../R/) produce cada una; la única que no sale de ningún script es `gam_predicciones.csv`. Los libros se identifican con `id_libro` (o `doc_id`, el mismo código `L0001`, `L0002`...) y los niveles van de 1 a 12. Vuelve a [resultados/](../README.md).
+Estas 24 tablas CSV (UTF-8, separadas por coma) salen de la corrida del manuscrito y llevan los mismos nombres que escriben los módulos en `output/tablas`. La columna "Módulo" dice qué script de [R/](../../R/) produce cada una. Los libros se identifican con `id_libro` (o `doc_id`, el mismo código `L0001`, `L0002`...) y los niveles van de 1 a 12. Vuelve a [resultados/](../README.md).
 
 | Archivo | Filas | Qué contiene | Módulo |
 |---|---|---|---|
@@ -30,12 +30,12 @@ Estas 24 tablas CSV (UTF-8, separadas por coma) salen de la corrida del manuscri
 | `estadistica_kw_jt_completo.csv` | 24 | Por métrica: Kruskal-Wallis (H, p y p Holm), epsilon cuadrado, Jonckheere-Terpstra con 2000 permutaciones y su dirección, y delta de Cliff entre los niveles 1 y 12 y entre básica inicial y media. | 10 |
 | `estadistica_dunn_significativos_completo.csv` | 323 | Los pares de niveles que difieren en la prueba de Dunn con corrección de Holm. | 10 |
 | `estadistica_gam_por_metrica.csv` | 24 | El suavizado del GAM de cada métrica sobre el nivel: grados efectivos, F, p y desviación explicada. | 10 |
-| `gam_predicciones.csv` | 1.080 | Las trayectorias ajustadas por el GAM para las 24 métricas, del nivel 1 al 12 cada 0,25, con error estándar (`metrica`, `nivel`, `ajuste`, `se`). Ningún script la escribe: `R/10_estadistica_nivel.R` calcula estas predicciones solo para dibujar su figura. | ninguno |
+| `gam_predicciones.csv` | 1.080 | Las trayectorias ajustadas por el GAM para las 24 métricas, del nivel 1 al 12 cada 0,25, con error estándar (`metrica`, `nivel`, `ajuste`, `se`). | 10 |
 | `libros_desajustados.csv` | 577 | Nivel asignado y nivel predicho por la regresión ordinal con LOOCV, la diferencia, el modelo usado (575 con `polr`) y las métricas extremas según un puntaje z con mediana y MAD dentro del nivel. | 11 |
 
 ## English
 
-These 24 CSV tables (UTF-8, comma separated) come from the manuscript run and carry the same names the modules write to `output/tablas`. The "Module" column says which script in [R/](../../R/) produces each one; the only one that no script writes is `gam_predicciones.csv`. Books are identified by `id_libro` (or `doc_id`, the same `L0001`, `L0002`... code) and grades run from 1 to 12. Back to [resultados/](../README.md).
+These 24 CSV tables (UTF-8, comma separated) come from the manuscript run and carry the same names the modules write to `output/tablas`. The "Module" column says which script in [R/](../../R/) produces each one. Books are identified by `id_libro` (or `doc_id`, the same `L0001`, `L0002`... code) and grades run from 1 to 12. Back to [resultados/](../README.md).
 
 | File | Rows | What it holds | Module |
 |---|---|---|---|
@@ -61,5 +61,5 @@ These 24 CSV tables (UTF-8, comma separated) come from the manuscript run and ca
 | `estadistica_kw_jt_completo.csv` | 24 | Per metric: Kruskal-Wallis (H, p and Holm p), epsilon squared, Jonckheere-Terpstra with 2000 permutations and its direction, and Cliff's delta between grades 1 and 12 and between early primary and secondary. | 10 |
 | `estadistica_dunn_significativos_completo.csv` | 323 | The pairs of grades that differ in Dunn's test with Holm correction. | 10 |
 | `estadistica_gam_por_metrica.csv` | 24 | The GAM smooth of each metric over grade: effective degrees of freedom, F, p and deviance explained. | 10 |
-| `gam_predicciones.csv` | 1,080 | The GAM-fitted trajectories for the 24 metrics, from grade 1 to 12 every 0.25, with standard error (`metrica`, `nivel`, `ajuste`, `se`). No script writes it: `R/10_estadistica_nivel.R` computes these predictions only to draw its figure. | none |
+| `gam_predicciones.csv` | 1,080 | The GAM-fitted trajectories for the 24 metrics, from grade 1 to 12 every 0.25, with standard error (`metrica`, `nivel`, `ajuste`, `se`). | 10 |
 | `libros_desajustados.csv` | 577 | Assigned grade and the grade predicted by ordinal regression with LOOCV, the difference, the model used (575 with `polr`) and the extreme metrics according to a z-score based on the median and MAD within the grade. | 11 |

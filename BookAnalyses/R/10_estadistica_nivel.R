@@ -97,6 +97,7 @@ gam_tab <- dplyr::bind_rows(gam_out) %>% dplyr::arrange(p_suavizado)
 guardar_tabla(gam_tab, "estadistica_gam_por_metrica")
 
 pred <- dplyr::bind_rows(pred_out)
+guardar_tabla(pred, "gam_predicciones")
 sel_fig <- head(gam_tab$metrica, 8)
 p_gam <- pred %>% dplyr::filter(metrica %in% sel_fig) %>%
   ggplot2::ggplot(ggplot2::aes(nivel, ajuste)) +
