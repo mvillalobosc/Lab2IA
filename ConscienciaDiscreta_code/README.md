@@ -4,7 +4,7 @@
 
 ## Español
 
-Este proyecto contiene el código en R, los datos y los resultados del manuscrito *Evaluating discrete and continuous conscious access with NSGA-III: a design study contrasted with two-flash fusion data* (Villalobos-Cid). El trabajo pregunta qué esquema de acceso a un sustrato neural continuo debería preferir un sistema perceptivo cuando la exactitud, la resolución temporal, la latencia y el costo del acceso están en conflicto.
+Este proyecto contiene el código en R, los datos y los resultados del manuscrito *Evaluating discrete and continuous conscious access with NSGA-III: a design study contrasted with two-flash fusion data* (Villalobos-Cid y Baladrón). El trabajo pregunta qué esquema de acceso a un sustrato neural continuo debería preferir un sistema perceptivo cuando la exactitud, la resolución temporal, la latencia y el costo del acceso están en conflicto.
 
 Un integrador con fuga modela el sustrato continuo y cuatro compuertas de lectura modelan el acceso a él: lectura continua, lectura continua con un umbral que oscila (continua modulada), lectura periódica y lectura por eventos. En una tarea simulada de fusión de dos pulsos, NSGA-III busca los parámetros de cada arquitectura minimizando cuatro objetivos: la tasa de error, el umbral de fusión, la latencia de acceso y el costo en lecturas por segundo. El código valida el optimizador (parametrización, prueba de convergencia de 1500 generaciones, 11 semillas y una búsqueda aleatoria con el mismo número de evaluaciones), compara las arquitecturas, ajusta los modelos a datos conductuales (observadores sintéticos y dos experimentos públicos de fusión de dos destellos) y simula huecos de acceso para ver si el agente los nota desde dentro.
 
@@ -78,7 +78,7 @@ Las rodillas y las ausencias del artículo son las de `post_hoc/resultados/`. Ah
 
 ### Cómo citar
 
-Villalobos-Cid, M. (2026). *Evaluating discrete and continuous conscious access with NSGA-III: a design study contrasted with two-flash fusion data*. Manuscrito.
+Villalobos-Cid, M., y Baladrón, J. (2026). *Evaluating discrete and continuous conscious access with NSGA-III: a design study contrasted with two-flash fusion data*. Manuscrito.
 
 Si usa los datos humanos, cite también a Deodato y Melcher (2024) y a Haarlem et al. (2024), como indica `datos_reales/README.md`.
 
@@ -94,7 +94,7 @@ El código tiene licencia MIT (ver `LICENSE`). Los datos de `datos_reales/` cons
 
 ## English
 
-This project contains the R code, data and results of the manuscript *Evaluating discrete and continuous conscious access with NSGA-III: a design study contrasted with two-flash fusion data* (Villalobos-Cid). The work asks which scheme of access to a continuous neural substrate a perceptual system should prefer when accuracy, temporal resolution, latency and the cost of access are in conflict.
+This project contains the R code, data and results of the manuscript *Evaluating discrete and continuous conscious access with NSGA-III: a design study contrasted with two-flash fusion data* (Villalobos-Cid and Baladrón). The work asks which scheme of access to a continuous neural substrate a perceptual system should prefer when accuracy, temporal resolution, latency and the cost of access are in conflict.
 
 A leaky integrator models the continuous substrate, and four reading gates model the access to it: continuous reading, continuous reading against an oscillating threshold (modulated continuous), periodic reading and event reading. In a simulated two-pulse fusion task, NSGA-III searches the parameters of each architecture by minimising four objectives: the error rate, the fusion threshold, the access latency and the cost in reads per second. The code validates the optimiser (parametrisation, a 1500-generation convergence test, 11 seeds and a random search with the same number of evaluations), compares the architectures, fits the models to behavioural data (synthetic observers and two public two-flash fusion experiments) and simulates access gaps to check if the agent notices them from the inside.
 
@@ -168,7 +168,7 @@ The knees and absences of the paper are the ones in `post_hoc/resultados/`. Ther
 
 ### How to cite
 
-Villalobos-Cid, M. (2026). *Evaluating discrete and continuous conscious access with NSGA-III: a design study contrasted with two-flash fusion data*. Manuscript.
+Villalobos-Cid, M., & Baladrón, J. (2026). *Evaluating discrete and continuous conscious access with NSGA-III: a design study contrasted with two-flash fusion data*. Manuscript.
 
 If you use the human data, please also cite Deodato and Melcher (2024) and Haarlem et al. (2024), as `datos_reales/README.md` indicates.
 
