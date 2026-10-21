@@ -35,6 +35,8 @@ ROOT <- .this_dir()
   stop("config.R not found: run this from inside the MOPhyloKmer repository.")
 }
 PROJ <- .project_root(ROOT)
+# run on its own: take the settings from config.R (run_experiments.R and run_random_search.R load it first)
+if (!exists("N_RUNS", inherits = TRUE)) source(file.path(PROJ, "config.R"))
 MOSA_R <- file.path(PROJ, "algorithms", "mosa", "R")   # reutiliza los modulos de MOSA
 source(file.path(MOSA_R, "packages.R"))
 for (.f in list.files(MOSA_R, pattern = "\\.R$", full.names = TRUE))

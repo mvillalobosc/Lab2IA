@@ -30,7 +30,7 @@ HV_BASE <- (2 - 0.1) * (2 - 0.1)   # 3.61: base tree normalised at (0.1,0.1), id
 HV_MAX  <- 4
 
 TUNE_ONLY <- TRUE; VERBOSE <- FALSE; PARALLEL <- FALSE
-SEQ_TYPE <- "DNA"; K <- 5; N_RUNS <- 1
+K <- 5; N_RUNS <- 1                    # SEQ_TYPE (one type per data set) comes from config.R
 DATA_DIR    <- file.path(ROOT, "data")
 RESULTS_DIR <- tempdir()
 source(file.path(ROOT, "algorithms", "mosa", "run_mosa.R"))          # defines run_once_mosa
@@ -49,6 +49,7 @@ target_runner <- function(experiment, scenario) {
   ALPHA      <<- as.numeric(conf[["ALPHA"]])
   DATASET    <<- experiment$instance
   SEED    <<- as.integer(experiment$seed)
+  # the cost uses hv_best (best single tree), not hv_archive
   out <- tryCatch(run_once_mosa(1L),
                   error = function(e) data.frame(hv_best = NA_real_, seconds = NA_real_))
   if (is.na(out$hv_best)) return(list(cost = 1e6))

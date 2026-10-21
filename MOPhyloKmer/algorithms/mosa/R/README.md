@@ -9,8 +9,8 @@ Esta carpeta tiene los módulos de MOSA, que también usa la búsqueda aleatoria
 | Archivo | Función | Qué hace |
 |---|---|---|
 | `packages.R` | | Carga los 13 paquetes del proyecto sin instalar ni actualizar nada y se detiene con la lista de los que faltan. Es idéntico al de `nsga2/R/`. |
-| `lectura_secuencia.R` | `read_sequences(ruta_archivo, tipo)` | Lee un archivo PHYLIP con `ape::read.dna()` o `ape::read.aa()` según el tipo y lo devuelve como `phyDat`. Hace lo mismo que `nsga2/R/lectura_secuencias.R`, con otro nombre de archivo. |
-| `crear_arbol_base.R` | `build_base_tree(sequences, k)` | Construye el árbol base con distancias de k-meros y NJ, igual que la versión de `nsga2/R/`, y además guarda la matriz observada en `$dist_original`, contra la que se mide LS. |
+| `lectura_secuencia.R` | `read_sequences(ruta_archivo, tipo)` | Lee un archivo PHYLIP como ADN con `ape::read.dna()` o como proteína con `phangorn::read.phyDat()` según el tipo y lo devuelve como `phyDat`. Hace lo mismo que `nsga2/R/lectura_secuencias.R`, con otro nombre de archivo. |
+| `crear_arbol_base.R` | `build_base_tree(sequences, k)` | Construye el árbol base con distancias de k-meros sobre las secuencias completas y NJ, igual que la versión de `nsga2/R/`, y además guarda la matriz observada en `$dist_original`, contra la que se mide LS. |
 | `calcular_objetivos.R` | `compute_objectives(tree)` | Calcula ME (suma de los largos de rama) y LS (suma de las diferencias absolutas entre `$dist_original` y las distancias cofenéticas) de un árbol. |
 | `calcular_objetivos_normalizados.R` | `compute_normalized_objectives(tree, max_ls, max_me)` | Divide LS y ME por los máximos de normalización (10 veces los valores del árbol base). |
 | `calcular_hypervolumen.R` | `compute_hypervolume(tree)` | Calcula con `ecr::computeHV()` el hipervolumen de una sola solución respecto del punto (2, 2) y lo guarda en `$scores$hyp`. |
@@ -23,8 +23,8 @@ This folder holds the MOSA modules, which the Random Search in [rs/](../../rs/) 
 | File | Function | What it does |
 |---|---|---|
 | `packages.R` | | Loads the 13 project packages without installing or updating anything and stops with the list of missing ones. It is identical to the one in `nsga2/R/`. |
-| `lectura_secuencia.R` | `read_sequences(ruta_archivo, tipo)` | Reads a PHYLIP file with `ape::read.dna()` or `ape::read.aa()` depending on the type and returns it as `phyDat`. It does the same as `nsga2/R/lectura_secuencias.R`, under another file name. |
-| `crear_arbol_base.R` | `build_base_tree(sequences, k)` | Builds the base tree from k-mer distances and NJ, like the `nsga2/R/` version, and also stores the observed matrix in `$dist_original`, against which LS is measured. |
+| `lectura_secuencia.R` | `read_sequences(ruta_archivo, tipo)` | Reads a PHYLIP file as DNA with `ape::read.dna()` or as protein with `phangorn::read.phyDat()` depending on the type and returns it as `phyDat`. It does the same as `nsga2/R/lectura_secuencias.R`, under another file name. |
+| `crear_arbol_base.R` | `build_base_tree(sequences, k)` | Builds the base tree from k-mer distances on the full sequences and NJ, like the `nsga2/R/` version, and also stores the observed matrix in `$dist_original`, against which LS is measured. |
 | `calcular_objetivos.R` | `compute_objectives(tree)` | Computes ME (sum of branch lengths) and LS (sum of the absolute differences between `$dist_original` and the cophenetic distances) of a tree. |
 | `calcular_objetivos_normalizados.R` | `compute_normalized_objectives(tree, max_ls, max_me)` | Divides LS and ME by the normalisation maxima (10 times the values of the base tree). |
 | `calcular_hypervolumen.R` | `compute_hypervolume(tree)` | Computes with `ecr::computeHV()` the hypervolume of a single solution with respect to the point (2, 2) and stores it in `$scores$hyp`. |

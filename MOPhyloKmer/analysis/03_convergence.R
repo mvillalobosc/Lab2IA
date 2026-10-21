@@ -34,4 +34,4 @@ p <- ggplot(ag, aes(eval, media, colour = method, fill = method)) +
   theme_pub(11)
 save_plot(p, "convergence", w = 11, h = 8)
 
-cat("Convergencia lista en ", OUT_DIR, "\n")
+cat("Convergence figure in ", OUT_DIR, "\n")

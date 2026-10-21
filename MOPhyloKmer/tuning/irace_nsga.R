@@ -33,7 +33,7 @@ HV_MAX  <- 4
 
 # --- globals needed by run_once (without executing the batch) -----------
 TUNE_ONLY <- TRUE; VERBOSE <- FALSE; PARALLEL <- FALSE
-SEQ_TYPE <- "DNA"; K <- 5; N_RUNS <- 1
+K <- 5; N_RUNS <- 1                    # SEQ_TYPE (one type per data set) comes from config.R
 DATA_DIR    <- file.path(ROOT, "data")
 RESULTS_DIR <- tempdir()               # writes go to a temporary folder
 source(file.path(ROOT, "algorithms", "nsga2", "run_nsga.R"))   # defines run_once_nsga

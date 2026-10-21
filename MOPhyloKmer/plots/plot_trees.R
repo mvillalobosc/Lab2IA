@@ -79,7 +79,7 @@ best_nwk <- function(algo) {
   res <- file.path(RESULTS_DIR, sprintf("resumen_%s_%s.csv", algo, dataset))
   if (file.exists(res)) {
     r  <- read.csv(res)
-    hv <- if ("hv_best" %in% names(r)) r$hv_best else r$hv_max
+    hv <- if ("hv_archive" %in% names(r)) r$hv_archive else if ("hv_best" %in% names(r)) r$hv_best else r$hv_max
     files[which.max(hv)]
   } else files[1]
 }

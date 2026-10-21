@@ -67,7 +67,7 @@ ecr  ape  seqinr  kmer  phylotools  phangorn  stringr
 phytools  treespace  igraph  ggplot2  factoextra  insect
 ```
 
-`algorithms/*/R/packages.R` solo carga esos paquetes, nunca los instala ni los actualiza: si falta alguno, se detiene con la lista de lo que hay que instalar. Antes de cargarlos, antepone a `.libPaths()` la biblioteca de usuario `~/R/x86_64-pc-linux-gnu-library/4.3` y la crea si no existe, aunque el sistema no sea Linux ni R 4.3.
+`algorithms/*/R/packages.R` solo carga esos paquetes, nunca los instala ni los actualiza: si falta alguno, se detiene con la lista de lo que hay que instalar. Antes de cargarlos, antepone a `.libPaths()` la biblioteca de usuario que R usa por defecto en tu sistema y versión (la primera ruta de `R_LIBS_USER`, por ejemplo `~/R/x86_64-pc-linux-gnu-library/4.3` en Linux con R 4.3) y la crea si no existe.
 
 Los paquetes extra sí se instalan solos si faltan: `irace` (solo para el afinado), `plotly` y `htmlwidgets` (para `plots/plot_convergence.R` y `plots/plot_fronts.R`) y `ggtree` de Bioconductor, con `BiocManager` (solo para `plots/plot_trees.R`). El análisis de `analysis/` necesita `ggplot2` y usa `dplyr`, `tidyr` y `scales` cuando están instalados. `PARALLEL = TRUE` usa el paquete base `parallel`.
 
@@ -94,7 +94,7 @@ Rscript tuning/run_tuning.R      # produce tuning/best_nsga.csv y tuning/best_mo
 
 Cada script encuentra por sí mismo la raíz del repositorio (sube carpetas hasta dar con `config.R`), así que funciona con `Rscript`, con `source()` en RStudio y desde cualquier directorio de trabajo.
 
-Los drivers de `algorithms/` también corren sueltos (por ejemplo `Rscript algorithms/nsga2/run_nsga.R`), pero en ese caso no leen `config.R`: usan sus valores internos, que no coinciden con los de `config.R`. El [README de algorithms/](algorithms/README.md) los lista. Para reproducir el experimento, lánzalos siempre desde `main.R`, `run_experiments.R` o `run_random_search.R`.
+Los drivers de `algorithms/` también corren sueltos (por ejemplo `Rscript algorithms/nsga2/run_nsga.R`). En ese caso cargan `config.R` por su cuenta y usan los mismos valores que el experimento; el [README de algorithms/](algorithms/README.md#valores-por-defecto-al-correrlos-sueltos) explica cómo.
 
 ### Configuración
 
@@ -111,9 +111,9 @@ La configuración completa está en **`config.R`**:
 | Búsqueda aleatoria | `POP_RS`, `GEN_RS` |
 | Afinado | `BUDGET`, `HOURS_NSGA`, `HOURS_MOSA`, `N_PAR`, `INSTANCES` |
 
-Los valores actuales vienen del afinado con irace y dan a los tres métodos un presupuesto comparable de unas 10.000 evaluaciones de la función objetivo (NSGA-II 93 x 108 = 10.044, MOSA 98 x 102 = 9.996 y RS 93 x 108 = 10.044). Con `PARALLEL = TRUE`, las corridas se reparten en hasta `N_CORES` núcleos, que por defecto son todos menos uno.
+Los valores actuales vienen del afinado con irace y dan a los tres métodos un presupuesto comparable de unas 10.000 evaluaciones de la función objetivo (NSGA-II 93 x 108 = 10.044, MOSA 98 x 102 = 9.996 y RS 93 x 108 = 10.044). Ese afinado se hizo con el código anterior y hay que repetirlo (ver [Cambios respecto de la versión anterior](#cambios-respecto-de-la-versión-anterior)). Con `PARALLEL = TRUE`, las corridas se reparten en hasta `N_CORES` núcleos, que por defecto son todos menos uno.
 
-`SEQ_TYPE` es un solo valor (`"DNA"`) para los 13 conjuntos, aunque `conrado_126.phylip` trae secuencias de aminoácidos; con esa configuración ese archivo también se lee con `ape::read.dna()`.
+`SEQ_TYPE` da el tipo de secuencia de cada conjunto: `"AA"` (aminoácidos) para `conrado_126.phylip` y `"DNA"` para los demás, con la entrada `default`. `read_sequences()` lee el ADN con `ape::read.dna()` y las proteínas con `phangorn::read.phyDat(..., format = "interleaved", type = "AA")`, porque `phangorn` 2.12.1 ya no exporta `read.aa()` (la versión 2.11.1 sí lo hacía). Para otro conjunto de proteínas basta con sumar su archivo al vector, por ejemplo `nuevo.phylip = "AA"`; un solo valor, `"DNA"` o `"AA"`, sirve para todos los conjuntos. Con proteínas y `K` mayor que 3, `kmer::kdistance()` cuenta los k-meros en el alfabeto reducido de Dayhoff, de 6 clases (AGPST, C, DENQ, FWY, HKR, ILMV).
 
 ### Archivos de salida
 
@@ -122,24 +122,37 @@ Los valores actuales vienen del afinado con irace y dan a los tres métodos un p
 | Archivo | Contenido |
 |---|---|
 | `conv_<método>_<conjunto>_runNN.csv` | Traza de convergencia de cada corrida: hipervolumen, mejor hasta ahora, spread y tamaño del frente |
-| `resumen_<método>_<conjunto>.csv` | Una fila por corrida: `run`, mejor hipervolumen y `seconds`. La columna del hipervolumen se llama `hv_max` en NSGA y RS y `hv_best` en MOSA |
+| `resumen_<método>_<conjunto>.csv` | Una fila por corrida: `run`, hipervolumen y `seconds`. En NSGA y RS el hipervolumen está en `hv_max`; MOSA trae `hv_best` (mejor solución individual) y `hv_archive` (archivo de soluciones no dominadas) |
 | `front_<método>_<conjunto>.csv` | Frente de Pareto final de la mejor corrida (`ls`, `me`) |
 | `medoid_<método>_<conjunto>.nwk` | Árbol medoide de ese frente, en formato Newick |
 
-Al terminar, cada driver conserva el frente y el medoide de la mejor corrida y borra los `front_*_runNN.csv` y `medoid_*_runNN.nwk` de las demás; las trazas `conv_*_runNN.csv` de las 11 corridas se quedan.
+Al terminar, cada driver conserva el frente y el medoide de la mejor corrida (la de mayor hipervolumen; en MOSA, el de su archivo) y borra los `front_*_runNN.csv` y `medoid_*_runNN.nwk` de las demás; las trazas `conv_*_runNN.csv` de las 11 corridas se quedan.
 
-`run_experiments.R` escribe además, en la raíz del proyecto, `tabla_resultados.csv` (hipervolumen medio de los tres métodos, línea base NJ, valor p de Kruskal-Wallis, valores p por pares, corrección de Holm y mejor método) y `tabla_hv.tex` (la misma tabla en LaTeX, lista para pegar). `plots/` escribe en `figures/` y el análisis en `analysis/output/` (figuras PNG y tablas CSV).
+`run_experiments.R` escribe además, en la raíz del proyecto, `tabla_resultados.csv` (hipervolumen medio de los tres métodos, línea base NJ, valor p de Kruskal-Wallis, valores p por pares, corrección de Holm y mejor método) y `tabla_hv.tex` (la misma tabla en LaTeX, lista para pegar). El hipervolumen de cada corrida es el máximo que alcanza su frente en la traza `conv_*_runNN.csv`; en MOSA es el del archivo de soluciones no dominadas. Es la misma medida que usa `analysis/` con `MOSA_METRIC = "archive"`. `plots/` escribe en `figures/` y el análisis en `analysis/output/` (figuras PNG y tablas CSV).
 
-Los scripts generan los archivos de `results/`, `figures/` y `analysis/output/`, además de `tabla_resultados.csv`, `tabla_hv.tex` y los resultados del afinado (`tuning/best_*.csv`, `tuning/*.Rdata`). Por eso el `.gitignore` de la raíz del monorepo los excluye y no se versionan; se vuelven a crear al correr el pipeline.
+Los scripts generan los archivos de `results/`, `figures/` y `analysis/output/`, además de `tabla_resultados.csv`, `tabla_hv.tex` y los resultados del afinado (`tuning/best_*.csv`, `tuning/*.Rdata`). Por eso el `.gitignore` de la raíz del monorepo los excluye y no se versionan; se vuelven a crear al correr el pipeline. Los que se generaron antes de los [cambios de esta versión](#cambios-respecto-de-la-versión-anterior) hay que volver a crearlos.
 
 ### Notas sobre los métodos
 
 * **NSGA-II** hace evolucionar una población de matrices de distancia. En cada generación arma los hijos con cerca de un 40 % de cruzas, un 40 % de mutaciones y el resto con matrices aleatorias, y elige la siguiente población por frentes no dominados y distancia de crowding. Su frente es el conjunto de rango 1 de la población final.
 * En el código, `P_CROSS` funciona como el peso `w` de la cruza convexa (hijo = `w` x padre1 + (1 - `w`) x padre2), aunque `config.R` lo describe como probabilidad de cruza, y `P_MUT` es a la vez la probabilidad de mutar cada celda de la matriz y la amplitud del ruido uniforme.
 * **MOSA** explora con una sola solución: multiplica cada celda de su matriz de distancias por un factor U(0,9; 1,1), rehace el árbol con NJ y acepta el candidato con el criterio de Metropolis sobre su hipervolumen. Además guarda un archivo de soluciones no dominadas, y de ese archivo sale su frente.
+* MOSA se afinó con irace sobre `hv_best`, el hipervolumen de su mejor solución individual, y `tuning/irace_mosa.R` sigue usando esa medida. La comparación entre métodos, en cambio, usa el hipervolumen de su archivo (`hv_archive`).
 * La **búsqueda aleatoria** genera candidatos con el mismo operador de perturbación que MOSA, siempre a partir del árbol base, sin selección ni cruza. Es la línea base que muestra cuánto del resultado viene de la búsqueda misma.
 * El **árbol medoide** es el punto del frente con la menor suma de distancias a los demás puntos, en el espacio de objetivos normalizado. Es una solución de compromiso representativa, no la mejor en ninguno de los dos objetivos.
 * Cada corrida usa la semilla `SEED + run`, así que los resultados son los mismos en serie y en paralelo.
+
+### Cambios respecto de la versión anterior
+
+Estos cambios alteran los resultados:
+
+* `build_base_tree()` calcula las distancias de k-meros sobre las secuencias completas. Antes le pasaba a `kmer::kdistance()` el objeto `phyDat`, que guarda una sola vez cada patrón de columna distinto del alineamiento, así que contaba k-meros sobre esa lista de patrones y no sobre las secuencias. Ahora convierte el `phyDat` a `DNAbin` o `AAbin` antes de calcular las distancias; el resto del pipeline sigue usando `phyDat`.
+* `conrado_126.phylip` se lee como proteína, con `SEQ_TYPE` por conjunto (ver [Configuración](#configuración)). Antes se leía como ADN con `ape::read.dna()`. Los scripts de `tuning/` ya no fijan `SEQ_TYPE`: usan el de `config.R`.
+* `run_experiments.R` toma el hipervolumen de cada corrida de las trazas `conv_*_runNN.csv`, igual que `analysis/`, así que mide a MOSA con el hipervolumen de su archivo de soluciones no dominadas; la mejor corrida de MOSA, la que deja su frente y su medoide en `results/`, es la de mayor `hv_archive`. Antes las dos cosas usaban `hv_best`. En NSGA-II y en la búsqueda aleatoria el valor coincide con `hv_max`, salvo que el máximo de NSGA-II caiga en una generación que la traza no registra.
+
+Además, los drivers corridos sueltos leen `config.R`, `packages.R` usa la biblioteca de usuario que R define para cada sistema y los mensajes que quedaban en español pasaron al inglés.
+
+Los resultados que se generaron antes, fuera del repositorio, salieron del código anterior y ya no corresponden a este: `results/`, `figures/`, `analysis/output/`, `tabla_resultados.csv`, `tabla_hv.tex` y el afinado de `tuning/` (`best_*.csv` e `irace_*.Rdata`), de donde vienen los parámetros que hoy tiene `config.R`. Hay que volver a correr el afinado (`Rscript tuning/run_tuning.R`), copiar los parámetros nuevos en `config.R` y después correr `Rscript run_experiments.R` y `Rscript analysis/run_all_analysis.R`.
 
 ### Licencia
 
@@ -210,7 +223,7 @@ ecr  ape  seqinr  kmer  phylotools  phangorn  stringr
 phytools  treespace  igraph  ggplot2  factoextra  insect
 ```
 
-`algorithms/*/R/packages.R` only loads these packages, it never installs or updates them: if one is missing it stops with the list of what to install. Before loading them, it puts the user library `~/R/x86_64-pc-linux-gnu-library/4.3` first in `.libPaths()` and creates it if it does not exist, even on systems that are not Linux or R 4.3.
+`algorithms/*/R/packages.R` only loads these packages, it never installs or updates them: if one is missing it stops with the list of what to install. Before loading them, it puts R's default user library for your system and version first in `.libPaths()` (the first path in `R_LIBS_USER`, for example `~/R/x86_64-pc-linux-gnu-library/4.3` on Linux with R 4.3) and creates it if it does not exist.
 
 The extra packages do install themselves when missing: `irace` (only for tuning), `plotly` and `htmlwidgets` (for `plots/plot_convergence.R` and `plots/plot_fronts.R`), and `ggtree` from Bioconductor, through `BiocManager` (only for `plots/plot_trees.R`). The analysis in `analysis/` needs `ggplot2` and uses `dplyr`, `tidyr` and `scales` when they are installed. `PARALLEL = TRUE` uses the base `parallel` package.
 
@@ -237,7 +250,7 @@ Rscript tuning/run_tuning.R      # produces tuning/best_nsga.csv and tuning/best
 
 Every script finds the repository root on its own (it walks up until it finds `config.R`), so it works with `Rscript`, with `source()` in RStudio, and from any working directory.
 
-The drivers in `algorithms/` also run on their own (for example `Rscript algorithms/nsga2/run_nsga.R`), but then they do not read `config.R`: they use their internal defaults, which differ from `config.R`. The [algorithms/ README](algorithms/README.md) lists them. To reproduce the experiment, always launch them through `main.R`, `run_experiments.R` or `run_random_search.R`.
+The drivers in `algorithms/` also run on their own (for example `Rscript algorithms/nsga2/run_nsga.R`). They then load `config.R` themselves and use the same values as the experiment; the [algorithms/ README](algorithms/README.md#defaults-when-run-on-their-own) explains how.
 
 ### Configuration
 
@@ -254,9 +267,9 @@ Everything is set in **`config.R`**:
 | Random Search | `POP_RS`, `GEN_RS` |
 | Tuning | `BUDGET`, `HOURS_NSGA`, `HOURS_MOSA`, `N_PAR`, `INSTANCES` |
 
-Current values come from the irace tuning and give all three methods a comparable budget of about 10,000 objective-function evaluations (NSGA-II 93 x 108 = 10,044, MOSA 98 x 102 = 9,996, and RS 93 x 108 = 10,044). With `PARALLEL = TRUE`, the runs are spread over up to `N_CORES` cores, which by default are all cores but one.
+Current values come from the irace tuning and give all three methods a comparable budget of about 10,000 objective-function evaluations (NSGA-II 93 x 108 = 10,044, MOSA 98 x 102 = 9,996, and RS 93 x 108 = 10,044). That tuning was done with the previous code and has to be repeated (see [Changes from the previous version](#changes-from-the-previous-version)). With `PARALLEL = TRUE`, the runs are spread over up to `N_CORES` cores, which by default are all cores but one.
 
-`SEQ_TYPE` is a single value (`"DNA"`) for the 13 data sets, although `conrado_126.phylip` holds amino acid sequences; with this configuration that file is also read with `ape::read.dna()`.
+`SEQ_TYPE` gives the sequence type of each data set: `"AA"` (amino acids) for `conrado_126.phylip` and `"DNA"` for the others, through the `default` entry. `read_sequences()` reads DNA with `ape::read.dna()` and proteins with `phangorn::read.phyDat(..., format = "interleaved", type = "AA")`, because `phangorn` 2.12.1 no longer exports `read.aa()` (version 2.11.1 still did). For another protein data set, add its file to the vector, for example `new.phylip = "AA"`; a single value, `"DNA"` or `"AA"`, applies to every data set. With proteins and `K` greater than 3, `kmer::kdistance()` counts k-mers in the reduced Dayhoff alphabet of 6 classes (AGPST, C, DENQ, FWY, HKR, ILMV).
 
 ### Output files
 
@@ -265,24 +278,37 @@ Current values come from the irace tuning and give all three methods a comparabl
 | File | Content |
 |---|---|
 | `conv_<method>_<data set>_runNN.csv` | Convergence trace of each run: hypervolume, best so far, spread, front size |
-| `resumen_<method>_<data set>.csv` | One row per run: `run`, best hypervolume and `seconds`. The hypervolume column is `hv_max` for NSGA and RS and `hv_best` for MOSA |
+| `resumen_<method>_<data set>.csv` | One row per run: `run`, hypervolume and `seconds`. For NSGA and RS the hypervolume is in `hv_max`; MOSA has `hv_best` (best single solution) and `hv_archive` (archive of non-dominated solutions) |
 | `front_<method>_<data set>.csv` | Final Pareto front of the best run (`ls`, `me`) |
 | `medoid_<method>_<data set>.nwk` | Medoid tree of that front, in Newick format |
 
-When it finishes, each driver keeps the front and the medoid of the best run and deletes the `front_*_runNN.csv` and `medoid_*_runNN.nwk` files of the other runs; the `conv_*_runNN.csv` traces of the 11 runs are kept.
+When it finishes, each driver keeps the front and the medoid of the best run (the one with the largest hypervolume; for MOSA, that of its archive) and deletes the `front_*_runNN.csv` and `medoid_*_runNN.nwk` files of the other runs; the `conv_*_runNN.csv` traces of the 11 runs are kept.
 
-`run_experiments.R` also writes, in the project root, `tabla_resultados.csv` (mean hypervolume of the three methods, the NJ baseline, the Kruskal-Wallis p-value, pairwise p-values, Holm correction, and the best method) and `tabla_hv.tex` (the same table in LaTeX, ready to paste). `plots/` writes to `figures/` and the analysis to `analysis/output/` (PNG figures and CSV tables).
+`run_experiments.R` also writes, in the project root, `tabla_resultados.csv` (mean hypervolume of the three methods, the NJ baseline, the Kruskal-Wallis p-value, pairwise p-values, Holm correction, and the best method) and `tabla_hv.tex` (the same table in LaTeX, ready to paste). The hypervolume of each run is the largest value its front reaches in the `conv_*_runNN.csv` trace; for MOSA it is that of the archive of non-dominated solutions. This is the same measure `analysis/` uses with `MOSA_METRIC = "archive"`. `plots/` writes to `figures/` and the analysis to `analysis/output/` (PNG figures and CSV tables).
 
-Everything under `results/`, `figures/` and `analysis/output/`, plus `tabla_resultados.csv`, `tabla_hv.tex` and the tuning outputs (`tuning/best_*.csv`, `tuning/*.Rdata`), is generated by the scripts, so the `.gitignore` at the root of the monorepo excludes them and they are not tracked. They are recreated when you run the pipeline.
+Everything under `results/`, `figures/` and `analysis/output/`, plus `tabla_resultados.csv`, `tabla_hv.tex` and the tuning outputs (`tuning/best_*.csv`, `tuning/*.Rdata`), is generated by the scripts, so the `.gitignore` at the root of the monorepo excludes them and they are not tracked. They are recreated when you run the pipeline. Those generated before the [changes in this version](#changes-from-the-previous-version) have to be created again.
 
 ### Notes on the methods
 
 * **NSGA-II** evolves a population of distance matrices. Each generation builds the offspring with about 40% crossovers, 40% mutations and the rest random matrices, and selects the next population by non-dominated fronts and crowding distance. Its front is the rank-1 set of the final population.
 * In the code, `P_CROSS` works as the weight `w` of the convex crossover (child = `w` x parent1 + (1 - `w`) x parent2), although `config.R` describes it as a crossover probability, and `P_MUT` is both the probability of mutating each cell of the matrix and the amplitude of the uniform noise.
 * **MOSA** explores with a single solution: it multiplies each cell of its distance matrix by a U(0.9, 1.1) factor, rebuilds the tree with NJ, and accepts the candidate with the Metropolis criterion on its hypervolume. It also keeps an archive of non-dominated solutions, which is what its front is built from.
+* MOSA was tuned with irace on `hv_best`, the hypervolume of its best single solution, and `tuning/irace_mosa.R` still uses that measure. The comparison between methods, on the other hand, uses the hypervolume of its archive (`hv_archive`).
 * **Random Search** generates candidates with the same perturbation operator as MOSA, always starting from the base tree, with no selection and no crossover. It is the baseline that shows how much of the result comes from the search itself.
 * The **medoid tree** is the point of the front with the smallest sum of distances to the other points, in normalised objective space. It is a representative compromise solution, not the best in either objective.
 * Each run uses the seed `SEED + run`, so results are the same in serial and in parallel mode.
+
+### Changes from the previous version
+
+These changes alter the results:
+
+* `build_base_tree()` computes the k-mer distances on the full sequences. Before, it passed `kmer::kdistance()` the `phyDat` object, which stores each distinct column pattern of the alignment only once, so it counted k-mers over that list of patterns and not over the sequences. It now turns the `phyDat` into `DNAbin` or `AAbin` before computing the distances; the rest of the pipeline still uses `phyDat`.
+* `conrado_126.phylip` is read as protein, with one `SEQ_TYPE` per data set (see [Configuration](#configuration)). Before, it was read as DNA with `ape::read.dna()`. The `tuning/` scripts no longer set `SEQ_TYPE`: they use the one in `config.R`.
+* `run_experiments.R` takes the hypervolume of each run from the `conv_*_runNN.csv` traces, as `analysis/` does, so it measures MOSA with the hypervolume of its archive of non-dominated solutions; the best MOSA run, the one that leaves its front and medoid in `results/`, is the one with the largest `hv_archive`. Before, both used `hv_best`. For NSGA-II and Random Search the value matches `hv_max`, unless the NSGA-II maximum falls on a generation the trace does not record.
+
+Also, the drivers read `config.R` when run on their own, `packages.R` uses the user library R defines for each system, and the messages that were still in Spanish are now in English.
+
+The results generated before, outside the repository, came from the previous code and no longer match this one: `results/`, `figures/`, `analysis/output/`, `tabla_resultados.csv`, `tabla_hv.tex`, and the tuning in `tuning/` (`best_*.csv` and `irace_*.Rdata`), which is where the parameters now in `config.R` come from. You have to run the tuning again (`Rscript tuning/run_tuning.R`), copy the new parameters into `config.R`, and then run `Rscript run_experiments.R` and `Rscript analysis/run_all_analysis.R`.
 
 ### Licence
 

@@ -21,13 +21,13 @@ El frente de MOSA es ese archivo de no dominadas, y el árbol medoide es el punt
 | `conv_MOSA_<conjunto>_runNN.csv` | Una fila cada `EVERY_N` niveles (más el primero y el último): `iteration` (iteraciones acumuladas), `current`, `best_so_far` (hipervolumen de la solución actual y de la mejor), y `hypervolume`, `spread` y `front_size` del archivo |
 | `front_MOSA_<conjunto>.csv` | Archivo de no dominadas de la mejor corrida, con `ls` y `me` sin normalizar |
 | `medoid_MOSA_<conjunto>.nwk` | Árbol medoide de la mejor corrida |
-| `resumen_MOSA_<conjunto>.csv` | Una fila por corrida: `run`, `hv_best` (hipervolumen de la mejor solución individual), `seconds` |
+| `resumen_MOSA_<conjunto>.csv` | Una fila por corrida: `run`, `hv_best` (hipervolumen de la mejor solución individual), `hv_archive` (hipervolumen del archivo de no dominadas, el máximo de `hypervolume` en su traza `conv`), `seconds` |
 
-Igual que los otros drivers, escribe los archivos `_runNN` de frente y medoide de cada corrida y al terminar se queda solo con los de la mejor. La columna de `resumen` se llama `hv_best` y no `hv_max` como en NSGA-II y la búsqueda aleatoria; `run_experiments.R` y `analysis/_common.R` ya tienen en cuenta esa diferencia.
+Igual que los otros drivers, escribe los archivos `_runNN` de frente y medoide de cada corrida y al terminar se queda solo con los de la mejor, que es la de mayor `hv_archive`. `run_experiments.R` y `analysis/_common.R` también miden a MOSA con el hipervolumen de su archivo, leído de las trazas `conv`. `hv_best` es la medida con que irace afinó MOSA (ver [tuning/](../../tuning/README.md)).
 
 ### Parámetros que usa
 
-`DATASET`, `SEQ_TYPE`, `K`, `N_INNER`, `N_OUTER`, `T0`, `ALPHA`, `N_RUNS`, `SEED`, `PARALLEL`, `N_CORES`, `EVERY_N` y `VERBOSE`. Desde los scripts de la raíz los toma de `config.R`; corrido suelto usa sus propios valores por defecto (ver el [README de algorithms/](../README.md#valores-por-defecto-al-correrlos-sueltos)).
+`DATASET`, `SEQ_TYPE`, `K`, `N_INNER`, `N_OUTER`, `T0`, `ALPHA`, `N_RUNS`, `SEED`, `PARALLEL`, `N_CORES`, `EVERY_N` y `VERBOSE`. Salvo `VERBOSE`, los toma de `config.R`, también cuando se corre suelto (ver el [README de algorithms/](../README.md#valores-por-defecto-al-correrlos-sueltos)).
 
 ## English
 
@@ -48,10 +48,10 @@ The MOSA front is that non-dominated archive, and the medoid tree is the point o
 | `conv_MOSA_<data set>_runNN.csv` | One row every `EVERY_N` levels (plus the first and the last): `iteration` (cumulative iterations), `current`, `best_so_far` (hypervolume of the current and of the best solution), and `hypervolume`, `spread`, and `front_size` of the archive |
 | `front_MOSA_<data set>.csv` | Non-dominated archive of the best run, with unnormalised `ls` and `me` |
 | `medoid_MOSA_<data set>.nwk` | Medoid tree of the best run |
-| `resumen_MOSA_<data set>.csv` | One row per run: `run`, `hv_best` (hypervolume of the best single solution), `seconds` |
+| `resumen_MOSA_<data set>.csv` | One row per run: `run`, `hv_best` (hypervolume of the best single solution), `hv_archive` (hypervolume of the non-dominated archive, the maximum of `hypervolume` in its `conv` trace), `seconds` |
 
-Like the other drivers, it writes the per-run `_runNN` front and medoid files and keeps only those of the best run when it finishes. The `resumen` column is called `hv_best`, not `hv_max` as in NSGA-II and Random Search; `run_experiments.R` and `analysis/_common.R` already handle that difference.
+Like the other drivers, it writes the per-run `_runNN` front and medoid files and keeps only those of the best run when it finishes, which is the one with the largest `hv_archive`. `run_experiments.R` and `analysis/_common.R` also measure MOSA with the hypervolume of its archive, read from the `conv` traces. `hv_best` is the measure irace used to tune MOSA (see [tuning/](../../tuning/README.md)).
 
 ### Parameters it uses
 
-`DATASET`, `SEQ_TYPE`, `K`, `N_INNER`, `N_OUTER`, `T0`, `ALPHA`, `N_RUNS`, `SEED`, `PARALLEL`, `N_CORES`, `EVERY_N`, and `VERBOSE`. When launched from the scripts in the project root it takes them from `config.R`; when run on its own it uses its own defaults (see the [algorithms/ README](../README.md#defaults-when-run-on-their-own)).
+`DATASET`, `SEQ_TYPE`, `K`, `N_INNER`, `N_OUTER`, `T0`, `ALPHA`, `N_RUNS`, `SEED`, `PARALLEL`, `N_CORES`, `EVERY_N`, and `VERBOSE`. Except for `VERBOSE`, it takes them from `config.R`, also when run on its own (see the [algorithms/ README](../README.md#defaults-when-run-on-their-own)).

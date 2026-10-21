@@ -43,7 +43,15 @@ if (isTRUE(RUN_ALGORITHMS)) {
 # --- 2) NJ baseline (hypervolume of the base tree) ------------------------------
 HV_NJ <- round((2 - 0.1) * (2 - 0.1), 2)   # 3.61 (tree base normalizado en (0.1,0.1))
 
-# --- 3) build the results table from the resumen_*.csv files -----------------------
+# --- 3) build the results table from the conv_*.csv traces -----------------------
+# Hypervolume of a run = maximum front hypervolume in its conv_*.csv trace, for the
+# runs listed in resumen_*.csv. For MOSA this is the archive of non-dominated
+# solutions, the same measure as analysis/_common.R (not hv_best, the best single tree).
+hv_front <- function(method, ds) {
+  runs <- read.csv(file.path(RESULTS_DIR, sprintf("resumen_%s_%s.csv", method, ds)))$run
+  vapply(runs, function(r) max(read.csv(file.path(RESULTS_DIR,
+    sprintf("conv_%s_%s_run%02d.csv", method, ds, r)))$hypervolume), numeric(1))
+}
 rows_list <- list(); pvals <- numeric(0); best_v <- character(0)
 for (dsf in DATASETS) {
   ds <- tools::file_path_sans_ext(dsf)
@@ -51,11 +59,11 @@ for (dsf in DATASETS) {
   fm <- file.path(RESULTS_DIR, sprintf("resumen_MOSA_%s.csv", ds))
   fr <- file.path(RESULTS_DIR, sprintf("resumen_RS_%s.csv",   ds))
   if (!all(file.exists(c(fn, fm, fr)))) {
-    warning("Missing summary files for ", ds, " (se omite)"); next
+    warning("Missing summary files for ", ds, " (skipped)"); next
   }
-  hv_n <- read.csv(fn)$hv_max
-  hv_m <- read.csv(fm)$hv_best
-  hv_r <- read.csv(fr)$hv_max
+  hv_n <- hv_front("NSGA", ds)
+  hv_m <- hv_front("MOSA", ds)
+  hv_r <- hv_front("RS", ds)
 
   # omnibus test (Kruskal-Wallis) across the three methods
   val <- c(hv_n, hv_m, hv_r)
@@ -78,7 +86,7 @@ for (dsf in DATASETS) {
 }
 if (length(rows_list) == 0)
   stop("No summary files were produced. Check that RUN_ALGORITHMS=TRUE in config.R and restart R ",
-       "(Session > Restart R) para limpiar cualquier estado de una run previa.")
+       "(Session > Restart R) to clear any state left by a previous run.")
 results_table <- do.call(rbind, rows_list)
 results_table$p_holm      <- p.adjust(results_table$p, method = "holm")
 results_table$signif_holm <- results_table$p_holm < 0.05
@@ -96,7 +104,7 @@ holm_txt <- if (all(results_table$signif_holm, na.rm = TRUE))
           sum(results_table$signif_holm, na.rm = TRUE), nrow(results_table))
 lineas <- c(
   "\\begin{table}[htbp]", "\\centering",
-  sprintf("\\caption{Mean hypervolume of NSGA-II, MOSA and Random Search (RS) over %d runs, with the Kruskal--Wallis $p$-value across the three methods. %s}", N_RUNS, holm_txt),
+  sprintf("\\caption{Mean hypervolume of NSGA-II, MOSA and Random Search (RS) over %d runs (for MOSA, of its archive of non-dominated solutions), with the Kruskal--Wallis $p$-value across the three methods. %s}", N_RUNS, holm_txt),
   "\\label{tab:hv}",
   "\\begin{tabular}{lrrrr}", "\\toprule",
   "\\textbf{Data set} & \\textbf{NSGA-II} & \\textbf{MOSA} & \\textbf{RS} & \\textbf{$p$}\\\\",
@@ -112,7 +120,7 @@ message("Table (LaTeX) -> ", file.path(APP, "tabla_hv.tex"))
 # --- console summary ----------------------------------------------
 cat("\n================= RESULTS TABLE =================\n")
 print(results_table[, c("dataset", "NJ", "NSGA", "MOSA", "RS", "p", "p_holm", "best")], row.names = FALSE)
-cat(sprintf("\nGana NSGA-II en %d de %d datasets (MOSA %d, RS %d).\n",
+cat(sprintf("\nNSGA-II wins on %d of %d data sets (MOSA %d, RS %d).\n",
             sum(results_table$best == "NSGA-II"), nrow(results_table),
             sum(results_table$best == "MOSA"), sum(results_table$best == "RS")))
 cat(sprintf("NJ baseline = %.2f | all significant after Holm: %s\n",

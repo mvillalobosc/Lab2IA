@@ -8,25 +8,15 @@ Esta carpeta tiene los tres métodos que compara el proyecto, cada uno con su dr
 
 ### Cómo están armados los drivers
 
-Los tres drivers siguen la misma estructura. Primero ubican su carpeta y la raíz del proyecto (suben hasta encontrar `config.R`), cargan `R/packages.R` y después todos los demás módulos `R/*.R`. Luego definen sus valores por defecto con `def()`, que solo asigna una variable si todavía no existe; así, cuando `main.R`, `run_experiments.R` o `run_random_search.R` ya cargaron `config.R`, mandan los valores de `config.R`. Cada driver define una función `run_once_*()` que hace una corrida completa con la semilla `SEED + run`, y al final reparte las `N_RUNS` corridas en serie o, con `PARALLEL = TRUE`, entre núcleos con `parallel::parLapply`. Si existe `TUNE_ONLY = TRUE` en la sesión, el driver solo define las funciones y no corre nada, que es como lo usa irace en [tuning/](../tuning/).
+Los tres drivers siguen la misma estructura. Primero ubican su carpeta y la raíz del proyecto (suben hasta encontrar `config.R`), cargan `config.R` si nadie lo cargó antes, después `R/packages.R` y todos los demás módulos `R/*.R`. Luego definen sus valores por defecto con `def()`, que solo asigna una variable si todavía no existe; así, cuando `main.R`, `run_experiments.R` o `run_random_search.R` ya cargaron `config.R`, mandan los valores de `config.R`. Cada driver define una función `run_once_*()` que hace una corrida completa con la semilla `SEED + run`, y al final reparte las `N_RUNS` corridas en serie o, con `PARALLEL = TRUE`, entre núcleos con `parallel::parLapply`. Si existe `TUNE_ONLY = TRUE` en la sesión, el driver solo define las funciones y no corre nada, que es como lo usa irace en [tuning/](../tuning/).
 
-Todos escriben en `results/` (ver [Archivos de salida](../README.md#archivos-de-salida)): una traza `conv_*_runNN.csv` por corrida, un `resumen_*.csv` con una fila por corrida, y el frente y el árbol medoide de la mejor corrida.
+Todos escriben en `results/` (ver [Archivos de salida](../README.md#archivos-de-salida)): una traza `conv_*_runNN.csv` por corrida, un `resumen_*.csv` con una fila por corrida, y el frente y el árbol medoide de la mejor corrida. Los archivos que dejó la versión anterior de los drivers ya no corresponden a este código, porque cambiaron el árbol base, la lectura de `conrado_126.phylip` y la medida con que se elige la mejor corrida de MOSA; hay que volver a generarlos (ver [Cambios respecto de la versión anterior](../README.md#cambios-respecto-de-la-versión-anterior)).
 
 ### Valores por defecto al correrlos sueltos
 
-Corridos sueltos (por ejemplo `Rscript algorithms/nsga2/run_nsga.R`), los drivers no hacen `source()` de `config.R` y usan estos valores internos, que no coinciden con los del experimento:
+Corridos sueltos (por ejemplo `Rscript algorithms/nsga2/run_nsga.R`), los drivers hacen `source()` de `config.R` cuando `N_RUNS` todavía no existe en la sesión, así que usan los mismos valores que el experimento: el conjunto `DATASET`, los parámetros del método, `SEQ_TYPE`, `N_RUNS`, `PARALLEL` y los demás. Cuando los cargan `main.R`, `run_experiments.R`, `run_random_search.R` o los scripts de [tuning/](../tuning/), `config.R` ya está cargado y el driver no lo vuelve a leer, así que se mantienen los valores que esos scripts cambian (por ejemplo, irace fija `N_RUNS <- 1` y `PARALLEL <- FALSE`).
 
-| Variable | `config.R` | `run_nsga.R` suelto | `run_mosa.R` suelto | `run_rs.R` suelto |
-|---|---|---|---|---|
-| `DATASET` | `primates_14.phylip` | `conrado_126.phylip` | `primates_14.phylip` | `primates_14.phylip` |
-| `POP_SIZE`, `N_GEN` | 93, 108 | 68, 50 | | |
-| `P_CROSS`, `P_MUT` | 0,9942; 0,414 | 0,39; 0,40 | | |
-| `N_INNER`, `N_OUTER` | 98, 102 | | 100, 75 | |
-| `T0`, `ALPHA` | 2974,567; 0,5939 | | 5000; 0,69 | |
-| `POP_RS`, `GEN_RS` | 93, 108 | | | 93, 108 |
-| `PARALLEL` | `TRUE` | `FALSE` | `FALSE` | `FALSE` |
-
-`N_RUNS` (11), `SEED` (123), `K` (5), `SEQ_TYPE` (`"DNA"`) y `EVERY_N` (5) valen lo mismo en los dos casos. Para reproducir los resultados del experimento, corre los drivers a través de los scripts de la raíz.
+Los valores de `def()` de cada driver solo se usan para lo que `config.R` no define: `DATA_DIR` (`data/`), `RESULTS_DIR` (`results/`) y `VERBOSE` (`TRUE`).
 
 ### Funciones con el mismo nombre
 
@@ -38,25 +28,15 @@ This folder holds the three methods compared by the project, each with its drive
 
 ### How the drivers are built
 
-The three drivers share the same structure. They first find their folder and the project root (they walk up until they find `config.R`), load `R/packages.R`, and then every other `R/*.R` module. They then set their defaults with `def()`, which only assigns a variable when it is not already defined; so when `main.R`, `run_experiments.R`, or `run_random_search.R` have already loaded `config.R`, the values from `config.R` win. Each driver defines a `run_once_*()` function that performs one full run with the seed `SEED + run`, and finally dispatches the `N_RUNS` runs serially or, with `PARALLEL = TRUE`, across cores with `parallel::parLapply`. If `TUNE_ONLY = TRUE` exists in the session, the driver only defines its functions and runs nothing, which is how irace uses it in [tuning/](../tuning/).
+The three drivers share the same structure. They first find their folder and the project root (they walk up until they find `config.R`), load `config.R` when nothing loaded it before, then `R/packages.R` and every other `R/*.R` module. They then set their defaults with `def()`, which only assigns a variable when it is not already defined; so when `main.R`, `run_experiments.R`, or `run_random_search.R` have already loaded `config.R`, the values from `config.R` win. Each driver defines a `run_once_*()` function that performs one full run with the seed `SEED + run`, and finally dispatches the `N_RUNS` runs serially or, with `PARALLEL = TRUE`, across cores with `parallel::parLapply`. If `TUNE_ONLY = TRUE` exists in the session, the driver only defines its functions and runs nothing, which is how irace uses it in [tuning/](../tuning/).
 
-They all write to `results/` (see [Output files](../README.md#output-files)): one `conv_*_runNN.csv` trace per run, a `resumen_*.csv` with one row per run, and the front and medoid tree of the best run.
+They all write to `results/` (see [Output files](../README.md#output-files)): one `conv_*_runNN.csv` trace per run, a `resumen_*.csv` with one row per run, and the front and medoid tree of the best run. The files left by the previous version of the drivers no longer match this code, because the base tree, the reading of `conrado_126.phylip`, and the measure used to pick the best MOSA run have changed; they have to be generated again (see [Changes from the previous version](../README.md#changes-from-the-previous-version)).
 
 ### Defaults when run on their own
 
-When run on their own (for example `Rscript algorithms/nsga2/run_nsga.R`), the drivers do not `source()` `config.R` and use these internal values, which differ from those of the experiment:
+When run on their own (for example `Rscript algorithms/nsga2/run_nsga.R`), the drivers `source()` `config.R` when `N_RUNS` is not defined in the session, so they use the same values as the experiment: the `DATASET` data set, the method parameters, `SEQ_TYPE`, `N_RUNS`, `PARALLEL`, and the rest. When `main.R`, `run_experiments.R`, `run_random_search.R`, or the [tuning/](../tuning/) scripts load them, `config.R` is already loaded and the driver does not read it again, so the values those scripts change are kept (for example, irace sets `N_RUNS <- 1` and `PARALLEL <- FALSE`).
 
-| Variable | `config.R` | `run_nsga.R` alone | `run_mosa.R` alone | `run_rs.R` alone |
-|---|---|---|---|---|
-| `DATASET` | `primates_14.phylip` | `conrado_126.phylip` | `primates_14.phylip` | `primates_14.phylip` |
-| `POP_SIZE`, `N_GEN` | 93, 108 | 68, 50 | | |
-| `P_CROSS`, `P_MUT` | 0.9942, 0.414 | 0.39, 0.40 | | |
-| `N_INNER`, `N_OUTER` | 98, 102 | | 100, 75 | |
-| `T0`, `ALPHA` | 2974.567, 0.5939 | | 5000, 0.69 | |
-| `POP_RS`, `GEN_RS` | 93, 108 | | | 93, 108 |
-| `PARALLEL` | `TRUE` | `FALSE` | `FALSE` | `FALSE` |
-
-`N_RUNS` (11), `SEED` (123), `K` (5), `SEQ_TYPE` (`"DNA"`), and `EVERY_N` (5) are the same in both cases. To reproduce the results of the experiment, run the drivers through the scripts in the project root.
+The `def()` values in each driver are only used for what `config.R` does not define: `DATA_DIR` (`data/`), `RESULTS_DIR` (`results/`), and `VERBOSE` (`TRUE`).
 
 ### Functions with the same name
 

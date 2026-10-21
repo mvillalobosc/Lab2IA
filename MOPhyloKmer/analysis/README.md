@@ -44,6 +44,8 @@ MOSA_METRIC <- "archive"   # "archive" o "single"
 
 Los dos modos llevan a conclusiones distintas, así que hay que elegir uno antes de redactar los resultados. En el modo `"archive"`, NSGA-II usa el frente de su población final, mientras MOSA y la búsqueda aleatoria usan un archivo acumulado durante todas las evaluaciones.
 
+`run_experiments.R` mide los tres métodos igual que el modo `"archive"` al armar `tabla_resultados.csv` y `tabla_hv.tex`, y `run_mosa.R` elige la mejor corrida de MOSA con esa misma medida. El afinado de MOSA con irace, en cambio, usó `hv_best`, la medida del modo `"single"` (ver [tuning/](../tuning/README.md)).
+
 ## English
 
 This folder builds the publication figures and tables from what the drivers left in `results/`, with the three methods (NSGA-II, MOSA, and Random Search). See the [project README](../README.md) for how those results are produced.
@@ -85,3 +87,5 @@ MOSA_METRIC <- "archive"   # "archive" or "single"
 * `"single"`: hypervolume of the single best solution MOSA optimises, read from `resumen_MOSA_*.csv`.
 
 They lead to different conclusions, so pick one before writing up results. In `"archive"` mode NSGA-II uses the front of its final population, while MOSA and RS use an archive accumulated over all evaluations.
+
+`run_experiments.R` measures the three methods as the `"archive"` mode does when it builds `tabla_resultados.csv` and `tabla_hv.tex`, and `run_mosa.R` picks the best MOSA run with that same measure. The irace tuning of MOSA, on the other hand, used `hv_best`, the measure of the `"single"` mode (see [tuning/](../tuning/README.md)).

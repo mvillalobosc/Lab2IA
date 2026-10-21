@@ -41,6 +41,8 @@ ROOT <- .this_dir()
   stop("config.R not found: run this from inside the MOPhyloKmer repository.")
 }
 PROJ <- .project_root(ROOT)
+# run on its own: take the settings from config.R (main.R, run_experiments.R and irace load it first)
+if (!exists("N_RUNS", inherits = TRUE)) source(file.path(PROJ, "config.R"))
 
 source(file.path(ROOT, "R", "packages.R"))
 for (f in list.files(file.path(ROOT, "R"), pattern = "\\.R$", full.names = TRUE))
@@ -159,7 +161,7 @@ run_once_mosa <- function(run) {
       rec_hv   <- c(rec_hv, m["hv"]); rec_sp <- c(rec_sp, m["spread"]); rec_sz <- c(rec_sz, m["size"])
     }
     if (show_progress)
-      cat(sprintf("\r   nivel %3d/%d %s  T=%7.1f  BEST=%.4f",
+      cat(sprintf("\r   level %3d/%d %s  T=%7.1f  BEST=%.4f",
                   a, N_OUTER, progress_bar(a, N_OUTER), Temp, best_tree$scores$hyp))
   }
   if (show_progress) cat("\n")
@@ -182,7 +184,9 @@ run_once_mosa <- function(run) {
     row.names = FALSE)
 
   seg <- as.numeric(difftime(Sys.time(), t0, units = "secs"))
-  data.frame(run = run, hv_best = best_tree$scores$hyp, seconds = seg)
+  # hv_best: best single tree (the irace cost); hv_archive: front of the archive,
+  # the same value analysis/_common.R takes from the conv file
+  data.frame(run = run, hv_best = best_tree$scores$hyp, hv_archive = max(rec_hv), seconds = seg)
 }
 
 # =====================================================================
@@ -218,9 +222,9 @@ if (isTRUE(PARALLEL)) {
 
 summary_df <- do.call(rbind, res)
 
-# --- keep ONLY the medoid and the front of the BEST run ---
+# --- keep ONLY the medoid and the front of the BEST run (largest archive hypervolume) ---
 ds <- tools::file_path_sans_ext(DATASET)
-best <- summary_df$run[which.max(summary_df$hv_best)]
+best <- summary_df$run[which.max(summary_df$hv_archive)]
 file.copy(file.path(RESULTS_DIR, sprintf("medoid_MOSA_%s_run%02d.nwk", ds, best)),
           file.path(RESULTS_DIR, sprintf("medoid_MOSA_%s.nwk", ds)), overwrite = TRUE)
 file.copy(file.path(RESULTS_DIR, sprintf("front_MOSA_%s_run%02d.csv", ds, best)),
@@ -228,8 +232,9 @@ file.copy(file.path(RESULTS_DIR, sprintf("front_MOSA_%s_run%02d.csv", ds, best))
 unlink(list.files(RESULTS_DIR, pattern = sprintf("^medoid_MOSA_%s_run.*\\.nwk$", ds), full.names = TRUE))
 unlink(list.files(RESULTS_DIR, pattern = sprintf("^front_MOSA_%s_run.*\\.csv$", ds), full.names = TRUE))
 for (i in seq_len(nrow(summary_df)))
-  message(sprintf("Run %2d/%d  HVbest=%.4f  %.1fs",
-                  summary_df$run[i], N_RUNS, summary_df$hv_best[i], summary_df$seconds[i]))
+  message(sprintf("Run %2d/%d  HVbest=%.4f  HVarchive=%.4f  %.1fs",
+                  summary_df$run[i], N_RUNS, summary_df$hv_best[i], summary_df$hv_archive[i],
+                  summary_df$seconds[i]))
 
 write.csv(summary_df,
           file.path(RESULTS_DIR,

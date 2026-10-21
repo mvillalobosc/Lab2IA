@@ -27,7 +27,7 @@ Durante la corrida también escribe `front_NSGA_<conjunto>_runNN.csv` y `medoid_
 
 ### Parámetros que usa
 
-`DATASET`, `SEQ_TYPE`, `K`, `POP_SIZE`, `N_GEN`, `P_CROSS`, `P_MUT`, `N_RUNS`, `SEED`, `PARALLEL`, `N_CORES`, `EVERY_N` y `VERBOSE`. Desde los scripts de la raíz los toma de `config.R`; corrido suelto usa sus propios valores por defecto (ver el [README de algorithms/](../README.md#valores-por-defecto-al-correrlos-sueltos)).
+`DATASET`, `SEQ_TYPE`, `K`, `POP_SIZE`, `N_GEN`, `P_CROSS`, `P_MUT`, `N_RUNS`, `SEED`, `PARALLEL`, `N_CORES`, `EVERY_N` y `VERBOSE`. Salvo `VERBOSE`, los toma de `config.R`, también cuando se corre suelto (ver el [README de algorithms/](../README.md#valores-por-defecto-al-correrlos-sueltos)).
 
 ## English
 
@@ -54,4 +54,4 @@ During the run it also writes `front_NSGA_<data set>_runNN.csv` and `medoid_NSGA
 
 ### Parameters it uses
 
-`DATASET`, `SEQ_TYPE`, `K`, `POP_SIZE`, `N_GEN`, `P_CROSS`, `P_MUT`, `N_RUNS`, `SEED`, `PARALLEL`, `N_CORES`, `EVERY_N`, and `VERBOSE`. When launched from the scripts in the project root it takes them from `config.R`; when run on its own it uses its own defaults (see the [algorithms/ README](../README.md#defaults-when-run-on-their-own)).
+`DATASET`, `SEQ_TYPE`, `K`, `POP_SIZE`, `N_GEN`, `P_CROSS`, `P_MUT`, `N_RUNS`, `SEED`, `PARALLEL`, `N_CORES`, `EVERY_N`, and `VERBOSE`. Except for `VERBOSE`, it takes them from `config.R`, also when run on its own (see the [algorithms/ README](../README.md#defaults-when-run-on-their-own)).

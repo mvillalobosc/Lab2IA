@@ -42,6 +42,8 @@ ROOT <- .this_dir()
   stop("config.R not found: run this from inside the MOPhyloKmer repository.")
 }
 PROJ <- .project_root(ROOT)
+# run on its own: take the settings from config.R (main.R, run_experiments.R and irace load it first)
+if (!exists("N_RUNS", inherits = TRUE)) source(file.path(PROJ, "config.R"))
 
 source(file.path(ROOT, "R", "packages.R"))
 for (f in list.files(file.path(ROOT, "R"), pattern = "\\.R$", full.names = TRUE))

@@ -7,7 +7,7 @@
 # =====================================================================
 mutation <- function(porcentaje, individuo) {
   if (porcentaje < 0 || porcentaje > 1)
-    stop("El porcentaje de mutation debe estar en [0, 1].")
+    stop("The mutation rate must be in [0, 1].")
 
   M <- individuo$dist_kmer
   mascara <- matrix(runif(length(M)) < porcentaje, nrow = nrow(M))

@@ -37,4 +37,4 @@ p <- ggplot(FR, aes(ls_n, me_n, colour = method)) +
   theme_pub(11)
 save_plot(p, "fronts", w = 10, h = 10)
 
-cat("Fronteras listas en ", OUT_DIR, "\n")
+cat("Fronts figure in ", OUT_DIR, "\n")

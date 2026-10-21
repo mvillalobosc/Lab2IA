@@ -17,7 +17,7 @@ DATASETS <- c("primates_14.phylip", "conrado_126.phylip", "hasegawa.phylip",
               "ZILLA_500.phylip")
 
 N_RUNS         <- 11        # independent runs per method and data set
-SEQ_TYPE       <- "DNA"     # "DNA" or "AA"
+SEQ_TYPE       <- c(default = "DNA", conrado_126.phylip = "AA")   # "DNA" or "AA" per data set
 K              <- 5         # k-mer word length
 SEED           <- 123       # base seed (each run uses SEED + run index)
 PARALLEL       <- TRUE      # distribute the runs across cores

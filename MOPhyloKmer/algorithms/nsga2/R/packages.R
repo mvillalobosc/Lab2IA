@@ -4,9 +4,9 @@
 # It never installs or updates packages while loading.
 # Avoids reloading namespaces already used by other packages.
 # =====================================================================
-# User library first
+# User library first: R's default one for this system and R version (R_LIBS_USER)
 .user_lib <- path.expand(
-  "~/R/x86_64-pc-linux-gnu-library/4.3"
+  strsplit(Sys.getenv("R_LIBS_USER"), .Platform$path.sep, fixed = TRUE)[[1]][1]
 )
 dir.create(
   .user_lib,
