@@ -12,6 +12,7 @@
 #          https://datosabiertos.fonasa.cl/dimensiones-financiamientos/)
 # Salida:  CFG$dir_datos/base_grd.rds
 #          CFG$dir_resultados/filas_excluidas.csv
+#          CFG$dir_resultados/formatos_fecha.csv
 #          CFG$dir_resultados/episodios_por_beneficiario.csv
 #          CFG$dir_resultados/episodios_por_signo.csv
 # =============================================================================
@@ -71,6 +72,36 @@ leer_grd <- function(anio) {
 
 base <- rbindlist(lapply(CFG$anios, leer_grd), use.names = TRUE, fill = TRUE)
 message("Total unificado: ", format(nrow(base), big.mark = ","))
+
+# --- Formato de las fechas ----------------------------------------------------
+# Cuenta, por archivo y columna, en qué formato vienen las fechas. Hasta el 20 de
+# octubre de 2026, leer_fecha() leía mal las fechas dd-mm-aaaa ("21-03-1980"
+# quedaba como el 19 de marzo del año 21, con el signo equivocado). Si este
+# conteo encuentra fechas dd-mm-aaaa, los resultados de corridas anteriores a
+# esa fecha deben reemplazarse por los de esta, que ya las lee bien.
+formato_fecha <- function(x) {
+  x <- trimws(x)
+  fcase(is.na(x) | x == "", "vacia",
+        grepl("^[0-9]{4}-[0-9]{1,2}-[0-9]{1,2}", x), "aaaa-mm-dd",
+        grepl("^[0-9]{1,2}-[0-9]{1,2}-[0-9]{4}", x), "dd-mm-aaaa",
+        grepl("^[0-9]{1,2}/[0-9]{1,2}/[0-9]{4}", x), "dd/mm/aaaa",
+        grepl("^[0-9]{4}/[0-9]{1,2}/[0-9]{1,2}", x), "aaaa/mm/dd",
+        default = "otro")
+}
+formatos <- rbindlist(lapply(c("FECHA_NACIMIENTO", "FECHA_INGRESO", "FECHAALTA"), function(cmp)
+  base[, .N, by = .(ANIO_ARCHIVO, formato = formato_fecha(get(cmp)))][, columna := cmp][]))
+setcolorder(formatos, c("ANIO_ARCHIVO", "columna", "formato", "N"))
+setorder(formatos, ANIO_ARCHIVO, columna, formato)
+fwrite(formatos, file.path(CFG$dir_resultados, "formatos_fecha.csv"))
+n_dma <- formatos[formato == "dd-mm-aaaa", sum(N)]
+if (n_dma > 0) {
+  message(format(n_dma, big.mark = ","), " fechas vienen como dd-mm-aaaa (detalle en ",
+          "formatos_fecha.csv). Las corridas anteriores al 20 de octubre de 2026 las ",
+          "leían mal: reemplaza sus resultados por los de esta corrida.")
+} else {
+  message("Ninguna fecha viene como dd-mm-aaaa (detalle en formatos_fecha.csv): los ",
+          "resultados de corridas anteriores no cambian por la lectura de fechas.")
+}
 
 # --- Signo zodiacal ----------------------------------------------------------
 base[, FECHA_NACIMIENTO := leer_fecha(FECHA_NACIMIENTO)]

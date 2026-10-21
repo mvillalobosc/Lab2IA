@@ -101,6 +101,7 @@ En esa carpeta usa `chi2_12.csv` o, si no está, el archivo `v2_chi2_resultados.
 |---|---|
 | `datos/base_grd.rds` | `ID_BENEFICIARIO`, `ESPECIALIDAD_MEDICA`, `DIAGNOSTICO1` a `DIAGNOSTICO35`, `PROCEDIMIENTO1` a `PROCEDIMIENTO30` (agrupados y guardados como factores), `ANIO_ARCHIVO`, `SIGNO`, `SIGNO13` y `ESTANCIA_DIAS` (días entre ingreso y alta; vacía o negativa queda en 0) |
 | `resultados/filas_excluidas.csv` | los episodios sin fecha de nacimiento válida, con las columnas leídas del archivo original |
+| `resultados/formatos_fecha.csv` | `ANIO_ARCHIVO`, `columna`, `formato`, `N`: cuántas fechas de nacimiento, ingreso y alta vienen en cada formato. Hasta el 20 de octubre de 2026, `leer_fecha()` leía mal las fechas dd-mm-aaaa, así que si este archivo cuenta alguna, los resultados de corridas anteriores deben reemplazarse por los nuevos; el paso 01 lo avisa en la consola |
 | `resultados/episodios_por_beneficiario.csv` | `indicador`, `valor`: episodios, beneficiarios únicos, episodios por beneficiario y cuántos beneficiarios y episodios corresponden a beneficiarios con más de un episodio |
 | `resultados/episodios_por_signo.csv` | `signo`, `doce_signos`, `trece_signos` |
 | `resultados/chi2_12.csv` y `chi2_13.csv` | `variable`, `familia`, `chi2`, `p_value`, `significativa` (p < 0,01), `bonferroni_01` (pasa también la corrección de Bonferroni, solo para informar) |
@@ -232,6 +233,7 @@ In that folder it uses `chi2_12.csv` or, when it is missing, the `v2_chi2_result
 |---|---|
 | `datos/base_grd.rds` | `ID_BENEFICIARIO`, `ESPECIALIDAD_MEDICA`, `DIAGNOSTICO1` to `DIAGNOSTICO35`, `PROCEDIMIENTO1` to `PROCEDIMIENTO30` (grouped and stored as factors), `ANIO_ARCHIVO`, `SIGNO`, `SIGNO13` and `ESTANCIA_DIAS` (days between admission and discharge; empty or negative becomes 0) |
 | `resultados/filas_excluidas.csv` | the episodes without a valid birth date, with the columns read from the original file |
+| `resultados/formatos_fecha.csv` | `ANIO_ARCHIVO`, `columna`, `formato`, `N`: how many birth, admission and discharge dates come in each format. Until 20 October 2026, `leer_fecha()` misread dd-mm-yyyy dates, so if this file counts any, the results of earlier runs must be replaced by the new ones; step 01 says so in the console |
 | `resultados/episodios_por_beneficiario.csv` | `indicador`, `valor`: episodes, unique beneficiaries, episodes per beneficiary, and how many beneficiaries and episodes belong to beneficiaries with more than one episode |
 | `resultados/episodios_por_signo.csv` | `signo`, `doce_signos`, `trece_signos` |
 | `resultados/chi2_12.csv` and `chi2_13.csv` | `variable`, `familia`, `chi2`, `p_value`, `significativa` (p < 0.01), `bonferroni_01` (also passes the Bonferroni correction, reported only) |
