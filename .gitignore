@@ -29,6 +29,13 @@ BookAnalyses/models/
 BookAnalyses/demo/textos/
 BookAnalyses/demo/catalogo_demo.xlsx
 
+# ConscienciaDiscreta_code: frentes de validación sin comprimir que deja una corrida nueva
+# (el repositorio los trae como .csv.gz), Rplots.pdf y restos de pdflatex de la Fig. 1
+ConscienciaDiscreta_code/salida/validation_seed_fronts.csv
+ConscienciaDiscreta_code/**/Rplots.pdf
+ConscienciaDiscreta_code/post_hoc/figuras/*.aux
+ConscienciaDiscreta_code/post_hoc/figuras/*.log
+
 # MOPhyloKmer: resultados de las corridas, figuras y afinado
 MOPhyloKmer/results/
 MOPhyloKmer/figures/

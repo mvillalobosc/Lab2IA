@@ -43,6 +43,12 @@ Lab2IA reúne aplicaciones web, pipelines de análisis y el código de artículo
 | --- | --- | --- |
 | [SNN_ANN_code](SNN_ANN_code/) | Reúne los datos, los protocolos y los scripts de una revisión sistemática sobre la evidencia de eficiencia energética de las redes de espigas frente a las redes artificiales. | Datos y código R de un artículo |
 
+**Neurociencia computacional**
+
+| Proyecto | Qué hace | Tipo |
+| --- | --- | --- |
+| [ConscienciaDiscreta_code](ConscienciaDiscreta_code/) | Compara con NSGA-III cuatro esquemas de acceso a un sustrato neural continuo (lectura continua, continua modulada, periódica y por eventos) en una tarea simulada de fusión de dos pulsos, y contrasta los modelos con dos experimentos públicos de fusión de dos destellos. | Datos y código R de un artículo |
+
 **Docencia y gestión académica**
 
 | Proyecto | Qué hace | Tipo |
@@ -69,6 +75,7 @@ Las apps web se abren desde su `index.html`. Casi todas funcionan con doble clic
 | BookAnalyses, Papelucho, PichintunNLP, StrokeGRDCL, TE_worldwide_code | `Rscript run_all.R` |
 | MOPhyloKmer | `Rscript main.R` (un conjunto) o `Rscript run_experiments.R` (experimento completo) |
 | SNN_ANN_code | `Rscript scripts/00_run_all.R` |
+| ConscienciaDiscreta_code | `Rscript correr_todo.R` y luego `Rscript correr_post_hoc.R` dentro de `post_hoc/` |
 | Zodiaco_grd_Code | `Rscript 01_preparar_datos.R` a `Rscript 04_resultados.R`, en orden |
 | YeastForest_code | Los scripts de `Bosque_cerevisiae/` y `Bosque_eubayanus/`, y después `preparar_app.R` y `figuras_MER.R` |
 | PhyloGEOYeast (pipeline) | `Rscript 99_correr_todo.R` dentro de `EvolutiveEubayanus_CODE/` o `EvolutiveSCerevisiae_CODE/` |
@@ -103,7 +110,7 @@ No hay una licencia común: cada proyecto trae la suya.
 
 | Licencia | Proyectos |
 | --- | --- |
-| MIT | BACPPlanner, BookAnalyses, MOPhyloKmer, PDF2JATS, PaleoColorCL, PaleoForest, Papelucho, PhyloGEOYeast, PichintunNLP, StrokeAccessRM, StrokeGRDCL, TE_worldwide_code, YeastForest, YeastForest_code, Zodiaco_grd_Code |
+| MIT | BACPPlanner, BookAnalyses, ConscienciaDiscreta_code, MOPhyloKmer, PDF2JATS, PaleoColorCL, PaleoForest, Papelucho, PhyloGEOYeast, PichintunNLP, StrokeAccessRM, StrokeGRDCL, TE_worldwide_code, YeastForest, YeastForest_code, Zodiaco_grd_Code |
 | MIT para el código y CC BY 4.0 para los datos y protocolos | SNN_ANN_code |
 | CC BY-SA 4.0 | Phyli |
 | Licencia académica propia: permite revisión académica, docencia y reproducibilidad con atribución, y pide permiso para reutilizar o redistribuir | StrokeAccessCL |
@@ -166,6 +173,12 @@ Lab2IA gathers web applications, analysis pipelines and the code of papers devel
 | --- | --- | --- |
 | [SNN_ANN_code](SNN_ANN_code/) | Gathers the data, protocols and scripts of a systematic review of the energy-efficiency evidence for spiking versus artificial neural networks. | Data and R code of a paper |
 
+**Computational neuroscience**
+
+| Project | What it does | Type |
+| --- | --- | --- |
+| [ConscienciaDiscreta_code](ConscienciaDiscreta_code/) | Compares with NSGA-III four schemes of access to a continuous neural substrate (continuous, modulated continuous, periodic and event reading) in a simulated two-pulse fusion task, and contrasts the models with two public two-flash fusion experiments. | Data and R code of a paper |
+
 **Teaching and academic management**
 
 | Project | What it does | Type |
@@ -192,6 +205,7 @@ The web apps open from their `index.html`. Almost all of them work with a double
 | BookAnalyses, Papelucho, PichintunNLP, StrokeGRDCL, TE_worldwide_code | `Rscript run_all.R` |
 | MOPhyloKmer | `Rscript main.R` (one dataset) or `Rscript run_experiments.R` (full experiment) |
 | SNN_ANN_code | `Rscript scripts/00_run_all.R` |
+| ConscienciaDiscreta_code | `Rscript correr_todo.R`, then `Rscript correr_post_hoc.R` inside `post_hoc/` |
 | Zodiaco_grd_Code | `Rscript 01_preparar_datos.R` to `Rscript 04_resultados.R`, in order |
 | YeastForest_code | The scripts in `Bosque_cerevisiae/` and `Bosque_eubayanus/`, then `preparar_app.R` and `figuras_MER.R` |
 | PhyloGEOYeast (pipeline) | `Rscript 99_correr_todo.R` inside `EvolutiveEubayanus_CODE/` or `EvolutiveSCerevisiae_CODE/` |
@@ -226,7 +240,7 @@ There is no common licence: each project carries its own.
 
 | Licence | Projects |
 | --- | --- |
-| MIT | BACPPlanner, BookAnalyses, MOPhyloKmer, PDF2JATS, PaleoColorCL, PaleoForest, Papelucho, PhyloGEOYeast, PichintunNLP, StrokeAccessRM, StrokeGRDCL, TE_worldwide_code, YeastForest, YeastForest_code, Zodiaco_grd_Code |
+| MIT | BACPPlanner, BookAnalyses, ConscienciaDiscreta_code, MOPhyloKmer, PDF2JATS, PaleoColorCL, PaleoForest, Papelucho, PhyloGEOYeast, PichintunNLP, StrokeAccessRM, StrokeGRDCL, TE_worldwide_code, YeastForest, YeastForest_code, Zodiaco_grd_Code |
 | MIT for the code and CC BY 4.0 for the data and protocols | SNN_ANN_code |
 | CC BY-SA 4.0 | Phyli |
 | Own academic licence: it allows academic review, teaching and reproducibility with attribution, and asks for permission to reuse or redistribute | StrokeAccessCL |

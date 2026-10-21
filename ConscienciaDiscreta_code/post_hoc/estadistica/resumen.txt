@@ -1,0 +1,497 @@
+=====================================================================
+A. Parametrización: Friedman con bloques = arquitectura x semilla
+=====================================================================
+bloques: 12  configuraciones: 27 
+
+	Friedman rank sum test
+
+data:  M
+Friedman chi-squared = 44.111, df = 26, p-value = 0.01471
+
+               config rango_medio p_wilcoxon_vs_mejor p_holm
+ N=132 pc=0.9 pm=0.20        8.92                  NA     NA
+  N=88 pc=0.7 pm=0.20       10.08             0.61012 1.0000
+ N=132 pc=0.8 pm=0.20       10.42             0.61012 1.0000
+ N=132 pc=0.8 pm=0.05       11.08             0.45613 1.0000
+ N=132 pc=0.9 pm=0.05       11.50             0.36699 1.0000
+ N=132 pc=0.9 pm=0.10       11.50             0.28959 1.0000
+ N=132 pc=0.7 pm=0.20       12.00             0.25534 1.0000
+  N=88 pc=0.9 pm=0.10       12.08             0.05461 0.9284
+ N=132 pc=0.7 pm=0.10       12.33             0.45613 1.0000
+  N=88 pc=0.9 pm=0.05       12.33             0.36699 1.0000
+ N=132 pc=0.7 pm=0.05       12.42             0.12609 1.0000
+  N=52 pc=0.9 pm=0.10       12.83             0.05461 0.9284
+ N=132 pc=0.8 pm=0.10       12.92             0.10780 1.0000
+  N=88 pc=0.9 pm=0.20       13.25             0.19554 1.0000
+  N=88 pc=0.7 pm=0.05       13.50             0.19554 1.0000
+  N=88 pc=0.7 pm=0.10       13.58             0.41012 1.0000
+  N=88 pc=0.8 pm=0.20       14.42             0.07756 1.0000
+  N=88 pc=0.8 pm=0.10       15.00             0.03098 0.6197
+  N=88 pc=0.8 pm=0.05       15.50             0.03098 0.6197
+  N=52 pc=0.7 pm=0.20       15.83             0.02537 0.5328
+  N=52 pc=0.8 pm=0.05       15.83             0.03763 0.6774
+  N=52 pc=0.8 pm=0.20       15.92             0.05461 0.9284
+  N=52 pc=0.9 pm=0.20       18.25             0.02066 0.4545
+  N=52 pc=0.8 pm=0.10       18.75             0.00859 0.2062
+  N=52 pc=0.7 pm=0.05       18.92             0.00536 0.1339
+  N=52 pc=0.7 pm=0.10       19.42             0.00326 0.0849
+  N=52 pc=0.9 pm=0.05       19.42             0.01347 0.3098
+ a12_mejor_vs_config popSize
+               0.500     132
+               0.500      88
+               0.521     132
+               0.507     132
+               0.562     132
+               0.535     132
+               0.549     132
+               0.556      88
+               0.535     132
+               0.521      88
+               0.576     132
+               0.556      52
+               0.583     132
+               0.549      88
+               0.569      88
+               0.514      88
+               0.549      88
+               0.583      88
+               0.597      88
+               0.562      52
+               0.549      52
+               0.521      52
+               0.569      52
+               0.611      52
+               0.604      52
+               0.639      52
+               0.583      52
+
+Elegida en el servidor (mediana): N=132 pc=0.8 pm=0.20  rango medio: 10.42  posición: 3  p Holm vs mejor: 1 
+Configuraciones distinguibles de la mejor (Holm < 0.05): 0 de 26 
+
+Rango medio por tamaño de población:
+      52       88      132 
+17.24074 13.30556 11.45370 
+Kendall W = 0.141 
+
+	Friedman rank sum test
+
+data:  Mp
+Friedman chi-squared = 4.6667, df = 2, p-value = 0.09697
+
+rango medio por tamaño (bloques):
+   N=132     N=52     N=88 
+1.666667 2.500000 1.833333 
+
+Minutos por corrida (media) en la parametrización: 5.73 
+
+=====================================================================
+B. Convergencia
+=====================================================================
+       arquitectura generation_95pct generation_99pct generation_999pct
+1          continua                3               18                93
+2 continua_modulada                6               41               218
+3           eventos                4               30               264
+4         periodica               31              336               756
+       arquitectura generation_95pct generation_99pct generation_999pct
+1          continua              1-7             3-47           18-1158
+2 continua_modulada             4-15           10-158           44-1267
+3           eventos              1-7             7-50           52-1378
+4         periodica            19-98          36-1142           77-1436
+mediana global g99: 38.5 
+corte de las corridas principales: 1000 generaciones
+
+Fracción del HV final alcanzada en la generación 1000 (min, mediana, max):
+       arquitectura frac.min frac.med frac.max
+1          continua   0.9926   0.9999   1.0000
+2 continua_modulada   0.9927   0.9999   1.0000
+3           eventos   0.9986   0.9997   1.0000
+4         periodica   0.9856   1.0000   1.0000
+Eventos en el corte (min): 1.1718  Periódica al final (max): 1.0304 
+
+=====================================================================
+C. Consistencia entre semillas (NSGA-III) y comparación con random
+=====================================================================
+NSGA-III  continua           n=11 media=0.1130 sd=0.0010 CV=0.93%  Shapiro W=0.893 p=0.150
+NSGA-III  continua_modulada  n=11 media=0.1112 sd=0.0017 CV=1.50%  Shapiro W=0.967 p=0.855
+NSGA-III  periodica          n=11 media=0.8789 sd=0.0345 CV=3.93%  Shapiro W=0.877 p=0.096
+NSGA-III  eventos            n=11 media=1.1587 sd=0.0120 CV=1.03%  Shapiro W=0.918 p=0.306
+random    continua           n=11 media=0.1131 sd=0.0016 CV=1.45%  Shapiro W=0.970 p=0.887
+random    continua_modulada  n=11 media=0.1124 sd=0.0017 CV=1.55%  Shapiro W=0.903 p=0.203
+random    periodica          n=11 media=0.9481 sd=0.0101 CV=1.06%  Shapiro W=0.919 p=0.310
+random    eventos            n=11 media=1.1780 sd=0.0049 CV=0.41%  Shapiro W=0.914 p=0.269
+
+Friedman entre arquitecturas (bloques = semillas), HV de validación:
+
+	Friedman rank sum test
+
+data:  Mn
+Friedman chi-squared = 31.909, df = 3, p-value = 5.47e-07
+
+rango medio:
+         continua continua_modulada         periodica           eventos 
+         3.090909          3.909091          2.000000          1.000000 
+                 A                 B        p   a12  p_holm
+          continua continua_modulada 0.002930 0.826 0.00586
+          continua         periodica 0.000977 0.000 0.00586
+          continua           eventos 0.000977 0.000 0.00586
+ continua_modulada         periodica 0.000977 0.000 0.00586
+ continua_modulada           eventos 0.000977 0.000 0.00586
+         periodica           eventos 0.000977 0.000 0.00586
+
+Fracción del frente combinado por semilla: media (min-max)
+             continua     continua_modulada             periodica 
+"0.189 (0.065-0.304)" "0.194 (0.093-0.298)" "0.143 (0.073-0.254)" 
+              eventos 
+"0.475 (0.299-0.531)" 
+Friedman sobre la fracción del frente combinado:
+
+	Friedman rank sum test
+
+data:  Mc
+Friedman chi-squared = 18.468, df = 3, p-value = 0.0003522
+
+rango medio:
+         continua continua_modulada         periodica           eventos 
+         2.727273          2.954545          3.227273          1.090909 
+semillas en que eventos tiene la mayor fracción: 10 de 11 
+                 A                 B       p     a12 p_holm
+          continua continua_modulada 0.89390 0.46281 0.8939
+          continua         periodica 0.19733 0.66116 0.3947
+          continua           eventos 0.00510 0.00826 0.0231
+ continua_modulada         periodica 0.12628 0.71488 0.3788
+ continua_modulada           eventos 0.00386 0.00000 0.0231
+         periodica           eventos 0.00386 0.00000 0.0231
+
+--- NSGA-III frente a búsqueda aleatoria (mismo presupuesto) ---
+      arquitectura hv_nsga  sd_nsga hv_random sd_random         p
+          continua  0.1130 0.001047    0.1131  0.001643 0.5771484
+ continua_modulada  0.1112 0.001673    0.1124  0.001737 0.1015625
+         periodica  0.8789 0.034507    0.9481  0.010060 0.0009766
+           eventos  1.1587 0.011965    1.1780  0.004870 0.0009766
+ a12_nsga_vs_random frente_nsga frente_random   p_holm
+            0.45455       71.73         31.91 0.577148
+            0.28926       59.82         16.18 0.203125
+            0.00000       97.91        887.82 0.003906
+            0.02479       94.27      32125.00 0.003906
+ coverage_nsga_over_random coverage_random_over_nsga
+                    0.7407                    0.6692
+                    0.8933                    0.6444
+                    0.1824                    0.7669
+                    0.9850                    0.8149
+
+Recorte por nichado del frente aleatorio al tamaño del frente NSGA-III:
+      arquitectura hv_nsga hv_random hv_random_recortado p_completo p_recortado
+          continua  0.1130    0.1131              0.1131  0.5771484   0.5771484
+ continua_modulada  0.1112    0.1124              0.1124  0.1015625   0.1015625
+         periodica  0.8789    0.9481              0.9420  0.0009766   0.0009766
+           eventos  1.1587    1.1780              1.1724  0.0009766   0.0009766
+ a12_vs_completo a12_vs_recortado p_holm_completo p_holm_recortado
+         0.45455          0.45455        0.577148         0.577148
+         0.28926          0.28926        0.203125         0.203125
+         0.00000          0.00000        0.003906         0.003906
+         0.02479          0.09091        0.003906         0.003906
+máx |HV recalculado - HV del servidor| (NSGA-III): 4e-15 
+
+Fracción del frente conjunto (NSGA-III + random, misma semilla) que aporta cada método:
+       arquitectura   frac_nsga  n_conjunto
+1          continua 0.663619145    73.27273
+2 continua_modulada 0.810489895    55.45455
+3           eventos 0.001862089 32171.81818
+4         periodica 0.060321092   928.09091
+
+=====================================================================
+F. Diseño (pregunta 1): mejores valores por objetivo y error con presupuesto de costo
+=====================================================================
+Mínimos por objetivo, frente funcional:
+       arquitectura regimen  error umbral latencia     costo
+1          continua  limpio 0.1000     15    4.285 1000.0000
+2 continua_modulada  limpio 0.1050     15    2.555 1000.0000
+3           eventos  limpio 0.0950     15    4.960    0.0375
+4         periodica  limpio 0.1075     15    3.890    3.3333
+5          continua rafagas 0.1700     15    3.090 1000.0000
+6 continua_modulada rafagas 0.1675     15    9.050 1000.0000
+7           eventos rafagas 0.1650     15   10.090    0.2292
+8         periodica rafagas 0.1675     15    4.242    3.3333
+      arquitectura regimen presupuesto error_min umbral_min latencia_min
+          continua  limpio           2        NA         NA           NA
+          continua  limpio           5        NA         NA           NA
+          continua  limpio          10        NA         NA           NA
+          continua  limpio          20        NA         NA           NA
+          continua  limpio          50        NA         NA           NA
+          continua  limpio         100        NA         NA           NA
+          continua  limpio         200        NA         NA           NA
+          continua  limpio         500        NA         NA           NA
+          continua  limpio        1000    0.1000      15.00        4.285
+ continua_modulada  limpio           2        NA         NA           NA
+ continua_modulada  limpio           5        NA         NA           NA
+ continua_modulada  limpio          10        NA         NA           NA
+ continua_modulada  limpio          20        NA         NA           NA
+ continua_modulada  limpio          50        NA         NA           NA
+ continua_modulada  limpio         100        NA         NA           NA
+ continua_modulada  limpio         200        NA         NA           NA
+ continua_modulada  limpio         500        NA         NA           NA
+ continua_modulada  limpio        1000    0.1050      15.00        2.555
+           eventos  limpio           2    0.2525      15.00      154.787
+           eventos  limpio           5    0.0950      15.00        9.648
+           eventos  limpio          10    0.0950      15.00        4.960
+           eventos  limpio          20    0.0950      15.00        4.960
+           eventos  limpio          50    0.0950      15.00        4.960
+           eventos  limpio         100    0.0950      15.00        4.960
+           eventos  limpio         200    0.0950      15.00        4.960
+           eventos  limpio         500    0.0950      15.00        4.960
+           eventos  limpio        1000    0.0950      15.00        4.960
+         periodica  limpio           2        NA         NA           NA
+         periodica  limpio           5    0.3075      58.92       79.660
+         periodica  limpio          10    0.2325      43.38       49.315
+         periodica  limpio          20    0.1600      24.56       30.332
+         periodica  limpio          50    0.1425      15.00       15.877
+         periodica  limpio         100    0.1325      15.00        8.270
+         periodica  limpio         200    0.1075      15.00        6.500
+         periodica  limpio         500    0.1075      15.00        3.890
+         periodica  limpio        1000    0.1075      15.00        3.890
+
+Costo mínimo entre soluciones funcionales con umbral 15 ms y error <= 0.25:
+       arquitectura regimen       costo
+1          continua  limpio 1000.000000
+2 continua_modulada  limpio 1000.000000
+3           eventos  limpio    2.066667
+4         periodica  limpio   25.000000
+5          continua rafagas 1000.000000
+6 continua_modulada rafagas 1000.000000
+7           eventos rafagas    2.125000
+8         periodica rafagas   30.000000
+
+Intervalos entre lecturas en el frente funcional:
+      arquitectura regimen   n mediana    q25    q75 en_alfa_80_125 sobre_125
+ continua_modulada  limpio  52  236.36 132.00 249.68         0.0000    0.9231
+           eventos  limpio 184    9.38   7.68  10.59         0.0109    0.0000
+         periodica  limpio 170   17.36   5.67  42.45         0.0941    0.0647
+ continua_modulada rafagas  82  111.14  24.75 181.61         0.1707    0.3780
+           eventos rafagas 178    8.02   7.39   9.32         0.0000    0.0000
+         periodica rafagas 173   19.59   5.66  40.91         0.0405    0.0520
+ bajo_80
+  0.0769
+  0.9891
+  0.8412
+  0.4512
+  1.0000
+  0.9075
+
+Costo (lecturas/s) de los lectores por eventos en el frente funcional, cuantiles:
+$limpio
+      0%      25%      50%      75%     100% 
+0.037500 1.109375 2.045833 2.590625 5.708333 
+
+$rafagas
+       0%       25%       50%       75%      100% 
+0.2291667 1.6625000 2.3187500 3.3416667 6.7708333 
+
+
+=====================================================================
+G. Sensibilidad
+=====================================================================
+
+ completo : fracción del frente combinado
+ condicion fraccion_frente_combinado.continua
+      base                             0.0983
+   pulso_5                             0.1585
+  pulso_20                             0.2372
+ ruido_0.4                             0.2188
+ ruido_0.9                             0.2406
+ isi_corto                             0.2603
+ fraccion_frente_combinado.continua_modulada
+                                      0.2107
+                                      0.1829
+                                      0.1186
+                                      0.2812
+                                      0.0856
+                                      0.1860
+ fraccion_frente_combinado.periodica fraccion_frente_combinado.eventos
+                              0.0871                             0.604
+                              0.0732                             0.585
+                              0.2134                             0.431
+                              0.0365                             0.464
+                              0.1604                             0.513
+                              0.2107                             0.343
+
+ funcional : fracción del frente combinado
+ condicion fraccion_frente_combinado.continua
+      base                             0.1021
+   pulso_5                             0.0517
+  pulso_20                             0.2474
+ ruido_0.4                             0.2577
+ ruido_0.9                             0.2794
+ isi_corto                             0.2903
+ fraccion_frente_combinado.continua_modulada
+                                       0.169
+                                       0.310
+                                       0.067
+                                       0.264
+                                       0.118
+                                       0.204
+ fraccion_frente_combinado.periodica fraccion_frente_combinado.eventos
+                              0.0810                             0.648
+                              0.0172                             0.621
+                              0.1804                             0.505
+                              0.0245                             0.454
+                              0.1029                             0.500
+                              0.1989                             0.306
+
+C(eventos, periódica) y C(periódica, eventos) por condición (funcional):
+ condicion cobertura_A_sobre_B.periodica cobertura_A_sobre_B.eventos
+      base                             0                       0.865
+   pulso_5                             0                       0.500
+  pulso_20                             0                       0.521
+ ruido_0.4                             0                       0.945
+ ruido_0.9                             0                       0.440
+ isi_corto                             0                       0.260
+
+n funcional por condición y arquitectura:
+ condicion n_frente.continua n_frente.continua_modulada n_frente.periodica
+      base               137                         52                170
+   pulso_5                11                         19                  2
+  pulso_20                51                         41                 73
+ ruido_0.4                63                         59                 73
+ ruido_0.9                38                         42                 25
+ isi_corto                81                         66                 50
+ n_frente.eventos
+              184
+               36
+               98
+               74
+               68
+               57
+
+=====================================================================
+H. Recuperación de modelos y ajuste
+=====================================================================
+recuperados: 20 de 48 (41.7%) 
+
+	Exact binomial test
+
+data:  diag_ok and tot
+number of successes = 20, number of trials = 48, p-value = 0.008356
+alternative hypothesis: true probability of success is greater than 0.25
+95 percent confidence interval:
+ 0.295877 1.000000
+sample estimates:
+probability of success 
+             0.4166667 
+
+con margen >= 4: decididos 17 de 48 ; correctos 7 
+
+Log-verosimilitud modulada - continua (anidada), por dataset: mediana y fracción < -2
+                      dataset dll.mediana dll.frac_menor_menos2
+1        deodato_melcher_2024      -8.053                 0.789
+2          sintetico_continua      -5.257                 0.833
+3 sintetico_continua_modulada       2.471                 0.083
+4           sintetico_eventos     -11.337                 0.750
+5         sintetico_periodica      -5.781                 0.667
+Fracción global con modulada peor por más de 2 unidades: 0.674 
+
+Deodato y Melcher (lectura de inicio a inicio, servidor):
+
+         continua continua_modulada           eventos         periodica 
+               22                 4                 5                 7 
+       arquitectura aic.media aic.mediana delta_aic.media delta_aic.mediana
+1          continua     58.58       54.31            6.28              0.00
+2 continua_modulada     80.06       75.40           27.75             24.11
+3           eventos     64.74       63.28           12.43              8.84
+4         periodica     77.23       69.12           24.92             12.60
+margen de AIC del mejor modelo (mediana, rango): 6.673998 0.7396527 28.11034 
+peso de Akaike medio por arquitectura:
+         continua continua_modulada           eventos         periodica 
+            0.576             0.110             0.132             0.181 
+AIC total por arquitectura (suma sobre participantes):
+         continua continua_modulada           eventos         periodica 
+           2226.2            3042.3            2460.0            2934.6 
+
+=====================================================================
+I. Haarlem
+=====================================================================
+n = 31  umbral medio: 25.48 sd 4.75  rango 16.9 38.3 
+IAF reposo media: 10.07 sd 0.75  rango 8.45 12.6 
+periodo alfa medio: 99.9  rango 79.4 118.3 
+
+	Pearson's product-moment correlation
+
+data:  hp$umbral_ms and hp$iaf_reposo
+t = -2.516, df = 29, p-value = 0.01766
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ -0.67620674 -0.08111634
+sample estimates:
+       cor 
+-0.4232899 
+
+                    Estimate Std. Error    t value   Pr(>|t|)
+(Intercept)       -4.3498442 10.9449498 -0.3974293 0.69396111
+periodo_reposo_ms  0.2986972  0.1093312  2.7320397 0.01060364
+                         2.5 %     97.5 %
+(Intercept)       -26.73477995 18.0350915
+periodo_reposo_ms   0.07508976  0.5223046
+Spearman umbral vs IAF: -0.205 
+sin D2 (periodo 118.3 ): r = 0.281  p = 0.133 
+distancias de Cook > 4/n: D2 
+
+=====================================================================
+K. Cobertura cruzada entre eventos y periódica con ambos optimizadores
+=====================================================================
+   semilla ev_nsga_sobre_per_nsga ev_nsga_sobre_per_rand ev_rand_sobre_per_rand
+1       11                  0.838                  0.886                  0.870
+2       22                  0.721                  0.728                  0.850
+3       33                  0.705                  0.712                  0.864
+4       44                  0.718                  0.746                  0.882
+5       55                  0.820                  0.696                  0.713
+6       66                  0.696                  0.709                  0.841
+7       77                  0.358                  0.484                  0.773
+8       88                  0.800                  0.678                  0.743
+9       99                  0.632                  0.731                  0.719
+10     111                  0.671                  0.748                  0.793
+11     122                  0.688                  0.757                  0.770
+   ev_rand_sobre_per_nsga per_rand_sobre_ev_nsga per_nsga_sobre_ev_nsga
+1                   0.770                      0                      0
+2                   0.868                      0                      0
+3                   0.808                      0                      0
+4                   0.833                      0                      0
+5                   0.754                      0                      0
+6                   0.785                      0                      0
+7                   0.868                      0                      0
+8                   0.767                      0                      0
+9                   0.603                      0                      0
+10                  0.908                      0                      0
+11                  0.781                      0                      0
+   per_rand_sobre_ev_rand per_nsga_sobre_ev_rand
+1                       0                      0
+2                       0                      0
+3                       0                      0
+4                       0                      0
+5                       0                      0
+6                       0                      0
+7                       0                      0
+8                       0                      0
+9                       0                      0
+10                      0                      0
+11                      0                      0
+
+media por columna:
+ev_nsga_sobre_per_nsga ev_nsga_sobre_per_rand ev_rand_sobre_per_rand 
+                 0.695                  0.716                  0.802 
+ev_rand_sobre_per_nsga per_rand_sobre_ev_nsga per_nsga_sobre_ev_nsga 
+                 0.795                  0.000                  0.000 
+per_rand_sobre_ev_rand per_nsga_sobre_ev_rand 
+                 0.000                  0.000 
+min por columna:
+ev_nsga_sobre_per_nsga ev_nsga_sobre_per_rand ev_rand_sobre_per_rand 
+                 0.358                  0.484                  0.713 
+ev_rand_sobre_per_nsga per_rand_sobre_ev_nsga per_nsga_sobre_ev_nsga 
+                 0.603                  0.000                  0.000 
+per_rand_sobre_ev_rand per_nsga_sobre_ev_rand 
+                 0.000                  0.000 
+max por columna:
+ev_nsga_sobre_per_nsga ev_nsga_sobre_per_rand ev_rand_sobre_per_rand 
+                 0.838                  0.886                  0.882 
+ev_rand_sobre_per_nsga per_rand_sobre_ev_nsga per_nsga_sobre_ev_nsga 
+                 0.908                  0.000                  0.000 
+per_rand_sobre_ev_rand per_nsga_sobre_ev_rand 
+                 0.000                  0.000 

@@ -1,0 +1,226 @@
+=====================================================================
+1. Fronteras de Pareto 2D contra el costo (agentes funcionales)
+=====================================================================
+limpio   error     C(E2d, P2d) = 1.000   C(P2d, E2d) = 0.000   (puntos E 41, P 10)
+limpio   umbral    C(E2d, P2d) = 1.000   C(P2d, E2d) = 0.000   (puntos E 1, P 8)
+limpio   latencia  C(E2d, P2d) = 0.941   C(P2d, E2d) = 0.000   (puntos E 115, P 17)
+rafagas  error     C(E2d, P2d) = 1.000   C(P2d, E2d) = 0.000   (puntos E 33, P 8)
+rafagas  umbral    C(E2d, P2d) = 1.000   C(P2d, E2d) = 0.000   (puntos E 1, P 5)
+rafagas  latencia  C(E2d, P2d) = 0.786   C(P2d, E2d) = 0.000   (puntos E 101, P 14)
+
+=====================================================================
+2. Diseño: error mínimo, costo al que se alcanza y latencias
+=====================================================================
+
+Régimen limpio 
+  continua           error mínimo 0.1000 con costo mínimo 1000.00; latencia mínima 4.29 ms (costo 1000.00); umbral mínimo 15.00
+  continua_modulada  error mínimo 0.1050 con costo mínimo 1000.00; latencia mínima 2.56 ms (costo 1000.00); umbral mínimo 15.00
+  periodica          error mínimo 0.1075 con costo mínimo 166.67; latencia mínima 3.89 ms (costo 333.33); umbral mínimo 15.00
+  eventos            error mínimo 0.0950 con costo mínimo 2.60; latencia mínima 4.96 ms (costo 5.71); umbral mínimo 15.00
+  Periódica: costo mínimo para error <= 0.0950 (error mínimo de eventos): no lo alcanza
+  Periódica: error mínimo 0.1075, alcanzado con costo 166.67
+  Eventos: costo mínimo con latencia < 10 ms: 4.85
+  Costo mínimo con umbral <= 15 ms y error <= 0.25, por arquitectura:
+         continua continua_modulada         periodica           eventos 
+      1000.000000       1000.000000         25.000000          2.066667 
+
+Régimen rafagas 
+  continua           error mínimo 0.1700 con costo mínimo 1000.00; latencia mínima 3.09 ms (costo 1000.00); umbral mínimo 15.00
+  continua_modulada  error mínimo 0.1675 con costo mínimo 1000.00; latencia mínima 9.05 ms (costo 1000.00); umbral mínimo 15.00
+  periodica          error mínimo 0.1675 con costo mínimo 200.00; latencia mínima 4.24 ms (costo 500.00); umbral mínimo 15.00
+  eventos            error mínimo 0.1650 con costo mínimo 2.67; latencia mínima 10.09 ms (costo 6.77); umbral mínimo 15.00
+  Periódica: costo mínimo para error <= 0.1650 (error mínimo de eventos): no lo alcanza
+  Periódica: error mínimo 0.1675, alcanzado con costo 200.00
+  Eventos: costo mínimo con latencia < 10 ms: ninguna
+  Costo mínimo con umbral <= 15 ms y error <= 0.25, por arquitectura:
+         continua continua_modulada         periodica           eventos 
+         1000.000          1000.000            30.000             2.125 
+
+=====================================================================
+3. Parámetros elegidos por el optimizador (agentes funcionales)
+=====================================================================
+
+Régimen limpio 
+  mediana de tau por arquitectura:
+         continua continua_modulada           eventos         periodica 
+             4.82              5.21              6.66              4.39 
+  eventos: mediana theta_g 0.661, mediana theta_p 0.097, mediana r 9.38 ms
+  periódica: mediana w/T 1.00 (q25 0.81, q75 1.32)
+  continua modulada: fracción con A < 0.1 = 0.654 (n = 52)
+
+Régimen rafagas 
+  mediana de tau por arquitectura:
+         continua continua_modulada           eventos         periodica 
+             6.77              5.50              6.41              8.87 
+  eventos: mediana theta_g 0.687, mediana theta_p 0.160, mediana r 8.02 ms
+  periódica: mediana w/T 0.97 (q25 0.83, q75 1.83)
+  continua modulada: fracción con A < 0.1 = 0.610 (n = 82)
+
+=====================================================================
+4. Intervalos entre lecturas y banda alfa (80 a 125 ms)
+=====================================================================
+limpio   periódica n=170: T mediana 17.4 (q25 5.7, q75 42.5), rango 2.1 a 236.7; en alfa 0.094; < 80 ms 0.841; > 125 ms 0.065
+         diseños en alfa: costo mediano 9.2, umbral mediano 48.6, latencia mediana 64.0, error mediano 0.263
+         eventos n=184: r mediana 9.38 (q25 7.68, q75 10.59), en alfa 0.011, máximo 81.0
+rafagas  periódica n=173: T mediana 19.6 (q25 5.7, q75 40.9), rango 2.1 a 203.7; en alfa 0.040; < 80 ms 0.908; > 125 ms 0.052
+         diseños en alfa: costo mediano 8.3, umbral mediano 47.0, latencia mediana 89.1, error mediano 0.268
+         eventos n=178: r mediana 8.02 (q25 7.39, q75 9.32), en alfa 0.000, máximo 15.1
+Ambos regímenes: periódica en alfa 0.067, < 80 ms 0.875
+
+=====================================================================
+5. Sensibilidad (régimen limpio, agentes funcionales)
+=====================================================================
+
+Condición base 
+  n funcionales por arquitectura:
+
+         continua continua_modulada         periodica           eventos 
+              137                52               170               184 
+  continua           error mínimo 0.1000 con costo 1000.00
+  continua_modulada  error mínimo 0.1050 con costo 1000.00
+  periodica          error mínimo 0.1075 con costo 166.67
+  eventos            error mínimo 0.0950 con costo 2.60
+  frontera error-costo: C(E2d, P2d) = 1.000, C(P2d, E2d) = 0.000
+
+Condición pulso_5 
+  n funcionales por arquitectura:
+
+         continua continua_modulada         periodica           eventos 
+               11                19                 2                36 
+  continua           error mínimo 0.3050 con costo 1000.00
+  continua_modulada  error mínimo 0.3225 con costo 1000.00
+  periodica          error mínimo 0.3125 con costo 8.33
+  eventos            error mínimo 0.2700 con costo 2.69
+  frontera error-costo: C(E2d, P2d) = 1.000, C(P2d, E2d) = 0.000
+
+Condición pulso_20 
+  n funcionales por arquitectura:
+
+         continua continua_modulada         periodica           eventos 
+               51                41                73                98 
+  continua           error mínimo 0.1375 con costo 1000.00
+  continua_modulada  error mínimo 0.1675 con costo 1000.00
+  periodica          error mínimo 0.0650 con costo 30.00
+  eventos            error mínimo 0.0525 con costo 2.61
+  frontera error-costo: C(E2d, P2d) = 1.000, C(P2d, E2d) = 0.000
+
+Condición ruido_0.4 
+  n funcionales por arquitectura:
+
+         continua continua_modulada         periodica           eventos 
+               63                59                73                74 
+  continua           error mínimo 0.0075 con costo 1000.00
+  continua_modulada  error mínimo 0.0150 con costo 1000.00
+  periodica          error mínimo 0.0200 con costo 250.00
+  eventos            error mínimo 0.0075 con costo 2.70
+  frontera error-costo: C(E2d, P2d) = 1.000, C(P2d, E2d) = 0.000
+
+Condición ruido_0.9 
+  n funcionales por arquitectura:
+
+         continua continua_modulada         periodica           eventos 
+               38                42                25                68 
+  continua           error mínimo 0.2975 con costo 1000.00
+  continua_modulada  error mínimo 0.3000 con costo 1000.00
+  periodica          error mínimo 0.2925 con costo 18.33
+  eventos            error mínimo 0.2350 con costo 2.50
+  frontera error-costo: C(E2d, P2d) = 1.000, C(P2d, E2d) = 0.000
+
+Condición isi_corto 
+  n funcionales por arquitectura:
+
+         continua continua_modulada         periodica           eventos 
+               81                66                50                57 
+  continua           error mínimo 0.1714 con costo 1000.00
+  continua_modulada  error mínimo 0.1875 con costo 1000.00
+  periodica          error mínimo 0.1794 con costo 45.00
+  eventos            error mínimo 0.1411 con costo 3.16
+  frontera error-costo: C(E2d, P2d) = 1.000, C(P2d, E2d) = 0.000
+
+Cobertura 4D eventos/periódica por condición (funcionales):
+ condicion subconjunto         A         B cobertura_A_sobre_B
+      base   funcional periodica   eventos               0.000
+      base   funcional   eventos periodica               0.865
+   pulso_5   funcional periodica   eventos               0.000
+   pulso_5   funcional   eventos periodica               0.500
+  pulso_20   funcional periodica   eventos               0.000
+  pulso_20   funcional   eventos periodica               0.521
+ ruido_0.4   funcional periodica   eventos               0.000
+ ruido_0.4   funcional   eventos periodica               0.945
+ ruido_0.9   funcional periodica   eventos               0.000
+ ruido_0.9   funcional   eventos periodica               0.440
+ isi_corto   funcional periodica   eventos               0.000
+ isi_corto   funcional   eventos periodica               0.260
+
+Fracción del frente combinado (funcionales):
+ condicion fraccion_frente_combinado.continua
+      base                             0.1021
+   pulso_5                             0.0517
+  pulso_20                             0.2474
+ ruido_0.4                             0.2577
+ ruido_0.9                             0.2794
+ isi_corto                             0.2903
+ fraccion_frente_combinado.continua_modulada
+                                       0.169
+                                       0.310
+                                       0.067
+                                       0.264
+                                       0.118
+                                       0.204
+ fraccion_frente_combinado.periodica fraccion_frente_combinado.eventos
+                              0.0810                             0.648
+                              0.0172                             0.621
+                              0.1804                             0.505
+                              0.0245                             0.454
+                              0.1029                             0.500
+                              0.1989                             0.306
+
+Fracción del frente combinado (todas las soluciones):
+ condicion fraccion_frente_combinado.continua
+      base                             0.0983
+   pulso_5                             0.1585
+  pulso_20                             0.2372
+ ruido_0.4                             0.2188
+ ruido_0.9                             0.2406
+ isi_corto                             0.2603
+ fraccion_frente_combinado.continua_modulada
+                                      0.2107
+                                      0.1829
+                                      0.1186
+                                      0.2812
+                                      0.0856
+                                      0.1860
+ fraccion_frente_combinado.periodica fraccion_frente_combinado.eventos
+                              0.0871                             0.604
+                              0.0732                             0.585
+                              0.2134                             0.431
+                              0.0365                             0.464
+                              0.1604                             0.513
+                              0.2107                             0.343
+
+Periodo del lector periódico por condición:
+ condicion n_periodicas_funcionales mediana_T_ms fraccion_T_en_banda_alfa
+      base                      170         17.4                   0.0941
+   pulso_5                        2         58.3                   0.5000
+  pulso_20                       73         21.8                   0.0000
+ ruido_0.4                       73         15.7                   0.0411
+ ruido_0.9                       25         33.5                   0.2800
+ isi_corto                       50         26.0                   0.1000
+
+=====================================================================
+6. NSGA-III frente a búsqueda aleatoria en dos dimensiones (11 semillas juntas, funcionales)
+=====================================================================
+continua           error-costo    C(N,R) = 0.000  C(R,N) = 1.000  error mínimo N 0.1000  R 0.0900  (puntos N 1, R 1)
+continua           error-latencia C(N,R) = 0.488  C(R,N) = 0.400  error mínimo N 0.1000  R 0.0900  (puntos N 45, R 41)
+continua_modulada  error-costo    C(N,R) = 0.000  C(R,N) = 1.000  error mínimo N 0.1050  R 0.1000  (puntos N 1, R 1)
+continua_modulada  error-latencia C(N,R) = 0.810  C(R,N) = 0.000  error mínimo N 0.1050  R 0.1000  (puntos N 30, R 21)
+periodica          error-costo    C(N,R) = 0.214  C(R,N) = 0.833  error mínimo N 0.1025  R 0.0925  (puntos N 12, R 14)
+periodica          error-latencia C(N,R) = 0.269  C(R,N) = 0.524  error mínimo N 0.1025  R 0.0925  (puntos N 21, R 26)
+eventos            error-costo    C(N,R) = 0.119  C(R,N) = 0.776  error mínimo N 0.0925  R 0.0950  (puntos N 67, R 126)
+eventos            error-latencia C(N,R) = 0.042  C(R,N) = 0.895  error mínimo N 0.0925  R 0.0950  (puntos N 19, R 24)
+
+=====================================================================
+7. Agentes por eventos muy ralos (costo < 1 lectura por segundo, funcionales)
+=====================================================================
+limpio   n = 42, umbral mínimo 15.0 ms, error mínimo 0.5175, error mínimo entre los de umbral 15 ms: 0.5175
+rafagas  n = 16, umbral mínimo 15.0 ms, error mínimo 0.5150, error mínimo entre los de umbral 15 ms: 0.5150

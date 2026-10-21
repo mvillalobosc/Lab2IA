@@ -1,0 +1,17 @@
+"regimen","subconjunto","arquitectura","n_frente","hipervolumen","en_frente_combinado","fraccion_frente_combinado"
+"limpio","completo","continua",156,0.130247781109556,35,0.098314606741573
+"limpio","completo","continua_modulada",83,0.129507817993007,75,0.210674157303371
+"limpio","completo","periodica",222,1.00659734568193,31,0.0870786516853933
+"limpio","completo","eventos",215,1.32840356190589,215,0.603932584269663
+"limpio","funcional","continua",137,0.13063590917862,29,0.102112676056338
+"limpio","funcional","continua_modulada",52,0.129935042699982,48,0.169014084507042
+"limpio","funcional","periodica",170,0.993173416627547,23,0.0809859154929577
+"limpio","funcional","eventos",184,1.33190544100838,184,0.647887323943662
+"rafagas","completo","continua",107,0.129662109158332,51,0.131782945736434
+"rafagas","completo","continua_modulada",107,0.129850452547543,52,0.134366925064599
+"rafagas","completo","periodica",229,1.03361038261107,56,0.144702842377261
+"rafagas","completo","eventos",228,1.31813711759965,228,0.589147286821705
+"rafagas","funcional","continua",81,0.12977866266359,48,0.16
+"rafagas","funcional","continua_modulada",82,0.130036130553368,33,0.11
+"rafagas","funcional","periodica",173,1.0133336269062,41,0.136666666666667
+"rafagas","funcional","eventos",178,1.31313056050081,178,0.593333333333333

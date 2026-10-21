@@ -1,0 +1,9 @@
+"dataset","arquitectura","n","r_periodo_vs_1000_sobre_iaf","p","fraccion_fase_significativa"
+"sintetico_continua","continua_modulada",12,-0.317075201755153,0.315276257562363,0.0833333333333333
+"sintetico_continua_modulada","continua_modulada",12,-0.306305351092142,0.332886465759105,0.333333333333333
+"sintetico_eventos","continua_modulada",12,0.00943594083406357,0.976781495867317,0
+"sintetico_periodica","continua_modulada",12,-0.133710436487024,0.678665786915264,1
+"sintetico_continua","periodica",12,0.0939042764098475,0.771603008434037,0.0833333333333333
+"sintetico_continua_modulada","periodica",12,0.301216081498566,0.341389620638364,0.333333333333333
+"sintetico_eventos","periodica",12,0.245091690330381,0.442615464181184,0
+"sintetico_periodica","periodica",12,0.458152551612879,0.134169708173451,1
