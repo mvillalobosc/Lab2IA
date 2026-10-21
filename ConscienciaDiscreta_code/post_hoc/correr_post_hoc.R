@@ -40,7 +40,7 @@ if (!saltar) paso("haarlem_rejilla.R")           # lento: rejilla de 540 combina
 paso("cota_final.R")
 paso("analisis.R")                               # estadística (menos de un minuto)
 paso("analisis_complementario.R")
-paso("figuras.R")                                # Fig. 2 a 10 y A1 a A6
+paso("figuras.R")                                # Fig. 2 a 16
 ## Fig. 1 es un diagrama TikZ / Fig. 1 is a TikZ diagram
 estado <- system2("pdflatex", c("-interaction=nonstopmode", "-output-directory=figuras", "Fig1.tex"), stdout = FALSE)
 if (!identical(as.integer(estado), 0L)) warning("pdflatex no pudo compilar Fig1.tex / could not compile Fig1.tex")

@@ -31,7 +31,7 @@ N_CORES=8 Rscript correr_post_hoc.R        # núcleos para los pasos lentos
 | 7 | `cota_final.R` | Cota final (mínimo entre GA y rejilla, con regresión isotónica) y periodo máximo compatible con el umbral de cada participante. | `resultados/cota_haarlem_final.csv` |
 | 8 | `analisis.R` | Estadística de la validación del optimizador, del diseño, de la sensibilidad, de la recuperación de modelos y de Haarlem et al. | `estadistica/resumen.txt` y tablas `A_` a `K_` |
 | 9 | `analisis_complementario.R` | Cifras del diseño, de los intervalos entre lecturas y de la sensibilidad que el artículo cita y que `analisis.R` no calcula. | `estadistica/resumen_complementario.txt` |
-| 10 | `figuras.R` | Fig. 2 a 10 y A1 a A6. | `figuras/`, `resultados/ecm_curva_deodato_pausa.csv` y `resultados/haarlem_T_max.csv` |
+| 10 | `figuras.R` | Fig. 2 a 16. | `figuras/`, `resultados/ecm_curva_deodato_pausa.csv` y `resultados/haarlem_T_max.csv` |
 | 11 | `Fig1.tex` | Diagrama TikZ de la Fig. 1, que `correr_post_hoc.R` compila con pdflatex. | `figuras/Fig1.pdf` |
 
 Fuera de los tres pasos lentos, cada script tarda segundos; `analisis.R` y `figuras.R` tardan menos de un minuto cada uno.
@@ -71,7 +71,7 @@ N_CORES=8 Rscript correr_post_hoc.R        # cores for the slow steps
 | 7 | `cota_final.R` | Final bound (lowest of GA and grid, with an isotonic regression) and longest period compatible with the threshold of each participant. | `resultados/cota_haarlem_final.csv` |
 | 8 | `analisis.R` | Statistics of the validation of the optimiser, the design, the sensitivity, the model recovery and Haarlem et al. | `estadistica/resumen.txt` and tables `A_` to `K_` |
 | 9 | `analisis_complementario.R` | Numbers of the design, the intervals between reads and the sensitivity that the paper cites and that `analisis.R` does not compute. | `estadistica/resumen_complementario.txt` |
-| 10 | `figuras.R` | Figs. 2 to 10 and A1 to A6. | `figuras/`, `resultados/ecm_curva_deodato_pausa.csv` and `resultados/haarlem_T_max.csv` |
+| 10 | `figuras.R` | Figs. 2 to 16. | `figuras/`, `resultados/ecm_curva_deodato_pausa.csv` and `resultados/haarlem_T_max.csv` |
 | 11 | `Fig1.tex` | TikZ diagram of Fig. 1, which `correr_post_hoc.R` compiles with pdflatex. | `figuras/Fig1.pdf` |
 
 Apart from the three slow steps, each script takes seconds; `analisis.R` and `figuras.R` take less than one minute each.

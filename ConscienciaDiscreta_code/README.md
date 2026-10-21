@@ -66,7 +66,7 @@ Los datos humanos conservan los términos de sus autores y se deben citar las fu
 | Elemento del artículo | Dónde está |
 | --- | --- |
 | Fig. 1 (agente y arquitecturas) | `post_hoc/Fig1.tex` y `post_hoc/figuras/Fig1.pdf` |
-| Fig. 2 a 10 y A1 a A6 | `post_hoc/figuras/`, generadas por `post_hoc/figuras.R` |
+| Fig. 2 a 16 (las Fig. 11 a 16 están en el apéndice) | `post_hoc/figuras/`, generadas por `post_hoc/figuras.R` |
 | Validación del optimizador (Sect. 4.1, Tabla 5) | `salida/validation_*.csv`, secciones A, B, C y K de `post_hoc/estadistica/resumen.txt` (tablas A a E, J y K) y sección 6 de `resumen_complementario.txt` |
 | Diseño del acceso (Sect. 4.2, Tablas 6 a 8) | `salida/frentes_validados.csv`, `salida/metricas_frentes.csv`, `salida/cobertura_frentes.csv`, `post_hoc/resultados/rodillas_corregidas.csv`, sección F de `resumen.txt` (tabla F) y secciones 1 a 3 y 7 de `resumen_complementario.txt` |
 | Intervalos entre lecturas (Sect. 4.3) | sección F de `resumen.txt` y sección 4 de `resumen_complementario.txt` |
@@ -156,7 +156,7 @@ The human data keep the terms of their authors, and the original sources, listed
 | Element of the paper | Where it is |
 | --- | --- |
 | Fig. 1 (agent and architectures) | `post_hoc/Fig1.tex` and `post_hoc/figuras/Fig1.pdf` |
-| Figs. 2 to 10 and A1 to A6 | `post_hoc/figuras/`, produced by `post_hoc/figuras.R` |
+| Figs. 2 to 16 (Figs. 11 to 16 are in the appendix) | `post_hoc/figuras/`, produced by `post_hoc/figuras.R` |
 | Validation of the optimiser (Sect. 4.1, Table 5) | `salida/validation_*.csv`, sections A, B, C and K of `post_hoc/estadistica/resumen.txt` (tables A to E, J and K) and section 6 of `resumen_complementario.txt` |
 | Design of access (Sect. 4.2, Tables 6 to 8) | `salida/frentes_validados.csv`, `salida/metricas_frentes.csv`, `salida/cobertura_frentes.csv`, `post_hoc/resultados/rodillas_corregidas.csv`, section F of `resumen.txt` (table F) and sections 1 to 3 and 7 of `resumen_complementario.txt` |
 | Intervals between reads (Sect. 4.3) | section F of `resumen.txt` and section 4 of `resumen_complementario.txt` |

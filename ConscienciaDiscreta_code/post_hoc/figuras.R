@@ -11,7 +11,8 @@
 ## TikZ diagram (Fig1.tex) that is compiled with pdflatex.
 ##
 ## Uso / usage (desde post_hoc/): Rscript figuras.R [../salida] [.] [figuras] [Fig2 Fig3 ...]
-## Salidas / outputs: figuras/Fig2.pdf a Fig10.pdf y FigA1.pdf a FigA6.pdf
+## Salidas / outputs: figuras/Fig2.pdf a Fig16.pdf (Fig11 a Fig16 son las del
+##   apéndice, que siguen la numeración del texto como pide Springer)
 ## ============================================================================
 args <- commandArgs(trailingOnly = TRUE)
 D <- if (length(args) > 0) args[1] else "../salida"      # salidas del servidor
@@ -268,22 +269,22 @@ if (quiere("Fig10")) {
 }
 
 ## ---------------------------------------------------------------------------
-## Fig. A1: fracción del frente combinado por semilla
+## Fig. 12: fracción del frente combinado por semilla
 ## ---------------------------------------------------------------------------
-if (quiere("FigA1")) {
+if (quiere("Fig12")) {
   cf <- leer("validation_seed_combined_front.csv")
   cf$architecture <- arq(cf$arquitectura)
   p <- ggplot(cf, aes(factor(semilla), share_combined_front, fill = architecture)) +
     geom_col(width = 0.78, colour = "#4A4A4A", linewidth = 0.2) + esc_fill +
     scale_y_continuous(expand = c(0, 0), limits = c(0, 1.0001)) +
     labs(x = "seed", y = "share of the combined front") + guides(fill = guide_legend(nrow = 1)) + tema()
-  guardar(p, "FigA2.pdf", 174, 62)   # fracción del frente por semilla
+  guardar(p, "Fig12.pdf", 174, 62)   # fracción del frente por semilla
 }
 
 ## ---------------------------------------------------------------------------
-## Fig. A2: parametrización. Rango medio de Friedman por configuración
+## Fig. 11: parametrización. Rango medio de Friedman por configuración
 ## ---------------------------------------------------------------------------
-if (quiere("FigA2")) {
+if (quiere("Fig11")) {
   ta <- read.csv(file.path(R, "estadistica", "A_parametrizacion_rangos.csv"))
   ta$pc <- sub(".*pc=([0-9.]+) .*", "\\1", ta$config); ta$pm <- sub(".*pm=([0-9.]+)", "\\1", ta$config)
   ta$pop <- factor(sprintf("population %d", ta$popSize), levels = sprintf("population %d", c(52, 88, 132)))
@@ -295,13 +296,13 @@ if (quiere("FigA2")) {
     scale_fill_gradient(low = "#A7C7E7", high = "#F7F2EA", name = "mean Friedman rank (lower is better)") +
     labs(x = "crossover probability", y = "mutation probability") +
     guides(fill = guide_colourbar(barwidth = unit(40, "mm"), barheight = unit(2.5, "mm"), title.position = "top")) + tema()
-  guardar(p, "FigA1.pdf", 174, 62)   # parametrización
+  guardar(p, "Fig11.pdf", 174, 62)   # parametrización
 }
 
 ## ---------------------------------------------------------------------------
-## Fig. A4: Haarlem, IAF prestímulo en ensayos correctos e incorrectos
+## Fig. 16: Haarlem, IAF prestímulo en ensayos correctos e incorrectos
 ## ---------------------------------------------------------------------------
-if (quiere("FigA4")) {
+if (quiere("Fig16")) {
   suppressPackageStartupMessages(library(readxl))
   b <- as.data.frame(read_excel(file.path(R, "..", "datos_reales", "haarlem_2024", "iaf_longformat.xlsx")))
   l <- rbind(data.frame(sensor = "sensor C16", cond = b$Condition, t = b$Time, iaf = b$C16, se = b$C16_SE),
@@ -313,13 +314,13 @@ if (quiere("FigA4")) {
     geom_line(linewidth = 0.45) + facet_wrap(~ sensor) +
     scale_colour_manual(values = pal2, name = NULL) + scale_fill_manual(values = pal, name = NULL) +
     labs(x = "time relative to stimulus onset (ms)", y = "instantaneous alpha frequency (Hz)") + tema()
-  guardar(p, "FigA6.pdf", 174, 62)   # IAF prestímulo de Haarlem
+  guardar(p, "Fig16.pdf", 174, 62)   # IAF prestímulo de Haarlem
 }
 
 ## ---------------------------------------------------------------------------
-## Fig. A5: periodo ajustado contra 1000/IAF en los datos sintéticos
+## Fig. 14: periodo ajustado contra 1000/IAF en los datos sintéticos
 ## ---------------------------------------------------------------------------
-if (quiere("FigA5")) {
+if (quiere("Fig14")) {
   ap <- leer("ajuste_participantes.csv")
   per <- ap[ap$arquitectura %in% c("periodica", "continua_modulada") & grepl("^sintetico", ap$dataset), ]
   per$periodo <- ifelse(per$arquitectura == "periodica", per$T_ajustado, per$T_mod_ajustado)
@@ -333,7 +334,7 @@ if (quiere("FigA5")) {
     scale_fill_manual(values = FILL, name = "generator") + scale_shape_manual(values = SHAPE, name = "generator") +
     scale_y_log10() + labs(x = "1000 / IAF of the synthetic participant (ms)", y = "fitted period (ms, log scale)") +
     guides(fill = guide_legend(nrow = 1), shape = guide_legend(nrow = 1)) + tema()
-  guardar(p, "FigA4.pdf", 174, 66)   # periodo ajustado en datos sintéticos
+  guardar(p, "Fig14.pdf", 174, 66)   # periodo ajustado en datos sintéticos
 }
 
 ## ---------------------------------------------------------------------------
@@ -466,9 +467,9 @@ if (quiere("Fig9")) {
 }
 
 ## ---------------------------------------------------------------------------
-## Fig. A3: Deodato y Melcher (ISI como pausa), AIC relativo por participante
+## Fig. 15: Deodato y Melcher (ISI como pausa), AIC relativo por participante
 ## ---------------------------------------------------------------------------
-if (quiere("FigA3")) {
+if (quiere("Fig15")) {
   aj <- read.csv(file.path(R, "resultados", "ajuste_deodato_pausa.csv"))
   aj$architecture <- arq(aj$arquitectura)
   p <- ggplot(aj, aes(participante, pmin(delta_aic, 60), fill = architecture)) +
@@ -476,14 +477,14 @@ if (quiere("FigA3")) {
     esc_fill + scale_y_continuous(expand = c(0, 0), limits = c(0, 61)) +
     labs(x = "participant", y = "AIC minus the lowest AIC of the participant\n(truncated at 60)") +
     guides(fill = guide_legend(nrow = 1)) + tema() + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, size = 5.5))
-  guardar(p, "FigA5.pdf", 174, 66)   # AIC por participante
+  guardar(p, "Fig15.pdf", 174, 66)   # AIC por participante
 }
 
 ## ---------------------------------------------------------------------------
-## Fig. A3: fronteras de error contra costo de NSGA-III y de la búsqueda
+## Fig. 13: fronteras de error contra costo de NSGA-III y de la búsqueda
 ## aleatoria (11 semillas juntas, agentes funcionales)
 ## ---------------------------------------------------------------------------
-if (quiere("FigA3opt")) {
+if (quiere("Fig13")) {
   sf <- leer("validation_seed_fronts.csv")
   sf <- sf[sf$umbral < 300, ]
   base <- data.frame(architecture = arq(sf$arquitectura), method = factor(ifelse(sf$metodo == "random", "random search", "NSGA-III"), levels = c("NSGA-III", "random search")))
@@ -509,5 +510,5 @@ if (quiere("FigA3opt")) {
   pa <- hacer("costo", "cost (reads per second, log scale)", c("event", "periodic"))
   pb <- hacer("latencia", "access latency (ms, log scale)", ARQ_LEV)
   p <- con_etiquetas((pa / pb) + plot_layout(heights = c(1, 1), guides = "collect") & theme(legend.position = "bottom"))
-  guardar(p, "FigA3.pdf", 174, 118)   # fronteras NSGA-III frente a búsqueda aleatoria
+  guardar(p, "Fig13.pdf", 174, 118)   # fronteras NSGA-III frente a búsqueda aleatoria
 }
