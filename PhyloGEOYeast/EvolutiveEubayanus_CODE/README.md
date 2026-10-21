@@ -113,7 +113,7 @@ Todos están en `00_config.R`, que es el único archivo que se edita a mano.
 | `POLARIZAR` | `"mayoria"` | Cómo se define el alelo derivado en psi (`"mayoria"`, `"outgroup"` o `"referencia"`). |
 | `N_MIN_GRUPO_EST` | 3 | Cepas mínimas por grupo en los pasos que estiman algo por grupo. |
 | `K_ANCESTRIA` | 6 | Componentes de ancestría en `18_origen_cepa.R`. |
-| `LARGO_GENOMA` | 12.071.326 pb | Largo del genoma llamable, para convertir la diversidad del panel a diversidad por par de bases. |
+| `LARGO_GENOMA` | 12.071.326 pb | Largo del genoma llamable, para convertir la diversidad del panel a diversidad por par de bases. Es el largo nuclear de *S. cerevisiae* S288C, que se usa como aproximación para *S. eubayanus*. |
 | `MU_*`, `GEN_ANO_*` | ver archivo | Tasa de mutación y generaciones por año para las cotas en años. |
 
 ## English
@@ -227,5 +227,5 @@ They all live in `00_config.R`, the only file meant to be edited by hand.
 | `POLARIZAR` | `"mayoria"` | How the derived allele is defined in psi (`"mayoria"`, `"outgroup"`, or `"referencia"`). |
 | `N_MIN_GRUPO_EST` | 3 | Minimum strains per group in the steps that estimate something per group. |
 | `K_ANCESTRIA` | 6 | Ancestry components in `18_origen_cepa.R`. |
-| `LARGO_GENOMA` | 12,071,326 bp | Callable genome length, used to turn panel diversity into per-base-pair diversity. |
+| `LARGO_GENOMA` | 12,071,326 bp | Callable genome length, used to turn panel diversity into per-base-pair diversity. It is the nuclear length of *S. cerevisiae* S288C, used as an approximation for *S. eubayanus*. |
 | `MU_*`, `GEN_ANO_*` | see the file | Mutation rate and generations per year for the bounds in years. |

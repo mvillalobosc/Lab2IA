@@ -40,7 +40,7 @@ En este repositorio, la carpeta [../../YeastForest/data/](../../YeastForest/data
 | `CONTIG_EXCLUIR` | `"chromosome17"` | `"mtDNA"` |
 | `MIN_DIST_LD` | 50 pb | 20 pb |
 | `FRAC_AMPLIO` | 0,15 | 0,35 |
-| `LARGO_GENOMA` | 12.071.326 pb, con el comentario "S. cerevisiae S288C" | el mismo valor, con el comentario "S. eubayanus CBS 12357" |
+| `LARGO_GENOMA` | 12.071.326 pb, con el comentario "S. cerevisiae S288C" | el mismo valor, con un comentario que dice que es el largo de S288C y que se usa como aproximación para *S. eubayanus* |
 
 Lo demás (escenarios, umbrales, semilla, número de réplicas y lista de referencias) es igual en las dos carpetas, así que cualquier corrección a un paso hay que copiarla en ambas.
 
@@ -96,7 +96,7 @@ In this repository, the [../../YeastForest/data/](../../YeastForest/data/) folde
 | `CONTIG_EXCLUIR` | `"chromosome17"` | `"mtDNA"` |
 | `MIN_DIST_LD` | 50 bp | 20 bp |
 | `FRAC_AMPLIO` | 0.15 | 0.35 |
-| `LARGO_GENOMA` | 12,071,326 bp, with the comment "S. cerevisiae S288C" | the same value, with the comment "S. eubayanus CBS 12357" |
+| `LARGO_GENOMA` | 12,071,326 bp, with the comment "S. cerevisiae S288C" | the same value, with a comment saying it is the S288C length used as an approximation for *S. eubayanus* |
 
 The rest (scenarios, thresholds, seed, number of replicates, and the reference list) is the same in both folders, so any fix to a step has to be copied to both.
 

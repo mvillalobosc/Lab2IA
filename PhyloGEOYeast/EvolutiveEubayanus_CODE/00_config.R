@@ -227,7 +227,7 @@ MIN_SITIOS_PSI<- 50L
 # diversidad del panel a diversidad por par de bases: pi_panel esta medido POR
 # SITIO DEL PANEL y theta se define POR PAR DE BASES. Usar uno por el otro
 # infla Ne en varios ordenes de magnitud.
-LARGO_GENOMA <- 12071326L   # S. eubayanus CBS 12357, 16 cromosomas
+LARGO_GENOMA <- 12071326L   # largo nuclear de S288C (S. cerevisiae), aproximacion para S. eubayanus
 
 MU_REF <- 1.67e-10; MU_MIN <- 1.10e-10; MU_MAX <- 3.30e-10
 GEN_ANO_REF <- 150;  GEN_ANO_MIN <- 1;   GEN_ANO_MAX <- 2900

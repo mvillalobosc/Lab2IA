@@ -82,7 +82,7 @@ El equipo del proyecto generó y curó los datos y análisis de *S. eubayanus*. 
 
 > Peter, J. et al. (2018). Genome evolution across 1,011 *Saccharomyces cerevisiae* isolates. *Nature*, 556(7701), 339-344. <https://doi.org/10.1038/s41586-018-0030-5>
 
-Al reutilizar análisis o figuras, cita el manuscrito asociado y las referencias originales de su bibliografía. La pestaña **Método y reproducibilidad** de la app documenta el procesamiento de datos, los procedimientos de análisis, los supuestos y el código que representa la interfaz.
+Mientras el artículo de la plataforma no esté publicado, al reutilizar análisis o figuras cita la plataforma (<https://mvillalobosc.diinf.usach.cl/PhyloGEOYeast/>) y este repositorio, junto con las fuentes de datos nombradas arriba. La pestaña **Método y reproducibilidad** de la app documenta el procesamiento de datos, los procedimientos de análisis, los supuestos y el código que representa la interfaz.
 
 ### Contenido de la carpeta
 
@@ -179,7 +179,7 @@ The *S. eubayanus* data and analyses in this project were generated and curated 
 
 > Peter, J. et al. (2018). Genome evolution across 1,011 *Saccharomyces cerevisiae* isolates. *Nature*, 556(7701), 339-344. <https://doi.org/10.1038/s41586-018-0030-5>
 
-Please cite the associated manuscript and the original references listed in its bibliography when reusing analyses or figures. The app's **Method & reproducibility** tab documents the data processing, analytical procedures, assumptions, and code represented in the interface.
+Until the platform's article is published, please cite the platform (<https://mvillalobosc.diinf.usach.cl/PhyloGEOYeast/>) and this repository when reusing analyses or figures, together with the data sources named above. The app's **Method & reproducibility** tab documents the data processing, analytical procedures, assumptions, and code represented in the interface.
 
 ### Folder contents
 
