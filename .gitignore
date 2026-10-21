@@ -12,6 +12,7 @@ Thumbs.db
 .Rhistory
 .RData
 .Renviron
+claves.txt
 .Rproj.user/
 __pycache__/
 *.pyc

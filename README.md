@@ -80,6 +80,7 @@ Varios pipelines necesitan datos que no vienen en el repositorio, como los archi
 - Cada carpeta tiene un `README.md` que describe sus archivos. Las excepciones son las carpetas que el código borra y vuelve a escribir (por ejemplo `YeastForest/data/cerevisiae/` y `YeastForest/data/eubayanus/`) y las que solo guardan fuentes, íconos o capturas, que describe el README de la carpeta que las contiene.
 - La documentación está en castellano y en inglés. La mayoría de los README trae los dos idiomas en el mismo archivo; Papelucho, PichintunNLP y SNN_ANN_code usan un archivo por idioma, y PaleoColorCL, PaleoForest y StrokeAccessCL agregan portugués.
 - El [`.gitignore`](.gitignore) de esta carpeta ignora, proyecto por proyecto, lo que el código genera al correr y los datos que no se distribuyen. SNN_ANN_code trae además su propio `.gitignore`.
+- [`claves.zip`](claves.zip) guarda, cifradas con contraseña, la clave de OpenRouteService de StrokeAccessCL y el enlace de la carpeta de Drive de BookAnalyses. La contraseña no está en el repositorio, y el `.gitignore` ignora el `claves.txt` descomprimido para que no se suba por error.
 - Los nombres de las carpetas de cada proyecto se mantienen como están, porque los usan rutas del código, despliegues y publicaciones.
 
 ### Versiones publicadas
@@ -202,6 +203,7 @@ Several pipelines need data that are not in the repository, such as the FONASA D
 - Each folder has a `README.md` that describes its files. The exceptions are the folders that the code deletes and writes again (for example `YeastForest/data/cerevisiae/` and `YeastForest/data/eubayanus/`) and the ones that only hold fonts, icons or screenshots, which the README of the enclosing folder describes.
 - The documentation is in Spanish and English. Most READMEs carry both languages in the same file; Papelucho, PichintunNLP and SNN_ANN_code use one file per language, and PaleoColorCL, PaleoForest and StrokeAccessCL add Portuguese.
 - The [`.gitignore`](.gitignore) in this folder ignores, project by project, what the code generates when it runs and the data that are not distributed. SNN_ANN_code also has its own `.gitignore`.
+- [`claves.zip`](claves.zip) holds, password-protected, the OpenRouteService key of StrokeAccessCL and the link to the BookAnalyses Drive folder. The password is not in the repository, and the `.gitignore` ignores the unpacked `claves.txt` so it is not committed by mistake.
 - The folder names of each project stay as they are, because code paths, deployments and publications use them.
 
 ### Published versions

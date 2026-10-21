@@ -15,10 +15,10 @@ config <- list(
   # columnas, los filtros y pvclust_nboot como indica la seccion "Configurar
   # el catalogo real" del README. El emparejamiento queda auditable en
   # output/tablas/mapeo_archivos.csv.
-  # Carpeta de Drive con los textos. El enlace no se versiona: se lee de la
-  # variable de entorno BOOKANALYSES_DRIVE_URL, que se define una vez con una
-  # linea en ~/.Renviron que diga BOOKANALYSES_DRIVE_URL= seguido del enlace
-  # (R lee ese archivo al partir). Despues bajar los textos una vez con:
+  # Carpeta de Drive con los textos. El enlace va cifrado en claves.zip, en la
+  # raiz del repositorio, y se lee de la variable de entorno
+  # BOOKANALYSES_DRIVE_URL: basta copiar a ~/.Renviron la linea que trae
+  # claves.txt (R lee ese archivo al partir). Despues bajar los textos con:
   #   Rscript R/descarga_drive.R
   drive_url = Sys.getenv("BOOKANALYSES_DRIVE_URL"),
 

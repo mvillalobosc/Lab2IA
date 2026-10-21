@@ -60,7 +60,7 @@ La hoja `Libros` tiene 1.826 obras. Los dos filtros dejan las 689 obras consegui
     source("R/descarga_drive.R")       # directo desde la carpeta de Drive (config$drive_url)
     ```
 
-    `R/paso1_listar_drive.R` solo lista la carpeta de Drive, sin bajar nada. El enlace de la carpeta no está en el repositorio: `config.R` lo lee de la variable de entorno `BOOKANALYSES_DRIVE_URL`, que se define una vez, por ejemplo con una línea en `~/.Renviron`, antes de abrir R. Sin ella, los dos scripts de Drive se detienen con un mensaje que lo explica.
+    `R/paso1_listar_drive.R` solo lista la carpeta de Drive, sin bajar nada. El enlace de la carpeta va cifrado en [`claves.zip`](../claves.zip), en la raíz del repositorio, y `config.R` lo lee de la variable de entorno `BOOKANALYSES_DRIVE_URL`, que se define una vez copiando a `~/.Renviron` la línea que trae `claves.txt`, antes de abrir R. Sin ella, los dos scripts de Drive se detienen con un mensaje que lo explica.
 
 2. Prevuelo de un minuto, que confirma el emparejamiento antes de quemar horas:
 
@@ -160,7 +160,7 @@ The `Libros` sheet holds 1,826 works. The two filters keep the 689 obtained work
     source("R/descarga_drive.R")       # straight from the Drive folder (config$drive_url)
     ```
 
-    `R/paso1_listar_drive.R` only lists the Drive folder, without downloading anything. The folder link is not in the repository: `config.R` reads it from the `BOOKANALYSES_DRIVE_URL` environment variable, which is set once, for example with a line in `~/.Renviron`, before starting R. Without it, both Drive scripts stop with a message that explains this.
+    `R/paso1_listar_drive.R` only lists the Drive folder, without downloading anything. The folder link is stored encrypted in [`claves.zip`](../claves.zip), at the root of the repository, and `config.R` reads it from the `BOOKANALYSES_DRIVE_URL` environment variable, which is set once by copying the line in `claves.txt` to `~/.Renviron` before starting R. Without it, both Drive scripts stop with a message that explains this.
 
 2. One-minute preflight, which confirms the matching before burning hours:
 

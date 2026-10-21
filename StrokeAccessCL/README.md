@@ -408,7 +408,7 @@ window.ISOCRONAS = {
 
 Para regenerarlas puedes usar la app o el script `generar_isocronas.mjs`. Si usas la app, al terminar la preparación descarga `isocronas.js` desde la ventana de ayuda y súbelo a `data/`. El archivo que trae hoy el repositorio se descargó así: su encabezado dice «Generado desde la app».
 
-El script necesita Node 18 o superior y una clave propia de OpenRouteService en la variable `ORS_KEY`, y se corre desde la carpeta `StrokeAccessCL/`:
+El script necesita Node 18 o superior y una clave propia de OpenRouteService en la variable `ORS_KEY` (la del proyecto va cifrada en [`claves.zip`](../claves.zip), en la raíz del repositorio), y se corre desde la carpeta `StrokeAccessCL/`:
 
 ```bash
 ORS_KEY=tu_clave node generar_isocronas.mjs
@@ -849,7 +849,7 @@ window.ISOCRONAS = {
 
 Isochrones can be regenerated using the application or the `generar_isocronas.mjs` script. When using the application, download `isocronas.js` from the help window after preparation is complete and upload it to `data/`. The file currently in the repository was produced that way: its header says "Generado desde la app".
 
-The script needs Node 18 or newer and your own OpenRouteService key in the `ORS_KEY` variable, and it runs from the `StrokeAccessCL/` folder:
+The script needs Node 18 or newer and your own OpenRouteService key in the `ORS_KEY` variable (the project key is stored encrypted in [`claves.zip`](../claves.zip), at the root of the repository), and it runs from the `StrokeAccessCL/` folder:
 
 ```bash
 ORS_KEY=your_key node generar_isocronas.mjs
@@ -1290,7 +1290,7 @@ window.ISOCRONAS = {
 
 Para regenerá-las, é possível utilizar a aplicação ou o script `generar_isocronas.mjs`. Ao utilizar a aplicação, depois que a preparação for concluída, baixe `isocronas.js` na janela de ajuda e envie o arquivo para `data/`. O arquivo que o repositório traz hoje foi obtido assim: seu cabeçalho diz «Generado desde la app».
 
-O script precisa do Node 18 ou superior e de uma chave própria do OpenRouteService na variável `ORS_KEY`, e é executado a partir da pasta `StrokeAccessCL/`:
+O script precisa do Node 18 ou superior e de uma chave própria do OpenRouteService na variável `ORS_KEY` (a do projeto vai cifrada em [`claves.zip`](../claves.zip), na raiz do repositório), e é executado a partir da pasta `StrokeAccessCL/`:
 
 ```bash
 ORS_KEY=sua_chave node generar_isocronas.mjs
