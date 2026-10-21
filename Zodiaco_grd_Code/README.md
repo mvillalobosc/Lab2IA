@@ -49,7 +49,7 @@ R debe correr con una configuración regional UTF-8, que es la opción por defec
 
 ### Datos
 
-Los seis archivos `GRD_PUBLICO_2019.txt` a `GRD_PUBLICO_2024.txt` se descargan del [catálogo de datos GRD de Fonasa](https://public.tableau.com/views/PropuestaTableroGRD/PropuestaTableroGRD) y se dejan, sin cambiarles el nombre, en una carpeta `datos_grd/` junto a los scripts. El proyecto [StrokeGRDCL](../StrokeGRDCL/data/README.md), en este mismo repositorio, usa los mismos seis archivos y los descarga del portal de datos abiertos de Fonasa.
+Los seis archivos `GRD_PUBLICO_2019.txt` a `GRD_PUBLICO_2024.txt` se descargan del [catálogo de datos GRD de Fonasa](https://public.tableau.com/views/PropuestaTableroGRD/PropuestaTableroGRD) y se dejan, sin cambiarles el nombre, en una carpeta `datos_grd/` junto a los scripts. Ese tablero está enlazado desde la página [Financiamiento y Gastos de salud](https://datosabiertos.fonasa.cl/dimensiones-financiamientos/) del portal de datos abiertos de Fonasa. El proyecto [StrokeGRDCL](../StrokeGRDCL/data/README.md), en este mismo repositorio, usa los mismos seis archivos y los descarga de ese portal.
 
 Los archivos de 2022 y 2023 vienen en UTF-16 y el de 2024 trae bytes dañados. `01_preparar_datos.R` resuelve los tres casos sin intervención: decodifica el de 2024 como latin-1 y reemplaza los bytes inválidos, quita la marca BOM si viene, descarta las líneas con más campos que el encabezado y completa las que traen menos. Los archivos anteriores a 2024 llaman `CIP_ENCRIPTADO` al identificador del beneficiario y el de 2024 lo llama `ID_BENEFICIARIO`; el script los unifica con este último nombre.
 
@@ -82,7 +82,7 @@ Cada vez que `03_modelos.R` escribe un archivo de detalle agrega una fila con su
 Rscript 04_resultados.R Tesis_ML_Zodiac/4_results
 ```
 
-En esa carpeta usa `chi2_12.csv` o, si no está, el archivo `v2_chi2_resultados.csv` del repositorio original. Necesita al menos el experimento principal y uno de esos dos archivos del filtro; los otros experimentos que falten se omiten con el aviso `No está: <ruta>`.
+En esa carpeta usa `chi2_12.csv` o, si no está, el archivo `v2_chi2_resultados.csv` del repositorio original. Necesita al menos el experimento principal y uno de esos dos archivos del filtro; los otros experimentos que falten se omiten con el aviso `No está:` seguido de la ruta del archivo que falta.
 
 ---
 
@@ -92,7 +92,7 @@ En esa carpeta usa `chi2_12.csv` o, si no está, el archivo `v2_chi2_resultados.
 |---|---|
 | `01_preparar_datos.R` | `datos/base_grd.rds` y, en `resultados/`, los registros excluidos y los conteos por beneficiario y por signo |
 | `02_chi_cuadrado.R` | `resultados/chi2_12.csv` y `chi2_13.csv`, con sus resúmenes por familia, y las variables retenidas en `datos/seleccion_12.rds` y `datos/seleccion_13.rds` |
-| `03_modelos.R` | métricas por iteración, signo y modelo en `resultados/modelo_<modelo>/`, `modelo_<modelo>_full_dataset/`, `Ofiuco/` y `modelo_dt_sensibilidad_n/`, más `resultados/tiempos.csv` |
+| `03_modelos.R` | métricas por iteración, signo y modelo en una carpeta por modelo (`resultados/modelo_rf/`, `modelo_dt/`, `modelo_knn/`, `modelo_lr/` y `modelo_svm/`), en las mismas carpetas terminadas en `_full_dataset` (por ejemplo `modelo_rf_full_dataset/`), en `Ofiuco/` y en `modelo_dt_sensibilidad_n/`, más `resultados/tiempos.csv` |
 | `04_resultados.R` | en `resultados/resumen/`: medias por signo y modelo, prueba de Wilcoxon, sensibilidad, conteo del filtro por familia y las figuras `fig_chi2.pdf`, `fig_auc.pdf` y `fig_sensibilidad.pdf` |
 
 #### Formato de las salidas principales
@@ -103,12 +103,12 @@ En esa carpeta usa `chi2_12.csv` o, si no está, el archivo `v2_chi2_resultados.
 | `resultados/filas_excluidas.csv` | los episodios sin fecha de nacimiento válida, con las columnas leídas del archivo original |
 | `resultados/episodios_por_beneficiario.csv` | `indicador`, `valor`: episodios, beneficiarios únicos, episodios por beneficiario y cuántos beneficiarios y episodios corresponden a beneficiarios con más de un episodio |
 | `resultados/episodios_por_signo.csv` | `signo`, `doce_signos`, `trece_signos` |
-| `resultados/chi2_<12 o 13>.csv` | `variable`, `familia`, `chi2`, `p_value`, `significativa` (p < 0,01), `bonferroni_01` (pasa también la corrección de Bonferroni, solo para informar) |
-| `resultados/chi2_<12 o 13>_familias.csv` | `familia`, `total_variables`, `significativas`, `bonferroni_01` |
-| `datos/seleccion_<12 o 13>.rds` | `campo`, `nivel`, `codigo`, `variable` de cada variable retenida |
-| `resultados/.../<modelo>_detalle.csv` y demás archivos de detalle | una fila por signo e iteración: `modelo`, `signo`, `iter`, `n_sample`, `cv_accuracy`, `cv_precision`, `cv_recall`, `cv_f1`, `cv_roc_auc` (promedio de los cinco pliegues) |
+| `resultados/chi2_12.csv` y `chi2_13.csv` | `variable`, `familia`, `chi2`, `p_value`, `significativa` (p < 0,01), `bonferroni_01` (pasa también la corrección de Bonferroni, solo para informar) |
+| `resultados/chi2_12_familias.csv` y `chi2_13_familias.csv` | `familia`, `total_variables`, `significativas`, `bonferroni_01` |
+| `datos/seleccion_12.rds` y `seleccion_13.rds` | `campo`, `nivel`, `codigo`, `variable` de cada variable retenida |
+| `resultados/modelo_rf/rf_detalle.csv` y los demás archivos de detalle, uno por modelo y experimento (por ejemplo `modelo_rf_full_dataset/rf_full_detalle.csv` o `modelo_dt_sensibilidad_n/dt_detalle_n100.csv`) | una fila por signo e iteración: `modelo`, `signo`, `iter`, `n_sample`, `cv_accuracy`, `cv_precision`, `cv_recall`, `cv_f1`, `cv_roc_auc` (promedio de los cinco pliegues) |
 | `resultados/tiempos.csv` | `experimento`, `archivo`, `segundos` |
-| `resultados/resumen/medias_<principal, completo u ofiuco>.csv` | `modelo`, `signo`, `accuracy`, `precision`, `recall`, `f1`, `roc_auc` |
+| `resultados/resumen/medias_principal.csv`, `medias_completo.csv` y `medias_ofiuco.csv` | `modelo`, `signo`, `accuracy`, `precision`, `recall`, `f1`, `roc_auc` |
 | `resultados/resumen/wilcoxon.csv` | por modelo: `n`, `n_sin_empates_en_05`, `media`, `mediana`, `de`, `sobre_05`, `estadistico_V`, `p_value` y `p_bonferroni` de la prueba de una cola del ROC-AUC contra 0,5 |
 | `resultados/resumen/sensibilidad.csv` | `n_sample`, `media_auc`, `de_auc` |
 | `resultados/resumen/chi2_familias.csv` | `familia`, `total`, `p_001`, `bonferroni` |
@@ -180,7 +180,7 @@ R must run in a UTF-8 locale, the default on Windows since R 4.2, on macOS and o
 
 ### Data
 
-Download the six files `GRD_PUBLICO_2019.txt` to `GRD_PUBLICO_2024.txt` from the [Fonasa GRD data catalogue](https://public.tableau.com/views/PropuestaTableroGRD/PropuestaTableroGRD) and place them, without renaming them, in a `datos_grd/` folder next to the scripts. The [StrokeGRDCL](../StrokeGRDCL/data/README.md) project, in this same repository, uses the same six files and downloads them from the Fonasa open data portal.
+Download the six files `GRD_PUBLICO_2019.txt` to `GRD_PUBLICO_2024.txt` from the [Fonasa GRD data catalogue](https://public.tableau.com/views/PropuestaTableroGRD/PropuestaTableroGRD) and place them, without renaming them, in a `datos_grd/` folder next to the scripts. That dashboard is linked from the [Financiamiento y Gastos de salud](https://datosabiertos.fonasa.cl/dimensiones-financiamientos/) page (financing and health spending) of the Fonasa open data portal. The [StrokeGRDCL](../StrokeGRDCL/data/README.md) project, in this same repository, uses the same six files and downloads them from that portal.
 
 The 2022 and 2023 files are encoded in UTF-16 and the 2024 file contains damaged bytes. `01_preparar_datos.R` handles the three cases without intervention: it decodes the 2024 file as latin-1 and replaces the invalid bytes, removes the byte order mark when there is one, drops lines with more fields than the header and fills the ones with fewer. Files before 2024 call the beneficiary identifier `CIP_ENCRIPTADO` and the 2024 file calls it `ID_BENEFICIARIO`; the script unifies them under the latter name.
 
@@ -213,7 +213,7 @@ Every time `03_modelos.R` writes a detail file it appends a row with its run tim
 Rscript 04_resultados.R Tesis_ML_Zodiac/4_results
 ```
 
-In that folder it uses `chi2_12.csv` or, when it is missing, the `v2_chi2_resultados.csv` file of the original repository. It needs at least the main experiment and one of those two filter files; missing experiments are skipped with the message `No está: <path>`.
+In that folder it uses `chi2_12.csv` or, when it is missing, the `v2_chi2_resultados.csv` file of the original repository. It needs at least the main experiment and one of those two filter files; missing experiments are skipped with the message `No está:` (not found) followed by the path of the missing file.
 
 ---
 
@@ -223,7 +223,7 @@ In that folder it uses `chi2_12.csv` or, when it is missing, the `v2_chi2_result
 |---|---|
 | `01_preparar_datos.R` | `datos/base_grd.rds` and, in `resultados/`, the excluded records and the counts by beneficiary and by sign |
 | `02_chi_cuadrado.R` | `resultados/chi2_12.csv` and `chi2_13.csv`, with their summaries by family, and the retained variables in `datos/seleccion_12.rds` and `datos/seleccion_13.rds` |
-| `03_modelos.R` | metrics by iteration, sign and model in `resultados/modelo_<model>/`, `modelo_<model>_full_dataset/`, `Ofiuco/` and `modelo_dt_sensibilidad_n/`, plus `resultados/tiempos.csv` |
+| `03_modelos.R` | metrics by iteration, sign and model in one folder per model (`resultados/modelo_rf/`, `modelo_dt/`, `modelo_knn/`, `modelo_lr/` and `modelo_svm/`), in the same folders ending in `_full_dataset` (for example `modelo_rf_full_dataset/`), in `Ofiuco/` and in `modelo_dt_sensibilidad_n/`, plus `resultados/tiempos.csv` |
 | `04_resultados.R` | in `resultados/resumen/`: means by sign and model, Wilcoxon test, sensitivity, filter counts by family and the figures `fig_chi2.pdf`, `fig_auc.pdf` and `fig_sensibilidad.pdf` |
 
 #### Format of the main outputs
@@ -234,12 +234,12 @@ In that folder it uses `chi2_12.csv` or, when it is missing, the `v2_chi2_result
 | `resultados/filas_excluidas.csv` | the episodes without a valid birth date, with the columns read from the original file |
 | `resultados/episodios_por_beneficiario.csv` | `indicador`, `valor`: episodes, unique beneficiaries, episodes per beneficiary, and how many beneficiaries and episodes belong to beneficiaries with more than one episode |
 | `resultados/episodios_por_signo.csv` | `signo`, `doce_signos`, `trece_signos` |
-| `resultados/chi2_<12 or 13>.csv` | `variable`, `familia`, `chi2`, `p_value`, `significativa` (p < 0.01), `bonferroni_01` (also passes the Bonferroni correction, reported only) |
-| `resultados/chi2_<12 or 13>_familias.csv` | `familia`, `total_variables`, `significativas`, `bonferroni_01` |
-| `datos/seleccion_<12 or 13>.rds` | `campo`, `nivel`, `codigo`, `variable` of every retained variable |
-| `resultados/.../<model>_detalle.csv` and the other detail files | one row per sign and iteration: `modelo`, `signo`, `iter`, `n_sample`, `cv_accuracy`, `cv_precision`, `cv_recall`, `cv_f1`, `cv_roc_auc` (mean of the five folds) |
+| `resultados/chi2_12.csv` and `chi2_13.csv` | `variable`, `familia`, `chi2`, `p_value`, `significativa` (p < 0.01), `bonferroni_01` (also passes the Bonferroni correction, reported only) |
+| `resultados/chi2_12_familias.csv` and `chi2_13_familias.csv` | `familia`, `total_variables`, `significativas`, `bonferroni_01` |
+| `datos/seleccion_12.rds` and `seleccion_13.rds` | `campo`, `nivel`, `codigo`, `variable` of every retained variable |
+| `resultados/modelo_rf/rf_detalle.csv` and the other detail files, one per model and experiment (for example `modelo_rf_full_dataset/rf_full_detalle.csv` or `modelo_dt_sensibilidad_n/dt_detalle_n100.csv`) | one row per sign and iteration: `modelo`, `signo`, `iter`, `n_sample`, `cv_accuracy`, `cv_precision`, `cv_recall`, `cv_f1`, `cv_roc_auc` (mean of the five folds) |
 | `resultados/tiempos.csv` | `experimento`, `archivo`, `segundos` |
-| `resultados/resumen/medias_<principal, completo or ofiuco>.csv` | `modelo`, `signo`, `accuracy`, `precision`, `recall`, `f1`, `roc_auc` |
+| `resultados/resumen/medias_principal.csv`, `medias_completo.csv` and `medias_ofiuco.csv` | `modelo`, `signo`, `accuracy`, `precision`, `recall`, `f1`, `roc_auc` |
 | `resultados/resumen/wilcoxon.csv` | per model: `n`, `n_sin_empates_en_05`, `media`, `mediana`, `de`, `sobre_05`, `estadistico_V`, `p_value` and `p_bonferroni` of the one-sided test of ROC-AUC against 0.5 |
 | `resultados/resumen/sensibilidad.csv` | `n_sample`, `media_auc`, `de_auc` |
 | `resultados/resumen/chi2_familias.csv` | `familia`, `total`, `p_001`, `bonferroni` |

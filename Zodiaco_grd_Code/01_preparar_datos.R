@@ -4,9 +4,12 @@
 # identificador del beneficiario, calcula el signo (12 y 13 signos) y la
 # estancia, agrupa diagnósticos y procedimientos, y guarda una base compacta.
 #
-# Entrada: CFG$dir_grd/GRD_PUBLICO_<año>.txt (separador "|"), tal como se
-#          descargan del catálogo de datos GRD de Fonasa:
+# Entrada: CFG$dir_grd/GRD_PUBLICO_AAAA.txt, con AAAA de 2019 a 2024 (separador
+#          "|"), tal como se descargan del catálogo de datos GRD de Fonasa:
 #          https://public.tableau.com/views/PropuestaTableroGRD/PropuestaTableroGRD
+#          (el tablero está enlazado desde la página "Financiamiento y Gastos de
+#          salud" del portal de datos abiertos de Fonasa:
+#          https://datosabiertos.fonasa.cl/dimensiones-financiamientos/)
 # Salida:  CFG$dir_datos/base_grd.rds
 #          CFG$dir_resultados/filas_excluidas.csv
 #          CFG$dir_resultados/episodios_por_beneficiario.csv

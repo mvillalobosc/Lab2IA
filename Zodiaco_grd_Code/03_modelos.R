@@ -12,7 +12,7 @@
 #   ofiuco        5 modelos, reservorio = 80 % de entrenamiento, 13 signos
 #   sensibilidad  árbol de decisión, n = 10 ... 1000, 100 iteraciones por signo
 #
-# Entrada: CFG$dir_datos/base_grd.rds, CFG$dir_datos/seleccion_<12|13>.rds
+# Entrada: CFG$dir_datos/base_grd.rds, CFG$dir_datos/seleccion_12.rds y seleccion_13.rds
 # Salida:  CSV por modelo en CFG$dir_resultados, con la misma estructura de
 #          carpetas del repositorio original (modelo_rf/rf_detalle.csv, etc.)
 #          y CFG$dir_resultados/tiempos.csv

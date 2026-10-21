@@ -8,12 +8,13 @@
 # que en el análisis original.
 #
 # Entrada: CFG$dir_datos/base_grd.rds
-# Salida:  CFG$dir_resultados/chi2_<calendario>.csv           (todas las variables)
-#          CFG$dir_resultados/chi2_<calendario>_familias.csv  (resumen por familia)
-#          CFG$dir_datos/seleccion_<calendario>.rds           (variables retenidas)
+# Salida:  CFG$dir_resultados/chi2_12.csv y chi2_13.csv                    (todas las variables)
+#          CFG$dir_resultados/chi2_12_familias.csv y chi2_13_familias.csv  (resumen por familia)
+#          CFG$dir_datos/seleccion_12.rds y seleccion_13.rds               (variables retenidas)
 # =============================================================================
 
 source("00_funciones.R")
+dir_crear(CFG$dir_resultados)
 base <- readRDS(file.path(CFG$dir_datos, "base_grd.rds"))
 
 filtro_chi2 <- function(base, col_signo) {
