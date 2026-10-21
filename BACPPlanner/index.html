@@ -1872,7 +1872,7 @@ function loadPlan(plan){
   state.baseMalla=null; state.baseMallaLabel=null; state.showPicker=false;
   // top pill
   const pill=$("#dataPill"); pill.classList.remove("empty");
-  $("#dataPillName").textContent=plan.nombre;
+  $("#dataPillName").textContent=plan.nombre; $("#dataPillName").removeAttribute("data-i18n");
   $("#dataPillPer").classList.remove("hidden"); $("#dataPillPer").textContent=plan.periodos+" sem.";
   $("#dataPillClear").classList.remove("hidden");
   refreshDataPanels();
@@ -1887,7 +1887,7 @@ function loadPlan(plan){
 }
 function clearPlan(){
   state.plan=null; state.result=null; state.cohort=null; state.stResult=null; state.baseMalla=null; state.baseMallaLabel=null;
-  const pill=$("#dataPill"); pill.classList.add("empty"); $("#dataPillName").textContent=t('pill_empty');
+  const pill=$("#dataPill"); pill.classList.add("empty"); $("#dataPillName").setAttribute("data-i18n","pill_empty"); $("#dataPillName").textContent=t('pill_empty');
   $("#dataPillPer").classList.add("hidden"); $("#dataPillClear").classList.add("hidden");
   refreshDataPanels(); populateBaseSelectors();
   $("#runBtn").disabled=true; $("#coRun").disabled=true; $("#stRun").disabled=true;
