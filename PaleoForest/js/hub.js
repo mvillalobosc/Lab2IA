@@ -26,7 +26,10 @@
     setTimeout(() => { e.classList.remove('on'); setTimeout(() => e.remove(), 250); }, 2100);
   }
 
-  let lang = (localStorage.getItem('pf_lang') || (navigator.language || 'es').slice(0, 2).toLowerCase());
+  /* El idioma se comparte con los dos módulos por la clave pf_lang. Si el navegador bloquea
+     el almacenamiento, leerlo lanza una excepción y la portada usa el idioma del navegador. */
+  function savedLang() { try { return localStorage.getItem('pf_lang'); } catch (e) { return null; } }
+  let lang = (savedLang() || (navigator.language || 'es').slice(0, 2).toLowerCase());
   if (['es', 'en', 'pt'].indexOf(lang) < 0) lang = 'es';
 
   function forestSVG() {
@@ -49,7 +52,7 @@
       `<button class="lang ${l === lang ? 'on' : ''}" data-lang="${l}" lang="${l}"
          aria-label="${esc(I18N[l]._flag)}" aria-pressed="${l === lang}">${FLAGS[l]}</button>`).join('');
     $('#langs').querySelectorAll('.lang').forEach(b => b.onclick = () => {
-      lang = b.dataset.lang; localStorage.setItem('pf_lang', lang);
+      lang = b.dataset.lang; try { localStorage.setItem('pf_lang', lang); } catch (e) {}
       document.documentElement.lang = lang; render();
     });
 

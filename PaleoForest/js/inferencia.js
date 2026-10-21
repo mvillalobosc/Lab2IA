@@ -78,8 +78,11 @@ function download(name, content) {
 }
 
 /* ================================ estado ================================ */
+/* El idioma se comparte con la portada y el módulo 2 por la clave pf_lang. Si el navegador
+   bloquea el almacenamiento, leerlo lanza una excepción y se usa el idioma del navegador. */
+function savedLang() { try { return localStorage.getItem('pf_lang'); } catch (e) { return null; } }
 const S = {
-  lang: (localStorage.getItem('pf_lang') || (navigator.language || 'es').slice(0, 2).toLowerCase()),
+  lang: (savedLang() || (navigator.language || 'es').slice(0, 2).toLowerCase()),
   tab: 0,
   mx: null,            // { taxa:[], matrix:{tx->[tok]}, ordered:Set, inactive:Set, weights:{}, gapAsState, name }
   page: 0, perPage: 30, ccBase: 0, mxView: 'cells', mxq: '',
@@ -279,7 +282,7 @@ function renderChrome() {
     ['es', 'en', 'pt'].map(l => `<button class="lang ${l === S.lang ? 'on' : ''}" data-lang="${l}" lang="${l}"
        aria-label="${esc(I18N[l]._flag)}" aria-pressed="${l === S.lang}">${FLAGS[l]}</button>`).join('');
   $$('#langs .lang').forEach(b => b.onclick = () => {
-    S.lang = b.dataset.lang; localStorage.setItem('pf_lang', S.lang);
+    S.lang = b.dataset.lang; try { localStorage.setItem('pf_lang', S.lang); } catch (e) {}
     // la guía se relanza sola en el idioma nuevo; dejarla abierta la deja a medias
     PFTour.end();
     document.documentElement.lang = S.lang; renderChrome(); render();

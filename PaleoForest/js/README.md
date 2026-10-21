@@ -32,7 +32,7 @@ Esta carpeta contiene toda la lógica de [PaleoForest](../README.md), escrita en
 | `cite.js` | Arma el pie de referencias que comparten la portada y los módulos, con la cita y el BibTeX del artículo. |
 | `tour.js` | Recorrido guiado genérico (`PFTour`) que usan los dos módulos. |
 
-Los textos de la interfaz están repartidos en tres lugares: `i18n.js`, `i18n-inf.js` y el bloque `UX` de `app.js`. Cada clave debe existir en los tres idiomas.
+Los textos de la interfaz están repartidos en tres lugares: `i18n.js`, `i18n-inf.js` y el bloque `UX` de `app.js`. Cada clave debe existir en los tres idiomas. La portada y los dos módulos comparten el idioma elegido mediante la clave `pf_lang` de `localStorage`, y si el navegador bloquea ese almacenamiento, cada página usa el idioma del navegador y sigue funcionando.
 
 ## English
 
@@ -64,4 +64,4 @@ This folder holds all the logic of [PaleoForest](../README.md), written in plain
 | `cite.js` | Builds the references footer shared by the landing page and the modules, with the article citation and BibTeX. |
 | `tour.js` | Generic guided tour (`PFTour`) used by both modules. |
 
-Interface texts live in three places: `i18n.js`, `i18n-inf.js` and the `UX` block of `app.js`. Every key must exist in all three languages.
+Interface texts live in three places: `i18n.js`, `i18n-inf.js` and the `UX` block of `app.js`. Every key must exist in all three languages. The landing page and both modules share the chosen language through the `pf_lang` key in `localStorage`, and when the browser blocks that storage, each page uses the browser language and keeps working.

@@ -382,11 +382,17 @@
   /* ======================================================================
    * 4. Estado global
    * ==================================================================== */
+  /* El idioma se comparte con la portada y el módulo 1 por la clave pf_lang. Si el
+     navegador bloquea el almacenamiento, leerlo lanza una excepción y se usa el idioma
+     del navegador, como en las otras dos páginas. */
+  function savedLang() { try { return localStorage.getItem('pf_lang'); } catch (e) { return null; } }
+
   /* La app carga un único conjunto de ejemplo: Arackar licanantay
      (data/arackar/dataset.js). Los demás casos de la memoria viven en
      examples/, una carpeta por especie, y se cargan por el paso «Datos». */
   const S = {
-    lang: 'es', step: 0, data: null, trees: null, D: null, coords: null,
+    lang: (savedLang() || (navigator.language || 'es').slice(0, 2).toLowerCase()),
+    step: 0, data: null, trees: null, D: null, coords: null,
     tsType: 'basic', tsVar: 1, clades: null, tmq: '',
     // los siete métodos del pipeline original (Acosta Méndez, 2024)
     methods: { 'PAM': true, 'K-Means': true, 'FANNY': true, 'CLARA': true, 'SOM': true, 'DBSCAN': true, 'MST-kNN': true },
@@ -402,6 +408,7 @@
     pars: null, parsBest: null, notMP: [], deg: null,  // parsimonia
     parsCfg: null, applied: null, consensus: [], keepConsensus: false
   };
+  if (['es', 'en', 'pt'].indexOf(S.lang) < 0) S.lang = 'es';
   const METHOD_KEYS = ['PAM', 'K-Means', 'FANNY', 'CLARA', 'SOM', 'DBSCAN', 'MST-kNN'];
   const NO_K = ['DBSCAN', 'MST-kNN'];   // determinan k por sí mismos
   const GLOSS_OF = { 'PAM': 'pam', 'K-Means': 'kmeans', 'FANNY': 'fanny', 'CLARA': 'clara', 'SOM': 'som', 'DBSCAN': 'dbscan', 'MST-kNN': 'mstknn' };
@@ -758,6 +765,8 @@
 
   function setLang(l) {
     S.lang = l;
+    try { localStorage.setItem('pf_lang', l); } catch (e) {}   // lo leen la portada y el módulo 1
+    document.documentElement.lang = l;
     endTour(); closeModal(); closePop(); hideTip();  // la guía se relanza ya en el idioma nuevo
     renderChrome(); render();
   }
@@ -2756,6 +2765,7 @@
   function boot() {
     // Sin onboarding automático: la guía se inicia con un clic ("Ver guía"),
     // ya con el idioma elegido por el usuario.
+    document.documentElement.lang = S.lang;
     const hand = readHandoff();
     if (hand) {
       loadDataset(hand);
