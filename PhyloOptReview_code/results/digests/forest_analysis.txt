@@ -1,0 +1,79 @@
+BLOCK forest_analysis: 234 studies with the category, 135 as main block
+type: method=154, evaluation=29, metric=27, theory=22, review=2
+crit: none=122, other=44, parsimony=22, bayesian=18, likelihood=17, quartet=13, coalescent=11, distance=10, net_parsimony=1, pseudolikelihood=1
+alg: other=109, none=93, exact=15, hill_climb=11, ml=5, mcmc=3, divide_conquer=2, ga_ea=2, ratchet=1, sa=1
+rep: tree=221, cluster=24, split=23, network=21, matrix=18, quartet=14, other=7
+ops: none=145, consensus=79, other=6, nni=4, spr=4, crossover=1, mutation=1, nj_init=1
+nobj: na=182, 1=51, 2=1
+dsd: na=200, no=29, yes=5
+data: gene_trees=169, genomic=30, dna=23, unclear=13, other=12, morphological=6, distances=3, protein=3
+soft: unclear=206, yes=28
+
+TOP CITED:
+R02415 Salichos 2013 c=536 [evaluation] Inferring ancient divergences requires genes with strong phylogenetic signals | name=NA | Genes with high internode support improve ancient divergence inference | crit=none alg=none rep=tree ops=none
+R05702 Smith 2015 c=462 [method] Analysis of phylogenomic datasets reveals conflict, concordance, and gene duplications wit | name=NA | Homolog-level gene tree conflict, concordance and duplication analysis | crit=none alg=none rep=tree;split ops=none
+R03333 Ane 2007 c=403 [method] Bayesian estimation of concordance among gene trees | name=NA | Two-stage MCMC estimating concordance among gene trees | crit=bayesian alg=mcmc rep=tree ops=none
+R00156 Gadagkar 2005 c=367 [evaluation] Inferring species phylogenies from multiple genes: Concatenated sequence tree versus conse | name=NA | Simulations compare concatenated alignment versus consensus of gene trees | crit=distance;parsimony;likelihood alg=none rep=tree ops=consensus
+R03409 Solis-Lemus 2017 c=366 [method] PhyloNetworks: A package for phylogenetic networks | name=PhyloNetworks | Julia package for SNaQ network inference and summaries | crit=pseudolikelihood alg=none rep=network ops=none
+R05764 Mai 2018 c=327 [method] TreeShrink: Fast and accurate detection of outlier long branches in collections of phyloge | name=TreeShrink | Exact k-shrink diameter reduction detects outlier long branches | crit=other alg=exact rep=tree ops=none
+R03650 Aberer 2013 c=322 [method] Pruning rogue taxa improves phylogenetic accuracy: An efficient algorithm and webservice | name=NA | Fast graph-based rogue taxon identification for consensus trees | crit=none alg=other rep=tree ops=consensus
+R05460 Huerta-Cepas 2010 c=309 [method] ETE: A python Environment for Tree Exploration | name=ETE | Python toolkit to manipulate, analyse and visualise trees | crit=none alg=none rep=tree ops=none
+R04538 Pol 2009 c=299 [method] Unstable taxa in cladistic analysis: Identification and the assessment of relevant charact | name=NA | Triplet-based detection of unstable taxa and related characters | crit=parsimony;quartet alg=other rep=tree;quartet ops=consensus
+R03379 Salichos 2014 c=232 [metric] Novel information theory-based measures for quantifying incongruence among phylogenetic tr | name=IC/TC | Information-theoretic internode and tree certainty incongruence measures | crit=none alg=none rep=split;tree ops=none
+R03402 Robinson 2016 c=192 [method] Phylo.io: Interactive Viewing and Comparison of Large Phylogenetic Trees on the Web | name=Phylo.io | Web tool for side-by-side comparison of large trees | crit=none alg=other rep=tree ops=none
+R02686 Hillis 2005 c=171 [method] Analysis and visualization of tree space | name=NA | Multidimensional scaling of tree distances to visualise tree space | crit=none alg=other rep=tree ops=none
+R00208 Baum 2007 c=162 [method] Concordance trees, concordance factors, and the exploration of reticulate genealogy | name=concordance tree | Primary concordance trees and concordance factors summarise genealogical discordance | crit=bayesian;other alg=none rep=tree;cluster ops=consensus
+R05558 Heled 2013 c=159 [method] Looking for trees in the forest: Summary tree from posterior samples | name=NA | New and existing summary trees for posterior time-tree samples | crit=bayesian alg=none rep=tree ops=consensus
+R04168 Owen 2011 c=144 [metric] A fast algorithm for computing geodesic distances in tree space | name=NA | Polynomial-time algorithm computing BHV tree-space geodesics | crit=none alg=other rep=tree;split ops=none
+R04280 Jombart 2017 c=144 [method] treespace: Statistical exploration of landscapes of phylogenetic trees | name=treespace | R package exploring tree landscapes with metrics and ordination | crit=none alg=other rep=tree ops=consensus
+R02685 Cassens 2005 c=139 [method] Evaluating intraspecific "network" construction methods using simulated sequence data: Do  | name=NA | Uniting equally parsimonious trees into haplotype network; method comparison | crit=parsimony alg=other rep=tree;network ops=consensus
+R02119 Sayyari 2018 c=121 [method] DiscoVista: Interpretable visualizations of gene tree discordance | name=DiscoVista | Visualization tool quantifying gene tree and species tree discordance | crit=none alg=none rep=tree ops=none
+R07399 Walker 2019 c=104 [evaluation] Characterizing gene tree conflict in plastome-inferred phylogenies | name=NA | Gene tree conflict and gene performance across angiosperm plastomes | crit=none alg=none rep=tree ops=none
+R03751 Duchene 2018 c=101 [evaluation] Analysis of phylogenomic tree space resolves relationships among marsupial families | name=NA | Tree-space clustering of loci tested with simulations | crit=none alg=other rep=tree ops=none
+R03043 Scornavacca 2011 c=94 [method] Tanglegrams for rooted phylogenetic trees and networks | name=NN-tanglegram | Heuristic tanglegrams for rooted trees and networks | crit=none alg=other rep=tree;network ops=none
+R05546 Campbell 2011 c=90 [evaluation] The performance of the Congruence among Distance Matrices (CADM) test in phylogenetic anal | name=CADM | Simulations show CADM congruence test accurate and powerful | crit=none alg=none rep=matrix ops=none
+R03652 Hinchliff 2013 c=85 [method] Using supermatrices for phylogenetic inquiry: An example using the sedges | name=IS | Supermatrix alignment filtering pipeline and rogue taxon instability statistic | crit=none alg=other rep=tree ops=none
+R04254 Bremm 2011 c=79 [method] Interactive visual comparison of multiple trees | name=NA | Visual analytics and comparison score for multiple phylogenetic trees | crit=none alg=other rep=tree ops=none
+R01886 Simmons 2011 c=78 [evaluation] Spurious 99% bootstrap and jackknife support for unsupported clades | name=NA | Bootstrap and jackknife artifacts from handling multiple optimal trees | crit=parsimony;likelihood alg=none rep=tree ops=consensus
+R04657 Lecointre 2005 c=73 [method] Total evidence requires exclusion of phylogenetically misleading data | name=NA | Five-step total evidence procedure excluding misleading data partitions | crit=none alg=none rep=tree;cluster ops=none
+R04175 Lin 2012 c=72 [metric] A metric for phylogenetic trees based on matching | name=matching distance | Robust matching-based tree metric improving hierarchical clustering of trees | crit=none alg=none rep=tree ops=none
+R03192 Lanfear 2016 c=70 [method] Estimating the effective sample size of tree topologies from Bayesian phylogenetic analyse | name=NA | Effective sample size estimation for MCMC tree topologies | crit=bayesian alg=mcmc rep=tree ops=none
+R03774 Walker 2018 c=69 [method] Analyzing contentious relationships and outlier genes in phylogenomics | name=NA | Edge-based framework detecting outlier genes and gene tree conflict | crit=likelihood alg=none rep=tree ops=none
+R03368 De Vienne 2012 c=68 [method] Phylo-MCOA: A fast and efficient method to detect outlier genes and species in phylogenomi | name=Phylo-MCOA | Multiple co-inertia analysis detects outlier genes and species | crit=none alg=other rep=tree;matrix ops=none
+R03811 Smith 2020 c=63 [method] Phylogenetic Conflicts, Combinability, and Deep Phylogenomics in Plants | name=NA | Dissecting conflicting signal and heuristic test of gene combinability | crit=none alg=other rep=tree ops=none
+R03503 Smith 2022 c=58 [metric] Robust Analysis of Phylogenetic Tree Space | name=NA | Evaluates tree distances for low-dimensional tree space mapping | crit=none alg=none rep=tree ops=none
+R05584 Ewing 2008 c=58 [method] Rooted triple consensus and anomalous gene trees | name=NA | Rooted triple consensus species tree robust to anomalous gene trees | crit=quartet alg=none rep=tree;quartet ops=consensus
+R03398 Kobert 2016 c=56 [metric] Computing the Internode Certainty and Related Measures from Partial Gene Trees | name=IC/TC | Internode certainty computation from partial gene trees | crit=none alg=none rep=split;tree ops=none
+R03711 Lewitus 2016 c=55 [metric] Characterizing and comparing phylogenies from their laplacian spectrum | name=NA | Laplacian spectral density to characterise and compare trees | crit=none alg=other rep=tree ops=none
+R03757 OReilly 2018 c=54 [evaluation] The Efficacy of Consensus Tree Methods for Summarizing Phylogenetic Relationships from a P | name=NA | MCC, MAP and majority-rule summaries of morphological posteriors | crit=bayesian alg=mcmc rep=tree ops=consensus
+R05567 MacLeod 2005 c=53 [method] Deduction of probable events of lateral gene transfer through comparison of phylogenetic t | name=NA | Infers lateral transfer events comparing gene trees to reference | crit=none alg=other rep=tree ops=none
+R05698 Thiergart 2014 c=50 [evaluation] Concatenated alignments and the case of the disappearing tree | name=NA | Concatenation tree branches rarely supported by individual gene trees | crit=none alg=none rep=tree;split ops=none
+R01116 Miller 2015 c=48 [method] Polyhedral computational geometry for averaging metric phylogenetic trees | name=NA | Polyhedral subdivision enables iterative Frechet mean in BHV space | crit=other alg=other rep=tree ops=none
+R03180 Leigh 2011 c=46 [review] Evaluating phylogenetic congruence in the post-genomic era | name=NA | Perspective on incongruence assessment methods for phylogenomics | crit=none alg=none rep=tree ops=none
+R03803 Zhou 2020 c=46 [method] Quartet-Based Computations of Internode Certainty Provide Robust Measures of Phylogenetic  | name=NA | Quartet-based internode certainty measures robust to missing taxa | crit=quartet alg=none rep=quartet;split ops=none
+R04392 Gatesy 2017 c=44 [method] Resolution of a concatenation/coalescence kerfuffle: partitioned coalescence support and a | name=PCS | Partitioned coalescence support measure reveals MP-EST bias in mammals | crit=coalescent alg=none rep=tree ops=none
+R02672 Chakerian 2012 c=43 [metric] Computational tools for evaluating phylogenetic and hierarchical clustering trees | name=BHV | Implementation of BHV geodesic tree distance for evaluating estimates | crit=none alg=other rep=tree ops=none
+R05600 Lott 2009 c=43 [method] Inferring polyploid phylogenies from multiply-labeled gene trees | name=NA | Greedy consensus of multiply-labelled gene trees for polyploids | crit=none alg=hill_climb rep=tree;cluster ops=consensus
+R03696 Sanderson 2015 c=42 [theory] Impacts of terraces on phylogenetic inference | name=NA | Phylogenetic terraces and their effects on bootstrap and posteriors | crit=likelihood;parsimony;bayesian alg=none rep=tree;split ops=consensus
+
+RECENT (2023-2026):
+R02600 Hibbins 2023 c=22 [method] Phylogenomic comparative methods: Accurate evolutionary inferences in the presence of gene | name=NA | Comparative method: trait evolution incorporating discordant gene trees
+R03292 Comte 2023 c=22 [method] PhylteR: Efficient Identification of Outlier Sequences in Phylogenomic Datasets | name=PhylteR | DISTATIS-based outlier sequence detection across gene trees
+R06029 Berling 2025 c=15 [method] Accurate Bayesian phylogenetic point estimation using a tree distribution parameterized by | name=NA | Clade-probability tree distribution for Bayesian summary point estimates
+R00764 Comaneci 2024 c=12 [method] Tropical medians by transportation | name=NA | Tropical Fermat-Weber medians via transportation for consensus trees
+R00094 Steenwyk 2024 c=10 [review] PhyKIT: A Multitool for Phylogenomics | name=PhyKIT | Protocols for PhyKIT alignment and tree phylogenomic analyses
+R01594 Nie 2026 c=7 [method] Dissecting mitogenomic conflict to illuminate angiosperm deep phylogeny: Sequence and arch | name=PhyloForensics | Diagnostic framework identifying sources of gene-tree conflict
+R06638 Huson 2023 c=6 [method] Visualizing incompatibilities in phylogenetic trees using consensus outlines | name=consensus outline | Planar consensus outlines visualising incompatibilities among input trees
+R00993 Collienne 2024 c=4 [theory] Ranked Subtree Prune and Regraft | name=ranked SPR | Ranked SPR moves for time-tree space and distances
+R01111 Mi 2025 c=4 [evaluation] Dissecting discordance of mitochondrial and nuclear phylogenetic trees in insects | name=NA | GC content drives mito-nuclear gene tree discordance in insects
+R04332 Mongiardino Koch 2024 c=4 [method] Chronospaces: An R package for the statistical exploration of divergence times promotes th | name=chronospaces | R package exploring divergence-time sensitivity across dated trees
+R05692 Vijendran 2025 c=4 [method] Phylo-rs: an extensible phylogenetic analysis library in rust | name=Phylo-rs | Rust library for scalable phylogenetic analysis and tree distances
+R05921 Wong 2023 c=4 [evaluation] Assessing sequence heterogeneity in Chlorellaceae DNA barcode markers for phylogenetic inf | name=NA | Barcode marker heterogeneity; supermatrix improves tree congruence in Chlorellaceae
+R07356 Bouckaert 2024 c=4 [method] Variational Bayesian phylogenies through matrix representation of tree space | name=cubeVB | Variational Bayes over tree space via distance-matrix representation
+R04418 Simmons 2023 c=3 [method] Quantification of congruence among gene trees with polytomies using overall success of res | name=congsort | Congruence sorting of collapsed gene trees using OSR distances
+R06264 Khodaei 2023 c=3 [method] Geodesics to characterize the phylogenetic landscape | name=pathtrees | BHV geodesic pathtrees explore and visualise likelihood landscape
+R06907 Yoshida 2023 c=3 [method] Imputing Phylogenetic Trees Using Tropical Polytopes over the Space of Phylogenetic Trees | name=NA | Tropical polytope regression imputes missing parts of gene trees
+R00930 Takazawa 2024 c=2 [method] Maximum likelihood estimation of log-concave densities on tree space | name=NA | Log-concave maximum likelihood density estimation on tree space
+R02770 Serra Silva 2024 c=2 [evaluation] Extended Lissamphibia: a tale of character non-independence, analytical parameters and isl | name=NA | Character coding and large island bias affect consensus, networks
+R02967 Koshkarov 2023 c=2 [method] GPTree Cluster: phylogenetic tree cluster generator in the context of supertree inference | name=GPTree Cluster | Simulator of overlapping phylogenetic tree clusters for supertree research
+R04227 Yoshida 2024 c=2 [method] Tropical Density Estimation of Phylogenetic Trees | name=NA | Tropical-metric kernel density estimation for outlier gene trees

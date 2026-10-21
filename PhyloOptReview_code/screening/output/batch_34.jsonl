@@ -1,0 +1,226 @@
+{"id":"R08370","inc":1,"type":"theory","cat":["tree_other"],"crit":["other"],"alg":["none"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["other"],"soft":"unclear","name":"","note":"No consistent phylogeny estimation from fixed-k k-mer counts"}
+{"id":"R08371","inc":1,"type":"method","cat":["network"],"crit":["distance"],"alg":["none"],"rep":["network"],"ops":["none"],"nobj":"na","dsd":"na","data":["genomic"],"soft":"unclear","name":"","note":"Shared k-mer network of bacterial and archaeal genome relatedness"}
+{"id":"R08372","inc":0,"why":"application"}
+{"id":"R08373","inc":0,"why":"other_domain"}
+{"id":"R08374","inc":0,"why":"other_domain"}
+{"id":"R08375","inc":1,"type":"method","cat":["tree_other"],"crit":["distance"],"alg":["none"],"rep":["matrix","tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["genomic"],"soft":"unclear","name":"SlopeTree","note":"Alignment-free substring-decay distances correcting for horizontal transfer"}
+{"id":"R08376","inc":1,"type":"method","cat":["tree_other"],"crit":["distance"],"alg":["hill_climb"],"rep":["other"],"ops":["none"],"nobj":"1","dsd":"no","data":["dna"],"soft":"unclear","name":"rasbhari","note":"Hill-climbing optimisation of spaced-seed patterns for alignment-free distances"}
+{"id":"R08377","inc":0,"why":"other_domain"}
+{"id":"R08378","inc":1,"type":"method","cat":["tree_other"],"crit":["quartet","parsimony"],"alg":["none"],"rep":["quartet","tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["dna"],"soft":"unclear","name":"Gap-SpaM","note":"Alignment-free indel signal for quartet and parsimony tree inference"}
+{"id":"R08379","inc":0,"why":"other_domain"}
+{"id":"R08380","inc":0,"why":"application"}
+{"id":"R08381","inc":0,"why":"application"}
+{"id":"R08382","inc":0,"why":"application"}
+{"id":"R08383","inc":0,"why":"other_domain"}
+{"id":"R08384","inc":0,"why":"application"}
+{"id":"R08385","inc":0,"why":"application"}
+{"id":"R08386","inc":0,"why":"application"}
+{"id":"R08387","inc":0,"why":"application"}
+{"id":"R08388","inc":1,"type":"method","cat":["tree_other"],"crit":["distance"],"alg":["none"],"rep":["matrix"],"ops":["none"],"nobj":"na","dsd":"na","data":["dna"],"soft":"unclear","name":"","note":"Mutual information distances from pairwise alignments for phylogenies"}
+{"id":"R08389","inc":0,"why":"application"}
+{"id":"R08390","inc":0,"why":"other_domain"}
+{"id":"R08391","inc":0,"why":"other_domain"}
+{"id":"R08392","inc":0,"why":"application"}
+{"id":"R08393","inc":1,"type":"method","cat":["tree_other"],"crit":["none"],"alg":["ml"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["dna"],"soft":"yes","name":"TI2BioP","note":"Alignment-free topological indices for ITS2 annotation and phylogeny"}
+{"id":"R08394","inc":0,"why":"application"}
+{"id":"R08395","inc":0,"why":"application"}
+{"id":"R08396","inc":0,"why":"other_domain"}
+{"id":"R08397","inc":0,"why":"other_domain"}
+{"id":"R08398","inc":0,"why":"other_domain"}
+{"id":"R08399","inc":1,"type":"method","cat":["so_meta"],"crit":["parsimony"],"alg":["ga_ea"],"rep":["other"],"ops":["other"],"nobj":"1","dsd":"no","data":["genomic"],"soft":"unclear","name":"","note":"Genetic algorithm with genomic sorting for DCJ median problem"}
+{"id":"R08400","inc":1,"type":"method","cat":["tree_other"],"crit":["likelihood","parsimony","distance"],"alg":["none"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["genomic"],"soft":"yes","name":"kSNP v2","note":"Alignment-free k-mer SNP discovery and SNP phylogeny software"}
+{"id":"R08401","inc":0,"why":"application"}
+{"id":"R08402","inc":0,"why":"application"}
+{"id":"R08403","inc":0,"why":"other_domain"}
+{"id":"R08404","inc":0,"why":"application"}
+{"id":"R08405","inc":0,"why":"application"}
+{"id":"R08406","inc":0,"why":"application"}
+{"id":"R08407","inc":0,"why":"application"}
+{"id":"R08408","inc":0,"why":"application"}
+{"id":"R08409","inc":0,"why":"application"}
+{"id":"R08410","inc":0,"why":"other_domain"}
+{"id":"R08411","inc":0,"why":"other_domain"}
+{"id":"R08412","inc":0,"why":"other_domain"}
+{"id":"R08413","inc":1,"type":"evaluation","cat":["tree_other"],"crit":["distance","likelihood"],"alg":["none"],"rep":["tree"],"ops":["consensus"],"nobj":"na","dsd":"na","data":["dna"],"soft":"unclear","name":"","note":"Benchmarks alignment-free versus alignment-based phylogenies on 16S microbiome data"}
+{"id":"R08414","inc":0,"why":"application"}
+{"id":"R08415","inc":1,"type":"method","cat":["tree_other"],"crit":["distance"],"alg":["none"],"rep":["matrix","tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["genomic"],"soft":"unclear","name":"","note":"Information-theoretic genome metric for global viral phylogeny and taxonomy"}
+{"id":"R08416","inc":1,"type":"method","cat":["tree_other"],"crit":["parsimony","other"],"alg":["none"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["genomic"],"soft":"unclear","name":"","note":"Codon pairing as phylogenetic character via parsimony and alignment-free methods"}
+{"id":"R08417","inc":1,"type":"evaluation","cat":["tree_other"],"crit":["distance"],"alg":["none"],"rep":["matrix","tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["genomic"],"soft":"unclear","name":"","note":"Evaluates k-mer lengths for Jaccard genome clustering and taxonomy"}
+{"id":"R08418","inc":1,"type":"evaluation","cat":["tree_other"],"crit":["other"],"alg":["other"],"rep":["tree","cluster"],"ops":["none"],"nobj":"na","dsd":"na","data":["genomic"],"soft":"unclear","name":"","note":"Compares triplet-frequency clustering with alignment-based coronavirus phylogeny"}
+{"id":"R08419","inc":0,"why":"application"}
+{"id":"R08420","inc":0,"why":"application"}
+{"id":"R08421","inc":0,"why":"other_domain"}
+{"id":"R08422","inc":0,"why":"application"}
+{"id":"R08423","inc":1,"type":"method","cat":["tree_other"],"crit":["distance"],"alg":["other"],"rep":["matrix","cluster"],"ops":["none"],"nobj":"na","dsd":"na","data":["dna"],"soft":"unclear","name":"","note":"Weighted loop digraph descriptors for alignment-free DNA similarity"}
+{"id":"R08424","inc":0,"why":"application"}
+{"id":"R08425","inc":0,"why":"application"}
+{"id":"R08426","inc":0,"why":"application"}
+{"id":"R08427","inc":0,"why":"application"}
+{"id":"R08428","inc":1,"type":"method","cat":["tree_other"],"crit":["other"],"alg":["none"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["genomic"],"soft":"unclear","name":"BBC","note":"Base-base correlation alignment-free phylogenomic method for coronaviruses"}
+{"id":"R08429","inc":1,"type":"method","cat":["tree_other"],"crit":["distance"],"alg":["none"],"rep":["matrix","tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["dna"],"soft":"unclear","name":"","note":"Base-grouping 12-component vectors for alignment-free DNA phylogeny"}
+{"id":"R08430","inc":0,"why":"other_domain"}
+{"id":"R08431","inc":0,"why":"other_domain"}
+{"id":"R08432","inc":0,"why":"application"}
+{"id":"R08433","inc":0,"why":"application"}
+{"id":"R08434","inc":0,"why":"application"}
+{"id":"R08435","inc":0,"why":"application"}
+{"id":"R08436","inc":0,"why":"other_domain"}
+{"id":"R08437","inc":0,"why":"application"}
+{"id":"R08438","inc":0,"why":"other_domain"}
+{"id":"R08439","inc":1,"type":"method","cat":["tree_other"],"crit":["other","distance","likelihood"],"alg":["none"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["genomic"],"soft":"unclear","name":"CGRphylo","note":"Chaos game representation for alignment-free SARS-CoV-2 lineage phylogeny"}
+{"id":"R08440","inc":1,"type":"method","cat":["tree_other"],"crit":["distance"],"alg":["none"],"rep":["matrix"],"ops":["none"],"nobj":"na","dsd":"na","data":["dna"],"soft":"unclear","name":"","note":"DNA curve geometric features for alignment-free sequence dissimilarity"}
+{"id":"R08441","inc":1,"type":"method","cat":["tree_other"],"crit":["distance"],"alg":["none"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["protein"],"soft":"unclear","name":"","note":"Star-like graph topological indices for alignment-free protein phylogeny"}
+{"id":"R08442","inc":1,"type":"method","cat":["tree_other"],"crit":["distance"],"alg":["none"],"rep":["matrix","tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["protein"],"soft":"unclear","name":"","note":"Generalized iterative map for alignment-free protein sequence similarity"}
+{"id":"R08443","inc":0,"why":"other_domain"}
+{"id":"R08444","inc":1,"type":"method","cat":["tree_other"],"crit":["distance"],"alg":["none"],"rep":["matrix","tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["protein"],"soft":"unclear","name":"","note":"2D pattern matching for alignment-free protein sequence comparison"}
+{"id":"R08445","inc":1,"type":"method","cat":["tree_other"],"crit":["distance"],"alg":["none"],"rep":["matrix"],"ops":["none"],"nobj":"na","dsd":"na","data":["genomic"],"soft":"unclear","name":"","note":"Reviews and proposes dissimilarities for alignment-free genome phylogeny"}
+{"id":"R08446","inc":0,"why":"application"}
+{"id":"R08447","inc":0,"why":"application"}
+{"id":"R08448","inc":0,"why":"application"}
+{"id":"R08449","inc":1,"type":"method","cat":["tree_other"],"crit":["distance"],"alg":["other"],"rep":["other"],"ops":["none"],"nobj":"na","dsd":"na","data":["unclear"],"soft":"unclear","name":"ACS","note":"Average common substring computation on run-length encoded sequences"}
+{"id":"R08450","inc":0,"why":"application"}
+{"id":"R08451","inc":1,"type":"method","cat":["tree_other"],"crit":["distance"],"alg":["none"],"rep":["other"],"ops":["none"],"nobj":"na","dsd":"na","data":["genomic"],"soft":"unclear","name":"KITSUNE","note":"Selects empirically optimal k-mer length for alignment-free phylogenomics"}
+{"id":"R08452","inc":0,"why":"application"}
+{"id":"R08453","inc":0,"why":"other_domain"}
+{"id":"R08454","inc":1,"type":"method","cat":["tree_other"],"crit":["other"],"alg":["other"],"rep":["cluster"],"ops":["none"],"nobj":"na","dsd":"na","data":["dna"],"soft":"unclear","name":"","note":"Stochastic sequence indices for alignment-free mtDNA phylogenetic clustering"}
+{"id":"R08455","inc":1,"type":"method","cat":["tree_other"],"crit":["distance"],"alg":["none"],"rep":["matrix"],"ops":["none"],"nobj":"na","dsd":"na","data":["dna","genomic"],"soft":"unclear","name":"ANV","note":"Accumulated natural vector with nucleotide covariance for genome clustering"}
+{"id":"R08456","inc":0,"why":"application"}
+{"id":"R08457","inc":0,"why":"other_domain"}
+{"id":"R08458","inc":1,"type":"method","cat":["tree_other"],"crit":["other"],"alg":["ml"],"rep":["cluster"],"ops":["none"],"nobj":"na","dsd":"na","data":["genomic"],"soft":"yes","name":"","note":"Unsupervised k-mer feature selection for clustering unaligned sequences"}
+{"id":"R08459","inc":1,"type":"method","cat":["tree_other"],"crit":["distance"],"alg":["none"],"rep":["matrix","tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["genomic"],"soft":"yes","name":"IEPWRMkmer","note":"Entropy position-weighted k-mer distance for whole-genome phylogeny"}
+{"id":"R08460","inc":0,"why":"application"}
+{"id":"R08461","inc":0,"why":"application"}
+{"id":"R08462","inc":0,"why":"application"}
+{"id":"R08463","inc":0,"why":"application"}
+{"id":"R08464","inc":0,"why":"other_domain"}
+{"id":"R08465","inc":0,"why":"other_domain"}
+{"id":"R08466","inc":0,"why":"application"}
+{"id":"R08467","inc":0,"why":"other_domain"}
+{"id":"R08468","inc":0,"why":"application"}
+{"id":"R08469","inc":0,"why":"application"}
+{"id":"R08470","inc":1,"type":"method","cat":["tree_other"],"crit":["distance"],"alg":["none"],"rep":["matrix","tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["dna"],"soft":"yes","name":"Ksak","note":"High-throughput k-mer distance tool for alignment-free phylogenetics"}
+{"id":"R08471","inc":0,"why":"application"}
+{"id":"R08472","inc":1,"type":"method","cat":["tree_other"],"crit":["other"],"alg":["none"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["dna","protein"],"soft":"unclear","name":"CGRWDL","note":"CGR weighted by dynamical language model for virus phylogeny"}
+{"id":"R08473","inc":0,"why":"application"}
+{"id":"R08474","inc":0,"why":"application"}
+{"id":"R08475","inc":0,"why":"application"}
+{"id":"R08476","inc":0,"why":"application"}
+{"id":"R08477","inc":0,"why":"application"}
+{"id":"R08478","inc":0,"why":"application"}
+{"id":"R08479","inc":0,"why":"application"}
+{"id":"R08480","inc":0,"why":"application"}
+{"id":"R08481","inc":0,"why":"application"}
+{"id":"R08482","inc":0,"why":"application"}
+{"id":"R08483","inc":0,"why":"application"}
+{"id":"R08484","inc":0,"why":"application"}
+{"id":"R08485","inc":0,"why":"application"}
+{"id":"R08486","inc":0,"why":"application"}
+{"id":"R08487","inc":0,"why":"application"}
+{"id":"R08488","inc":0,"why":"application"}
+{"id":"R08489","inc":0,"why":"application"}
+{"id":"R08490","inc":0,"why":"other_domain"}
+{"id":"R08491","inc":0,"why":"application"}
+{"id":"R08492","inc":0,"why":"application"}
+{"id":"R08493","inc":0,"why":"application"}
+{"id":"R08494","inc":0,"why":"other_domain"}
+{"id":"R08495","inc":1,"type":"method","cat":["tree_other"],"crit":["other"],"alg":["none"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["genomic"],"soft":"unclear","name":"PWkmer","note":"Position-weighted k-mers for alignment-free HIV-1 genome phylogeny"}
+{"id":"R08496","inc":0,"why":"application"}
+{"id":"R08497","inc":1,"type":"method","cat":["tree_other"],"crit":["distance"],"alg":["ml"],"rep":["matrix","tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["genomic"],"soft":"unclear","name":"","note":"Compression-complexity distances for coronavirus phylogeny and classification"}
+{"id":"R08498","inc":0,"why":"application"}
+{"id":"R08499","inc":1,"type":"method","cat":["tree_other"],"crit":["distance"],"alg":["other"],"rep":["matrix","tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["unclear"],"soft":"unclear","name":"PVTree","note":"Sequential pattern mining distances for alignment-free phylogeny"}
+{"id":"R08500","inc":0,"why":"other_domain"}
+{"id":"R08501","inc":0,"why":"application"}
+{"id":"R08502","inc":0,"why":"application"}
+{"id":"R08503","inc":0,"why":"application"}
+{"id":"R08504","inc":1,"type":"evaluation","cat":["tree_other"],"crit":["distance"],"alg":["none"],"rep":["tree","matrix"],"ops":["none"],"nobj":"na","dsd":"na","data":["genomic"],"soft":"unclear","name":"Skmer, APPLES","note":"Tests Skmer and APPLES placement on patellogastropod genome skims"}
+{"id":"R08505","inc":0,"why":"other_domain"}
+{"id":"R08506","inc":0,"why":"application"}
+{"id":"R08507","inc":0,"why":"other_domain"}
+{"id":"R08508","inc":0,"why":"other_domain"}
+{"id":"R08509","inc":0,"why":"application"}
+{"id":"R08510","inc":0,"why":"application"}
+{"id":"R08511","inc":0,"why":"application"}
+{"id":"R08512","inc":1,"type":"method","cat":["tree_other"],"crit":["distance"],"alg":["none"],"rep":["matrix","tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["genomic"],"soft":"unclear","name":"","note":"Unique k-mer barcodes for Escherichia coli phylotyping and trees"}
+{"id":"R08513","inc":1,"type":"method","cat":["tree_other"],"crit":["distance"],"alg":["none"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["genomic"],"soft":"unclear","name":"PCNV","note":"Positional correlation natural vector for alignment-free genome phylogeny"}
+{"id":"R08514","inc":0,"why":"application"}
+{"id":"R08515","inc":1,"type":"method","cat":["tree_other"],"crit":["distance"],"alg":["other"],"rep":["tree","cluster"],"ops":["none"],"nobj":"na","dsd":"na","data":["genomic"],"soft":"unclear","name":"Maxwell","note":"Burrows-Wheeler compression classifier for whole-genome archaeal phylogeny"}
+{"id":"R08516","inc":0,"why":"application"}
+{"id":"R08517","inc":1,"type":"method","cat":["tree_other"],"crit":["distance"],"alg":["none"],"rep":["matrix","tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["protein"],"soft":"unclear","name":"","note":"Proteome-wide amino acid k-mer frequencies for evolutionary relationships"}
+{"id":"R08518","inc":0,"why":"application"}
+{"id":"R08519","inc":0,"why":"application"}
+{"id":"R08520","inc":0,"why":"application"}
+{"id":"R08521","inc":0,"why":"application"}
+{"id":"R08522","inc":1,"type":"method","cat":["tree_other"],"crit":["distance"],"alg":["none"],"rep":["matrix","tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["genomic"],"soft":"unclear","name":"","note":"DNA evolution model corrections applied to NCD matrices"}
+{"id":"R08523","inc":1,"type":"method","cat":["tree_other"],"crit":["distance"],"alg":["none"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["dna"],"soft":"unclear","name":"","note":"5-adic ultrametric embedding for alignment-free phylogenetic inference"}
+{"id":"R08524","inc":1,"type":"method","cat":["tree_other"],"crit":["distance"],"alg":["none"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["genomic"],"soft":"unclear","name":"Spark","note":"Resistor-inspired k-mer positional features for alignment-free phylogeny"}
+{"id":"R08525","inc":0,"why":"application"}
+{"id":"R08526","inc":0,"why":"application"}
+{"id":"R08527","inc":0,"why":"application"}
+{"id":"R08528","inc":0,"why":"application"}
+{"id":"R08529","inc":0,"why":"application"}
+{"id":"R08530","inc":1,"type":"evaluation","cat":["tree_other"],"crit":["other"],"alg":["none"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["genomic"],"soft":"unclear","name":"","note":"Validates alignment-free phylogenomics on trypanosomatid kinetoplast maxicircles"}
+{"id":"R08531","inc":0,"why":"application"}
+{"id":"R08532","inc":0,"why":"application"}
+{"id":"R08533","inc":0,"why":"application"}
+{"id":"R08534","inc":1,"type":"method","cat":["tree_other"],"crit":["distance"],"alg":["other"],"rep":["matrix","tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["protein"],"soft":"unclear","name":"20D-Dynamic Representation","note":"20D-dynamic graph protein descriptors with PCA classification maps"}
+{"id":"R08535","inc":0,"why":"application"}
+{"id":"R08536","inc":0,"why":"other_domain"}
+{"id":"R08537","inc":0,"why":"application"}
+{"id":"R08538","inc":0,"why":"application"}
+{"id":"R08539","inc":0,"why":"application"}
+{"id":"R08540","inc":0,"why":"other_domain"}
+{"id":"R08541","inc":0,"why":"application"}
+{"id":"R08542","inc":0,"why":"application"}
+{"id":"R08543","inc":0,"why":"application"}
+{"id":"R08544","inc":0,"why":"other_domain"}
+{"id":"R08545","inc":0,"why":"application"}
+{"id":"R08546","inc":0,"why":"application"}
+{"id":"R08547","inc":1,"type":"method","cat":["tree_other"],"crit":["distance"],"alg":["none"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["dna"],"soft":"unclear","name":"","note":"Cis-sequence complex network descriptors for alignment-free DNA phylogeny"}
+{"id":"R08548","inc":1,"type":"evaluation","cat":["tree_other"],"crit":["distance"],"alg":["none"],"rep":["matrix","tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["dna"],"soft":"unclear","name":"","note":"Re-examines Woese oligonucleotide catalogs as k-mer phylogenetic data"}
+{"id":"R08549","inc":0,"why":"other_domain"}
+{"id":"R08550","inc":1,"type":"method","cat":["tree_other"],"crit":["other"],"alg":["other"],"rep":["tree","split"],"ops":["none"],"nobj":"na","dsd":"na","data":["dna","genomic"],"soft":"unclear","name":"phyBWT","note":"eBWT positional clustering builds alignment-free partition trees"}
+{"id":"R08551","inc":1,"type":"method","cat":["tree_other"],"crit":["parsimony"],"alg":["exact"],"rep":["other"],"ops":["none"],"nobj":"1","dsd":"na","data":["genomic"],"soft":"unclear","name":"","note":"Optimised ILP for DCJ-indel small parsimony of natural genomes"}
+{"id":"R08552","inc":1,"type":"theory","cat":["tree_other"],"crit":["other"],"alg":["exact"],"rep":["other"],"ops":["none"],"nobj":"na","dsd":"na","data":["other"],"soft":"unclear","name":"","note":"Parameterized complexity of median and closest permutation problems"}
+{"id":"R08553","inc":1,"type":"method","cat":["tree_other"],"crit":["other"],"alg":["exact"],"rep":["other"],"ops":["none"],"nobj":"1","dsd":"na","data":["other"],"soft":"unclear","name":"","note":"Branching algorithm enumerating all breakpoint median genomes"}
+{"id":"R08554","inc":1,"type":"method","cat":["tree_other"],"crit":["distance"],"alg":["other"],"rep":["other"],"ops":["none"],"nobj":"na","dsd":"na","data":["unclear"],"soft":"yes","name":"SubseqSketch","note":"Random subsequence sketches approximating edit similarity for phylogenetic clustering"}
+{"id":"R08555","inc":1,"type":"theory","cat":["tree_other"],"crit":["other"],"alg":["none"],"rep":["other"],"ops":["none"],"nobj":"na","dsd":"na","data":["other"],"soft":"unclear","name":"","note":"NP-completeness of genome median problems under sigma-k distances"}
+{"id":"R08556","inc":1,"type":"method","cat":["tree_other"],"crit":["distance"],"alg":["none"],"rep":["matrix","tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["unclear"],"soft":"unclear","name":"","note":"Spaced k-mers improve alignment-free phylogeny distances"}
+{"id":"R08557","inc":0,"why":"application"}
+{"id":"R08558","inc":1,"type":"method","cat":["tree_other"],"crit":["distance"],"alg":["none"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["dna"],"soft":"unclear","name":"NAAKV","note":"Pseudo amino acid k-mer vectors from DNA for phylogeny"}
+{"id":"R08559","inc":1,"type":"evaluation","cat":["tree_other"],"crit":["distance"],"alg":["none"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["dna"],"soft":"unclear","name":"FCGR","note":"Frequency chaos game representation recovers primate PRKN phylogeny"}
+{"id":"R08560","inc":0,"why":"other_domain"}
+{"id":"R08561","inc":1,"type":"theory","cat":["tree_other"],"crit":["distance"],"alg":["none"],"rep":["other"],"ops":["none"],"nobj":"na","dsd":"na","data":["other"],"soft":"unclear","name":"","note":"APX-hardness of genome comparison measures with duplicate genes"}
+{"id":"R08562","inc":0,"why":"application"}
+{"id":"R08563","inc":0,"why":"other_domain"}
+{"id":"R08564","inc":0,"why":"other_domain"}
+{"id":"R08565","inc":0,"why":"application"}
+{"id":"R08566","inc":0,"why":"application"}
+{"id":"R08567","inc":1,"type":"method","cat":["tree_other"],"crit":["distance"],"alg":["none"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["genomic","dna"],"soft":"unclear","name":"","note":"Natural vector with covariance for alignment-free classification and phylogeny"}
+{"id":"R08568","inc":0,"why":"other_domain"}
+{"id":"R08569","inc":0,"why":"application"}
+{"id":"R08570","inc":0,"why":"application"}
+{"id":"R08571","inc":0,"why":"application"}
+{"id":"R08572","inc":0,"why":"other_domain"}
+{"id":"R08573","inc":1,"type":"method","cat":["tree_other"],"crit":["distance","likelihood"],"alg":["none"],"rep":["matrix","tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["genomic"],"soft":"unclear","name":"CAM","note":"Codon aversion motif distances for alignment-free phylogenies"}
+{"id":"R08574","inc":0,"why":"application"}
+{"id":"R08575","inc":0,"why":"other_domain"}
+{"id":"R08576","inc":1,"type":"method","cat":["so_meta"],"crit":["parsimony"],"alg":["ga_ea"],"rep":["other"],"ops":["other"],"nobj":"1","dsd":"no","data":["genomic"],"soft":"unclear","name":"","note":"Genetic algorithm with genomic sorting for reversal median problem"}
+{"id":"R08577","inc":1,"type":"method","cat":["tree_other"],"crit":["distance"],"alg":["none"],"rep":["matrix","tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["genomic","dna"],"soft":"unclear","name":"","note":"Triplet Markov genome signature distance for phylogeny trees"}
+{"id":"R08578","inc":1,"type":"method","cat":["tree_other"],"crit":["distance"],"alg":["none"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["dna"],"soft":"unclear","name":"","note":"Weighted 2D graphical representation for alignment-free DNA comparison"}
+{"id":"R08579","inc":1,"type":"method","cat":["tree_other"],"crit":["distance"],"alg":["none"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["protein"],"soft":"unclear","name":"","note":"Physicochemical protein feature sequences with Bhattacharyya distance phylogeny"}
+{"id":"R08580","inc":0,"why":"other_domain"}
+{"id":"R08581","inc":1,"type":"method","cat":["so_meta"],"crit":["parsimony"],"alg":["hill_climb"],"rep":["other"],"ops":["none"],"nobj":"1","dsd":"no","data":["genomic"],"soft":"yes","name":"PIVO2","note":"Randomised hill-climbing for rearrangement small phylogeny problem"}
+{"id":"R08582","inc":0,"why":"other_domain"}
+{"id":"R08583","inc":1,"type":"method","cat":["tree_other"],"crit":["distance"],"alg":["none"],"rep":["matrix","tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["other"],"soft":"unclear","name":"","note":"Lempel-Ziv distances on RNA structural sequences for phylogeny"}
+{"id":"R08584","inc":1,"type":"method","cat":["tree_other"],"crit":["distance"],"alg":["none"],"rep":["matrix","tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["other"],"soft":"unclear","name":"","note":"LZ complexity distances comparing RNA secondary structures for trees"}
+{"id":"R08585","inc":1,"type":"method","cat":["tree_other"],"crit":["distance"],"alg":["none"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["dna"],"soft":"unclear","name":"CLZ","note":"Conditional Lempel-Ziv complexity for alignment-free mtDNA phylogeny"}
+{"id":"R08586","inc":0,"why":"other_domain"}
+{"id":"R08587","inc":0,"why":"application"}
+{"id":"R08588","inc":1,"type":"method","cat":["tree_other"],"crit":["distance"],"alg":["none"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["dna"],"soft":"unclear","name":"","note":"Information-content descriptors for alignment-free DNA sequence phylogeny"}
+{"id":"R08589","inc":1,"type":"method","cat":["tree_other"],"crit":["parsimony"],"alg":["other"],"rep":["tree"],"ops":["none"],"nobj":"1","dsd":"no","data":["genomic"],"soft":"unclear","name":"TLPLAN","note":"AI planning formulation of genome rearrangement for phylogeny"}
+{"id":"R08590","inc":0,"why":"other_domain"}
+{"id":"R08591","inc":0,"why":"other_domain"}
+{"id":"R08592","inc":1,"type":"method","cat":["tree_other"],"crit":["likelihood"],"alg":["none"],"rep":["tree"],"ops":["none"],"nobj":"1","dsd":"no","data":["genomic"],"soft":"unclear","name":"","note":"Maximum likelihood phylogeny from whole-genome rearrangement, duplication, loss data"}
+{"id":"R08593","inc":0,"why":"other_domain"}
+{"id":"R08594","inc":1,"type":"method","cat":["tree_other"],"crit":["distance"],"alg":["none"],"rep":["matrix","tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["protein"],"soft":"unclear","name":"","note":"3D graphical protein representation distance for influenza HA phylogeny"}
+{"id":"R08595","inc":0,"why":"application"}

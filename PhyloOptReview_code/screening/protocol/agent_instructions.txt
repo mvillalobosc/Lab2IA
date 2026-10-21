@@ -1,0 +1,38 @@
+INSTRUCTIONS GIVEN TO THE SCREENING AGENTS (Claude Opus 5.5, Anthropic)
+Each batch was screened by an independent agent that received one of the following instructions, together with the protocol in llm_prompt.txt. The paths are those of the working directory used during the review: llm_in = screening/input, llm_out = screening/output, llm_verify = screening/reliability.
+
+----------------------------------------------------------------------------
+A. Batches 01 to 09 (first round)
+----------------------------------------------------------------------------
+Follow exactly the protocol in llm_prompt.txt (read it first). Input batch file: llm_in/batch_XX.txt (250 records). Output file: llm_out/batch_XX.jsonl. Read the whole input in parts with offset/limit so no record is skipped, then write all 250 JSON lines in one Write call, same order as the input.
+
+----------------------------------------------------------------------------
+B. Batches 10 to 17 (first round) and 18 to 30 (second round)
+----------------------------------------------------------------------------
+Follow exactly the protocol in llm_prompt.txt (read it first). Input batch file: llm_in/batch_XX.txt (250 records). Output file: llm_out/batch_XX.jsonl. Read the whole input in parts with offset/limit so no record is skipped, then write all 250 JSON lines in one Write call, same order as the input. Rules used by the other batches for borderline records, apply them too: comparing methods on a single taxon is "application" when the findings are about the taxon and "evaluation" when the stated aim and conclusions are about the methods; comparative methods on a fixed tree, ancestral states, phylodynamics, population genetics, diversity indices and orthology detection are "other_domain"; divergence-time, clock and substitution-model methods count as tree inference (tree_other); add "morpho" only when morphological characters or fossil tips enter the inference.
+
+----------------------------------------------------------------------------
+C. Independent second screening for reliability (sample_300 and sample_r2_100)
+----------------------------------------------------------------------------
+Follow exactly the protocol in llm_prompt.txt (read it first). This is an independent second screening used to measure reliability, so do NOT open or read any file in the folders llm_out, llm_in or llm_in_used, and do not look at previous decisions. Input file: llm_verify/sample_300.txt (300 records) [or llm_verify/sample_r2_100.txt (100 records)]. Output file: llm_verify/sample_300.jsonl [or llm_verify/sample_r2_100.jsonl]. Read the whole input in parts with offset/limit so no record is skipped, then write all JSON lines in one Write call, same order as the input. Borderline rules: comparing methods on a single taxon is "application" when the findings are about the taxon and "evaluation" when the stated aim and conclusions are about the methods; comparative methods on a fixed tree, ancestral states, phylodynamics, population genetics, diversity indices and orthology detection are "other_domain"; divergence-time, clock and substitution-model methods count as tree inference (tree_other); add "morpho" only when morphological characters or fossil tips enter the inference.
+
+----------------------------------------------------------------------------
+D. Verification of the optimisation core (verification/mo_matrix.csv and verification/so_matrix.csv)
+----------------------------------------------------------------------------
+The studies coded as multi-objective (61 records) and as single-objective heuristic search (122 records) were grouped into strategies by two agents, which filled the criteria, solution structure, operators, number of objectives and use of the diversity on the decision space from the abstracts, the publisher records, open full texts and the previous publications of the author of the review. Each row records its sources in the columns "source" and "evidence", and rows that do not correspond to the category were marked in the column "flag". The rows were reviewed before being used (R/05_verification.R).
+
+----------------------------------------------------------------------------
+E. Batches 31 to 36 (third round, block Q7: alignment-free and gene order methods)
+----------------------------------------------------------------------------
+Follow exactly the protocol in llm_prompt.txt (read it first, completely). Input batch file: llm_in/batch_XX.txt. Output file: llm_out/batch_XX.jsonl. Read the whole input in parts with offset/limit so no record is skipped, then write all JSON lines in one Write call, same order as the input. Rules used by the other batches for borderline records, apply them too: comparing methods on a single taxon is "application" when the findings are about the taxon and "evaluation" when the stated aim and conclusions are about the methods; comparative methods on a fixed tree, ancestral states, phylodynamics, population genetics, diversity indices and orthology detection are "other_domain"; divergence-time, clock and substitution-model methods count as tree inference (tree_other); add "morpho" only when morphological characters or fossil tips enter the inference. Alignment-free distances, k-mer methods and gene order (rearrangement) methods proposed or evaluated for phylogenetic inference are tree inference (tree_other, or network when they infer networks); a paper that only uses such a method to study a group of organisms is "application". Do not read any other file of the repository. When done, reply with three lines only: records read, lines written, records with inc 1.
+Batches 31 to 34 hold the records of the first download of block Q7 (Scopus and the first Web of Science files), and batches 35 and 36 the records that only appeared in the second Web of Science download (see R/01_merge.R).
+
+----------------------------------------------------------------------------
+F. Independent second screening of the third round (sample_r3_100 and sample_r3b_28)
+----------------------------------------------------------------------------
+Same instruction as section C, with the input files llm_verify/sample_r3_100.txt (100 records of batches 31 to 34) and llm_verify/sample_r3b_28.txt (28 records of batches 35 and 36), the same borderline rules and the rule on alignment-free and gene order methods of section E. The agents did not open llm_out, llm_in or any previous decision.
+
+----------------------------------------------------------------------------
+G. Verification of the gene order studies of the third round
+----------------------------------------------------------------------------
+The 14 studies of the third round coded as single-objective heuristic search were verified from their abstracts (source column of verification/so_matrix.csv). Thirteen of them were added to the matrix, and one genetic algorithm that selects restriction enzymes instead of searching trees was reassigned to tree inference (verification/verification_corrections.csv).

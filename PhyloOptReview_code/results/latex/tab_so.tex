@@ -1,0 +1,76 @@
+\begin{landscape}
+{\scriptsize
+\setlength{\tabcolsep}{4pt}
+\setlength{\LTcapwidth}{\linewidth}
+\begin{longtable}{>{\raggedright\arraybackslash}p{2.7cm}>{\raggedright\arraybackslash}p{2.1cm}>{\raggedright\arraybackslash}p{2.8cm}>{\raggedright\arraybackslash}p{2.7cm}>{\raggedright\arraybackslash}p{2.3cm}>{\raggedright\arraybackslash}p{4.0cm}}
+\caption{Single-objective metaheuristics for phylogenetic inference. MP, maximum parsimony; ML, maximum likelihood; ME, minimum evolution; GA, genetic algorithm; EA, evolutionary algorithm; ICA, imperialist competitive algorithm; SA, simulated annealing; CRO, chemical reaction optimisation; RL, reinforcement learning; ACO, ant colony optimisation; PSO, particle swarm optimisation; VNS, variable neighbourhood search; GRASP, greedy randomised adaptive search procedure; Rec-I-DCM3, recursive and iterative disk-covering method 3; NJ, Neighbour Joining; NNI, nearest neighbour interchange; SPR, subtree pruning and regrafting; TBR, tree bisection and reconnection; BNNI and BSPR, balanced NNI and SPR; BLX-$\alpha$, blend crossover; DCJ, double cut and join; n.r., not reported in the sources consulted.}\label{tab:so}\\
+\toprule
+Strategy & References & Algorithm & Criteria & Sol. structure & Main operators
+\\
+\midrule
+\endfirsthead
+\multicolumn{6}{l}{\emph{Table \ref{tab:so} (continued)}}\\
+\toprule
+Strategy & References & Algorithm & Criteria & Sol. structure & Main operators
+\\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\multicolumn{6}{l}{\textit{Evolutionary algorithms}}\\
+GA for weighted parsimony & \cite{R01166} & Genetic algorithm & MP (weighted) & Tree & n.r.\\
+GA with NJ mapping & \cite{R05258} & Genetic algorithm & ML & Distance matrix & Uniform row crossover, BLX-$\alpha$ recombination\\
+EA for networks & \cite{R00270} & Evolutionary algorithm & n.r. & Rooted network & n.r.\\
+MetaPIGA & \cite{R05462} & Metapopulation GA & ML & Tree & NNI, SPR, TBR, taxa and subtree swaps, recombination, consensus pruning\\
+Asynchronous parallel GA & \cite{R04035} & Genetic algorithm & ML & Tree & n.r.\\
+EA for supertrees & \cite{R04034} & Evolutionary algorithm & n.r. & Tree & n.r.\\
+GA for median problems & \cite{R08399,R08576} & Genetic algorithm & MP (reversal and DCJ distances) & Ancestral gene order & Genomic sorting to generate candidate medians\\
+Co-evolutionary GA for tree scoring & \cite{R08165} & Cooperative co-evolutionary GA & MP (rearrangement distance) & Ancestral gene orders on a fixed tree & Co-evolutionary fitness, seeded initial population, evolution by genome sorting\\
+GA for rogue taxa & \cite{R04028} & Genetic algorithm & Resolution of the consensus tree & Subset of taxa & Crossover, mutation\\
+ICA for consensus trees & \cite{R06526} & Imperialist competitive algorithm & n.r. & Tree & n.r.\\
+Modified GA & \cite{R00338} & Genetic algorithm & n.r. & Tree & n.r.\\
+\addlinespace
+\multicolumn{6}{l}{\textit{Local search metaheuristics}}\\
+Progressive neighbourhood search & \cite{R00255,R04144} & Descent, iterated local search, simulated annealing & MP & Tree & Subtree swapping, NNI, SPR, TBR, progressive neighbourhood\\
+Leaphy & \cite{R02713} & Hill climbing with resampling & ML & Tree & SPR rearrangements, random perturbations, resampling by sequence removal, parsimony starting trees\\
+Tabu search for MP & \cite{R01280} & Tabu search & MP & Tree & n.r.\\
+Parallel adaptive memory programming & \cite{R00785} & Adaptive memory programming & MP & Tree & n.r.\\
+morePhyML & \cite{R01895} & Likelihood ratchet & ML & Tree & Character reweighting, NNI, SPR\\
+IQ-TREE & \cite{R03390} & Hill climbing with stochastic perturbation & ML & Tree & Random NNI perturbation, hill-climbing NNI, candidate set\\
+HELPHY & \cite{R08135} & VNS & MP (reversal and DCJ distances) & Tree with ancestral gene orders & Variable neighbourhoods over topologies, greedy labelling of ancestral gene orders\\
+GRASP for length-weighted inversions & \cite{R08166} & GRASP & Length-weighted inversion distance & Sequence of inversions & Greedy randomised construction, neighbourhood search\\
+Treeline & \cite{R04298} & Multi-start hill climbing & ME, ML, MP & Tree & Perturbation of patristic distances, hill climbing\\
+\addlinespace
+\multicolumn{6}{l}{\textit{Simulated annealing}}\\
+Generalised Gibbs sampler & \cite{R01739} & Simulated annealing & MP & Tree & Gibbs sampler moves\\
+RAxML-SA & \cite{R00254,R04102,R04103} & Simulated annealing, hill climbing & ML & Tree & Lazy subtree rearrangements, annealing acceptance\\
+MC-Net and SAQ-Net & \cite{R05527,R01510} & Monte Carlo search, simulated annealing & Fit of a circular ordering to distances or quartets & Circular ordering & Taxon removal and reinsertion in the circular ordering (MC-Net), Metropolis acceptance\\
+SAMPARS & \cite{R06559,R00486,R07277} & Simulated annealing, iterated local search & MP & Tree & SPR neighbourhood, reheating, path relinking\\
+SA for reticulate networks & \cite{R07586} & Simulated annealing & n.r. & Network & n.r.\\
+SAWSA-LPR & \cite{R01155} & Simulated annealing with steepest ascent & ML & Tree & Leaf pruning and regrafting\\
+SAMedian & \cite{R00387,R02868} & Simulated annealing & MP (DCJ distance) & Tree with gene orders & DCJ sorting\\
+PSA & \cite{R04423} & Simulated annealing & Network parsimony & Rooted network & Addition, deletion, relocation and reversal of reticulation edges\\
+PhyNEST & \cite{R03552} & Hill climbing, simulated annealing & Composite likelihood & Level-1 network & NNI, reticulation moves\\
+\addlinespace
+\multicolumn{6}{l}{\textit{Other stochastic search}}\\
+covSEARCH & \cite{R00548} & Confidence-set pool search & ML & Pool of trees & Pool update by confidence tests\\
+SBiX & \cite{R03360} & Stochastic local search & ME & Tree & Big-quartet swaps\\
+PTree & \cite{R07402} & Stochastic search guided by patterns & MP & Tree & Insertion of inferred intermediate sequences\\
+CRO for parsimony & \cite{R00296} & Chemical reaction optimisation & MP & Tree & Redesigned elementary reactions\\
+RL-guided SPR search & \cite{R02960} & Reinforcement learning with beam search & ME (balanced) & Tree & SPR moves sampled by a policy network\\
+\addlinespace
+\multicolumn{6}{l}{\textit{Swarm intelligence}}\\
+ACO for minimum evolution & \cite{R05577} & Ant colony optimisation & ME & Tree & Pheromone-guided taxon insertion, 2-opt swaps\\
+ABPR & \cite{R06361} & Ant colony optimisation & ME & Tree & Pheromone-guided joining of taxa\\
+ACOPHY & \cite{R07427} & Ant colony optimisation & Any criterion & Tree & Ant walks on a graph coupled with tree space\\
+IDQPSO-Median & \cite{R08313} & Discrete quantum-behaved PSO & MP (DCJ distance) & Ancestral gene order & Quantum-behaved particle moves, DCJ sorting\\
+Tumour phylogenies under Dollo-k & \cite{R06765} & PSO, genetic programming, VNS & ML (single-cell) & Mutation tree & Subtree prune and reattach, node insertion and deletion\\
+\addlinespace
+\multicolumn{6}{l}{\textit{Memetic and hybrid algorithms}}\\
+Cooperative Rec-I-DCM3 & \cite{R05259} & Population of Rec-I-DCM3 searches & MP & Tree & Rec-I-DCM3 per individual, strict consensus recombination, diverse or elitist selection by MP rank\\
+Hydra & \cite{R00271,R00439} & Memetic algorithm & MP & Tree & Crossover of path-length matrices, progressive neighbourhood descent\\
+GA within fastDNAml & \cite{R05252} & Genetic algorithm with fastDNAml & ML & Taxon addition order and branch lengths & n.r.\\
+PhyloES & \cite{R02988} & Evolution strategy with local search & ME (balanced) & Edge-insertion code & Sampling of code positions, BNNI, BSPR\\
+\end{longtable}
+}
+\end{landscape}

@@ -1,0 +1,32 @@
+id_drop,id_keep,reason
+R00381,R00382,same conference paper; malformed DOI in one database
+R04110,R04109,same conference paper indexed with two DOIs
+R04177,R04178,same journal article indexed with two DOIs
+R06565,R06568,recommendation text and recommended article (same study)
+R06566,R06567,recommendation text and recommended article (same study)
+R05440,R05441,same journal article; truncated DOI in one database
+R07332,R07369,preprint and published article (same study)
+R00247,R00351,same chapter; malformed DOI in one database
+R00306,R00308,book-level and chapter-level records of the same paper
+R04010,R04009,same conference paper indexed with two DOIs
+R04074,R04073,same conference paper indexed with two DOIs
+R04019,R04018,same conference paper indexed with two DOIs
+R00355,R00354,same chapter; malformed DOI in one database
+R05335,R07335,same proceedings chapter indexed with two DOI prefixes
+R07253,R07252,same journal article; malformed DOI in one database
+R05287,R05286,same conference paper indexed with two DOIs
+R07486,R07485,same paper indexed twice without DOI
+R05060,R05049,same journal article; malformed DOI in one database
+R05059,R05048,same journal article; malformed DOI in one database
+R05468,R05467,same journal article; malformed DOI in one database
+R05407,R05408,issue-level and article-level records of the same paper
+R07524,R07523,same journal article indexed twice without DOI
+R02597,R02596,same journal article; malformed DOI in one database
+R07546,R06558,same journal article; DOI missing in one database
+R07266,R06635,journal article and its data package
+R07602,R06441,same journal article; DOI missing in one database
+R05266,R05264,same paper in proceedings and in the series journal
+R02350,R01452,same journal article; malformed DOI in one database
+R07051,R02773,same journal article indexed with two DOIs
+R07410,R04127,same conference paper; DOI missing in one database
+R08857,R07940,same conference paper; title typo and no DOI in one database

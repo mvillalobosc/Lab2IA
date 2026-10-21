@@ -1,0 +1,1250 @@
+id,blocks,year,title,wave
+R07620,Q7,2021,The tree of life describes a tripartite cellular world,2
+R07621,Q7,2017,Establishing the phylogeny of Prochlorococcus with a new alignment-free method,2
+R07622,Q7,2026,An Alignment Free Framework for Taxonomic Inference From Codon and Codon-Pair Usage,2
+R07623,Q7,2021,Characterization of Acute HCV Infection and Transmission Networks in People Who Currently Inject Drugs in Catalonia: Usefulness of Dried Blood Spots,2
+R07624,Q7,2010,Using Gaussian model to improve biological sequence comparison,2
+R07625,Q7,2010,The graphical representation of protein sequences based on the physicochemical properties and its applications,2
+R07626,Q7,2011,Deriving the phylogenetic information from some physicochemical properties of protein sequences computed,2
+R07627,Q7,2024,Integrating Fréchet distance and AI reveals the evolutionary trajectory and origin of SARS-CoV-2,2
+R07628,Q7,2024,Characterizing the antigenic evolution of pandemic influenza A (H1N1) pdm09 from 2009 to 2023,2
+R07629,Q7,2024,Molecular characterization of emerging Echovirus 11 (E11) shed light on the recombinant origin of a variant associated with severe hepatitis in neonates,2
+R07630,Q7,2025,"Epidemiological and Full Genomic Analysis of the Sapoviruses Circulating During Post Rotavirus Vaccination Period (2021–2023) in West Bengal, India",2
+R07631,Q7,2005,The median problem for the reversal distance in circular bacterial genomes,2
+R07632,Q7,2005,A new combinatorial approach to sequence comparison,2
+R07633,Q7,2006,Using permutation patterns for content-based phylogeny,2
+R07634,Q7,2006,A PQ framework for reconstructions of common ancestors and phylogeny,2
+R07635,Q7,2006,"The reversal median problem, common intervals, and mitochondrial gene orders",2
+R07636,Q7,2018,A cubic algorithm for the generalized rank median of three genomes,2
+R07637,Q7,2019,A quantitative and qualitative characterization of K-mer based alignment-free phylogeny construction,2
+R07638,Q7,2019,GRaphical Footprint Based Alignment-Free Method (GRAFree) for Classifying the Species in Large-Scale Genomics,2
+R07639,Q7,2019,A fast algorithm for constructing phylogenetic trees with application to IoT malware clustering,2
+R07640,Q7,2021,COVID-19 Genome Analysis Using Alignment-Free Methods,2
+R07641,Q7,2024,On the Distribution of Synteny Blocks Under a Neutral Model of Genome Dynamics,2
+R07642,Q7,2025,Alignment-Free Estimation of Read to Genome Distances and Its Applications,2
+R07643,Q7,2026,DCJ and Indel Distance Considering Intergenic Region Information,2
+R07644,Q7,2026,Gene Repertoire Evolution Minimizing Episodes of Gains and Losses,2
+R07645,Q7,2026,Quantifying the Rearrangement Complexity of Pangenomes,2
+R07646,Q7,2026,Breakpoint Medians and Anti-medians for Signed Genomes,2
+R07647,Q7,2026,Early Detection of Emerging SARS-CoV-2 Variants via Contrastive Siamese BiLSTM Embeddings and Temporal Outlier Persistence,2
+R07648,Q7,2014,On the DCJ median problem,2
+R07649,Q7,2015,Efficient alignment free sequence comparison with bounded mismatches,2
+R07650,Q7,2015,Implicit transpositions in shortest DCJ scenarios,2
+R07651,Q7,2016,Multi-genome scaffold co-assembly based on the analysis of gene orders and genomic repeats,2
+R07652,Q7,2007,Reconstructing the phylogeny of mobile elements,2
+R07653,Q7,2007,Improving tree search in phylogenetic reconstruction from genome rearrangement data,2
+R07654,Q7,2007,Parts of the problem of polyploids in rearrangement phylogeny,2
+R07655,Q7,2007,Improving inversion median computation using commuting reversals and cycle information,2
+R07656,Q7,2007,Baculovirus phylogeny based on genome rearrangements,2
+R07657,Q7,2008,On the approximability of comparing genomes with duplicates,2
+R07658,Q7,2008,"A fast, alignment-free, conservation-based method for transcription factor binding site discovery",2
+R07659,Q7,2008,A phylogenetic approach to genetic map refinement,2
+R07660,Q7,2008,An alignment-free distance measure for closely related genomes,2
+R07661,Q7,2009,"SCJ: A Variant of Breakpoint Distance for Which Sorting, Genome Median and Genome Halving Problems Are Easy",2
+R07662,Q7,2009,"A statistically fair comparison of ancestral genome reconstructions, based on breakpoint and rearrangement distances",2
+R07663,Q7,2009,DCJ median problems on linear multichromosomal genomes: Graph representation and fast exact solutions,2
+R07664,Q7,2009,Effect of image linearization on normalized compression distance,2
+R07665,Q7,2010,Alignment-free phylogenetic reconstruction,2
+R07666,Q7,2010,"Reconstruction of ancestral genome subject to whole genome duplication, speciation, rearrangement and loss",2
+R07667,Q7,2010,On exploring genome rearrangement phylogenetic patterns,2
+R07668,Q7,2010,Advances on genome duplication distances,2
+R07669,Q7,2011,A practical algorithm for ancestral rearrangement reconstruction,2
+R07670,Q7,2012,An experimental analysis of phylogenetic trees based on topological score,2
+R07671,Q7,2012,Alignment-free sequence comparison based on next generation sequencing reads: Extended abstract,2
+R07672,Q7,2013,A study of compression-based methods for the analysis of barcode sequences,2
+R07673,Q7,2013,An efficient algorithm for one-sided block ordering problem with block-interchange distance,2
+R07674,Q7,2013,On the matrix median problem,2
+R07675,Q7,2014,"A parallel, distributed-memory framework for comparative motif discovery",2
+R07676,Q7,2014,Bacterial genomics and computational group theory: The BioGAP package for GAP,2
+R07677,Q7,2014,Estimating evolutionary distances from spaced-word matches,2
+R07678,Q7,2019,Phylogenetics Algorithms and Applications,2
+R07679,Q7,2025,CS-Phylo: Accelerating Evolutionary Distance Estimation with Closed Syncmer-Enhanced MinHash,2
+R07680,Q7,2026,A Randomized FPT Approximation Algorithm for Sorting Unsigned Genomes by Translocations: Breaking the 1.375 Approximation Barrier,2
+R07681,Q7,2026,A Novel Numerical Representation-Based Approach for Protein Sequence Comparison Using Inter-Coefficient Difference and FFT,2
+R07682,Q7,2026,Improving Scalable Clustering for IoT Malware via Code Region Extraction,2
+R07683,Q7,2025,An Efficient Implementation of Cosine Distance on Minimal Absent Word Sets Using Suffix Automata,2
+R07684,Q7,2026,Comparative Analysis of Feature Representation in DNA Sequence Similarity Using Alignment-Free Approaches,2
+R07685,Q7,2023,A New Method for Protein Sequence Comparison Using Chaos Game Representation,2
+R07686,Q7,2024,Phylogeny Reconstruction Using k-mer Derived Transition Features,2
+R07687,Q7,2021,Genome sequencing and comparative genome analysis of 6 hypervirulent Klebsiella pneumoniae strains isolated in China,2
+R07688,Q7,2023,Whole genome characterization and evolutionary analysis of bovine ephemeral fever virus isolated in Iran,2
+R07689,Q7,2008,A new combinatorial approach to sequence comparison,2
+R07690,Q7,2006,The relationship between the rate of molecular evolution and the rate of genome rearrangement in animal mitochondrial genomes,2
+R07691,Q7,2013,Biological intuition in alignment-free methods: Response to Posada,2
+R07692,Q7,2023,Biochemical Property Based Positional Matrix: A New Approach Towards Genome Sequence Comparison,2
+R07693,Q7,2020,Fractal genomics of SOD1 evolution,2
+R07694,Q7,2016,Conservation of the Essential Genome Among Caulobacter and Brevundimonas Species,2
+R07695,Q7,2015,Algebraic double cut and join: A group-theoretic approach to the operator on multichromosomal genomes,2
+R07696,Q7,2018,"Expansion of gene clusters, circular orders, and the shortest Hamiltonian path problem",2
+R07697,Q7,2020,A mean first passage time genome rearrangement distance,2
+R07698,Q7,2023,TruEst: a better estimator of evolutionary distance under the INFER model,2
+R07699,Q7,2023,An algebraic model for inversion and deletion in bacterial genome rearrangement,2
+R07700,Q7,2014,Mitochondrial genome of the basidiomycetous yeast Jaminaea angkorensis,2
+R07701,Q7,2006,Analysis of papaya BAC end sequences reveals first insights into the organization of a fruit tree genome,2
+R07702,Q7,2019,Comparative analysis of the mitochondrial genomes of Orthonectida: insights into the evolution of an invertebrate parasite species,2
+R07703,Q7,2026,A novel dynamic part-wise direct and complementary template matching approach for DNA sequence similarity identification,2
+R07704,Q7,2024,Utilizing chaos game representation for enhanced classification of SARS-CoV-2 variants with stacked sparse autoencoders,2
+R07705,Q7,2012,Using Markov model to improve word normalization algorithm for biological sequence comparison,2
+R07706,Q7,2024,Transcriptome analysis of the allotetraploids of the Dilatata group of Paspalum (Poaceae): effects of diploidization on the expression of defensin and Snakin/GASA genes,2
+R07707,Q7,2023,Using alignment-free and pattern mining methods for SARS-CoV-2 genome analysis,2
+R07708,Q7,2020,"Characterization of the complete mitochondrial genome of Amblyomma ovale, comparative analyses and phylogenetic considerations",2
+R07709,Q7,2008,Chromosomal phylogeny and evolution of the African mole-rats (Bathyergidae),2
+R07710,Q7,2014,Cytogenetic evidences of genome rearrangement and differential epigenetic chromatin modification in the sea lamprey (Petromyzon marinus),2
+R07711,Q7,2017,A Comparative Study of Pygmy Hippopotamus (Choeropsis liberiensis) Karyotype by Cross-Species Chromosome Painting,2
+R07712,Q7,2011,Phylogenetic analysis of protein sequences based on distribution of length about common substring,2
+R07713,Q7,2021,In Silico Study of Mutational Stability of SARS-CoV-2 Proteins,2
+R07714,Q7,2024,Use of 2D FFT and DTW in Protein Sequence Comparison,2
+R07715,Q7,2021,HPV16-E7 Protein T Cell Epitope Prediction and Global Therapeutic Peptide Vaccine Design Based on Human Leukocyte Antigen Frequency: An In-Silico Study,2
+R07716,Q7,2022,Mitogenome sequence comparison in the endangered congeneric Pinna nobilis and Pinna rudis bivalves,2
+R07717,Q7,2022,Gene rearrangement in the mitogenome of whiteflies (Hemiptera: Aleyrodinae) along with their phylogeny and characterization of complete mitogenome of Aleurodicus rugioperculatus,2
+R07718,Q7,2025,"The threshold q-gram distance: a simple, efficient, and effective distance measure for genomic sequence comparison",2
+R07719,Q7,2018,Kolmogorov complexity as a data similarity metric: application in mitochondrial DNA,2
+R07720,Q7,2017,Two novel poxviruses with unusual genome rearrangements: NY_014 and Murmansk,2
+R07721,Q7,2018,The degree of HIV-1 amino acid variability is strictly related to different disease progression rates,2
+R07722,Q7,2010,Some algorithmic challenges in genome-wide ortholog assignment,2
+R07723,Q7,2010,Whole-genome based Archaea phylogeny and taxonomy: A composition vector approach,2
+R07724,Q7,2015,The influence of alignment-free sequence representations on the semi-supervised classification of class C G protein-coupled receptors: Semi-supervised classification of class C GPCRs,2
+R07725,Q7,2016,Median Approximations for Genomes Modeled as Matrices,2
+R07726,Q7,2019,Maximum Likelihood Estimates of Rearrangement Distance: Implementing a Representation-Theoretic Approach,2
+R07727,Q7,2018,Position and Content Paradigms in Genome Rearrangements: The Wild and Crazy World of Permutations in Genomics,2
+R07728,Q7,2023,Rearrangement Events on Circular Genomes,2
+R07729,Q7,2013,Image distortion analysis based on normalized perceptual information distance,2
+R07730,Q7,2025,Exploring In-Silico Immunoepitope Landscape and Genetic Diversity in p72 and CD2v Proteins Across Asian African Swine Fever Virus Isolates,2
+R07731,Q7,2013,Study on variability assessment and evolutionary relationships of glutamate racemase in Pseudomonas species,2
+R07732,Q7,2017,PCV: An Alignment Free Method for Finding Homologous Nucleotide Sequences and its Application in Phylogenetic Study,2
+R07733,Q7,2020,ProtPCV: A Fixed Dimensional Numerical Representation of Protein Sequence to Significantly Reduce Sequence Search Time,2
+R07734,Q7,2022,Diversity in the composition of the accessory genome of Mexican Pseudomonas aeruginosa strains,2
+R07735,Q7,2017,Phylogenetic Trees Construction with Compressed DNA Sequences Using GENBIT COMPRESS Tool,2
+R07736,Q7,2023,A fast and efficient algorithm for DNA sequence similarity identification,2
+R07737,Q7,2025,Efficient DNA sequence analysis through enhanced k-mer counting and local attention-based distance,2
+R07738,Q7,2020,Insights on Zika virus envelope gene conservation in American outbreaks,2
+R07739,Q7,2025,Random Variable Based Alignment-Free Approach for Protein Sequence Comparison,2
+R07740,Q7,2022,"Early developmental, meiosis-specific proteins — Spo11, Msh4-1, and Msh5 — Affect subsequent genome reorganization in Paramecium tetraurelia",2
+R07741,Q7,2008,A novel feature-based method for whole genome phylogenetic analysis without alignment: Application to HEV genotyping and subtyping,2
+R07742,Q7,2026,Quantitative deciphering of mammalian histamine receptors through mathematical genomics,2
+R07743,Q7,2008,Exploring an alignment free approach for protein classification and structural class prediction,2
+R07744,Q7,2014,Reconstruction of phylogenetic trees of prokaryotes using maximal common intervals,2
+R07745,Q7,2018,Alignment-based and alignment-free methods converge with experimental data on amino acids coded by stop codons at split between nuclear and mitochondrial genetic codes,2
+R07746,Q7,2019,Algorithmic clustering based on string compression to extract P300 structure in EEG signals,2
+R07747,Q7,2011,On the evolution rate in mammalian mitochondrial genomes,2
+R07748,Q7,2014,On K-peptide length in composition vector phylogeny of prokaryotes,2
+R07749,Q7,2014,Metabolic network motifs can provide novel insights into evolution: The evolutionary origin of Eukaryotic organelles as a case study,2
+R07750,Q7,2019,An alignment-free measure based on physicochemical properties of amino acids for protein sequence comparison,2
+R07751,Q7,2012,Gene comparison based on the repetition of single-nucleotide structure patterns,2
+R07752,Q7,2021,Non-standard bioinformatics characterization of SARS-CoV-2,2
+R07753,Q7,2022,Feature-extraction and analysis based on spatial distribution of amino acids for SARS-CoV-2 Protein sequences,2
+R07754,Q7,2022,Multifarious aspects of the chaos game representation and its applications in biological sequence analysis,2
+R07755,Q7,2005,A relative similarity measure for the similarity analysis of DNA sequences,2
+R07756,Q7,2012,A relative Lempel-Ziv complexity: Application to comparing biological sequences,2
+R07757,Q7,2007,Periodic oscillations of the genomic nucleotide sequences disclose major differences in the way of constructing homologous proteins from different procaryotic species,2
+R07758,Q7,2019,Large-Scale Genome Comparison Based on Cumulative Fourier Power and Phase Spectra: Central Moment and Covariance Vector,2
+R07759,Q7,2020,A novel numerical representation for proteins: Three-dimensional Chaos Game Representation and its Extended Natural Vector,2
+R07760,Q7,2024,NeuralBeds: Neural embeddings for efficient DNA data compression and optimized similarity search,2
+R07761,Q7,2024,The optimal metric for viral genome space,2
+R07762,Q7,2020,On the computational complexity of closest genome problems,2
+R07763,Q7,2019,Evidence for positive selection of hepatitis A virus antigenic variants in vaccinated men-having-sex-with men patients: Implications for immunization policies,2
+R07764,Q7,2021,Towards a unifying framework for diversity and dissimilarity coefficients,2
+R07765,Q7,2018,Closure of genomic sets: applications of graph convexity to genome rearrangement problems,2
+R07766,Q7,2022,Detection of intra-family coronavirus genome sequences through graphical representation and artificial neural network,2
+R07767,Q7,2018,Next generation database search algorithm for forensic mitogenome analyses,2
+R07768,Q7,2025,In silico search reveals the association of lichens with black yeast-like fungi in the order Chaetothyriales,2
+R07769,Q7,2005,The spectrum of genomic signatures: From dinucleotides to chaos game representation,2
+R07770,Q7,2005,Mitochondrial genome of the Chinese mitten crab Eriocheir japonica sinenesis (Brachyura: Thoracotremata: Grapsoidea) reveals a novel gene order and two target regions of gene rearrangements,2
+R07771,Q7,2011,"Characterization of the complete chloroplast genome of Hevea brasiliensis reveals genome rearrangement, RNA editing sites and phylogenetic relationships",2
+R07772,Q7,2011,Protein map: An alignment-free sequence comparison method based on various properties of amino acids,2
+R07773,Q7,2012,Genome-based phylogeny of dsDNA viruses by a novel alignment-free method,2
+R07774,Q7,2013,Segmented K-mer and its application on similarity analysis of mitochondrial genome sequences,2
+R07775,Q7,2014,K-mer natural vector and its application to the phylogenetic analysis of genetic sequences,2
+R07776,Q7,2018,A new method to cluster genomes based on cumulative Fourier power spectrum,2
+R07777,Q7,2019,Alignment-free approaches for predicting novel Nuclear Mitochondrial Segments (NUMTs) in the human genome,2
+R07778,Q7,2020,Genome sequence comparison under a new form of tri-nucleotide representation based on bio-chemical properties of nucleotides,2
+R07779,Q7,2020,Accretion history of large ribosomal subunits deduced from theoretical minimal RNA rings is congruent with histories derived from phylogenetic and structural methods,2
+R07780,Q7,2021,Mapping sequence to feature vector using numerical representation of codons targeted to amino acids for alignment-free sequence analysis,2
+R07781,Q7,2023,"Complete mitochondrial genome of Phoneutria depilata (Araneae, Ctenidae): New insights into the phylogeny and evolution of spiders",2
+R07782,Q7,2024,Variability and evolution of gene order rearrangement in mitochondrial genomes of arthropods (except Hexapoda),2
+R07783,Q7,2024,Geometric analysis of SARS-CoV-2 variants,2
+R07784,Q7,2024,An entropy-based study on the mutational landscape of SARS-CoV-2 in USA: Comparing different variants and revealing co-mutational behavior of proteins,2
+R07785,Q7,2023,Investigation of codon alternation patterns in two neurodegenerative diseases through numerical representation and codon classification,2
+R07786,Q7,2015,CVTree3 Web Server for Whole-genome-based and Alignment-free Prokaryotic Phylogeny and Taxonomy,2
+R07787,Q7,2016,Similarity Estimation Between DNA Sequences Based on Local Pattern Histograms of Binary Images,2
+R07788,Q7,2021,CVTree: A Parallel Alignment-free Phylogeny and Taxonomy Tool Based on Composition Vectors of Genomes,2
+R07789,Q7,2024,An alignment-free method for detection of missing regions for phylogenetic analysis,2
+R07790,Q7,2018,"The mitochondrial genomes of the barklice, Lepinotus reticulatus and Dorypteryx domestica (Psocodea: Trogiomorpha): Insight into phylogeny of the order Psocodea",2
+R07791,Q7,2020,Novel gene rearrangement in the mitochondrial genome of Pachyneuron aphidis (Hymenoptera: Pteromalidae),2
+R07792,Q7,2020,Evolution of tRNA gene rearrangement in the mitochondrial genome of ichneumonoid wasps (Hymenoptera: Ichneumonoidea),2
+R07793,Q7,2022,Gene rearrangements in the mitochondrial genome of ten ascaris species and phylogenetic implications for Ascaridoidea and Heterakoidea families,2
+R07794,Q7,2026,From pathology to phylogeny: Highly rearranged mitochondrial genome of the emerging testudine intranuclear coccidium,2
+R07795,Q7,2014,A novel alignment-free method for whole genome analysis: Application to HIV-1 subtyping and HEV genotyping,2
+R07796,Q7,2018,Efficient computation of shortest absent words in complete genomes,2
+R07797,Q7,2020,PEER: A direct method for biosequence pattern mining through waits of optimal k-mers,2
+R07798,Q7,2025,Genetic variability of respiratory syncytial virus and its impact on monoclonal antibody binding sites: a national cross-sectional study during the 2023–2024 season,2
+R07799,Q7,2021,New Intraclass Helitrons Classification Using DNA-Image Sequences and Machine Learning Approaches,2
+R07800,Q7,2010,Composition vector approach to whole-genome-based prokaryotic phylogeny: Success and foundations,2
+R07801,Q7,2010,Efficient tools for comparative substring analysis,2
+R07802,Q7,2011,Nonapproximability of the normalized information distance,2
+R07803,Q7,2016,Duplication of the V3 domain in hepatitis C virus (1b) NS5A protein: Clonal analysis and physicochemical properties related to hepatocellular carcinoma occurrence,2
+R07804,Q7,2016,Contribution of next generation sequencing to early detection of cytomegalovirus UL97 emerging mutants and viral subpopulations analysis in kidney transplant recipients,2
+R07805,Q7,2007,A linear time algorithm for the inversion median problem in circular bacterial genomes,2
+R07806,Q7,2019,"Circulation of single serotype of Dengue Virus (DENV-3) in New Delhi, India during 2016: A change in the epidemiological trend",2
+R07807,Q7,2024,RiboVision2: A Web Server for Advanced Visualization of Ribosomal RNAs,2
+R07808,Q7,2020,DNA sequence similarity analysis using image texture analysis based on first-order statistics,2
+R07809,Q7,2020,A novel alignment-free DNA sequence similarity analysis approach based on top-k n-gram match-up,2
+R07810,Q7,2021,Applying frequency chaos game representation with perceptual image hashing to gene sequence phylogenetic analyses,2
+R07811,Q7,2025,Efficient TF-IDF method for alignment-free DNA sequence similarity analysis,2
+R07812,Q7,2010,A simple feature representation vector for phylogenetic analysis of DNA sequences,2
+R07813,Q7,2011,Genome analysis with the conditional multinomial distribution profile,2
+R07814,Q7,2011,Genome analysis with distance to the nearest dissimilar nucleotide,2
+R07815,Q7,2011,Numerical characteristics of word frequencies and their application to dissimilarity measure for sequence comparison,2
+R07816,Q7,2011,Alignment-free comparison of genome sequences by a new numerical characterization,2
+R07817,Q7,2012,Alignment free comparison: Similarity distribution between the DNA primary sequences based on the shortest absent word,2
+R07818,Q7,2013,A simple k-word interval method for phylogenetic analysis of DNA sequences,2
+R07819,Q7,2013,Alignment free comparison: K word voting model and its applications,2
+R07820,Q7,2013,Study of LZ-word distribution and its application for sequence comparison,2
+R07821,Q7,2013,Linear regression model of short k-word: A similarity distance suitable for biological sequences with various lengths,2
+R07822,Q7,2014,Extraction of high quality k-words for alignment-free sequence comparison,2
+R07823,Q7,2014,A measure of DNA sequence similarity by Fourier Transform with applications on hierarchical clustering,2
+R07824,Q7,2014,k-mer Sparse matrix model for genetic sequence and its applications in sequence comparison,2
+R07825,Q7,2015,A new method to cluster DNA sequences using Fourier power spectrum,2
+R07826,Q7,2015,An improved model for whole genome phylogenetic analysis by Fourier transform,2
+R07827,Q7,2016,Clustering DNA sequences using the out-of-place measure with reduced n-grams,2
+R07828,Q7,2016,Protein sequence analysis by incorporating modified chaos game and physicochemical properties into Chou's general pseudo amino acid composition,2
+R07829,Q7,2016,Comparison of genomic data via statistical distribution,2
+R07830,Q7,2017,Maximum likelihood estimates of pairwise rearrangement distances,2
+R07831,Q7,2017,A novel alignment-free vector method to cluster protein sequences,2
+R07832,Q7,2019,Magnus representation of genome sequences,2
+R07833,Q7,2025,Use of 3D chaos game representation to quantify DNA sequence similarity with applications for hierarchical clustering,2
+R07834,Q7,2014,WNV Typer: A server for genotyping of West Nile viruses using an alignment-free method based on a return time distribution,2
+R07835,Q7,2015,A comparison of 454 sequencing and clonal sequencing for the characterization of hepatitis C virus NS3 variants,2
+R07836,Q7,2014,"The mitochondrial genome of the red alga Kappaphycus striatus (""Green Sacol"" variety): Complete nucleotide sequence, genome structure and organization, and comparative analysis",2
+R07837,Q7,2015,Mitochondrial gene order variation in the brachiopod Lingula anatina and its implications for mitochondrial evolution in lophotrochozoans,2
+R07838,Q7,2008,"WSE, a new sequence distance measure based on word frequencies",2
+R07839,Q7,2013,Weighted relative entropy for phylogenetic tree based on 2-step Markov Model,2
+R07840,Q7,2014,Human papillomavirus type 16 long control region and E6 variants stratified by cervical disease stage,2
+R07841,Q7,2016,A genome-wide SNP-based phylogenetic analysis distinguishes different biovars of Brucella suis,2
+R07842,Q7,2017,Identification of genetic variants of Brucella spp. through genome-wide association studies,2
+R07843,Q7,2020,A novel alignment-free method for HIV-1 subtype classification,2
+R07844,Q7,2021,Pre-existing T cell-mediated cross-reactivity to SARS-CoV-2 cannot solely be explained by prior exposure to endemic human coronaviruses,2
+R07845,Q7,2021,Alignment-free sequence comparison for virus genomes based on location correlation coefficient,2
+R07846,Q7,2012,Species-specificity of DNA trimer densities in chromosomes and their use in the classification of closely related organisms,2
+R07847,Q7,2021,Multifractal and cross-correlation analysis on mitochondrial genome sequences using chaos game representation,2
+R07848,Q7,2009,"Homology, paralogy and function of DGF-1, a highly dispersed Trypanosoma cruzi specific gene family and its implications for information entropy of its encoded proteins",2
+R07849,Q7,2015,An optimization approach and its application to compare DNA sequences,2
+R07850,Q7,2014,Phylogenetic analysis of DNA sequences based on k-word and rough set theory,2
+R07851,Q7,2014,A genome signature derived from the interplay of word frequencies and symbol correlations,2
+R07852,Q7,2021,Development of genomic resources for the genus Celtis (Cannabaceae) based on genome skimming data,2
+R07853,Q7,2013,Streaming breakpoint graph analytics for accelerating and parallelizing the computation of DCJ median of three genomes,2
+R07854,Q7,2012,Characterization and Taxonomic Validity of the Ciliate Oxytricha trifallax (Class Spirotrichea) Based on Multiple Gene Sequences: Limitations in Identifying Genera Solely by Morphology,2
+R07855,Q7,2026,Impact of electron-beam dose on microbial diversity and succession dynamics of refrigerated poultry meat during extended storage,2
+R07856,Q7,2013,Phylogenetic analyses of phylum Actinobacteria based on whole genome sequences,2
+R07857,Q7,2021,Sampling cores and sequencing depths affected the measurement of microbial diversity in soil quadrats,2
+R07858,Q7,2024,Genomic epidemiology of Staphylococcus aureus from the Iberian Peninsula highlights the expansion of livestock associated-CC398 towards wildlife,2
+R07859,Q7,2019,The statistical power of k-mer based aggregative statistics for alignment-free detection of horizontal gene transfer,2
+R07860,Q7,2007,Reversal and transposition medians,2
+R07861,Q7,2011,The transposition median problem is NP-complete,2
+R07862,Q7,2016,Sequence similarity measures based on bounded hamming distance,2
+R07863,Q7,2017,Asymptotic medians of random permutations sampled from reversal random walks,2
+R07864,Q7,2017,A new distributed alignment-free approach to compare whole proteomes,2
+R07865,Q7,2025,Pairwise rearrangement is fixed-parameter tractable in the Single Cut-and-Join model,2
+R07866,Q7,2006,Towards a unifying approach to diversity measures: Bridging the gap between the Shannon entropy and Rao's quadratic index,2
+R07867,Q7,2026,Between- and within-host mutation of dengue virus,2
+R07868,Q7,2017,Novel non-canonical genetic rearrangements termed “complex structural variations” in HBV genome,2
+R07869,Q7,2020,The genetic variability of hepatitis B virus subgenotype F1b precore/core gene is related to the outcome of the acute infection,2
+R07870,Q7,2021,Pathogenic perspective of missense mutations of ORF3a protein of SARS-CoV-2,2
+R07871,Q7,2021,Genetic lineage characterization and spatiotemporal dynamics of classical insect-specific flaviviruses: outcomes and limitations,2
+R07872,Q7,2022,"Readdressing the genetic diversity and taxonomy of the Mesoniviridae family, as well as its relationships with other nidoviruses and putative mesonivirus-like viral sequences",2
+R07873,Q7,2022,Insect-specific viruses in the Parvoviridae family: Genetic lineage characterization and spatiotemporal dynamics of the recently established Brevihamaparvovirus genus,2
+R07874,Q7,2024,Exploring geometry of genome space via Grassmann manifolds,2
+R07875,Q7,2021,"Chromosome-scale assembly reveals asymmetric paleo-subgenome evolution and targets for the acceleration of fungal resistance breeding in the nut crop, pecan",2
+R07876,Q7,2012,C16S - A Hidden Markov Model based algorithm for taxonomic classification of 16S rRNA gene sequences,2
+R07877,Q7,2016,20D-dynamic representation of protein sequences,2
+R07878,Q7,2018,Applying MSSIM combined chaos game representation to genome sequences analysis,2
+R07879,Q7,2019,Ranking and clustering of Drosophila olfactory receptors using mathematical morphology,2
+R07880,Q7,2019,Phylogenetic analysis of protein sequences based on a novel k-mer natural vector method,2
+R07881,Q7,2019,Genome classification improvements based on k-mer intervals in sequences,2
+R07882,Q7,2020,A new graph-theoretic approach to determine the similarity of genome sequences based on nucleotide triplets,2
+R07883,Q7,2021,The robustness of the chaos game representation to mutations and its application in free-alignment methods,2
+R07884,Q7,2025,Landscape of novel smORFs predicted from crop genomes with evolutionary and functional analysis,2
+R07885,Q7,2005,A Bayesian approach to the estimation of ancestral genome arrangements,2
+R07886,Q7,2009,Information-theoretic indices and an approximate significance test for testing the molecular clock hypothesis with genetic distances,2
+R07887,Q7,2012,Multifractal analysis of HIV-1 genomes,2
+R07888,Q7,2012,Phylogenetic analysis of genome rearrangements among five mammalian orders,2
+R07889,Q7,2013,Bioinformatics methods for the comparative analysis of metazoan mitochondrial genome sequences,2
+R07890,Q7,2014,Global comparison of multiple-segmented viruses in 12-dimensional genome space,2
+R07891,Q7,2016,Whole genome/proteome based phylogeny reconstruction for prokaryotes using higher order Markov model and chaos game representation,2
+R07892,Q7,2016,A new method for studying the evolutionary origin of the SAR11 clade marine bacteria,2
+R07893,Q7,2016,Virus classification in 60-dimensional protein space,2
+R07894,Q7,2018,Mitochondrial phylogenomics and genome rearrangements in the barklice (Insecta: Psocodea),2
+R07895,Q7,2019,Fast and accurate genome comparison using genome images: The Extended Natural Vector Method,2
+R07896,Q7,2022,Exploring the dynamic variations of viral genomes via a novel genetic network,2
+R07897,Q7,2010,Jackknife and Bootstrap Tests of the Composition Vector Trees,2
+R07898,Q7,2019,Algebraic models of large scale genome rearrangement events,2
+R07899,Q7,2023,The first complete mitochondrial genome of the genus Echinolaelaps reveals mitochondrial genome rearrangement type and evolution of Gamasida,2
+R07900,Q7,2016,"An alignment-free ""metapeptide"" strategy for metaproteomic characterization of microbiome samples using shotgun metagenomic sequencing",2
+R07901,Q7,2023,ProtWave-VAE: Integrating Autoregressive Sampling with Latent-Based Inference for Data-Driven Protein Design,2
+R07902,Q7,2008,Comparative study of topological indices of macro/supramolecular RNA complex networks,2
+R07903,Q7,2015,Minimum entropy decomposition: Unsupervised oligotyping for sensitive partitioning of high-throughput marker gene sequences,2
+R07904,Q7,2018,High throughput ANI analysis of 90K prokaryotic genomes reveals clear species boundaries,2
+R07905,Q7,2019,Using somatic variant richness to mine signals from rare variants in the cancer genome,2
+R07906,Q7,2021,Structural variant evolution after telomere crisis,2
+R07907,Q7,2021,Genomic analyses provide insights into spinach domestication and the genetic basis of agronomic traits,2
+R07908,Q7,2024,Evolutionary patterns and functional effects of 3D chromatin structures in butterflies with extensive genome rearrangements,2
+R07909,Q7,2026,CAKR: commutative algebra k-mer representations for genomics,2
+R07910,Q7,2025,RIFINs displayed on malaria-infected erythrocytes bind KIR2DL1 and KIR2DS1,2
+R07911,Q7,2017,A novel fast vector method for genetic sequence comparison,2
+R07912,Q7,2018,GenomeLandscaper: Landscape analysis of genome-fingerprints maps assessing chromosome architecture,2
+R07913,Q7,2018,Comparative analyses of whole-genome protein sequences from multiple organisms,2
+R07914,Q7,2018,"Comparative studies of alignment, alignment-free and SVM based approaches for predicting the hosts of viruses based on viral sequences",2
+R07915,Q7,2019,Introduction of ‘Generalized Genomic Signatures’ for the quantification of neighbour preferences leads to taxonomy- and functionality-based distinction among sequences,2
+R07916,Q7,2019,Alignment-free similarity analysis for protein sequences based on fuzzy integral,2
+R07917,Q7,2019,Host Taxon Predictor - A Tool for Predicting Taxon of the Host of a Newly Discovered Virus,2
+R07918,Q7,2019,Alignment-free method for DNA sequence clustering using Fuzzy integral similarity,2
+R07919,Q7,2020,SWeeP: representing large biological sequences datasets in compact vectors,2
+R07920,Q7,2020,Rearrangement and evolution of mitochondrial genomes in Thysanoptera (Insecta),2
+R07921,Q7,2020,Fungal secretome profile categorization of CAZymes by function and family corresponds to fungal phylogeny and taxonomy: Example Aspergillus and Penicillium,2
+R07922,Q7,2021,Determination of k-mer density in a DNA sequence and subsequent cluster formation algorithm based on the application of electronic filter,2
+R07923,Q7,2022,Phylogenies from unaligned proteomes using sequence environments of amino acid residues,2
+R07924,Q7,2022,Phylogenetic analysis based on single-copy orthologous proteins in highly variable chloroplast genomes of Corydalis,2
+R07925,Q7,2023,"Mito-nuclear discordance within Anthozoa, with notes on unique properties of their mitochondrial genomes",2
+R07926,Q7,2023,A tool to automatically design multiplex PCR primer pairs for specific targets using diverse templates,2
+R07927,Q7,2025,Relative performance of three phylogenetic methods based on complete mitochondrial genomes of barnacle,2
+R07928,Q7,2025,Exploiting fuzzy weights in CNN model-based taxonomic classification of 500-bp sequence bacterial dataset,2
+R07929,Q7,2025,Identification of mathematical patterns in genomic spectrograms linked to variant classification in complete SARS-CoV-2 sequences,2
+R07930,Q7,2025,De novo assembly of the complete mitochondrial genomes of two Camellia-oil tree species reveals their multibranch conformation and evolutionary relationships,2
+R07931,Q7,2026,Euro-Asian hybrids of Echinococcus multilocularis from red foxes in northern and northeastern Poland result from secondary contact between long-isolated populations,2
+R07932,Q7,2024,Simple and accurate genomic classification model for distinguishing between human and pig Staphylococcus aureus,2
+R07933,Q7,2014,Inferring phylogenies of evolving sequences without multiple sequence alignment,2
+R07934,Q7,2015,Whole Genome Phylogeny of Bacillus by Feature Frequency Profiles (FFP),2
+R07935,Q7,2016,"Alignment-free microbial phylogenomics under scenarios of sequence divergence, genome rearrangement and lateral genetic transfer",2
+R07936,Q7,2016,Exploring lateral genetic transfer among microbial genomes using TF-IDF,2
+R07937,Q7,2016,A novel alignment-free method for detection of lateral genetic transfer based on TF-IDF,2
+R07938,Q7,2017,Viral phylogenomics using an alignment-free method: A three-step approach to determine optimal length of k-mer,2
+R07939,Q7,2006,Bayesian classification for promoter prediction in human DNA sequences,2
+R07940,Q7,2008,Analysis and comparison of information theory-based distances for genomic strings,2
+R07941,Q7,2017,Implementation of Hierarchical Clustering using K-Mer Sparse Matrix to Analyze MERS-CoV Genetic Relationship,2
+R07942,Q7,2005,The evolutionary origin of a complex scrambled gene,2
+R07943,Q7,2006,Microinversions in mammalian evolution,2
+R07944,Q7,2008,The infinite sites model of genome evolution,2
+R07945,Q7,2009,Alignment-free genome comparison with feature frequency profiles (FFP) and optimal resolutions,2
+R07946,Q7,2009,Whole-proteome phylogeny of large dsDNA virus families by an alignment-free method,2
+R07947,Q7,2009,Whole-genome phylogeny of mammals: Evolutionary information in genic and nongenic regions,2
+R07948,Q7,2010,Whole-proteome phylogeny of prokaryotes by feature frequency profiles: An alignment-free method with optimal feature resolution,2
+R07949,Q7,2011,Whole-genome phylogeny of Escherichia coli/Shigella group by feature frequency profiles (FFPs),2
+R07950,Q7,2012,Long identical multispecies elements in plant and animal genomes,2
+R07951,Q7,2017,Reconstruction and evolutionary history of eutherian chromosomes,2
+R07952,Q7,2017,A genome Tree of Life for the Fungi kingdom,2
+R07953,Q7,2020,"Mismatch-tolerant, alignment-free sequence classification using multiple spaced seeds and multiindex Bloom filters",2
+R07954,Q7,2020,Whole-proteome tree of life suggests a deep burst of organism diversity,2
+R07955,Q7,2025,Genomic signatures associated with the evolutionary loss of egg yolk in parasitoid wasps,2
+R07956,Q7,2026,Phylogenomic synteny reveals paleohexaploid-derived genomic blocks across Asteraceae,2
+R07957,Q7,2026,The mitochondrial genome of Melipona fasciculata and Melipona quadrifasciata: molecular evolution dynamics in stingless bees (Hymenoptera: Meliponini) mitogenomes,2
+R07958,Q7,2025,Genetic and structural factors contributing to the dominance and persistence of goose astrovirus type 2,2
+R07959,Q7,2009,Alignment-free comparison of protein sequences based on reduced amino acid alphabets,2
+R07960,Q7,2010,A complexity-based method to compare rna secondary structures and its application,2
+R07961,Q7,2011,Weighted relative entropy for alignment-free sequence comparison based on markov model,2
+R07962,Q7,2024,Positional difference and Frequency (PdF) based alignment-free technique for genome sequence comparison,2
+R07963,Q7,2025,A unique approach for protein secondary structure comparison under TOPS representation,2
+R07964,Q7,2026,The rise of Asian palaeontology: a bibliometric and semantic analysis of global and regional research trends,2
+R07965,Q7,2020,Modified k-string in composition vector method for DNA sequence comparison based on maximum entropy principle,2
+R07966,Q7,2013,An alignment-free method to find similarity among protein sequences via the general form of Chou's pseudo amino acid composition,2
+R07967,Q7,2007,Is multiple-sequence alignment required for accurate inference of phylogeny?,2
+R07968,Q7,2024,"Gene content, phage cycle regulation model and prophage inactivation disclosed by prophage genomics in the Helicobacter pylori Genome Project",2
+R07969,Q7,2022,EightyDVec: a method for protein sequence similarity analysis using physicochemical properties of amino acids,2
+R07970,Q7,2021,"Complete mitochondrial genome of Rhizosolenia setigera (Coscinodiscophyceae, Bacillariophyta)",2
+R07971,Q7,2024,The complete mitochondrial genome of Tauraco livingstonii (Musophagidae: Tauraco),2
+R07972,Q7,2026,"A complete mitochondrial DNA genome of a mangrove clam Geloina expansa (Mousson, 1849)",2
+R07973,Q7,2018,Phylogenomics of tomato chloroplasts using assembly and alignment-free method,2
+R07974,Q7,2023,Mitochondrial genome rearrangements and phylogenomics of the Hymenoptera (Insecta) using an expanded taxon sample,2
+R07975,Q7,2025,New mitochondrial gene order arrangements and evolutionary implications in the class Octocorallia,2
+R07976,Q7,2025,CVTree for 16S rRNA: Constructing taxonomy-compatible all-species living tree effectively and efficiently,2
+R07977,Q7,2010,A parallel non-alignment based approach to efficient sequence comparison using longest common subsequences,2
+R07978,Q7,2017,A representation-theoretic approach to the calculation of evolutionary distance in bacteria,2
+R07979,Q7,2020,Circulating HIV-1 Integrase Genotypes in Tanzania: Implication on the Introduction of Integrase Inhibitors-Based Antiretroviral Therapy Regimen,2
+R07980,Q7,2021,Impact of Human Leukocyte Antigen-Associated Polymorphisms on Variability of HIV-1 Accessory and Regulatory Proteins,2
+R07981,Q7,2005,Genomic classification using an information-based similarity index: Application to the SARS coronavirus,2
+R07982,Q7,2006,On the repeat-annotated phylogenetic tree reconstruction problem,2
+R07983,Q7,2007,"Common intervals and symmetric difference in a model-free phylogenomics, with an application to streptophyte evolution",2
+R07984,Q7,2007,Duplication and inversion history of a tandemly repeated genes family,2
+R07985,Q7,2008,DUPCAR: Reconstructing contiguous ancestral regions with duplications,2
+R07986,Q7,2008,Reconstructing ancestral autosomal arrangements in the anopheles gambiae complex,2
+R07987,Q7,2008,Improving reversal median computation using commuting reversals and cycle information,2
+R07988,Q7,2008,Descendants of whole genome duplication within gene order phylogeny,2
+R07989,Q7,2009,Genetic map refinement using a comparative genomic approach,2
+R07990,Q7,2009,Towards improved reconstruction of ancestral gene order in angiosperm phylogeny,2
+R07991,Q7,2009,Estimating mutation distances from unaligned genomes,2
+R07992,Q7,2010,Rearrangement models and single-cut operations,2
+R07993,Q7,2010,The median problems on linear multichromosomal genomes: Graph representation and fast exact solutions,2
+R07994,Q7,2010,"A statistically fair comparison of ancestral genome reconstructions, based on breakpoint and rearrangement distances",2
+R07995,Q7,2011,Genome aliquoting revisited,2
+R07996,Q7,2011,Mapping association between long-range cis-regulatory regions and their target genes using synteny,2
+R07997,Q7,2011,"A new genomic evolutionary model for rearrangements, duplications, and losses that applies across eukaryotes and prokaryotes",2
+R07998,Q7,2011,Double cut and join with insertions and deletions,2
+R07999,Q7,2011,Genome halving and double distance with losses,2
+R08000,Q7,2012,Phylogeny construction with rigid gapped motifs,2
+R08001,Q7,2012,Detecting phylogenetic signals in eukaryotic whole genome sequences,2
+R08002,Q7,2013,Alignment-free sequence comparison based on next-generation sequencing reads,2
+R08003,Q7,2014,On the complexity of rearrangement problems under the breakpoint distance,2
+R08004,Q7,2016,Descriptive Statistics of the Genome: Phylogenetic Classification of Viruses,2
+R08005,Q7,2014,A novel method for comparative analysis of DNA sequences by ramanujan-fourier transform,2
+R08006,Q7,2014,A coverage criterion for spaced seeds and its applications to support vector machine string kernels and k-mer distances,2
+R08007,Q7,2017,Statistically Consistent k-mer Methods for Phylogenetic Tree Reconstruction,2
+R08008,Q7,2016,ALFRED: A practical method for alignment-free distance computation,2
+R08009,Q7,2016,A provably efficient algorithm for the k-mismatch average common substring problem,2
+R08010,Q7,2017,A Multiresolution Graphical Representation for Similarity Relationship and Multiresolution Clustering for Biological Sequences,2
+R08011,Q7,2017,New Genome Similarity Measures based on Conserved Gene Adjacencies,2
+R08012,Q7,2018,A Novel Real-Time Genome Comparison Method Using Discrete Wavelet Transform,2
+R08013,Q7,2019,Protein Sequence Classification Using Natural Vector and Convex Hull Method,2
+R08014,Q7,2019,Genome rearrangements on multigenomic models: Applications of graph convexity problems,2
+R08015,Q7,2020,A New Method Based on Coding Sequence Density to Cluster Bacteria,2
+R08016,Q7,2022,Kmer2vec: A Novel Method for Comparing DNA Sequences by word2vec Embedding,2
+R08017,Q7,2023,Evaluating Compression-Based Phylogeny Estimation in the Presence of Incomplete Lineage Sorting,2
+R08018,Q7,2015,Ebolavirus classification based on natural vectors,2
+R08019,Q7,2017,Zika and Flaviviruses Phylogeny Based on the Alignment-Free Natural Vector Method,2
+R08020,Q7,2019,"Syntenies Between Cohosted Mitochondrial, Chloroplast, and Phycodnavirus Genomes: Functional Mimicry and/or Common Ancestry?",2
+R08021,Q7,2007,Identification of a novel CXCL1-like chemokine gene in macaques and its inactivation in hominids,2
+R08022,Q7,2023,"Drivers of diversification in Linum (Linaceae) by means of chromosome evolution: correlations with biogeography, breeding system and habit",2
+R08023,Q7,2024,Advancing microbial diagnostics: a universal phylogeny guided computational algorithm to find unique sequences for precise microorganism detection,2
+R08024,Q7,2025,Energy entropy vector: a novel approach for efficient microbial genomic sequence analysis and classification,2
+R08025,Q7,2014,Information theory applications for biological sequence analysis,2
+R08026,Q7,2014,Pattern recognition and probabilistic measures in alignment-free sequence analysis,2
+R08027,Q7,2014,Alignment-free phylogenetics and population genetics,2
+R08028,Q7,2019,Alignment-free inference of hierarchical and reticulate phylogenomic relationships,2
+R08029,Q7,2021,App-SpaM: phylogenetic placement of short reads without sequence alignment,2
+R08030,Q7,2020,A unified ILP framework for core ancestral genome reconstruction problems,2
+R08031,Q7,2021,ADACT: A tool for analysing (dis)similarity among nucleotide and protein sequences using minimal and relative absent words,2
+R08032,Q7,2021,OMAmer: tree-driven and alignment-free protein assignment to subfamilies outperforms closest sequence approaches,2
+R08033,Q7,2021,Alignment free sequence comparison methods and reservoir host prediction,2
+R08034,Q7,2021,"SANS serif: Alignment-free, whole-genome-based phylogenetic reconstruction",2
+R08035,Q7,2022,PaReBrick: PArallel REarrangements and BReaks identification toolkit,2
+R08036,Q7,2022,KCOSS: an ultra-fast k-mer counter for assembled genome analysis,2
+R08037,Q7,2023,Generalizations of the genomic rank distance to indels,2
+R08038,Q7,2023,Testing phylogenetic signal with categorical traits and tree uncertainty,2
+R08039,Q7,2023,EPIK: precise and scalable evolutionary placement with informative k-mers,2
+R08040,Q7,2024,"MIKE: an ultrafast, assembly-, and alignment-free approach for phylogenetic tree construction",2
+R08041,Q7,2007,Using median sets for inferring phylogenetic trees,2
+R08042,Q7,2007,Phylogenetic exploration of bacterial genomic rearrangements,2
+R08043,Q7,2007,"Polyploids, genome halving and phylogeny",2
+R08044,Q7,2008,Estimating true evolutionary distances under the DCJ model,2
+R08045,Q7,2008,Predicting functional transcription factor binding through alignment-free and affinity-based analysis of orthologous promoter sequences,2
+R08046,Q7,2009,Seevolution: Visualizing chromosome evolution,2
+R08047,Q7,2010,Analyzing taxonomic classification using extensible Markov models,2
+R08048,Q7,2010,An alignment-free method to identify candidate orthologous enhancers in multiple Drosophila genomes,2
+R08049,Q7,2012,TIBA: A tool for phylogeny inference from rearrangement data with bootstrap analysis,2
+R08050,Q7,2013,An alignment-free test for recombination,2
+R08051,Q7,2014,Fast alignment-free sequence comparison using spaced-word frequencies,2
+R08052,Q7,2014,Ragout - A reference-assisted assembly tool for bacterial genomes,2
+R08053,Q7,2014,Kmacs: The k-mismatch average common substring approach to alignment-free sequence comparison,2
+R08054,Q7,2017,Fast and accurate phylogeny reconstruction using filtered spaced-word matches,2
+R08055,Q7,2017,DLTree: Efficient and accurate phylogeny reconstruction using the dynamical language method,2
+R08056,Q7,2017,kmerPyramid: an interactive visualization tool for nucleobase and k-mer frequencies,2
+R08057,Q7,2018,K2 and K2 ∗: efficient alignment-free sequence similarity measurement based on Kendall statistics,2
+R08058,Q7,2019,Measuring phylogenetic signal between categorical traits and phylogenies,2
+R08059,Q7,2019,Rapid alignment-free phylogenetic identification of metagenomic sequences,2
+R08060,Q7,2016,A novel skew analysis reveals substitution asymmetries linked to genetic code GC-biases and PolIII a-subunit isoforms,2
+R08061,Q7,2021,A novel predictor of ACE2-binding ability among betacoronaviruses,2
+R08062,Q7,2025,Starship giant transposable elements cluster by host taxonomy using k-mer-based phylogenetics,2
+R08063,Q7,2020,Phylogenomics of the epigenetic toolkit reveals punctate retention of genes across eukaryotes,2
+R08064,Q7,2021,The Location of Substitutions and Bacterial Genome Arrangements,2
+R08065,Q7,2021,Not Frozen in the Ice: Large and Dynamic Rearrangements in the Mitochondrial Genomes of the Antarctic Fish,2
+R08066,Q7,2013,CRISPR regulation of intraspecies diversification by limiting is transposition and intercellular recombination,2
+R08067,Q7,2014,Evolutionary dynamics of the mitochondrial genome in the evaniomorpha (Hymenoptera)-A group with an intermediate rate of gene rearrangement,2
+R08068,Q7,2014,Evidence for deep regulatory similarities in early developmental programs across highly diverged insects,2
+R08069,Q7,2025,Healthy microbiome - Moving towards functional interpretation,2
+R08070,Q7,2026,CamK-DB: A k-mer MinHash fingerprint database for reference-free genotyping of Camellia accessions,2
+R08071,Q7,2018,Prot-SpaM: fast alignment-free phylogeny reconstruction based on whole-proteome sequences,2
+R08072,Q7,2023,"Increase of Diversity of Mumps Virus Genotype G SH Variants Circulating among a Highly Immunized Population: Spain, 2007–2019",2
+R08073,Q7,2025,"Genomic Epidemiology and Evolution of Rhinovirus in Western Washington State, 2021–2022",2
+R08074,Q7,2025,"Subtypes A1 and D, and recombinant HIV-1 natural polymorphisms associated with lenacapavir drug resistance in Uganda",2
+R08075,Q7,2018,Dolutegravir reshapes the genetic diversity of HIV-1 reservoirs,2
+R08076,Q7,2023,"Antibiotic resistance, bacterial transmission and improved prediction of bacterial infection in patients with antibody deficiency",2
+R08077,Q7,2024,The Number and Pattern of Viral Genomic Reassortments are not Necessarily Identifiable from Segment Trees,2
+R08078,Q7,2025,What Do We Gain When Tolerating Loss? The Information Bottleneck Wrings Out Recombination,2
+R08079,Q7,2025,Chromosome-Level Genome Assembly of Eden's Whale Clarifies the Taxonomy and Speciation of Bryde's Whale Complex,2
+R08080,Q7,2026,WASTER: Practical de novo Phylogenomics from Low-coverage Short Reads,2
+R08081,Q7,2026,kamino: fast proteome-wide variant calling for amino acid phylogenomics,2
+R08082,Q7,2005,A Bayesian analysis of metazoan mitochondrial genome arrangements,2
+R08083,Q7,2006,Inference and analysis of the relative stability of bacterial chromosomes,2
+R08084,Q7,2006,The chloroplast genome sequence of Chara vulgaris sheds new light into the closest green algal relatives of land plants,2
+R08085,Q7,2012,Conserved gene order at the nuclear periphery in drosophila,2
+R08086,Q7,2013,AGP: A multimethods web server for alignment-free genome phylogeny,2
+R08087,Q7,2014,"Reconstruction of the ancestral plastid genome in geraniaceae reveals a correlation between genome rearrangements, repeats, and nucleotide substitution rates",2
+R08088,Q7,2019,NUQA: Estimating Cancer Spatial and Temporal Heterogeneity and Evolution through Alignment-Free Methods,2
+R08089,Q7,2020,Seeker: Alignment-free identification of bacteriophage genomes by deep learning,2
+R08090,Q7,2023,Learning from the unknown: exploring the range of bacterial functionality,2
+R08091,Q7,2026,Prophage induction stimulates ribosomal RNA operon recombination and facilitates genome mobility,2
+R08092,Q7,2006,SPRING: A tool for the analysis of genome rearrangement using reversals and block-interchanges,2
+R08093,Q7,2006,Detecting non-orthology in the COGs database and other approaches grouping orthologs using genome-specific best hits,2
+R08094,Q7,2010,Finding regulatory DNA motifs using alignment-free evolutionary conservation information,2
+R08095,Q7,2009,CVTree update: A newly designed phylogenetic study platform using composition vectors and whole genomes,2
+R08096,Q7,2010,"SoRT2: A tool for sorting genomes and reconstructing phylogenetic trees by reversals, generalized transpositions and translocations",2
+R08097,Q7,2013,Co-phylog: An assembly-free phylogenomic approach for closely related organisms,2
+R08098,Q7,2013,Comparative analysis using K-mer and K-flank patterns provides evidence for CpG island sequence evolution in mammalian genomes,2
+R08099,Q7,2014,Spaced words and kmacs: Fast alignment-free sequence comparison based on inexact word matches,2
+R08100,Q7,2014,COMET: Adaptive context-based modeling for ultrafast HIV-1 subtype identification,2
+R08101,Q7,2017,Alignment-free d2∗ oligonucleotide frequency dissimilarity measure improves prediction of hosts from metagenomically-derived viral sequences,2
+R08102,Q7,2017,CAFE: A C celerated A lignment- F r E e sequence analysis,2
+R08103,Q7,2020,OHNOLOGS v2: A comprehensive resource for the genes retained from whole genome duplication in vertebrates,2
+R08104,Q7,2020,Prostate cancer heterogeneity assessment with multi-regional sampling and alignment-free methods,2
+R08105,Q7,2021,Identity: Rapid alignment-free prediction of sequence alignment identity scores using self-supervised general linear models,2
+R08106,Q7,2023,A k-mer-Based Approach for Phylogenetic Classification of Taxa in Environmental Genomic Data,2
+R08107,Q7,2025,Estimating Genome-Wide Phylogenies Using Probabilistic Topic Modeling,2
+R08108,Q7,2026,Benchmarking Assembly-Free K-mer Methods for Species Identification in Complex Plant Groups: A Case Study in Populus,2
+R08109,Q7,2020,Increased resolution of African swine fever virus genome patterns based on profile HMMs of protein domains,2
+R08110,Q7,2020,Prediction and characterization of RXLR effectors in pythium species,2
+R08111,Q7,2016,Effects of long-term tenofovir-based combination antiretroviral therapy in HIV-hepatitis B virus coinfection on persistent hepatitis B virus viremia and the role of hepatitis B virus quasispecies diversity,2
+R08112,Q7,2023,Gene duplication is the primary driver of intraspecific genomic divergence in coral algal symbionts,2
+R08113,Q7,2008,The perils of plenty: What are we going to do with all these genes?,2
+R08114,Q7,2022,Relation between two evolutionary clocks reveal new insights in bacterial evolution,2
+R08115,Q7,2026,Evolutionary and molecular characteristics of high-Shannon entropy codons in VP1 of Coxsackievirus A6,2
+R08116,Q7,2017,Comparative scaffolding and gap filling of ancient bacterial genomes applied to two ancient yersinia pestis genomes,2
+R08117,Q7,2021,Analysis of a small outbreak of Shiga toxin-producing Escherichia coli O157: H7 using long-read sequencing,2
+R08118,Q7,2007,Genotypic and phenotypic characterization of Lactobacillus casei strains isolated from different ecological niches suggests frequent recombination and niche specificity,2
+R08119,Q7,2009,Recovering genome rearrangements in the mammalian phylogeny,2
+R08120,Q7,2009,Deeply conserved chordate noncoding sequences preserve genome synteny but do not drive gene duplicate retention,2
+R08121,Q7,2025,"Fusion, fission, and scrambling of the bilaterian genome in Bryozoa",2
+R08122,Q7,2023,Scalable and Fast Algorithm for Constructing Phylogenetic Trees With Application to IoT Malware Clustering,2
+R08123,Q7,2025,Phylogeny Reconstruction Using Multi-Agent Surface Area Pressure Features,2
+R08124,Q7,2017,Alignment-free genome sequence comparison method based on pair transition difference of k-words,2
+R08125,Q7,2005,Improving genome rearrangement phylogeny using sequence-S parsimony,2
+R08126,Q7,2007,A new alignment-independent algorithm for clustering protein sequences,2
+R08127,Q7,2007,A heuristic for phylogenetic reconstruction using transposition,2
+R08128,Q7,2007,Towards construction of optimal strip-exchanging moves,2
+R08129,Q7,2010,Phylogenetic reconstruction with gene rearrangements and gene losses,2
+R08130,Q7,2011,Emulating insertion and deletion events in genome rearrangement analysis,2
+R08131,Q7,2014,Assessing ancestral genome reconstruction methods by resampling,2
+R08132,Q7,2020,GenFooT: Genomic Footprint of mitochondrial sequence for Taxonomy classification,2
+R08133,Q7,2024,On an Algorithm for Sorting by Strip Swaps Using Cycle Graphs,2
+R08134,Q7,2012,A novel quasi-alignment-based method for discovering conserved regions in genetic sequences,2
+R08135,Q7,2017,Variable neighborhood search for the large phylogeny problem using gene order data,2
+R08136,Q7,2024,DNA Sequence Similarity Using Discrete Wavelet Transform,2
+R08137,Q7,2014,Alignment free sequence similarity with bounded hamming distance,2
+R08138,Q7,2024,Sketching and Streaming for Dictionary Compression,2
+R08139,Q7,2014,Classifying bacterial genomes with compact logic formulas on k-mer frequencies,2
+R08140,Q7,2019,Protein Similarity Analysis by Wavelet Decomposition of Cellular Automata Images,2
+R08141,Q7,2017,Alignment-free sequence comparison using joint frequency and position information of k-words,2
+R08142,Q7,2017,Classification of various genomic sequences based on distribution of repeated k-word,2
+R08143,Q7,2017,A new alignment free genome comparison algorithm based on statistically estimated feature frequency profile,2
+R08144,Q7,2007,Multifractal analysis of chaos game representation images of mitochondrial DNA,2
+R08145,Q7,2019,Alignment-free Phylogenetic Tree Estimation,2
+R08146,Q7,2017,Investigating evolutionary relationships between species through the light of graph theory based on the multiplet structure of the genetic code,2
+R08147,Q7,2013,A framework for alignment-free methods to perform similarity analysis of biological sequence,2
+R08148,Q7,2010,Phylogenomics inference from integrated information,2
+R08149,Q7,2012,Ancient angiosperm hexaploidy meets ancestral eudicot gene order,2
+R08150,Q7,2015,Estimation of the true evolutionary distance under the fragile breakage model,2
+R08151,Q7,2022,A novel part-wise template matching technique for DNA sequence similarity identification,2
+R08152,Q7,2023,Protein classification based on graphical encoding and convolutional neural network,2
+R08153,Q7,2021,Alignment Free Sequence Similarity Estimation using Local Binary Pattern on DNA Trajectory Images,2
+R08154,Q7,2011,Similarity calculation with length delimiting dictionary distance,2
+R08155,Q7,2019,Alignment-free Whole Genome Comparison Using k-mer Forests,2
+R08156,Q7,2023,DNA Matching Using k - Mer Derived Spatial Features,2
+R08157,Q7,2006,Genome rearrangement based on reversals that preserve conserved intervals,2
+R08158,Q7,2009,"Generalized gene adjacencies, graph bandwidth, and clusters in yeast evolution",2
+R08159,Q7,2010,Rearrangement phylogeny of genomes in contig form,2
+R08160,Q7,2011,SCJ: A breakpoint-like distance that simplifies several rearrangement problems,2
+R08161,Q7,2012,Composition vector method based on maximum entropy principle for sequence comparison,2
+R08162,Q7,2013,Rearrangement-based phylogeny using the single-cut-or-join operation,2
+R08163,Q7,2013,Normalized feature vectors: A novel alignment-free sequence comparison method based on the numbers of adjacent amino acids,2
+R08164,Q7,2014,Probabilistic reconstruction of ancestral gene orders with insertions and deletions,2
+R08165,Q7,2015,A Cooperative Co-Evolutionary Genetic Algorithm for Tree Scoring and Ancestral Genome Inference,2
+R08166,Q7,2018,A GRASP-Based Heuristic for the Sorting by Length-Weighted Inversions Problem,2
+R08167,Q7,2017,Sorting circular permutations by super short reversals,2
+R08168,Q7,2019,The SCJ Small Parsimony Problem for Weighted Gene Adjacencies,2
+R08169,Q7,2019,An Exact Algorithm for Sorting by Weighted Preserving Genome Rearrangements,2
+R08170,Q7,2021,Heuristics for Genome Rearrangement Distance with Replicated Genes,2
+R08171,Q7,2023,Reversal and Indel Distance With Intergenic Region Information,2
+R08172,Q7,2023,Computing Phylo-k-Mers,2
+R08173,Q7,2025,Closing the Complexity Gap of the Double Distance Problem,2
+R08174,Q7,2026,A New Alignment-Free Approach to Compare Protein Secondary Structure Families Through SSEs,2
+R08175,Q7,2018,Reconstructing phylogeny from reduced-representation genome sequencing data without assembly or alignment,2
+R08176,Q7,2015,Decomposing changes in phylogenetic and functional diversity over space and time,2
+R08177,Q7,2019,"Morphometry of upper cheek teeth of cave bears (Carnivora, Ursidae)",2
+R08178,Q7,2023,Evolution of mitogenomic gene order in Orthoptera,2
+R08179,Q7,2012,Non-random distribution of extensive chromosome rearrangements in Brassica napus depends on genome organization,2
+R08180,Q7,2009,Metagenomic signatures of 86 microbial and viral metagenomes,2
+R08181,Q7,2019,An integrated model of population genetics and community ecology,2
+R08182,Q7,2025,Biogeographic Patterns of Estimation Bias of Biodiversity Indices,2
+R08183,Q7,2015,Cell-mediated anti-Gag immunity in pharmacologically induced functional cure of simian AIDS: A 'bottleneck effect'?,2
+R08184,Q7,2025,"Plastome evolution in the Caesalpinia group (Caesalpinioideae, Fabaceae): Comparative genomics reveals genome dynamics, phylogenetic insights and adaptive evolution",2
+R08185,Q7,2016,Comparative mitochondrial genome analysis reveals the evolutionary rearrangement mechanism in Brassica,2
+R08186,Q7,2021,Mitochondrial genomes within bark lice (Insecta: Psocodea: Psocomorpha) reveal novel gene rearrangements containing phylogenetic signal,2
+R08187,Q7,2020,Supporting pandemic response using genomics and bioinformatics: A case study on the emergent SARS-CoV-2 outbreak,2
+R08188,Q7,2013,Assessing fluctuating evolutionary pressure in yeast and mammal evolutionary rate covariation using bioinformatics of meiotic protein genetic sequences,2
+R08189,Q7,2026,Research on Phylogenetic Analysis Methods Based on Forward and Reverse Sequences: Applications of Biological Sequences in Artificial Intelligence,2
+R08190,Q7,2017,Genome analysis of Endomicrobium proavitum suggests loss and gain of relevant functions during the evolution of intracellular symbionts,2
+R08191,Q7,2018,Genome rearrangement shapes Prochlorococcus ecological adaptation,2
+R08192,Q7,2015,Use of alignment-free phylogenetics for rapid genome sequence-based typing of helicobacter pylori virulence markers and antibiotic susceptibility,2
+R08193,Q7,2010,Genome rearrangements of completely sequenced strains of Yersinia pestis,2
+R08194,Q7,2017,Presence of a shared 5'-leader sequence in ancestral human and mammalian retroviruses and its transduction into feline leukemia virus,2
+R08195,Q7,2026,Within-host SARS-CoV-2 diversity in immunocompromised patients during acute infection,2
+R08196,Q7,2015,Deep Sequencing and Phylogenetic Analysis of Variants Resistant to Interferon-Based Protease Inhibitor Therapy in Chronic Hepatitis Induced by Genotype 1b Hepatitis C Virus,2
+R08197,Q7,2015,Analyses of alternatively processed genes in ciliates provide insights into the origins of scrambled genomes and may provide a mechanism for speciation,2
+R08198,Q7,2026,Spatial-temporal genome analysis and its application for the prediction of functional systems in bacteria and archaea,2
+R08199,Q7,2016,MetaPalette: a k-mer Painting Approach for Metagenomic Taxonomic Profiling and Quantification of Novel Strain Variation,2
+R08200,Q7,2018,"k-mer Similarity, Networks of Microbial Genomes, and Taxonomic Rank",2
+R08201,Q7,2025,"Discovery of novel hammerhead, twister, and DVRz-associated circular RNAs in Vitaceae, Solanaceae, and Rosaceae",2
+R08202,Q7,2025,Integrating sequence composition information into microbial diversity analyses with k-mer frequency counting,2
+R08203,Q7,2025,Transcriptional profiles of Microcystis reveal gene expression shifts that promote bloom persistence in in situ mesocosms,2
+R08204,Q7,2026,Analysis of temporal virus evolution and intra-host diversity in long-term non-progressors by bulk next-generation sequencing,2
+R08205,Q7,2008,Application of quantitative measures of gene order similarity to phylogenetic reconstructions (exemplified by bacteria of the genus Rickettsia),2
+R08206,Q7,2009,Evolution of gene orders in genomes of cyanobacteria,2
+R08207,Q7,2016,An evolutionary model of tumor cell kinetics and the emergence of molecular heterogeneity driving gompertzian growth,2
+R08208,Q7,2006,Reconstructing chromosomal evolution,2
+R08209,Q7,2013,A new adjacent pair 2D graphical representation of DNA sequences,2
+R08210,Q7,2010,New measures for comparing the species diversity found in two or more habitats,2
+R08211,Q7,2010,Classification and identification of fungal sequences using characteristic restriction endonuclease cut order,2
+R08212,Q7,2013,Homologous synteny block detection based on suffix tree algorithms,2
+R08213,Q7,2013,"A simple shortcut to unsupervised alignment-free phylogenetic genome groupings, even from unassembled sequencing reads",2
+R08214,Q7,2014,Measurement of word frequencies in genomic DNA sequences based on partial alignment and fuzzy set,2
+R08215,Q7,2020,Scalable classification of organisms into a taxonomy using hierarchical supervised learners,2
+R08216,Q7,2021,Small parsimony for natural genomes in the DCJ-indel model,2
+R08217,Q7,2019,Bacterial phylogeny in the Cayley graph,2
+R08218,Q7,2026,Topological Sequence Analysis of Genomes: Category Theory Approaches,2
+R08219,Q7,2023,Lifting scheme-based wavelet transform method for improved genomic classification and sequence analysis of Coronavirus,2
+R08220,Q7,2006,On the tandem duplication-random loss model of genome rearrangement,2
+R08221,Q7,2013,Genomic sequence fragment identification using quasi-alignment,2
+R08222,Q7,2013,NGPhylo - N-Gram modeled proteins with substitution matrices for phylogenetic analysis,2
+R08223,Q7,2016,Analyzing DNA strings using information theory concepts,2
+R08224,Q7,2021,Applying Neural Network to Reconstruction of Phylogenetic Tree,2
+R08225,Q7,2023,Optimal K-mer Analysis for Alignment Free Phylogenetic Tree,2
+R08226,Q7,2026,Integrating Machine Learning and Scaling Strategies for Accurate K-mer Based Alignment-Free Phylogenetics,2
+R08227,Q7,2014,Insect mitochondrial genomics: Implications for evolution and phylogeny,2
+R08228,Q7,2014,Local packing density is the main structural determinant of the rate of protein sequence evolution at site level,2
+R08229,Q7,2014,Visualization of genome signatures of eukaryote genomes by batch-learning self-organizing map with a special emphasis on drosophila genomes,2
+R08230,Q7,2016,"Genomic Analysis of a Marine Bacterium: Bioinformatics for Comparison, Evaluation, and Interpretation of DNA Sequences",2
+R08231,Q7,2019,Measuring Similarity among Protein Sequences Using a New Descriptor,2
+R08232,Q7,2019,"K-mer-Based Motif Analysis in Insect Species across Anopheles, Drosophila, and Glossina Genera and Its Application to Species Classification",2
+R08233,Q7,2019,A Statistical Similarity/Dissimilarity Analysis of Protein Sequences Based on a Novel Group Representative Vector,2
+R08234,Q7,2013,Phylogenetic clustering of protein sequences using recurrence quantification analysis,2
+R08235,Q7,2013,A novel method of characterizing DNA sequences based on complete composition and position vector,2
+R08236,Q7,2011,Utilization of the N-gram modeling to construct phylogenetic tree for proteins,2
+R08237,Q7,2014,Graphic mapping of protein-coding DNA sequence in four-dimensional space and its application,2
+R08238,Q7,2015,Novel method to numerically characterize protein sequences and its application,2
+R08239,Q7,2017,An improved alignment-free method for oculocutaneous albinism sequence analysis,2
+R08240,Q7,2017,Computational approach from gene to structure analysis of the human ABCA4 transporter involved in genetic retinal diseases,2
+R08241,Q7,2008,The ABCs of MGR with DCJ,2
+R08242,Q7,2021,"DGraph Clusters Flaviviruses and β-Coronaviruses According to Their Hosts, Disease Type, and Human Cell Receptors",2
+R08243,Q7,2006,Evolution of HVR-1 quasispecies after 1-year treatment in HIV/HCV-coinfected patients according to the pattern of response to highly active antiretroviral therapy,2
+R08244,Q7,2010,MSOAR 2.0: Incorporating tandem duplications into ortholog assignment based on genome rearrangement,2
+R08245,Q7,2010,Reconstructing genome trees of prokaryotes using overlapping genes,2
+R08246,Q7,2010,Clustering of protein families into functional subtypes using Relative Complexity Measure with reduced amino acid alphabets,2
+R08247,Q7,2010,Using genomic signatures for HIV-1 sub-typing,2
+R08248,Q7,2010,Heuristics for the inversion median problem,2
+R08249,Q7,2010,"Estimating true evolutionary distances under rearrangements, duplications, and losses",2
+R08250,Q7,2012,A novel hierarchical clustering algorithm for gene sequences,2
+R08251,Q7,2012,Detection of gene expression changes at chromosomal rearrangement breakpoints in evolution,2
+R08252,Q7,2013,Testing robustness of relative complexity measure method constructing robust phylogenetic trees for Galanthus L. Using the relative complexity measure,2
+R08253,Q7,2013,Assembling contigs in draft genomes using reversals and block-interchanges,2
+R08254,Q7,2013,Alignment-free analysis of barcode sequences by means of compression-based methods,2
+R08255,Q7,2014,A unifying model of genome evolution under parsimony,2
+R08256,Q7,2014,Assembly-free genome comparison based on next-generation sequencing reads and variable length patterns,2
+R08257,Q7,2015,Reconstruction of ancestral gene orders using intermediate genomes,2
+R08258,Q7,2015,Probabilistic modeling of the evolution of gene synteny within reconciled phylogenies,2
+R08259,Q7,2015,Evolution of genes neighborhood within reconciled phylogenies: An ensemble approach,2
+R08260,Q7,2006,A method for rapid similarity analysis of RNA secondary structures,2
+R08261,Q7,2007,Compression-based classification of biological sequences and structures via the Universal Similarity Metric: Experimental assessment,2
+R08262,Q7,2007,CLUSS: Clustering of protein sequences based on a new similarity measure,2
+R08263,Q7,2007,Cinteny: Flexible analysis and visualization of synteny and genome rearrangements in multiple organisms,2
+R08264,Q7,2008,Compressing DNA sequence databases with coil,2
+R08265,Q7,2008,Comparison study on k-word statistical measures for protein: From sequence to 'sequence space',2
+R08266,Q7,2008,A fast algorithm for the multiple genome rearrangement problem with weighted reversals and transpositions,2
+R08267,Q7,2008,An improved string composition method for sequence comparison,2
+R08268,Q7,2010,Whole-proteome phylogeny of large dsDNA viruses and parvoviruses through a composition vector method related to dynamical language model,2
+R08269,Q7,2011,BEL/Pao retrotransposons in metazoan genomes,2
+R08270,Q7,2012,"Pseudoscorpion mitochondria show rearranged genes and genome-wide reductions of RNA gene sizes and inferred structures, yet typical nucleotide composition bias",2
+R08271,Q7,2013,Chromosomal diversification and karyotype evolution of diploids in the cytologically diverse genus Prospero (Hyacinthaceae),2
+R08272,Q7,2005,Exploration of phylogenetic data using a global sequence analysis method - art. no. 63,2
+R08273,Q7,2007,Evolutionary hierarchies of conserved blocks in 5′-noncoding sequences of dicot rbcS genes,2
+R08274,Q7,2008,"Topology of evolving, mutagenized viral populations: Quasispecies expansion, compression, and operation of negative selection",2
+R08275,Q7,2008,Evolution of gastropod mitochondrial genome arrangements,2
+R08276,Q7,2009,A fungal phylogeny based on 82 complete genomes using the composition vector method,2
+R08277,Q7,2009,Potential impact of stress activated retrotransposons on genome evolution in a marine diatom,2
+R08278,Q7,2011,Sorting permutations by cut-circularize-linearizeand-paste operations,2
+R08279,Q7,2012,"Whole genome comparisons of Fragaria, Prunus and Malus reveal different modes of evolution between Rosaceous subfamilies",2
+R08280,Q7,2012,The origin of modern frogs (Neobatrachia) was accompanied by acceleration in mitochondrial and nuclear substitution rates,2
+R08281,Q7,2013,"Comparative genome analysis of Spiroplasma melliferum IPMB4A, a honeybee-associated bacterium",2
+R08282,Q7,2013,Short and long-term genome stability analysis of prokaryotic genomes,2
+R08283,Q7,2013,"The complete mitochondrial genomes of two rice planthoppers, Nilaparvata lugens and Laodelphax striatellus: Conserved genome rearrangement in Delphacidae and discovery of new characteristics of atp8 and tRNA genes",2
+R08284,Q7,2014,Near-medians that avoid the corners; a combinatorial probability approach,2
+R08285,Q7,2015,Reference-free inference of tumor phylogenies from single-cell sequencing data,2
+R08286,Q7,2015,ProCARs: Progressive Reconstruction of Ancestral Gene Orders,2
+R08287,Q7,2006,Gene order data from a model amphibian (Ambystoma): New perspectives on vertebrate genome structure and evolution,2
+R08288,Q7,2008,Insertion Sequences show diverse recent activities in Cyanobacteria and Archaea,2
+R08289,Q7,2008,"Complete mitochondrial DNA sequence of oyster Crassostrea hongkongensis-a case of ""Tandem duplication-random loss"" for genome rearrangement in Crassostrea?",2
+R08290,Q7,2008,Gene rearrangement analysis and ancestral order inference from chloroplast genomes with inverted repeat,2
+R08291,Q7,2008,Phylogenetic reconstruction from transpositions,2
+R08292,Q7,2010,A saturated SSR/DArT linkage map of Musa acuminata addressing genome rearrangements among bananas,2
+R08293,Q7,2014,Deep sequencing of hepatitis C virus hypervariable region 1 reveals no correlation between genetic heterogeneity and antiviral treatment outcome,2
+R08294,Q7,2014,Application of discrete Fourier inter-coefficient difference for assessing genetic sequence similarity,2
+R08295,Q7,2008,Correlation between pre-treatment quasispecies complexity and treatment outcome in chronic HCV genotype 3a,2
+R08296,Q7,2007,Gene-interleaving patterns of synteny in the Saccharomyces cerevisiae genome: Are they proof of an ancient genome duplication event?,2
+R08297,Q7,2012,Alignment-free phylogeny of whole genomes using underlying subwords,2
+R08298,Q7,2009,Phylogenetic prediction of cis-acting elements: A cre-like sequence in Norovirus genome?,2
+R08299,Q7,2011,2011 German Escherichia coli O104:H4 outbreak: Whole-genome phylogeny without alignment,2
+R08300,Q7,2014,MLGO: Phylogeny reconstruction and ancestral inference from gene-order data,2
+R08301,Q7,2016,CoeViz: A web-based tool for coevolution analysis of protein residues,2
+R08302,Q7,2016,Phylogenetic tree construction using trinucleotide usage profile (TUP),2
+R08303,Q7,2016,Fast ancestral gene order reconstruction of genomes with unequal gene content,2
+R08304,Q7,2016,Compromise or optimize The breakpoint anti-median,2
+R08305,Q7,2017,RNA-TVcurve: A Web server for RNA secondary structure comparison based on a multi-scale similarity of its triple vector curve representation,2
+R08306,Q7,2017,String kernels for protein sequence comparisons: Improved fold recognition,2
+R08307,Q7,2018,Alignment-free clustering of large data sets of unannotated protein conserved regions using minhashing,2
+R08308,Q7,2018,Computing the family-free DCJ similarity,2
+R08309,Q7,2019,DCGR: Feature extractions from protein sequences based on CGR via remodeling multiple information,2
+R08310,Q7,2019,Read-SpaM: assembly-free and alignment-free comparison of bacterial genomes with low sequencing coverage,2
+R08311,Q7,2019,Rearrangement analysis of multiple bacterial genomes,2
+R08312,Q7,2019,Alignment-free genomic sequence comparison using FCGR and signal processing,2
+R08313,Q7,2020,Achieving large and distant ancestral genome inference by using an improved discrete quantum-behaved particle swarm optimization algorithm,2
+R08314,Q7,2024,Utilizing genomic signatures to gain insights into the dynamics of SARS-CoV-2 through Machine and Deep Learning techniques,2
+R08315,Q7,2024,TreeWave: command line tool for alignment-free phylogeny reconstruction based on graphical representation of DNA sequences and genomic signal processing,2
+R08316,Q7,2025,An alignment-free method for phylogeny estimation using maximum likelihood,2
+R08317,Q7,2025,"SANS ambages: phylogenomics with abundance-filter, multi-threading, and bootstrapping on amino-acid or genomic sequences",2
+R08318,Q7,2025,Improving protein interaction prediction in GenPPi: a novel interaction sampling approach preserving network topology,2
+R08319,Q7,2018,A new efficient method for analyzing fungi species using correlations between nucleotides,2
+R08320,Q7,2020,Intrinsic laws of k-mer spectra of genome sequences and evolution mechanism of genomes,2
+R08321,Q7,2021,Quantification and evolution of mitochondrial genome rearrangement in Amphibians,2
+R08322,Q7,2015,An assembly and alignment-free method of phylogeny reconstruction from next-generation sequencing data,2
+R08323,Q7,2016,Locating rearrangement events in a phylogeny based on highly fragmented assemblies,2
+R08324,Q7,2017,sRNAs as possible regulators of retrotransposon activity in Cryptococcus gattii VGII,2
+R08325,Q7,2017,Estimation of the true evolutionary distance under the fragile breakage model,2
+R08326,Q7,2018,Phylogenetic signal from rearrangements in 18 Anopheles species by joint scaffolding extant and ancestral genomes,2
+R08327,Q7,2018,Comparative mitochondrial genomics of cryptophyte algae: Gene shuffling and dynamic mobile genetic elements,2
+R08328,Q7,2018,Genome rearrangements and selection in multi-chromosome bacteria Burkholderia spp.,2
+R08329,Q7,2019,Identification of genetic relationships and subspecies signatures in Xylella fastidiosa,2
+R08330,Q7,2019,"ML-DSP: Machine Learning with Digital Signal Processing for ultrafast, accurate, and scalable genome classification at all taxonomic levels",2
+R08331,Q7,2019,"Comparison of chloroplast genomes of Gynura species: Sequence variation, genome rearrangement and divergence studies",2
+R08332,Q7,2020,Analysis of local genome rearrangement improves resolution of ancestral genomic maps in plants,2
+R08333,Q7,2021,Comparative insights into genome signatures of ferric iron oxide- and anode-stimulated Desulfuromonas spp. strains,2
+R08334,Q7,2023,A new profiling approach for DNA sequences based on the nucleotides' physicochemical features for accurate analysis of SARS-CoV-2 genomes,2
+R08335,Q7,2024,Machine learning classification of archaea and bacteria identifies novel predictive genomic features,2
+R08336,Q7,2024,CGRclust: Chaos Game Representation for twin contrastive clustering of unlabelled DNA sequences,2
+R08337,Q7,2026,Mitochondrial genomic variations shed light on the phylogeny and biogeography of the Phrynocephalus guttatus species group (Reptilia: Agamidae) in arid Central Asia,2
+R08338,Q7,2026,Assembling telomere-to-telomere genomes of Fusarium oxysporum f. sp. lactucae provides a roadmap for studying genome and phenotype evolution,2
+R08339,Q7,2026,Rapid and reproducible haplotyping of complete mitochondrial genomes using split k-mers,2
+R08340,Q7,2024,Does time matter? Intraspecific diversity of ribosomal RNA genes in lineages of the allopolyploid model grass Brachypodium hybridum with different evolutionary ages,2
+R08341,Q7,2025,Assembly and comparative analysis of chromosomal mitochondrial genomes in multiple Medicago species,2
+R08342,Q7,2026,The first complete assembly and analysis of mitochondrial genome of Pinus thunbergii in Pinaceae,2
+R08343,Q7,2026,Comparative plastome analysis of the Vandenboschia radicans complex in Korea: insights into its evolutionary history,2
+R08344,Q7,2021,Cotton D genome assemblies built with long-read data unveil mechanisms of centromere evolution and stress tolerance divergence,2
+R08345,Q7,2022,The pangenome of the wheat pathogen Pyrenophora tritici-repentis reveals novel transposons associated with necrotrophic effectors ToxA and ToxB,2
+R08346,Q7,2018,On the reconstruction of the ancestral bacterial genomes in genus Mycobacterium and Brucella,2
+R08347,Q7,2026,Convergent evolution of ST2 and ST164 mediates dissemination of the blaNDM-1/blaOXA-23 profile in Acinetobacter baumannii,2
+R08348,Q7,2026,Prediction of recent HIV-1 infections using Shannon entropy analysis of HIV-1 group-specific antigen protein sequence,2
+R08349,Q7,2015,Estimating evolutionary distances between genomic sequences from spaced-word matches,2
+R08350,Q7,2016,MissMax: Alignment-free sequence comparison with mismatches through filtering and heuristics,2
+R08351,Q7,2017,Phylogeny reconstruction based on the length distribution of k-mismatch common substrings,2
+R08352,Q7,2019,A cubic algorithm for the generalized rank median of three genomes,2
+R08353,Q7,2023,phyBWT2: phylogeny reconstruction via eBWT positional clustering,2
+R08354,Q7,2024,On the parameterized complexity of the median and closest problems under some permutation metrics,2
+R08355,Q7,2025,Reconstructing rearrangement phylogenies of natural genomes,2
+R08356,Q7,2017,Whole-genome analysis of human papillomavirus genotypes 52 and 58 isolated from Japanese women with cervical intraepithelial neoplasia and invasive cervical cancer,2
+R08357,Q7,2015,LAF: Logic Alignment Free and its application to bacterial genomes classification,2
+R08358,Q7,2019,Skmer: Assembly-free and alignment-free sample identification using genome skims,2
+R08359,Q7,2025,Analysis of 30 chromosome-level Drosophila genome assemblies reveals dynamic evolution of centromeric satellite repeats,2
+R08360,Q7,2026,Using reciprocally retained gene families to detect whole-genome multiplications in plants,2
+R08361,Q7,2015,KGCAK: A K-mer based database for genome-wide phylogeny and complexity evaluation,2
+R08362,Q7,2022,Inter-species geographic signatures for tracing horizontal gene transfer and long-term persistence of carbapenem resistance,2
+R08363,Q7,2026,chewBBACA 3: lowering the barrier for scalable and detailed whole- and core-genome multilocus sequence typing,2
+R08364,Q7,2016,Absent words and the (dis)similarity analysis of DNA sequences: An experimental study,2
+R08365,Q7,2016,Mycofier: A new machine learning-based classifier for fungal ITS sequences,2
+R08366,Q7,2017,"Categorization of species based on their microRNAs employing sequence motifs, information-theoretic sequence feature extraction, and k-mers",2
+R08367,Q7,2024,Fairy: fast approximate coverage for multi-sample metagenomic binning,2
+R08368,Q7,2022,"Accurate prediction of metagenome-assembled genome completeness by MAGISTA, a random forest model built on alignment-free intra-bin statistics",2
+R08369,Q7,2013,Alignment-free phylogenetic reconstruction: Sample complexity via a branching process analysis,2
+R08370,Q7,2022,AN IMPOSSIBILITY RESULT FOR PHYLOGENY RECONSTRUCTION FROM k-MER COUNTS,2
+R08371,Q7,2016,Recapitulating phylogenies using k-mers: From trees to networks,2
+R08372,Q7,2006,The evolution of word composition in metazoan promoter sequence,2
+R08373,Q7,2010,Networks of High Mutual Information Define the Structural Proximity of Catalytic Sites: Implications for Catalytic Residue Identification,2
+R08374,Q7,2011,"A semi-quantitative, synteny-based method to improve functional predictions for hypothetical and poorly annotated bacterial and archaeal genes",2
+R08375,Q7,2016,Phylogeny Reconstruction with Alignment-Free Method That Corrects for Horizontal Gene Transfer,2
+R08376,Q7,2016,"rasbhari: Optimizing Spaced Seeds for Database Searching, Read Mapping and Alignment-Free Sequence Comparison",2
+R08377,Q7,2018,Recognition of sites of functional specialisation in all known eukaryotic protein kinase families,2
+R08378,Q7,2022,Insertions and deletions as phylogenetic signal in an alignment-free context,2
+R08379,Q7,2026,Alignment-free prediction of cross-reactivity in influenza A (H3N2) anticipates antigenic drift,2
+R08380,Q7,2006,Highly variable rates of genome rearrangements between hemiascomycetous yeast lineages,2
+R08381,Q7,2008,Dynamics of genome rearrangement in bacterial populations,2
+R08382,Q7,2021,Short-range template switching in great ape genomes explored using pair hidden Markov models,2
+R08383,Q7,2024,KmerAperture: Retaining k-mer synteny for alignment-free extraction of core and accessory differences between bacterial genomes,2
+R08384,Q7,2024,Belt and braces: Two escape ways to maintain the cassette reservoir of large chromosomal integrons,2
+R08385,Q7,2020,Using affinity propagation clustering for identifying bacterial clades and subclades with whole-genome sequences of Francisella tularensis,2
+R08386,Q7,2008,Gene order phylogeny of the genus Prochlorococcus,2
+R08387,Q7,2009,Examination of genome homogeneity in prokaryotes using genomic signatures,2
+R08388,Q7,2011,"Sequence alignment, mutual information, and dissimilarity measures for constructing phylogenies",2
+R08389,Q7,2011,Genome sequence analyses of Pseudomonas savastanoi pv. glycinea and subtractive hybridization-based comparative genomics with nine pseudomonads,2
+R08390,Q7,2011,DNA barcode sequence identification incorporating taxonomic hierarchy and within taxon variability,2
+R08391,Q7,2011,MultiMSOAR 2.0: An accurate tool to identify ortholog groups among multiple genomes,2
+R08392,Q7,2011,Haloquadratum walsbyi: Limited Diversity in a Global Pond,2
+R08393,Q7,2011,An alignment-free approach for eukaryotic ITS2 annotation and phylogenetic inference,2
+R08394,Q7,2011,Exploring the diversity of gardnerella vaginalis in the genitourinary tract microbiota of monogamous couples through subtle nucleotide variation,2
+R08395,Q7,2012,Diversity measures in environmental sequences are highly dependent on alignment quality-data from ITS and new LSU primers targeting basidiomycetes,2
+R08396,Q7,2012,Alignment-free design of highly discriminatory diagnostic primer sets for Escherichia coli O104:H4 outbreak strains,2
+R08397,Q7,2012,Accurate reconstruction of insertion-deletion histories by statistical phylogenetics,2
+R08398,Q7,2012,CREST - Classification Resources for Environmental Sequence Tags,2
+R08399,Q7,2013,Ancestral Genome Inference Using a Genetic Algorithm Approach,2
+R08400,Q7,2013,When whole-genome alignments just won't work: KSNP v2 software for alignment-free SNP discovery and phylogenetics of hundreds of microbial genomes,2
+R08401,Q7,2014,HIV-1 subtype A gag variability and epitope evolution,2
+R08402,Q7,2014,Protein languages differ depending on microorganism lifestyle,2
+R08403,Q7,2014,Genomic signal processing methods for computation of alignment-free distances from dna sequences,2
+R08404,Q7,2014,The lineage-specific evolution of aquaporin gene clusters facilitated tetrapod terrestrial adaptation,2
+R08405,Q7,2015,Diversification of the light-harvesting complex gene family via intra- and intergenic duplications in the coral symbiotic alga Symbiodinium,2
+R08406,Q7,2015,Low level engraftment and improvement following a single colonoscopic administration of fecal microbiota to patients with ulcerative colitis,2
+R08407,Q7,2015,HIV-1 dual infected LTNP-EC patients developed an unexpected antibody cross-neutralizing activity,2
+R08408,Q7,2015,Virological characteristics of acute hepatitis B in eastern India: Critical differences with chronic infection,2
+R08409,Q7,2016,Next generation sequencing-based investigation of potential patient-to-patient hepatitis C virus transmission during hemodialytic treatment,2
+R08410,Q7,2016,RV-typer: A web server for typing of Rhinoviruses using alignment-free approach,2
+R08411,Q7,2016,An alignment-free algorithm in comparing the similarity of protein sequences based on Pseudo-Markov transition probabilities among amino acids,2
+R08412,Q7,2017,A coevolution analysis for identifying proteinprotein interactions by Fourier transform,2
+R08413,Q7,2017,Phylogenic inference using alignment-free methods for applications in microbial community surveys using 16s rRNA gene,2
+R08414,Q7,2019,"Genomic content of a novel yeast species Hanseniaspora gamundiae sp. Nov. From fungal stromata (Cyttaria) associated with a unique fermented beverage in Andean Patagonia, Argentina",2
+R08415,Q7,2019,Viral taxonomy derived from evolutionary genome relationships,2
+R08416,Q7,2020,Codon pairs are phylogenetically conserved: A comprehensive analysis of codon pairing conservation across the Tree of Life,2
+R08417,Q7,2021,"Large-scale k-mer-based analysis of the informational properties of genomes, comparative genomics and taxonomy",2
+R08418,Q7,2022,Comparative analysis of alignment-free genome clustering and whole genome alignment-based phylogenomic relationship of coronaviruses,2
+R08419,Q7,2022,Analysis of temporal changes in HIV-1 CRF01_AE gag genetic variability and CD8 T-cell epitope evolution,2
+R08420,Q7,2022,Multilocus marker-based delimitation of Salicornia persica and its population discrimination assisted by supervised machine learning approach,2
+R08421,Q7,2024,"Comparative evaluation of bioinformatic tools for virus-host prediction and their application to a highly diverse community in the Cuatro Ciénegas Basin, Mexico",2
+R08422,Q7,2024,"Characterisation of IS1311 in Mycobacterium avium subspecies paratuberculosis genomes: Typing, continental clustering, microbial evolution and host adaptation",2
+R08423,Q7,2024,Graph-based analysis of DNA sequence comparison in closed cotton species: A generalized method to unveil genetic connections,2
+R08424,Q7,2025,Ongoing measles outbreak in Romania: Clinical investigation and molecular epidemiology performed on whole genome sequences,2
+R08425,Q7,2025,Whole-genome sequencing of Burkholderia glumae strains from Thailand reveals potential horizontal gene transfer with Burkholderia pseudomallei,2
+R08426,Q7,2013,The Footprint of Genome Architecture in the Largest Genome Expansion in RNA Viruses,2
+R08427,Q7,2025,Whole-genome characterization and evolutionary analysis of a novel duck reovirus isolated from Cairina moschata in Vietnam,2
+R08428,Q7,2008,Coronavirus phylogeny based on Base-Base Correlation,2
+R08429,Q7,2025,An advanced approach for DNA sequencing and similarities analysis on the basis of groupings of nucleotide bases,2
+R08430,Q7,2019,Discrete Wavelet Packet Transform Based Discriminant Analysis for Whole Genome Sequences,2
+R08431,Q7,2012,Alignment-free population genomics: An efficient estimator of sequence diversity,2
+R08432,Q7,2017,Elevated rate of genome rearrangements in radiation-resistant bacteria,2
+R08433,Q7,2022,Multiple genome analysis of Candida glabrataclinical isolates renders new insights into genetic diversity and drug resistance determinants,2
+R08434,Q7,2024,K-mer applied in Mycobacterium tuberculosis genome cluster analysis; [K-mer aplicado na análise de agrupamento de genomas de Mycobacterium tuberculosis],2
+R08435,Q7,2025,Study on population genomics of Bacillus anthracis based on multiple types of genetic variations,2
+R08436,Q7,2024,Using Multiplex Virtual PCR For Genetic Barcoding Of Tequatrovirus Bacteriophages; [Использование мультиплексной виртуальной ПЦР для генетического штрихкодирования бактериофагов рода Tequatrovirus],2
+R08437,Q7,2016,Retrotransposon marker systems as a tool to analyze molecular diversity of Mediterranean Pistacia species,2
+R08438,Q7,2014,Rarefaction and extrapolation with Hill numbers: A framework for sampling and estimation in species diversity studies,2
+R08439,Q7,2023,"Using Chaos-Game-Representation for Analysing the SARS-CoV-2 Lineages, Newly Emerging Strains and Recombinants",2
+R08440,Q7,2024,Geometric Feature of DNA Sequences,2
+R08441,Q7,2017,A novel protein characterization based on pseudo amino acids composition and Star-like Graph Topological Indices,2
+R08442,Q7,2022,A Generalized Iterative Map for Analysis of Protein Sequences,2
+R08443,Q7,2021,Exploring the Lethality of Human-Adapted Coronavirus Through Alignment-Free Machine Learning Approaches Using Genomic Sequences,2
+R08444,Q7,2014,A 2D pattern matching algorithm for comparing primary protein sequences,2
+R08445,Q7,2014,Dissimilarities in alignment-free methods for phylogenetic analysis based on genomes,2
+R08446,Q7,2017,"Analysis of variations, structures, and phylogenic characteristics of bovine leukocyte antigen DRB3 exon2",2
+R08447,Q7,2026,Internal transcribed spacer (ITS) barcoding reveals species differentiation and evolutionary lineages of Trypanorhyncha (Cestoda) in teleosts imported to Jordan from the Mediterranean and Red Seas,2
+R08448,Q7,2019,Measuring the Evolutionary Distances between Brassicaceae Species,2
+R08449,Q7,2018,On Computing Average Common Substring over Run Length Encoded Sequences,2
+R08450,Q7,2022,Phylogenetic Analyses of SARS-CoV-2 Strains Reveal Its Link to the Spread of COVID-19 Across the Globe,2
+R08451,Q7,2020,KITSUNE: A Tool for Identifying Empirically Optimal K-mer Length for Alignment-Free Phylogenomic Analysis,2
+R08452,Q7,2025,A comprehensive analysis of the uterine microbiome in endometrial cancer patients - identification of Anaerococcus as a potential biomarker and carcinogenic cofactor,2
+R08453,Q7,2017,Implicit transpositions in DCJ scenarios,2
+R08454,Q7,2019,A stochastic phylogenetic algorithm for mitochondrial DNA analysis,2
+R08455,Q7,2019,A novel approach to clustering genome sequences using inter-nucleotide covariance,2
+R08456,Q7,2019,Dicyemida and Orthonectida: Two stories of body plan simplification,2
+R08457,Q7,2019,A new algorithm for identifying genome rearrangements in the mammalian evolution,2
+R08458,Q7,2021,A Computational Framework for Pattern Detection on Unaligned Sequences: An Application on SARS-CoV-2 Data,2
+R08459,Q7,2021,An Information-Entropy Position-Weighted K-Mer Relative Measure for Whole Genome Phylogeny Reconstruction,2
+R08460,Q7,2025,Mitochondrial genome complexity in Erodium stephanianum (Geraniaceae): nanopore sequencing reveals chloroplast gene transfer and DNA rearrangements,2
+R08461,Q7,2022,Mitogenomes Provide Insights Into the Evolution of Thoracotremata (Brachyura: Eubrachyura),2
+R08462,Q7,2017,Genome plasticity and polymorphisms in critical genes correlate with increased virulence of Dutch outbreak-related Coxiella burnetii strains,2
+R08463,Q7,2019,Adaptive Evolution of Sphingobium hydrophobicum C1T in Electronic Waste Contaminated River Sediment,2
+R08464,Q7,2020,Batch-Learning Self-Organizing Map Identifies Horizontal Gene Transfer Candidates and Their Origins in Entire Genomes,2
+R08465,Q7,2021,VirionFinder: Identification of Complete and Partial Prokaryote Virus Virion Protein From Virome Data Using the Sequence and Biochemical Properties of Amino Acids,2
+R08466,Q7,2021,High Rates of Genome Rearrangements and Pathogenicity of Shigella spp.,2
+R08467,Q7,2021,Reads Binning Improves the Assembly of Viral Genome Sequences From Metagenomic Samples,2
+R08468,Q7,2022,Comparative genomics reveals new insights into the evolution of the IncA and IncC family of plasmids,2
+R08469,Q7,2022,A Two-Time Point Analysis of Gut Microbiota in the General Population of Buenos Aires and Its Variation Due to Preventive and Compulsory Social Isolation During the COVID-19 Pandemic,2
+R08470,Q7,2023,Ksak: A high-throughput tool for alignment-free phylogenetics,2
+R08471,Q7,2023,Comparative genomics of the Liberibacter genus reveals widespread diversity in genomic content and positive selection history,2
+R08472,Q7,2024,CGRWDL: alignment-free phylogeny reconstruction method for viruses based on chaos game representation weighted by dynamical language model,2
+R08473,Q7,2024,Microbiome and lipidomic analysis reveal the interplay between skin bacteria and lipids in a cohort study,2
+R08474,Q7,2024,Development of a Providencia stuartii multilocus sequence typing scheme,2
+R08475,Q7,2025,A genome-wide investigation of Mycoplasma hominis genes associated with gynecological infections or infertility,2
+R08476,Q7,2023,"Low host immune pressure may be associated with the development of hepatocellular carcinoma: a longitudinal analysis of complete genomes of the HBV 1762T, 1764A mutant",2
+R08477,Q7,2019,Plastid Genomes of Five Species of Riverweeds (Podostemaceae): Structural Organization and Comparative Analysis in Malpighiales,2
+R08478,Q7,2020,"Plastome Evolution and Phylogeny of Orchidaceae, With 24 New Sequences",2
+R08479,Q7,2022,Extensive reorganization of the chloroplast genome of Corydalis platycarpa: A comparative analysis of their organization and evolution with other Corydalis plastomes,2
+R08480,Q7,2022,Alignment-Free Analysis of Whole-Genome Sequences From Symbiodiniaceae Reveals Different Phylogenetic Signals in Distinct Regions,2
+R08481,Q7,2023,Phylogenetic analysis of endogenous viral elements in the rice genome reveals local chromosomal evolution in Oryza AA-genome species,2
+R08482,Q7,2025,The first complete mitochondrial genome assembly and comparative analysis of the fern Blechnaceae family: Blechnopsis orientalis,2
+R08483,Q7,2025,"Unraveling the mitochondrial genome of the medicinal Chinese motherwort (Leonurus japonicus, Lamiaceae): structural dynamics, organelle-to-nuclear gene transfer, and evolutionary implications",2
+R08484,Q7,2026,Assembly and comparative analysis of the complete mitochondrial genome of Holmskioldia sanguinea,2
+R08485,Q7,2026,"Isolation and evolutionary analysis of feline panleukopenia virus strains FPV-BJ-J2 and FPV-BJ-J3 (T440A, N564S, A568G) in Beijing, China",2
+R08486,Q7,2023,Novel Gene Rearrangement Pattern in Pachycrepoideus vindemmiae Mitochondrial Genome: New Gene Order in Pteromalidae (Hymenoptera: Chalcidoidea),2
+R08487,Q7,2024,Characterization of the Mitogenome of the Genus Dendrocerus Ratzeburg (Hymenoptera: Megaspilidae) with the Specific Designed Primers,2
+R08488,Q7,2025,Comprehensive Analysis of the Complete Mitochondrial Genome of Paeonia ludlowii Reveals a Dual-Circular Structure and Extensive Inter-Organellar Gene Transfer,2
+R08489,Q7,2026,"First Plastome Sequences of Two Endemic Taxa of Orbea Haw. from the Arabian Peninsula: Comparative Genomics and Phylogenetic Relationships Within the Tribe Ceropegieae (Asclepiadoideae, Apocynaceae)",2
+R08490,Q7,2022,Entropy and Variability: A Second Opinion by Deep Learning,2
+R08491,Q7,2024,"Morphological Structure Identification, Comparative Mitochondrial Genomics and Population Genetic Analysis toward Exploring Interspecific Variations and Phylogenetic Implications of Malus baccata ‘ZA’ and Other Species",2
+R08492,Q7,2019,NS5A gene analysis by next generation sequencing in HCV nosocomial transmission clusters of HCV genotype 1b infected patients,2
+R08493,Q7,2021,The mitochondrial genome of nematodontous moss polytrichum commune and analysis of intergenic repeats distribution among bryophyta,2
+R08494,Q7,2018,Comparison of Compression-Based Measures with Application to the Evolution of Primate Genomes,2
+R08495,Q7,2020,Phylogenetic analysis of HIV-1 genomes based on the position-weighted K-mers method,2
+R08496,Q7,2022,Fast Phylogeny of SARS-CoV-2 by Compression,2
+R08497,Q7,2023,Compression-Complexity Measures for Analysis and Classification of Coronaviruses,2
+R08498,Q7,2026,Structural Phylogenetic Signal Fails at Deep Time: A Bayesian Treebank Analysis of the Transeurasian Languages,2
+R08499,Q7,2019,PVTree: A sequential pattern mining method for alignment independent phylogeny reconstruction,2
+R08500,Q7,2020,Whole-Genome k-mer Topic Modeling AssociatesBacterial Families,2
+R08501,Q7,2020,Analysis of the hosts and transmission paths of SARS-CoV-2 in the COVID-19 outbreak,2
+R08502,Q7,2020,Existence of Bov-B line retrotransposons in snake lineages reveals recent multiple horizontal gene transfers with copy number variation,2
+R08503,Q7,2021,Eukaryotic genomes show strong evolutionary conservation of k-mer composition and correlation contributions between introns and intergenic regions,2
+R08504,Q7,2022,"Testing Efficacy of Assembly-Free and Alignment-Free Methods for Species Identification Using Genome Skims, with Patellogastropoda as a Test Case",2
+R08505,Q7,2022,Classification of Protein Sequences by a Novel Alignment-Free Method on Bacterial and Virus Families,2
+R08506,Q7,2024,Structural Differences between the Genomes of Deinococcus radiodurans Strains from Different Laboratories,2
+R08507,Q7,2024,New Virus Variant Detection Based on the Optimal Natural Metric,2
+R08508,Q7,2017,"K-mer content, correlation, and position analysis of genome dna sequences for the identification of function and evolutionary features",2
+R08509,Q7,2018,Conservation of k-mer composition and correlation contribution between introns and intergenic regions of animalia genomes,2
+R08510,Q7,2019,The toxic effect of herbicidal ionic liquids on biogas-producing microbial community,2
+R08511,Q7,2019,Dynamic chloroplast genome rearrangement and DNA barcoding for three apiaceae species known as the medicinal herb “bang-poong”,2
+R08512,Q7,2020,Unique k-mers as strain-specific barcodes for phylogenetic analysis and natural microbiome profiling,2
+R08513,Q7,2020,Positional correlation natural vector: A novel method for genome comparison,2
+R08514,Q7,2021,"K-mer analyses reveal different evolutionary histories of alpha, beta, and gamma papillomaviruses",2
+R08515,Q7,2023,"An Unsupervised Classifier for Whole-Genome Phylogenies, the Maxwell© Tool",2
+R08516,Q7,2025,CG-Based Stratification of 8-mers Highlights Functional Roles and Phylogenetic Divergence Markers,2
+R08517,Q7,2025,Tracking Down the Evolution of Microorganisms by Exhaustive Bottom-Up Analysis of Proteomes,2
+R08518,Q7,2026,Longitudinal Analysis of HIV-2 Proviral DNA Reveals Archived Protease Inhibitor Resistance and Reservoir Evolution over Eight Years,2
+R08519,Q7,2022,Telomere-to-Telomere Genome Sequences across a Single Genus Reveal Highly Variable Chromosome Rearrangement Rates but Absolute Stasis of Chromosome Number,2
+R08520,Q7,2023,"Compensatory Base Changes in ITS2 Secondary Structure Alignment, Modelling, and Molecular Phylogeny: An Integrated Approach to Improve Species Delimitation in Tulasnella (Basidiomycota)",2
+R08521,Q7,2022,Unsupervised Learning for Feature Representation Using Spatial Distribution of Amino Acids in Aldehyde Dehydrogenase (ALDH2) Protein Sequences,2
+R08522,Q7,2025,Exploring the Application of Models of DNA Evolution to Normalized Compression Distance (NCD) Matrices,2
+R08523,Q7,2026,A 5-Adic Ultrametric Framework for Alignment-Free Phylogenetic Analysis of Hantavirus RNA Sequences,2
+R08524,Q7,2026,Spark: Phylogenetic Analysis Using Series-Parallel Resistor-Derived Features from K-Mer and Substring Positional Accumulation Sum,2
+R08525,Q7,2026,"Rhizobium moroccans sp. nov., a Plant-Associated Bacterium from the Desert Medicinal Plant Peganum harmala, Reveals Genomic Adaptation to Arid Environments",2
+R08526,Q7,2021,Use of an alignment-free method for the geographical discrimination of gtpvs based on the gpcr sequences,2
+R08527,Q7,2026,"Gut Microbiota Composition in Maintenance Hemodialysis Patients: Associations with Sex, Age, and Body Composition",2
+R08528,Q7,2021,Complete genome sequencing of leptospira interrogans isolates from malaysia reveals massive genome rearrangement but high conservation of virulence-associated genes,2
+R08529,Q7,2026,"A Compact Closed Genome of Orientia tsutsugamushi from Hainan Island, China Provides a TA763_A Reference and Reveals Repeat-Driven Remodeling",2
+R08530,Q7,2019,Evolutionary insight into the trypanosomatidae using alignment-free phylogenomics of the kinetoplast,2
+R08531,Q7,2020,Frequent recombination events in Leishmania donovani: Mining population data,2
+R08532,Q7,2021,Estimation of Genome Size in the Endemic Species Reseda pentagyna and the Locally Rare Species Reseda lutea Using comparative Analyses of Flow Cytometry and K-Mer Approaches,2
+R08533,Q7,2020,"Complete chloroplast genome of rhipsalis baccifera, the only cactus with natural distribution in the old world: Genome rearrangement, intron gain and loss, and implications for phylogenetic studies",2
+R08534,Q7,2024,Mathematical Modeling in Bioinformatics: Application of an Alignment-Free Method Combined with Principal Component Analysis,2
+R08535,Q7,2023,Expansion of Betatorquevirus and/or Gammatorquevirus in Patients with Severe Clinical Outcomes of the Liver Diseases,2
+R08536,Q7,2024,IDV Typer: An Automated Tool for Lineage Typing of Influenza D Viruses Based on Return Time Distribution,2
+R08537,Q7,2025,Emergence of a Novel Dengue Virus Serotype-2 Genotype IV Lineage III Strain and Displacement of Dengue Virus Serotype-1 in Central India (2019–2023),2
+R08538,Q7,2025,"The Ongoing Epidemics of Seasonal Influenza A(H3N2) in Hangzhou, China, and Its Viral Genetic Diversity",2
+R08539,Q7,2025,Genetic and Phenotypic Investigations of Viral Subpopulations Detected in Different Tissues of Laying Hens Following Infectious Bronchitis Virus Infection,2
+R08540,Q7,2026,Alignment-Free Machine Learning Serotype Classification of the Dengue Virus,2
+R08541,Q7,2026,Comprehensive Analysis of Insertions in BVDV and Implications for Non-Homologous Recombination Mechanisms,2
+R08542,Q7,2026,Alignment-Free Genome Geometry and Mosaic Barcodes Characterize Modular Diversity in the Cacao Swollen Shoot Virus Complex,2
+R08543,Q7,2024,Patterns of Diversity and Humoral Immunogenicity for HIV-1 Antisense Protein (ASP),2
+R08544,Q7,2008,Distribution of segment lengths in genome rearrangements,2
+R08545,Q7,2022,"Novel gene rearrangement pattern in mitochondrial genome of Ooencyrtus plautus Huang & Noyes, 1994: new gene order in Encyrtidae (Hymenoptera, Chalcidoidea)",2
+R08546,Q7,2019,"Genetic diversity of human respiratory syncytial virus in children with acute respiratory infections in Chennai, South India",2
+R08547,Q7,2016,A novel method for alignment-free DNA sequence similarity analysis based on the characterization of complex networks,2
+R08548,Q7,2014,Molecular phylogenetics before sequences :Oligonucleotide catalogs as k-mer spectra,2
+R08549,Q7,2024,Pairwise Rearrangement is Fixed-Parameter Tractable in the Single Cut-and-Join Model,2
+R08550,Q7,2022,phyBWT: Alignment-Free Phylogeny via eBWT Positional Clustering,2
+R08551,Q7,2024,Reconstructing Rearrangement Phylogenies of Natural Genomes,2
+R08552,Q7,2024,On the Complexity of the Median and Closest Permutation Problems,2
+R08553,Q7,2025,Identifying Breakpoint Median Genomes: A Branching Algorithm Approach,2
+R08554,Q7,2025,Sequence Similarity Estimation by Random Subsequence Sketching,2
+R08555,Q7,2026,"On the Complexity of the (ℓ, k)-Median Problems",2
+R08556,Q7,2013,Alignment-free sequence comparison with spaced k-mers,2
+R08557,Q7,2020,Whole-genome phylogeny of giant viruses by Fourier transform,2
+R08558,Q7,2022,Nucleotide amino acid k-mer vector: an alignment-free method for comparing genomic sequences,2
+R08559,Q7,2025,Frequency Chaos Game Method and Fractals Show Evolutionary Relationships of the PRKN Gene in Primates,2
+R08560,Q7,2022,PHYLOGENETIC REPLAY LEARNING IN DEEP NEURAL NETWORKS,2
+R08561,Q7,2009,On the approximability of comparing genomes with duplicates,2
+R08562,Q7,2019,Genome plasticity in candida albicans is driven by long repeat sequences,2
+R08563,Q7,2021,LINflow: a computational pipeline that combines an alignment-free with an alignment-based method to accelerate generation of similarity matrices for prokaryotic genomes,2
+R08564,Q7,2021,"ToRQuEMaDA: Tool for retrieving queried Eubacteria, metadata and dereplicating assemblies",2
+R08565,Q7,2021,Shifts from cis-totrans-splicing of five mitochondrial introns in Tolypanthus maclurei,2
+R08566,Q7,2022,An issue of concern: unique truncated ORF8 protein variants of SARS-CoV-2,2
+R08567,Q7,2022,An efficient numerical representation of genome sequence: natural vector with covariance component,2
+R08568,Q7,2016,Estimating and comparing microbial diversity in the presence of sequencing errors,2
+R08569,Q7,2017,Comprehensive transcriptome analysis provides new insights into nutritional strategies and phylogenetic relationships of chrysophytes,2
+R08570,Q7,2017,"Plastomes of the green algae Hydrodictyon reticulatum and Pediastrum duplex (Sphaeropleales, Chlorophyceae)",2
+R08571,Q7,2018,Genome rearrangements and phylogeny reconstruction in Yersinia pestis,2
+R08572,Q7,2018,BDBG: A bucket-based method for compressing genome sequencing data with dynamic de Bruijn graphs,2
+R08573,Q7,2019,CAM: An alignment-free method to recover phylogenies using codon aversion motifs,2
+R08574,Q7,2019,"The complete chloroplast genome of Dendrobium nobile, an endangered medicinal orchid from north-east India and its comparison with related Dendrobium species",2
+R08575,Q7,2020,IterCluster: A barcode clustering algorithm for long fragment read analysis,2
+R08576,Q7,2013,A genetic algorithm for the reversal median problem,2
+R08577,Q7,2005,A genome signature based on Markov modeling,2
+R08578,Q7,2014,A novel 2-dimensional graphical representation of DNA sequences using weighted vector assignments,2
+R08579,Q7,2010,A novel alignment-free method for phylogenetic analysis of protein sequences,2
+R08580,Q7,2010,Alignment-free sequence analysis using extensible Markov models,2
+R08581,Q7,2014,An improved algorithm for ancestral gene order reconstruction,2
+R08582,Q7,2007,Clustering of non-alignable protein sequences,2
+R08583,Q7,2012,Comparative analysis of RNA Molecules,2
+R08584,Q7,2010,Comparisons of RNA secondary structures based on LZ complexity,2
+R08585,Q7,2011,Conditional LZ complexity and its application in mtDNA sequence analysis,2
+R08586,Q7,2008,COPid: Composition based protein identification,2
+R08587,Q7,2013,Cryptic diversity in bryophyte soil-banks along a desert elevational gradient,2
+R08588,Q7,2010,Descriptors based on information theory for numerical characterization of DNA sequences,2
+R08589,Q7,2005,Genome rearrangement and planning,2
+R08590,Q7,2011,Genotyping of mumps viruses based on SH gene: Development of a server using alignment-free and alignment-based methods,2
+R08591,Q7,2018,"K-mer Counting: memory-efficient strategy, parallel computing and field of application for Bioinformatics",2
+R08592,Q7,2013,Maximum likelihood phylogenetic reconstruction from high-resolution whole-genome data and a tree of 68 eukaryotes,2
+R08593,Q7,2008,PCA-based Linear Combinations of Oligonucleotide Frequencies for Metagenomic DNA Fragment Binning,2
+R08594,Q7,2015,Phylogenetic analysis of HA protein of influenza a virus based on a novel alignment-free method,2
+R08595,Q7,2011,Possible role of a mitochondrial genome rearrangement in maintaining the spatial segregation of two cryptic species of the lessonia nigrescens species complex,2
+R08596,Q7,2025,"Chromosome-scale reference genome of Pectocarya recurvata, the species with the smallest reported genome size in Boraginaceae",3
+R08597,Q7,2025,A Prelude to Conservation Genomics: First Chromosome-Level Genome Assembly of a Flying Squirrel (Pteromyini: Pteromys volans),3
+R08598,Q7,2024,PairK: Pairwise k-mer alignment for quantifying protein motif conservation in disordered regions,3
+R08599,Q7,2007,PIER: Protein interface recognition for structural proteomics,3
+R08600,Q7,2018,Clustering of multi-domain protein sequences,3
+R08601,Q7,2006,A graphical method to construct a phylogenetic tree,3
+R08602,Q7,2026,Highly heterozygous Citrus changshan-huyou Y. B. Chang originated from ancient hybridization between mandarin and pummelo and displayed distinct tissue-specific allelic imbalance,3
+R08603,Q7,2019,Discovering Trends in Environmental Time-Series with Supervised Classification of Metatranscriptomic Reads and Empirical Mode Decomposition,3
+R08604,Q7,2020,A 3.5-Approximation Algorithm for Sorting by Intergenic Transpositions,3
+R08605,Q7,2022,KATKA: A KRAKEN-Like Tool with k Given at Query Time,3
+R08606,Q7,2023,CONSULT-II: Taxonomic Identification Using Locality Sensitive Hashing,3
+R08607,Q7,2017,On the Ability to Reconstruct Ancestral Genomes from Mycobacterium Genus,3
+R08608,Q7,2017,A Framework for Space-Efficient String Kernels,3
+R08609,Q7,2014,Analysis of the complete plastid genome of the unicellular red alga Porphyridium purpureum,3
+R08610,Q7,2024,"The First Genome-Wide Survey of Shortbelly Eel (Dysomma anguillare Barnard, 1923) to Provide Genomic Characteristics, Microsatellite Markers and Complete Mitogenome Information",3
+R08611,Q7,2005,Gene orders in genomes of alpha-proteobacteria: Similarity and evolution,3
+R08612,Q7,2019,Statistical Inconsistency of Maximum Parsimony for k-Tuple-Site Data,3
+R08613,Q7,2007,In silico comparison of bacterial strains using mutual information,3
+R08614,Q7,2019,The evolution study on Oryza rufipogon. dw by whole-genome sequencing,3
+R08615,Q7,2022,"A hapless mathematical contribution to biology Chromosome inversions in Drosophila, 1937-1941",3
+R08616,Q7,2016,Effect of k-tuple length on sample-comparison with high-throughput sequencing data,3
+R08617,Q7,2011,A mathematical consideration of the word-composition vector method in comparison of biological sequences,3
+R08618,Q7,2021,Taxonomic classification of metagenomic sequences from Relative Abundance Index profiles using deep learning,3
+R08619,Q7,2019,Transmission events and antimicrobial susceptibilities of methicillin-resistant Staphylococcus argenteus in Stockholm,3
+R08620,Q7,2024,Prediction of viral families and hosts of single-stranded RNA viruses based on K-Mer coding from phylogenetic gene sequences,3
+R08621,Q7,2018,"A short note on the paper of Liu et al. (2012). A relative Lempel-Ziv complexity: Application to comparing biological sequences. Chemical Physics Letters, volume 530, 19 March 2012, pages 107-112",3
+R08622,Q7,2014,Fast assembly of the mitochondrial genome of a plant parasitic nematode (Meloidogyne graminicola) using next generation sequencing,3
+R08623,Q7,2021,Chaos game representation and its applications in bioinformatics,3
+R08624,Q7,2018,"Discovery of the First Germline-Restricted Gene by Subtractive Transcriptomic Analysis in the Zebra Finch, Taeniopygia guttata",3
+R08625,Q7,2022,"The complete mitochondrial genome of Platygaster robiniae (Hymenoptera: Platygastridae): A novel tRNA secondary structure, gene rearrangements and phylogenetic implications",3
+R08626,Q7,2021,Human Calicivirus Typing tool: A web-based tool for genotyping human norovirus and sapovirus sequences,3
+R08627,Q7,2010,New method for comparing DNA primary sequences based on a discrimination measure,3
+R08628,Q7,2011,New powerful statistics for alignment-free sequence comparison under a pattern transfer model,3
+R08629,Q7,2015,Progressive alignment of genomic signals by multiple dynamic time warping,3
+R08630,Q7,2022,A time series representation of protein sequences for similarity comparison,3
+R08631,Q7,2010,Vector representations and related matrices of DNA primary sequence based on L-tuple,3
+R08632,Q7,2011,A phylogenetic analysis using full-length viral genomes of South American dengue serotype 3 in consecutive Venezuelan outbreaks reveals a novel NS5 mutation,3
+R08633,Q7,2021,Exploration of hosts and transmission traits for SARS-CoV-2 based on the k-mer natural vector,3
+R08634,Q7,2014,GC skew and mitochondrial origins of replication,3
+R08635,Q7,2012,Novel graphical representation of genome sequence and its applications in similarity analysis,3
+R08636,Q7,2017,Weighted measures based on maximizing deviation for alignment-free sequence comparison,3
+R08637,Q7,2017,A novel genome signature based on inter-nucleotide distances profiles for visualization of metagenomic data,3
+R08638,Q7,2024,"Conservation genomics provides insights into genetic resilience and adaptation of the endangered Chinese hazelnut, Corylus chinensis",3
+R08639,Q7,2019,Resolution of deep divergence of club fungi (phylum Basidiomycota),3
+R08640,Q7,2017,Highly conserved intragenic HSV-2 sequences: Results from next-generation sequencing of HSV-2 UL and Us regions from genital swabs collected from 3 continents,3
+R08641,Q7,2025,The grand biological universe: A comprehensive geometric construction of genome space,3
+R08642,Q7,2015,"Repetitive element signature-based visualization, distance computation, and classification of 1766 microbial genomes",3
+R08643,Q7,2016,Numerical encoding of DNA sequences by chaos game representation with application in similarity comparison,3
+R08644,Q7,2007,The complete mitochondrial genome of Scutigerella causeyae (Myriapoda: Symphyla) and the phylogenetic position of Symphyla,3
+R08645,Q7,2012,A mapping of an ensemble of mitochondrial sequences for various organisms into 3D space based on the word composition,3
+R08646,Q7,2015,Molecular genetic diversity and characterization of conjugation genes in the fish parasite Ichthyophthirius multifiliis,3
+R08647,Q7,2006,Exposing phylogenetic relationships by genome rearrangement,3
+R08648,Q7,2025,Topology-Enhanced Machine Learning Model (Top-ML) for Anticancer Peptide Prediction,3
+R08649,Q7,2020,Large-scale network analysis captures biological features of bacterial plasmids,3
+R08650,Q7,2021,Whole-genome microsynteny-based phylogeny of angiosperms,3
+R08651,Q7,2022,Genomic distances reveal relationships of wild and cultivated beets,3
+R08652,Q7,2022,Strain level microbial detection and quantification with applications to single cell metagenomics,3
+R08653,Q7,2026,Pangenome dynamics and population structure of the zoonotic pathogen Salmonella enterica serotype Hadar,3
+R08654,Q7,2025,A composite universal DNA signature for the tree of life,3
+R08655,Q7,2025,Efficient and robust search of microbial genomes via phylogenetic compression,3
+R08656,Q7,2019,A chromosome-level genome assembly of the Chinese tupelo Nyssa sinensis,3
+R08657,Q7,2017,EnSVMB: Metagenomics Fragments Classification using Ensemble SVM and BLAST,3
+R08658,Q7,2018,De novo draft assembly of the Botrylloides leachii genome provides further insight into tunicate evolution,3
+R08659,Q7,2023,Comparative study of encoded and alignment-based methods for virus taxonomy classification,3
+R08660,Q7,2016,Alignment-free Transcriptomic and Metatranscriptomic Comparison Using Sequencing Signatures with Variable Length Markov Chains,3
+R08661,Q7,2014,The relationship between classification of multi-domain proteins using an alignment-free approach and their functions: a case study with immunoglobulins,3
+R08662,Q7,2022,Genome-wide survey and genetic characteristics of Ophichthus evermanni based on Illumina sequencing platform,3
+R08663,Q7,2011,An Efficient Binomial Model-Based Measure for Sequence Comparison and its Application,3
+R08664,Q7,2006,Local decoding of sequences and alignment-free comparison,3
+R08665,Q7,2006,Using PQ structures for genomic rearrangement phylogeny,3
+R08666,Q7,2012,Normal and Compound Poisson Approximations for Pattern Occurrences in NGS Reads,3
+R08667,Q7,2024,The Statistics of Parametrized Syncmers in a Simple Mutation Process Without Spurious Matches,3
+R08668,Q7,2022,"Emergence of a Hypermucoviscous Klebsiella pneumoniae Strain Coproducing K. pneumoniae Carbapenemase-2 and New Delhi Metallo-β-Lactamase-5 Carbapenemases in Shanghai, China",3
+R08669,Q7,2016,MBMC: An Effective Markov Chain Approach for Binning Metagenomic Reads from Environmental Shotgun Sequencing Projects,3
+R08670,Q7,2026,Geographic distance and landscape ruggedness shape genome-wide divergence and admixture in Leucostele cacti across the Atacama-central Chile biodiversity hotspot,3
+R08671,Q7,2026,Uncovering species- and drug-class-specific antimicrobial resistance mechanisms from large-scale whole-genome sequencing data using discordance analysis and machine learning,3
+R08672,Q7,2014,Alignment-free genetic sequence comparisons: a review of recent approaches by word analysis,3
+R08673,Q7,2014,"New developments of alignment-free sequence comparison: measures, statistics and next-generation sequencing",3
+R08674,Q7,2020,Rapid screening and detection of inter-type viral recombinants using phylo-k-mers,3
+R08675,Q7,2020,Phylogenetic double placement of mixed samples,3
+R08676,Q7,2023,"P-DOR, an easy-to-use pipeline to reconstruct bacterial outbreaks using genomics",3
+R08677,Q7,2008,Markov model plus k-word distributions: a synergy that produces novel statistical measures for sequence comparison,3
+R08678,Q7,2009,Genome analysis with inter-nucleotide distances,3
+R08679,Q7,2010,webMGR: an online tool for the multiple genome rearrangement problem,3
+R08680,Q7,2012,KASpOD-a web service for highly specific and explorative oligonucleotide design,3
+R08681,Q7,2015,Integrating alignment-based and alignment-free sequence similarity measures for biological sequence classification,3
+R08682,Q7,2019,Metagenomic binning through low-density hashing,3
+R08683,Q7,2025,"Genome survey and evolutionary analysis of 8 Lamprotula species: SSR profiling, mitochondrial characterization, and population dynamics inference",3
+R08684,Q7,2025,k-mer-based diversity scales with population size proxies more than nucleotide diversity in a meta-analysis of 98 plant species,3
+R08685,Q7,2015,Novel genetic markers define a subgroup of pathogenic Escherichia coli strains belonging to the B2 phylogenetic group,3
+R08686,Q7,2021,A telomere-to-telomere assembly of Oscheius tipulae and the evolution of rhabditid nematode chromosomes,3
+R08687,Q7,2026,A Mid-Atlantic Brook Trout (Salvelinus fontinalis) genome to advance conservation and comparative genomics,3
+R08688,Q7,2023,Population Genomic Evidence for a Repeated Introduction and Rapid Expansion of the Fungal Maize Pathogen Setosphaeria turcica in Europe,3
+R08689,Q7,2012,Toward an Understanding of the Evolution of Staphylococcus aureus Strain USA300 during Colonization in Community Households,3
+R08690,Q7,2013,The Evolution of Genomic Instability in the Obligate Endosymbionts of Whiteflies,3
+R08691,Q7,2013,Phylogenetic Diversity of the Enteric Pathogen Salmonella enterica subsp enterica Inferred from Genome-Wide Reference-Free SNP Characters,3
+R08692,Q7,2015,Whole Genome Sequencing of the Asian Arowana (Scleropages formosus) Provides Insights into the Evolution of Ray-Finned Fishes,3
+R08693,Q7,2024,The first high-altitude autotetraploid haplotype-resolved genome assembled (Rhododendron nivale subsp. boreale) provides new insights into mountaintop adaptation,3
+R08694,Q7,2018,"A draft genome assembly of the Chinese sillago (Sillago sinica), the first reference genome for Sillaginidae fishes",3
+R08695,Q7,2019,"Genome sequence of the barred knifejaw Oplegnathus fasciatus (Temminck & Schlegel, 1844): the first chromosome-level draft genome in the family Oplegnathidae",3
+R08696,Q7,2019,"SwiftOrtho: A fast, memory-efficient, multiple genome orthology classifier",3
+R08697,Q7,2019,A chromosomal-level genome assembly for the giant African snail Achatina fulica,3
+R08698,Q7,2023,Multiomics characterization of methicillin-resistant Staphylococcus aureus (MRSA) isolates with heterogeneous intermediate resistance to vancomycin (hVISA) in Latin America,3
+R08699,Q7,2026,The curious case of a Chilean copepod (Tigriopus aff. angulatus) genome assembly,3
+R08700,Q7,2023,"A novel strain of Shigella isolated from the gut of Lepidocephalichthys guntea has in its genome a complete gene package for Type ll secretion system, and elaborate repertoire of genes responsible for multiple antibiotic-resistance and metal resistance via specific efflux channels",3
+R08701,Q7,2020,Phylogenetic Reconstruction Based on Synteny Block and Gene Adjacencies,3
+R08702,Q7,2022,Multiple Profile Models Extract Features from Protein Sequence Data and Resolve Functional Diversity of Very Different Protein Families,3
+R08703,Q7,2025,Phylogenomics Unveils the Complex Evolution of Retroviruses in Birds,3
+R08704,Q7,2012,ALF-A Simulation Framework for Genome Evolution,3
+R08705,Q7,2015,Evolution of tRNA Repertoires in Bacillus Inferred with OrthoAlign,3
+R08706,Q7,2017,Phenetic Comparison of Prokaryotic Genomes Using k-mers,3
+R08707,Q7,2013,Interpreting genomic data via entropic dissection,3
+R08708,Q7,2026,Optimizing genomic language models for promoter prediction: a comparative study of tokenization and cross-species learning,3
+R08709,Q7,2014,A comparison of the Caulobacter NA1000 and K31 genomes reveals extensive genome rearrangements and differences in metabolic potential,3
+R08710,Q7,2018,PlasmidTron: assembling the cause of phenotypes and genotypes from NGS data,3
+R08711,Q7,2020,A publicly accessible database for Clostridioides difficile genome sequences supports tracing of transmission chains and epidemics,3
+R08712,Q7,2021,Rapid and accurate SNP genotyping of clonal bacterial pathogens with BioHansel,3
+R08713,Q7,2022,Benchmarking the topological accuracy of bacterial phylogenomic workflows using in silico evolution,3
+R08714,Q7,2024,Comparison of gene- by- gene and genome- wide short nucleotide sequence- based approaches to define the global population structure of Streptococcus pneumoniae,3
+R08715,Q7,2025,microGWAS: a computational pipeline to perform large- scale bacterial genome-wide association studies,3
+R08716,Q7,2025,Whole-genome sequencing and bioinformatic tools powered by machine learning to identify antibiotic-resistant genes and virulence factors in Escherichia coli from sepsis,3
+R08717,Q7,2024,"Rapid SARS-CoV-2 surveillance using clinical, pooled, or wastewater sequence as a sensor for population change",3
+R08718,Q7,2005,Comparative architectures of mammalian and chicken genomes reveal highly variable rates of genomic rearrangements across different lineages,3
+R08719,Q7,2008,A Novel Measurement of Sequence Dissimilarity and Its Application to Phylogeny,3
+R08720,Q7,2019,The Invariance of Spectral-Kolmogorov-Type statistics for Estimating Genomic Similarity,3
+R08721,Q7,2010,The Metropolized Partial Importance Sampling MCMC Mixes Slowly on Minimum Reversal Rearrangement Paths,3
+R08722,Q7,2021,Sorting Permutations by Intergenic Operations,3
+R08723,Q7,2023,Alignment-Free Sequence Comparison: A Systematic Survey From a Machine Learning Perspective,3
+R08724,Q7,2005,Clustering by compression,3
+R08725,Q7,2020,The impact of contaminants on the accuracy of genome skimming and the effectiveness of exclusion read filters,3
+R08726,Q7,2021,A multitiered sequence capture strategy spanning broad evolutionary scales: Application for phylogenetic and phylogeographic studies of orchids,3
+R08727,Q7,2022,TransPi-a comprehensive TRanscriptome ANalysiS PIpeline for de novo transcriptome assembly,3
+R08728,Q7,2026,GeneMiner2: Accurate and Automated Recovery of Genes From Genome Skimming Data,3
+R08729,Q7,2026,Plant species identification by genome skimming across the vascular plant tree of life,3
+R08730,Q7,2017,Karyotype diversity and genome size variation in Neotropical Maxillariinae orchids,3
+R08731,Q7,2021,Streptococcus pseudopneumoniae: Use of Whole-Genome Sequences To Validate Species Identification Methods,3
+R08732,Q7,2021,Detection and Characterization of Swine Origin Influenza A(H1N1) Pandemic 2009 Viruses in Humans following Zoonotic Transmission,3
+R08733,Q7,2010,Frequency Analysis Techniques for Identification of Viral Genetic Data,3
+R08734,Q7,2013,Evolutionary Dynamics of Vibrio cholerae O1 following a Single-Source Introduction to Haiti,3
+R08735,Q7,2020,Plasmids Shaped the Recent Emergence of the Major Nosocomial Pathogen Enterococcus faecium,3
+R08736,Q7,2026,A structural backbone with sequestered plasticity organizes the Escherichia coli pangenome,3
+R08737,Q7,2023,Investigation of machine learning algorithms for taxonomic classification of marine metagenomes,3
+R08738,Q7,2019,"From Idea to Law: Theory, Concept and Terminological Formation in Ernst Haeckel's Works",3
+R08739,Q7,2017,An accurate and fast alignment-free method for profiling microbial communities,3
+R08740,Q7,2018,A Rapid Exact Solution for the Guided Genome Halving Problem,3
+R08741,Q7,2015,Correlational Studies in Typological and Historical Linguistics,3
+R08742,Q7,2022,Machine Learning Prediction of Non-Coding Variant Impact in Human Retinal cis-Regulatory Elements,3
+R08743,Q7,2011,DNACLUST: accurate and efficient clustering of phylogenetic marker genes,3
+R08744,Q7,2011,A method for computing an inventory of metazoan mitochondrial gene order rearrangements,3
+R08745,Q7,2013,Gene prediction in metagenomic fragments based on the SVM algorithm,3
+R08746,Q7,2014,Metavir 2: new tools for viral metagenome comparison and assembled virome analysis,3
+R08747,Q7,2008,Binning sequences using very sparse labels within a metagenome,3
+R08748,Q7,2008,Barcodes for genomes and applications,3
+R08749,Q7,2012,Comparison of metagenomic samples using sequence signatures,3
+R08750,Q7,2013,Optimizing de novo assembly of short-read RNA-seq data for phylogenomics,3
+R08751,Q7,2013,Phage cluster relationships identified through single gene analysis,3
+R08752,Q7,2013,A genome-wide cis-regulatory element discovery method based on promoter sequences and gene co-expression networks,3
+R08753,Q7,2014,Comparison of different assembly and annotation tools on analysis of simulated viral metagenomic communities in the gut,3
+R08754,Q7,2014,HyDA-Vista: towards optimal guided selection of k-mer size for sequence assembly,3
+R08755,Q7,2013,Next-generation phylogenomics,3
+R08756,Q7,2015,MBBC: an efficient approach for metagenomic binning based on clustering,3
+R08757,Q7,2015,Comparing K-mer based methods for improved classification of 16S sequences,3
+R08758,Q7,2015,An investigation into inter- and intragenomic variations of graphic genomic signatures,3
+R08759,Q7,2015,"Cnidaria: fast, reference-free clustering of raw and assembled genome and transcriptome NGS data",3
+R08760,Q7,2016,On the comparison of regulatory sequences with multiple resolution Entropic Profiles,3
+R08761,Q7,2017,TreeToReads - a pipeline for simulating raw reads from phylogenies,3
+R08762,Q7,2017,A Bayesian taxonomic classification method for 16S rRNA gene sequences with improved species-level accuracy,3
+R08763,Q7,2017,Reconstructing cancer karyotypes from short read data: the half empty and half full glass,3
+R08764,Q7,2018,Efficient inference of homologs in large eukaryotic pan-proteomes,3
+R08765,Q7,2018,PanDelos: a dictionary-based method for pan-genome content discovery,3
+R08766,Q7,2021,FEGS: a novel feature extraction model for protein sequences and its applications,3
+R08767,Q7,2017,Pan-genome and phylogeny of Bacillus cereus sensu lato,3
+R08768,Q7,2016,Genome survey of pistachio (Pistacia vera L.) by next generation sequencing: Development of novel SSR markers and genetic diversity in Pistacia species,3
+R08769,Q7,2018,Multiple independent structural dynamic events in the evolution of snake mitochondrial genomes,3
+R08770,Q7,2018,"Whole genome sequencing analysis of multiple Salmonella serovars provides insights into phylogenetic relatedness, antimicrobial resistance, and virulence markers across humans, food animals and agriculture environmental sources",3
+R08771,Q7,2021,Exploring short k-mer profiles in cells and mobile elements from Archaea highlights the major influence of both the ecological niche and evolutionary history,3
+R08772,Q7,2023,Exploring objective feature sets in constructing the evolution relationship of animal genome sequences,3
+R08773,Q7,2024,A tip of the iceberg: genome survey indicated a complex evolutionary history of Garuga Roxb. species,3
+R08774,Q7,2026,Machine learning-based prediction of BV-relevant probiotic functional potential in vaginal-derived Lactobacillus crispatus strains,3
+R08775,Q7,2025,"Plastome evolution at the edge: structural rearrangements, IR expansion, and gene flux in Hypericaceae (Malpighiales)",3
+R08776,Q7,2018,Coordinate systems for supergenomes,3
+R08777,Q7,2023,Maast: genotyping thousands of microbial strains efficiently,3
+R08778,Q7,2025,KPop: accurate and scalable comparative analysis of microbial genomes by sequence embeddings,3
+R08779,Q7,2021,High genetic diversity in Campylobacter concisus isolates from patients with microscopic colitis,3
+R08780,Q7,2018,A de novo approach to disentangle partner identity and function in holobiont systems,3
+R08781,Q7,2017,LANGUAGE MONITORING IN BILINGUALS AS A MECHANISM FOR RAPID LEXICAL DIVERGENCE,3
+R08782,Q7,2010,The Evolutionary Analysis of Emerging Low Frequency HIV-1 CXCR4 Using Variants through Time-An Ultra-Deep Approach,3
+R08783,Q7,2015,Comprehensive Sieve Analysis of Breakthrough HIV-1 Sequences in the RV144 Vaccine Efficacy Trial,3
+R08784,Q7,2017,"kWIP: The k-mer weighted inner product, a de novo estimator of genetic similarity",3
+R08785,Q7,2020,Predicting host taxonomic information from viral genomes: A comparison of feature representations,3
+R08786,Q7,2021,Estimating repeat spectra and genome length from low-coverage genome skims with RESPECT,3
+R08787,Q7,2026,DipSkmer: Reference-free population genomics with diploid genome skims,3
+R08788,Q7,2022,Population genomics of the grapevine pathogen Eutypa lata reveals evidence for population expansion and intraspecific differences in secondary metabolite gene clusters,3
+R08789,Q7,2010,Evolutionary Distances in the Twilight Zone-A Rational Kernel Approach,3
+R08790,Q7,2011,Rec-DCM-Eigen: Reconstructing a Less Parsimonious but More Accurate Tree in Shorter Time,3
+R08791,Q7,2011,Identification and Typing of Human Enterovirus: A Genomic Barcode Approach,3
+R08792,Q7,2012,Analyzing Multi-locus Plant Barcoding Datasets with a Composition Vector Method Based on Adjustable Weighted Distance,3
+R08793,Q7,2014,Genomic Evolution of 11 Type Strains within Family Planctomycetaceae,3
+R08794,Q7,2014,Evaluation of Whole Genome Sequencing for Outbreak Detection of Salmonella enterica,3
+R08795,Q7,2014,A Rank-Based Sequence Aligner with Applications in Phylogenetic Analysis,3
+R08796,Q7,2015,Mapping the Space of Genomic Signatures,3
+R08797,Q7,2016,"The Ancestral Carnivore Karyotype As Substantiated by Comparative Chromosome Painting of Three Pinnipeds, the Walrus, the Steller Sea Lion and the Baikal Seal (Pinnipedia, Carnivora)",3
+R08798,Q7,2018,An open-source k-mer based machine learning tool for fast and accurate subtyping of HIV-1 genomes,3
+R08799,Q7,2022,New plastomes of eight Ipomoea species and four putative hybrids from Eastern Amazon,3
+R08800,Q7,2023,Phylogenetic trees of closely related bacterial species and subspecies based on frequencies of short nucleotide sequences,3
+R08801,Q7,2024,Machine learning-based approach KEVOLVE efficiently identifies SARS-CoV-2 variant-specific genomic signatures,3
+R08802,Q7,2025,A PCR primer design method for identifying spider mite species using k-mer counting,3
+R08803,Q7,2020,"Genome Sequence of the Banana Aphid, Pentalonia nigronervosa Coquerel (Hemiptera: Aphididae) and Its Symbionts",3
+R08804,Q7,2022,Taxonomy Classification using Genomic Footprint of Mitochondrial Sequences,3
+R08805,Q7,2006,Computational Methods for Analysis of High-Throughput Screening Data,3
+R08806,Q7,2013,Similarity/Dissimilarity Analysis of Protein Sequences by a New Graphical Representation,3
+R08807,Q7,2015,The utility of multiple molecular methods including whole genome sequencing as tools to differentiate Escherichia coli O157:H7 outbreaks,3
+R08808,Q7,2026,"Implementation of a novel technique for DNA sequence analysis using Machine Learning, Deep Learning and hybrid frameworks",3
+R08809,Q7,2019,Reads Binning Improves Alignment-Free Metagenome Comparison,3
+R08810,Q7,2024,Automated recognition of chromosome fusion using an alignment-free natural vector method,3
+R08811,Q7,2024,Improved species assignments across the entire Anopheles genus using targeted sequencing,3
+R08812,Q7,2025,Karyotype and genome size analyses for two spiders of the lycosidae family,3
+R08813,Q7,2014,Assembly of viral genomes from metagenomes,3
+R08814,Q7,2019,Comparative Analysis of Tools and Approaches for Source Tracking Listeria monocytogenes in a Food Facility Using Whole-Genome Sequence Data,3
+R08815,Q7,2019,A Cautionary Report for Pathogen Identification Using Shotgun Metagenomics; A Comparison to Aerobic Culture and Polymerase Chain Reaction for Salmonella enterica Identification,3
+R08816,Q7,2021,fIDBAC: A Platform for Fast Bacterial Genome Identification and Typing,3
+R08817,Q7,2023,"Prevalence, genomic characterization and antimicrobial resistance of Campylobacter spp. isolates in pets in Shenzhen, China",3
+R08818,Q7,2020,"Systematic Comparisons for Composition Profiles, Taxonomic Levels, and Machine Learning Methods for Microbiome-Based Disease Prediction",3
+R08819,Q7,2020,Genome Size of 17 Species From Caelifera (Orthoptera) and Determination of Internal Standards With Very Large Genome Size in Insecta,3
+R08820,Q7,2017,De Novo Assembly of Complete Chloroplast Genomes from Non-model Species Based on a K-mer Frequency-Based Selection of Chloroplast Reads from Total DNA Sequences,3
+R08821,Q7,2022,Does IR-loss promote plastome structural variation and sequence evolution?,3
+R08822,Q7,2023,Intrageneric structural variation in organelle genomes from the genus Dystaenia (Apiaceae): genome rearrangement and mitochondrion-to-plastid DNA transfer,3
+R08823,Q7,2024,First De Novo genome assembly and characterization of Gaultheria prostrata,3
+R08824,Q7,2026,Assembly and comparative analysis of the complete mitochondrial genomes of Pyrus calleryana Decne. and Pyrus betulifolia Bunge,3
+R08825,Q7,2022,"Whole-Genome Survey Analyses Provide a New Perspective for the Evolutionary Biology of Shimofuri Goby, Tridentiger bifasciatus",3
+R08826,Q7,2025,Whole-Genome Sequencing of Hexagrammos otakii Provides Insights into Its Genomic Characteristics and Population Dynamics,3
+R08827,Q7,2025,Molecular Epidemiological Surveillance of Carbapenem-Resistant Gram-Negative Bacteria in Southern Lebanon,3
+R08828,Q7,2025,A Novel Method for Predicting Oncogenic Types of Human Papillomavirus,3
+R08829,Q7,2023,CNN_FunBar: Advanced Learning Technique for Fungi ITS Region Classification,3
+R08830,Q7,2025,The Genome Survey Analysis of Female and Male Sepiella japonica,3
+R08831,Q7,2025,Construction of Phylogenetic Relationships Based on 8-mer Spectra Distribution Characteristics of Vertebrate Whole Genome Sequences,3
+R08832,Q7,2023,Elucidating the Mesocarp Drupe Transcriptome of Acai (Euterpe oleracea Mart.): An Amazonian Tree Palm Producer of Bioactive Compounds,3
+R08833,Q7,2023,Enhancer Recognition: A Transformer Encoder-Based Method with WGAN-GP for Data Augmentation,3
+R08834,Q7,2020,Towards Genomic Criteria for Delineating Fungal Species,3
+R08835,Q7,2023,Fungal Whole-Genome Sequencing for Species Identification: From Test Development to Clinical Utilization,3
+R08836,Q7,2022,Systems-Based Approach for Optimization of Assembly-Free Bacterial MLST Mapping,3
+R08837,Q7,2022,Phylogenomic Analysis of Salmonella enterica subsp. enterica Serovar Bovismorbificans from Clinical and Food Samples Using Whole Genome Wide Core Genes and kmer Binning Methods to Identify Two Distinct Polyphyletic Genome Pathotypes,3
+R08838,Q7,2025,Analysis of the Relationship Between the Charge Increment of the SARS-CoV-2 Spike Protein and Evolution,3
+R08839,Q7,2026,Identification of Partitivirus-like RdRPs in the Brevipalpus yothersi Genome Supports Viral-to-Arthropod Horizontal Gene Transfer,3
+R08840,Q7,2026,Genome-Scale Nuclear Markers Provide Strong Evidence for Species-Level Differentiation between the Mahseer Fishes Tor tambra and Tor tambroides,3
+R08841,Q7,2008,Prokaryotic branch of the Tree of Life: A composition vector approach,3
+R08842,Q7,2016,Chromosomal rearrangements in holocentric organisms lead to reproductive isolation by hybrid dysfunction: The correlation between karyotype rearrangements and germination rates in sedges,3
+R08843,Q7,2017,THE UNEXPECTED DEPTHS OF GENOME-SKIMMING DATA: A CASE STUDY EXAMINING GOODENIACEAE FLORAL SYMMETRY GENES,3
+R08844,Q7,2026,"Telomeric repeat diversity across Nepomorpha (Hemiptera, Heteroptera) revealed by whole-genome sequencing data",3
+R08845,Q7,2026,TOPOLOGICAL SEQUENCE ANALYSIS OF GENOMES: DELTA COMPLEX APPROACHES,3
+R08846,Q7,2024,Taxonomic Classification with Maximal Exact Matches in KATKA Kernels and Minimizer Digests,3
+R08847,Q7,2012,Co-evolution of genomic islands and their bacterial hosts revealed through phylogenetic analyses of 17 groups of homologous genomic islands,3
+R08848,Q7,2022,Genome Size Variation of Chagas Disease Vectors of the Rhodniini Tribe,3
+R08849,Q7,2012,IMPROVEMENTS TO A MULTIPLE PROTEIN SEQUENCE ALIGNMENT TOOL,3
+R08850,Q7,2022,High-resolution species assignment of Anopheles mosquitoes using k-mer distances on targeted sequences,3
+R08851,Q7,2022,Genome survey sequencing of the phyto-parasitic nematode Hoplolaimus galeatus,3
+R08852,Q7,2010,A Clustering Optimization Strategy for Molecular Taxonomy Applied to Planktonic Foraminifera SSU rDNA,3
+R08853,Q7,2005,A framework for orthology assignment from gene rearrangement data,3
+R08854,Q7,2007,A heuristic algorithm for reconstructing ancestral gene orders with duplications,3
+R08855,Q7,2020,A New Burrows Wheeler Transform Markov Distance,3
+R08856,Q7,2010,An Evolutionary Model of DNA Substring Distribution,3
+R08857,Q7,2008,Analysis and comparision of information theory-based distances for genomic strings,3
+R08858,Q7,2010,Composition Vector Method for Phylogenetics - A Review,3
+R08859,Q7,2017,Dictionary Coded Profiles and their use with nanopore sequencers,3
+R08860,Q7,2005,Genes order and phylogenetic reconstruction: Application to γ-Proteobacteria,3
+R08861,Q7,2007,"Genome Signatures, Self-Organizing Maps and Higher Order Phylogenies: A Parametric Analysis",3
+R08862,Q7,2005,Improving genome rearrangement phylogeny using sequence-style parsimony,3
+R08863,Q7,2010,Issues in the Reconstruction of Gene Order Evolution,3
+R08864,Q7,2005,Linear programming for phylogenetic reconstruction based on gene rearrangements,3
+R08865,Q7,2006,Phylogeny of SARS-CoV based on high-dimensional information geometry,3
+R08866,Q7,2018,Research on Meta genomic Attribute Reduction Based on a New Algorithm,3
+R08867,Q7,2016,Rough Reduction Algorithm for Reduction of Metagenomic DNA Digital Signature,3
+R08868,Q7,2008,Sample-Align-D: A high performance multiple sequence alignment system using phylogenetic sampling and domain decomposition,3

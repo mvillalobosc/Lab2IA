@@ -1,0 +1,79 @@
+BLOCK supertree: 712 studies with the category, 591 as main block
+type: method=425, evaluation=146, theory=115, review=21, metric=5
+crit: coalescent=243, other=183, none=127, quartet=115, likelihood=97, parsimony=95, bayesian=73, distance=40, net_parsimony=6, pseudolikelihood=6
+alg: none=317, other=223, exact=101, hill_climb=41, divide_conquer=34, mcmc=18, ml=6, ga_ea=5, sa=2, nsga2=1, swarm=1
+rep: tree=681, quartet=104, network=58, cluster=41, other=32, split=32, matrix=28
+ops: none=618, consensus=59, other=15, spr=14, nni=8, tbr=8, nj_init=4, crossover=2, mutation=2, pdg=1
+nobj: na=479, 1=225, 2=4, 3=4
+dsd: na=552, no=160
+data: gene_trees=453, dna=147, genomic=127, other=30, unclear=16, morphological=7, protein=7, distances=4
+soft: unclear=639, yes=73
+
+TOP CITED:
+R02692 Pons 2006 c=2230 [method] Sequence-based species delimitation for the DNA taxonomy of undescribed insects | name=NA | Yule-coalescent likelihood threshold delimits species on ultrametric trees | crit=likelihood;coalescent alg=none rep=tree;cluster ops=none
+R05683 Zhang 2018 c=2111 [method] ASTRAL-III: Polynomial time species tree reconstruction from partially resolved gene trees | name=ASTRAL-III | Polynomial-time ASTRAL with efficient polytomies and pruned search | crit=quartet;coalescent alg=exact rep=tree;quartet;split ops=none
+R03356 Heled 2010 c=2099 [method] Bayesian Inference of Species Trees from Multilocus Data | name=NA | Bayesian MCMC multispecies coalescent co-estimating gene and species trees | crit=bayesian;coalescent alg=mcmc rep=tree ops=none
+R03722 Chernomor 2016 c=1971 [method] Terrace Aware Data Structure for Phylogenomic Inference from Supermatrices | name=PTA | Terrace-aware data structure speeding partitioned ML tree search | crit=likelihood alg=other rep=tree ops=other
+R03055 Mirarab 2014 c=1099 [method] ASTRAL: Genome-scale coalescent-based species tree estimation | name=ASTRAL | Fast statistically consistent coalescent-based species tree estimation | crit=coalescent alg=none rep=tree ops=none
+R03985 Vilella 2009 c=1025 [method] EnsemblCompara GeneTrees: Complete, duplication-aware phylogenetic trees in vertebrates | name=EnsemblCompara GeneTrees | Duplication-aware gene tree pipeline with correctness metrics and benchmark | crit=none alg=none rep=tree ops=none
+R03058 Mirarab 2015 c=803 [method] ASTRAL-II: Coalescent-based species tree estimation with many hundreds of taxa and thousan | name=ASTRAL-II | Faster, more accurate ASTRAL with expanded bipartition search space | crit=coalescent alg=other rep=tree;split ops=none
+R06034 Degnan 2006 c=780 [theory] Discordance of species trees with their most likely gene trees | name=NA | Anomalous gene trees make most-frequent topology estimator inconsistent | crit=coalescent alg=none rep=tree ops=none
+R03401 Sayyari 2016 c=717 [method] Fast Coalescent-Based Computation of Local Branch Support from Quartet Frequencies | name=ASTRAL | Quartet-based local posterior support and coalescent branch lengths | crit=coalescent;quartet alg=other rep=tree;quartet ops=none
+R02716 Knowles 2007 c=656 [method] Delimiting species without monophyletic sene trees | name=NA | Coalescent-based species delimitation without monophyletic gene trees | crit=coalescent alg=none rep=tree ops=none
+R05841 Kueck 2014 c=563 [method] FASconCAT-G: extensive functions for multiple sequence alignment preparations concerning p | name=FASconCAT-G | Alignment processing and concatenation tool for phylogenomic supermatrices | crit=none alg=none rep=other ops=none
+R02585 Hinchliff 2015 c=544 [method] Synthesis of phylogeny and taxonomy into a comprehensive tree of life | name=Open Tree of Life | Synthesis of published phylogenies and taxonomy into 2.3M-tip tree | crit=none alg=none rep=tree ops=none
+R05702 Smith 2015 c=462 [method] Analysis of phylogenomic datasets reveals conflict, concordance, and gene duplications wit | name=NA | Homolog-level gene tree conflict, concordance and duplication analysis | crit=none alg=none rep=tree;split ops=none
+R01858 Kuck 2010 c=454 [method] FASconCAT: Convenient handling of data matrices | name=FASconCAT | Perl tool concatenating sequence alignments into supermatrix files | crit=none alg=none rep=other ops=none
+R03333 Ane 2007 c=403 [method] Bayesian estimation of concordance among gene trees | name=NA | Two-stage MCMC estimating concordance among gene trees | crit=bayesian alg=mcmc rep=tree ops=none
+R02711 Liu 2007 c=395 [method] Species trees from gene trees: Reconstructing Bayesian posterior distributions of a specie | name=NA | Bayesian hierarchical coalescent species tree from gene tree distributions | crit=bayesian;coalescent alg=mcmc rep=tree ops=none
+R03607 Liu 2009 c=379 [method] Estimating species phylogenies using coalescence times among sequences | name=STAR/STEAC | Consistent species tree estimators from coalescence time summaries | crit=coalescent;distance alg=other rep=tree;matrix ops=none
+R03032 Kubatko 2009 c=370 [method] STEM: Species tree estimation using maximum likelihood for gene trees under coalescence | name=STEM | Maximum likelihood species trees from gene trees under coalescence | crit=likelihood;coalescent alg=other rep=tree ops=none
+R00156 Gadagkar 2005 c=367 [evaluation] Inferring species phylogenies from multiple genes: Concatenated sequence tree versus conse | name=NA | Simulations compare concatenated alignment versus consensus of gene trees | crit=distance;parsimony;likelihood alg=none rep=tree ops=consensus
+R03041 Larget 2010 c=357 [method] BUCKy: Gene tree/species tree reconciliation with Bayesian concordance analysis | name=BUCKy | Bayesian concordance analysis and quartet-based population trees | crit=bayesian;quartet;coalescent alg=other rep=tree;quartet ops=none
+R02660 Leliaert 2014 c=340 [review] DNA-based species delimitation in algae | name=NA | Review of DNA-based species delimitation methods for algae | crit=coalescent alg=none rep=tree;cluster ops=none
+R03029 Liu 2008 c=318 [method] BEST: Bayesian estimation of species trees under the coalescent model | name=BEST | Bayesian joint estimation of gene trees and species tree | crit=bayesian;coalescent alg=mcmc;sa rep=tree ops=none
+R02705 Carstens 2007 c=309 [evaluation] Estimating species phylogeny from gene-tree probabilities despite incomplete lineage sorti | name=ESP | Coalescent species tree from gene trees; simulated accuracy | crit=coalescent alg=none rep=tree ops=none
+R03372 Roure 2013 c=299 [evaluation] Impact of missing data on phylogenies inferred from empirical phylogenomic data sets | name=NA | Empirical assessment of missing data effects in phylogenomic supermatrices | crit=likelihood;bayesian alg=none rep=tree ops=none
+R03664 Leache 2014 c=288 [evaluation] The influence of gene flow on species tree estimation: A simulation study | name=NA | Simulated gene flow effects on species tree estimation | crit=coalescent;bayesian alg=none rep=tree ops=none
+R03048 Stolzer 2012 c=284 [method] Inferring duplications, losses, transfers and incomplete lineage sorting with nonbinary sp | name=NA | Fixed-parameter DTLI parsimony reconciliation with nonbinary species trees | crit=parsimony alg=exact rep=tree ops=none
+R03766 Wen 2018 c=284 [method] Inferring phylogenetic networks using PhyloNet | name=PhyloNet | PhyloNet package for parsimony, likelihood and Bayesian networks | crit=parsimony;likelihood;bayesian;coalescent;pseudolikelihood alg=other rep=network ops=none
+R06091 Rubin 2012 c=272 [method] Inferring phylogenies from RAD sequence data | name=NA | Proof-of-concept RAD clustering, filtering and concatenation phylogenetic workflow | crit=none alg=none rep=tree ops=none
+R02003 Gatesy 2014 c=237 [evaluation] Phylogenetic analysis at deep timescales: Unreliable gene trees, bypassed hidden support,  | name=NA | Critique of shortcut coalescence methods versus concatenation at depth | crit=coalescent alg=none rep=tree ops=none
+R01470 Chifman 2015 c=225 [theory] Identifiability of the unrooted species tree topology under the coalescent model with time | name=NA | Species tree identifiability under coalescent with rate variation | crit=coalescent alg=none rep=tree ops=none
+R03680 Mirarab 2016 c=223 [evaluation] Evaluating summarymethods for multilocus species tree estimation in the presence of incomp | name=NA | Simulation comparison of MP-EST, concatenation, greedy consensus, MRP, MRL | crit=coalescent;likelihood;parsimony alg=none rep=tree ops=consensus
+R05605 Smith 2009 c=221 [method] Mega-phylogeny approach for comparative biology: An alternative to supertree and supermatr | name=mega-phylogeny | Database-driven dense supermatrix assembly for very large phylogenies | crit=none alg=other rep=tree ops=none
+R03628 Leache 2011 c=216 [evaluation] The accuracy of species tree estimation under simulation: A comparison of methods | name=NA | Simulation comparison of species tree inference methods | crit=coalescent;bayesian alg=none rep=tree ops=none
+R02035 Springer 2016 c=210 [evaluation] The gene tree delusion | name=NA | Critique of shortcut coalescence; recombination ratchet and simulations | crit=coalescent alg=none rep=tree ops=none
+R02440 Arcila 2017 c=208 [method] Genome-wide interrogation advances resolution of recalcitrant groups in the tree of life | name=GGI | Gene genealogy interrogation resolves conflicting ancient divergences | crit=none alg=none rep=tree ops=none
+R03397 Hosner 2016 c=208 [evaluation] Avoiding Missing Data Biases in Phylogenomic Inference: An Empirical Study in the Landfowl | name=NA | Missing data and short contigs bias gene tree reconciliation | crit=likelihood;quartet;coalescent alg=none rep=tree ops=none
+R03284 Zhang 2022 c=205 [method] Weighting by Gene Tree Uncertainty Improves Accuracy of Quartet-based Species Trees | name=weighted ASTRAL | Threshold-free quartet weighting by gene tree support and length | crit=quartet alg=other rep=tree;quartet ops=none
+R04747 Ence 2011 c=203 [method] SpedeSTEM: A rapid and accurate method for species delimitation | name=SpedeSTEM | Species delimitation via ML species trees and information theory | crit=likelihood;coalescent alg=exact rep=tree ops=none
+R01681 Meng 2009 c=201 [method] Detecting hybrid speciation in the presence of incomplete lineage sorting using gene tree  | name=NA | Model separating hybridization from ILS in gene tree incongruence | crit=likelihood;bayesian;coalescent alg=none rep=tree;network ops=none
+R05616 Yu 2015 c=200 [method] A maximum pseudo-likelihood approach for phylogenetic networks | name=PhyloNet | Rooted-triple pseudo-likelihood network inference under ILS | crit=pseudolikelihood;coalescent alg=other rep=network;quartet ops=none
+R00393 Zhang 2017 c=195 [method] ASTRAL-III: Increased Scalability and Impacts of Contracting Low Support Branches | name=ASTRAL-III | Faster ASTRAL; contracting low-support gene tree branches improves accuracy | crit=quartet;coalescent alg=exact rep=tree;split ops=none
+R03913 Galtier 2008 c=190 [review] Dealing with incongruence in phylogenomic analyses | name=NA | Review of phylogenomic methods handling HGT-driven gene tree incongruence | crit=none alg=none rep=tree ops=none
+R03752 Molloy 2018 c=185 [evaluation] To Include or Not to Include: The Impact of Gene Filtering on Species Tree Estimation Meth | name=NA | Gene filtering effects on species tree estimation accuracy | crit=coalescent;likelihood;bayesian alg=none rep=tree ops=none
+R05116 Mirarab 2014 c=182 [method] Statistical binning enables an accurate coalescent-based estimation of the avian tree | name=statistical binning | Statistical binning of genes improves coalescent species tree accuracy | crit=coalescent alg=other rep=tree ops=none
+R04716 Liu 2008 c=180 [method] Estimating species trees using multiple-allele DNA sequence data | name=NA | Bayesian hierarchical species tree estimation from multiple-allele data | crit=bayesian;coalescent alg=mcmc rep=tree ops=none
+
+RECENT (2023-2026):
+R05691 Zhang 2023 c=81 [method] EasyCGTree: a pipeline for prokaryotic phylogenomic analysis based on core gene sets | name=EasyCGTree | Pipeline for core-gene supermatrix and supertree ML phylogenies
+R03303 Zhang 2025 c=43 [method] ASTER: A Package for Large-Scale Phylogenomic Reconstructions | name=ASTER | Unified package of ASTRAL-family species tree methods
+R05119 Zhang 2025 c=39 [method] CASTER: Direct species tree inference from whole-genome alignments | name=CASTER | Site-based coalescence-aware species tree inference from genome alignments
+R02987 Tabatabaee 2023 c=38 [method] Phylogenomic branch length estimation using quartets | name=CASTLES | Species tree branch lengths in substitution units from gene trees
+R03289 Thawornwattana 2023 c=21 [evaluation] Inferring the Direction of Introgression Using Genomic Sequence Data | name=BPP | Information on introgression direction under multispecies coalescent with introgression
+R02264 DeSalle 2023 c=19 [evaluation] Multiple outgroups can cause random rooting in phylogenomics | name=NA | Distant or multiple outgroups cause random rooting in phylogenomics
+R02564 Joyce 2025 c=19 [review] Navigating phylogenetic conflict and evolutionary inference in plants with target-capture  | name=NA | Review of target-capture workflows for handling phylogenetic conflict
+R06567 Galtier 2024 c=15 [method] An approximate likelihood method reveals ancient gene flow between human, chimpanzee and g | name=Aphid | Approximate likelihood separating gene flow from ILS via branch lengths
+R00995 Allman 2024 c=12 [theory] Identifiability of Level-1 Species Networks from Gene Tree Quartets | name=NA | Identifiability of level-1 network topology and parameters from concordance factors
+R05873 Allman 2025 c=12 [method] NANUQ+: A divide-and-conquer approach to network estimation | name=NANUQ+ | Divide-and-conquer level-1 resolution of tree of blobs multifurcations
+R05872 Allman 2024 c=11 [method] TINNiK: inference of the tree of blobs of a species network under the coalescent model | name=TINNiK | Statistically consistent tree of blobs inference from gene quartets
+R00094 Steenwyk 2024 c=10 [review] PhyKIT: A Multitool for Phylogenomics | name=PhyKIT | Protocols for PhyKIT alignment and tree phylogenomic analyses
+R03988 Han 2023 c=10 [method] Improving quartet graph construction for scalable and accurate species tree estimation fro | name=TREE-QMC | Normalised weighted quartet max cut for scalable species trees
+R02290 Evangelista 2024 c=9 [method] Phylogenomic analyses of Blattodea combining traditional methods, incremental tree-buildin | name=tiered phylogenetic inference | Tiered quality-aware incremental supermatrix-supertree inference for Blattodea
+R02607 Gupta 2025 c=9 [method] Accurate, scalable, and fully automated inference of species trees from raw genome assembl | name=ROADIES | Automated species tree inference from raw genome assemblies
+R05831 Xu 2025 c=9 [method] Ortho2Web: a workflow for disentangling the roles of hybridization and allopolyploidizatio | name=Ortho2Web | Workflow disentangling hybridisation, allopolyploidy and ILS in reticulate phylogenies
+R03300 Dinh 2025 c=8 [theory] Misspecification Strikes: ASTRAL can Mislead in the Presence of Hybridization, even for No | name=ASTRAL | ASTRAL may return non-displayed trees under network coalescent
+R03167 Williams 2023 c=7 [evaluation] Parameter Estimation and Species Tree Rooting Using ALE and GeneRax | name=ALE, GeneRax | Assessment of ALE and GeneRax reconciliation accuracy and rooting
+R03558 Han 2025 c=7 [method] Improved Robustness to Gene Tree Incompleteness, Estimation Errors, and Systematic Homolog | name=weighted TREE-QMC | Weighted quartets within TREE-QMC for robust species trees
+R04057 Chatziafratis 2023 c=7 [theory] Triplet Reconstruction and all other Phylogenetic CSPs are Approximation Resistant | name=NA | Triplet reconstruction and phylogenetic CSPs are approximation resistant

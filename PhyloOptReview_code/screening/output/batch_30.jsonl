@@ -1,0 +1,189 @@
+{"id":"R07132","inc":0,"why":"application"}
+{"id":"R07133","inc":0,"why":"application"}
+{"id":"R07135","inc":0,"why":"application"}
+{"id":"R07137","inc":0,"why":"application"}
+{"id":"R07139","inc":0,"why":"application"}
+{"id":"R07140","inc":0,"why":"application"}
+{"id":"R07145","inc":0,"why":"application"}
+{"id":"R07147","inc":0,"why":"application"}
+{"id":"R07149","inc":0,"why":"application"}
+{"id":"R07150","inc":0,"why":"application"}
+{"id":"R07155","inc":0,"why":"application"}
+{"id":"R07156","inc":0,"why":"application"}
+{"id":"R07158","inc":1,"type":"review","cat":["morpho","supertree"],"crit":["parsimony","other"],"alg":["none"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["morphological"],"soft":"unclear","name":"","note":"Review of methods in fossil hominin phylogenetic analyses"}
+{"id":"R07160","inc":0,"why":"application"}
+{"id":"R07165","inc":0,"why":"application"}
+{"id":"R07168","inc":0,"why":"application"}
+{"id":"R07175","inc":1,"type":"evaluation","cat":["tree_other","forest_analysis"],"crit":["none"],"alg":["none"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["genomic"],"soft":"unclear","name":"","note":"Resampling analysis of gene numbers needed for phylogenetic resolution"}
+{"id":"R07186","inc":1,"type":"method","cat":["tree_other","network"],"crit":["distance"],"alg":["other"],"rep":["matrix","split"],"ops":["none"],"nobj":"1","dsd":"no","data":["genomic","distances"],"soft":"unclear","name":"","note":"Minimum contradiction matrices and order search for genome phylogenies"}
+{"id":"R07189","inc":0,"why":"application"}
+{"id":"R07191","inc":0,"why":"application"}
+{"id":"R07193","inc":0,"why":"application"}
+{"id":"R07237","inc":0,"why":"application"}
+{"id":"R07240","inc":0,"why":"application"}
+{"id":"R07241","inc":0,"why":"application"}
+{"id":"R07243","inc":0,"why":"application"}
+{"id":"R07244","inc":0,"why":"application"}
+{"id":"R07245","inc":0,"why":"application"}
+{"id":"R07246","inc":0,"why":"application"}
+{"id":"R07248","inc":0,"why":"application"}
+{"id":"R07254","inc":0,"why":"application"}
+{"id":"R07256","inc":0,"why":"application"}
+{"id":"R07257","inc":0,"why":"application"}
+{"id":"R07259","inc":0,"why":"other_domain"}
+{"id":"R07260","inc":1,"type":"method","cat":["tree_other"],"crit":["distance"],"alg":["other"],"rep":["tree","matrix"],"ops":["none"],"nobj":"na","dsd":"na","data":["genomic"],"soft":"unclear","name":"FCR","note":"Alignment-free chaos representation distances for NJ genome trees"}
+{"id":"R07264","inc":0,"why":"application"}
+{"id":"R07266","inc":0,"why":"application"}
+{"id":"R07269","inc":0,"why":"application"}
+{"id":"R07271","inc":0,"why":"application"}
+{"id":"R07272","inc":0,"why":"application"}
+{"id":"R07273","inc":0,"why":"application"}
+{"id":"R07280","inc":0,"why":"application"}
+{"id":"R07281","inc":0,"why":"application"}
+{"id":"R07286","inc":0,"why":"application"}
+{"id":"R07287","inc":0,"why":"application"}
+{"id":"R07290","inc":0,"why":"application"}
+{"id":"R07291","inc":0,"why":"application"}
+{"id":"R07292","inc":0,"why":"application"}
+{"id":"R07293","inc":0,"why":"application"}
+{"id":"R07294","inc":0,"why":"application"}
+{"id":"R07295","inc":0,"why":"application"}
+{"id":"R07296","inc":0,"why":"application"}
+{"id":"R07297","inc":0,"why":"application"}
+{"id":"R07298","inc":0,"why":"application"}
+{"id":"R07299","inc":0,"why":"application"}
+{"id":"R07301","inc":0,"why":"application"}
+{"id":"R07303","inc":0,"why":"application"}
+{"id":"R07304","inc":0,"why":"application"}
+{"id":"R07305","inc":0,"why":"application"}
+{"id":"R07308","inc":1,"type":"review","cat":["supertree","tree_other"],"crit":["none"],"alg":["none"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["genomic"],"soft":"unclear","name":"","note":"Review of data and systematic errors in phylogenomic supermatrices"}
+{"id":"R07310","inc":0,"why":"application"}
+{"id":"R07311","inc":0,"why":"application"}
+{"id":"R07313","inc":0,"why":"application"}
+{"id":"R07314","inc":0,"why":"application"}
+{"id":"R07315","inc":0,"why":"application"}
+{"id":"R07316","inc":0,"why":"application"}
+{"id":"R07317","inc":0,"why":"application"}
+{"id":"R07318","inc":0,"why":"application"}
+{"id":"R07319","inc":0,"why":"application"}
+{"id":"R07321","inc":0,"why":"application"}
+{"id":"R07322","inc":0,"why":"application"}
+{"id":"R07323","inc":0,"why":"application"}
+{"id":"R07324","inc":0,"why":"application"}
+{"id":"R07325","inc":0,"why":"application"}
+{"id":"R07326","inc":0,"why":"application"}
+{"id":"R07336","inc":0,"why":"application"}
+{"id":"R07341","inc":0,"why":"application"}
+{"id":"R07342","inc":0,"why":"application"}
+{"id":"R07344","inc":0,"why":"application"}
+{"id":"R07346","inc":0,"why":"application"}
+{"id":"R07351","inc":0,"why":"application"}
+{"id":"R07355","inc":1,"type":"evaluation","cat":["tree_other"],"crit":["none"],"alg":["none"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["dna"],"soft":"unclear","name":"","note":"Single mitochondrial genes versus complete mitogenome topologies"}
+{"id":"R07357","inc":0,"why":"application"}
+{"id":"R07358","inc":0,"why":"application"}
+{"id":"R07359","inc":0,"why":"application"}
+{"id":"R07360","inc":0,"why":"application"}
+{"id":"R07361","inc":0,"why":"application"}
+{"id":"R07362","inc":0,"why":"application"}
+{"id":"R07364","inc":0,"why":"application"}
+{"id":"R07366","inc":0,"why":"application"}
+{"id":"R07370","inc":0,"why":"application"}
+{"id":"R07374","inc":0,"why":"application"}
+{"id":"R07375","inc":1,"type":"method","cat":["forest_analysis","tree_other"],"crit":["none"],"alg":["other"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["genomic"],"soft":"unclear","name":"","note":"Clustering gene trees by branch-length patterns across insect genes"}
+{"id":"R07378","inc":0,"why":"application"}
+{"id":"R07381","inc":0,"why":"application"}
+{"id":"R07382","inc":1,"type":"evaluation","cat":["tree_other","morpho"],"crit":["bayesian"],"alg":["none"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["morphological"],"soft":"unclear","name":"","note":"Effect of excluding autapomorphies on morphological tip-dating"}
+{"id":"R07386","inc":0,"why":"application"}
+{"id":"R07387","inc":0,"why":"application"}
+{"id":"R07389","inc":0,"why":"application"}
+{"id":"R07393","inc":0,"why":"application"}
+{"id":"R07395","inc":1,"type":"review","cat":["supertree","network"],"crit":["coalescent"],"alg":["none"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["genomic"],"soft":"unclear","name":"","note":"Perspective on coalescent methods for heterogeneous phylogenomic data"}
+{"id":"R07396","inc":0,"why":"application"}
+{"id":"R07397","inc":1,"type":"evaluation","cat":["supertree","forest_analysis"],"crit":["none"],"alg":["none"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["genomic"],"soft":"unclear","name":"","note":"Gene conflict and concatenation signal in Pantoea phylogenomics"}
+{"id":"R07398","inc":0,"why":"application"}
+{"id":"R07399","inc":1,"type":"evaluation","cat":["forest_analysis","tree_other"],"crit":["none"],"alg":["none"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["dna","protein"],"soft":"unclear","name":"","note":"Gene tree conflict and gene performance across angiosperm plastomes"}
+{"id":"R07403","inc":0,"why":"other_domain"}
+{"id":"R07404","inc":0,"why":"application"}
+{"id":"R07406","inc":0,"why":"application"}
+{"id":"R07409","inc":0,"why":"application"}
+{"id":"R07411","inc":0,"why":"other_domain"}
+{"id":"R07421","inc":0,"why":"application"}
+{"id":"R07424","inc":0,"why":"other_domain"}
+{"id":"R07428","inc":0,"why":"application"}
+{"id":"R07436","inc":0,"why":"application"}
+{"id":"R07442","inc":0,"why":"application"}
+{"id":"R07443","inc":0,"why":"application"}
+{"id":"R07445","inc":0,"why":"application"}
+{"id":"R07450","inc":0,"why":"application"}
+{"id":"R07451","inc":0,"why":"application"}
+{"id":"R07452","inc":0,"why":"application"}
+{"id":"R07456","inc":1,"type":"evaluation","cat":["supertree","morpho"],"crit":["parsimony"],"alg":["none"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["morphological"],"soft":"unclear","name":"MRP","note":"Compares MRP supertrees and total evidence on fossil diapsids"}
+{"id":"R07458","inc":0,"why":"application"}
+{"id":"R07459","inc":0,"why":"application"}
+{"id":"R07462","inc":0,"why":"application"}
+{"id":"R07463","inc":0,"why":"application"}
+{"id":"R07465","inc":0,"why":"application"}
+{"id":"R07469","inc":0,"why":"application"}
+{"id":"R07470","inc":0,"why":"application"}
+{"id":"R07471","inc":0,"why":"application"}
+{"id":"R07477","inc":0,"why":"application"}
+{"id":"R07478","inc":1,"type":"method","cat":["tree_other"],"crit":["other"],"alg":["other"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["other"],"soft":"unclear","name":"","note":"Algorithms for probabilities of speciation event order on trees"}
+{"id":"R07480","inc":0,"why":"application"}
+{"id":"R07481","inc":0,"why":"application"}
+{"id":"R07484","inc":1,"type":"method","cat":["supertree","tree_other"],"crit":["other"],"alg":["ml"],"rep":["other"],"ops":["none"],"nobj":"na","dsd":"na","data":["dna"],"soft":"unclear","name":"","note":"SOM-based gene entropy to select genes for concatenation"}
+{"id":"R07488","inc":0,"why":"application"}
+{"id":"R07489","inc":0,"why":"other_domain"}
+{"id":"R07490","inc":0,"why":"application"}
+{"id":"R07491","inc":0,"why":"application"}
+{"id":"R07492","inc":0,"why":"application"}
+{"id":"R07494","inc":0,"why":"other_domain"}
+{"id":"R07495","inc":0,"why":"application"}
+{"id":"R07497","inc":0,"why":"application"}
+{"id":"R07503","inc":0,"why":"no_method"}
+{"id":"R07507","inc":0,"why":"application"}
+{"id":"R07508","inc":0,"why":"other_domain"}
+{"id":"R07511","inc":0,"why":"application"}
+{"id":"R07514","inc":0,"why":"application"}
+{"id":"R07518","inc":0,"why":"other_domain"}
+{"id":"R07519","inc":0,"why":"application"}
+{"id":"R07520","inc":0,"why":"application"}
+{"id":"R07522","inc":0,"why":"application"}
+{"id":"R07523","inc":0,"why":"application"}
+{"id":"R07524","inc":0,"why":"application"}
+{"id":"R07525","inc":0,"why":"application"}
+{"id":"R07528","inc":0,"why":"application"}
+{"id":"R07530","inc":0,"why":"application"}
+{"id":"R07532","inc":0,"why":"application"}
+{"id":"R07533","inc":0,"why":"application"}
+{"id":"R07534","inc":0,"why":"application"}
+{"id":"R07539","inc":1,"type":"theory","cat":["forest_analysis"],"crit":["none"],"alg":["none"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["other"],"soft":"unclear","name":"","note":"Leaf-pair path length distribution in random phylogenetic trees"}
+{"id":"R07541","inc":0,"why":"application"}
+{"id":"R07542","inc":0,"why":"application"}
+{"id":"R07546","inc":0,"why":"application"}
+{"id":"R07549","inc":1,"type":"evaluation","cat":["tree_other"],"crit":["distance"],"alg":["other"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["unclear"],"soft":"unclear","name":"MOM","note":"Compares bootstrap and multiscale bootstrap support for distance trees"}
+{"id":"R07550","inc":0,"why":"application"}
+{"id":"R07553","inc":0,"why":"application"}
+{"id":"R07555","inc":0,"why":"application"}
+{"id":"R07557","inc":0,"why":"application"}
+{"id":"R07558","inc":0,"why":"application"}
+{"id":"R07559","inc":0,"why":"application"}
+{"id":"R07560","inc":0,"why":"application"}
+{"id":"R07561","inc":0,"why":"application"}
+{"id":"R07564","inc":0,"why":"application"}
+{"id":"R07569","inc":0,"why":"application"}
+{"id":"R07570","inc":0,"why":"application"}
+{"id":"R07571","inc":0,"why":"application"}
+{"id":"R07573","inc":0,"why":"other_domain"}
+{"id":"R07576","inc":0,"why":"other_domain"}
+{"id":"R07577","inc":0,"why":"no_method"}
+{"id":"R07590","inc":0,"why":"application"}
+{"id":"R07594","inc":0,"why":"application"}
+{"id":"R07595","inc":0,"why":"application"}
+{"id":"R07598","inc":0,"why":"application"}
+{"id":"R07599","inc":0,"why":"other_domain"}
+{"id":"R07601","inc":0,"why":"other_domain"}
+{"id":"R07603","inc":0,"why":"application"}
+{"id":"R07604","inc":0,"why":"application"}
+{"id":"R07608","inc":1,"type":"theory","cat":["tree_other"],"crit":["distance"],"alg":["none"],"rep":["tree","matrix"],"ops":["none"],"nobj":"1","dsd":"na","data":["dna","distances"],"soft":"unclear","name":"","note":"Topological biases of minimum evolution and Fitch-Margoliash criteria"}
+{"id":"R07611","inc":0,"why":"application"}
+{"id":"R07619","inc":1,"type":"method","cat":["tree_other"],"crit":["parsimony","distance"],"alg":["none"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["genomic"],"soft":"unclear","name":"","note":"Whole-genome trees from fold and ortholog occurrence profiles"}

@@ -1,0 +1,250 @@
+{"id":"R00002","inc":0,"why":"application"}
+{"id":"R00004","inc":0,"why":"application"}
+{"id":"R00008","inc":0,"why":"application"}
+{"id":"R00009","inc":0,"why":"application"}
+{"id":"R00010","inc":0,"why":"application"}
+{"id":"R00013","inc":0,"why":"application"}
+{"id":"R00014","inc":0,"why":"application"}
+{"id":"R00015","inc":0,"why":"application"}
+{"id":"R00016","inc":0,"why":"application"}
+{"id":"R00017","inc":0,"why":"application"}
+{"id":"R00019","inc":0,"why":"application"}
+{"id":"R00020","inc":0,"why":"application"}
+{"id":"R00023","inc":0,"why":"other_domain"}
+{"id":"R00024","inc":0,"why":"application"}
+{"id":"R00026","inc":0,"why":"application"}
+{"id":"R00028","inc":0,"why":"application"}
+{"id":"R00029","inc":0,"why":"application"}
+{"id":"R00031","inc":0,"why":"application"}
+{"id":"R00033","inc":0,"why":"application"}
+{"id":"R00034","inc":0,"why":"application"}
+{"id":"R00035","inc":0,"why":"application"}
+{"id":"R00036","inc":0,"why":"application"}
+{"id":"R00039","inc":0,"why":"application"}
+{"id":"R00040","inc":0,"why":"application"}
+{"id":"R00043","inc":0,"why":"application"}
+{"id":"R00044","inc":0,"why":"application"}
+{"id":"R00047","inc":0,"why":"application"}
+{"id":"R00049","inc":0,"why":"application"}
+{"id":"R00050","inc":0,"why":"application"}
+{"id":"R00051","inc":0,"why":"application"}
+{"id":"R00052","inc":0,"why":"application"}
+{"id":"R00054","inc":0,"why":"application"}
+{"id":"R00055","inc":0,"why":"application"}
+{"id":"R00056","inc":0,"why":"application"}
+{"id":"R00057","inc":0,"why":"application"}
+{"id":"R00059","inc":0,"why":"application"}
+{"id":"R00060","inc":0,"why":"application"}
+{"id":"R00061","inc":0,"why":"application"}
+{"id":"R00062","inc":0,"why":"application"}
+{"id":"R00063","inc":0,"why":"application"}
+{"id":"R00065","inc":0,"why":"application"}
+{"id":"R00067","inc":0,"why":"application"}
+{"id":"R00069","inc":0,"why":"application"}
+{"id":"R00076","inc":0,"why":"application"}
+{"id":"R00077","inc":0,"why":"application"}
+{"id":"R00080","inc":0,"why":"application"}
+{"id":"R00081","inc":0,"why":"no_method"}
+{"id":"R00082","inc":1,"type":"review","cat":["morpho"],"crit":["parsimony","bayesian"],"alg":["none"],"rep":["other"],"ops":["none"],"nobj":"na","dsd":"na","data":["morphological"],"soft":"unclear","name":"","note":"Systematic review of trilobite morphological matrix construction practice"}
+{"id":"R00085","inc":0,"why":"application"}
+{"id":"R00087","inc":0,"why":"application"}
+{"id":"R00095","inc":0,"why":"application"}
+{"id":"R00096","inc":0,"why":"application"}
+{"id":"R00097","inc":0,"why":"application"}
+{"id":"R00098","inc":0,"why":"application"}
+{"id":"R00099","inc":0,"why":"application"}
+{"id":"R00100","inc":0,"why":"application"}
+{"id":"R00102","inc":0,"why":"application"}
+{"id":"R00104","inc":0,"why":"application"}
+{"id":"R00106","inc":0,"why":"application"}
+{"id":"R00107","inc":0,"why":"application"}
+{"id":"R00108","inc":0,"why":"application"}
+{"id":"R00113","inc":0,"why":"application"}
+{"id":"R00116","inc":0,"why":"application"}
+{"id":"R00117","inc":0,"why":"application"}
+{"id":"R00118","inc":0,"why":"application"}
+{"id":"R00120","inc":0,"why":"application"}
+{"id":"R00122","inc":0,"why":"application"}
+{"id":"R00124","inc":0,"why":"application"}
+{"id":"R00125","inc":0,"why":"application"}
+{"id":"R00126","inc":0,"why":"application"}
+{"id":"R00127","inc":0,"why":"application"}
+{"id":"R00128","inc":0,"why":"application"}
+{"id":"R00130","inc":0,"why":"application"}
+{"id":"R00132","inc":0,"why":"application"}
+{"id":"R00134","inc":0,"why":"application"}
+{"id":"R00135","inc":0,"why":"application"}
+{"id":"R00138","inc":0,"why":"application"}
+{"id":"R00140","inc":1,"type":"method","cat":["morpho"],"crit":["other"],"alg":["none"],"rep":["other"],"ops":["none"],"nobj":"na","dsd":"na","data":["morphological"],"soft":"unclear","name":"","note":"Information-theoretic measures of information in morphological character matrices"}
+{"id":"R00141","inc":0,"why":"application"}
+{"id":"R00142","inc":0,"why":"application"}
+{"id":"R00143","inc":0,"why":"application"}
+{"id":"R00144","inc":0,"why":"application"}
+{"id":"R00147","inc":0,"why":"application"}
+{"id":"R00149","inc":0,"why":"application"}
+{"id":"R00152","inc":0,"why":"application"}
+{"id":"R00153","inc":0,"why":"other_domain"}
+{"id":"R00155","inc":0,"why":"other_domain"}
+{"id":"R00161","inc":0,"why":"application"}
+{"id":"R00162","inc":0,"why":"application"}
+{"id":"R00163","inc":0,"why":"application"}
+{"id":"R00164","inc":0,"why":"application"}
+{"id":"R00165","inc":0,"why":"application"}
+{"id":"R00166","inc":0,"why":"application"}
+{"id":"R00167","inc":0,"why":"application"}
+{"id":"R00168","inc":0,"why":"application"}
+{"id":"R00169","inc":0,"why":"other_domain"}
+{"id":"R00170","inc":0,"why":"other_domain"}
+{"id":"R00171","inc":0,"why":"other_domain"}
+{"id":"R00172","inc":0,"why":"application"}
+{"id":"R00174","inc":0,"why":"application"}
+{"id":"R00180","inc":1,"type":"theory","cat":["tree_other"],"crit":["distance"],"alg":["other"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["distances"],"soft":"unclear","name":"","note":"Tight distance-query bounds for reconstructing bounded-degree trees"}
+{"id":"R00189","inc":0,"why":"application"}
+{"id":"R00192","inc":0,"why":"application"}
+{"id":"R00193","inc":0,"why":"application"}
+{"id":"R00194","inc":0,"why":"application"}
+{"id":"R00196","inc":0,"why":"application"}
+{"id":"R00198","inc":0,"why":"application"}
+{"id":"R00200","inc":0,"why":"application"}
+{"id":"R00201","inc":0,"why":"application"}
+{"id":"R00205","inc":0,"why":"application"}
+{"id":"R00208","inc":1,"type":"method","cat":["forest_analysis","supertree"],"crit":["bayesian","other"],"alg":["none"],"rep":["tree","cluster"],"ops":["consensus"],"nobj":"na","dsd":"na","data":["gene_trees","dna"],"soft":"unclear","name":"concordance tree","note":"Primary concordance trees and concordance factors summarise genealogical discordance"}
+{"id":"R00210","inc":1,"type":"evaluation","cat":["tree_other","supertree"],"crit":["none"],"alg":["none"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["dna"],"soft":"unclear","name":"","note":"Simulations show concatenating incongruent data biases molecular dates"}
+{"id":"R00211","inc":0,"why":"application"}
+{"id":"R00212","inc":0,"why":"application"}
+{"id":"R00213","inc":0,"why":"application"}
+{"id":"R00214","inc":0,"why":"application"}
+{"id":"R00215","inc":0,"why":"application"}
+{"id":"R00216","inc":0,"why":"application"}
+{"id":"R00217","inc":0,"why":"application"}
+{"id":"R00218","inc":0,"why":"application"}
+{"id":"R00219","inc":0,"why":"application"}
+{"id":"R00220","inc":1,"type":"method","cat":["supertree","forest_analysis"],"crit":["likelihood"],"alg":["none"],"rep":["tree","matrix"],"ops":["none"],"nobj":"na","dsd":"na","data":["dna"],"soft":"unclear","name":"ParaFit","note":"ParaFit cophylogeny test screens gene pairs before concatenation"}
+{"id":"R00221","inc":0,"why":"application"}
+{"id":"R00222","inc":0,"why":"application"}
+{"id":"R00223","inc":0,"why":"application"}
+{"id":"R00224","inc":0,"why":"application"}
+{"id":"R00225","inc":0,"why":"application"}
+{"id":"R00226","inc":0,"why":"application"}
+{"id":"R00227","inc":0,"why":"application"}
+{"id":"R00229","inc":0,"why":"application"}
+{"id":"R00230","inc":0,"why":"application"}
+{"id":"R00232","inc":0,"why":"application"}
+{"id":"R00234","inc":0,"why":"application"}
+{"id":"R00235","inc":0,"why":"application"}
+{"id":"R00237","inc":0,"why":"application"}
+{"id":"R00239","inc":0,"why":"application"}
+{"id":"R00241","inc":0,"why":"application"}
+{"id":"R00242","inc":0,"why":"application"}
+{"id":"R00244","inc":0,"why":"application"}
+{"id":"R00245","inc":0,"why":"application"}
+{"id":"R00279","inc":0,"why":"application"}
+{"id":"R00282","inc":0,"why":"other_domain"}
+{"id":"R00284","inc":1,"type":"review","cat":["supertree"],"crit":["coalescent"],"alg":["none"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["gene_trees"],"soft":"unclear","name":"","note":"Reviews species tree methods and detecting non-coalescent outlier loci"}
+{"id":"R00287","inc":1,"type":"review","cat":["tree_other"],"crit":["none"],"alg":["none"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["genomic","protein"],"soft":"unclear","name":"","note":"Protocol for gene-content and ortholog-based phytoplasma phylogenomics"}
+{"id":"R00302","inc":0,"why":"other_domain"}
+{"id":"R00310","inc":0,"why":"other_domain"}
+{"id":"R00319","inc":1,"type":"method","cat":["tree_other"],"crit":["distance"],"alg":["other"],"rep":["matrix","tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["genomic"],"soft":"unclear","name":"","note":"Subsampling quantifies uncertainty of assembly-free genomic distances and trees"}
+{"id":"R00360","inc":0,"why":"other_domain"}
+{"id":"R00366","inc":1,"type":"method","cat":["network"],"crit":["net_parsimony"],"alg":["exact"],"rep":["network","tree"],"ops":["none"],"nobj":"1","dsd":"na","data":["gene_trees"],"soft":"unclear","name":"","note":"Polynomial kernels for hybridization number on multiple nonbinary trees"}
+{"id":"R00376","inc":0,"why":"other_domain"}
+{"id":"R00388","inc":1,"type":"method","cat":["network"],"crit":["distance"],"alg":["other"],"rep":["network","matrix"],"ops":["none"],"nobj":"1","dsd":"na","data":["distances"],"soft":"unclear","name":"","note":"Quadratic-time reconstruction of ultrametric 1-articulated networks from distances"}
+{"id":"R00392","inc":1,"type":"theory","cat":["supertree"],"crit":["coalescent"],"alg":["none"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["gene_trees"],"soft":"unclear","name":"","note":"Statistical consistency of coalescent species tree methods with missing data"}
+{"id":"R00400","inc":1,"type":"method","cat":["supertree"],"crit":["other"],"alg":["other"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["gene_trees"],"soft":"unclear","name":"","note":"Linear-time feasibility test for gene duplication reconciliation scenarios"}
+{"id":"R00406","inc":0,"why":"other_domain"}
+{"id":"R00451","inc":0,"why":"other_domain"}
+{"id":"R00455","inc":1,"type":"theory","cat":["forest_analysis"],"crit":["none"],"alg":["none"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["other"],"soft":"unclear","name":"","note":"Limit formula for median leaf-to-leaf distance in unrooted trees"}
+{"id":"R00477","inc":1,"type":"method","cat":["network"],"crit":["none"],"alg":["other"],"rep":["network","tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["dna"],"soft":"unclear","name":"","note":"Algorithm extracts single probable tree from network for founder analysis"}
+{"id":"R00479","inc":1,"type":"theory","cat":["supertree","network"],"crit":["quartet"],"alg":["other"],"rep":["tree","quartet"],"ops":["none"],"nobj":"na","dsd":"na","data":["gene_trees"],"soft":"unclear","name":"","note":"Species tree recoverable despite near-linear LGT events per gene"}
+{"id":"R00485","inc":1,"type":"metric","cat":["distance","network"],"crit":["none"],"alg":["other"],"rep":["network","quartet"],"ops":["none"],"nobj":"na","dsd":"na","data":["other"],"soft":"unclear","name":"rooted triplet distance","note":"Subcubic rooted triplet distance between galled trees via triangles"}
+{"id":"R00496","inc":1,"type":"theory","cat":["supertree"],"crit":["none"],"alg":["none"],"rep":["tree","split"],"ops":["none"],"nobj":"na","dsd":"na","data":["gene_trees"],"soft":"unclear","name":"","note":"Display-graph minimal cuts characterize unrooted tree compatibility and agreement"}
+{"id":"R00507","inc":0,"why":"application"}
+{"id":"R00508","inc":0,"why":"application"}
+{"id":"R00512","inc":1,"type":"theory","cat":["tree_other"],"crit":["distance"],"alg":["none"],"rep":["tree","split"],"ops":["none"],"nobj":"na","dsd":"na","data":["distances"],"soft":"unclear","name":"","note":"Characterizes parity split maps arising from binary phylogenetic X-trees"}
+{"id":"R00514","inc":1,"type":"theory","cat":["network"],"crit":["distance"],"alg":["none"],"rep":["network"],"ops":["none"],"nobj":"na","dsd":"na","data":["distances"],"soft":"unclear","name":"","note":"Unique recovery of hybrid network vertex weights from leaf distances"}
+{"id":"R00519","inc":1,"type":"theory","cat":["supertree"],"crit":["none"],"alg":["none"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["gene_trees"],"soft":"unclear","name":"2-overlap groves","note":"Disproves maximal grove conjecture; introduces 2-overlap groves for supertrees"}
+{"id":"R00523","inc":1,"type":"metric","cat":["distance"],"crit":["none"],"alg":["none"],"rep":["tree"],"ops":["tbr","spr"],"nobj":"na","dsd":"na","data":["gene_trees"],"soft":"unclear","name":"","note":"Maximum and expected TBR, SPR and rSPR distances between trees"}
+{"id":"R00528","inc":0,"why":"application"}
+{"id":"R00531","inc":0,"why":"application"}
+{"id":"R00534","inc":0,"why":"application"}
+{"id":"R00535","inc":0,"why":"application"}
+{"id":"R00537","inc":0,"why":"application"}
+{"id":"R00538","inc":0,"why":"application"}
+{"id":"R00539","inc":0,"why":"application"}
+{"id":"R00540","inc":0,"why":"application"}
+{"id":"R00542","inc":0,"why":"application"}
+{"id":"R00543","inc":0,"why":"application"}
+{"id":"R00544","inc":0,"why":"application"}
+{"id":"R00550","inc":0,"why":"application"}
+{"id":"R00555","inc":0,"why":"application"}
+{"id":"R00557","inc":0,"why":"application"}
+{"id":"R00568","inc":0,"why":"application"}
+{"id":"R00569","inc":0,"why":"application"}
+{"id":"R00570","inc":0,"why":"application"}
+{"id":"R00571","inc":0,"why":"other_domain"}
+{"id":"R00573","inc":0,"why":"application"}
+{"id":"R00574","inc":0,"why":"application"}
+{"id":"R00575","inc":0,"why":"application"}
+{"id":"R00576","inc":0,"why":"application"}
+{"id":"R00577","inc":0,"why":"application"}
+{"id":"R00579","inc":0,"why":"application"}
+{"id":"R00583","inc":0,"why":"application"}
+{"id":"R00594","inc":1,"type":"theory","cat":["network"],"crit":["distance"],"alg":["none"],"rep":["network","matrix"],"ops":["none"],"nobj":"na","dsd":"na","data":["distances"],"soft":"unclear","name":"","note":"Binary tree-child networks determined by inter-taxa path distances"}
+{"id":"R00599","inc":1,"type":"theory","cat":["network"],"crit":["quartet"],"alg":["none"],"rep":["network","quartet"],"ops":["none"],"nobj":"na","dsd":"na","data":["other"],"soft":"unclear","name":"tri-LGT-nets","note":"Time-consistent BAN-LGT networks reconstructible from three-leaf subnetworks"}
+{"id":"R00610","inc":1,"type":"theory","cat":["network"],"crit":["quartet"],"alg":["other"],"rep":["network","quartet"],"ops":["none"],"nobj":"na","dsd":"na","data":["other"],"soft":"unclear","name":"","note":"Binary normal networks determined by three- and four-leaf caterpillars"}
+{"id":"R00622","inc":0,"why":"other_domain"}
+{"id":"R00630","inc":1,"type":"theory","cat":["network"],"crit":["quartet"],"alg":["none"],"rep":["network","tree","quartet"],"ops":["none"],"nobj":"na","dsd":"na","data":["other"],"soft":"unclear","name":"","note":"Encoding arboreal HGT networks through underlying trees and quartet systems"}
+{"id":"R00631","inc":0,"why":"application"}
+{"id":"R00632","inc":0,"why":"application"}
+{"id":"R00634","inc":0,"why":"application"}
+{"id":"R00635","inc":0,"why":"application"}
+{"id":"R00636","inc":0,"why":"application"}
+{"id":"R00637","inc":0,"why":"application"}
+{"id":"R00639","inc":0,"why":"application"}
+{"id":"R00645","inc":0,"why":"application"}
+{"id":"R00648","inc":0,"why":"application"}
+{"id":"R00649","inc":0,"why":"application"}
+{"id":"R00650","inc":0,"why":"application"}
+{"id":"R00651","inc":0,"why":"application"}
+{"id":"R00652","inc":0,"why":"application"}
+{"id":"R00653","inc":0,"why":"application"}
+{"id":"R00655","inc":0,"why":"application"}
+{"id":"R00656","inc":0,"why":"application"}
+{"id":"R00658","inc":0,"why":"application"}
+{"id":"R00659","inc":0,"why":"application"}
+{"id":"R00661","inc":0,"why":"application"}
+{"id":"R00663","inc":0,"why":"application"}
+{"id":"R00664","inc":0,"why":"application"}
+{"id":"R00665","inc":0,"why":"application"}
+{"id":"R00666","inc":0,"why":"application"}
+{"id":"R00667","inc":0,"why":"application"}
+{"id":"R00668","inc":0,"why":"application"}
+{"id":"R00670","inc":0,"why":"application"}
+{"id":"R00672","inc":0,"why":"application"}
+{"id":"R00686","inc":1,"type":"method","cat":["network"],"crit":["distance"],"alg":["other"],"rep":["network","matrix"],"ops":["none"],"nobj":"na","dsd":"na","data":["distances"],"soft":"unclear","name":"","note":"Polynomial-time reconstruction of tree-child networks from inter-taxa distances"}
+{"id":"R00693","inc":0,"why":"other_domain"}
+{"id":"R00699","inc":0,"why":"application"}
+{"id":"R00700","inc":0,"why":"application"}
+{"id":"R00702","inc":0,"why":"application"}
+{"id":"R00703","inc":0,"why":"application"}
+{"id":"R00706","inc":0,"why":"application"}
+{"id":"R00708","inc":0,"why":"application"}
+{"id":"R00710","inc":0,"why":"application"}
+{"id":"R00711","inc":0,"why":"application"}
+{"id":"R00712","inc":0,"why":"application"}
+{"id":"R00716","inc":0,"why":"application"}
+{"id":"R00717","inc":0,"why":"application"}
+{"id":"R00718","inc":0,"why":"application"}
+{"id":"R00720","inc":0,"why":"application"}
+{"id":"R00722","inc":0,"why":"application"}
+{"id":"R00723","inc":0,"why":"application"}
+{"id":"R00726","inc":0,"why":"application"}
+{"id":"R00727","inc":0,"why":"application"}
+{"id":"R00728","inc":0,"why":"other_domain"}
+{"id":"R00730","inc":0,"why":"application"}
+{"id":"R00731","inc":0,"why":"application"}
+{"id":"R00732","inc":0,"why":"application"}
+{"id":"R00733","inc":0,"why":"application"}
+{"id":"R00735","inc":0,"why":"application"}
+{"id":"R00737","inc":0,"why":"application"}
+{"id":"R00738","inc":0,"why":"application"}

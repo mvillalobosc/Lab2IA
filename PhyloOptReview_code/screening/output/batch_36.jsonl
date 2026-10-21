@@ -1,0 +1,23 @@
+{"id":"R08846","inc":0,"why":"other_domain"}
+{"id":"R08847","inc":0,"why":"application"}
+{"id":"R08848","inc":0,"why":"application"}
+{"id":"R08849","inc":0,"why":"other_domain"}
+{"id":"R08850","inc":0,"why":"other_domain"}
+{"id":"R08851","inc":0,"why":"application"}
+{"id":"R08852","inc":0,"why":"other_domain"}
+{"id":"R08853","inc":0,"why":"other_domain"}
+{"id":"R08854","inc":0,"why":"other_domain"}
+{"id":"R08855","inc":0,"why":"other_domain"}
+{"id":"R08856","inc":0,"why":"other_domain"}
+{"id":"R08857","inc":1,"type":"evaluation","cat":["tree_other"],"crit":["distance"],"alg":["none"],"rep":["tree","matrix"],"ops":["none"],"nobj":"na","dsd":"na","data":["dna"],"soft":"unclear","name":"","note":"Compares four mutual-information alignment-free distances for tree reconstruction"}
+{"id":"R08858","inc":1,"type":"review","cat":["tree_other"],"crit":["distance"],"alg":["none"],"rep":["tree","matrix"],"ops":["none"],"nobj":"na","dsd":"na","data":["unclear"],"soft":"unclear","name":"CV","note":"Review of composition vector alignment-free phylogenetic method developments"}
+{"id":"R08859","inc":0,"why":"other_domain"}
+{"id":"R08860","inc":1,"type":"method","cat":["tree_other"],"crit":["distance"],"alg":["none"],"rep":["tree","matrix"],"ops":["none"],"nobj":"na","dsd":"na","data":["genomic"],"soft":"unclear","name":"","note":"Breakpoint, conserved and common interval distances for gene-order phylogeny"}
+{"id":"R08861","inc":0,"why":"other_domain"}
+{"id":"R08862","inc":1,"type":"method","cat":["tree_other"],"crit":["parsimony"],"alg":["hill_climb","exact"],"rep":["tree"],"ops":["other"],"nobj":"1","dsd":"no","data":["genomic"],"soft":"unclear","name":"GRAPPA","note":"MPME parsimony initialization improves GRAPPA rearrangement phylogeny search"}
+{"id":"R08863","inc":0,"why":"other_domain"}
+{"id":"R08864","inc":1,"type":"method","cat":["tree_other"],"crit":["parsimony"],"alg":["exact"],"rep":["tree"],"ops":["none"],"nobj":"1","dsd":"no","data":["genomic"],"soft":"unclear","name":"GRAPPA","note":"ILP lower bound replaces tree scoring in GRAPPA rearrangement phylogeny"}
+{"id":"R08865","inc":1,"type":"method","cat":["tree_other"],"crit":["distance"],"alg":["other"],"rep":["tree","matrix"],"ops":["none"],"nobj":"na","dsd":"na","data":["genomic"],"soft":"unclear","name":"","note":"k-tuple information geometry with minimum spanning tree phylogeny"}
+{"id":"R08866","inc":0,"why":"other_domain"}
+{"id":"R08867","inc":0,"why":"other_domain"}
+{"id":"R08868","inc":0,"why":"other_domain"}

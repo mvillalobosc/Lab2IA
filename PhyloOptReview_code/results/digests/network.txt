@@ -1,0 +1,79 @@
+BLOCK network: 649 studies with the category, 638 as main block
+type: method=348, theory=195, metric=53, evaluation=30, review=23
+crit: none=255, net_parsimony=116, other=78, quartet=71, coalescent=67, distance=66, likelihood=34, bayesian=26, parsimony=25, pseudolikelihood=10
+alg: other=269, none=237, exact=124, mcmc=13, hill_climb=11, divide_conquer=7, ml=7, sa=6, ga_ea=4, nsga2=1
+rep: network=572, tree=276, quartet=75, split=56, matrix=40, cluster=36, other=24, none=2
+ops: none=573, other=33, spr=26, consensus=17, nni=14, tbr=6, crossover=1, mutation=1, nj_init=1
+nobj: na=464, 1=182, 2=2, 3=1
+dsd: na=542, no=105, yes=2
+data: other=200, gene_trees=173, genomic=98, unclear=88, dna=70, distances=42, morphological=6, protein=6
+soft: unclear=587, yes=62
+
+TOP CITED:
+R03325 Huson 2006 c=7335 [method] Application of phylogenetic networks in evolutionary studies | name=SplitsTree4 | Reviews split and reticulate networks; introduces SplitsTree4 | crit=none alg=none rep=network;split ops=none
+R03014 Kosakovsky Pond 2006 c=713 [method] GARD: A genetic algorithm for recombination detection | name=GARD | Genetic algorithm search for recombination breakpoints by likelihood | crit=likelihood alg=ga_ea rep=other ops=none
+R06039 Solis-Lemus 2016 c=440 [method] Inferring Phylogenetic Networks with Maximum Pseudolikelihood under Incomplete Lineage Sor | name=NA | Maximum pseudolikelihood network inference under ILS from quartets | crit=pseudolikelihood;coalescent;quartet alg=other rep=network;quartet ops=none
+R05513 Than 2008 c=423 [method] PhyloNet: A software package for analyzing and reconstructing reticulate evolutionary rela | name=PhyloNet | Software suite to represent, characterise, compare and reconstruct networks | crit=none alg=none rep=network;tree;cluster ops=none
+R02798 Joly 2009 c=369 [method] A Statistical Approach for Distinguishing Hybridization and Incomplete Lineage Sorting | name=NA | Coalescent test distinguishing hybridization from incomplete lineage sorting | crit=coalescent alg=other rep=none ops=none
+R03409 Solis-Lemus 2017 c=366 [method] PhyloNetworks: A package for phylogenetic networks | name=PhyloNetworks | Julia package for SNaQ network inference and summaries | crit=pseudolikelihood alg=none rep=network ops=none
+R03766 Wen 2018 c=284 [method] Inferring phylogenetic networks using PhyloNet | name=PhyloNet | PhyloNet package for parsimony, likelihood and Bayesian networks | crit=parsimony;likelihood;bayesian;coalescent;pseudolikelihood alg=other rep=network ops=none
+R06977 Pelser 2010 c=254 [method] PATTERNS AND CAUSES OF INCONGRUENCE BETWEEN PLASTID AND NUCLEAR SENECIONEAE (ASTERACEAE) P | name=NA | Coalescent dating test to exclude ILS as incongruence cause | crit=coalescent alg=none rep=tree ops=none
+R02581 Chan 2013 c=214 [method] Topology of viral evolution | name=NA | Persistent homology framework detecting and quantifying reticulate evolution | crit=other alg=other rep=other ops=none
+R03990 Kunin 2005 c=212 [method] The net of life: Reconstructing the microbial phylogenetic network | name=NA | Tree plus horizontal transfer vines for microbial network | crit=none alg=other rep=network;tree ops=none
+R02584 Yu 2014 c=208 [method] Maximum likelihood inference of reticulate evolutionary histories | name=NA | Maximum likelihood phylogenetic network inference accounting for ILS | crit=likelihood;coalescent alg=none rep=network ops=none
+R02450 Kelleher 2019 c=205 [method] Inferring whole-genome histories in large population datasets | name=NA | Scalable inference of whole-genome genealogies for large datasets | crit=none alg=other rep=tree;other ops=none
+R01681 Meng 2009 c=201 [method] Detecting hybrid speciation in the presence of incomplete lineage sorting using gene tree  | name=NA | Model separating hybridization from ILS in gene tree incongruence | crit=likelihood;bayesian;coalescent alg=none rep=tree;network ops=none
+R05616 Yu 2015 c=200 [method] A maximum pseudo-likelihood approach for phylogenetic networks | name=PhyloNet | Rooted-triple pseudo-likelihood network inference under ILS | crit=pseudolikelihood;coalescent alg=other rep=network;quartet ops=none
+R03913 Galtier 2008 c=190 [review] Dealing with incongruence in phylogenomic analyses | name=NA | Review of phylogenomic methods handling HGT-driven gene tree incongruence | crit=none alg=none rep=tree ops=none
+R06038 Yu 2012 c=179 [method] The probability of a gene tree topology within a phylogenetic network with applications to | name=NA | Gene tree topology probabilities in networks for hybridization detection | crit=likelihood;coalescent alg=other rep=network;tree ops=none
+R05996 Nakhleh 2005 c=171 [method] Perfect phylogenetic networks: A new methodology for reconstructing the evolutionary histo | name=perfect phylogenetic networks | Perfect phylogenetic networks modelling language contact during evolution | crit=other alg=none rep=network;tree ops=none
+R02689 Buckley 2006 c=165 [method] Differentiating between hypotheses of lineage sorting and introgression in New Zealand alp | name=NA | Posterior-weighted gene tree parsimony; coalescent test of introgression | crit=parsimony;bayesian;coalescent alg=none rep=tree ops=none
+R03629 Yu 2011 c=159 [method] Coalescent histories on phylogenetic networks and detection of hybridization despite incom | name=NA | Coalescence within networks detects hybridization despite ILS | crit=coalescent alg=none rep=network ops=none
+R04146 Cardona 2009 c=157 [metric] Comparison of tree-child phylogenetic networks | name=mu-distance | Path multiplicity vectors, mu-distance and alignment for tree-child networks | crit=none alg=other rep=network ops=none
+R03178 Huson 2011 c=156 [review] A Survey of Combinatorial Methods for Phylogenetic Networks | name=NA | Survey of combinatorial methods for phylogenetic networks | crit=none alg=none rep=network ops=none
+R03414 Zhang 2018 c=156 [method] Bayesian inference of species networks from multilocus sequence data | name=SpeciesNetwork | Bayesian joint inference of species networks and gene trees | crit=bayesian;coalescent alg=mcmc rep=network;tree ops=none
+R02693 Joly 2006 c=151 [method] Incorporating allelic variation for reconstructing the evolutionary history of organisms f | name=NA | Converting allele distances to organism distances for multigene phylogenies | crit=distance alg=other rep=matrix;network ops=none
+R03424 Flouri 2020 c=147 [method] A Bayesian Implementation of the Multispecies Coalescent Model with Introgression for Phyl | name=BPP | Multispecies coalescent with introgression implemented in BPP | crit=bayesian;coalescent alg=mcmc rep=network ops=none
+R03611 Kubatko 2009 c=144 [method] Identifying hybridization events in the presence of coalescence via model selection | name=NA | Likelihood model selection detects hybridization despite deep coalescence | crit=likelihood;coalescent alg=none rep=network;tree ops=none
+R02685 Cassens 2005 c=139 [method] Evaluating intraspecific "network" construction methods using simulated sequence data: Do  | name=NA | Uniting equally parsimonious trees into haplotype network; method comparison | crit=parsimony alg=other rep=tree;network ops=consensus
+R03721 Solis-Lemus 2016 c=136 [theory] Inconsistency of Species Tree Methods under Gene Flow | name=NA | Species tree methods inconsistent under gene flow | crit=coalescent alg=none rep=tree;network ops=none
+R05569 Beiko 2006 c=124 [method] Phylogenetic identification of lateral genetic transfer events | name=EEEP | Constrained SPR edit path search identifying lateral transfers | crit=net_parsimony alg=exact rep=tree ops=spr
+R03681 Marcussen 2015 c=121 [method] From gene trees to a dated allopolyploid network: Insights from the angiosperm genus viola | name=NA | Dated allopolyploid network from gene trees via multilabelled trees | crit=net_parsimony alg=none rep=network;tree ops=none
+R07395 Bravo 2019 c=114 [review] Embracing heterogeneity: Coalescing the tree of life and the future of phylogenomics | name=NA | Perspective on coalescent methods for heterogeneous phylogenomic data | crit=coalescent alg=none rep=tree ops=none
+R03756 Wen 2018 c=110 [method] Coestimating reticulate phylogenies and gene trees from multilocus sequence data | name=NA | Bayesian coestimation of species networks and gene trees | crit=bayesian;coalescent alg=mcmc rep=network;tree ops=none
+R03013 Jin 2006 c=108 [method] Maximum likelihood of phylogenetic networks | name=NA | Likelihood criteria, NP-hardness and heuristics for HGT networks | crit=likelihood alg=other rep=network;tree ops=none
+R06051 Woolley 2008 c=103 [evaluation] A comparison of phylogenetic network methods using computer simulation | name=NA | Simulation comparison of network methods with and without recombination | crit=parsimony;distance alg=none rep=network;tree;split ops=none
+R01232 Bordewich 2007 c=102 [theory] Computing the minimum number of hybridization events for a consistent evolutionary history | name=NA | Minimum hybridization number for tree sets is APX-hard | crit=net_parsimony alg=none rep=tree;network ops=spr
+R05586 Holland 2008 c=101 [evaluation] Using supernetworks to distinguish hybridization from lineage-sorting | name=Z-closure, Q-imputation | Coalescent simulations: filtered supernetworks separate hybridization from lineage sorting | crit=none alg=none rep=network;split ops=none
+R03701 Francis 2015 c=97 [theory] Which phylogenetic networks are merely trees with additional arcs? | name=NA | 2-SAT criterion and algorithm for tree-based networks | crit=none alg=exact rep=network;tree ops=none
+R03043 Scornavacca 2011 c=94 [method] Tanglegrams for rooted phylogenetic trees and networks | name=NN-tanglegram | Heuristic tanglegrams for rooted trees and networks | crit=none alg=other rep=tree;network ops=none
+R05651 Kannan 2012 c=92 [method] Maximum Parsimony on Phylogenetic networks | name=NA | Fitch and Sankoff parsimony scoring extended to networks | crit=net_parsimony alg=exact;other rep=network ops=none
+R03661 Yu 2013 c=91 [method] Parsimonious inference of hybridization in the presence of incomplete lineage sorting | name=NA | Parsimony network inference from gene trees accounting for ILS | crit=parsimony alg=hill_climb rep=network ops=none
+R06040 Wen 2016 c=90 [method] Bayesian Inference of Reticulate Phylogenies under the Multispecies Network Coalescent | name=PhyloNet | RJMCMC Bayesian network inference under multispecies network coalescent | crit=bayesian;coalescent alg=mcmc rep=network ops=none
+R02675 Baroni 2006 c=89 [theory] Hybrids in real time | name=NA | Hybridization number theory and temporal network realizability algorithm | crit=net_parsimony alg=other rep=network;tree ops=spr
+R05588 Kloepper 2008 c=89 [method] Drawing explicit phylogenetic networks and their integration into SplitsTree | name=SplitsTree | Equal angle layout for explicit networks within SplitsTree | crit=none alg=other rep=network ops=none
+R06377 Soltis 2008 c=89 [evaluation] ITS and ETS sequence data and phylogeny reconstruction in allopolyploids and hybrids | name=NA | Effects of hybrid rDNA polymorphisms on parsimony phylogeny reconstruction | crit=parsimony alg=none rep=tree ops=consensus
+R03772 Degnan 2018 c=87 [theory] Modeling hybridization under the network multispecies coalescent | name=NA | Modelling choices and identifiability in network multispecies coalescent | crit=coalescent;likelihood alg=none rep=network;tree ops=none
+R05853 Allman 2019 c=82 [method] NANUQ: a method for inferring species networks from gene trees under the coalescent model | name=NANUQ | Level-1 species network inference from gene tree quartets | crit=coalescent;quartet alg=other rep=network;split;quartet ops=none
+
+RECENT (2023-2026):
+R06639 Bryant 2023 c=60 [method] NeighborNet: improved algorithms and implementation | name=NeighborNet | Improved NeighborNet circular ordering and split weight algorithms
+R03546 Koppetsch 2024 c=33 [evaluation] Towards Reliable Detection of Introgression in the Presence of Among-Species Rate Variatio | name=NA | Rate variation causes false introgression signals in common tests
+R03552 Kong 2025 c=26 [method] Inference of Phylogenetic Networks From Sequence Data Using Composite Likelihood | name=PHYNEST | Composite likelihood network search with hill climbing and annealing
+R03540 Pang 2024 c=24 [evaluation] Detection of Ghost Introgression Requires Exploiting Topological and Branch Length Informa | name=NA | Full-likelihood BPP detects ghost introgression where heuristics fail
+R00623 Xu 2023 c=23 [theory] Identifiability of local and global features of phylogenetic networks from average distanc | name=distance split tree | Network features identifiable from average pairwise distances
+R04325 Freyman 2023 c=22 [method] homologizer: Phylogenetic phasing of gene copies into polyploid subgenomes | name=homologizer | Bayesian phylogenetic phasing of homeologs into polyploid subgenomes
+R03289 Thawornwattana 2023 c=21 [evaluation] Inferring the Direction of Introgression Using Genomic Sequence Data | name=BPP | Information on introgression direction under multispecies coalescent with introgression
+R01043 Hellmuth 2023 c=19 [theory] Clustering systems of phylogenetic networks | name=NA | Correspondences between network classes and their clustering systems
+R02564 Joyce 2025 c=19 [review] Navigating phylogenetic conflict and evolutionary inference in plants with target-capture  | name=NA | Review of target-capture workflows for handling phylogenetic conflict
+R00621 Allman 2023 c=17 [theory] The tree of blobs of a species network: identifiability under the coalescent | name=NA | Tree of blobs identifiable from gene quartet concordance factors
+R02603 Kong 2025 c=17 [review] Phylogenetic networks empower biodiversity research | name=NA | Review of network inference methods and interpretation guidelines
+R00625 Ane 2024 c=15 [theory] Anomalous networks under the multispecies coalescent: theory and prevalence | name=NA | Anomalous four-taxon networks under coalescent; faster quartet CFs
+R06567 Galtier 2024 c=15 [method] An approximate likelihood method reveals ancient gene flow between human, chimpanzee and g | name=Aphid | Approximate likelihood separating gene flow from ILS via branch lengths
+R03989 Zhang 2023 c=14 [method] A fast and scalable method for inferring phylogenetic networks from trees by aligning line | name=ALTS | Minimum tree-child network inference by aligning lineage taxon strings
+R03301 Holtgrefe 2025 c=13 [method] Squirrel: Reconstructing Semi-directed Phylogenetic Level-1 Networks from Four-Leaved Netw | name=Squirrel | Quarnet-based reconstruction of semi-directed level-1 networks
+R00995 Allman 2024 c=12 [theory] Identifiability of Level-1 Species Networks from Gene Tree Quartets | name=NA | Identifiability of level-1 network topology and parameters from concordance factors
+R03545 Tiley 2024 c=12 [method] Benefits and Limits of Phasing Alleles for Network Inference of Allopolyploid Complexes | name=PATÉ | Phased alleles improve allopolyploid network inference; PATÉ pipeline
+R04223 Landry 2023 c=12 [metric] Defining Phylogenetic Network Distances Using Cherry Operations | name=NA | Cherry-picking distances for networks with bounds and NP-hardness
+R04327 Justison 2023 c=12 [method] SiPhyNetwork: An R package for simulating phylogenetic networks | name=SiPhyNetwork | R package simulating networks under birth-death-hybridization processes
+R05873 Allman 2025 c=12 [method] NANUQ+: A divide-and-conquer approach to network estimation | name=NANUQ+ | Divide-and-conquer level-1 resolution of tree of blobs multifurcations

@@ -1,0 +1,15 @@
+id,action,value,reason
+R02538,exclude,application,taxonomic study that applies an MRP supertree and existing parsimony searches
+R04537,exclude,application,empirical analysis of 73060 eukaryote taxa with existing TNT searches
+R04131,exclude,application,application to Triticum sequences; the genetic algorithm is not described
+R02449,drop_cat,mo,three criteria combined lexicographically in a single MILP objective; no Pareto set
+R02449,set_nobj,1,single lexicographic objective
+R00423,drop_cat,mo,split-network construction heuristic with two criteria but no multi-objective search
+R00423,set_nobj,na,construction heuristic
+R02842,drop_cat,mo,complexity results only
+R02842,set_nobj,na,theory
+R05494,drop_cat,mo,"""Pareto optimal"" names minimum single-cost reconciliations"
+R05494,set_nobj,1,single event-cost scheme
+R02862,drop_cat,mo,builds on TreeCollapse with a single event-cost scheme
+R02862,set_nobj,1,single event-cost scheme
+R08211,drop_cat,so_meta,the genetic algorithm selects restriction enzymes; no heuristic search over trees

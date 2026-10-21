@@ -1,0 +1,44 @@
+group,strategy,algorithm,ids,criteria,structure,operators
+Evolutionary algorithms,GA with NJ mapping,Genetic algorithm,R05258,ML,Distance matrix,Uniform row crossover; BLX-alpha recombination
+Evolutionary algorithms,GA for weighted parsimony,Genetic algorithm,R01166,MP (weighted),Tree,n.r.
+Evolutionary algorithms,EA for networks,Evolutionary algorithm,R00270,n.r.,Rooted network,n.r.
+Evolutionary algorithms,MetaPIGA,Metapopulation GA,R05462,ML,Tree,NNI; SPR; TBR; taxa and subtree swaps; recombination; consensus pruning
+Evolutionary algorithms,Asynchronous parallel GA,Genetic algorithm,R04035,ML,Tree,n.r.
+Evolutionary algorithms,EA for supertrees,Evolutionary algorithm,R04034,n.r.,Tree,n.r.
+Evolutionary algorithms,GA for rogue taxa,Genetic algorithm,R04028,Resolution of the consensus tree,Subset of taxa,Crossover; mutation
+Evolutionary algorithms,ICA for consensus trees,Imperialist competitive algorithm,R06526,n.r.,Tree,n.r.
+Evolutionary algorithms,Modified GA,Genetic algorithm,R00338,n.r.,Tree,n.r.
+Simulated annealing,RAxML-SA,Simulated annealing; hill climbing,R04102;R00254;R04103,ML,Tree,Lazy subtree rearrangements; annealing acceptance
+Simulated annealing,Generalised Gibbs sampler,Simulated annealing,R01739,MP,Tree,Gibbs sampler moves
+Simulated annealing,MC-Net and SAQ-Net,Monte Carlo search; simulated annealing,R05527;R01510,Fit of a circular ordering to distances or quartets,Circular ordering,Taxon removal and reinsertion in the circular ordering (MC-Net); Metropolis acceptance
+Simulated annealing,SAMPARS,Simulated annealing; iterated local search,R06559;R00486;R07277,MP,Tree,SPR neighbourhood; reheating; path relinking
+Simulated annealing,SA for reticulate networks,Simulated annealing,R07586,n.r.,Network,n.r.
+Simulated annealing,SAWSA-LPR,Simulated annealing with steepest ascent,R01155,ML,Tree,Leaf pruning and regrafting
+Simulated annealing,SAMedian,Simulated annealing,R00387;R02868,MP (DCJ distance),Tree with gene orders,DCJ sorting
+Simulated annealing,PSA,Simulated annealing,R04423,Network parsimony,Rooted network,"Addition, deletion, relocation and reversal of reticulation edges"
+Simulated annealing,PhyNEST,Hill climbing; simulated annealing,R03552,Composite likelihood,Level-1 network,NNI; reticulation moves
+Local search metaheuristics,Progressive neighbourhood search,Descent; iterated local search; simulated annealing,R00255;R04144,MP,Tree,Subtree swapping; NNI; SPR; TBR; progressive neighbourhood
+Local search metaheuristics,Leaphy,Hill climbing with resampling,R02713,ML,Tree,SPR rearrangements; random perturbations; resampling by sequence removal; parsimony starting trees
+Local search metaheuristics,Tabu search for MP,Tabu search,R01280,MP,Tree,n.r.
+Local search metaheuristics,morePhyML,Likelihood ratchet,R01895,ML,Tree,Character reweighting; NNI; SPR
+Local search metaheuristics,Parallel adaptive memory programming,Adaptive memory programming,R00785,MP,Tree,n.r.
+Local search metaheuristics,IQ-TREE,Hill climbing with stochastic perturbation,R03390,ML,Tree,Random NNI perturbation; hill-climbing NNI; candidate set
+Local search metaheuristics,Treeline,Multi-start hill climbing,R04298,ME; ML; MP,Tree,Perturbation of patristic distances; hill climbing
+Memetic and hybrid algorithms,Hydra,Memetic algorithm,R00271;R00439,MP,Tree,Crossover of path-length matrices; progressive neighbourhood descent
+Memetic and hybrid algorithms,Cooperative Rec-I-DCM3,Population of Rec-I-DCM3 searches,R05259,MP,Tree,Rec-I-DCM3 per individual; strict consensus recombination; diverse or elitist selection by MP rank
+Memetic and hybrid algorithms,GA within fastDNAml,Genetic algorithm with fastDNAml,R05252,ML,Taxon addition order and branch lengths,n.r.
+Memetic and hybrid algorithms,PhyloES,Evolution strategy with local search,R02988,ME (balanced),Edge-insertion code,Sampling of code positions; BNNI; BSPR
+Other stochastic search,covSEARCH,Confidence-set pool search,R00548,ML,Pool of trees,Pool update by confidence tests
+Other stochastic search,SBiX,Stochastic local search,R03360,ME,Tree,Big-quartet swaps
+Other stochastic search,PTree,Stochastic search guided by patterns,R07402,MP,Tree,Insertion of inferred intermediate sequences
+Other stochastic search,CRO for parsimony,Chemical reaction optimisation,R00296,MP,Tree,Redesigned elementary reactions
+Other stochastic search,RL-guided SPR search,Reinforcement learning with beam search,R02960,ME (balanced),Tree,SPR moves sampled by a policy network
+Swarm intelligence,ACO for minimum evolution,Ant colony optimisation,R05577,ME,Tree,Pheromone-guided taxon insertion; 2-opt swaps
+Swarm intelligence,ABPR,Ant colony optimisation,R06361,ME,Tree,Pheromone-guided joining of taxa
+Swarm intelligence,ACOPHY,Ant colony optimisation,R07427,Any criterion,Tree,Ant walks on a graph coupled with tree space
+Swarm intelligence,Tumour phylogenies under Dollo-k,PSO; genetic programming; VNS,R06765,ML (single-cell),Mutation tree,Subtree prune and reattach; node insertion and deletion
+Evolutionary algorithms,GA for median problems,Genetic algorithm,R08576;R08399,MP (reversal and DCJ distances),Ancestral gene order,Genomic sorting to generate candidate medians
+Evolutionary algorithms,Co-evolutionary GA for tree scoring,Cooperative co-evolutionary GA,R08165,MP (rearrangement distance),Ancestral gene orders on a fixed tree,Co-evolutionary fitness; seeded initial population; evolution by genome sorting
+Local search metaheuristics,HELPHY,VNS,R08135,MP (reversal and DCJ distances),Tree with ancestral gene orders,Variable neighbourhoods over topologies; greedy labelling of ancestral gene orders
+Local search metaheuristics,GRASP for length-weighted inversions,GRASP,R08166,Length-weighted inversion distance,Sequence of inversions,Greedy randomised construction; neighbourhood search
+Swarm intelligence,IDQPSO-Median,Discrete quantum-behaved PSO,R08313,MP (DCJ distance),Ancestral gene order,Quantum-behaved particle moves; DCJ sorting

@@ -1,0 +1,24 @@
+node,size,label,shared,block,purity,clade,block_name
+2743,446,DistanceCriterion+MatrixStructure+Method,"DistanceCriterion, MatrixStructure, Method",tree_other,0.8946188340807175,1,Other tree inference
+2895,50,Genomic+Method,"Genomic, Method",tree_other,0.78,2,Other tree inference
+3082,41,Evaluation+Genomic,"Evaluation, Genomic",tree_other,0.7560975609756098,3,Other tree inference
+2964,38,Bayesian+Method,"Bayesian, Method",tree_other,0.7631578947368421,4,Other tree inference
+3287,28,Evaluation+DNA+Bayesian,"Evaluation, DNA, Bayesian, Likelihood",tree_other,0.75,5,Other tree inference
+2925,26,Theory+Distances+DistanceCriterion,"Theory, Distances, DistanceCriterion, MatrixStructure",tree_other,0.9615384615384616,6,Other tree inference
+3147,25,Theory+Genomic,"Theory, Genomic",tree_other,0.96,7,Other tree inference
+2931,303,Network+NetworkStructure+Method,"Network, NetworkStructure, Method",network,0.9603960396039604,8,Phylogenetic networks
+2836,230,NetworkStructure+Network+Theory,"NetworkStructure, Network, Theory",network,1,9,Phylogenetic networks
+3321,65,Metric+TreeDistance+Network,"Metric, TreeDistance, Network, NetworkStructure",network,0.8153846153846154,10,Phylogenetic networks
+2928,271,Supertree+GeneTrees+Method,"Supertree, GeneTrees, Method",supertree,0.7896678966789668,11,Supertrees and species trees
+3025,138,Evaluation+Supertree,"Evaluation, Supertree",supertree,0.8623188405797102,12,Supertrees and species trees
+3162,80,Theory+Supertree+GeneTrees,"Theory, Supertree, GeneTrees",supertree,0.9125,13,Supertrees and species trees
+3005,58,Quartet+Quartets+Supertree,"Quartet, Quartets, Supertree, GeneTrees, Method",supertree,0.8275862068965517,14,Supertrees and species trees
+2951,33,DNA+Supertree+Method,"DNA, Supertree, Method",supertree,0.9090909090909091,15,Supertrees and species trees
+3548,25,Evaluation+DNA+Supertree,"Evaluation, DNA, Supertree, Coalescent",supertree,0.92,16,Supertrees and species trees
+2932,60,ForestAnalysis+GeneTrees+Method,"ForestAnalysis, GeneTrees, Method",forest_analysis,0.9333333333333333,17,Forest analysis and consensus
+3562,25,Metric+TreeDistance+ForestAnalysis,"Metric, TreeDistance, ForestAnalysis, GeneTrees",forest_analysis,0.92,18,Forest analysis and consensus
+2868,67,Metaheuristic+Method,"Metaheuristic, Method",so_meta,0.9850746268656716,19,Single-objective heuristic search
+3125,33,HillClimbing+Metaheuristic+Supertree,"HillClimbing, Metaheuristic, Supertree, GeneTrees, Method",so_meta,0.8484848484848485,20,Single-objective heuristic search
+2962,111,Morphology+MorphologicalData,"Morphology, MorphologicalData",morpho,0.9279279279279279,21,Morphological data
+3528,42,Metric+TreeDistance+GeneTrees,"Metric, TreeDistance, GeneTrees",distance,1,22,Tree and network distances
+2946,49,MultiObjective+TwoOrMoreObjectives+Likelihood,"MultiObjective, TwoOrMoreObjectives, Likelihood, Parsimony",mo,1,23,Multi-objective optimisation

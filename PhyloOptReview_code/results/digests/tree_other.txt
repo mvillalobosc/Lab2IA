@@ -1,0 +1,79 @@
+BLOCK tree_other: 1010 studies with the category, 786 as main block
+type: method=683, evaluation=211, theory=86, review=29, metric=1
+crit: distance=528, likelihood=141, bayesian=137, none=120, other=112, parsimony=100, coalescent=32, quartet=16, pseudolikelihood=2, net_parsimony=1
+alg: none=564, other=314, exact=46, mcmc=38, hill_climb=25, ml=25, divide_conquer=18, ga_ea=5, vns_grasp=3, nsga2=2, sa=2, swarm=1
+rep: tree=867, matrix=430, other=95, cluster=20, split=17, quartet=16, network=14, none=2
+ops: none=971, other=19, consensus=11, spr=6, nj_init=5, nni=4, crossover=2, mutation=2, tbr=1
+nobj: na=850, 1=156, 2=3, many=1
+dsd: na=899, no=110, yes=1
+data: genomic=403, dna=334, protein=102, unclear=96, other=77, distances=59, morphological=51, gene_trees=16
+soft: unclear=920, yes=90
+
+TOP CITED:
+R03390 Nguyen 2015 c=23010 [method] IQ-TREE: A fast and effective stochastic algorithm for estimating maximum-likelihood phylo | name=IQ-TREE | Hill-climbing with stochastic perturbation for ML tree search | crit=likelihood alg=hill_climb;vns_grasp rep=tree ops=other
+R03012 Stamatakis 2006 c=14714 [method] RAxML-VI-HPC: Maximum likelihood-based phylogenetic analyses with thousands of taxa and mi | name=RAxML-VI-HPC | Sequential and MPI-parallel ML inference with GTR+CAT | crit=likelihood alg=other rep=tree ops=none
+R03338 Yang 2007 c=11565 [method] PAML 4: Phylogenetic analysis by maximum likelihood | name=PAML 4 | Maximum likelihood phylogenetic analysis software package | crit=likelihood alg=none rep=tree ops=none
+R03438 Trifinopoulos 2016 c=5177 [method] W-IQ-TREE: a fast online phylogenetic tool for maximum likelihood analysis | name=W-IQ-TREE | Web server for IQ-TREE maximum likelihood analyses | crit=likelihood alg=none rep=tree ops=none
+R03350 Price 2009 c=4649 [method] Fasttree: Computing large minimum evolution trees with profiles instead of a distance matr | name=FastTree | Profile-based neighbor-joining plus NNI for huge minimum evolution trees | crit=distance alg=hill_climb;other rep=tree;other ops=nni;nj_init
+R06022 Bouckaert 2019 c=3570 [method] BEAST 2.5: An advanced software platform for Bayesian evolutionary analysis | name=BEAST 2.5 | New developments in BEAST 2 Bayesian evolutionary software platform | crit=bayesian alg=none rep=tree ops=none
+R02961 Kumar 2008 c=3191 [method] MEGA: A biologist-centric software for evolutionary analysis of DNA and protein sequences | name=MEGA | Desktop software for evolutionary and phylogenetic sequence analysis | crit=distance alg=none rep=tree;matrix ops=none
+R03722 Chernomor 2016 c=1971 [method] Terrace Aware Data Structure for Phylogenomic Inference from Supermatrices | name=PTA | Terrace-aware data structure speeding partitioned ML tree search | crit=likelihood alg=other rep=tree ops=other
+R03399 Huerta-Cepas 2016 c=1647 [method] ETE 3: Reconstruction, Analysis, and Visualization of Phylogenomic Data | name=ETE 3 | Toolkit for phylogenomic reconstruction, tree comparison and visualisation | crit=none alg=none rep=tree ops=none
+R03394 Lefort 2015 c=1517 [method] FastME 2.0: A Comprehensive, Accurate, and Fast Distance-Based Phylogeny Inference Program | name=FastME 2.0 | Balanced minimum evolution tree search with NNI and SPR | crit=distance alg=hill_climb rep=tree;matrix ops=nni;spr
+R03429 Guindon 2005 c=1302 [method] PHYML Online - A web server for fast maximum likelihood-based phylogenetic inference | name=PHYML Online | Web server for fast heuristic maximum likelihood tree inference | crit=likelihood alg=other rep=tree ops=none
+R03002 Stamatakis 2005 c=1251 [method] RAxML-III: a fast program for maximum likelihood-based inference of large phylogenetic tre | name=RAxML-III | Fast maximum likelihood inference of large phylogenies | crit=likelihood alg=none rep=tree ops=none
+R03985 Vilella 2009 c=1025 [method] EnsemblCompara GeneTrees: Complete, duplication-aware phylogenetic trees in vertebrates | name=EnsemblCompara GeneTrees | Duplication-aware gene tree pipeline with correctness metrics and benchmark | crit=none alg=none rep=tree ops=none
+R03371 Baele 2012 c=976 [evaluation] Improving the accuracy of demographic and molecular clock model comparison while accommoda | name=NA | Evaluates path and stepping-stone marginal likelihood estimators | crit=bayesian alg=mcmc rep=tree ops=none
+R05720 Bouckaert 2017 c=772 [method] bModelTest: Bayesian phylogenetic site model averaging and model comparison | name=bModelTest | Trans-dimensional MCMC averaging of site models in BEAST 2 | crit=bayesian alg=mcmc rep=tree ops=none
+R04748 Tanabe 2011 c=766 [method] Kakusan4 and Aminosan: Two programs for comparing nonpartitioned, proportional and separat | name=Kakusan4 | Programs selecting partitioned substitution models by information criteria | crit=likelihood;bayesian alg=none rep=other ops=none
+R03647 Ronquist 2012 c=728 [method] A total-evidence approach to dating with fossils, applied to the early radiation of the hy | name=NA | Bayesian total-evidence tip dating with fossils versus node dating | crit=bayesian alg=none rep=tree ops=none
+R03324 Yang 2006 c=705 [method] Bayesian estimation of species divergence times under a molecular clock using multiple fos | name=NA | Bayesian MCMC divergence dating with soft-bound fossil calibrations | crit=bayesian alg=mcmc rep=tree ops=none
+R08724 Cilibrasi 2005 c=693 [method] Clustering by compression | name=NCD | Normalized compression distance with quartet tree heuristic clustering | crit=distance;quartet alg=other rep=matrix;quartet;tree ops=none
+R02415 Salichos 2013 c=536 [evaluation] Inferring ancient divergences requires genes with strong phylogenetic signals | name=NA | Genes with high internode support improve ancient divergence inference | crit=none alg=none rep=tree ops=none
+R03386 Aberer 2014 c=401 [method] Exabayes: Massively parallel bayesian tree inference for the whole-genome era | name=ExaBayes | Massively parallel Bayesian tree inference with Metropolis-coupled chains | crit=bayesian alg=mcmc rep=tree ops=none
+R02708 Rannala 2007 c=384 [method] Inferring speciation tunes under an episodic molecular clock | name=NA | Bayesian relaxed-clock divergence time estimation with fossil calibrations | crit=bayesian alg=mcmc rep=tree ops=none
+R03642 Sauquet 2012 c=349 [evaluation] Testing the Impact of Calibration on Molecular Divergence Times Using a Fossil-Rich Group: | name=NA | Impact of fossil calibration strategies on divergence time estimates | crit=likelihood;bayesian alg=none rep=tree ops=none
+R03364 Reis 2011 c=344 [method] Approximate likelihood calculation on a phylogeny for Bayesian Estimation of Divergence Ti | name=NA | Taylor-expansion approximate likelihood speeds Bayesian divergence dating | crit=bayesian;likelihood alg=mcmc rep=tree ops=none
+R07945 Sims 2009 c=344 [method] Alignment-free genome comparison with feature frequency profiles (FFP) and optimal resolut | name=FFP | Feature frequency profiles with optimal l-mer resolution range | crit=none alg=none rep=tree ops=none
+R03708 Zhang 2016 c=333 [method] Total-Evidence Dating under the Fossilized Birth-Death Process | name=FBD | Fossilized birth-death prior with diversified sampling for total-evidence dating | crit=bayesian alg=mcmc rep=tree ops=none
+R03372 Roure 2013 c=299 [evaluation] Impact of missing data on phylogenies inferred from empirical phylogenomic data sets | name=NA | Empirical assessment of missing data effects in phylogenomic supermatrices | crit=likelihood;bayesian alg=none rep=tree ops=none
+R03027 Quang 2008 c=297 [method] Empirical profile mixture models for phylogenetic reconstruction | name=NA | EM-estimated amino acid profile mixtures for ML phylogenetics | crit=likelihood alg=other rep=other ops=none
+R06017 Gavryushkina 2014 c=293 [method] Bayesian Inference of Sampled Ancestor Trees for Epidemiology and Fossil Calibration | name=NA | MCMC inference of sampled ancestor trees under birth-death models | crit=bayesian alg=mcmc rep=tree ops=none
+R04917 Ho 2014 c=288 [review] Molecular-clock methods for estimating evolutionary rates and timescales | name=NA | Review of molecular-clock models, calibration and model selection | crit=bayesian alg=none rep=tree ops=none
+R06091 Rubin 2012 c=272 [method] Inferring phylogenies from RAD sequence data | name=NA | Proof-of-concept RAD clustering, filtering and concatenation phylogenetic workflow | crit=none alg=none rep=tree ops=none
+R02714 Britton 2007 c=250 [method] Estimating divergence times in large phylogenetic trees | name=PATHd8 | Fast mean path length dating for large trees | crit=other alg=other rep=tree ops=none
+R03046 Popescu 2012 c=247 [method] Ape 3.0: New tools for distance-based phylogenetics and evolutionary analysis in R | name=ape | Distance-based inference from incomplete matrices in R ape | crit=distance alg=none rep=tree;matrix;split ops=none
+R03678 Huang 2016 c=247 [evaluation] Unforeseen Consequences of Excluding Missing Data from Next-Generation Sequences: Simulati | name=NA | Simulated effects of missing-data filtering on RADseq loci | crit=none alg=none rep=none ops=none
+R03726 Gavryushkina 2017 c=239 [method] Bayesian total-evidence dating reveals the recent crown radiation of penguins | name=FBD | Total-evidence dating with fossilized birth-death prior and morphology | crit=bayesian alg=mcmc rep=tree ops=none
+R03742 Reddy 2017 c=231 [evaluation] Why Do Phylogenomic Data Sets Yield Conflicting Trees? Data Type Influences the Avian Tree | name=NA | Data type outweighs taxon sampling in phylogenomic conflict | crit=none alg=none rep=tree ops=none
+R06166 Wright 2014 c=227 [evaluation] Bayesian Analysis Using a Simple Likelihood Model Outperforms Parsimony for Estimation of  | name=Mk | Simulations show Bayesian Mk outperforms parsimony on morphology | crit=bayesian;parsimony alg=none rep=tree ops=none
+R03618 Inoue 2010 c=221 [evaluation] The impact of the representation of fossil calibrations on bayesian estimation of species  | name=NA | Fossil calibration priors drive Bayesian divergence time estimates | crit=bayesian alg=mcmc rep=tree ops=none
+R06099 Agren 2012 c=212 [method] Gegenees: Fragmented alignment of multiple genomes for determining phylogenomic distances  | name=Gegenees | Fragmented genome alignment for phylogenomic distances and signatures | crit=distance alg=none rep=matrix ops=none
+R02440 Arcila 2017 c=208 [method] Genome-wide interrogation advances resolution of recalcitrant groups in the tree of life | name=GGI | Gene genealogy interrogation resolves conflicting ancient divergences | crit=none alg=none rep=tree ops=none
+R03397 Hosner 2016 c=208 [evaluation] Avoiding Missing Data Biases in Phylogenomic Inference: An Empirical Study in the Landfowl | name=NA | Missing data and short contigs bias gene tree reconciliation | crit=likelihood;quartet;coalescent alg=none rep=tree ops=none
+R02450 Kelleher 2019 c=205 [method] Inferring whole-genome histories in large population datasets | name=NA | Scalable inference of whole-genome genealogies for large datasets | crit=none alg=other rep=tree;other ops=none
+R03078 Puttick 2019 c=204 [method] MCMCtreeR: Functions to prepare MCMCtree analyses and visualize posterior ages on trees | name=MCMCtreeR | R tools for MCMCtree calibration priors and time-tree plots | crit=bayesian alg=none rep=tree ops=none
+R06067 Tobe 2010 c=196 [evaluation] Reconstructing mammalian phylogenies: A detailed comparison of the cytochrome b and cytoch | name=NA | Cyt b outperforms COI for reconstructing mammalian phylogeny | crit=distance alg=none rep=tree ops=none
+R08400 Gardner 2013 c=193 [method] When whole-genome alignments just won't work: KSNP v2 software for alignment-free SNP disc | name=kSNP v2 | Alignment-free k-mer SNP discovery and SNP phylogeny software | crit=likelihood;parsimony;distance alg=none rep=tree ops=none
+
+RECENT (2023-2026):
+R03206 Xu 2025 c=62 [method] VCF2Dis: an ultra-fast and efficient tool to calculate pairwise genetic distance and const | name=VCF2Dis | Fast p-distance computation and population trees from VCF
+R05119 Zhang 2025 c=39 [method] CASTER: Direct species tree inference from whole-genome alignments | name=CASTER | Site-based coalescence-aware species tree inference from genome alignments
+R03535 Rick 2024 c=27 [evaluation] Reference Genome Choice and Filtering Thresholds Jointly Influence Phylogenomic Analyses | name=NA | Reference genome and SNP filtering choices bias inferred trees
+R04975 Barido-Sottani 2023 c=27 [evaluation] Putting the F into FBD analysis: tree constraints or morphological data? | name=FBD | Simulations compare topological constraints versus morphology for FBD fossil placement
+R02364 Mulvey 2025 c=25 [review] From fossils to phylogenies: exploring the integration of paleontological data into Bayesi | name=FBD | Review of fossilized birth-death model in Bayesian phylogenetics
+R02264 DeSalle 2023 c=19 [evaluation] Multiple outgroups can cause random rooting in phylogenomics | name=NA | Distant or multiple outgroups cause random rooting in phylogenomics
+R02564 Joyce 2025 c=19 [review] Navigating phylogenetic conflict and evolutionary inference in plants with target-capture  | name=NA | Review of target-capture workflows for handling phylogenetic conflict
+R03536 Zhang 2024 c=19 [method] Fast Bayesian Inference of Phylogenies from Multiple Continuous Characters | name=NA | Bayesian tree and divergence inference from continuous morphological characters
+R08800 Nakano 2023 c=19 [method] Phylogenetic trees of closely related bacterial species and subspecies based on frequencie | name=Phy5 | Pentanucleotide frequency profiles for bacterial phylogenetic trees
+R02249 Tang 2023 c=17 [method] KINN: An alignment-free accurate phylogeny reconstruction method based on inner distance d | name=KINN | Alignment-free phylogeny from k-mer pair inner distance distributions
+R03525 Luo 2023 c=17 [evaluation] Impacts of Taxon-Sampling Schemes on Bayesian Tip Dating under the Fossilized Birth-Death  | name=NA | Taxon-sampling effects on fossilized birth-death tip dating
+R05946 Barido-Sottani 2023 c=16 [review] Practical guidelines for Bayesian phylogenetic inference using Markov Chain Monte Carlo (M | name=NA | Practical MCMC guidelines for Bayesian phylogenetics including FBD models
+R07707 Nawaz 2023 c=16 [evaluation] Using alignment-free and pattern mining methods for SARS-CoV-2 genome analysis | name=NA | Compares alignment-free distances and trees on SARS-CoV-2 genomes
+R08106 Van Etten 2023 c=16 [evaluation] A k-mer-Based Approach for Phylogenetic Classification of Taxa in Environmental Genomic Da | name=D2 | Evaluates D2 k-mer phylogenies on fragmented environmental genomes
+R03297 Banos 2024 c=15 [method] GTRpmix: A Linked General Time-Reversible Model for Profile Mixture Models | name=GTRpmix | ML exchangeabilities for amino acid profile mixture models
+R06029 Berling 2025 c=15 [method] Accurate Bayesian phylogenetic point estimation using a tree distribution parameterized by | name=NA | Clade-probability tree distribution for Bayesian summary point estimates
+R08040 Wang 2024 c=15 [method] MIKE: an ultrafast, assembly-, and alignment-free approach for phylogenetic tree construct | name=MIKE | MinHash Jaccard distances from raw reads for tree construction
+R03168 Giacomelli 2025 c=14 [method] CAT-Posterior Mean Site Frequencies Improves Phylogenetic Modeling Under Maximum Likelihoo | name=CAT-PMSF | Exporting CAT mixture models to ML with adequacy tests
+R03548 Liu 2024 c=13 [evaluation] The Influence of the Number of Tree Searches on Maximum Likelihood Inference in Phylogenom | name=NA | Starting trees and repeated searches in ML phylogenomics
+R07355 Main 2024 c=13 [evaluation] The efficacy of single mitochondrial genes at reconciling the complete mitogenome phylogen | name=NA | Single mitochondrial genes versus complete mitogenome topologies

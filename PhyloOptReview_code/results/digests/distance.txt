@@ -1,0 +1,79 @@
+BLOCK distance: 274 studies with the category, 106 as main block
+type: metric=176, method=59, theory=25, evaluation=11, review=3
+crit: none=211, parsimony=15, other=13, net_parsimony=11, quartet=10, distance=8, bayesian=7, coalescent=6, likelihood=3, pseudolikelihood=1
+alg: other=120, none=113, exact=45, divide_conquer=3, ml=3, hill_climb=2, mcmc=1, ratchet=1
+rep: tree=217, network=69, cluster=28, quartet=27, matrix=18, split=18, other=9
+ops: none=199, spr=33, other=21, nni=16, consensus=15, tbr=12
+nobj: na=251, 1=23
+dsd: na=260, no=8, yes=6
+data: gene_trees=172, other=70, unclear=15, dna=8, genomic=5, morphological=5, distances=2, protein=1
+soft: unclear=242, yes=32
+
+TOP CITED:
+R03399 Huerta-Cepas 2016 c=1647 [method] ETE 3: Reconstruction, Analysis, and Visualization of Phylogenomic Data | name=ETE 3 | Toolkit for phylogenomic reconstruction, tree comparison and visualisation | crit=none alg=none rep=tree ops=none
+R05513 Than 2008 c=423 [method] PhyloNet: A software package for analyzing and reconstructing reticulate evolutionary rela | name=PhyloNet | Software suite to represent, characterise, compare and reconstruct networks | crit=none alg=none rep=network;tree;cluster ops=none
+R03766 Wen 2018 c=284 [method] Inferring phylogenetic networks using PhyloNet | name=PhyloNet | PhyloNet package for parsimony, likelihood and Bayesian networks | crit=parsimony;likelihood;bayesian;coalescent;pseudolikelihood alg=other rep=network ops=none
+R03379 Salichos 2014 c=232 [metric] Novel information theory-based measures for quantifying incongruence among phylogenetic tr | name=IC/TC | Information-theoretic internode and tree certainty incongruence measures | crit=none alg=none rep=split;tree ops=none
+R03402 Robinson 2016 c=192 [method] Phylo.io: Interactive Viewing and Comparison of Large Phylogenetic Trees on the Web | name=Phylo.io | Web tool for side-by-side comparison of large trees | crit=none alg=other rep=tree ops=none
+R03266 Zhang 2020 c=176 [method] ASTRAL-pro: Quartet-based species-tree inference despite paralogy | name=ASTRAL-Pro | Paralogy-aware quartet species trees via dynamic programming | crit=quartet alg=exact rep=tree;quartet ops=none
+R03007 Nye 2006 c=158 [metric] A novel algorithm and web-based tool for comparing two alternative phylogenetic trees | name=NA | Optimal branch matching to compare two phylogenies | crit=none alg=other rep=tree;split ops=none
+R04146 Cardona 2009 c=157 [metric] Comparison of tree-child phylogenetic networks | name=mu-distance | Path multiplicity vectors, mu-distance and alignment for tree-child networks | crit=none alg=other rep=network ops=none
+R02976 Smith 2020 c=155 [metric] Information theoretic generalized Robinson-Foulds metrics for comparing phylogenetic trees | name=Mutual clustering information | Information-theoretic generalized Robinson-Foulds tree similarity metrics | crit=none alg=none rep=split;tree ops=none
+R04168 Owen 2011 c=144 [metric] A fast algorithm for computing geodesic distances in tree space | name=NA | Polynomial-time algorithm computing BHV tree-space geodesics | crit=none alg=other rep=tree;split ops=none
+R04280 Jombart 2017 c=144 [method] treespace: Statistical exploration of landscapes of phylogenetic trees | name=treespace | R package exploring tree landscapes with metrics and ordination | crit=none alg=other rep=tree ops=consensus
+R05569 Beiko 2006 c=124 [method] Phylogenetic identification of lateral genetic transfer events | name=EEEP | Constrained SPR edit path search identifying lateral transfers | crit=net_parsimony alg=exact rep=tree ops=spr
+R02796 Lapointe 2005 c=122 [method] Congruence, consensus, and the comparative phylogeography of codistributed species in Cali | name=NA | MAST congruence tests and MRP supertree for comparative phylogeography | crit=parsimony alg=none rep=tree ops=none
+R03018 Puigbo 2007 c=101 [metric] TOPD/FMTS:: a new software to compare phylogenetic trees | name=TOPD/FMTS | Software with new methods to compare phylogenetic trees | crit=none alg=none rep=tree;split;quartet ops=none
+R05546 Campbell 2011 c=90 [evaluation] The performance of the Congruence among Distance Matrices (CADM) test in phylogenetic anal | name=CADM | Simulations show CADM congruence test accurate and powerful | crit=none alg=none rep=matrix ops=none
+R04254 Bremm 2011 c=79 [method] Interactive visual comparison of multiple trees | name=NA | Visual analytics and comparison score for multiple phylogenetic trees | crit=none alg=other rep=tree ops=none
+R05181 Whidden 2013 c=74 [metric] Fixed-parameter algorithms for maximum agreement forests | name=NA | Faster FPT algorithms for maximum and acyclic agreement forests | crit=net_parsimony alg=exact rep=tree ops=spr
+R04175 Lin 2012 c=72 [metric] A metric for phylogenetic trees based on matching | name=matching distance | Robust matching-based tree metric improving hierarchical clustering of trees | crit=none alg=none rep=tree ops=none
+R03673 Whidden 2014 c=71 [method] Supertrees based on the subtree prune-and-regraft distance | name=SPR supertree | Supertree search minimising rooted SPR distance via agreement forests | crit=other alg=other rep=tree ops=spr
+R02707 Cotton 2007 c=70 [method] Majority-rule supertrees | name=majority-rule supertree | Majority-rule supertrees via generalized symmetric-difference medians | crit=other alg=none rep=tree ops=consensus
+R03619 Boc 2010 c=70 [method] Inferring and validating horizontal gene transfer events using bipartition dissimilarity | name=BD | Polynomial HGT inference via bipartition dissimilarity and SPR moves | crit=distance;other alg=other rep=tree ops=spr
+R03685 Kuhner 2015 c=70 [metric] Practical performance of tree comparison metrics | name=NA | Practical benchmark of nine tree distance measures | crit=none alg=none rep=tree ops=none
+R03051 Sand 2014 c=65 [metric] tqDist: a library for computing the quartet and triplet distances between binary or genera | name=tqDist | Fast triplet and quartet distance computation library | crit=none alg=other rep=tree;quartet ops=none
+R04178 Bogdanowicz 2012 c=65 [metric] Matching split distance for unrooted binary phylogenetic trees | name=Matching Split distance | Matching split distance for unrooted binary phylogenetic trees | crit=none alg=none rep=split;tree ops=none
+R03503 Smith 2022 c=58 [metric] Robust Analysis of Phylogenetic Tree Space | name=NA | Evaluates tree distances for low-dimensional tree space mapping | crit=none alg=none rep=tree ops=none
+R03707 Perez-Escobar 2016 c=57 [evaluation] Rumbling Orchids: How to Assess Divergent Evolution between Chloroplast Endosymbionts and  | name=NA | ParaFit and PACo to detect plastid-nuclear tree incongruence | crit=none alg=other rep=tree;matrix ops=none
+R03398 Kobert 2016 c=56 [metric] Computing the Internode Certainty and Related Measures from Partial Gene Trees | name=IC/TC | Internode certainty computation from partial gene trees | crit=none alg=none rep=split;tree ops=none
+R03711 Lewitus 2016 c=55 [metric] Characterizing and comparing phylogenies from their laplacian spectrum | name=NA | Laplacian spectral density to characterise and compare trees | crit=none alg=other rep=tree ops=none
+R04155 Cardona 2009 c=53 [metric] Metrics for phylogenetic networks i: Generalizations of the robinson-foulds metric | name=NA | Analyses RF, tripartition and mu metrics on tree-child networks | crit=none alg=none rep=network ops=none
+R03024 Cardona 2008 c=52 [metric] A distance metric for a class of tree-sibling phylogenetic networks | name=NA | Polynomial-time distance for tree-sibling time-consistent networks | crit=none alg=none rep=network ops=none
+R05482 Cardona 2013 c=51 [metric] Cophenetic metrics for phylogenetic trees, after Sokal and Rohlf | name=cophenetic metrics | Lp cophenetic vector metrics for weighted nested-taxa trees | crit=none alg=none rep=tree;other ops=none
+R01660 Choy 2005 c=50 [metric] Computing the maximum agreement of phylogenetic networks | name=MASN | Maximum agreement subnetwork NP-hardness and level-1 polynomial algorithm | crit=none alg=exact rep=network ops=none
+R03686 Avni 2015 c=49 [method] Weighted quartets phylogenetics | name=weighted QMC | Weighted quartet MaxCut supertrees and weighted quartet tree similarity | crit=quartet alg=other rep=quartet;tree ops=none
+R03744 Colijn 2018 c=48 [metric] A Metric on Phylogenetic Tree Shapes | name=NA | True metric on rooted phylogenetic tree shapes | crit=none alg=none rep=tree ops=none
+R06578 Bogdanowicz 2013 c=46 [metric] ON A MATCHING DISTANCE BETWEEN ROOTED PHYLOGENETIC TREES | name=Matching Cluster distance | Properties of matching cluster distance refining Robinson-Foulds | crit=none alg=other rep=tree;cluster ops=none
+R04162 Bryant 2009 c=45 [metric] Computing the distribution of a tree metric | name=NA | Polynomial algorithm and Poisson approximation for Robinson-Foulds distribution | crit=none alg=other rep=tree ops=none
+R02672 Chakerian 2012 c=43 [metric] Computational tools for evaluating phylogenetic and hierarchical clustering trees | name=BHV | Implementation of BHV geodesic tree distance for evaluating estimates | crit=none alg=other rep=tree ops=none
+R00589 Gambette 2012 c=40 [theory] On encodings of phylogenetic networks of bounded level | name=NA | Encodings of level-1 networks by trees, clusters, triplets; metrics | crit=none alg=none rep=network;tree;cluster;quartet ops=none
+R03433 Marcet-Houben 2011 c=40 [metric] TreeKO: A duplication-aware algorithm for the comparison of phylogenetic trees | name=treeKO | Duplication-aware topological distance between gene trees | crit=none alg=other rep=tree ops=none
+R02834 Bonet 2006 c=39 [metric] Approximating subtree distances between phylogenies | name=rSPR | First 5-approximation algorithm for rooted SPR distance | crit=none alg=other rep=tree ops=spr
+R03080 DInardo 2020 c=38 [metric] Distance measures for tumor evolutionary trees | name=CASet, DISC | Two distance measures for tumor evolutionary trees | crit=none alg=none rep=tree ops=none
+R04188 Gorecki 2013 c=38 [theory] Unrooted tree reconciliation: A unified approach | name=NA | Consistency condition ensuring plateau property for unrooted tree reconciliation | crit=other alg=other rep=tree ops=none
+R01472 Gavryushkin 2016 c=36 [metric] The space of ultrametric phylogenetic trees | name=NA | Metric spaces on ultrametric time-trees for summarising posterior samples | crit=bayesian alg=none rep=tree ops=none
+R04158 Nakhleh 2010 c=36 [metric] A metric on the space of reduced phylogenetic networks | name=NA | Polynomial-time metric on reduced phylogenetic networks | crit=none alg=none rep=network ops=none
+R05668 Machado 2015 c=36 [method] YBYRA facilitates comparison of large phylogenetic trees | name=YBYRA | Toolkit for split distances, sensitivity plots and rogue taxa | crit=none alg=none rep=tree;split;cluster ops=none
+
+RECENT (2023-2026):
+R04223 Landry 2023 c=12 [metric] Defining Phylogenetic Network Distances Using Cherry Operations | name=NA | Cherry-picking distances for networks with bounds and NP-hardness
+R03526 Llaberia-Robledillo 2023 c=10 [method] Rtapas: An R Package to Assess Cophylogenetic Signal between Two Evolutionary Histories | name=Rtapas | R package quantifying cophylogenetic congruence via tanglegram partitions
+R04226 Cardona 2024 c=9 [metric] Comparison of Orchard Networks Using Their Extended μ-Representation | name=extended mu-representation | Extended mu-representation metric for orchard networks
+R01419 Kelk 2024 c=6 [metric] Deep kernelization for the Tree Bisection and Reconnection (TBR) distance in phylogenetics | name=NA | 9k-8 kernel for TBR distance and agreement forests
+R06940 Koshkarov 2024 c=6 [metric] Novel Algorithm for Comparing Phylogenetic Trees with Different but Overlapping Taxa | name=NA | Polynomial tree completion and metric for overlapping-taxa trees
+R02887 Khayatian 2024 c=5 [metric] The k-Robinson-Foulds Dissimilarity Measures for Comparison of Labeled Trees | name=k-RF | k-RF dissimilarity for comparing labeled tumor trees
+R02888 Landry 2024 c=5 [metric] A Fixed-Parameter Tractable Algorithm for Finding Agreement Cherry-Reduced Subnetworks in  | name=NA | First FPT exact algorithm for MACRS between level-1 networks
+R03924 Chauve 2025 c=5 [method] A vector representation for phylogenetic trees | name=HOP | Vector tree encoding, HOP operator and near-linear HOP distance
+R00993 Collienne 2024 c=4 [theory] Ranked Subtree Prune and Regraft | name=ranked SPR | Ranked SPR moves for time-tree space and distances
+R05692 Vijendran 2025 c=4 [method] Phylo-rs: an extensible phylogenetic analysis library in rust | name=Phylo-rs | Rust library for scalable phylogenetic analysis and tree distances
+R02889 Wagle 2024 c=3 [metric] Asymmetric Cluster-Based Measures for Comparative Phylogenetics | name=asymmetric CA, Cluster Support | Asymmetric Cluster Affinity and Cluster Support tree comparison costs
+R04418 Simmons 2023 c=3 [method] Quantification of congruence among gene trees with polytomies using overall success of res | name=congsort | Congruence sorting of collapsed gene trees using OSR distances
+R07229 Marchand 2024 c=3 [metric] Finding Maximum Common Contractions Between Phylogenetic Networks | name=NA | Contraction-expansion distance and maximum common contraction of networks
+R00332 Landry 2023 c=2 [metric] Finding Agreement Cherry-Reduced Subnetworks in Level-1 Networks | name=MACRS | FPT exact algorithm for maximum agreement cherry-reduced subnetwork
+R00340 Landry 2026 c=2 [metric] Fast Calculation of Cherry Distance on Level-1 Orchard Networks: Optimization, Heuristic a | name=cherry distance | Faster exact and heuristic cherry distance for level-1 networks
+R01397 Kelk 2023 c=2 [metric] Cyclic generators and an improved linear kernel for the rooted subtree prune and regraft d | name=NA | Improved 9k-3 linear kernel for rooted SPR distance
+R01399 Dempsey 2025 c=2 [metric] A simple 4-approximation algorithm for maximum agreement forests on multiple unrooted bina | name=NA | LP-rounding 4-approximation for maximum agreement forests of multiple trees
+R04227 Yoshida 2024 c=2 [method] Tropical Density Estimation of Phylogenetic Trees | name=NA | Tropical-metric kernel density estimation for outlier gene trees
+R04230 Valdez Cabrera 2025 c=2 [metric] Distances Between Extension Spaces of Phylogenetic Trees | name=NA | BHV distance between extension spaces for different leaf sets
+R07230 Lopez Sanchez 2024 c=2 [metric] The Path-Label Reconciliation (PLR) Dissimilarity Measure for Gene Trees | name=PLR | Path-label reconciliation semi-metric for comparing reconciled gene trees

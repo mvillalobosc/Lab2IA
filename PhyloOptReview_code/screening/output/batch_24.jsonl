@@ -1,0 +1,250 @@
+{"id":"R03475","inc":0,"why":"application"}
+{"id":"R03480","inc":0,"why":"application"}
+{"id":"R03482","inc":0,"why":"application"}
+{"id":"R03483","inc":0,"why":"application"}
+{"id":"R03486","inc":1,"type":"method","cat":["supertree","forest_analysis"],"crit":["likelihood"],"alg":["hill_climb"],"rep":["tree","split"],"ops":["consensus"],"nobj":"1","dsd":"no","data":["genomic"],"soft":"unclear","name":"","note":"Summed gene likelihoods per relationship build concordance-based species tree"}
+{"id":"R03487","inc":0,"why":"no_method"}
+{"id":"R03491","inc":0,"why":"application"}
+{"id":"R03495","inc":1,"type":"evaluation","cat":["morpho"],"crit":["parsimony"],"alg":["none"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["morphological","dna"],"soft":"unclear","name":"","note":"Accuracy of morphological data against well-corroborated mammal and bird trees"}
+{"id":"R03499","inc":0,"why":"application"}
+{"id":"R03505","inc":1,"type":"evaluation","cat":["tree_other","supertree"],"crit":["none"],"alg":["none"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["genomic"],"soft":"unclear","name":"","note":"Gene tree-species tree incongruence biases divergence time estimates"}
+{"id":"R03508","inc":0,"why":"application"}
+{"id":"R03518","inc":0,"why":"application"}
+{"id":"R03520","inc":1,"type":"evaluation","cat":["tree_other","morpho"],"crit":["bayesian"],"alg":["none"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["morphological","dna"],"soft":"unclear","name":"","note":"Simulations test fossil age estimation under total-evidence FBD"}
+{"id":"R03530","inc":0,"why":"application"}
+{"id":"R03531","inc":0,"why":"application"}
+{"id":"R03535","inc":1,"type":"evaluation","cat":["tree_other"],"crit":["none"],"alg":["none"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["genomic"],"soft":"unclear","name":"","note":"Reference genome and SNP filtering choices bias inferred trees"}
+{"id":"R03543","inc":0,"why":"application"}
+{"id":"R03554","inc":0,"why":"application"}
+{"id":"R03561","inc":0,"why":"application"}
+{"id":"R03564","inc":0,"why":"application"}
+{"id":"R03568","inc":0,"why":"application"}
+{"id":"R03573","inc":0,"why":"other_domain"}
+{"id":"R03585","inc":0,"why":"application"}
+{"id":"R03591","inc":1,"type":"evaluation","cat":["tree_other","morpho"],"crit":["bayesian"],"alg":["none"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["morphological","dna"],"soft":"unclear","name":"","note":"Simulations of mass-extinction FBD priors in total-evidence dating"}
+{"id":"R03594","inc":1,"type":"evaluation","cat":["morpho"],"crit":["none"],"alg":["none"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["morphological"],"soft":"unclear","name":"","note":"Ancestral morphological polymorphisms cause discordance; modelling improves fossil trees"}
+{"id":"R03600","inc":0,"why":"application"}
+{"id":"R03609","inc":1,"type":"evaluation","cat":["supertree"],"crit":["coalescent"],"alg":["none"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["dna"],"soft":"unclear","name":"","note":"Simulated prevalence of anomalous estimated gene trees with mutation"}
+{"id":"R03612","inc":1,"type":"evaluation","cat":["supertree"],"crit":["none"],"alg":["none"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["dna"],"soft":"unclear","name":"","note":"Simulations compare composite taxa versus missing data in supermatrices"}
+{"id":"R03613","inc":0,"why":"application"}
+{"id":"R03638","inc":0,"why":"application"}
+{"id":"R03639","inc":0,"why":"application"}
+{"id":"R03642","inc":1,"type":"evaluation","cat":["tree_other"],"crit":["likelihood","bayesian"],"alg":["none"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["dna"],"soft":"unclear","name":"","note":"Impact of fossil calibration strategies on divergence time estimates"}
+{"id":"R03648","inc":0,"why":"application"}
+{"id":"R03658","inc":1,"type":"theory","cat":["supertree"],"crit":["coalescent"],"alg":["none"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["gene_trees"],"soft":"unclear","name":"","note":"Anomalous unrooted gene trees exist for seven or more taxa"}
+{"id":"R03665","inc":1,"type":"method","cat":["tree_other"],"crit":["distance","parsimony","likelihood"],"alg":["none"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["dna"],"soft":"unclear","name":"2ISP-informative","note":"Coding intra-individual site polymorphisms as informative characters"}
+{"id":"R03667","inc":1,"type":"evaluation","cat":["supertree"],"crit":["coalescent","likelihood","bayesian"],"alg":["none"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["gene_trees"],"soft":"unclear","name":"","note":"Compares MP-EST, STAR, STEAC, STELLS, STEM on estimated gene trees"}
+{"id":"R03672","inc":0,"why":"application"}
+{"id":"R03677","inc":1,"type":"theory","cat":["supertree","forest_analysis"],"crit":["other"],"alg":["none"],"rep":["tree","cluster"],"ops":["consensus"],"nobj":"na","dsd":"na","data":["gene_trees"],"soft":"unclear","name":"","note":"Axiomatic impossibility for supertrees; plurality-cluster concordance consensus"}
+{"id":"R03680","inc":1,"type":"evaluation","cat":["supertree"],"crit":["coalescent","likelihood","parsimony"],"alg":["none"],"rep":["tree"],"ops":["consensus"],"nobj":"na","dsd":"na","data":["gene_trees","dna"],"soft":"unclear","name":"","note":"Simulation comparison of MP-EST, concatenation, greedy consensus, MRP, MRL"}
+{"id":"R03689","inc":0,"why":"application"}
+{"id":"R03693","inc":0,"why":"application"}
+{"id":"R03694","inc":0,"why":"application"}
+{"id":"R03703","inc":0,"why":"application"}
+{"id":"R03710","inc":0,"why":"application"}
+{"id":"R03715","inc":0,"why":"application"}
+{"id":"R03717","inc":0,"why":"application"}
+{"id":"R03719","inc":1,"type":"evaluation","cat":["tree_other"],"crit":["none"],"alg":["none"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["genomic"],"soft":"unclear","name":"","note":"ILS-induced substitutions distort branch lengths on fixed species trees"}
+{"id":"R03723","inc":0,"why":"application"}
+{"id":"R03729","inc":1,"type":"method","cat":["morpho","tree_other"],"crit":["likelihood","bayesian"],"alg":["none"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["morphological","dna"],"soft":"unclear","name":"MkA","note":"Asymmetric Mk model for ordered morphological characters"}
+{"id":"R03733","inc":1,"type":"evaluation","cat":["supertree"],"crit":["coalescent"],"alg":["none"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["genomic"],"soft":"unclear","name":"","note":"Empirical test of assumptions behind ILS-aware species tree methods"}
+{"id":"R03737","inc":0,"why":"other_domain"}
+{"id":"R03739","inc":1,"type":"theory","cat":["forest_analysis"],"crit":["none"],"alg":["none"],"rep":["tree"],"ops":["consensus"],"nobj":"na","dsd":"na","data":["gene_trees"],"soft":"unclear","name":"","note":"No-go theorem for future-proof consensus methods"}
+{"id":"R03742","inc":1,"type":"evaluation","cat":["tree_other"],"crit":["none"],"alg":["none"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["genomic"],"soft":"unclear","name":"","note":"Data type outweighs taxon sampling in phylogenomic conflict"}
+{"id":"R03749","inc":1,"type":"theory","cat":["supertree","tree_other"],"crit":["parsimony","likelihood","coalescent"],"alg":["none"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["dna"],"soft":"unclear","name":"","note":"Parsimony succeeds, concatenated likelihood fails near anomaly zone"}
+{"id":"R03750","inc":0,"why":"application"}
+{"id":"R03753","inc":0,"why":"application"}
+{"id":"R03765","inc":1,"type":"evaluation","cat":["tree_other"],"crit":["bayesian"],"alg":["none"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["genomic"],"soft":"unclear","name":"","note":"Model misfit explains much mitochondrial gene tree discordance"}
+{"id":"R03776","inc":0,"why":"application"}
+{"id":"R03782","inc":0,"why":"application"}
+{"id":"R03784","inc":0,"why":"application"}
+{"id":"R03789","inc":0,"why":"application"}
+{"id":"R03790","inc":1,"type":"evaluation","cat":["tree_other"],"crit":["none"],"alg":["none"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["protein"],"soft":"unclear","name":"","note":"Partitioned versus site-heterogeneous protein models; partition-induced long-branch attraction"}
+{"id":"R03792","inc":0,"why":"application"}
+{"id":"R03794","inc":0,"why":"application"}
+{"id":"R03802","inc":0,"why":"no_method"}
+{"id":"R03805","inc":0,"why":"application"}
+{"id":"R03809","inc":0,"why":"application"}
+{"id":"R03812","inc":0,"why":"application"}
+{"id":"R03814","inc":0,"why":"application"}
+{"id":"R03815","inc":0,"why":"application"}
+{"id":"R03817","inc":0,"why":"application"}
+{"id":"R03818","inc":0,"why":"application"}
+{"id":"R03819","inc":0,"why":"application"}
+{"id":"R03820","inc":0,"why":"application"}
+{"id":"R03822","inc":0,"why":"application"}
+{"id":"R03824","inc":0,"why":"application"}
+{"id":"R03825","inc":0,"why":"application"}
+{"id":"R03827","inc":0,"why":"application"}
+{"id":"R03828","inc":0,"why":"application"}
+{"id":"R03830","inc":0,"why":"application"}
+{"id":"R03831","inc":0,"why":"application"}
+{"id":"R03833","inc":0,"why":"application"}
+{"id":"R03835","inc":0,"why":"application"}
+{"id":"R03836","inc":0,"why":"application"}
+{"id":"R03837","inc":0,"why":"application"}
+{"id":"R03842","inc":0,"why":"application"}
+{"id":"R03843","inc":0,"why":"other_domain"}
+{"id":"R03844","inc":0,"why":"application"}
+{"id":"R03845","inc":0,"why":"application"}
+{"id":"R03846","inc":0,"why":"application"}
+{"id":"R03849","inc":0,"why":"application"}
+{"id":"R03851","inc":0,"why":"application"}
+{"id":"R03854","inc":0,"why":"application"}
+{"id":"R03856","inc":0,"why":"application"}
+{"id":"R03857","inc":0,"why":"application"}
+{"id":"R03859","inc":0,"why":"application"}
+{"id":"R03865","inc":0,"why":"no_method"}
+{"id":"R03871","inc":0,"why":"other_domain"}
+{"id":"R03872","inc":0,"why":"application"}
+{"id":"R03874","inc":1,"type":"method","cat":["tree_other"],"crit":["none"],"alg":["other"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["protein","genomic"],"soft":"unclear","name":"","note":"Resampled clade-specific matrices to identify robust and unstable nodes"}
+{"id":"R03877","inc":0,"why":"other_domain"}
+{"id":"R03879","inc":0,"why":"application"}
+{"id":"R03880","inc":0,"why":"application"}
+{"id":"R03881","inc":0,"why":"other_domain"}
+{"id":"R03884","inc":0,"why":"application"}
+{"id":"R03885","inc":0,"why":"other_domain"}
+{"id":"R03886","inc":0,"why":"application"}
+{"id":"R03890","inc":0,"why":"application"}
+{"id":"R03891","inc":0,"why":"application"}
+{"id":"R03892","inc":1,"type":"evaluation","cat":["tree_other","morpho"],"crit":["none"],"alg":["none"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["morphological","dna"],"soft":"unclear","name":"","note":"Morphological relaxed clocks yield implausibly ancient placental divergence dates"}
+{"id":"R03893","inc":0,"why":"application"}
+{"id":"R03894","inc":0,"why":"application"}
+{"id":"R03895","inc":0,"why":"other_domain"}
+{"id":"R03896","inc":0,"why":"application"}
+{"id":"R03897","inc":0,"why":"other_domain"}
+{"id":"R03898","inc":0,"why":"other_domain"}
+{"id":"R03900","inc":0,"why":"other_domain"}
+{"id":"R03901","inc":0,"why":"application"}
+{"id":"R03902","inc":0,"why":"application"}
+{"id":"R03903","inc":0,"why":"application"}
+{"id":"R03904","inc":0,"why":"application"}
+{"id":"R03905","inc":1,"type":"evaluation","cat":["morpho","tree_other"],"crit":["bayesian"],"alg":["none"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["morphological"],"soft":"unclear","name":"","note":"Simulations show fossils and tip-dating improve morphological phylogenies"}
+{"id":"R03906","inc":0,"why":"other_domain"}
+{"id":"R03907","inc":0,"why":"application"}
+{"id":"R03908","inc":0,"why":"other_domain"}
+{"id":"R03910","inc":1,"type":"evaluation","cat":["tree_other","morpho"],"crit":["bayesian"],"alg":["none"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["dna","other"],"soft":"unclear","name":"","note":"Effective node-age priors of FBD versus node calibrations"}
+{"id":"R03911","inc":0,"why":"no_method"}
+{"id":"R03912","inc":0,"why":"application"}
+{"id":"R03913","inc":1,"type":"review","cat":["supertree","network"],"crit":["none"],"alg":["none"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["genomic"],"soft":"unclear","name":"","note":"Review of phylogenomic methods handling HGT-driven gene tree incongruence"}
+{"id":"R03915","inc":0,"why":"application"}
+{"id":"R03916","inc":0,"why":"application"}
+{"id":"R03919","inc":1,"type":"evaluation","cat":["tree_other","morpho"],"crit":["bayesian"],"alg":["none"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["morphological","dna"],"soft":"unclear","name":"","note":"Deep root attraction in total-evidence dating and its causes"}
+{"id":"R03920","inc":0,"why":"other_domain"}
+{"id":"R03921","inc":0,"why":"other_domain"}
+{"id":"R03923","inc":1,"type":"evaluation","cat":["morpho"],"crit":["distance","parsimony"],"alg":["none"],"rep":["tree","matrix"],"ops":["none"],"nobj":"na","dsd":"na","data":["morphological"],"soft":"unclear","name":"","note":"Phylogenetic signal of geometric morphometric cranial partitions in marsupials"}
+{"id":"R03926","inc":0,"why":"application"}
+{"id":"R03929","inc":0,"why":"application"}
+{"id":"R03931","inc":0,"why":"application"}
+{"id":"R03933","inc":0,"why":"application"}
+{"id":"R03939","inc":0,"why":"application"}
+{"id":"R03941","inc":0,"why":"application"}
+{"id":"R03943","inc":0,"why":"application"}
+{"id":"R03945","inc":0,"why":"application"}
+{"id":"R03946","inc":0,"why":"application"}
+{"id":"R03950","inc":0,"why":"application"}
+{"id":"R03953","inc":0,"why":"application"}
+{"id":"R03954","inc":0,"why":"application"}
+{"id":"R03957","inc":0,"why":"application"}
+{"id":"R03958","inc":0,"why":"application"}
+{"id":"R03959","inc":0,"why":"application"}
+{"id":"R03963","inc":0,"why":"application"}
+{"id":"R03967","inc":0,"why":"application"}
+{"id":"R03969","inc":0,"why":"application"}
+{"id":"R03970","inc":0,"why":"application"}
+{"id":"R03972","inc":0,"why":"application"}
+{"id":"R03973","inc":0,"why":"application"}
+{"id":"R03974","inc":0,"why":"application"}
+{"id":"R03975","inc":0,"why":"application"}
+{"id":"R03977","inc":0,"why":"application"}
+{"id":"R03978","inc":0,"why":"application"}
+{"id":"R03979","inc":0,"why":"application"}
+{"id":"R03980","inc":0,"why":"application"}
+{"id":"R03981","inc":0,"why":"application"}
+{"id":"R03982","inc":0,"why":"application"}
+{"id":"R03983","inc":0,"why":"application"}
+{"id":"R03992","inc":0,"why":"other_domain"}
+{"id":"R03994","inc":0,"why":"other_domain"}
+{"id":"R03995","inc":0,"why":"other_domain"}
+{"id":"R03998","inc":0,"why":"application"}
+{"id":"R04024","inc":1,"type":"evaluation","cat":["tree_other"],"crit":["distance"],"alg":["other"],"rep":["matrix","tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["genomic"],"soft":"unclear","name":"","note":"Log-correlation and mutual information alignment-free trees for parvoviruses"}
+{"id":"R04027","inc":1,"type":"method","cat":["tree_other"],"crit":["distance"],"alg":["other"],"rep":["matrix","tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["genomic"],"soft":"unclear","name":"","note":"Improved inter-nucleotide distance alignment-free method for mitochondrial genomes"}
+{"id":"R04030","inc":0,"why":"other_domain"}
+{"id":"R04047","inc":1,"type":"method","cat":["tree_other"],"crit":["distance"],"alg":["other"],"rep":["matrix","tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["genomic"],"soft":"unclear","name":"","note":"Whole-genome tree from shared homologues and reversal distance"}
+{"id":"R04051","inc":0,"why":"other_domain"}
+{"id":"R04052","inc":0,"why":"other_domain"}
+{"id":"R04053","inc":1,"type":"method","cat":["tree_other"],"crit":["distance"],"alg":["other"],"rep":["other"],"ops":["none"],"nobj":"na","dsd":"na","data":["dna"],"soft":"unclear","name":"","note":"Long-range correlation patterns for alignment-free gene comparison"}
+{"id":"R04061","inc":1,"type":"evaluation","cat":["tree_other"],"crit":["distance"],"alg":["other"],"rep":["matrix","tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["genomic"],"soft":"unclear","name":"","note":"Log-correlation distance trees for dsDNA viruses versus CVTree"}
+{"id":"R04068","inc":0,"why":"application"}
+{"id":"R04072","inc":1,"type":"method","cat":["tree_other"],"crit":["distance"],"alg":["other"],"rep":["matrix"],"ops":["none"],"nobj":"na","dsd":"na","data":["unclear"],"soft":"unclear","name":"","note":"Greedy alignment-free distance estimator extending k-mismatch ACS"}
+{"id":"R04076","inc":0,"why":"other_domain"}
+{"id":"R04092","inc":1,"type":"method","cat":["tree_other"],"crit":["distance"],"alg":["other"],"rep":["matrix","tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["genomic"],"soft":"unclear","name":"","note":"DFT-Kullback-Leibler and log-correlation alignment-free distances for mitogenomes"}
+{"id":"R04093","inc":1,"type":"method","cat":["tree_other"],"crit":["distance"],"alg":["other"],"rep":["matrix","tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["genomic"],"soft":"unclear","name":"","note":"Alignment-free mutual information sequence distance for mitogenome phylogeny"}
+{"id":"R04094","inc":1,"type":"evaluation","cat":["tree_other"],"crit":["distance"],"alg":["other"],"rep":["matrix","tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["protein","genomic"],"soft":"unclear","name":"","note":"Compares dynamical language and FFP whole-proteome virus phylogenies"}
+{"id":"R04099","inc":1,"type":"method","cat":["tree_other"],"crit":["distance"],"alg":["divide_conquer"],"rep":["tree","cluster"],"ops":["other"],"nobj":"na","dsd":"na","data":["dna"],"soft":"unclear","name":"","note":"MSA, clustering and tree pruning pipeline to build trees"}
+{"id":"R04113","inc":0,"why":"other_domain"}
+{"id":"R04135","inc":1,"type":"theory","cat":["network"],"crit":["none"],"alg":["none"],"rep":["network"],"ops":["none"],"nobj":"na","dsd":"na","data":["other"],"soft":"unclear","name":"","note":"Necessary and sufficient condition for galled-tree existence"}
+{"id":"R04172","inc":0,"why":"other_domain"}
+{"id":"R04180","inc":1,"type":"theory","cat":["supertree"],"crit":["coalescent"],"alg":["none"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["gene_trees"],"soft":"unclear","name":"","note":"Characterises species tree topologies producing anomalous ranked gene trees"}
+{"id":"R04194","inc":1,"type":"theory","cat":["supertree"],"crit":["coalescent"],"alg":["none"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["gene_trees"],"soft":"unclear","name":"","note":"Enumeration shows most ranked species trees produce anomalous gene trees"}
+{"id":"R04196","inc":1,"type":"method","cat":["supertree"],"crit":["distance","coalescent"],"alg":["other"],"rep":["tree","matrix"],"ops":["none"],"nobj":"na","dsd":"na","data":["dna"],"soft":"unclear","name":"","note":"Data requirement analysis and new distance species tree method"}
+{"id":"R04258","inc":0,"why":"other_domain"}
+{"id":"R04259","inc":0,"why":"other_domain"}
+{"id":"R04260","inc":0,"why":"other_domain"}
+{"id":"R04261","inc":0,"why":"other_domain"}
+{"id":"R04262","inc":0,"why":"other_domain"}
+{"id":"R04265","inc":0,"why":"other_domain"}
+{"id":"R04266","inc":0,"why":"other_domain"}
+{"id":"R04270","inc":0,"why":"application"}
+{"id":"R04271","inc":0,"why":"application"}
+{"id":"R04272","inc":0,"why":"application"}
+{"id":"R04276","inc":0,"why":"application"}
+{"id":"R04287","inc":0,"why":"other_domain"}
+{"id":"R04294","inc":0,"why":"application"}
+{"id":"R04296","inc":0,"why":"application"}
+{"id":"R04297","inc":1,"type":"method","cat":["tree_other"],"crit":["distance"],"alg":["ml"],"rep":["tree","matrix"],"ops":["none"],"nobj":"na","dsd":"na","data":["genomic"],"soft":"unclear","name":"kf2vec","note":"Deep learning k-mer distances for alignment-free phylogenetic placement"}
+{"id":"R04312","inc":1,"type":"method","cat":["network","supertree"],"crit":["coalescent"],"alg":["other"],"rep":["network","tree"],"ops":["none"],"nobj":"1","dsd":"no","data":["gene_trees"],"soft":"unclear","name":"","note":"Permutation and MDC workflow inferring polyploid species networks"}
+{"id":"R04337","inc":0,"why":"application"}
+{"id":"R04340","inc":0,"why":"application"}
+{"id":"R04341","inc":0,"why":"application"}
+{"id":"R04342","inc":0,"why":"application"}
+{"id":"R04343","inc":0,"why":"application"}
+{"id":"R04344","inc":0,"why":"application"}
+{"id":"R04345","inc":1,"type":"review","cat":["tree_other","network"],"crit":["likelihood"],"alg":["none"],"rep":["tree","network"],"ops":["none"],"nobj":"na","dsd":"na","data":["unclear"],"soft":"unclear","name":"","note":"Review of statistical phylogenetics and open problems"}
+{"id":"R04349","inc":0,"why":"application"}
+{"id":"R04350","inc":0,"why":"application"}
+{"id":"R04351","inc":0,"why":"application"}
+{"id":"R04352","inc":0,"why":"application"}
+{"id":"R04353","inc":0,"why":"application"}
+{"id":"R04355","inc":0,"why":"application"}
+{"id":"R04356","inc":0,"why":"application"}
+{"id":"R04360","inc":0,"why":"application"}
+{"id":"R04361","inc":0,"why":"application"}
+{"id":"R04362","inc":0,"why":"application"}
+{"id":"R04365","inc":0,"why":"application"}
+{"id":"R04367","inc":1,"type":"evaluation","cat":["supertree"],"crit":["parsimony","likelihood"],"alg":["none"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["genomic"],"soft":"unclear","name":"","note":"Shewanella genomes show pervasive gene tree incongruence, questioning gene-tree thinking"}
+{"id":"R04370","inc":0,"why":"application"}
+{"id":"R04371","inc":1,"type":"theory","cat":["network"],"crit":["none"],"alg":["none"],"rep":["network","tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["other"],"soft":"unclear","name":"","note":"Defines periphyletic, epiphyletic and anaphyletic groups on networks"}
+{"id":"R04373","inc":0,"why":"application"}
+{"id":"R04375","inc":0,"why":"application"}
+{"id":"R04378","inc":1,"type":"theory","cat":["supertree","distance"],"crit":["other"],"alg":["none"],"rep":["tree","cluster"],"ops":["spr","consensus"],"nobj":"na","dsd":"na","data":["gene_trees"],"soft":"unclear","name":"","note":"Critique of SPR-distance supertrees and majority-rule supertree properties"}
+{"id":"R04379","inc":0,"why":"application"}
+{"id":"R04381","inc":0,"why":"application"}
+{"id":"R04382","inc":0,"why":"application"}
+{"id":"R04383","inc":0,"why":"application"}
+{"id":"R04384","inc":0,"why":"application"}
+{"id":"R04386","inc":0,"why":"application"}
+{"id":"R04387","inc":1,"type":"evaluation","cat":["morpho"],"crit":["parsimony"],"alg":["none"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["morphological","dna"],"soft":"unclear","name":"LAUP","note":"Tests landmark analysis under parsimony with simulated wing landmarks"}
+{"id":"R04390","inc":0,"why":"application"}
+{"id":"R04393","inc":0,"why":"application"}
+{"id":"R04395","inc":0,"why":"application"}
+{"id":"R04396","inc":0,"why":"application"}
+{"id":"R04399","inc":0,"why":"application"}
+{"id":"R04400","inc":0,"why":"application"}
+{"id":"R04401","inc":0,"why":"application"}
+{"id":"R04405","inc":0,"why":"application"}
+{"id":"R04407","inc":0,"why":"application"}
+{"id":"R04411","inc":0,"why":"application"}
+{"id":"R04413","inc":0,"why":"application"}
+{"id":"R04415","inc":1,"type":"method","cat":["network","supertree","forest_analysis"],"crit":["none"],"alg":["other"],"rep":["network","tree"],"ops":["consensus","nj_init"],"nobj":"na","dsd":"na","data":["gene_trees"],"soft":"unclear","name":"","note":"Consensus and supertree methods generalised to phylogenetic supergraphs"}
+{"id":"R04416","inc":0,"why":"application"}

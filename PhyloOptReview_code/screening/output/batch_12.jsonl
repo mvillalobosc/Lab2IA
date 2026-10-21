@@ -1,0 +1,250 @@
+{"id":"R05001","inc":0,"why":"application"}
+{"id":"R05005","inc":0,"why":"application"}
+{"id":"R05006","inc":0,"why":"application"}
+{"id":"R05007","inc":0,"why":"application"}
+{"id":"R05008","inc":0,"why":"application"}
+{"id":"R05010","inc":0,"why":"application"}
+{"id":"R05011","inc":0,"why":"application"}
+{"id":"R05013","inc":1,"type":"evaluation","cat":["supertree"],"crit":["coalescent"],"alg":["none"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["genomic","gene_trees"],"soft":"unclear","name":"ASTRAL","note":"Performance of multispecies coalescent methods on mitogenomic data"}
+{"id":"R05014","inc":0,"why":"application"}
+{"id":"R05015","inc":0,"why":"application"}
+{"id":"R05017","inc":0,"why":"application"}
+{"id":"R05018","inc":0,"why":"application"}
+{"id":"R05026","inc":0,"why":"application"}
+{"id":"R05030","inc":0,"why":"application"}
+{"id":"R05031","inc":0,"why":"application"}
+{"id":"R05032","inc":1,"type":"evaluation","cat":["tree_other","supertree"],"crit":["coalescent"],"alg":["none"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["genomic"],"soft":"unclear","name":"","note":"Comparison of low-coverage WGS phylogenomic pipelines and analyses"}
+{"id":"R05034","inc":1,"type":"evaluation","cat":["tree_other"],"crit":["likelihood"],"alg":["none"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["genomic","protein"],"soft":"unclear","name":"","note":"Data types, filtering, models and calibrations in conflicting phylogenomics"}
+{"id":"R05035","inc":0,"why":"application"}
+{"id":"R05036","inc":0,"why":"application"}
+{"id":"R05037","inc":0,"why":"application"}
+{"id":"R05039","inc":0,"why":"application"}
+{"id":"R05044","inc":0,"why":"application"}
+{"id":"R05046","inc":0,"why":"application"}
+{"id":"R05050","inc":0,"why":"application"}
+{"id":"R05055","inc":0,"why":"application"}
+{"id":"R05056","inc":0,"why":"application"}
+{"id":"R05061","inc":0,"why":"application"}
+{"id":"R05062","inc":0,"why":"application"}
+{"id":"R05065","inc":0,"why":"application"}
+{"id":"R05067","inc":0,"why":"application"}
+{"id":"R05068","inc":0,"why":"application"}
+{"id":"R05070","inc":0,"why":"application"}
+{"id":"R05072","inc":0,"why":"application"}
+{"id":"R05073","inc":0,"why":"application"}
+{"id":"R05074","inc":1,"type":"metric","cat":["distance"],"crit":["parsimony","other"],"alg":["other"],"rep":["tree","other"],"ops":["consensus"],"nobj":"na","dsd":"na","data":["gene_trees"],"soft":"unclear","name":"","note":"Comparing unlabelled tree shapes and matching uncertain taxa across trees"}
+{"id":"R05075","inc":0,"why":"application"}
+{"id":"R05078","inc":0,"why":"application"}
+{"id":"R05079","inc":0,"why":"application"}
+{"id":"R05082","inc":0,"why":"application"}
+{"id":"R05083","inc":1,"type":"method","cat":["supertree","forest_analysis"],"crit":["coalescent"],"alg":["other"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["gene_trees"],"soft":"unclear","name":"RADICAL","note":"Randomized incremental locus addition profiling coalescent support and conflict"}
+{"id":"R05084","inc":0,"why":"application"}
+{"id":"R05085","inc":0,"why":"application"}
+{"id":"R05086","inc":0,"why":"application"}
+{"id":"R05089","inc":0,"why":"application"}
+{"id":"R05090","inc":0,"why":"application"}
+{"id":"R05091","inc":0,"why":"application"}
+{"id":"R05092","inc":0,"why":"application"}
+{"id":"R05094","inc":0,"why":"application"}
+{"id":"R05095","inc":0,"why":"application"}
+{"id":"R05096","inc":0,"why":"application"}
+{"id":"R05097","inc":0,"why":"application"}
+{"id":"R05098","inc":1,"type":"evaluation","cat":["tree_other"],"crit":["none"],"alg":["none"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["genomic"],"soft":"unclear","name":"","note":"Effects of genome assembly and annotation choices on phylogenomic trees"}
+{"id":"R05102","inc":0,"why":"application"}
+{"id":"R05103","inc":0,"why":"application"}
+{"id":"R05105","inc":0,"why":"application"}
+{"id":"R05107","inc":0,"why":"other_domain"}
+{"id":"R05109","inc":0,"why":"application"}
+{"id":"R05111","inc":0,"why":"application"}
+{"id":"R05112","inc":0,"why":"application"}
+{"id":"R05114","inc":1,"type":"theory","cat":["tree_other"],"crit":["distance"],"alg":["none"],"rep":["matrix","tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["distances"],"soft":"unclear","name":"","note":"Distance methods' sequence-length requirement matches conjectured ML performance"}
+{"id":"R05116","inc":1,"type":"method","cat":["supertree"],"crit":["coalescent"],"alg":["other"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["genomic","gene_trees"],"soft":"unclear","name":"statistical binning","note":"Statistical binning of genes improves coalescent species tree accuracy"}
+{"id":"R05117","inc":0,"why":"no_method"}
+{"id":"R05119","inc":1,"type":"method","cat":["supertree","tree_other"],"crit":["coalescent"],"alg":["other"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["genomic"],"soft":"unclear","name":"CASTER","note":"Site-based coalescence-aware species tree inference from genome alignments"}
+{"id":"R05123","inc":0,"why":"application"}
+{"id":"R05127","inc":0,"why":"application"}
+{"id":"R05128","inc":0,"why":"application"}
+{"id":"R05131","inc":0,"why":"application"}
+{"id":"R05132","inc":0,"why":"application"}
+{"id":"R05134","inc":0,"why":"other_domain"}
+{"id":"R05135","inc":0,"why":"other_domain"}
+{"id":"R05136","inc":0,"why":"application"}
+{"id":"R05142","inc":0,"why":"application"}
+{"id":"R05143","inc":0,"why":"application"}
+{"id":"R05144","inc":0,"why":"application"}
+{"id":"R05153","inc":0,"why":"application"}
+{"id":"R05154","inc":0,"why":"application"}
+{"id":"R05155","inc":0,"why":"application"}
+{"id":"R05156","inc":0,"why":"application"}
+{"id":"R05158","inc":0,"why":"application"}
+{"id":"R05159","inc":0,"why":"application"}
+{"id":"R05160","inc":0,"why":"application"}
+{"id":"R05165","inc":1,"type":"method","cat":["supertree"],"crit":["other"],"alg":["other"],"rep":["tree","cluster"],"ops":["none"],"nobj":"1","dsd":"na","data":["gene_trees"],"soft":"yes","name":"Super3GL","note":"Fast clade-contribution supertree algorithm from protein trees"}
+{"id":"R05166","inc":1,"type":"evaluation","cat":["tree_other"],"crit":["distance"],"alg":["other"],"rep":["tree","matrix"],"ops":["none"],"nobj":"na","dsd":"na","data":["unclear"],"soft":"unclear","name":"","note":"ROC comparison of bootstrap, jackknife and probabilistic branch supports"}
+{"id":"R05171","inc":0,"why":"application"}
+{"id":"R05172","inc":0,"why":"application"}
+{"id":"R05174","inc":0,"why":"other_domain"}
+{"id":"R05176","inc":1,"type":"metric","cat":["distance","forest_analysis"],"crit":["none"],"alg":["other"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["gene_trees"],"soft":"unclear","name":"","note":"Algorithms computing geodesic distances in BHV tree space"}
+{"id":"R05177","inc":0,"why":"other_domain"}
+{"id":"R05179","inc":1,"type":"method","cat":["tree_other"],"crit":["distance"],"alg":["other"],"rep":["matrix","tree"],"ops":["none"],"nobj":"1","dsd":"na","data":["distances"],"soft":"unclear","name":"","note":"Approximation algorithms fitting ultrametrics and tree metrics under lp norms"}
+{"id":"R05180","inc":1,"type":"theory","cat":["supertree"],"crit":["quartet"],"alg":["exact"],"rep":["tree","quartet"],"ops":["none"],"nobj":"1","dsd":"na","data":["other"],"soft":"unclear","name":"MinRS","note":"Inapproximability and exact algorithm for minimally resolved triplet supertrees"}
+{"id":"R05181","inc":1,"type":"metric","cat":["distance","network"],"crit":["net_parsimony"],"alg":["exact"],"rep":["tree"],"ops":["spr"],"nobj":"na","dsd":"na","data":["gene_trees"],"soft":"unclear","name":"","note":"Faster FPT algorithms for maximum and acyclic agreement forests"}
+{"id":"R05182","inc":1,"type":"theory","cat":["network"],"crit":["net_parsimony"],"alg":["other"],"rep":["tree","network"],"ops":["none"],"nobj":"1","dsd":"na","data":["gene_trees"],"soft":"unclear","name":"","note":"Hybridization number approximability equivalent to directed feedback vertex set"}
+{"id":"R05184","inc":1,"type":"method","cat":["supertree"],"crit":["other"],"alg":["exact"],"rep":["tree"],"ops":["other"],"nobj":"1","dsd":"na","data":["gene_trees"],"soft":"unclear","name":"","note":"FPT agreement supertrees via edge contraction or taxon removal"}
+{"id":"R05185","inc":1,"type":"metric","cat":["distance","network"],"crit":["net_parsimony"],"alg":["exact","other"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["gene_trees"],"soft":"yes","name":"","note":"4-approximation and FPT algorithm for nonbinary agreement forests"}
+{"id":"R05186","inc":1,"type":"theory","cat":["network"],"crit":["net_parsimony"],"alg":["exact"],"rep":["network"],"ops":["none"],"nobj":"1","dsd":"na","data":["other"],"soft":"yes","name":"","note":"Complexity, FPT and ILP for hardwired and softwired network parsimony"}
+{"id":"R05188","inc":1,"type":"theory","cat":["network"],"crit":["net_parsimony"],"alg":["exact"],"rep":["network","tree"],"ops":["none"],"nobj":"1","dsd":"na","data":["gene_trees"],"soft":"unclear","name":"","note":"EPT algorithm for hybridization number of three binary trees"}
+{"id":"R05191","inc":1,"type":"theory","cat":["network"],"crit":["other"],"alg":["none"],"rep":["network"],"ops":["none"],"nobj":"na","dsd":"na","data":["dna"],"soft":"unclear","name":"","note":"Generic identifiability of large-cycle networks under Jukes-Cantor"}
+{"id":"R05192","inc":1,"type":"theory","cat":["network"],"crit":["other"],"alg":["other"],"rep":["network"],"ops":["none"],"nobj":"na","dsd":"na","data":["genomic"],"soft":"unclear","name":"novelty profile","note":"Persistent homology barcodes bound recombination in galled trees"}
+{"id":"R05193","inc":1,"type":"metric","cat":["distance","network"],"crit":["net_parsimony"],"alg":["exact"],"rep":["tree"],"ops":["tbr"],"nobj":"na","dsd":"na","data":["gene_trees"],"soft":"unclear","name":"","note":"Tight 15k-9 TBR kernel and 9k-2 hybridization kernel"}
+{"id":"R05194","inc":1,"type":"method","cat":["forest_analysis","supertree"],"crit":["none"],"alg":["other"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["gene_trees"],"soft":"unclear","name":"","note":"Extension spaces of partial-leaf trees in BHV space for supertrees"}
+{"id":"R05195","inc":1,"type":"theory","cat":["network"],"crit":["none"],"alg":["other"],"rep":["network","tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["other"],"soft":"unclear","name":"","note":"Zig-zag decomposition gives linear algorithms for tree-based networks"}
+{"id":"R05196","inc":1,"type":"theory","cat":["network"],"crit":["distance"],"alg":["none"],"rep":["split","network"],"ops":["none"],"nobj":"na","dsd":"na","data":["distances"],"soft":"unclear","name":"","note":"Circular planar electrical networks correspond to circular split systems"}
+{"id":"R05197","inc":1,"type":"method","cat":["network"],"crit":["other"],"alg":["other"],"rep":["tree","other"],"ops":["none"],"nobj":"na","dsd":"na","data":["gene_trees","other"],"soft":"unclear","name":"","note":"Orienting Fitch graphs to locate HGT edges without reconciliation"}
+{"id":"R05198","inc":1,"type":"theory","cat":["tree_other"],"crit":["other"],"alg":["none"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["dna"],"soft":"unclear","name":"","note":"Equivariant-model phylogenetic invariants derived from general Markov invariants"}
+{"id":"R05199","inc":1,"type":"method","cat":["network"],"crit":["quartet"],"alg":["exact","other"],"rep":["quartet","network"],"ops":["none"],"nobj":"1","dsd":"na","data":["other"],"soft":"unclear","name":"","note":"Optimal galled network construction from dense rooted triplets"}
+{"id":"R05200","inc":1,"type":"method","cat":["supertree"],"crit":["none"],"alg":["other"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["gene_trees"],"soft":"unclear","name":"","note":"General supertree methods for trees with labelled interior vertices"}
+{"id":"R05201","inc":0,"why":"application"}
+{"id":"R05204","inc":0,"why":"application"}
+{"id":"R05206","inc":0,"why":"application"}
+{"id":"R05208","inc":0,"why":"other_domain"}
+{"id":"R05209","inc":0,"why":"other_domain"}
+{"id":"R05210","inc":0,"why":"other_domain"}
+{"id":"R05211","inc":0,"why":"application"}
+{"id":"R05219","inc":1,"type":"method","cat":["supertree","network"],"crit":["quartet"],"alg":["exact","other"],"rep":["quartet","tree","network"],"ops":["none"],"nobj":"1","dsd":"na","data":["other"],"soft":"unclear","name":"","note":"Trees and networks consistent with required, avoiding forbidden triplets"}
+{"id":"R05220","inc":1,"type":"metric","cat":["distance","forest_analysis"],"crit":["none"],"alg":["other"],"rep":["tree","quartet"],"ops":["none"],"nobj":"na","dsd":"na","data":["gene_trees"],"soft":"unclear","name":"","note":"All-pairs quartet distance exploiting shared substructure among trees"}
+{"id":"R05221","inc":1,"type":"metric","cat":["distance"],"crit":["none"],"alg":["other"],"rep":["tree","quartet"],"ops":["none"],"nobj":"na","dsd":"na","data":["gene_trees"],"soft":"unclear","name":"","note":"Subquadratic quartet distance for bounded-degree trees"}
+{"id":"R05222","inc":1,"type":"method","cat":["tree_other"],"crit":["likelihood","quartet"],"alg":["hill_climb"],"rep":["tree","quartet"],"ops":["none"],"nobj":"1","dsd":"no","data":["dna"],"soft":"unclear","name":"","note":"Sequential maximum likelihood super-quartet merging for tree reconstruction"}
+{"id":"R05223","inc":1,"type":"metric","cat":["distance","forest_analysis"],"crit":["none"],"alg":["other"],"rep":["tree","split","matrix"],"ops":["none"],"nobj":"na","dsd":"na","data":["gene_trees"],"soft":"unclear","name":"Hash-RF","note":"Randomized hashing for all-to-all Robinson-Foulds distances"}
+{"id":"R05224","inc":1,"type":"method","cat":["supertree"],"crit":["parsimony"],"alg":["exact"],"rep":["tree"],"ops":["none"],"nobj":"2","dsd":"na","data":["gene_trees"],"soft":"unclear","name":"NOTUNG","note":"Duplication-loss reconciliation with non-binary species trees"}
+{"id":"R05226","inc":1,"type":"review","cat":["mo"],"crit":["none"],"alg":["none"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["unclear"],"soft":"unclear","name":"","note":"Review of multi-objective approaches to phylogenetic inference"}
+{"id":"R05227","inc":0,"why":"other_domain"}
+{"id":"R05229","inc":0,"why":"other_domain"}
+{"id":"R05231","inc":0,"why":"application"}
+{"id":"R05233","inc":1,"type":"evaluation","cat":["tree_other"],"crit":["distance"],"alg":["none"],"rep":["matrix","tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["distances"],"soft":"unclear","name":"","note":"Distance-based algorithms under non-additive noise and horizontal transfer"}
+{"id":"R05234","inc":0,"why":"other_domain"}
+{"id":"R05236","inc":1,"type":"method","cat":["tree_other"],"crit":["distance"],"alg":["none"],"rep":["tree","matrix"],"ops":["none"],"nobj":"na","dsd":"na","data":["distances"],"soft":"unclear","name":"","note":"Dimensionless fit index for distance-based phylogenetic trees"}
+{"id":"R05237","inc":1,"type":"method","cat":["supertree","network"],"crit":["quartet"],"alg":["exact","other"],"rep":["quartet","tree","network"],"ops":["none"],"nobj":"1","dsd":"na","data":["other"],"soft":"unclear","name":"","note":"Trees and networks consistent with required, avoiding forbidden triplets"}
+{"id":"R05238","inc":1,"type":"method","cat":["network"],"crit":["distance"],"alg":["other"],"rep":["network","matrix"],"ops":["none"],"nobj":"1","dsd":"na","data":["distances"],"soft":"unclear","name":"","note":"Ultrametric galled network reconstruction from distance matrix"}
+{"id":"R05239","inc":1,"type":"metric","cat":["distance","forest_analysis"],"crit":["none"],"alg":["other"],"rep":["tree","quartet"],"ops":["none"],"nobj":"na","dsd":"na","data":["gene_trees"],"soft":"unclear","name":"","note":"All-pairs quartet distance exploiting shared substructure among trees"}
+{"id":"R05240","inc":1,"type":"method","cat":["network"],"crit":["likelihood"],"alg":["other"],"rep":["network","tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["dna","protein"],"soft":"unclear","name":"NET-HMM","note":"HMM phylogenetic network model detecting partial and complete HGT"}
+{"id":"R05241","inc":1,"type":"theory","cat":["network"],"crit":["quartet"],"alg":["exact"],"rep":["network","quartet"],"ops":["none"],"nobj":"1","dsd":"na","data":["other"],"soft":"unclear","name":"","note":"NP-hardness of level-k networks from triplets; exact level-1"}
+{"id":"R05242","inc":1,"type":"method","cat":["network"],"crit":["distance"],"alg":["other"],"rep":["matrix","split"],"ops":["none"],"nobj":"na","dsd":"na","data":["distances"],"soft":"unclear","name":"","note":"Neighbor-Net plus minimum contradiction to detect lateral transfers"}
+{"id":"R05243","inc":1,"type":"theory","cat":["network"],"crit":["quartet"],"alg":["exact"],"rep":["network","quartet","split"],"ops":["none"],"nobj":"na","dsd":"na","data":["other"],"soft":"unclear","name":"","note":"Unrooted level-k networks from quartets; circular splits equal level-1"}
+{"id":"R05244","inc":1,"type":"method","cat":["network"],"crit":["quartet"],"alg":["exact"],"rep":["network","quartet"],"ops":["none"],"nobj":"1","dsd":"na","data":["other"],"soft":"unclear","name":"","note":"Polynomial minimum-hybrid level-k network from dense triplets"}
+{"id":"R05245","inc":1,"type":"method","cat":["network"],"crit":["distance"],"alg":["other"],"rep":["network","matrix"],"ops":["none"],"nobj":"1","dsd":"na","data":["distances"],"soft":"unclear","name":"","note":"Planar boundary-labelled networks approximating metrics with guaranteed fit"}
+{"id":"R05246","inc":1,"type":"method","cat":["supertree"],"crit":["parsimony","other"],"alg":["exact"],"rep":["tree","cluster"],"ops":["none"],"nobj":"1","dsd":"na","data":["gene_trees"],"soft":"unclear","name":"","note":"Exact dynamic programming for gene tree parsimony and RF supertrees"}
+{"id":"R05247","inc":1,"type":"method","cat":["network"],"crit":["distance"],"alg":["other"],"rep":["network","matrix"],"ops":["none"],"nobj":"1","dsd":"na","data":["distances","dna"],"soft":"unclear","name":"","note":"Neighbor-joining least-squares heuristic inferring hybridization networks"}
+{"id":"R05248","inc":1,"type":"theory","cat":["supertree"],"crit":["other"],"alg":["other"],"rep":["tree","cluster"],"ops":["consensus"],"nobj":"1","dsd":"na","data":["gene_trees"],"soft":"unclear","name":"","note":"Weak Pareto consensus property and scalable gene duplication algorithm"}
+{"id":"R05250","inc":1,"type":"method","cat":["supertree"],"crit":["other"],"alg":["other"],"rep":["tree","cluster"],"ops":["consensus"],"nobj":"1","dsd":"na","data":["gene_trees"],"soft":"unclear","name":"","note":"Strict consensus approach for unrestricted supertree problems"}
+{"id":"R05251","inc":1,"type":"method","cat":["supertree","tree_other"],"crit":["other"],"alg":["exact","other"],"rep":["tree","cluster"],"ops":["none"],"nobj":"1","dsd":"na","data":["gene_trees","protein"],"soft":"yes","name":"Protein2GeneTree","note":"Double reconciliation building gene and protein trees with isoforms"}
+{"id":"R05252","inc":1,"type":"method","cat":["so_meta"],"crit":["likelihood"],"alg":["ga_ea","hill_climb"],"rep":["tree","other"],"ops":["none"],"nobj":"1","dsd":"no","data":["dna"],"soft":"unclear","name":"fastDNAml","note":"GA optimises taxon addition order and branch lengths"}
+{"id":"R05253","inc":1,"type":"evaluation","cat":["supertree","forest_analysis"],"crit":["parsimony","likelihood"],"alg":["none"],"rep":["tree"],"ops":["consensus"],"nobj":"na","dsd":"na","data":["dna"],"soft":"unclear","name":"","note":"Total evidence versus taxonomic congruence strategies for combining evidence"}
+{"id":"R05254","inc":1,"type":"evaluation","cat":["network"],"crit":["none"],"alg":["none"],"rep":["network"],"ops":["none"],"nobj":"na","dsd":"na","data":["other"],"soft":"unclear","name":"","note":"Topological profiles comparing random phylogenetic network generators"}
+{"id":"R05255","inc":1,"type":"method","cat":["forest_analysis","distance"],"crit":["none"],"alg":["ml"],"rep":["matrix","tree"],"ops":["consensus"],"nobj":"na","dsd":"na","data":["gene_trees"],"soft":"unclear","name":"","note":"CNN predicts number of tree clusters from RF matrices"}
+{"id":"R05256","inc":1,"type":"method","cat":["tree_other"],"crit":["distance"],"alg":["ml"],"rep":["matrix","tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["protein"],"soft":"unclear","name":"PTGAC","note":"Alignment-free moment descriptors with agglomerative clustering for protein trees"}
+{"id":"R05257","inc":1,"type":"method","cat":["network"],"crit":["distance"],"alg":["other"],"rep":["network"],"ops":["none"],"nobj":"na","dsd":"na","data":["dna"],"soft":"unclear","name":"","note":"Alignment-free binary-sequence Hamming approach to evolutionary networks"}
+{"id":"R05258","inc":1,"type":"method","cat":["so_meta"],"crit":["likelihood"],"alg":["ga_ea"],"rep":["matrix","tree"],"ops":["other"],"nobj":"1","dsd":"no","data":["unclear"],"soft":"unclear","name":"","note":"GA with neighbour-joining genotype-phenotype mapping for ML trees"}
+{"id":"R05259","inc":1,"type":"method","cat":["so_meta"],"crit":["parsimony"],"alg":["memetic","divide_conquer"],"rep":["tree"],"ops":["none"],"nobj":"1","dsd":"yes","data":["unclear"],"soft":"unclear","name":"Cooperative Rec-I-DCM3","note":"Population-based cooperative Rec-I-DCM3; diverse populations beat elitism"}
+{"id":"R05260","inc":1,"type":"theory","cat":["tree_other"],"crit":["likelihood"],"alg":["none"],"rep":["tree"],"ops":["none"],"nobj":"1","dsd":"na","data":["unclear"],"soft":"unclear","name":"","note":"NP-hardness of finding maximum likelihood phylogenetic trees"}
+{"id":"R05261","inc":0,"why":"other_domain"}
+{"id":"R05262","inc":0,"why":"other_domain"}
+{"id":"R05263","inc":1,"type":"method","cat":["forest_analysis"],"crit":["other"],"alg":["other"],"rep":["tree"],"ops":["consensus"],"nobj":"1","dsd":"na","data":["gene_trees"],"soft":"unclear","name":"","note":"Linear-time 3-approximation for complement MAST and MCT"}
+{"id":"R05264","inc":0,"why":"other_domain"}
+{"id":"R05265","inc":0,"why":"other_domain"}
+{"id":"R05266","inc":0,"why":"other_domain"}
+{"id":"R05267","inc":1,"type":"method","cat":["supertree","forest_analysis"],"crit":["other"],"alg":["exact"],"rep":["other","tree"],"ops":["none"],"nobj":"1","dsd":"na","data":["gene_trees"],"soft":"unclear","name":"","note":"ILP with column generation for minimum flip consensus and supertrees"}
+{"id":"R05268","inc":1,"type":"method","cat":["supertree","parallel"],"crit":["none"],"alg":["other"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["gene_trees"],"soft":"unclear","name":"SuperFine","note":"Shared-memory parallelisation of SuperFine supertree estimation"}
+{"id":"R05269","inc":1,"type":"evaluation","cat":["mo"],"crit":["distance"],"alg":["swarm"],"rep":["matrix","tree"],"ops":["other"],"nobj":"2","dsd":"no","data":["dna"],"soft":"unclear","name":"","note":"Clustering and NJ decoders within multiobjective firefly phylogenetics"}
+{"id":"R05270","inc":1,"type":"method","cat":["mo","parallel"],"crit":["none"],"alg":["swarm"],"rep":["tree"],"ops":["none"],"nobj":"2","dsd":"no","data":["unclear"],"soft":"unclear","name":"","note":"Hybrid MPI/OpenMP parallel multiobjective firefly phylogenetic inference"}
+{"id":"R05271","inc":1,"type":"method","cat":["supertree"],"crit":["none"],"alg":["other"],"rep":["other"],"ops":["none"],"nobj":"na","dsd":"na","data":["other"],"soft":"unclear","name":"decisivatoR","note":"R package testing phylogenetic decisiveness of taxon coverage"}
+{"id":"R05272","inc":1,"type":"method","cat":["distance","forest_analysis","parallel"],"crit":["none"],"alg":["other"],"rep":["tree","matrix"],"ops":["none"],"nobj":"na","dsd":"na","data":["gene_trees"],"soft":"unclear","name":"MrsRF++","note":"Phoenix++ MapReduce all-to-all Robinson-Foulds tree comparisons"}
+{"id":"R05273","inc":1,"type":"method","cat":["supertree"],"crit":["other"],"alg":["hill_climb"],"rep":["tree","other"],"ops":["consensus"],"nobj":"na","dsd":"na","data":["gene_trees"],"soft":"unclear","name":"COSPEDTree","note":"Couplet-based greedy supertree via equivalence partitions and DAG"}
+{"id":"R05274","inc":1,"type":"method","cat":["network"],"crit":["none"],"alg":["other"],"rep":["network"],"ops":["none"],"nobj":"na","dsd":"na","data":["unclear"],"soft":"unclear","name":"","note":"Motif mining in phylogenetic networks for wildlife forensics"}
+{"id":"R05275","inc":1,"type":"method","cat":["tree_other","network"],"crit":["parsimony"],"alg":["exact"],"rep":["tree","network"],"ops":["none"],"nobj":"na","dsd":"na","data":["other"],"soft":"unclear","name":"","note":"ILP and galled-tree recognition for persistent phylogeny problem"}
+{"id":"R05276","inc":0,"why":"other_domain"}
+{"id":"R05277","inc":1,"type":"method","cat":["supertree","so_meta","forest_analysis"],"crit":["other"],"alg":["hill_climb","other"],"rep":["tree","split"],"ops":["other"],"nobj":"1","dsd":"no","data":["gene_trees"],"soft":"unclear","name":"","note":"Clique-based heuristic for Robinson-Foulds median trees"}
+{"id":"R05278","inc":1,"type":"method","cat":["supertree","so_meta","forest_analysis"],"crit":["other"],"alg":["exact","hill_climb"],"rep":["tree"],"ops":["none"],"nobj":"1","dsd":"no","data":["gene_trees"],"soft":"unclear","name":"","note":"NP-hardness, ILP and local search for path-difference median trees"}
+{"id":"R05279","inc":1,"type":"method","cat":["supertree","so_meta","forest_analysis"],"crit":["other"],"alg":["hill_climb"],"rep":["tree"],"ops":["spr"],"nobj":"1","dsd":"no","data":["gene_trees"],"soft":"unclear","name":"","note":"Efficient SPR local search for cophenetic median trees"}
+{"id":"R05280","inc":1,"type":"method","cat":["supertree"],"crit":["other"],"alg":["other"],"rep":["tree","cluster"],"ops":["consensus"],"nobj":"1","dsd":"na","data":["gene_trees"],"soft":"unclear","name":"","note":"Strict consensus approach extended to unrooted gene trees"}
+{"id":"R05281","inc":1,"type":"method","cat":["supertree","forest_analysis","parallel"],"crit":["parsimony"],"alg":["exact"],"rep":["tree","cluster"],"ops":["consensus"],"nobj":"1","dsd":"na","data":["gene_trees"],"soft":"unclear","name":"","note":"Dynamic programming counting clusters of all optimal median trees"}
+{"id":"R05282","inc":1,"type":"method","cat":["supertree","so_meta"],"crit":["bayesian","coalescent"],"alg":["other"],"rep":["tree"],"ops":["none"],"nobj":"1","dsd":"no","data":["genomic"],"soft":"unclear","name":"","note":"MAP species, locus and gene tree search under DLC model"}
+{"id":"R05283","inc":1,"type":"method","cat":["tree_other"],"crit":["distance"],"alg":["other"],"rep":["matrix"],"ops":["none"],"nobj":"na","dsd":"na","data":["unclear"],"soft":"unclear","name":"","note":"Linear-time heuristic approximating ACS-k alignment-free distances"}
+{"id":"R05284","inc":1,"type":"evaluation","cat":["mo","parallel"],"crit":["none"],"alg":["swarm"],"rep":["tree"],"ops":["none"],"nobj":"2","dsd":"no","data":["unclear"],"soft":"unclear","name":"MO-SFLA","note":"OpenMP scheduling policies for parallel multiobjective frog-leaping phylogenetics"}
+{"id":"R05285","inc":1,"type":"method","cat":["network","so_meta"],"crit":["net_parsimony","other"],"alg":["hill_climb"],"rep":["network","tree"],"ops":["other"],"nobj":"1","dsd":"no","data":["gene_trees"],"soft":"unclear","name":"RF-Network","note":"Robinson-Foulds embedding cost reticulation networks with local search"}
+{"id":"R05286","inc":1,"type":"method","cat":["network"],"crit":["coalescent"],"alg":["other"],"rep":["network"],"ops":["none"],"nobj":"na","dsd":"na","data":["genomic"],"soft":"unclear","name":"PHiMM","note":"Scalable coalescent HMM introgression mapping along genomes"}
+{"id":"R05287","inc":1,"type":"method","cat":["network"],"crit":["coalescent"],"alg":["other"],"rep":["network"],"ops":["none"],"nobj":"na","dsd":"na","data":["genomic"],"soft":"yes","name":"PHiMM","note":"Scalable coalescent HMM introgression mapping along genomes"}
+{"id":"R05288","inc":0,"why":"application"}
+{"id":"R05289","inc":1,"type":"method","cat":["mo","tree_other"],"crit":["other"],"alg":["ga_ea"],"rep":["other","tree"],"ops":["none"],"nobj":"2","dsd":"no","data":["unclear"],"soft":"unclear","name":"","note":"Phylogeny-aware choice of multiobjective MSA formulations"}
+{"id":"R05291","inc":1,"type":"metric","cat":["distance","network"],"crit":["none"],"alg":["other"],"rep":["tree","network"],"ops":["none"],"nobj":"na","dsd":"na","data":["other"],"soft":"unclear","name":"generalized Robinson-Foulds","note":"Generalized RF metric for clonal, mutation, phylogenetic trees, networks"}
+{"id":"R05292","inc":1,"type":"metric","cat":["distance"],"crit":["none"],"alg":["other"],"rep":["tree","quartet"],"ops":["none"],"nobj":"na","dsd":"na","data":["gene_trees"],"soft":"unclear","name":"triplet distance","note":"Cache-oblivious O(n log n) triplet distance algorithms"}
+{"id":"R05293","inc":1,"type":"method","cat":["supertree"],"crit":["other"],"alg":["exact"],"rep":["tree"],"ops":["none"],"nobj":"1","dsd":"na","data":["gene_trees"],"soft":"unclear","name":"","note":"ILP models clustering duplications into whole-genome duplication episodes"}
+{"id":"R05294","inc":1,"type":"evaluation","cat":["network"],"crit":["none"],"alg":["none"],"rep":["network"],"ops":["none"],"nobj":"na","dsd":"na","data":["genomic","gene_trees"],"soft":"unclear","name":"","note":"MSA and gene tree error effects on species network inference"}
+{"id":"R05296","inc":1,"type":"evaluation","cat":["supertree"],"crit":["none"],"alg":["none"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["genomic"],"soft":"unclear","name":"","note":"Species tree estimation error effects on cophylogenetic reconstruction"}
+{"id":"R05297","inc":1,"type":"metric","cat":["distance"],"crit":["none"],"alg":["exact","other"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["other"],"soft":"unclear","name":"GMD","note":"Generalized matching distance comparing non-ISA tumour phylogenies"}
+{"id":"R05298","inc":1,"type":"method","cat":["network","tree_other"],"crit":["none"],"alg":["other"],"rep":["network"],"ops":["none"],"nobj":"na","dsd":"na","data":["genomic"],"soft":"unclear","name":"","note":"Phylogenetic placement of genomes onto phylogenetic networks"}
+{"id":"R05299","inc":1,"type":"method","cat":["tree_other"],"crit":["distance"],"alg":["other"],"rep":["matrix","tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["protein","genomic"],"soft":"unclear","name":"","note":"Corrected compression distances resisting long-branch attraction"}
+{"id":"R05300","inc":1,"type":"evaluation","cat":["tree_other"],"crit":["likelihood"],"alg":["other"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["dna"],"soft":"unclear","name":"","note":"MSA error under branch-variable models; new resampling support method"}
+{"id":"R05302","inc":1,"type":"method","cat":["tree_other"],"crit":["distance"],"alg":["other"],"rep":["matrix","tree"],"ops":["none"],"nobj":"1","dsd":"na","data":["distances"],"soft":"unclear","name":"","note":"Constant-factor approximation for total-error tree metric fitting"}
+{"id":"R05303","inc":1,"type":"metric","cat":["distance","network"],"crit":["none"],"alg":["exact"],"rep":["network","tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["gene_trees"],"soft":"unclear","name":"","note":"Minimum RF cost between gene tree and network-displayed trees"}
+{"id":"R05304","inc":1,"type":"method","cat":["distance"],"crit":["none"],"alg":["none"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["other"],"soft":"yes","name":"VECTr","note":"Visualization tool explaining clonal tree distance contributions"}
+{"id":"R05308","inc":0,"why":"other_domain"}
+{"id":"R05311","inc":0,"why":"other_domain"}
+{"id":"R05312","inc":1,"type":"evaluation","cat":["supertree"],"crit":["parsimony","other"],"alg":["none"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["gene_trees"],"soft":"unclear","name":"","note":"Simulation comparison of MRP and polynomial supertree methods"}
+{"id":"R05315","inc":1,"type":"method","cat":["network"],"crit":["distance"],"alg":["other"],"rep":["split","network"],"ops":["none"],"nobj":"na","dsd":"na","data":["genomic"],"soft":"unclear","name":"","note":"Split networks from gene order via jackknife trees, distances, encoding"}
+{"id":"R05316","inc":0,"why":"application"}
+{"id":"R05317","inc":1,"type":"theory","cat":["network","distance"],"crit":["none"],"alg":["none"],"rep":["network"],"ops":["none"],"nobj":"na","dsd":"na","data":["other"],"soft":"unclear","name":"","note":"Isomorphism of tree-sibling time-consistent networks is GI-complete"}
+{"id":"R05321","inc":1,"type":"method","cat":["network"],"crit":["none"],"alg":["other"],"rep":["network"],"ops":["none"],"nobj":"na","dsd":"na","data":["gene_trees"],"soft":"unclear","name":"","note":"Reusing networks of isomorphic simplest datasets via incompatibility graphs"}
+{"id":"R05322","inc":1,"type":"metric","cat":["distance","network"],"crit":["none"],"alg":["none"],"rep":["network"],"ops":["none"],"nobj":"na","dsd":"na","data":["other"],"soft":"unclear","name":"de-distance","note":"Polynomial-time metric on partly reduced phylogenetic networks"}
+{"id":"R05325","inc":0,"why":"application"}
+{"id":"R05331","inc":0,"why":"application"}
+{"id":"R05334","inc":0,"why":"application"}
+{"id":"R05335","inc":1,"type":"evaluation","cat":["tree_other"],"crit":["distance"],"alg":["none"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["other"],"soft":"unclear","name":"EcoSim","note":"EcoSim tests mutation and speciation effects on distance trees"}
+{"id":"R05337","inc":0,"why":"application"}
+{"id":"R05342","inc":0,"why":"application"}
+{"id":"R05343","inc":1,"type":"evaluation","cat":["morpho"],"crit":["parsimony","quartet"],"alg":["none"],"rep":["tree"],"ops":["none"],"nobj":"na","dsd":"na","data":["morphological"],"soft":"unclear","name":"","note":"Simulated phenotypic characters comparing parsimony and three-taxon analysis"}
+{"id":"R05345","inc":0,"why":"application"}
+{"id":"R05346","inc":0,"why":"application"}
+{"id":"R05353","inc":0,"why":"other_domain"}
+{"id":"R05354","inc":0,"why":"other_domain"}
+{"id":"R05356","inc":0,"why":"no_method"}
+{"id":"R05357","inc":0,"why":"application"}
+{"id":"R05362","inc":0,"why":"application"}
+{"id":"R05369","inc":0,"why":"application"}
+{"id":"R05370","inc":0,"why":"application"}
+{"id":"R05372","inc":0,"why":"application"}
+{"id":"R05373","inc":0,"why":"application"}
+{"id":"R05378","inc":0,"why":"application"}
+{"id":"R05381","inc":0,"why":"application"}
+{"id":"R05383","inc":0,"why":"application"}
+{"id":"R05384","inc":0,"why":"application"}
+{"id":"R05386","inc":0,"why":"application"}
+{"id":"R05390","inc":0,"why":"application"}
+{"id":"R05391","inc":0,"why":"application"}
+{"id":"R05394","inc":0,"why":"application"}
+{"id":"R05395","inc":0,"why":"application"}
+{"id":"R05397","inc":0,"why":"application"}
+{"id":"R05399","inc":0,"why":"application"}
+{"id":"R05403","inc":0,"why":"application"}
+{"id":"R05405","inc":0,"why":"application"}
+{"id":"R05406","inc":1,"type":"method","cat":["supertree"],"crit":["parsimony"],"alg":["none"],"rep":["tree","other"],"ops":["none"],"nobj":"na","dsd":"na","data":["gene_trees"],"soft":"yes","name":"BuM","note":"Web tool building combined Baum-Ragan MRP matrices from trees"}
+{"id":"R05407","inc":0,"why":"application"}
+{"id":"R05408","inc":0,"why":"application"}
+{"id":"R05411","inc":0,"why":"application"}
+{"id":"R05412","inc":0,"why":"other_domain"}
+{"id":"R05413","inc":0,"why":"application"}
+{"id":"R05414","inc":0,"why":"application"}
+{"id":"R05417","inc":0,"why":"application"}
+{"id":"R05419","inc":0,"why":"application"}
+{"id":"R05420","inc":0,"why":"application"}
+{"id":"R05421","inc":0,"why":"application"}
+{"id":"R05422","inc":0,"why":"application"}
+{"id":"R05423","inc":0,"why":"application"}
+{"id":"R05425","inc":0,"why":"application"}
+{"id":"R05426","inc":0,"why":"application"}
+{"id":"R05430","inc":0,"why":"application"}
+{"id":"R05433","inc":0,"why":"application"}
+{"id":"R05435","inc":0,"why":"other_domain"}
+{"id":"R05437","inc":1,"type":"review","cat":["so_meta"],"crit":["parsimony","likelihood"],"alg":["hill_climb","other"],"rep":["tree"],"ops":["spr","tbr"],"nobj":"na","dsd":"na","data":["unclear"],"soft":"unclear","name":"pre-processed searches","note":"Review of tree search strategies; proposes pre-processed searches"}
+{"id":"R05438","inc":1,"type":"method","cat":["network"],"crit":["net_parsimony"],"alg":["exact"],"rep":["tree","network"],"ops":["none"],"nobj":"1","dsd":"na","data":["gene_trees"],"soft":"yes","name":"","note":"Exact reduction-based algorithm for two-tree hybridization number"}
+{"id":"R05439","inc":1,"type":"evaluation","cat":["network"],"crit":["net_parsimony","likelihood","other"],"alg":["none"],"rep":["network"],"ops":["none"],"nobj":"na","dsd":"na","data":["gene_trees"],"soft":"unclear","name":"","note":"Simulated comparison of network methods under hybridization and ILS"}

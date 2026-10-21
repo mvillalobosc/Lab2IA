@@ -1,0 +1,28 @@
+{"id":"R08607","inc":0,"why":"other_domain"}
+{"id":"R08626","inc":0,"why":"other_domain"}
+{"id":"R08633","inc":0,"why":"application"}
+{"id":"R08639","inc":0,"why":"application"}
+{"id":"R08640","inc":0,"why":"application"}
+{"id":"R08653","inc":0,"why":"application"}
+{"id":"R08674","inc":0,"why":"other_domain"}
+{"id":"R08683","inc":0,"why":"application"}
+{"id":"R08686","inc":0,"why":"application"}
+{"id":"R08688","inc":0,"why":"application"}
+{"id":"R08693","inc":0,"why":"application"}
+{"id":"R08703","inc":0,"why":"application"}
+{"id":"R08705","inc":0,"why":"application"}
+{"id":"R08706","inc":1,"type":"method","cat":["tree_other"],"crit":["distance"],"alg":["other"],"rep":["tree","cluster"],"ops":["none"],"nobj":"na","dsd":"na","data":["genomic"],"soft":"unclear","name":"Ray Surveyor","note":"Alignment-free k-mer genome comparison for phenetic tree reconstruction"}
+{"id":"R08708","inc":0,"why":"other_domain"}
+{"id":"R08716","inc":0,"why":"application"}
+{"id":"R08721","inc":1,"type":"theory","cat":["tree_other"],"crit":["bayesian"],"alg":["mcmc"],"rep":["other"],"ops":["none"],"nobj":"na","dsd":"na","data":["genomic"],"soft":"unclear","name":"","note":"Proves slow mixing of MCMC on reversal rearrangement scenarios"}
+{"id":"R08728","inc":0,"why":"other_domain"}
+{"id":"R08733","inc":0,"why":"other_domain"}
+{"id":"R08741","inc":0,"why":"other_domain"}
+{"id":"R08742","inc":0,"why":"other_domain"}
+{"id":"R08759","inc":0,"why":"other_domain"}
+{"id":"R08771","inc":0,"why":"application"}
+{"id":"R08777","inc":0,"why":"other_domain"}
+{"id":"R08816","inc":0,"why":"other_domain"}
+{"id":"R08820","inc":0,"why":"other_domain"}
+{"id":"R08847","inc":0,"why":"application"}
+{"id":"R08850","inc":0,"why":"other_domain"}

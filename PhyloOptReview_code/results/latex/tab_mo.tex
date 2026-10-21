@@ -1,0 +1,56 @@
+\begin{landscape}
+{\scriptsize
+\setlength{\tabcolsep}{4pt}
+\setlength{\LTcapwidth}{\linewidth}
+\begin{longtable}{>{\raggedright\arraybackslash}p{2.6cm}>{\raggedright\arraybackslash}p{2.0cm}>{\raggedright\arraybackslash}p{2.6cm}>{\raggedright\arraybackslash}p{2.6cm}>{\raggedright\arraybackslash}p{0.6cm}>{\raggedright\arraybackslash}p{2.1cm}>{\raggedright\arraybackslash}p{3.7cm}>{\raggedright\arraybackslash}p{0.8cm}}
+\caption{Multi-objective strategies for phylogenetic inference. Obj., number of objectives; MP, maximum parsimony; ML, maximum likelihood; ME, minimum evolution; LS, least squares; MO, multi-objective; MOEA, multi-objective evolutionary algorithm; NSGA-II and NSGA-III, non-dominated sorting genetic algorithms II and III; SPEA2, strength Pareto evolutionary algorithm 2; IBEA, indicator-based evolutionary algorithm; MOEA/D, MOEA based on decomposition; MOEA/D-DRA, MOEA/D with dynamical resource allocation; MOPSO/D, multi-objective particle swarm optimisation based on decomposition; SMS-EMOA, S-metric selection evolutionary multi-objective optimisation algorithm; PAES, Pareto archived evolution strategy; MOCHC, multi-objective version of the CHC algorithm (cross-generational elitist selection, heterogeneous recombination and cataclysmic mutation); GAML, genetic algorithm for maximum likelihood; PDG, prune-delete-graft; NNI, nearest neighbour interchange; SPR, subtree pruning and regrafting; TBR, tree bisection and reconnection; NJ, Neighbour Joining; RF, Robinson--Foulds; MSA, multiple sequence alignment; SOP, sum of pairs; TC, total column score; SimG and SimNG, similarity with and without gaps; DTL, duplication, transfer and loss; n.r., not reported in the sources consulted; n.a., not applicable (exact methods); Code, public source code found in the full texts or in repositories; n.f., not found.}\label{tab:mo}\\
+\toprule
+Strategy & References & Algorithm & Criteria & Obj. & Sol. structure & Main operators & Code
+\\
+\midrule
+\endfirsthead
+\multicolumn{8}{l}{\emph{Table \ref{tab:mo} (continued)}}\\
+\toprule
+Strategy & References & Algorithm & Criteria & Obj. & Sol. structure & Main operators & Code
+\\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\multicolumn{8}{l}{\textit{Tree inference}}\\
+MOEA for conflicting data sets & \cite{R00694,R04033} & Genetic algorithm & ML per data set & 2 & Tree & Crossover, branch-length mutation & n.f.\\
+PhyloMOEA & \cite{R00407,R04040,R00452,R00459} & NSGA-II & MP, ML & 2 & Tree & GAML subtree crossover, NNI and branch-length mutation & n.f.\\
+omni-aiNet & \cite{R00413,R04109,R00698} & Artificial immune network & ME, LS & 2 & Distance matrix & Immune mutation of matrix entries, NJ tree building, suppression of similar trees (RF distance) & n.f.\\
+MOEA with indirect representation & \cite{R00432} & MOEA & MP, ML & 2 & Prüfer code & n.r. & n.f.\\
+MO-ABC & \cite{R00478,R00490,R04112,R01178,R04120,R01386} & Artificial bee colony & MP, ML & 2 & Tree & NNI neighbourhood moves (SPR and TBR compared), branch-length optimisation & n.f.\\
+MO-FA & \cite{R00492,R00497,R05269,R05270,R04248} & Firefly algorithm & MP, ML & 2 & Distance matrix & Attraction moves on matrix entries, tree building by clustering methods, topological optimisation & n.f.\\
+Parallel IBEA & \cite{R00367,R00695} & IBEA & MP, ML & 2 & Distance matrix & Row-interchange uniform crossover, gamma mutation of matrix entries, BIONJ trees with NNI and SPR optimisation, hypervolume indicator & n.f.\\
+Parallel NSGA-II and SPEA2 & \cite{R04043,R00090} & NSGA-II, SPEA2 & MP, ML & 2 & Distance matrix & Row-interchange uniform crossover, gamma mutation of matrix entries, BIONJ trees with topological optimisation & n.f.\\
+IB-MOBA & \cite{R01387,R04016} & Bat algorithm with indicator selection & MP, ML & 2 & Distance matrix & Crossover, NNI and SPR mutation, hypervolume indicator & n.f.\\
+MO-Phylogenetics and MORPHY & \cite{R04307,R00396} & NSGA-II, SMS-EMOA, MOEA/D, PAES, MOCHC & MP, ML & 2 & Tree & PDG crossover, NNI, SPR and TBR mutation & Yes\\
+GATC & \cite{R05762} & Genetic algorithm with non-dominated sorting & ML, reconciliation cost & 2 & Gene tree & Subtree prune-and-graft crossover, SPR and rerooting mutation & Yes\\
+MO-MA & \cite{R04036,R04241} & Memetic NSGA-II & MP, ML & 2 & Tree & PDG crossover, NNI mutation, MO local search & n.f.\\
+MO-SFLA & \cite{R04240,R05284,R01388,R01317} & Shuffled frog-leaping algorithm & MP, ML & 2 & Distance matrix & Leaping moves on matrix entries, BIONJ decoding, SPR and NNI local search & n.f.\\
+MOEA-RC and MOEA-MC & \cite{R06858,R04001} & MOEA with weight vectors, parallel MOEA with membrane computing & MP, ML & 2 & Tree & PDG crossover, NNI mutation, protected consensus branches & n.f.\\
+MMO-MA and multi-modal NSGA-II & \cite{R04041,R01179} & Memetic and multi-modal NSGA-II & MP, ML & 2 & Tree & PDG crossover, NNI mutation, topological ranking by RF distance & n.f.\\
+Inter-algorithm cooperation & \cite{R04237} & NSGA-II, IBEA, MOEA/D (islands) & MP, ML & 2 & Tree & n.r. & n.f.\\
+Bio-inspired algorithms with decomposition & \cite{R00345} & MOEA/D-DRA, MOPSO/D & MP, ML & 2 & Tree & n.r. & n.f.\\
+\addlinespace
+\multicolumn{8}{l}{\textit{Alignment for phylogeny}}\\
+MO formulation of MSA for phylogeny & \cite{R05289,R04238} & NSGA-II, NSGA-III & Alignment objectives (SOP, TC, gaps, SimG, SimNG) & 2 & Alignment & Single-point crossover, closed gap-shifting mutation, initial alignments from nine aligners & Yes\\
+PMAO & \cite{R01214} & PASTA with weight vectors & ML, alignment objectives & 5 & Alignment and tree & Iterative co-estimation of alignment and tree & n.f.\\
+MAMMLE & \cite{R02878} & MO combination of MUSCLE and MAFFT & ML, alignment objectives & 4 & Alignment and tree & MUSCLE refinement driven by weight vectors, one ML tree per alignment, greedy consensus & Yes\\
+\addlinespace
+\multicolumn{8}{l}{\textit{Reconciliation and cophylogeny}}\\
+Pareto-optimal DTL reconciliation & \cite{R03053} & Dynamic programming & Duplication, transfer and loss events & 3 & Reconciliation & Exact enumeration of cost regions & Yes\\
+Event supports from Pareto-optimal reconciliations & \cite{R05671} & Dynamic programming & Duplication, transfer and loss events & 3 & Reconciliation & Exact algorithm with cost tolerance & Yes\\
+DLCparETO & \cite{R05686} & Fixed-parameter dynamic programming & Duplication, loss and coalescence events & 3 & Reconciliation & Exact algorithm with Pareto pruning & Yes\\
+\addlinespace
+\multicolumn{8}{l}{\textit{Network inference}}\\
+MO-PhyNet & \cite{R01157} & NSGA-II & Hardwired parsimony, softwired parsimony, number of reticulations & 3 & Rooted network & Uniform crossover, NNI mutation & Yes\\
+\addlinespace
+\multicolumn{8}{l}{\textit{Species tree inference}}\\
+SNOGA & \cite{R04011} & Modified NSGA-II & Quartet score, triplet score, pseudo-likelihood & 3 & Species tree & PDG crossover, NNI, SPR or TBR mutation & n.f.\\
+\end{longtable}
+}
+\end{landscape}

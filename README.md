@@ -16,6 +16,7 @@ Lab2IA reúne aplicaciones web, pipelines de análisis y el código de artículo
 | [YeastForest_code](YeastForest_code/) | Calcula esos bosques desde un VCF, compara todos los árboles entre sí, los agrupa y produce las figuras del manuscrito. | Código R de un artículo |
 | [PhyloGEOYeast](PhyloGEOYeast/) | Explora la filogeografía de *S. eubayanus* y *S. cerevisiae* (muestreo, diversidad, estructura, mezcla, árboles y validación del origen) y guarda el pipeline R que la calcula. | App web y pipeline R |
 | [MOPhyloKmer](MOPhyloKmer/) | Compara NSGA-II, un recocido simulado multiobjetivo y una búsqueda aleatoria para inferir árboles filogenéticos desde distancias de k-meros. | Experimentos en R |
+| [PhyloOptReview_code](PhyloOptReview_code/) | Reúne el código, los datos codificados y los resultados de una revisión sistemática de 2.557 estudios sobre la inferencia filogenética como problema de optimización, con sus matrices de métodos y el árbol de la literatura. | Datos y código R de un artículo |
 | [PaleoForest](PaleoForest/) | Busca árboles más parsimoniosos en matrices morfológicas TNT y explora el conjunto de topologías con clustering, medoides y escala de tiempo geológico. | App web |
 | [Phyli](Phyli/) | Dibuja árboles y redes filogenéticas en el navegador a partir de Newick o Newick extendido y los exporta a SVG, PNG, Newick o JSON. | App web |
 
@@ -75,6 +76,7 @@ Las apps web se abren desde su `index.html`. Casi todas funcionan con doble clic
 | BookAnalyses, Papelucho, PichintunNLP, StrokeGRDCL, TE_worldwide_code | `Rscript run_all.R` |
 | MOPhyloKmer | `Rscript main.R` (un conjunto) o `Rscript run_experiments.R` (experimento completo) |
 | SNN_ANN_code | `Rscript scripts/00_run_all.R` |
+| PhyloOptReview_code | `Rscript R/00_run_all.R` |
 | ConscienciaDiscreta_code | `Rscript correr_todo.R` y luego `Rscript correr_post_hoc.R` dentro de `post_hoc/` |
 | Zodiaco_grd_Code | `Rscript 01_preparar_datos.R` a `Rscript 04_resultados.R`, en orden |
 | YeastForest_code | Los scripts de `Bosque_cerevisiae/` y `Bosque_eubayanus/`, y después `preparar_app.R` y `figuras_MER.R` |
@@ -111,12 +113,12 @@ No hay una licencia común: cada proyecto trae la suya.
 | Licencia | Proyectos |
 | --- | --- |
 | MIT | BACPPlanner, BookAnalyses, ConscienciaDiscreta_code, MOPhyloKmer, PDF2JATS, PaleoColorCL, PaleoForest, Papelucho, PhyloGEOYeast, PichintunNLP, StrokeAccessRM, StrokeGRDCL, TE_worldwide_code, YeastForest, YeastForest_code, Zodiaco_grd_Code |
-| MIT para el código y CC BY 4.0 para los datos y protocolos | SNN_ANN_code |
+| MIT para el código y CC BY 4.0 para los datos y protocolos | PhyloOptReview_code, SNN_ANN_code |
 | CC BY-SA 4.0 | Phyli |
 | Licencia académica propia: permite revisión académica, docencia y reproducibilidad con atribución, y pide permiso para reutilizar o redistribuir | StrokeAccessCL |
 | Todos los derechos reservados | ResearchAnalyser |
 
-Salvo en SNN_ANN_code, que también licencia sus datos y protocolos, las licencias cubren el código. Los datos, los logos institucionales y las librerías de terceros que trae cada proyecto conservan sus propios términos, que explican su README y su archivo de licencia.
+Salvo en PhyloOptReview_code y SNN_ANN_code, que también licencian sus datos y protocolos, las licencias cubren el código. Los datos, los logos institucionales y las librerías de terceros que trae cada proyecto conservan sus propios términos, que explican su README y su archivo de licencia.
 
 ### Cómo citar
 
@@ -146,6 +148,7 @@ Lab2IA gathers web applications, analysis pipelines and the code of papers devel
 | [YeastForest_code](YeastForest_code/) | Computes those forests from a VCF, compares every tree with every other, groups them and produces the figures of the manuscript. | R code of a paper |
 | [PhyloGEOYeast](PhyloGEOYeast/) | Explores the phylogeography of *S. eubayanus* and *S. cerevisiae* (sampling, diversity, structure, admixture, trees and validation of the origin) and keeps the R pipeline that computes it. | Web app and R pipeline |
 | [MOPhyloKmer](MOPhyloKmer/) | Compares NSGA-II, a multi-objective simulated annealing and a random search for inferring phylogenetic trees from k-mer distances. | R experiments |
+| [PhyloOptReview_code](PhyloOptReview_code/) | Gathers the code, coded data and results of a systematic review of 2,557 studies on phylogenetic inference as an optimisation problem, with its methods matrices and literature tree. | Data and R code of a paper |
 | [PaleoForest](PaleoForest/) | Searches for most parsimonious trees in TNT morphological matrices and explores the set of topologies with clustering, medoids and a geological time scale. | Web app |
 | [Phyli](Phyli/) | Draws phylogenetic trees and networks in the browser from Newick or extended Newick and exports them to SVG, PNG, Newick or JSON. | Web app |
 
@@ -205,6 +208,7 @@ The web apps open from their `index.html`. Almost all of them work with a double
 | BookAnalyses, Papelucho, PichintunNLP, StrokeGRDCL, TE_worldwide_code | `Rscript run_all.R` |
 | MOPhyloKmer | `Rscript main.R` (one dataset) or `Rscript run_experiments.R` (full experiment) |
 | SNN_ANN_code | `Rscript scripts/00_run_all.R` |
+| PhyloOptReview_code | `Rscript R/00_run_all.R` |
 | ConscienciaDiscreta_code | `Rscript correr_todo.R`, then `Rscript correr_post_hoc.R` inside `post_hoc/` |
 | Zodiaco_grd_Code | `Rscript 01_preparar_datos.R` to `Rscript 04_resultados.R`, in order |
 | YeastForest_code | The scripts in `Bosque_cerevisiae/` and `Bosque_eubayanus/`, then `preparar_app.R` and `figuras_MER.R` |
@@ -241,12 +245,12 @@ There is no common licence: each project carries its own.
 | Licence | Projects |
 | --- | --- |
 | MIT | BACPPlanner, BookAnalyses, ConscienciaDiscreta_code, MOPhyloKmer, PDF2JATS, PaleoColorCL, PaleoForest, Papelucho, PhyloGEOYeast, PichintunNLP, StrokeAccessRM, StrokeGRDCL, TE_worldwide_code, YeastForest, YeastForest_code, Zodiaco_grd_Code |
-| MIT for the code and CC BY 4.0 for the data and protocols | SNN_ANN_code |
+| MIT for the code and CC BY 4.0 for the data and protocols | PhyloOptReview_code, SNN_ANN_code |
 | CC BY-SA 4.0 | Phyli |
 | Own academic licence: it allows academic review, teaching and reproducibility with attribution, and asks for permission to reuse or redistribute | StrokeAccessCL |
 | All rights reserved | ResearchAnalyser |
 
-Except in SNN_ANN_code, which also licenses its data and protocols, the licences cover the code. The data, institutional logos and third-party libraries shipped with each project keep their own terms, which its README and its licence file explain.
+Except in PhyloOptReview_code and SNN_ANN_code, which also license their data and protocols, the licences cover the code. The data, institutional logos and third-party libraries shipped with each project keep their own terms, which its README and its licence file explain.
 
 ### How to cite
 

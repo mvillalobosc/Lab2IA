@@ -56,6 +56,14 @@ Papelucho/data/derived/
 Papelucho/models/
 Papelucho/data/raw/corpus.tar.gz
 
+# PhyloOptReview_code: exportaciones de Scopus y Web of Science, lotes de cribado y textos de
+# las muestras de confiabilidad (traen los resúmenes) y Rplots.pdf de una corrida nueva
+PhyloOptReview_code/data/raw/scopus/
+PhyloOptReview_code/data/raw/wos/
+PhyloOptReview_code/screening/input/
+PhyloOptReview_code/screening/reliability/*.txt
+PhyloOptReview_code/**/Rplots.pdf
+
 # PhyloGEOYeast: datos de entrada y resultados del pipeline R
 PhyloGEOYeast/EvolutiveEubayanus_CODE/DATA/
 PhyloGEOYeast/EvolutiveEubayanus_CODE/resultados/

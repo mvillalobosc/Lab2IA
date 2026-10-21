@@ -1,0 +1,34 @@
+group,strategy,ids,criteria,structure,operators
+Tree inference,PhyML,R03429;R03006,ML,Tree,NNI; SPR filtered by distances and local likelihoods
+Tree inference,p-ECRNJ,R05515,ML,Tree,Edge contraction and refinement with NJ resolution
+Tree inference,FastME,R04150;R03394,ME (balanced),Tree,BNNI; BSPR
+Tree inference,FastTree,R03350,ME; approximate ML,Tree (profiles),Profile NJ; NNI
+Tree inference,Parallel Rec-I-DCM3,R01207,MP,Tree,Disk-covering decomposition; supertree merging
+Tree inference,TNT search strategies,R01997;R01999;R02120,MP,Tree,TBR; ratchet; tree drifting; sectorial searches
+Tree inference,FPGA-accelerated local search,R04060;R04058;R04059;R06344;R06564,MP,Tree,Progressive neighbourhood rearrangements
+Tree inference,Distance Wagner starting trees,R04414,MP,Tree,Random addition sequence; SPR; TBR
+Tree inference,Phylo2Vec,R03547,ML,Integer vector,Vector changes with small and large jumps
+Tree inference,Phylogenetic topographer,R03801,ML; BI,Tree,Hill climbing; rearrangements above a likelihood threshold
+Supertrees and species trees,Gene tree parsimony,R00415;R07500;R00421;R04154;R04164;R01456;R05464;R05466;R00480;R04185,Duplication; duplication-loss; deep coalescence,Tree,SPR; TBR; NNI local search
+Supertrees and species trees,k-NNI duplication-loss,R04023,Duplication-loss,Tree,k-NNI
+Supertrees and species trees,Minimum-flip supertrees,R07506,Minimum flip,Tree,rSPR and rTBR branch swapping; greedy taxon addition
+Supertrees and species trees,Triplet supertrees,R05457,Triplet score,Tree,Stepwise local search
+Supertrees and species trees,RF supertrees,R05640;R00471;R04183;R05653,RF distance,Tree,SPR; TBR; ECR; NNI
+Supertrees and species trees,PluMiST,R05536,Majority-rule supertree scores,Tree,Taxa deletion and reinsertion; NNI on splits; stepwise addition
+Supertrees and species trees,STELLS,R04727,Coalescent likelihood,Tree,NNI hill climbing from near-optimal MDC trees
+Supertrees and species trees,L.U.St,R05490,Approximate supertree likelihood,Tree,SPR searches; stepwise addition or MRP starting tree
+Supertrees and species trees,SPR supertrees,R03673,rSPR distance,Tree,Global rSPR rearrangements; stepwise addition by taxon frequency
+Supertrees and species trees,RF median trees,R05277,RF distance,Splits,Clique search on split compatibility
+Supertrees and species trees,Path-difference and cophenetic median trees,R00378;R05278;R05279;R04205;R04208;R04211,Path-difference; cophenetic distances,Tree,SPR local search
+Supertrees and species trees,MAP species-locus-gene trees,R05282,BI (duplication-loss-coalescence),Tree triad,n.r.
+Supertrees and species trees,Median quartet trees,R07226;R05871,Quartet score,Tree,SPR with optimal subtree placement
+Network inference,Local improvement to networks,R04006,Distance deviation,Network,Addition of recombination cycles
+Network inference,Network parsimony under ILS,R03661,MP (reconciliation),Rooted network,Relocation of edge endpoints; addition of reticulation edges; MDC starting tree
+Network inference,RF-Net,R05285,RF embedding cost,Rooted network,Network rearrangements
+Gene order inference,Particle filtration tree search,R07653,MP (rearrangement distances),Tree,Particle filtration over candidate trees
+Gene order inference,amGRP,R08041,MP (reversal distance),Tree with ancestral gene orders,Branch and bound over subsets of reversal medians
+Gene order inference,Weighted reversal and transposition MGR,R08266,MP (weighted reversal and transposition distance),Tree with ancestral gene orders,Direct construction of the tree
+Gene order inference,webMGR,R08679,MP (rearrangement distance),Tree with ancestral gene orders,n.r.
+Gene order inference,PIVO2,R08581,MP (rearrangement distance),Ancestral gene orders on a fixed tree,Randomised hill climbing among equally good candidates
+Gene order inference,Rec-DCM-Eigen (COGNAC),R08790,MP (inversion distance),Tree,Spectral disk-covering decomposition
+Tree inference,NCD quartet tree,R08724,Quartet tree score on compression distances,Ternary tree,Fast heuristic for the quartet method

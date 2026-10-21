@@ -1,0 +1,72 @@
+BLOCK so_meta: 135 studies with the category, 133 as main block
+type: method=115, evaluation=12, theory=6, metric=1, review=1
+crit: parsimony=58, likelihood=36, other=36, distance=19, coalescent=8, quartet=8, none=5, bayesian=2, net_parsimony=2, pseudolikelihood=1
+alg: hill_climb=75, other=31, ga_ea=21, sa=19, vns_grasp=9, swarm=6, exact=5, none=5, divide_conquer=4, memetic=3, ratchet=2, tabu=2, mcmc=1, ml=1
+rep: tree=120, other=16, network=9, matrix=7, quartet=6, split=6, cluster=2
+ops: none=49, other=49, spr=33, nni=22, tbr=16, nj_init=13, crossover=9, consensus=7, mutation=4
+nobj: 1=130, na=3, 2=2
+dsd: no=127, yes=5, na=3
+data: gene_trees=37, unclear=33, dna=30, genomic=22, distances=8, protein=8, other=7
+soft: unclear=119, yes=16
+
+TOP CITED:
+R03390 Nguyen 2015 c=23010 [method] IQ-TREE: A fast and effective stochastic algorithm for estimating maximum-likelihood phylo | name=IQ-TREE | Hill-climbing with stochastic perturbation for ML tree search | crit=likelihood alg=hill_climb;vns_grasp rep=tree ops=other
+R03350 Price 2009 c=4649 [method] Fasttree: Computing large minimum evolution trees with profiles instead of a distance matr | name=FastTree | Profile-based neighbor-joining plus NNI for huge minimum evolution trees | crit=distance alg=hill_climb;other rep=tree;other ops=nni;nj_init
+R03722 Chernomor 2016 c=1971 [method] Terrace Aware Data Structure for Phylogenomic Inference from Supermatrices | name=PTA | Terrace-aware data structure speeding partitioned ML tree search | crit=likelihood alg=other rep=tree ops=other
+R03394 Lefort 2015 c=1517 [method] FastME 2.0: A Comprehensive, Accurate, and Fast Distance-Based Phylogeny Inference Program | name=FastME 2.0 | Balanced minimum evolution tree search with NNI and SPR | crit=distance alg=hill_climb rep=tree;matrix ops=nni;spr
+R03429 Guindon 2005 c=1302 [method] PHYML Online - A web server for fast maximum likelihood-based phylogenetic inference | name=PHYML Online | Web server for fast heuristic maximum likelihood tree inference | crit=likelihood alg=other rep=tree ops=none
+R03014 Kosakovsky Pond 2006 c=713 [method] GARD: A genetic algorithm for recombination detection | name=GARD | Genetic algorithm search for recombination breakpoints by likelihood | crit=likelihood alg=ga_ea rep=other ops=none
+R08724 Cilibrasi 2005 c=693 [method] Clustering by compression | name=NCD | Normalized compression distance with quartet tree heuristic clustering | crit=distance;quartet alg=other rep=matrix;quartet;tree ops=none
+R06082 Liu 2011 c=165 [evaluation] RAxML and FastTree: Comparing two methods for large-scale maximum likelihood phylogeny est | name=RAxML/FastTree | Compares RAxML and FastTree for large-scale ML estimation | crit=likelihood alg=none rep=tree ops=none
+R03006 Hordijk 2005 c=156 [method] Improving the efficiency of SPR moves in phylogenetic tree search methods based on maximum | name=NA | Filtering and local likelihood evaluation to speed SPR search | crit=likelihood alg=hill_climb rep=tree ops=spr
+R03413 Zhou 2018 c=133 [evaluation] Evaluating fast maximum likelihood-based phylogenetic programs using empirical phylogenomi | name=NA | Benchmarks RAxML, PhyML, IQ-TREE and FastTree on phylogenomic data | crit=likelihood alg=none rep=tree ops=none
+R00254 Stamatakis 2005 c=131 [method] RAxML-OMP: An efficient program for phylogenetic inference on SMPs | name=RAxML-OMP | OpenMP parallelization of RAxML maximum likelihood tree search | crit=likelihood alg=hill_climb;sa rep=tree ops=none
+R04727 Wu 2012 c=125 [method] Coalescent-based species tree inference from gene tree topologies under incomplete lineage | name=STELLS | ML species tree inference from gene tree topologies under ILS | crit=likelihood;coalescent alg=hill_climb rep=tree ops=none
+R05462 Helaers 2010 c=100 [method] MetaPIGA v2.0: Maximum likelihood large phylogeny estimation using the metapopulation gene | name=MetaPIGA v2.0 | Metapopulation GA, GA and annealing for ML trees | crit=likelihood alg=ga_ea;sa rep=tree ops=nni;spr;tbr;crossover;consensus;other
+R05640 Bansal 2010 c=94 [method] Robinson-Foulds supertrees | name=RF supertree | Fast SPR and TBR hill climbing for Robinson-Foulds supertrees | crit=other alg=hill_climb rep=tree;cluster ops=spr;tbr
+R03661 Yu 2013 c=91 [method] Parsimonious inference of hybridization in the presence of incomplete lineage sorting | name=NA | Parsimony network inference from gene trees accounting for ILS | crit=parsimony alg=hill_climb rep=network ops=none
+R05464 Chaudhary 2010 c=80 [method] IGTP: A software package for large-scale gene tree parsimony analysis | name=iGTP | Software for gene tree parsimony species tree search | crit=parsimony;coalescent alg=hill_climb rep=tree ops=nj_init
+R03673 Whidden 2014 c=71 [method] Supertrees based on the subtree prune-and-regraft distance | name=SPR supertree | Supertree search minimising rooted SPR distance via agreement forests | crit=other alg=other rep=tree ops=spr
+R01895 Criscuolo 2011 c=58 [method] morePhyML: Improving the phylogenetic tree space exploration with PhyML 3 | name=morePhyML | Ratchet character reweighting to escape PhyML local optima | crit=likelihood alg=hill_climb;ratchet rep=tree ops=nni;spr;other
+R05437 Giribet 2007 c=58 [review] Efficient tree searches with available algorithms | name=pre-processed searches | Review of tree search strategies; proposes pre-processed searches | crit=parsimony;likelihood alg=hill_climb;other rep=tree ops=spr;tbr
+R02717 Morrison 2007 c=56 [evaluation] Increasing the efficiency of searches for the maximum likelihood tree in a phylogenetic an | name=NA | Comparing ML heuristic searches, starting trees and programs | crit=likelihood alg=hill_climb;other rep=tree ops=nni;nj_init
+R04023 Wang 2014 c=47 [method] The Duplication-Loss Problem: Novel Algorithms Based on k-NNI Local Search | name=NA | k-NNI local search for duplication-loss supertrees | crit=parsimony alg=hill_climb rep=tree ops=nni
+R05466 Bansal 2010 c=45 [method] Efficient genome-scale phylogenetic analysis under the duplication-loss and deep coalescen | name=NA | Faster SPR and TBR local search for gene tree parsimony | crit=parsimony;coalescent alg=hill_climb rep=tree ops=spr;tbr
+R04103 Blagojevic 2007 c=44 [method] RAxML-cell: Parallel phylogenetic tree inference on the cell broadband engine | name=RAxML-cell | Porting and optimising RAxML on the Cell Broadband Engine | crit=likelihood alg=hill_climb rep=tree ops=none
+R04144 Goeffon 2008 c=42 [method] Progressive tree neighborhood applied to the maximum parsimony problem | name=Progressive Neighborhood | Progressively shrinking neighbourhood in descent search for maximum parsimony | crit=parsimony alg=hill_climb;sa;vns_grasp rep=tree ops=nni;spr;tbr;other
+R07500 Bansal 2007 c=42 [method] Heuristics for the gene-duplication problem: A ⊖(n) speed-up for the local search | name=NA | Faster local search for gene-duplication supertrees | crit=other alg=hill_climb rep=tree ops=none
+R04102 Stamatakis 2005 c=38 [method] An efficient program for phylogenetic inference using simulated annealing | name=RAxML-SA | Simulated annealing plus hill climbing for ML trees, OpenMP | crit=likelihood alg=sa;hill_climb rep=tree ops=consensus
+R05457 Lin 2009 c=37 [method] Triplet supertree heuristics for the tree of life | name=NA | Fast hill-climbing local search for triplet supertrees | crit=quartet alg=hill_climb rep=tree;quartet ops=other
+R05653 Chaudhary 2013 c=34 [method] Inferring species trees from incongruent multi-copy gene trees using the Robinson-Foulds d | name=MulRF | SPR heuristic for RF species trees from mul-trees | crit=other alg=hill_climb rep=tree ops=spr
+R01997 Simmons 2014 c=29 [evaluation] Dubious resolution and support from published sparse supermatrices: The importance of thor | name=NA | Reanalysis shows thorough searches needed for sparse supermatrix support | crit=likelihood;parsimony alg=other rep=tree ops=other
+R04150 Bordewich 2009 c=29 [theory] Consistency of topological moves based on the balanced minimum evolution principle of phyl | name=FastME | Proves consistency of balanced SPR moves in FastME | crit=distance alg=hill_climb rep=tree;matrix ops=spr;nni
+R02713 Whelan 2007 c=27 [method] New approaches to phylogenetic tree search and their application to large numbers of prote | name=Leaphy | Novel hill-climbing and resampling heuristics for ML tree search | crit=likelihood alg=hill_climb;other rep=tree ops=spr;other
+R03552 Kong 2025 c=26 [method] Inference of Phylogenetic Networks From Sequence Data Using Composite Likelihood | name=PHYNEST | Composite likelihood network search with hill climbing and annealing | crit=pseudolikelihood;coalescent;quartet alg=hill_climb;sa rep=network ops=nni;other
+R01960 Simmons 2013 c=25 [evaluation] An artifact caused by undersampling optimal trees in supermatrix analyses of locally sampl | name=NA | Undersampling optimal trees inflates support in supermatrix analyses | crit=parsimony;likelihood alg=hill_climb rep=tree ops=tbr;nj_init;consensus
+R08399 Gao 2013 c=22 [method] Ancestral Genome Inference Using a Genetic Algorithm Approach | name=NA | Genetic algorithm with genomic sorting for DCJ median problem | crit=parsimony;distance;other alg=ga_ea rep=other ops=other
+R05258 Poladian 2005 c=19 [method] A GA for maximum likelihood phylogenetic inference using neighbour-joining as a genotype t | name=NA | GA with neighbour-joining genotype-phenotype mapping for ML trees | crit=likelihood alg=ga_ea rep=matrix;tree ops=other;crossover
+R08266 Bader 2008 c=19 [method] A fast algorithm for the multiple genome rearrangement problem with weighted reversals and | name=NA | Heuristic rearrangement tree under weighted reversals and transpositions | crit=parsimony alg=other rep=tree ops=none
+R04185 Bansal 2013 c=18 [method] Algorithms for genome-scale phylogenetics using gene tree parsimony | name=DupTree, iGTP | Faster SPR and TBR local search for gene tree parsimony | crit=parsimony;coalescent alg=hill_climb rep=tree ops=spr;tbr
+R07506 Chen 2006 c=18 [method] Improved Heuristics for Minimum-Flip Supertree Construction | name=MRF | Faster heuristic search for minimum-flip supertrees | crit=other alg=hill_climb rep=tree;other ops=none
+R05536 Kupczok 2011 c=17 [method] Split-based computation of majority-rule supertrees | name=PluMiST | Split-based majority-rule supertree scores with heuristic search | crit=other alg=other rep=tree;split ops=none
+R00439 Richer 2009 c=16 [method] A memetic algorithm for phylogenetic reconstruction with maximum parsimony | name=Hydra | Memetic algorithm with topological tree crossover for maximum parsimony | crit=parsimony alg=memetic rep=tree ops=crossover;other;nni;spr;nj_init
+R02863 Chernomor 2015 c=16 [theory] Consequences of common topological rearrangements for partition trees in phylogenomic infe | name=NA | Rearrangements preserving partition trees; partial terraces speed tree search | crit=likelihood;parsimony alg=none rep=tree ops=nni;spr;tbr
+R04164 Bansal 2009 c=16 [method] The gene-duplication problem: Near-linear time algorithms for NNI-based local searches | name=NA | Near-linear NNI local search for gene-duplication supertrees | crit=other alg=hill_climb rep=tree ops=nni
+R08041 Bernt 2007 c=16 [method] Using median sets for inferring phylogenetic trees | name=amGRP | Branch-and-bound over median sets for gene order phylogeny | crit=other;parsimony alg=exact;other rep=tree ops=none
+R01166 Hill 2005 c=15 [method] Genetic algorithm for large-scale maximum parsimony phylogenetic analysis of proteins | name=NA | Genetic algorithm for weighted maximum parsimony on protein sequences | crit=parsimony alg=ga_ea rep=tree ops=none
+R01280 Lin 2007 c=15 [method] A tabu search algorithm for maximum parsimony phylogeny inference | name=NA | Tabu search for maximum parsimony versus dnapenny and dnapars | crit=parsimony alg=tabu rep=tree ops=other
+
+RECENT (2023-2026):
+R03552 Kong 2025 c=26 [method] Inference of Phylogenetic Networks From Sequence Data Using Composite Likelihood | name=PHYNEST | Composite likelihood network search with hill climbing and annealing
+R03548 Liu 2024 c=13 [evaluation] The Influence of the Number of Tree Searches on Maximum Likelihood Inference in Phylogenom | name=NA | Starting trees and repeated searches in ML phylogenomics
+R02988 Gasparin 2023 c=5 [method] An evolution strategy approach for the balanced minimum evolution problem | name=PhyloES | Evolution strategy with local search for balanced minimum evolution
+R03547 Penn 2025 c=5 [method] Phylo2Vec: A Vector Representation for Binary Trees | name=Phylo2Vec | Integer vector encoding of binary trees enabling tree search
+R07200 Komusiewicz 2023 c=4 [theory] On the Complexity of Parameterized Local Search for the Maximum Parsimony Problem | name=NA | Parameterized complexity of k-neighbourhood local search for parsimony
+R05871 Arasti 2024 c=3 [method] Median quartet tree search algorithms using optimal subtree prune and regraft | name=NA | Hill-climbing with optimal SPR placement for median quartet trees
+R06264 Khodaei 2023 c=3 [method] Geodesics to characterize the phylogenetic landscape | name=pathtrees | BHV geodesic pathtrees explore and visualise likelihood landscape
+R06765 Ciccolella 2023 c=2 [method] Three Metaheuristic Approaches for Tumor Phylogeny Inference: An Experimental Comparison | name=NA | PSO, genetic programming and VNS for tumour phylogeny inference
+R04423 Zhang 2024 c=1 [method] PSA: an effective method for predicting horizontal gene transfers through parsimonious phy | name=PSA | Simulated annealing search for parsimonious HGT phylogenetic networks
+R00338 Korunova 2024 c=0 [method] Genetic Algorithm for Phylogenetic Tree Reconstruction | name=NA | Genetic algorithm for phylogeny inference on plant sequence data
+R02960 Camerota Verdu 2026 c=0 [method] Learning to explore tree neighbourhoods for phylogenetic inference | name=NA | Reinforcement learning local search for balanced minimum evolution
+R04298 Wright 2026 c=0 [method] Treeline Provides a Unified Strategy for Optimising Phylogenetic Trees Under Alternative C | name=Treeline | Unified BME, ML and MP optimiser via distance-matrix perturbation
+R07226 Arasti 2023 c=0 [method] Optimal Subtree Prune and Regraft for Quartet Score in Sub-Quadratic Time | name=NA | Sub-quadratic optimal SPR placement for quartet-score hill climbing

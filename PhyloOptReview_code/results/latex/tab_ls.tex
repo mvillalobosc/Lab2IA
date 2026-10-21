@@ -1,0 +1,62 @@
+\begin{landscape}
+{\scriptsize
+\setlength{\tabcolsep}{4pt}
+\setlength{\LTcapwidth}{\linewidth}
+\begin{longtable}{>{\raggedright\arraybackslash}p{3.4cm}>{\raggedright\arraybackslash}p{4.0cm}>{\raggedright\arraybackslash}p{3.6cm}>{\raggedright\arraybackslash}p{2.2cm}>{\raggedright\arraybackslash}p{4.5cm}}
+\caption{Local search heuristics and other single-objective search proposals in the optimisation core. MP, maximum parsimony; ML, maximum likelihood; ME, minimum evolution; BI, Bayesian inference; RF, Robinson--Foulds; rSPR, rooted subtree prune and regraft; rTBR, rooted tree bisection and reconnection; ECR, edge contract and refine; MDC, minimise deep coalescence; MRP, matrix representation with parsimony; ILS, incomplete lineage sorting; NNI, nearest neighbour interchange; SPR, subtree pruning and regrafting; TBR, tree bisection and reconnection; BNNI and BSPR, balanced NNI and SPR; NJ, Neighbour Joining; Rec-I-DCM3, recursive and iterative disk-covering method 3; FPGA, field-programmable gate array; MAP, maximum a posteriori; MGR, multiple genome rearrangement; NCD, normalised compression distance; n.r., not reported in the sources consulted.}\label{tab:ls}\\
+\toprule
+Strategy & References & Criteria & Sol. structure & Main operators
+\\
+\midrule
+\endfirsthead
+\multicolumn{5}{l}{\emph{Table \ref{tab:ls} (continued)}}\\
+\toprule
+Strategy & References & Criteria & Sol. structure & Main operators
+\\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\multicolumn{5}{l}{\textit{Supertrees and species trees}}\\
+Minimum-flip supertrees & \cite{R07506} & Minimum flip & Tree & rSPR and rTBR branch swapping, greedy taxon addition\\
+Gene tree parsimony & \cite{R00415,R07500,R00421,R04154,R04164,R01456,R05464,R05466,R00480,R04185} & Duplication, duplication-loss, deep coalescence & Tree & SPR, TBR, NNI local search\\
+Triplet supertrees & \cite{R05457} & Triplet score & Tree & Stepwise local search\\
+RF supertrees & \cite{R05640,R00471,R04183,R05653} & RF distance & Tree & SPR, TBR, ECR, NNI\\
+PluMiST & \cite{R05536} & Majority-rule supertree scores & Tree & Taxa deletion and reinsertion, NNI on splits, stepwise addition\\
+STELLS & \cite{R04727} & Coalescent likelihood & Tree & NNI hill climbing from near-optimal MDC trees\\
+L.U.St & \cite{R05490} & Approximate supertree likelihood & Tree & SPR searches, stepwise addition or MRP starting tree\\
+SPR supertrees & \cite{R03673} & rSPR distance & Tree & Global rSPR rearrangements, stepwise addition by taxon frequency\\
+k-NNI duplication-loss & \cite{R04023} & Duplication-loss & Tree & k-NNI\\
+Path-difference and cophenetic median trees & \cite{R00378,R05278,R05279,R04205,R04208,R04211} & Path-difference, cophenetic distances & Tree & SPR local search\\
+RF median trees & \cite{R05277} & RF distance & Splits & Clique search on split compatibility\\
+MAP species-locus-gene trees & \cite{R05282} & BI (duplication-loss-coalescence) & Tree triad & n.r.\\
+Median quartet trees & \cite{R07226,R05871} & Quartet score & Tree & SPR with optimal subtree placement\\
+\addlinespace
+\multicolumn{5}{l}{\textit{Tree inference}}\\
+NCD quartet tree & \cite{R08724} & Quartet tree score on compression distances & Ternary tree & Fast heuristic for the quartet method\\
+Parallel Rec-I-DCM3 & \cite{R01207} & MP & Tree & Disk-covering decomposition, supertree merging\\
+PhyML & \cite{R03006,R03429} & ML & Tree & NNI, SPR filtered by distances and local likelihoods\\
+p-ECRNJ & \cite{R05515} & ML & Tree & Edge contraction and refinement with NJ resolution\\
+FastME & \cite{R04150,R03394} & ME (balanced) & Tree & BNNI, BSPR\\
+FastTree & \cite{R03350} & ME, approximate ML & Tree (profiles) & Profile NJ, NNI\\
+FPGA-accelerated local search & \cite{R04060,R04058,R04059,R06344,R06564} & MP & Tree & Progressive neighbourhood rearrangements\\
+TNT search strategies & \cite{R01997,R01999,R02120} & MP & Tree & TBR, ratchet, tree drifting, sectorial searches\\
+Phylogenetic topographer & \cite{R03801} & ML, BI & Tree & Hill climbing, rearrangements above a likelihood threshold\\
+Distance Wagner starting trees & \cite{R04414} & MP & Tree & Random addition sequence, SPR, TBR\\
+Phylo2Vec & \cite{R03547} & ML & Integer vector & Vector changes with small and large jumps\\
+\addlinespace
+\multicolumn{5}{l}{\textit{Gene order inference}}\\
+Particle filtration tree search & \cite{R07653} & MP (rearrangement distances) & Tree & Particle filtration over candidate trees\\
+amGRP & \cite{R08041} & MP (reversal distance) & Tree with ancestral gene orders & Branch and bound over subsets of reversal medians\\
+Weighted reversal and transposition MGR & \cite{R08266} & MP (weighted reversal and transposition distance) & Tree with ancestral gene orders & Direct construction of the tree\\
+webMGR & \cite{R08679} & MP (rearrangement distance) & Tree with ancestral gene orders & n.r.\\
+Rec-DCM-Eigen (COGNAC) & \cite{R08790} & MP (inversion distance) & Tree & Spectral disk-covering decomposition\\
+PIVO2 & \cite{R08581} & MP (rearrangement distance) & Ancestral gene orders on a fixed tree & Randomised hill climbing among equally good candidates\\
+\addlinespace
+\multicolumn{5}{l}{\textit{Network inference}}\\
+Local improvement to networks & \cite{R04006} & Distance deviation & Network & Addition of recombination cycles\\
+Network parsimony under ILS & \cite{R03661} & MP (reconciliation) & Rooted network & Relocation of edge endpoints, addition of reticulation edges, MDC starting tree\\
+RF-Net & \cite{R05285} & RF embedding cost & Rooted network & Network rearrangements\\
+\end{longtable}
+}
+\end{landscape}
