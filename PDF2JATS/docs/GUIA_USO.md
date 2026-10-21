@@ -10,6 +10,8 @@ Haz clic en **+ Agregar PDFs** o arrastra uno o varios documentos a la zona de c
 
 Durante el procesamiento aparece una ventana con el archivo actual, el contador y el avance general.
 
+Cada navegador trabaja en su propia sesión: las demás personas que usan la aplicación no ven los artículos que cargas, y la sesión se borra después de 6 horas sin actividad.
+
 ### 2. Revisar estados
 
 Los bloques pueden aparecer con:
@@ -72,6 +74,8 @@ The interface is in Spanish; the names in bold are the labels you will see on sc
 Click **+ Agregar PDFs** (add PDFs) or drag one or several documents onto the upload area. You can add more PDFs later without restarting the session.
 
 While the files are processed, a window shows the current file, the counter and the progress of the whole upload.
+
+Each browser works in its own session: other people who use the application do not see the articles you upload, and the session is deleted after 6 hours without activity.
 
 ### 2. Review the states
 

@@ -29,7 +29,7 @@ def _abrir(url: str, timeout: int = 12, accept: str = "text/html,*/*") -> Tuple[
     req = urllib.request.Request(
         url,
         headers={
-            "User-Agent": "PDF2JATS/1.5 (SciELO PID lookup; editorial tool)",
+            "User-Agent": "PDF2JATS/1.10 (SciELO PID lookup; editorial tool)",
             "Accept": accept,
             "Accept-Language": "es,en;q=0.8,pt;q=0.7",
         },

@@ -34,7 +34,7 @@ Comprueba localmente:
 curl -I http://127.0.0.1:5000/
 ```
 
-La sesión de trabajo vive en la memoria de cada proceso, así que los ejemplos usan un solo worker (`-w 1`). Con más workers, una petición puede llegar a un proceso que no tiene el artículo cargado y responder "no encontrado".
+Cada navegador tiene su propia sesión de trabajo, y las sesiones viven en la memoria de cada proceso, así que los ejemplos usan un solo worker (`-w 1`). Con más workers, una petición puede llegar a un proceso que no tiene la sesión y responder "no encontrado".
 
 ### systemd
 
@@ -57,7 +57,7 @@ Restart=on-failure
 WantedBy=multi-user.target
 ```
 
-`USUARIO` y `GRUPO` son la cuenta del sistema con que corre el servicio. Las variables de entorno opcionales (por ejemplo `PDF2JATS_CROSSREF_MAILTO`) se agregan en la sección `[Service]` con líneas `Environment=`; la lista está en el [README del proyecto](../README.md#variables-de-entorno).
+`USUARIO` y `GRUPO` son la cuenta del sistema con que corre el servicio. Las variables de entorno opcionales (por ejemplo `PDF2JATS_CROSSREF_MAILTO`) se agregan en la sección `[Service]` con líneas `Environment=`; la lista está en el [README del proyecto](../README.md#variables-de-entorno). Una de ellas es `PDF2JATS_SECRET_KEY`, la clave con que se firman las cookies que separan la sesión de cada navegador; si no se define, el servicio genera una al arrancar. Una clave nueva se obtiene con `python3 -c "import secrets; print(secrets.token_hex(32))"` y no debe guardarse en el repositorio.
 
 Después:
 
@@ -129,7 +129,7 @@ Check it locally:
 curl -I http://127.0.0.1:5000/
 ```
 
-The working session lives in the memory of each process, so the examples use a single worker (`-w 1`). With more workers, a request can reach a process that does not hold the article and answer "no encontrado" (not found).
+Each browser has its own working session, and the sessions live in the memory of each process, so the examples use a single worker (`-w 1`). With more workers, a request can reach a process that does not hold the session and answer "no encontrado" (not found).
 
 ### systemd
 
@@ -152,7 +152,7 @@ Restart=on-failure
 WantedBy=multi-user.target
 ```
 
-`USUARIO` and `GRUPO` are the system user and group that run the service. Optional environment variables (for example `PDF2JATS_CROSSREF_MAILTO`) go in the `[Service]` section as `Environment=` lines; the list is in the [project README](../README.md#environment-variables).
+`USUARIO` and `GRUPO` are the system user and group that run the service. Optional environment variables (for example `PDF2JATS_CROSSREF_MAILTO`) go in the `[Service]` section as `Environment=` lines; the list is in the [project README](../README.md#environment-variables). One of them is `PDF2JATS_SECRET_KEY`, the key that signs the cookies that keep the session of each browser apart; when it is not set, the service generates one when it starts. A new key can be obtained with `python3 -c "import secrets; print(secrets.token_hex(32))"`, and it must not be stored in the repository.
 
 Then:
 

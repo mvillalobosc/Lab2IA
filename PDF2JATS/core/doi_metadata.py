@@ -587,7 +587,7 @@ def consultar_doi(doi: str, forzar: bool = False, issn_hint: str = ""):
         return {"ok": False, "fuente": "", "fuentes": [], "datos": {}, "error": "consulta DOI desactivada"}
 
     timeout = float(os.getenv("PDF2JATS_DOI_TIMEOUT", "4.5"))
-    ua = os.getenv("PDF2JATS_USER_AGENT", "PDF2JATS/1.4 (doi2bib-compatible DOI metadata lookup)")
+    ua = os.getenv("PDF2JATS_USER_AGENT", "PDF2JATS/1.10 (doi2bib-compatible DOI metadata lookup)")
     errores = []
     datos = {"doi": doi}
     fuentes = []

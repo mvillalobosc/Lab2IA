@@ -4,18 +4,25 @@
     python3 app.py
     http://127.0.0.1:5000
 
-La sesión vive en memoria del proceso. Para producción hay que persistirla.
+Cada navegador tiene su propia sesión, guardada en la memoria del proceso. Para
+producción hay que persistirla.
 """
 import io
 import json
 import os
+import re
+import secrets
 import shutil
 import tempfile
+import threading
+import time
 import uuid
 import zipfile
+from datetime import timedelta
 
-from flask import Flask, Response, jsonify, request, send_file, send_from_directory
+from flask import Flask, Response, jsonify, request, send_file, send_from_directory, session
 from werkzeug.exceptions import NotFound
+from werkzeug.local import LocalProxy
 
 from core.extractor import extraer
 from core import doi_metadata, reference_metadata, scielo_metadata
@@ -27,10 +34,72 @@ from emisores.scielo import alertas_sps, emitir_sps, emitir_wos
 app = Flask(__name__)
 app.config["MAX_CONTENT_LENGTH"] = 120 * 1024 * 1024
 
-SESION = {}
-ORDEN = []
+# Cada navegador tiene su propia sesión de trabajo. La cookie firmada
+# pdf2jats_sesion guarda solo un identificador al azar; los artículos, la cola y
+# los PDF de cada identificador viven en la memoria de este proceso y en su propia
+# carpeta temporal. La clave de firma sale de PDF2JATS_SECRET_KEY y, si no está
+# definida, se genera al arrancar: las sesiones viven en memoria y se pierden igual
+# al reiniciar. Una sesión sin actividad por más de HORAS_INACTIVIDAD se borra
+# junto con sus PDF.
+HORAS_INACTIVIDAD = 6
+app.secret_key = os.environ.get("PDF2JATS_SECRET_KEY") or secrets.token_hex(32)
+app.config.update(SESSION_COOKIE_NAME="pdf2jats_sesion",
+                  SESSION_COOKIE_SAMESITE="Lax",
+                  PERMANENT_SESSION_LIFETIME=timedelta(hours=HORAS_INACTIVIDAD))
+
+SESIONES = {}            # identificador -> {"articulos": {}, "orden": [], "ultimo": instante}
+_CANDADO = threading.Lock()
+RELOJ = time.monotonic   # las pruebas lo reemplazan para simular el paso del tiempo
+
+
+def _estado():
+    """Estado de la sesión del navegador que hace la petición; lo crea si no existe."""
+    vid = session["visitante"]
+    with _CANDADO:
+        if vid not in SESIONES:
+            SESIONES[vid] = {"articulos": {}, "orden": [], "ultimo": RELOJ()}
+        return SESIONES[vid]
+
+
+# SESION y ORDEN apuntan, en cada petición, a los artículos y a la cola de la sesión
+# que llama, así que ninguna ruta puede leer ni tocar los de otro navegador.
+SESION = LocalProxy(lambda: _estado()["articulos"])
+ORDEN = LocalProxy(lambda: _estado()["orden"])
 PDFS = os.path.join(tempfile.gettempdir(), "pdf2jats_pdfs")
 os.makedirs(PDFS, exist_ok=True)
+
+
+def _carpeta():
+    """Carpeta de los PDF de la sesión que llama, dentro de PDFS."""
+    return os.path.join(PDFS, session["visitante"])
+
+
+def _ruta_pdf(sid):
+    return os.path.join(_carpeta(), f"{sid}.pdf")
+
+
+def _vencer(ahora):
+    """Borra las sesiones sin actividad por más de HORAS_INACTIVIDAD y sus PDF."""
+    limite = ahora - HORAS_INACTIVIDAD * 3600
+    for vid in [v for v, s in SESIONES.items() if s["ultimo"] < limite]:
+        del SESIONES[vid]
+        shutil.rmtree(os.path.join(PDFS, vid), ignore_errors=True)
+
+
+@app.before_request
+def _visitante():
+    """Da un identificador al navegador que no trae uno válido, renueva la actividad
+    de su sesión y borra las sesiones vencidas."""
+    vid = session.get("visitante")
+    if not (isinstance(vid, str) and re.fullmatch(r"[0-9a-f]{32}", vid)):
+        vid = session["visitante"] = secrets.token_hex(16)
+    session.permanent = True
+    ahora = RELOJ()
+    with _CANDADO:
+        _vencer(ahora)
+        if vid in SESIONES:
+            SESIONES[vid]["ultimo"] = ahora
+
 
 PERFILES = {
     "jats": ("NISO JATS 1.3 Journal Publishing", emitir_jats, "utf-8"),
@@ -126,13 +195,15 @@ def estatico(archivo):
 @app.route("/api/extraer", methods=["POST"])
 def api_extraer():
     salida = []
+    _estado()  # crea la sesión antes de guardar, para que su carpeta venza con ella
+    os.makedirs(_carpeta(), exist_ok=True)
     for f in request.files.getlist("pdfs"):
         if not f.filename.lower().endswith(".pdf"):
             salida.append({"archivo": f.filename,
                            "error": "solo se aceptan archivos PDF"})
             continue
         sid = uuid.uuid4().hex[:12]
-        destino = os.path.join(PDFS, f"{sid}.pdf")
+        destino = _ruta_pdf(sid)
         f.save(destino)
         try:
             a = extraer(destino)
@@ -302,7 +373,7 @@ def api_referencias_buscar(sid):
 
 @app.route("/api/pdf/<sid>")
 def api_pdf(sid):
-    ruta = os.path.join(PDFS, f"{sid}.pdf")
+    ruta = _ruta_pdf(sid)
     if not os.path.isfile(ruta):
         return "no encontrado", 404
     return send_file(ruta, mimetype="application/pdf")
@@ -313,7 +384,7 @@ def api_pagina(sid, n):
     """Pagina renderizada como imagen. Es mas confiable que incrustar el PDF:
     funciona en cualquier navegador y no obliga a bajar el archivo completo."""
     import pymupdf
-    ruta = os.path.join(PDFS, f"{sid}.pdf")
+    ruta = _ruta_pdf(sid)
     if not os.path.isfile(ruta):
         return "no encontrado", 404
     doc = pymupdf.open(ruta)
@@ -327,14 +398,14 @@ def api_pagina(sid, n):
     doc.close()
     resp = send_file(io.BytesIO(datos), mimetype="image/png")
     resp.headers["X-Total-Paginas"] = str(total)
-    resp.headers["Cache-Control"] = "public, max-age=3600"
+    resp.headers["Cache-Control"] = "private, max-age=3600"
     return resp
 
 
 @app.route("/api/paginas/<sid>")
 def api_paginas(sid):
     import pymupdf
-    ruta = os.path.join(PDFS, f"{sid}.pdf")
+    ruta = _ruta_pdf(sid)
     if not os.path.isfile(ruta):
         return jsonify({"error": "no encontrado"}), 404
     doc = pymupdf.open(ruta)
@@ -445,7 +516,7 @@ def api_quitar(sid):
     SESION.pop(sid, None)
     if sid in ORDEN:
         ORDEN.remove(sid)
-    ruta = os.path.join(PDFS, f"{sid}.pdf")
+    ruta = _ruta_pdf(sid)
     if os.path.isfile(ruta):
         os.remove(ruta)
     return jsonify({"ok": True})
@@ -455,8 +526,7 @@ def api_quitar(sid):
 def api_limpiar():
     SESION.clear()
     ORDEN.clear()
-    shutil.rmtree(PDFS, ignore_errors=True)
-    os.makedirs(PDFS, exist_ok=True)
+    shutil.rmtree(_carpeta(), ignore_errors=True)
     return jsonify({"ok": True})
 
 

@@ -179,7 +179,7 @@ def buscar(ref, limite=3):
     if mailto:
         params["mailto"] = mailto
     url = "https://api.crossref.org/works?" + urlencode(params)
-    ua = os.getenv("PDF2JATS_USER_AGENT", "PDF2JATS/1.3 (reference DOI lookup)")
+    ua = os.getenv("PDF2JATS_USER_AGENT", "PDF2JATS/1.10 (reference DOI lookup)")
     timeout = float(os.getenv("PDF2JATS_DOI_TIMEOUT", "5.5"))
 
     try:

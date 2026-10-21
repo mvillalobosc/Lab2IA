@@ -11,7 +11,7 @@ from . import doi_metadata
 from . import scielo_metadata
 
 # Cache opcional: si una revista ya fue revisada por un editor, su ficha manda
-# sobre lo inferido. Empieza vacio a proposito; se llena desde la interfaz.
+# sobre lo inferido. Empieza vacio a proposito; hoy ninguna ruta de app.py lo llena.
 REVISTAS = {}
 
 

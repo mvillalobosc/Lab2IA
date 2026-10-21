@@ -115,7 +115,7 @@ PDF2JATS/
 
 | Carpeta o archivo | Contenido |
 |---|---|
-| `app.py` | Servidor Flask: entrega la interfaz, guarda la sesión de trabajo y expone la API. |
+| `app.py` | Servidor Flask: entrega la interfaz, guarda la sesión de trabajo de cada navegador y expone la API. |
 | [core/](core/) | Módulos que leen el PDF, extraen el artículo, lo enriquecen con DOI y SciELO y calculan los estados de revisión. |
 | [emisores/](emisores/) | Módulos que transforman el modelo del artículo en XML JATS, SciELO PS y Clarivate. |
 | [web/](web/) | Interfaz completa en un solo `index.html`. |
@@ -171,41 +171,44 @@ Gunicorn solo hace falta en producción. La interfaz no carga librerías externa
 |---|---|---|
 | `PDF2JATS_DOI_LOOKUP` | Con `0`, `false`, `no` u `off` apaga la consulta de metadatos por DOI (DOI.org, Crossref, DataCite y la página a la que resuelve el DOI). La búsqueda en SciELO y la búsqueda de DOI de referencias siguen activas. | `1` |
 | `PDF2JATS_DOI_TIMEOUT` | Tiempo máximo de espera de cada consulta, en segundos. | 4,5 en la consulta del DOI del artículo y 5,5 en la búsqueda de DOI de referencias |
-| `PDF2JATS_USER_AGENT` | Cabecera `User-Agent` de la consulta por DOI y de la búsqueda de referencias en Crossref. La consulta a SciELO usa una cabecera fija. | `PDF2JATS/1.4 (doi2bib-compatible DOI metadata lookup)` y `PDF2JATS/1.3 (reference DOI lookup)` |
+| `PDF2JATS_USER_AGENT` | Cabecera `User-Agent` de la consulta por DOI y de la búsqueda de referencias en Crossref. La consulta a SciELO usa una cabecera fija. | `PDF2JATS/1.10 (doi2bib-compatible DOI metadata lookup)` y `PDF2JATS/1.10 (reference DOI lookup)` |
 | `PDF2JATS_CROSSREF_MAILTO` | Correo que la búsqueda de referencias envía a Crossref en el parámetro `mailto`. Con él, la espera mínima entre consultas baja de 1,05 s a 0,36 s. | vacío |
+| `PDF2JATS_SECRET_KEY` | Clave con que el servidor firma la cookie de sesión de cada navegador (ver [Límites de operación](#límites-de-operación)). Si se define, no debe guardarse en el repositorio. | una clave al azar que el servidor genera cada vez que arranca |
 
 ### Rutas de la API
 
-La interfaz usa estas rutas. `<sid>` es el identificador de 12 caracteres que el servidor asigna a cada PDF cargado y `<perfil>` es `sps`, `jats` o `wos`. Las rutas que devuelven la ficha de estados aceptan el perfil con que se evalúan los campos (`sps` si no se indica).
+Estas son las rutas del servidor. Las rutas `/api/...` trabajan solo sobre la sesión del navegador que hace la petición (ver [Límites de operación](#límites-de-operación)), y la interfaz usa todas las rutas salvo `/web/<archivo>`, `/api/quitar/<sid>` y `/api/limpiar`. `<sid>` es el identificador de 12 caracteres que el servidor asigna a cada PDF cargado y `<perfil>` es `sps`, `jats` o `wos`. Las rutas que devuelven la ficha de estados aceptan el perfil con que se evalúan los campos (`sps` si no se indica).
 
 | Método | Ruta | Qué hace |
 |---|---|---|
 | GET | `/` | Entrega `web/index.html`. |
+| GET | `/web/<archivo>` | Entrega un archivo de la carpeta `web/`; responde 404 a toda ruta que salga de ella. |
 | POST | `/api/extraer` | Recibe uno o más PDF en el campo `pdfs`, guarda cada uno con su `sid`, extrae el artículo y devuelve la ficha, los datos y las alertas. |
 | POST | `/api/doi/<sid>` | Vuelve a consultar el DOI (el que llega en el cuerpo JSON o el guardado) en las fuentes por DOI y en SciELO, y completa la ficha. |
 | POST | `/api/scielo/<sid>` | Busca el artículo en SciELO por DOI y recupera su PID; si no está publicado ahí, el PID queda vacío. |
 | POST | `/api/referencia/buscar/<sid>/<i>` | Busca hasta tres candidatos DOI en Crossref para la referencia `i` sin modificarla. |
 | POST | `/api/referencia/aplicar/<sid>/<i>` | Aplica a la referencia `i` el candidato que eligió el editor. |
-| POST | `/api/referencias/buscar/<sid>` | Busca DOI para las referencias que no lo tienen (60 por defecto, 80 como máximo) y aplica solo los candidatos con confianza igual o mayor que el umbral (0,86 por defecto); los dudosos vuelven aparte. |
+| POST | `/api/referencias/buscar/<sid>` | Busca DOI para las referencias que no lo tienen (60 por defecto, 80 como máximo) y aplica solo los candidatos con confianza igual o mayor que el umbral (0,86 por defecto; la interfaz pide 0,88); los dudosos vuelven aparte. |
 | GET | `/api/pdf/<sid>` | Devuelve el PDF original. |
 | GET | `/api/pagina/<sid>/<n>` | Devuelve la página `n` (desde 0) como PNG; el parámetro `escala` va de 1,0 a 3,0 y vale 1,6 por defecto. |
 | GET | `/api/paginas/<sid>` | Devuelve el número de páginas del PDF. |
 | GET | `/api/articulo/<sid>` | Devuelve la ficha, los datos y las alertas del artículo. |
 | POST | `/api/guardar/<sid>` | Guarda en la sesión los campos editados. |
 | POST | `/api/revisar/<sid>/<campo>` | Marca un campo como revisado por el editor. |
-| POST | `/api/propagar/<sid>` | Copia los datos de revista (título, abreviatura, ISSN, editorial, volumen, número y año) de un artículo al resto del lote. |
+| POST | `/api/propagar/<sid>` | Copia los datos de revista (título, abreviatura, ISSN, editorial, volumen, número y año) de un artículo al resto de los artículos de la sesión. |
 | GET | `/api/xml/<sid>/<perfil>` | Devuelve el XML del perfil dentro de un JSON, para la vista previa. |
 | GET | `/api/descargar/<sid>/<perfil>` | Descarga el XML del artículo. |
-| GET | `/api/lote/<perfil>` | Descarga un ZIP con el XML de todos los artículos cargados. |
-| GET | `/api/cola` | Lista las fichas de estado en el orden de carga. |
+| GET | `/api/lote/<perfil>` | Descarga un ZIP con el XML de todos los artículos de la sesión. |
+| GET | `/api/cola` | Lista las fichas de estado de la sesión en el orden de carga. |
 | POST | `/api/quitar/<sid>` | Quita un artículo de la sesión y borra su PDF. La interfaz no tiene un botón para esta acción. |
-| POST | `/api/limpiar` | Vacía la sesión y la carpeta temporal de PDF. La interfaz no tiene un botón para esta acción. |
+| POST | `/api/limpiar` | Vacía la sesión y borra sus PDF. La interfaz no tiene un botón para esta acción. |
 
 ### Límites de operación
 
-- La sesión de trabajo vive en la memoria del proceso de Python. Se pierde al reiniciar el servicio y no se comparte entre procesos, por lo que conviene correr Gunicorn con un solo worker mientras la sesión no se guarde en otro lugar: con varios workers, una petición puede llegar a un proceso que no conoce el artículo y responder "no encontrado".
-- La sesión es una sola para todo el servicio: quien abre la aplicación ve la cola de artículos que cargaron los demás.
-- Los PDF se guardan en la carpeta `pdf2jats_pdfs` dentro de la carpeta temporal del sistema (en Linux, normalmente `/tmp/pdf2jats_pdfs`) y quedan ahí hasta que se quita el artículo, se limpia la sesión o el sistema vacía su carpeta temporal.
+- Cada navegador tiene su propia sesión de trabajo. En su primera petición, el servidor le entrega una cookie firmada, `pdf2jats_sesion`, con un identificador al azar, y guarda aparte la cola, los artículos y los PDF de ese identificador: nadie ve los de otro navegador, y los botones **Aplicar datos de revista a todos** y **Descargar todos**, igual que `/api/quitar` y `/api/limpiar`, actúan solo sobre la sesión de quien los usa. La cookie se firma con la clave de `PDF2JATS_SECRET_KEY`; si esa variable no está definida, el servidor genera una clave al arrancar.
+- Las sesiones viven en la memoria del proceso de Python. Se pierden al reiniciar el servicio y no se comparten entre procesos, por lo que conviene correr Gunicorn con un solo worker mientras no se guarden en otro lugar: con varios workers, una petición puede llegar a un proceso que no conoce la sesión y responder "no encontrado".
+- Una sesión sin actividad por más de 6 horas se borra junto con sus PDF. La cookie vence en el mismo plazo, contado desde la última petición.
+- Los PDF se guardan en una subcarpeta por sesión dentro de `pdf2jats_pdfs`, en la carpeta temporal del sistema (en Linux, normalmente `/tmp/pdf2jats_pdfs`), y quedan ahí hasta que se quita el artículo, se limpia la sesión, la sesión vence o el sistema vacía su carpeta temporal. Si el servicio se reinicia, los PDF de las sesiones perdidas solo se van por esta última vía.
 - Flask rechaza peticiones de más de 120 MB. Como la interfaz envía un PDF por petición, ese es el tamaño máximo de cada archivo.
 
 ### Flujo general
@@ -351,7 +354,7 @@ PDF2JATS/
 
 | Folder or file | Content |
 |---|---|
-| `app.py` | Flask server: serves the interface, keeps the working session and exposes the API. |
+| `app.py` | Flask server: serves the interface, keeps the working session of each browser and exposes the API. |
 | [core/](core/) | Modules that read the PDF, extract the article, enrich it from the DOI and SciELO and compute the review states. |
 | [emisores/](emisores/) | Modules that turn the article model into JATS, SciELO PS and Clarivate XML. |
 | [web/](web/) | The whole interface in a single `index.html`. |
@@ -407,41 +410,44 @@ Gunicorn is only needed in production. The interface loads no external libraries
 |---|---|---|
 | `PDF2JATS_DOI_LOOKUP` | With `0`, `false`, `no` or `off` it turns off the DOI metadata lookup (DOI.org, Crossref, DataCite and the page the DOI resolves to). The SciELO lookup and the reference DOI search stay active. | `1` |
 | `PDF2JATS_DOI_TIMEOUT` | Maximum wait for each query, in seconds. | 4.5 for the article DOI lookup and 5.5 for the reference DOI search |
-| `PDF2JATS_USER_AGENT` | `User-Agent` header of the DOI lookup and of the Crossref reference search. The SciELO lookup uses a fixed header. | `PDF2JATS/1.4 (doi2bib-compatible DOI metadata lookup)` and `PDF2JATS/1.3 (reference DOI lookup)` |
+| `PDF2JATS_USER_AGENT` | `User-Agent` header of the DOI lookup and of the Crossref reference search. The SciELO lookup uses a fixed header. | `PDF2JATS/1.10 (doi2bib-compatible DOI metadata lookup)` and `PDF2JATS/1.10 (reference DOI lookup)` |
 | `PDF2JATS_CROSSREF_MAILTO` | E-mail address that the reference search sends to Crossref in the `mailto` parameter. With it, the minimum wait between queries drops from 1.05 s to 0.36 s. | empty |
+| `PDF2JATS_SECRET_KEY` | Key the server uses to sign the session cookie of each browser (see [Operating limits](#operating-limits)). If you set it, do not store it in the repository. | a random key that the server generates every time it starts |
 
 ### API routes
 
-The interface uses these routes. `<sid>` is the 12-character identifier that the server assigns to each uploaded PDF, and `<profile>` is `sps`, `jats` or `wos`. Routes that return the review record accept the profile used to evaluate the fields (`sps` when none is given).
+These are the server routes. The `/api/...` routes work only on the session of the browser that makes the request (see [Operating limits](#operating-limits)), and the interface uses every route except `/web/<file>`, `/api/quitar/<sid>` and `/api/limpiar`. `<sid>` is the 12-character identifier that the server assigns to each uploaded PDF, and `<profile>` is `sps`, `jats` or `wos`. Routes that return the review record accept the profile used to evaluate the fields (`sps` when none is given).
 
 | Method | Route | What it does |
 |---|---|---|
 | GET | `/` | Serves `web/index.html`. |
+| GET | `/web/<file>` | Serves a file from the `web/` folder; any path that leaves the folder gets 404. |
 | POST | `/api/extraer` | Receives one or more PDFs in the `pdfs` field, stores each with its `sid`, extracts the article and returns the review record, the data and the warnings. |
 | POST | `/api/doi/<sid>` | Queries the DOI again (the one in the JSON body or the stored one) in the DOI sources and in SciELO, and completes the record. |
 | POST | `/api/scielo/<sid>` | Looks the article up in SciELO by DOI and retrieves its PID; when the article is not published there, the PID stays empty. |
 | POST | `/api/referencia/buscar/<sid>/<i>` | Searches Crossref for up to three DOI candidates for reference `i` without changing it. |
 | POST | `/api/referencia/aplicar/<sid>/<i>` | Applies the candidate chosen by the editor to reference `i`. |
-| POST | `/api/referencias/buscar/<sid>` | Searches DOIs for the references that lack one (60 by default, 80 at most) and applies only the candidates whose confidence reaches the threshold (0.86 by default); doubtful ones are returned separately. |
+| POST | `/api/referencias/buscar/<sid>` | Searches DOIs for the references that lack one (60 by default, 80 at most) and applies only the candidates whose confidence reaches the threshold (0.86 by default; the interface asks for 0.88); doubtful ones are returned separately. |
 | GET | `/api/pdf/<sid>` | Returns the original PDF. |
 | GET | `/api/pagina/<sid>/<n>` | Returns page `n` (counting from 0) as PNG; the `escala` parameter goes from 1.0 to 3.0 and defaults to 1.6. |
 | GET | `/api/paginas/<sid>` | Returns the number of pages of the PDF. |
 | GET | `/api/articulo/<sid>` | Returns the review record, the data and the warnings of the article. |
 | POST | `/api/guardar/<sid>` | Stores the edited fields in the session. |
 | POST | `/api/revisar/<sid>/<campo>` | Marks a field as reviewed by the editor. |
-| POST | `/api/propagar/<sid>` | Copies the journal data (title, abbreviation, ISSN, publisher, volume, issue and year) from one article to the rest of the batch. |
+| POST | `/api/propagar/<sid>` | Copies the journal data (title, abbreviation, ISSN, publisher, volume, issue and year) from one article to the other articles of the session. |
 | GET | `/api/xml/<sid>/<profile>` | Returns the XML of the profile inside a JSON object, for the preview. |
 | GET | `/api/descargar/<sid>/<profile>` | Downloads the XML of the article. |
-| GET | `/api/lote/<profile>` | Downloads a ZIP with the XML of every uploaded article. |
-| GET | `/api/cola` | Lists the review records in upload order. |
+| GET | `/api/lote/<profile>` | Downloads a ZIP with the XML of every article in the session. |
+| GET | `/api/cola` | Lists the review records of the session in upload order. |
 | POST | `/api/quitar/<sid>` | Removes an article from the session and deletes its PDF. The interface has no button for this action. |
-| POST | `/api/limpiar` | Empties the session and the temporary PDF folder. The interface has no button for this action. |
+| POST | `/api/limpiar` | Empties the session and deletes its PDFs. The interface has no button for this action. |
 
 ### Operating limits
 
-- The working session lives in the memory of the Python process. It is lost when the service restarts and is not shared between processes, so Gunicorn should run with a single worker until the session is stored elsewhere: with several workers, a request can reach a process that does not know the article and answer "no encontrado" (not found).
-- There is one session for the whole service: anyone who opens the application sees the queue of articles uploaded by others.
-- PDFs are stored in the `pdf2jats_pdfs` folder inside the system temporary folder (on Linux, usually `/tmp/pdf2jats_pdfs`) and stay there until the article is removed, the session is cleared or the system empties its temporary folder.
+- Each browser has its own working session. On its first request, the server gives it a signed cookie, `pdf2jats_sesion`, with a random identifier, and keeps the queue, the articles and the PDFs of that identifier apart: nobody sees those of another browser, and the **Aplicar datos de revista a todos** (apply journal data to all) and **Descargar todos** (download all) buttons, like `/api/quitar` and `/api/limpiar`, act only on the session of whoever uses them. The cookie is signed with the key in `PDF2JATS_SECRET_KEY`; when that variable is not set, the server generates a key when it starts.
+- Sessions live in the memory of the Python process. They are lost when the service restarts and are not shared between processes, so Gunicorn should run with a single worker until they are stored elsewhere: with several workers, a request can reach a process that does not know the session and answer "no encontrado" (not found).
+- A session with no activity for more than 6 hours is deleted together with its PDFs. The cookie expires after the same time, counted from the last request.
+- PDFs are stored in one subfolder per session inside `pdf2jats_pdfs`, in the system temporary folder (on Linux, usually `/tmp/pdf2jats_pdfs`), and stay there until the article is removed, the session is cleared, the session expires or the system empties its temporary folder. When the service restarts, the PDFs of the lost sessions only go away this last way.
 - Flask rejects requests larger than 120 MB. Since the interface sends one PDF per request, that is the maximum size of each file.
 
 ### General flow

@@ -10,7 +10,7 @@ PDF2JATS es una aplicación Flask con una interfaz web autocontenida y módulos 
 
 #### `app.py`
 
-Expone la interfaz y la API HTTP. Gestiona la sesión de artículos cargados, la actualización de campos, la revisión, las consultas DOI/SciELO y la generación/descarga XML. La lista de rutas está en el [README del proyecto](../README.md#rutas-de-la-api).
+Expone la interfaz y la API HTTP. Gestiona una sesión de artículos cargados por navegador, identificada por una cookie firmada, la actualización de campos, la revisión, las consultas DOI/SciELO y la generación/descarga XML. La lista de rutas está en el [README del proyecto](../README.md#rutas-de-la-api).
 
 #### `core/`
 
@@ -85,7 +85,7 @@ PDF2JATS is a Flask application with a self-contained web interface and Python m
 
 #### `app.py`
 
-Exposes the interface and the HTTP API. It manages the session of uploaded articles, field updates, review, DOI/SciELO queries and XML generation and download. The list of routes is in the [project README](../README.md#api-routes).
+Exposes the interface and the HTTP API. It manages one session of uploaded articles per browser, identified by a signed cookie, field updates, review, DOI/SciELO queries and XML generation and download. The list of routes is in the [project README](../README.md#api-routes).
 
 #### `core/`
 
