@@ -271,7 +271,7 @@ Consultar punto, geolocalización o simulación
 
 Si `data/isocronas.js` no existe o le faltan establecimientos, la aplicación calcula las coberturas que faltan con OpenRouteService, en lotes de tres establecimientos. Cada cobertura calculada queda guardada en `localStorage` con la clave `iso_<id>` y, cuando están todas, se puede descargar como un nuevo `isocronas.js` desde la ventana de ayuda.
 
-La aplicación guarda en `localStorage` estas claves: `acv_key` (clave propia de OpenRouteService), `acv_bienv` (no volver a mostrar la bienvenida), `acv_lang` (idioma elegido) e `iso_<id>` (coberturas calculadas en vivo). Para empezar de cero basta con borrar el almacenamiento del sitio en el navegador. Si el navegador bloquea este almacenamiento, la aplicación igual abre y funciona, pero no recuerda nada entre visitas y no puede guardar ni usar la clave que se escribe en la ayuda, de modo que la simulación y el cálculo en vivo no están disponibles.
+La aplicación guarda en `localStorage` estas claves: `acv_key` (clave propia de OpenRouteService), `acv_bienv` (no volver a mostrar la bienvenida), `acv_lang` (idioma elegido) e `iso_<id>` (coberturas calculadas en vivo). Para empezar de cero basta con borrar el almacenamiento del sitio en el navegador. Si el navegador bloquea este almacenamiento, la aplicación igual abre y funciona, pero no recuerda nada entre visitas, y la clave que se escribe en la ayuda se usa solo mientras la página siga abierta, así que hay que volver a escribirla en cada visita.
 
 ### 9. APIs y dependencias externas
 
@@ -712,7 +712,7 @@ Query a point, use geolocation or run a simulation
 
 If `data/isocronas.js` does not exist or lacks some facilities, the application computes the missing coverage with OpenRouteService, in batches of three facilities. Each computed coverage is stored in `localStorage` under the key `iso_<id>` and, once all of them are available, it can be downloaded as a new `isocronas.js` file from the help window.
 
-The application stores these keys in `localStorage`: `acv_key` (the user's own OpenRouteService key), `acv_bienv` (do not show the welcome screen again), `acv_lang` (selected language) and `iso_<id>` (coverage computed live). Clearing the site storage in the browser resets all of them. If the browser blocks this storage, the application still opens and works, but it remembers nothing between visits and cannot store or use the key typed in the help window, so the simulation and the live computation are not available.
+The application stores these keys in `localStorage`: `acv_key` (the user's own OpenRouteService key), `acv_bienv` (do not show the welcome screen again), `acv_lang` (selected language) and `iso_<id>` (coverage computed live). Clearing the site storage in the browser resets all of them. If the browser blocks this storage, the application still opens and works, but it remembers nothing between visits, and the key typed in the help window is used only while the page stays open, so it has to be typed again on each visit.
 
 ### 9. APIs and external dependencies
 
@@ -1153,7 +1153,7 @@ Consultar um ponto, usar geolocalização ou executar uma simulação
 
 Se `data/isocronas.js` não existir ou não tiver todos os estabelecimentos, a aplicação calcula as coberturas que faltam com o OpenRouteService, em lotes de três estabelecimentos. Cada cobertura calculada fica guardada em `localStorage` com a chave `iso_<id>` e, quando todas estiverem prontas, pode ser baixada como um novo arquivo `isocronas.js` na janela de ajuda.
 
-A aplicação guarda estas chaves em `localStorage`: `acv_key` (chave própria do OpenRouteService), `acv_bienv` (não mostrar de novo as boas-vindas), `acv_lang` (idioma escolhido) e `iso_<id>` (coberturas calculadas ao vivo). Para começar do zero, basta apagar o armazenamento do site no navegador. Se o navegador bloquear esse armazenamento, a aplicação abre e funciona do mesmo modo, mas não lembra nada entre visitas e não consegue guardar nem usar a chave digitada na ajuda, de modo que a simulação e o cálculo ao vivo não ficam disponíveis.
+A aplicação guarda estas chaves em `localStorage`: `acv_key` (chave própria do OpenRouteService), `acv_bienv` (não mostrar de novo as boas-vindas), `acv_lang` (idioma escolhido) e `iso_<id>` (coberturas calculadas ao vivo). Para começar do zero, basta apagar o armazenamento do site no navegador. Se o navegador bloquear esse armazenamento, a aplicação abre e funciona do mesmo modo, mas não lembra nada entre visitas, e a chave digitada na ajuda só é usada enquanto a página continuar aberta, por isso é preciso digitá-la de novo a cada visita.
 
 ### 9. APIs e dependências externas
 

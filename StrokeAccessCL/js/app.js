@@ -214,7 +214,8 @@ function aviso(txt,{error=false,ocultarEn=0}={}){
 /* =====================================================================
    Isócronas: carga nacional automática al abrir (con caché local)
 ===================================================================== */
-function orsKey(){ try{ return (localStorage.getItem('acv_key')||'').trim(); }catch(e){ return ''; } }
+/* si el navegador bloquea localStorage, vale la clave escrita en la ayuda durante esta visita */
+function orsKey(){ try{ return (localStorage.getItem('acv_key')||'').trim(); }catch(e){ const campo=$('inpKey'); return campo?(campo.value||'').trim():''; } }
 function cacheGet(code){ try{const v=localStorage.getItem('iso_'+code);return v?JSON.parse(v):null;}catch(e){return null;} }
 function cacheSet(code,obj){
   try{ localStorage.setItem('iso_'+code,JSON.stringify(obj)); }
