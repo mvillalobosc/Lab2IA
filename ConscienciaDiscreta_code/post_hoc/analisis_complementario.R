@@ -5,14 +5,16 @@
 ## el artículo cita y que no calcula analisis.R: fronteras de Pareto en dos
 ## dimensiones (cobertura entre arquitecturas), mejores valores con presupuesto
 ## de lecturas, parámetros elegidos por el optimizador, periodos en la banda
-## alfa y resumen por condición del análisis de sensibilidad.
+## alfa, resumen por condición del análisis de sensibilidad y soluciones
+## distintas de los frentes y de la última población de NSGA-III.
 ##
 ## Numbers of the design, of the intervals between reads and of the
 ## sensitivity analysis that the paper cites and that analisis.R does not
 ## compute: two-dimensional Pareto frontiers (coverage between architectures),
 ## best values within a reading budget, parameters chosen by the optimiser,
-## periods in the alpha band and summary per condition of the sensitivity
-## analysis.
+## periods in the alpha band, summary per condition of the sensitivity
+## analysis, and distinct solutions of the fronts and of the last population
+## of NSGA-III.
 ##
 ## Uso / usage (desde post_hoc/): Rscript analisis_complementario.R [../salida] [estadistica]
 ## Salida / output: estadistica/resumen_complementario.txt
@@ -156,5 +158,40 @@ for (g in c("limpio", "rafagas")) {
   cat(sprintf("%-8s n = %d, umbral mínimo %.1f ms, error mínimo %.4f, error mínimo entre los de umbral 15 ms: %s\n", g, nrow(x),
               if (nrow(x)) min(x$umbral) else NA, if (nrow(x)) min(x$error) else NA,
               if (any(x$umbral <= 15)) sprintf("%.4f", min(x$error[x$umbral <= 15])) else "ninguno"))
+}
+
+cat("\n=====================================================================\n")
+cat("8. Soluciones distintas en los frentes y población final de NSGA-III\n")
+cat("=====================================================================\n")
+## Los frentes validados guardan una fila por solución, y varias soluciones
+## pueden tener exactamente los mismos objetivos (el umbral cae en la grilla de
+## ISI y el error sale de un banco finito). Las repetidas no aportan
+## hipervolumen, así que el tamaño que importa es el de vectores distintos.
+## Las soluciones distintas se cuentan como vectores de objetivos distintos.
+## Distinct solutions are counted as distinct objective vectors.
+vs <- leer("validation_seed_fronts.csv")
+distintos <- function(d) nrow(unique(round(as.matrix(d[, OBJ]), 10)))
+tam <- do.call(rbind, lapply(split(vs, list(vs$metodo, vs$arquitectura, vs$semilla), drop = TRUE), function(d)
+  data.frame(metodo = d$metodo[1], arquitectura = d$arquitectura[1], semilla = d$semilla[1],
+             filas = nrow(d), distintas = distintos(d), sin_lectura = sum(d$costo == 0))))
+cat("Tamaño medio de los frentes validados de las 11 semillas (filas y soluciones distintas):\n")
+print(aggregate(cbind(filas, distintas, sin_lectura) ~ arquitectura + metodo, data = tam, FUN = function(v) round(mean(v), 1)),
+      row.names = FALSE)
+cat("(sin_lectura: copias del agente que nunca lee, con costo 0)\n")
+## Población final de NSGA-III en las corridas de diseño (objetos rmoo)
+if (file.exists(file.path(D, "corridas_nsga3.rds")) && requireNamespace("rmoo", quietly = TRUE)) {
+  suppressPackageStartupMessages(library(rmoo))
+  cr <- readRDS(file.path(D, "corridas_nsga3.rds"))
+  pob <- do.call(rbind, lapply(cr, function(x) {
+    o <- x$res
+    data.frame(arquitectura = x$arq, regimen = x$regimen, semilla = x$semilla, n = nrow(o@population),
+               primer_frente = length(o@f[[1]]), objetivos_distintos = nrow(unique(round(o@fitness, 10))))
+  }))
+  cat(sprintf("\nCorridas de diseño: %d; con toda la población final en el primer frente: %d\n",
+              nrow(pob), sum(pob$primer_frente == pob$n)))
+  pob$repetidos <- 1 - pob$objetivos_distintos / pob$n
+  cat("Vectores de objetivos distintos en la población final y fracción repetida (media por arquitectura):\n")
+  print(aggregate(cbind(objetivos_distintos, repetidos) ~ arquitectura, data = pob, FUN = function(v) round(mean(v), 3)),
+        row.names = FALSE)
 }
 sink()

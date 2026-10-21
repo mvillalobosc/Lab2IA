@@ -224,3 +224,26 @@ eventos            error-latencia C(N,R) = 0.042  C(R,N) = 0.895  error mínimo 
 =====================================================================
 limpio   n = 42, umbral mínimo 15.0 ms, error mínimo 0.5175, error mínimo entre los de umbral 15 ms: 0.5175
 rafagas  n = 16, umbral mínimo 15.0 ms, error mínimo 0.5150, error mínimo entre los de umbral 15 ms: 0.5150
+
+=====================================================================
+8. Soluciones distintas en los frentes y población final de NSGA-III
+=====================================================================
+Tamaño medio de los frentes validados de las 11 semillas (filas y soluciones distintas):
+      arquitectura   metodo   filas distintas sin_lectura
+          continua NSGA-III    71.7      25.8         0.0
+ continua_modulada NSGA-III    59.8      19.2         0.0
+           eventos NSGA-III    94.3      68.9         1.9
+         periodica NSGA-III    97.9      68.1         0.0
+          continua   random    31.9      31.8         0.0
+ continua_modulada   random    16.2      16.1         0.0
+           eventos   random 32125.0     434.3     31555.0
+         periodica   random   887.8     250.8         0.0
+(sin_lectura: copias del agente que nunca lee, con costo 0)
+
+Corridas de diseño: 24; con toda la población final en el primer frente: 24
+Vectores de objetivos distintos en la población final y fracción repetida (media por arquitectura):
+      arquitectura objetivos_distintos repetidos
+          continua              39.500     0.701
+ continua_modulada              31.500     0.761
+           eventos              93.167     0.294
+         periodica              85.333     0.354
