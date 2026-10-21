@@ -54,13 +54,13 @@ CONFIG <- list(
     list(clave = "cerevisiae", nombre = "Saccharomyces cerevisiae", corto = "S. cerevisiae",
          prefijo = "SCerevisiae", carpeta = "Bosque_cerevisiae",
          cepas = "data/cepas_cerevisiae.tsv",      # cepa, Población (Peter et al. 2018)
-         genes = c("~/EvolutiveSCerevisiae/DATA/SGD_features.tab", "data/genes_cerevisiae.tsv"),  # usa el primero que exista
+         genes = "data/genes_cerevisiae.tsv",       # orf, nombre, descripcion, enlace (con este se genero data/)
          enlace_gen = "https://www.yeastgenome.org/locus/{orf}",
          fuente = "Panel de 1.011 aislados (Peter et al. 2018); VCF 1011Matrix; ORFs de SGD_features.tab"),
     list(clave = "eubayanus", nombre = "Saccharomyces eubayanus", corto = "S. eubayanus",
          prefijo = "Eubayanus", carpeta = "Bosque_eubayanus",
          cepas = "data/cepas_eubayanus.tsv",       # cepa, Linaje, Pais, Localidad, Hospedero, Sustrato, Continente (MetaData_SEu.csv)
-         genes = c("data/gene_result_eubayanus.txt", "~/EvolutiveEubayanus/DATA/gene_result.txt"),  # usa el primero que exista
+         genes = "data/gene_result_eubayanus.txt",  # gene_result.txt de NCBI
          enlace_gen = "https://www.ncbi.nlm.nih.gov/gene/?term={orf}+Saccharomyces+eubayanus",
          fuente = "VCF filtered_eub sobre CBS12357 (GCA_003327605.1); genes de NCBI (FM1318) ubicados por secuencia")
   )
