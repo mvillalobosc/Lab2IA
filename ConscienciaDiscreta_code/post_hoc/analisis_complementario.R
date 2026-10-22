@@ -5,19 +5,23 @@
 ## el artículo cita y que no calcula analisis.R: fronteras de Pareto en dos
 ## dimensiones (cobertura entre arquitecturas), mejores valores con presupuesto
 ## de lecturas, parámetros elegidos por el optimizador, periodos en la banda
-## alfa, resumen por condición del análisis de sensibilidad y soluciones
-## distintas de los frentes y de la última población de NSGA-III.
+## alfa, resumen por condición del análisis de sensibilidad, soluciones
+## distintas de los frentes y de la última población de NSGA-III, e
+## indicadores de calidad (IGD+, épsilon aditivo y espaciado) y valores
+## extremos de NSGA-III y de la búsqueda aleatoria.
 ##
 ## Numbers of the design, of the intervals between reads and of the
 ## sensitivity analysis that the paper cites and that analisis.R does not
 ## compute: two-dimensional Pareto frontiers (coverage between architectures),
 ## best values within a reading budget, parameters chosen by the optimiser,
 ## periods in the alpha band, summary per condition of the sensitivity
-## analysis, and distinct solutions of the fronts and of the last population
-## of NSGA-III.
+## analysis, distinct solutions of the fronts and of the last population of
+## NSGA-III, and quality indicators (IGD+, additive epsilon and spacing) and
+## extreme values of NSGA-III and random search.
 ##
 ## Uso / usage (desde post_hoc/): Rscript analisis_complementario.R [../salida] [estadistica]
-## Salida / output: estadistica/resumen_complementario.txt
+## Salidas / outputs: estadistica/resumen_complementario.txt,
+##   L_indicadores_extremos.csv y L_indicadores_extremos_pruebas.csv
 ## ============================================================================
 args <- commandArgs(trailingOnly = TRUE)
 D <- if (length(args) > 0) args[1] else "../salida"
@@ -194,4 +198,74 @@ if (file.exists(file.path(D, "corridas_nsga3.rds")) && requireNamespace("rmoo", 
   print(aggregate(cbind(objetivos_distintos, repetidos) ~ arquitectura, data = pob, FUN = function(v) round(mean(v), 3)),
         row.names = FALSE)
 }
+
+cat("\n=====================================================================\n")
+cat("9. Indicadores de calidad y valores extremos: NSGA-III frente a búsqueda aleatoria\n")
+cat("=====================================================================\n")
+## Objetivos normalizados como en el hipervolumen (Ec. 4 del artículo): cada
+## objetivo dividido por su peor valor y el costo en log10. El frente de
+## referencia de cada arquitectura reúne los frentes validados de los dos
+## métodos y de las 11 semillas, sin repetidos y sin dominados.
+## IGD+ (Ishibuchi et al., 2015): distancia media desde cada punto de la
+##   referencia al punto más cercano del frente, contando solo los objetivos
+##   en que el frente es peor; 0 si el frente alcanza toda la referencia.
+## Épsilon aditivo (Zitzler et al., 2003): lo mínimo que hay que desplazar el
+##   frente para que domine débilmente a toda la referencia; 0 si ya lo hace.
+## Espaciado (Schott, 1995): desviación de la distancia Manhattan de cada
+##   punto a su vecino más cercano; 0 si los puntos están igual de separados.
+## Extremos: mejor valor de cada objetivo entre los agentes funcionales.
+## Quality indicators (IGD+, additive epsilon, spacing) and extreme values of
+## the validated fronts, on the normalised objectives of the hypervolume.
+normalizar <- function(d) pmin(pmax(cbind(d$error, d$umbral / 300, d$latencia / 600, log10(pmax(d$costo, 1)) / 3), 0), 1)
+no_dom_norm <- function(Z) {
+  Z <- unique(round(Z, 10)); n <- nrow(Z); dom <- logical(n)
+  for (i in seq_len(n)) {
+    le <- Z[, 1] <= Z[i, 1] & Z[, 2] <= Z[i, 2] & Z[, 3] <= Z[i, 3] & Z[, 4] <= Z[i, 4]
+    lt <- Z[, 1] < Z[i, 1] | Z[, 2] < Z[i, 2] | Z[, 3] < Z[i, 3] | Z[, 4] < Z[i, 4]
+    dom[i] <- any(le & lt)
+  }
+  Z[!dom, , drop = FALSE]
+}
+igd_mas <- function(A, R) mean(apply(R, 1, function(r) { D <- sweep(A, 2, r, "-"); min(sqrt(rowSums(pmax(D, 0)^2))) }))
+eps_mas <- function(A, R) max(apply(R, 1, function(r) { D <- sweep(A, 2, r, "-"); min(pmax(D[, 1], D[, 2], D[, 3], D[, 4])) }))
+espaciado <- function(A) {
+  if (nrow(A) < 3) return(NA_real_)
+  D <- as.matrix(dist(A, method = "manhattan")); diag(D) <- Inf
+  d <- apply(D, 1, min); sqrt(sum((d - mean(d))^2) / (length(d) - 1))
+}
+ind <- list()
+for (a in ARQ) {
+  da <- vs[vs$arquitectura == a, ]
+  R <- no_dom_norm(normalizar(da))
+  for (sm in unique(da$semilla)) for (me in c("NSGA-III", "random")) {
+    d <- da[da$semilla == sm & da$metodo == me, ]
+    A <- no_dom_norm(normalizar(d)); fu <- d[d$umbral < 300, ]
+    ind[[length(ind) + 1]] <- data.frame(arquitectura = a, metodo = me, semilla = sm, n_referencia = nrow(R),
+      igd_mas = igd_mas(A, R), epsilon = eps_mas(A, R), espaciado = espaciado(A),
+      error_min = min(fu$error), umbral_min = min(fu$umbral), latencia_min = min(fu$latencia), costo_min = min(fu$costo))
+  }
+}
+ind <- do.call(rbind, ind)
+met <- c("igd_mas", "epsilon", "espaciado", "error_min", "umbral_min", "latencia_min", "costo_min")
+A12i <- function(x, y) mean(outer(x, y, ">") + 0.5 * outer(x, y, "=="))
+pruebas <- do.call(rbind, lapply(met, function(m) {
+  p <- sapply(ARQ, function(a) {
+    x <- ind[ind$arquitectura == a & ind$metodo == "NSGA-III", ]; y <- ind[ind$arquitectura == a & ind$metodo == "random", ]
+    y <- y[match(x$semilla, y$semilla), ]
+    if (all(x[[m]] == y[[m]])) NA_real_ else suppressWarnings(wilcox.test(x[[m]], y[[m]], paired = TRUE)$p.value)
+  })
+  a12 <- sapply(ARQ, function(a) A12i(ind[[m]][ind$arquitectura == a & ind$metodo == "NSGA-III"], ind[[m]][ind$arquitectura == a & ind$metodo == "random"]))
+  data.frame(indicador = m, arquitectura = ARQ, p = p, p_holm = p.adjust(p, "holm"), a12_nsga = a12)
+}))
+resumen_ind <- aggregate(ind[, met], by = list(arquitectura = ind$arquitectura, metodo = ind$metodo),
+                         FUN = function(v) c(media = mean(v), de = sd(v), min = min(v), max = max(v)))
+cat("Tamaño del frente de referencia por arquitectura:\n"); print(tapply(ind$n_referencia, ind$arquitectura, unique))
+for (m in met) {
+  cat(sprintf("\n%s (media, desviación, mínimo y máximo sobre 11 semillas):\n", m))
+  x <- resumen_ind[, c("arquitectura", "metodo")]; x <- cbind(x, round(resumen_ind[[m]], 4)); print(x, row.names = FALSE)
+}
+cat("\nWilcoxon pareado por semilla (NSGA-III contra búsqueda aleatoria), Holm dentro de cada indicador y A12 de NSGA-III:\n")
+print(pruebas, row.names = FALSE, digits = 3)
+write.csv(ind, file.path(O, "L_indicadores_extremos.csv"), row.names = FALSE)
+write.csv(pruebas, file.path(O, "L_indicadores_extremos_pruebas.csv"), row.names = FALSE)
 sink()

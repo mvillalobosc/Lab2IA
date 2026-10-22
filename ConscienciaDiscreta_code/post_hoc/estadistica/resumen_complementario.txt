@@ -247,3 +247,118 @@ Vectores de objetivos distintos en la población final y fracción repetida (med
  continua_modulada              31.500     0.761
            eventos              93.167     0.294
          periodica              85.333     0.354
+
+=====================================================================
+9. Indicadores de calidad y valores extremos: NSGA-III frente a búsqueda aleatoria
+=====================================================================
+Tamaño del frente de referencia por arquitectura:
+         continua continua_modulada           eventos         periodica 
+              120                61               744               890 
+
+igd_mas (media, desviación, mínimo y máximo sobre 11 semillas):
+      arquitectura   metodo  media     de    min    max
+          continua NSGA-III 0.0051 0.0013 0.0028 0.0069
+ continua_modulada NSGA-III 0.0079 0.0032 0.0032 0.0148
+           eventos NSGA-III 0.0142 0.0081 0.0077 0.0337
+         periodica NSGA-III 0.0223 0.0031 0.0183 0.0266
+          continua   random 0.0043 0.0011 0.0028 0.0059
+ continua_modulada   random 0.0082 0.0023 0.0060 0.0129
+           eventos   random 0.0033 0.0006 0.0024 0.0042
+         periodica   random 0.0096 0.0008 0.0085 0.0106
+
+epsilon (media, desviación, mínimo y máximo sobre 11 semillas):
+      arquitectura   metodo  media     de    min    max
+          continua NSGA-III 0.0241 0.0083 0.0150 0.0450
+ continua_modulada NSGA-III 0.0327 0.0111 0.0150 0.0525
+           eventos NSGA-III 0.0577 0.0291 0.0334 0.1195
+         periodica NSGA-III 0.1389 0.0340 0.0968 0.1958
+          continua   random 0.0256 0.0111 0.0125 0.0450
+ continua_modulada   random 0.0244 0.0094 0.0150 0.0425
+           eventos   random 0.0174 0.0027 0.0126 0.0225
+         periodica   random 0.0749 0.0197 0.0489 0.1003
+
+espaciado (media, desviación, mínimo y máximo sobre 11 semillas):
+      arquitectura   metodo  media     de    min    max
+          continua NSGA-III 0.0610 0.0700 0.0109 0.2599
+ continua_modulada NSGA-III 0.0420 0.0289 0.0092 0.0962
+           eventos NSGA-III 0.0736 0.0179 0.0480 0.1054
+         periodica NSGA-III 0.0751 0.0275 0.0510 0.1428
+          continua   random 0.0307 0.0138 0.0096 0.0557
+ continua_modulada   random 0.0736 0.0299 0.0243 0.1222
+           eventos   random 0.0505 0.0105 0.0364 0.0713
+         periodica   random 0.0351 0.0046 0.0295 0.0426
+
+error_min (media, desviación, mínimo y máximo sobre 11 semillas):
+      arquitectura   metodo  media     de    min    max
+          continua NSGA-III 0.1127 0.0096 0.1000 0.1350
+ continua_modulada NSGA-III 0.1298 0.0146 0.1050 0.1525
+           eventos NSGA-III 0.1016 0.0060 0.0925 0.1125
+         periodica NSGA-III 0.1225 0.0172 0.1025 0.1500
+          continua   random 0.1130 0.0144 0.0900 0.1350
+ continua_modulada   random 0.1170 0.0144 0.1000 0.1425
+           eventos   random 0.0989 0.0045 0.0950 0.1100
+         periodica   random 0.1073 0.0113 0.0925 0.1275
+
+umbral_min (media, desviación, mínimo y máximo sobre 11 semillas):
+      arquitectura   metodo   media     de min     max
+          continua NSGA-III 15.0000 0.0000  15 15.0000
+ continua_modulada NSGA-III 15.1004 0.3329  15 16.1041
+           eventos NSGA-III 15.0000 0.0000  15 15.0000
+         periodica NSGA-III 15.0000 0.0000  15 15.0000
+          continua   random 15.0000 0.0000  15 15.0000
+ continua_modulada   random 15.0495 0.1642  15 15.5446
+           eventos   random 15.0000 0.0000  15 15.0000
+         periodica   random 15.0000 0.0000  15 15.0000
+
+latencia_min (media, desviación, mínimo y máximo sobre 11 semillas):
+      arquitectura   metodo  media     de    min     max
+          continua NSGA-III 2.9714 1.5297 1.3050  5.3525
+ continua_modulada NSGA-III 2.7150 1.0204 1.2375  4.3075
+           eventos NSGA-III 9.9923 4.7514 4.9600 22.0975
+         periodica NSGA-III 3.7400 1.5257 1.8325  5.5750
+          continua   random 2.3030 1.2893 1.1025  4.7225
+ continua_modulada   random 3.8855 1.6360 2.2550  8.2925
+           eventos   random 5.2595 1.3974 2.9925  7.6100
+         periodica   random 2.5820 0.7857 1.7575  4.2575
+
+costo_min (media, desviación, mínimo y máximo sobre 11 semillas):
+      arquitectura   metodo     media     de       min       max
+          continua NSGA-III 1000.0000 0.0000 1000.0000 1000.0000
+ continua_modulada NSGA-III 1000.0000 0.0000 1000.0000 1000.0000
+           eventos NSGA-III    0.3652 0.2652    0.0375    0.8708
+         periodica NSGA-III    4.3939 2.5025    3.3333   11.6667
+          continua   random 1000.0000 0.0000 1000.0000 1000.0000
+ continua_modulada   random 1000.0000 0.0000 1000.0000 1000.0000
+           eventos   random    0.0265 0.0063    0.0208    0.0417
+         periodica   random    3.3333 0.0000    3.3333    3.3333
+
+Wilcoxon pareado por semilla (NSGA-III contra búsqueda aleatoria), Holm dentro de cada indicador y A12 de NSGA-III:
+    indicador      arquitectura        p  p_holm a12_nsga
+      igd_mas          continua 0.032227 0.06445    0.678
+      igd_mas continua_modulada 0.700195 0.70020    0.471
+      igd_mas         periodica 0.000977 0.00391    1.000
+      igd_mas           eventos 0.000977 0.00391    1.000
+      epsilon          continua 1.000000 1.00000    0.496
+      epsilon continua_modulada 0.102918 0.20584    0.715
+      epsilon         periodica 0.000977 0.00391    0.983
+      epsilon           eventos 0.000977 0.00391    1.000
+    espaciado          continua 0.206055 0.20605    0.636
+    espaciado continua_modulada 0.101562 0.20312    0.248
+    espaciado         periodica 0.000977 0.00391    1.000
+    espaciado           eventos 0.001953 0.00586    0.876
+    error_min          continua 0.812542 0.81254    0.488
+    error_min continua_modulada 0.052787 0.21115    0.731
+    error_min         periodica 0.055687 0.21115    0.781
+    error_min           eventos 0.263552 0.52710    0.657
+   umbral_min          continua       NA      NA    0.500
+   umbral_min continua_modulada 1.000000 1.00000    0.504
+   umbral_min         periodica       NA      NA    0.500
+   umbral_min           eventos       NA      NA    0.500
+ latencia_min          continua 0.320312 0.32031    0.653
+ latencia_min continua_modulada 0.061755 0.12351    0.256
+ latencia_min         periodica 0.032227 0.09668    0.719
+ latencia_min           eventos 0.000977 0.00391    0.893
+    costo_min          continua       NA      NA    0.500
+    costo_min continua_modulada       NA      NA    0.500
+    costo_min         periodica 0.173568 0.17357    0.636
+    costo_min           eventos 0.000977 0.00195    0.992
