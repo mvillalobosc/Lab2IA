@@ -1,7 +1,8 @@
 ## ============================================================================
 ## figuras.R
 ## ----------------------------------------------------------------------------
-## Figuras del artículo a tamaño de revista (Springer Nature, 84 o 174 mm),
+## Figuras del artículo a tamaño de revista (Springer Nature, 84 o 174 mm,
+## con letra de 8 a 9 pt como pide la guía de figuras de la revista),
 ## en PDF vectorial con fuente tipo Helvetica incrustada (TeX Gyre Heros),
 ## colores pastel con bordes más oscuros y formas distintas por arquitectura.
 ##
@@ -33,8 +34,8 @@ arq <- function(x) factor(unname(ARQ_LEV[as.character(x)]), levels = ARQ_LEV)
 tema <- function() theme_bw(base_size = 8, base_family = FAM) + theme(
   panel.grid.minor = element_blank(), panel.grid.major = element_line(colour = "#EBEBEB", linewidth = 0.25),
   panel.border = element_rect(colour = "#A0A0A0", linewidth = 0.3, fill = NA), axis.ticks = element_line(colour = "#A0A0A0", linewidth = 0.3),
-  axis.text = element_text(size = 7, colour = "#303030"), axis.title = element_text(size = 8, colour = "#202020"),
-  legend.text = element_text(size = 7.5), legend.title = element_text(size = 8), legend.position = "bottom",
+  axis.text = element_text(size = 8, colour = "#303030"), axis.title = element_text(size = 8, colour = "#202020"),
+  legend.text = element_text(size = 8), legend.title = element_text(size = 8), legend.position = "bottom",
   legend.key.size = unit(3.2, "mm"), legend.margin = margin(0, 0, 0, 0), legend.box.spacing = unit(1.5, "mm"),
   strip.background = element_rect(fill = "#F1F1F1", colour = NA), strip.text = element_text(size = 8, face = "bold", colour = "#202020"),
   plot.margin = margin(1.5, 2.5, 1, 1.5, "mm"), plot.tag = element_text(size = 9, face = "bold", family = FAM),
@@ -119,7 +120,7 @@ if (quiere("Fig2")) {
     scale_y_continuous(breaks = c(0, 0.5, 1)) + coord_cartesian(xlim = lim, ylim = c(-0.5, 1.2)) +
     labs(x = "time in the trial (ms)", y = "integrator state x(t)") +
     guides(fill = "none", shape = "none") + tema() +
-    theme(panel.spacing.x = unit(4, "mm"), strip.text = element_text(size = 7.5, face = "plain"))
+    theme(panel.spacing.x = unit(4, "mm"), strip.text = element_text(size = 8, face = "plain"))
   guardar(p, "Fig2.pdf", 174, 84)
 }
 
@@ -138,20 +139,21 @@ if (quiere("Fig3")) {
     geom_hline(yintercept = c(0.95, 0.99), colour = "#BDBDBD", linewidth = 0.3, linetype = "22") +
     geom_vline(xintercept = G, colour = "#606060", linewidth = 0.35, linetype = "42") +
     geom_line(linewidth = 0.4, alpha = 0.9) + esc_col +
-    annotate("text", x = G * 0.9, y = 0.83, label = sprintf("cutoff of the main runs (%d generations)", G), hjust = 1, size = 2.5, family = FAM, colour = "#404040") +
+    annotate("text", x = G * 0.9, y = 0.83, label = sprintf("cutoff of the main runs (%d generations)", G), hjust = 1, size = 8 / .pt, family = FAM, colour = "#404040") +
     scale_x_log10(breaks = c(1, 10, 100, 1000), labels = c("1", "10", "100", "1000")) +
     scale_y_continuous(breaks = seq(0.8, 1, 0.05)) + coord_cartesian(ylim = c(0.8, 1.0)) +
     labs(x = "generation (log scale)", y = "fraction of the final hypervolume") +
     guides(colour = guide_legend(nrow = 1, override.aes = list(linewidth = 0.8))) + tema()
   sr <- leer("validation_seed_runs.csv")
   sr$architecture <- arq(sr$arquitectura)
-  sr$method <- factor(ifelse(sr$method == "random", "random search", "NSGA-III"), levels = c("NSGA-III", "random search"))
+  ## "random search" en dos líneas para que no choque con "NSGA-III" a 8 pt
+  sr$method <- factor(ifelse(sr$method == "random", "random\nsearch", "NSGA-III"), levels = c("NSGA-III", "random\nsearch"))
   pb <- ggplot(sr, aes(method, hv_validation)) +
     geom_boxplot(aes(fill = architecture, alpha = method), colour = "#606060", linewidth = 0.3, width = 0.62, outlier.shape = NA) +
     geom_point(aes(shape = architecture), position = position_jitter(width = 0.12, height = 0, seed = 3), size = 1.1,
                fill = "white", colour = "#404040", stroke = 0.3) +
     facet_wrap(~ architecture, scales = "free_y", nrow = 1) + esc_fill + esc_shape +
-    scale_alpha_manual(values = c("NSGA-III" = 1, "random search" = 0.35), guide = "none") +
+    scale_alpha_manual(values = c("NSGA-III" = 1, "random\nsearch" = 0.35), guide = "none") +
     scale_y_continuous(labels = function(v) sprintf("%.3f", v)) +
     labs(x = NULL, y = "validation hypervolume") + guides(fill = "none", shape = "none") +
     tema()
@@ -258,8 +260,10 @@ if (quiere("Fig10")) {
                          levels = c("no sensory change", "sensory change during the gap"))
   p <- ggplot(au, aes(architecture, fraccion_huecos_detectados, fill = architecture, alpha = condition)) +
     geom_col(position = position_dodge(width = 0.78), width = 0.72, colour = "#4A4A4A", linewidth = 0.2) +
-    geom_text(aes(label = sprintf("%.3f", fraccion_huecos_detectados), group = condition), position = position_dodge(width = 0.78),
-              vjust = -0.5, size = 2.4, family = FAM, colour = "#303030", alpha = 1) +
+    ## los ceros van como "0" para que las dos etiquetas de una arquitectura no choquen a 8 pt
+    geom_text(aes(label = ifelse(fraccion_huecos_detectados == 0, "0", sprintf("%.3f", fraccion_huecos_detectados)), group = condition),
+              position = position_dodge(width = 0.78),
+              vjust = -0.5, size = 8 / .pt, family = FAM, colour = "#303030", alpha = 1) +
     esc_fill + scale_alpha_manual(values = c("no sensory change" = 0.35, "sensory change during the gap" = 1), name = NULL) +
     scale_y_continuous(limits = c(0, 0.5), expand = c(0, 0)) +
     labs(x = NULL, y = "fraction of gaps detected") +
@@ -291,7 +295,7 @@ if (quiere("Fig11")) {
   ta$elegida <- ta$config == "N=132 pc=0.8 pm=0.20"
   p <- ggplot(ta, aes(pc, pm, fill = rango_medio)) +
     geom_tile(colour = "white", linewidth = 0.6) +
-    geom_text(aes(label = sprintf("%.1f", rango_medio), fontface = ifelse(elegida, "bold", "plain")), size = 2.6, family = FAM, colour = "#202020") +
+    geom_text(aes(label = sprintf("%.1f", rango_medio), fontface = ifelse(elegida, "bold", "plain")), size = 8 / .pt, family = FAM, colour = "#202020") +
     facet_wrap(~ pop, nrow = 1) +
     scale_fill_gradient(low = "#A7C7E7", high = "#F7F2EA", name = "mean Friedman rank (lower is better)") +
     labs(x = "crossover probability", y = "mutation probability") +
@@ -353,7 +357,7 @@ if (quiere("Fig7")) {
   pa <- ggplot(m, aes(fitted, generator, fill = n)) +
     geom_tile(colour = "white", linewidth = 0.8) +
     geom_tile(data = m[m$diag, ], fill = NA, colour = "#505050", linewidth = 0.5) +
-    geom_text(aes(label = lab), size = 2.6, family = FAM, colour = "#202020") +
+    geom_text(aes(label = lab), size = 8 / .pt, family = FAM, colour = "#202020") +
     scale_fill_gradient(low = "#F7F4EF", high = "#A7C7E7", limits = c(0, 12)) +
     scale_x_discrete(labels = ABR) + scale_y_discrete(labels = ABR) +
     labs(x = "lowest AIC", y = "generator") + guides(fill = "none") + tema()
@@ -369,10 +373,10 @@ if (quiere("Fig7")) {
     geom_point(aes(fill = alternative, shape = alternative), size = 1.7, colour = "#404040", stroke = 0.3,
                position = position_jitter(height = 0.17, width = 0, seed = 2)) +
     esc_fill + esc_shape + scale_x_continuous(limits = c(-21, 16), breaks = c(-20, -10, 0, 10)) +
-    annotate("text", x = 15.5, y = 4.45, label = "mimicry", hjust = 1, size = 2.4, family = FAM, colour = "#5E4A7A") +
+    annotate("text", x = 15.5, y = 4.45, label = "mimicry", hjust = 1, size = 8 / .pt, family = FAM, colour = "#5E4A7A") +
     labs(x = "AIC of the true generator minus\nAIC of the best competitor", y = NULL) +
     guides(fill = guide_legend(title = "best competitor", ncol = 2, title.position = "top"), shape = guide_legend(title = "best competitor", ncol = 2, title.position = "top")) +
-    tema() + theme(legend.text = element_text(size = 6.5))
+    tema() + theme(legend.text = element_text(size = 8))
   dm1 <- leer("ajuste_participantes.csv"); dm1 <- dm1[dm1$dataset == "deodato_melcher_2024", ]
   dm2 <- read.csv(file.path(R, "resultados", "ajuste_deodato_pausa.csv"))
   cuenta <- function(d, lectura) do.call(rbind, lapply(ARQ_ES, function(a) data.frame(reading = lectura, architecture = ARQ_LEV[a],
@@ -444,9 +448,9 @@ if (quiere("Fig9")) {
     geom_line(data = cota, aes(T, umbral_cota), colour = "#5F8DBF", linewidth = 0.6) +
     geom_point(data = cota, aes(T, umbral_validado), shape = 4, colour = "#5F8DBF", size = 1.3, stroke = 0.4) +
     geom_point(data = hp, aes(periodo_reposo_ms, umbral_ms), shape = 21, fill = "#F4A6A6", colour = "#404040", size = 1.6, stroke = 0.3) +
-    annotate("text", x = 14, y = 128, label = "thresholds reachable by a\nperiodic reader with period T", hjust = 0, size = 2.4, family = FAM, colour = "#3A5F86") +
-    annotate("text", x = 118, y = 146, label = "T = 120 ms: 75% never reached", hjust = 1, vjust = 1, size = 2.2, family = FAM, colour = "#3A5F86") +
-    annotate("text", x = 75, y = 22, label = "participants at their\nresting alpha period", hjust = 1, size = 2.4, family = FAM, colour = "#8A3E3E") +
+    annotate("text", x = 14, y = 128, label = "thresholds reachable by a\nperiodic reader with period T", hjust = 0, size = 8 / .pt, family = FAM, colour = "#3A5F86") +
+    annotate("text", x = 124, y = 88, label = "T = 120 ms:\n75% never reached", hjust = 1, vjust = 1, size = 8 / .pt, family = FAM, colour = "#3A5F86") +
+    annotate("text", x = 75, y = 22, label = "participants at their\nresting alpha period", hjust = 1, size = 8 / .pt, family = FAM, colour = "#8A3E3E") +
     scale_x_continuous(limits = c(10, 125), breaks = seq(20, 120, 20)) + scale_y_continuous(limits = c(0, 150), expand = c(0, 0)) +
     labs(x = "period T or alpha period, 1000 / IAF (ms)", y = "two-flash threshold, blank ISI (ms)") + tema()
   l <- rbind(data.frame(participante = hp$participante, tipo = "resting alpha period", v = hp$periodo_reposo_ms),
@@ -461,7 +465,7 @@ if (quiere("Fig9")) {
     scale_shape_manual(values = c("longest compatible period" = 24, "resting alpha period" = 21), name = NULL) +
     scale_x_continuous(limits = c(20, 125)) +
     labs(x = "period (ms)", y = "participant") +
-    guides(fill = guide_legend(nrow = 2), shape = guide_legend(nrow = 2)) + tema() + theme(axis.text.y = element_text(size = 5.5))
+    guides(fill = guide_legend(nrow = 2), shape = guide_legend(nrow = 2)) + tema() + theme(axis.text.y = element_blank(), axis.ticks.y = element_blank())
   p <- con_etiquetas((pa | pb) + plot_layout(widths = c(1.25, 1)))
   guardar(p, "Fig9.pdf", 174, 82)
 }
@@ -476,7 +480,7 @@ if (quiere("Fig15")) {
     geom_col(position = position_dodge(width = 0.85), width = 0.8, colour = "#4A4A4A", linewidth = 0.1) +
     esc_fill + scale_y_continuous(expand = c(0, 0), limits = c(0, 61)) +
     labs(x = "participant", y = "AIC minus the lowest AIC of the participant\n(truncated at 60)") +
-    guides(fill = guide_legend(nrow = 1)) + tema() + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, size = 5.5))
+    guides(fill = guide_legend(nrow = 1)) + tema() + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, size = 8))
   guardar(p, "Fig15.pdf", 174, 66)   # AIC por participante
 }
 
