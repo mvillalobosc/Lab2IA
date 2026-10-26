@@ -1,0 +1,73 @@
+"architecture","onset","soa","p_access"
+"continuous","jittered onset",12,0.993333333333333
+"continuous","jittered onset",15,0.986666666666667
+"continuous","jittered onset",18,0.973333333333333
+"continuous","jittered onset",21,0.966666666666667
+"continuous","jittered onset",25,0.966666666666667
+"continuous","jittered onset",30,0.96
+"continuous","jittered onset",40,0.946666666666667
+"continuous","jittered onset",60,0.94
+"continuous","jittered onset",90,0.96
+"continuous","fixed onset",12,1
+"continuous","fixed onset",15,0.993333333333333
+"continuous","fixed onset",18,0.98
+"continuous","fixed onset",21,0.986666666666667
+"continuous","fixed onset",25,0.94
+"continuous","fixed onset",30,0.946666666666667
+"continuous","fixed onset",40,0.94
+"continuous","fixed onset",60,0.966666666666667
+"continuous","fixed onset",90,0.953333333333333
+"modulated continuous","jittered onset",12,0.986666666666667
+"modulated continuous","jittered onset",15,0.973333333333333
+"modulated continuous","jittered onset",18,0.973333333333333
+"modulated continuous","jittered onset",21,0.966666666666667
+"modulated continuous","jittered onset",25,0.96
+"modulated continuous","jittered onset",30,0.94
+"modulated continuous","jittered onset",40,0.933333333333333
+"modulated continuous","jittered onset",60,0.933333333333333
+"modulated continuous","jittered onset",90,0.946666666666667
+"modulated continuous","fixed onset",12,0.993333333333333
+"modulated continuous","fixed onset",15,0.986666666666667
+"modulated continuous","fixed onset",18,0.973333333333333
+"modulated continuous","fixed onset",21,0.973333333333333
+"modulated continuous","fixed onset",25,0.906666666666667
+"modulated continuous","fixed onset",30,0.906666666666667
+"modulated continuous","fixed onset",40,0.88
+"modulated continuous","fixed onset",60,0.953333333333333
+"modulated continuous","fixed onset",90,0.973333333333333
+"periodic","jittered onset",12,0.0333333333333333
+"periodic","jittered onset",15,0.0133333333333333
+"periodic","jittered onset",18,0.0666666666666667
+"periodic","jittered onset",21,0.04
+"periodic","jittered onset",25,0.02
+"periodic","jittered onset",30,0.0733333333333333
+"periodic","jittered onset",40,0.293333333333333
+"periodic","jittered onset",60,0.473333333333333
+"periodic","jittered onset",90,0.553333333333333
+"periodic","fixed onset",12,0.0666666666666667
+"periodic","fixed onset",15,0.0733333333333333
+"periodic","fixed onset",18,0.0666666666666667
+"periodic","fixed onset",21,0.08
+"periodic","fixed onset",25,0.0466666666666667
+"periodic","fixed onset",30,0.04
+"periodic","fixed onset",40,0
+"periodic","fixed onset",60,0.94
+"periodic","fixed onset",90,0
+"event","jittered onset",12,0.42
+"event","jittered onset",15,0.86
+"event","jittered onset",18,0.933333333333333
+"event","jittered onset",21,0.933333333333333
+"event","jittered onset",25,0.92
+"event","jittered onset",30,0.926666666666667
+"event","jittered onset",40,0.906666666666667
+"event","jittered onset",60,0.913333333333333
+"event","jittered onset",90,0.913333333333333
+"event","fixed onset",12,0.5
+"event","fixed onset",15,0.88
+"event","fixed onset",18,0.94
+"event","fixed onset",21,0.953333333333333
+"event","fixed onset",25,0.9
+"event","fixed onset",30,0.92
+"event","fixed onset",40,0.88
+"event","fixed onset",60,0.926666666666667
+"event","fixed onset",90,0.913333333333333

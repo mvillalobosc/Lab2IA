@@ -4,7 +4,7 @@
 
 ## Español
 
-Este proyecto contiene el código en R, los datos y los resultados del manuscrito *Evaluating discrete and continuous conscious access with NSGA-III: a design study contrasted with two-flash fusion data* (Villalobos-Cid y Baladrón). El trabajo pregunta qué esquema de acceso a un sustrato neural continuo debería preferir un sistema perceptivo cuando la exactitud, la resolución temporal, la latencia y el costo del acceso están en conflicto.
+Este proyecto contiene el código en R, los datos y los resultados del manuscrito *Continuous or discrete access to sensory information? A many-objective design study* (Villalobos-Cid y Baladrón). El trabajo pregunta qué esquema de acceso a un sustrato neural continuo debería preferir un sistema perceptivo cuando la exactitud, la resolución temporal, la latencia y el costo del acceso están en conflicto.
 
 Un integrador con fuga modela el sustrato continuo y cuatro compuertas de lectura modelan el acceso a él: lectura continua, lectura continua con un umbral que oscila (continua modulada), lectura periódica y lectura por eventos. En una tarea simulada de fusión de dos pulsos, NSGA-III busca los parámetros de cada arquitectura minimizando cuatro objetivos: la tasa de error, el umbral de fusión, la latencia de acceso y el costo en lecturas por segundo. El código valida el optimizador (parametrización, prueba de convergencia de 1500 generaciones, 11 semillas y una búsqueda aleatoria con el mismo número de evaluaciones), compara las arquitecturas, ajusta los modelos a datos conductuales (observadores sintéticos y dos experimentos públicos de fusión de dos destellos) y simula huecos de acceso para ver si el agente los nota desde dentro.
 
@@ -19,6 +19,10 @@ ConscienciaDiscreta_code/
 ├── consciencia_discreta.R   script principal: agente, NSGA-III, validación, diseño,
 │                            sensibilidad, ajuste a datos, ausencias y figuras de control
 ├── correr_todo.R            fija el número de núcleos y corre consciencia_discreta.R
+├── experimento_discriminante.R  experimento del paradigma discriminante (Sect. 3.7 y
+│                            4.6 del manuscrito); autocontenido, no necesita el resto
+├── salida_discriminante/    resultados del paradigma discriminante y Fig. 8,
+│                            ver salida_discriminante/README.md
 ├── datos_reales/            datos humanos públicos, ver datos_reales/README.md
 ├── datos_ejemplo/           datos sintéticos de ejemplo, ver datos_ejemplo/README.md
 ├── salida/                  resultados de la corrida del artículo, ver salida/README.md
@@ -50,7 +54,13 @@ Los datos humanos conservan los términos de sus autores y se deben citar las fu
 
    `correr_todo.R` usa todos los núcleos menos uno; también se puede correr `N_CORES=60 Rscript consciencia_discreta.R`. Con 63 núcleos, la corrida del artículo tomó 6 horas y 21 minutos (ver `salida/progreso.log` y `salida/sesion.txt`). Para probar que todo corre en pocos minutos, sin resultados útiles, está el modo rápido: `MODO=rapido Rscript consciencia_discreta.R`. Todo queda en `salida/`.
 
-2. Análisis post hoc y figuras del artículo, desde `post_hoc/`:
+2. Paradigma discriminante (Sect. 4.6 del manuscrito y Fig. 8), desde esta carpeta; es autocontenido (trae embebidos el agente y las rodillas del artículo), corre en segundos y deja todo en `salida_discriminante/`; con el argumento `recovery` repite además la recuperación de modelos sobre este paradigma (horas en un núcleo):
+
+   ```
+   Rscript experimento_discriminante.R
+   ```
+
+3. Análisis post hoc y figuras del artículo, desde `post_hoc/`:
 
    ```
    cd post_hoc
@@ -78,7 +88,7 @@ Las rodillas y las ausencias del artículo son las de `post_hoc/resultados/`. Ah
 
 ### Cómo citar
 
-Villalobos-Cid, M., y Baladrón, J. (2026). *Evaluating discrete and continuous conscious access with NSGA-III: a design study contrasted with two-flash fusion data*. Manuscrito.
+Villalobos-Cid, M., y Baladrón, J. (2026). *Continuous or discrete access to sensory information? A many-objective design study*. Manuscrito.
 
 Si usa los datos humanos, cite también a Deodato y Melcher (2024) y a Haarlem et al. (2024), como indica `datos_reales/README.md`.
 
@@ -94,7 +104,7 @@ El código tiene licencia MIT (ver `LICENSE`). Los datos de `datos_reales/` cons
 
 ## English
 
-This project contains the R code, data and results of the manuscript *Evaluating discrete and continuous conscious access with NSGA-III: a design study contrasted with two-flash fusion data* (Villalobos-Cid and Baladrón). The work asks which scheme of access to a continuous neural substrate a perceptual system should prefer when accuracy, temporal resolution, latency and the cost of access are in conflict.
+This project contains the R code, data and results of the manuscript *Continuous or discrete access to sensory information? A many-objective design study* (Villalobos-Cid and Baladrón). The work asks which scheme of access to a continuous neural substrate a perceptual system should prefer when accuracy, temporal resolution, latency and the cost of access are in conflict.
 
 A leaky integrator models the continuous substrate, and four reading gates model the access to it: continuous reading, continuous reading against an oscillating threshold (modulated continuous), periodic reading and event reading. In a simulated two-pulse fusion task, NSGA-III searches the parameters of each architecture by minimising four objectives: the error rate, the fusion threshold, the access latency and the cost in reads per second. The code validates the optimiser (parametrisation, a 1500-generation convergence test, 11 seeds and a random search with the same number of evaluations), compares the architectures, fits the models to behavioural data (synthetic observers and two public two-flash fusion experiments) and simulates access gaps to check if the agent notices them from the inside.
 
@@ -109,6 +119,10 @@ ConscienciaDiscreta_code/
 ├── consciencia_discreta.R   main script: agent, NSGA-III, validation, design,
 │                            sensitivity, fits to data, absences and check figures
 ├── correr_todo.R            sets the number of cores and runs consciencia_discreta.R
+├── experimento_discriminante.R  discriminating-paradigm experiment (Sects. 3.7 and
+│                            4.6 of the manuscript); self-contained, needs nothing else
+├── salida_discriminante/    results of the discriminating paradigm and Fig. 8,
+│                            see salida_discriminante/README.md
 ├── datos_reales/            public human data, see datos_reales/README.md
 ├── datos_ejemplo/           example synthetic data, see datos_ejemplo/README.md
 ├── salida/                  results of the run of the paper, see salida/README.md
@@ -140,7 +154,13 @@ The human data keep the terms of their authors, and the original sources, listed
 
    `correr_todo.R` uses all cores but one; `N_CORES=60 Rscript consciencia_discreta.R` also works. With 63 cores, the run of the paper took 6 hours and 21 minutes (see `salida/progreso.log` and `salida/sesion.txt`). To check that everything runs in a few minutes, without useful results, there is a quick mode: `MODO=rapido Rscript consciencia_discreta.R`. Everything goes to `salida/`.
 
-2. Post hoc analyses and figures of the paper, from `post_hoc/`:
+2. Discriminating paradigm (Sect. 4.6 of the manuscript and Fig. 8), from this folder; it is self-contained (the agent and the knee solutions of the paper are embedded), runs in seconds and writes everything to `salida_discriminante/`; with the `recovery` argument it also repeats the model recovery study on this paradigm (hours on one core):
+
+   ```
+   Rscript experimento_discriminante.R
+   ```
+
+3. Post hoc analyses and figures of the paper, from `post_hoc/`:
 
    ```
    cd post_hoc
@@ -168,7 +188,7 @@ The knees and absences of the paper are the ones in `post_hoc/resultados/`. Ther
 
 ### How to cite
 
-Villalobos-Cid, M., & Baladrón, J. (2026). *Evaluating discrete and continuous conscious access with NSGA-III: a design study contrasted with two-flash fusion data*. Manuscript.
+Villalobos-Cid, M., & Baladrón, J. (2026). *Continuous or discrete access to sensory information? A many-objective design study*. Manuscript.
 
 If you use the human data, please also cite Deodato and Melcher (2024) and Haarlem et al. (2024), as `datos_reales/README.md` indicates.
 

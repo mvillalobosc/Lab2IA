@@ -12,8 +12,10 @@
 ## TikZ diagram (Fig1.tex) that is compiled with pdflatex.
 ##
 ## Uso / usage (desde post_hoc/): Rscript figuras.R [../salida] [.] [figuras] [Fig2 Fig3 ...]
-## Salidas / outputs: figuras/Fig2.pdf a Fig16.pdf (Fig11 a Fig16 son las del
-##   apéndice, que siguen la numeración del texto como pide Springer)
+## Salidas / outputs: figuras/Fig2.pdf a Fig7.pdf y Fig9.pdf a Fig17.pdf, con
+##   la numeración del manuscrito reestructurado (Fig10 a Fig17 son las del
+##   apéndice); la Fig. 1 es el diagrama TikZ (Fig1.tex) y la Fig. 8 la genera
+##   ../experimento_discriminante.R (paradigma discriminante)
 ## ============================================================================
 args <- commandArgs(trailingOnly = TRUE)
 D <- if (length(args) > 0) args[1] else "../salida"      # salidas del servidor
@@ -125,10 +127,10 @@ if (quiere("Fig2")) {
 }
 
 ## ---------------------------------------------------------------------------
-## Fig. 3: validación del optimizador. (a) convergencia, (b) NSGA-III frente a
+## Fig. 11: validación del optimizador. (a) convergencia, (b) NSGA-III frente a
 ## búsqueda aleatoria con el mismo presupuesto
 ## ---------------------------------------------------------------------------
-if (quiere("Fig3")) {
+if (quiere("Fig11")) {
   cv <- leer("validation_convergence_curve.csv"); cc <- leer("validation_convergence_cutoff.csv")
   G <- leer("validation_convergence_chosen_cutoff.csv")$generations_main_runs[1]   # corte de las corridas principales
   cv <- merge(cv, cc[, c("arquitectura", "semilla", "hv_final")])
@@ -158,13 +160,13 @@ if (quiere("Fig3")) {
     labs(x = NULL, y = "validation hypervolume") + guides(fill = "none", shape = "none") +
     tema()
   p <- con_etiquetas((pa / pb) + plot_layout(heights = c(1, 1)))
-  guardar(p, "Fig3.pdf", 174, 118)
+  guardar(p, "Fig11.pdf", 174, 118)
 }
 
 ## ---------------------------------------------------------------------------
-## Fig. 4: frentes validados (agentes funcionales), proyecciones contra el costo
+## Fig. 3: frentes validados (agentes funcionales), proyecciones contra el costo
 ## ---------------------------------------------------------------------------
-if (quiere("Fig4")) {
+if (quiere("Fig3")) {
   fv <- leer("frentes_validados.csv"); fv <- fv[fv$funcional, ]
   REG <- c(limpio = "clean input", rafagas = "bursty input")
   OBJ <- c(error = "error rate", umbral = "fusion threshold (ms)", latencia = "access latency (ms)")
@@ -186,13 +188,13 @@ if (quiere("Fig4")) {
     labs(x = "cost (reads per second, log scale)", y = NULL) +
     guides(fill = guide_legend(nrow = 1, override.aes = list(size = 2, alpha = 1)), shape = guide_legend(nrow = 1), colour = guide_legend(nrow = 1)) +
     tema() + theme(strip.placement = "outside", strip.text.y.left = element_text(angle = 90))
-  guardar(p, "Fig4.pdf", 174, 125)
+  guardar(p, "Fig3.pdf", 174, 125)
 }
 
 ## ---------------------------------------------------------------------------
-## Fig. 5: intervalos entre lecturas en el frente funcional
+## Fig. 4: intervalos entre lecturas en el frente funcional
 ## ---------------------------------------------------------------------------
-if (quiere("Fig5")) {
+if (quiere("Fig4")) {
   fv <- leer("frentes_validados.csv"); fv <- fv[fv$funcional & fv$arquitectura != "continua", ]
   REG <- c(limpio = "clean input", rafagas = "bursty input")
   fv$intervalo <- ifelse(fv$arquitectura == "periodica", fv$T, ifelse(fv$arquitectura == "eventos", fv$r, fv$T_mod))
@@ -215,13 +217,13 @@ if (quiere("Fig5")) {
     scale_x_log10(breaks = c(1, 2, 5, 10, 20, 50, 100, 250)) + scale_y_continuous(expand = c(0, 0), limits = c(0, 108)) +
     labs(x = "interval (ms, log scale); grey band: alpha period, 80 to 125 ms", y = "number of front solutions") +
     guides(fill = "none") + tema()
-  guardar(p, "Fig5.pdf", 174, 72)
+  guardar(p, "Fig4.pdf", 174, 72)
 }
 
 ## ---------------------------------------------------------------------------
-## Fig. 6: sensibilidad. Fracción del frente combinado (agentes funcionales)
+## Fig. 14: sensibilidad. Fracción del frente combinado (agentes funcionales)
 ## ---------------------------------------------------------------------------
-if (quiere("Fig6")) {
+if (quiere("Fig14")) {
   COND <- c(base = "baseline", pulso_5 = "pulse 5 ms", pulso_20 = "pulse 20 ms", ruido_0.4 = "noise 0.4", ruido_0.9 = "noise 0.9", isi_corto = "ISI 5 to 70 ms")
   sf <- leer("sensibilidad_frentes.csv"); sf <- sf[sf$funcional, ]
   desplaz <- ifelse(sf$arquitectura == "continua", 0.86, ifelse(sf$arquitectura == "continua_modulada", 1.16, 1))
@@ -247,13 +249,13 @@ if (quiere("Fig6")) {
     esc_fill + scale_y_continuous(limits = c(0, 0.72), breaks = seq(0, 0.7, 0.1), expand = c(0, 0)) +
     labs(x = NULL, y = "share of the combined front") + guides(fill = "none") + tema()
   p <- con_etiquetas((pa / pb) + plot_layout(heights = c(1.55, 1), guides = "collect") & theme(legend.position = "bottom"))
-  guardar(p, "Fig6.pdf", 174, 150)
+  guardar(p, "Fig14.pdf", 174, 150)
 }
 
 ## ---------------------------------------------------------------------------
-## Fig. 10: ausencias
+## Fig. 9: ausencias
 ## ---------------------------------------------------------------------------
-if (quiere("Fig10")) {
+if (quiere("Fig9")) {
   au <- read.csv(file.path(R, "resultados", "ausencias_corregidas", "ausencias.csv"))
   au$architecture <- arq(au$arquitectura)
   au$condition <- factor(ifelse(au$cambio_sensorial, "sensory change during the gap", "no sensory change"),
@@ -269,7 +271,7 @@ if (quiere("Fig10")) {
     labs(x = NULL, y = "fraction of gaps detected") +
     guides(fill = "none", alpha = guide_legend(nrow = 2, override.aes = list(fill = "#A0A0A0"))) +
     tema() + theme(axis.text.x = element_text(angle = 20, hjust = 1))
-  guardar(p, "Fig10.pdf", 84, 70)
+  guardar(p, "Fig9.pdf", 84, 70)
 }
 
 ## ---------------------------------------------------------------------------
@@ -286,9 +288,9 @@ if (quiere("Fig12")) {
 }
 
 ## ---------------------------------------------------------------------------
-## Fig. 11: parametrización. Rango medio de Friedman por configuración
+## Fig. 10: parametrización. Rango medio de Friedman por configuración
 ## ---------------------------------------------------------------------------
-if (quiere("Fig11")) {
+if (quiere("Fig10")) {
   ta <- read.csv(file.path(R, "estadistica", "A_parametrizacion_rangos.csv"))
   ta$pc <- sub(".*pc=([0-9.]+) .*", "\\1", ta$config); ta$pm <- sub(".*pm=([0-9.]+)", "\\1", ta$config)
   ta$pop <- factor(sprintf("population %d", ta$popSize), levels = sprintf("population %d", c(52, 88, 132)))
@@ -300,13 +302,13 @@ if (quiere("Fig11")) {
     scale_fill_gradient(low = "#A7C7E7", high = "#F7F2EA", name = "mean Friedman rank (lower is better)") +
     labs(x = "crossover probability", y = "mutation probability") +
     guides(fill = guide_colourbar(barwidth = unit(40, "mm"), barheight = unit(2.5, "mm"), title.position = "top")) + tema()
-  guardar(p, "Fig11.pdf", 174, 62)   # parametrización
+  guardar(p, "Fig10.pdf", 174, 62)   # parametrización
 }
 
 ## ---------------------------------------------------------------------------
-## Fig. 16: Haarlem, IAF prestímulo en ensayos correctos e incorrectos
+## Fig. 17: Haarlem, IAF prestímulo en ensayos correctos e incorrectos
 ## ---------------------------------------------------------------------------
-if (quiere("Fig16")) {
+if (quiere("Fig17")) {
   suppressPackageStartupMessages(library(readxl))
   b <- as.data.frame(read_excel(file.path(R, "..", "datos_reales", "haarlem_2024", "iaf_longformat.xlsx")))
   l <- rbind(data.frame(sensor = "sensor C16", cond = b$Condition, t = b$Time, iaf = b$C16, se = b$C16_SE),
@@ -318,13 +320,13 @@ if (quiere("Fig16")) {
     geom_line(linewidth = 0.45) + facet_wrap(~ sensor) +
     scale_colour_manual(values = pal2, name = NULL) + scale_fill_manual(values = pal, name = NULL) +
     labs(x = "time relative to stimulus onset (ms)", y = "instantaneous alpha frequency (Hz)") + tema()
-  guardar(p, "Fig16.pdf", 174, 62)   # IAF prestímulo de Haarlem
+  guardar(p, "Fig17.pdf", 174, 62)   # IAF prestímulo de Haarlem
 }
 
 ## ---------------------------------------------------------------------------
-## Fig. 14: periodo ajustado contra 1000/IAF en los datos sintéticos
+## Fig. 15: periodo ajustado contra 1000/IAF en los datos sintéticos
 ## ---------------------------------------------------------------------------
-if (quiere("Fig14")) {
+if (quiere("Fig15")) {
   ap <- leer("ajuste_participantes.csv")
   per <- ap[ap$arquitectura %in% c("periodica", "continua_modulada") & grepl("^sintetico", ap$dataset), ]
   per$periodo <- ifelse(per$arquitectura == "periodica", per$T_ajustado, per$T_mod_ajustado)
@@ -338,14 +340,14 @@ if (quiere("Fig14")) {
     scale_fill_manual(values = FILL, name = "generator") + scale_shape_manual(values = SHAPE, name = "generator") +
     scale_y_log10() + labs(x = "1000 / IAF of the synthetic participant (ms)", y = "fitted period (ms, log scale)") +
     guides(fill = guide_legend(nrow = 1), shape = guide_legend(nrow = 1)) + tema()
-  guardar(p, "Fig14.pdf", 174, 66)   # periodo ajustado en datos sintéticos
+  guardar(p, "Fig15.pdf", 174, 66)   # periodo ajustado en datos sintéticos
 }
 
 ## ---------------------------------------------------------------------------
-## Fig. 7: identificabilidad. (a) matriz de recuperación, (b) mimetismo,
+## Fig. 5: identificabilidad. (a) matriz de recuperación, (b) mimetismo,
 ## (c) arquitectura con menor AIC en Deodato y Melcher con las dos lecturas
 ## ---------------------------------------------------------------------------
-if (quiere("Fig7")) {
+if (quiere("Fig5")) {
   ABR <- c(continuous = "C", "event" = "E", "modulated continuous" = "M", periodic = "P")
   rc <- leer("recuperacion_modelos.csv"); rc4 <- leer("recuperacion_modelos_margen4.csv")
   GEN <- c(sintetico_continua = "continua", sintetico_eventos = "eventos", sintetico_continua_modulada = "continua_modulada", sintetico_periodica = "periodica")
@@ -393,14 +395,14 @@ if (quiere("Fig7")) {
     labs(x = "lowest AIC", y = "participants") +
     guides(fill = "none", alpha = guide_legend(ncol = 1, title.position = "top", override.aes = list(fill = "#A0A0A0"))) + tema()
   p <- con_etiquetas((pa | pb | pc) + plot_layout(widths = c(0.95, 1.05, 1.0)))
-  guardar(p, "Fig7.pdf", 174, 78)
+  guardar(p, "Fig5.pdf", 174, 78)
 }
 
 ## ---------------------------------------------------------------------------
-## Fig. 8: curvas psicométricas de Deodato y Melcher (ISI como pausa) y las
+## Fig. 6: curvas psicométricas de Deodato y Melcher (ISI como pausa) y las
 ## de cada arquitectura con sus parámetros ajustados
 ## ---------------------------------------------------------------------------
-if (quiere("Fig8")) {
+if (quiere("Fig6")) {
   suppressMessages(source(file.path(R, "cargar_funciones.R"), encoding = "UTF-8", chdir = TRUE))
   dm <- normalizar_datos(read.csv(file.path(R, "..", "datos_reales", "deodato_melcher_2024", "deodato_melcher_2024_ensayos.csv")))
   dm <- dm[dm$incluido == 1, ]
@@ -431,14 +433,14 @@ if (quiere("Fig8")) {
     esc_col + esc_fill + esc_shape + scale_y_continuous(limits = c(0, 1)) + scale_x_continuous(breaks = isis_rep) +
     labs(x = "ISI, blank gap between flashes (ms)", y = "P(\"two\" response)") +
     guides(colour = guide_legend(nrow = 2), fill = guide_legend(nrow = 2), shape = guide_legend(nrow = 2)) + tema()
-  guardar(p, "Fig8.pdf", 84, 80)
+  guardar(p, "Fig6.pdf", 84, 80)
 }
 
 ## ---------------------------------------------------------------------------
-## Fig. 9: Haarlem. Cota inferior del umbral de un lector periódico en el
+## Fig. 7: Haarlem. Cota inferior del umbral de un lector periódico en el
 ## paradigma de los autores y umbrales observados en su periodo alfa
 ## ---------------------------------------------------------------------------
-if (quiere("Fig9")) {
+if (quiere("Fig7")) {
   cota <- read.csv(file.path(R, "resultados", "cota_haarlem_final.csv")); cota <- cota[!cota$censurado, ]
   hp <- leer("haarlem_participantes.csv")
   hp$T_max <- approx(cota$umbral_cota, cota$T, xout = hp$umbral_ms, ties = max, rule = 2)$y
@@ -467,13 +469,13 @@ if (quiere("Fig9")) {
     labs(x = "period (ms)", y = "participant") +
     guides(fill = guide_legend(nrow = 2), shape = guide_legend(nrow = 2)) + tema() + theme(axis.text.y = element_blank(), axis.ticks.y = element_blank())
   p <- con_etiquetas((pa | pb) + plot_layout(widths = c(1.25, 1)))
-  guardar(p, "Fig9.pdf", 174, 82)
+  guardar(p, "Fig7.pdf", 174, 82)
 }
 
 ## ---------------------------------------------------------------------------
-## Fig. 15: Deodato y Melcher (ISI como pausa), AIC relativo por participante
+## Fig. 16: Deodato y Melcher (ISI como pausa), AIC relativo por participante
 ## ---------------------------------------------------------------------------
-if (quiere("Fig15")) {
+if (quiere("Fig16")) {
   aj <- read.csv(file.path(R, "resultados", "ajuste_deodato_pausa.csv"))
   aj$architecture <- arq(aj$arquitectura)
   p <- ggplot(aj, aes(participante, pmin(delta_aic, 60), fill = architecture)) +
@@ -481,7 +483,7 @@ if (quiere("Fig15")) {
     esc_fill + scale_y_continuous(expand = c(0, 0), limits = c(0, 61)) +
     labs(x = "participant", y = "AIC minus the lowest AIC of the participant\n(truncated at 60)") +
     guides(fill = guide_legend(nrow = 1)) + tema() + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, size = 8))
-  guardar(p, "Fig15.pdf", 174, 66)   # AIC por participante
+  guardar(p, "Fig16.pdf", 174, 66)   # AIC por participante
 }
 
 ## ---------------------------------------------------------------------------

@@ -1,0 +1,37 @@
+"architecture","soa","p_two"
+"continuous",12,0.26
+"continuous",15,0.706666666666667
+"continuous",18,0.92
+"continuous",21,0.906666666666667
+"continuous",25,0.94
+"continuous",30,0.933333333333333
+"continuous",40,0.92
+"continuous",60,0.906666666666667
+"continuous",90,0.933333333333333
+"modulated continuous",12,0.18
+"modulated continuous",15,0.586666666666667
+"modulated continuous",18,0.846666666666667
+"modulated continuous",21,0.906666666666667
+"modulated continuous",25,0.933333333333333
+"modulated continuous",30,0.906666666666667
+"modulated continuous",40,0.9
+"modulated continuous",60,0.88
+"modulated continuous",90,0.906666666666667
+"periodic",12,0.473333333333333
+"periodic",15,0.493333333333333
+"periodic",18,0.54
+"periodic",21,0.593333333333333
+"periodic",25,0.68
+"periodic",30,0.76
+"periodic",40,0.92
+"periodic",60,0.893333333333333
+"periodic",90,0.933333333333333
+"event",12,0.34
+"event",15,0.846666666666667
+"event",18,0.833333333333333
+"event",21,0.853333333333333
+"event",25,0.88
+"event",30,0.873333333333333
+"event",40,0.853333333333333
+"event",60,0.84
+"event",90,0.84
