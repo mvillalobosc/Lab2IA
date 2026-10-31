@@ -21,7 +21,11 @@ args <- commandArgs(trailingOnly = TRUE)
 D <- if (length(args) > 0) args[1] else "../salida"
 O <- if (length(args) > 1) args[2] else "estadistica"
 dir.create(O, showWarnings = FALSE)
-suppressPackageStartupMessages({ library(ecr) })
+## Hipervolumen exacto con ecr (CRAN) o, si no está, con emoa, igual que el
+## script principal / exact hypervolume with ecr or, failing that, emoa.
+HV <- if (requireNamespace("ecr", quietly = TRUE)) function(P, ref) ecr::computeHV(P, ref.point = ref) else
+  if (requireNamespace("emoa", quietly = TRUE)) function(P, ref) emoa::dominated_hypervolume(P, ref = ref) else
+  stop("Instala ecr o emoa para el hipervolumen / install ecr or emoa for the hypervolume")
 sink(file.path(O, "resumen.txt"), split = TRUE)
 leer <- function(f) {   # admite el .csv.gz del repositorio
   ruta <- file.path(D, f); if (!file.exists(ruta) && file.exists(paste0(ruta, ".gz"))) ruta <- paste0(ruta, ".gz")
@@ -35,7 +39,11 @@ cat("=====================================================================\n")
 cat("A. Parametrización: Friedman con bloques = arquitectura x semilla\n")
 cat("=====================================================================\n")
 pr <- leer("validation_parametrisation_runs.csv")
-pr$config <- sprintf("N=%d pc=%.1f pm=%.2f", pr$popSize, pr$pcrossover, pr$pmutation)
+## Desde la corrida del 24-10 la parametrización cruza 27 configuraciones
+## numéricas con 9 pares de operadores (243 configuraciones) / since the run of
+## 24-10 the parametrisation crosses 27 numerical settings with 9 operator pairs.
+pr$par <- paste(pr$cruce_operador, pr$mutacion_operador, sep = "+")
+pr$config <- sprintf("N=%d pc=%.1f pm=%.2f %s", pr$popSize, pr$pcrossover, pr$pmutation, pr$par)
 pr$bloque <- paste(pr$arquitectura, pr$semilla)
 M <- with(pr, tapply(hv_validacion, list(bloque, config), mean))
 cat("bloques:", nrow(M), " configuraciones:", ncol(M), "\n")
@@ -56,7 +64,7 @@ write.csv(tabA, file.path(O, "A_parametrizacion_rangos.csv"), row.names = FALSE)
 ## configuración elegida por el script principal (primera fila del resumen,
 ## ordenado por hipervolumen mediano)
 ps <- leer("validation_parametrisation_summary.csv")
-elegida <- sprintf("N=%d pc=%.1f pm=%.2f", ps$popSize[1], ps$pcrossover[1], ps$pmutation[1])
+elegida <- sprintf("N=%d pc=%.1f pm=%.2f %s+%s", ps$popSize[1], ps$pcrossover[1], ps$pmutation[1], ps$cruce_operador[1], ps$mutacion_operador[1])
 cat("\nElegida en el servidor (mediana):", elegida, " rango medio:", round(rmed[elegida], 2),
     " posición:", which(names(rmed) == elegida), " p Holm vs mejor:", signif(ph[elegida], 3), "\n")
 cat("Configuraciones distinguibles de la mejor (Holm < 0.05):", sum(ph < 0.05, na.rm = TRUE), "de", length(ph) - 1, "\n")
@@ -67,6 +75,13 @@ print(tapply(tabA$rango_medio, tabA$popSize, mean))
 k <- ncol(M); n <- nrow(M)
 W <- unname(ft$statistic) / (n * (k - 1))
 cat("Kendall W =", round(W, 3), "\n")
+## efecto de los operadores por separado: Friedman sobre la media de las 27
+## configuraciones numéricas de cada par / operator effect: Friedman over the
+## mean of the 27 numerical settings of each pair
+cat("\nFriedman sobre los 9 pares de operadores (media de sus 27 configuraciones):\n")
+Mo <- sapply(split(colnames(M), sub(".* ", "", colnames(M))), function(cc) rowMeans(M[, cc, drop = FALSE]))
+print(friedman.test(Mo))
+cat("rango medio por par de operadores (bloques):\n"); print(sort(colMeans(t(apply(-Mo, 1, rank)))))
 ## efecto del tamaño de población por separado: Friedman sobre la media por tamaño
 Mp <- sapply(split(colnames(M), sub(" .*", "", colnames(M))), function(cc) rowMeans(M[, cc, drop = FALSE]))
 print(friedman.test(Mp))
@@ -161,7 +176,7 @@ hv_fijo <- function(F) {
   M <- as.matrix(F[, OBJ]); if (nrow(M) == 0) return(0)
   M[, "costo"] <- log10(pmax(M[, "costo"], 1))
   Z <- pmin(pmax(sweep(M, 2, REF, "/"), 0), 1)
-  ecr::computeHV(t(Z), ref.point = rep(1.1, 4))
+  HV(t(Z), rep(1.1, 4))
 }
 das_dennis <- function(M, p) {
   g <- expand.grid(rep(list(0:p), M - 1)); g <- g[rowSums(g) <= p, , drop = FALSE]

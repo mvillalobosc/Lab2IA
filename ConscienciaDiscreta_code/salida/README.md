@@ -4,20 +4,21 @@
 
 ## Español
 
-Resultados de la corrida del artículo (`Rscript correr_todo.R` en un servidor Linux con 63 núcleos, 21 de octubre de 2026, 6 horas y 21 minutos). `consciencia_discreta.R` escribe aquí todo lo que produce; una corrida nueva sobrescribe estos archivos. En los nombres de columna, `continua`, `continua_modulada`, `periodica` y `eventos` son las cuatro arquitecturas, y `limpio` y `rafagas` son los regímenes de entrada sin y con distractores.
+Resultados de la corrida del artículo en un servidor Linux con 63 núcleos. La parametrización y la prueba de convergencia (etapas 0a y 0b) corrieron el 23 de octubre de 2026 (`progreso_0a_0b_2026-10-23.log`); esa corrida se interrumpió y `consciencia_discreta_reanudar.R` importó sus resultados y corrió el resto el 24 de octubre en 4 horas y 46 minutos (`progreso.log`). Esta carpeta es el contenido de la carpeta `salida_consciencia_NSGAIII_20261024_205905_1208640` que dejó esa corrida; `checkpoint_0a_*.csv` y `checkpoint_0c_0d/` son los puntos de control que el script guarda para poder reanudar. En los nombres de columna, `continua`, `continua_modulada`, `periodica` y `eventos` son las cuatro arquitecturas, y `limpio` y `rafagas` son los regímenes de entrada sin y con distractores.
 
 **Validación del optimizador (régimen limpio)**
 
 | Archivo | Contenido |
 | --- | --- |
-| `validation_parametrisation_runs.csv` | Las 324 corridas de la parametrización (27 configuraciones, 4 arquitecturas y 3 semillas): configuración, hipervolumen de validación, tamaño del frente y minutos. |
+| `validation_parametrisation_runs.csv` | Las 2916 corridas de la parametrización (243 configuraciones: 27 numéricas por 9 pares de operadores de cruce y mutación, 4 arquitecturas y 3 semillas): configuración, hipervolumen de validación, tamaño del frente y minutos. |
+| `validation_parametrisation_winner.csv`, `validation_parametrisation_partial.csv` | Configuración elegida (BLX-alfa con mutación gaussiana, N = 132, pc = 0,9, pm = 0,05) y registro parcial de la parametrización. |
 | `validation_parametrisation_summary.csv` | Hipervolumen mediano y medio por configuración, ordenado de mayor a menor; la primera fila es la configuración elegida. |
 | `validation_convergence_curve.csv` | Hipervolumen del primer frente (banco de entrenamiento) en cada una de las 1500 generaciones de las 44 corridas largas, y su máximo acumulado. |
 | `validation_convergence_cutoff.csv` | Por corrida larga, el hipervolumen final y las generaciones en que llega al 95 %, 99 % y 99,9 % de él. |
 | `validation_convergence_chosen_cutoff.csv` | Regla del corte: mediana de la generación del 99 %, margen, mínimo (1000) y generaciones de las corridas principales. |
 | `validation_seed_runs.csv` | Hipervolumen de validación, tamaño del frente y minutos de las 11 semillas de NSGA-III y de la búsqueda aleatoria por arquitectura. |
 | `validation_seed_summary.csv` | Media, desviación, mínimo, mediana y máximo de ese hipervolumen por método y arquitectura. |
-| `validation_seed_fronts.csv.gz` | Frentes validados de esas 88 corridas (comprimido; unos 60 MB sin comprimir). |
+| `validation_seed_fronts.csv.gz` | Frentes validados de esas 88 corridas (comprimido). `validation_seed_fronts_NSGAIII_temporal.csv` y `validation_seed_runs_NSGAIII_temporal.csv` son los registros parciales de NSGA-III que el script escribe mientras corre. |
 | `validation_seed_combined_front.csv` | Fracción del frente combinado de cada arquitectura en cada semilla (NSGA-III). |
 | `validation_tests.csv` | Wilcoxon pareado por semilla entre NSGA-III y la búsqueda aleatoria en cada arquitectura, con la cobertura entre ambos métodos, y entre pares de arquitecturas con NSGA-III. |
 
@@ -58,20 +59,21 @@ Resultados de la corrida del artículo (`Rscript correr_todo.R` en un servidor L
 
 ## English
 
-Results of the run of the paper (`Rscript correr_todo.R` on a Linux server with 63 cores, 21 October 2026, 6 hours and 21 minutes). `consciencia_discreta.R` writes everything it produces here; a new run overwrites these files. In column values, `continua`, `continua_modulada`, `periodica` and `eventos` are the four architectures (continuous, modulated continuous, periodic and event readers), and `limpio` and `rafagas` are the input regimes without and with distractors (clean and bursty).
+Results of the run of the paper on a Linux server with 63 cores. The parametrisation and the convergence test (stages 0a and 0b) ran on 23 October 2026 (`progreso_0a_0b_2026-10-23.log`); that run was interrupted, and `consciencia_discreta_reanudar.R` imported its results and ran the rest on 24 October in 4 hours and 46 minutes (`progreso.log`). This folder is the content of the folder `salida_consciencia_NSGAIII_20261024_205905_1208640` left by that run; `checkpoint_0a_*.csv` and `checkpoint_0c_0d/` are the checkpoints the script saves to be able to resume. In column values, `continua`, `continua_modulada`, `periodica` and `eventos` are the four architectures (continuous, modulated continuous, periodic and event readers), and `limpio` and `rafagas` are the input regimes without and with distractors (clean and bursty).
 
 **Validation of the optimiser (clean regime)**
 
 | File | Content |
 | --- | --- |
-| `validation_parametrisation_runs.csv` | The 324 runs of the parametrisation (27 configurations, 4 architectures and 3 seeds): configuration, validation hypervolume, front size and minutes. |
+| `validation_parametrisation_runs.csv` | The 2916 runs of the parametrisation (243 configurations: 27 numerical ones times 9 pairs of crossover and mutation operators, 4 architectures and 3 seeds): configuration, validation hypervolume, front size and minutes. |
+| `validation_parametrisation_winner.csv`, `validation_parametrisation_partial.csv` | Selected configuration (BLX-alpha with Gaussian mutation, N = 132, pc = 0.9, pm = 0.05) and partial log of the parametrisation. |
 | `validation_parametrisation_summary.csv` | Median and mean hypervolume per configuration, sorted from highest to lowest; the first row is the selected configuration. |
 | `validation_convergence_curve.csv` | Hypervolume of the first front (training bank) at each of the 1500 generations of the 44 long runs, and its running maximum. |
 | `validation_convergence_cutoff.csv` | For each long run, the final hypervolume and the generations at which it reaches 95%, 99% and 99.9% of it. |
 | `validation_convergence_chosen_cutoff.csv` | Cutoff rule: median generation of 99%, margin, minimum (1000) and generations of the main runs. |
 | `validation_seed_runs.csv` | Validation hypervolume, front size and minutes of the 11 seeds of NSGA-III and of random search per architecture. |
 | `validation_seed_summary.csv` | Mean, standard deviation, minimum, median and maximum of that hypervolume per method and architecture. |
-| `validation_seed_fronts.csv.gz` | Validated fronts of those 88 runs (gzipped; about 60 MB uncompressed). |
+| `validation_seed_fronts.csv.gz` | Validated fronts of those 88 runs (gzipped). `validation_seed_fronts_NSGAIII_temporal.csv` and `validation_seed_runs_NSGAIII_temporal.csv` are the partial NSGA-III logs the script writes while running. |
 | `validation_seed_combined_front.csv` | Share of the combined front of each architecture in each seed (NSGA-III). |
 | `validation_tests.csv` | Paired Wilcoxon tests per seed between NSGA-III and random search in each architecture, with the coverage between both methods, and between pairs of architectures with NSGA-III. |
 

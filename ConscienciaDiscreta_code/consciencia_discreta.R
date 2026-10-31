@@ -47,9 +47,9 @@
 ## para sacar conclusiones. Las corridas se reparten enteras entre los núcleos
 ## (cada una secuencial por dentro), y cada corrida terminada deja una línea
 ## con la hora en salida/progreso.log. Con unos 60 núcleos, la corrida
-## completa debería tomar entre 7 y 8 horas, según el corte que fije la prueba
-## de convergencia. Todo queda en la carpeta ./salida (tablas CSV, objetos RDS
-## y figuras PNG).
+## completa puede requerir varias horas. Para EVITAR SOBRESCRITURAS cada
+## corrida crea una carpeta nueva salida_consciencia_NSGAIII_FECHA_PID con
+## tablas CSV, objetos RDS y figuras PNG. La carpeta salida original no se toca.
 ##
 ## Manuel Villalobos Cid, DIINF USACH, octubre 2026.
 ## Financiamiento a reportar: ANID FONDECYT 1261239 y Anillo ACT250038.
@@ -240,8 +240,139 @@ CFG <- list(
   ## Demostración de ausencias (pregunta 3)
   ausencias = list(n_ensayos = 200, T_ensayo = 1500, hueco = 300,
                    hueco_min = 400, hueco_max = 900, amp_escalon = 0.6),
-  carpeta = "salida"
+  ## Salida EXCLUSIVA de esta ejecución. Nunca reutilizar carpetas previas.
+  carpeta = "salida"  # valor histórico, reemplazado inmediatamente abajo
 )
+## --- Diseño factorial de operadores NSGA-III (3 cruces x 3 mutaciones) ---
+## Tres operadores DISTINTOS, compatibles con representación real.
+CFG$validacion$parametrizacion$popSize <- c(66L, 84L, 132L)
+CFG$validacion$parametrizacion$n_partitions <- c(5L, 6L, 7L)
+CFG$validacion$parametrizacion$cruces <- c("sbx", "unpunto", "blx")
+CFG$validacion$parametrizacion$mutaciones <- c("polinomial", "reinicio", "gaussiana")
+## Presupuesto corto = 66*(153+1) = 84*(120+1) = 132*(76+1) = 10164.
+CFG$validacion$parametrizacion$presupuesto_nominal <- 10164L
+## Principal = 66*(2001+1) = 84*(1572+1) = 132*(1000+1) = 132132.
+CFG$validacion$presupuesto_principal <- 132132L
+CFG$cruce_operador <- "sbx"
+CFG$mutacion_operador <- "polinomial"
+
+resolver_operador_real <- function(sufijo) {
+  ns <- asNamespace("rmoo")
+  for (nm in c(paste0("rmooreal_", sufijo), paste0("nsgareal_", sufijo))) {
+    if (exists(nm, envir = ns, inherits = FALSE))
+      return(get(nm, envir = ns, inherits = FALSE))
+  }
+  stop("No existe el operador de rmoo: ", sufijo)
+}
+
+## BLX-alpha con alpha=0.5, cruce de dos padres reales y respeto de cotas.
+## La salida conserva el contrato rmoo: hijos 2 x nVars, fitness 2 x nObj.
+cruce_blx <- function(object, parents) {
+  pop <- object@population
+  P <- if (is.matrix(parents) && nrow(parents) == 2L && ncol(parents) == ncol(pop))
+    parents else pop[as.integer(parents), , drop = FALSE]
+  if (nrow(P) != 2L) stop("BLX requiere exactamente dos padres")
+  bajo <- pmin(P[1, ], P[2, ])
+  alto <- pmax(P[1, ], P[2, ])
+  paso <- alto - bajo
+  minimo <- pmax(as.numeric(object@lower), bajo - 0.5 * paso)
+  maximo <- pmin(as.numeric(object@upper), alto + 0.5 * paso)
+  hijos <- rbind(stats::runif(length(minimo), minimo, maximo),
+                 stats::runif(length(minimo), minimo, maximo))
+  list(children = hijos, fitness = matrix(NA_real_, 2L, ncol(object@fitness)))
+}
+
+## Mutación gaussiana por gen, escala relativa 10% del rango admisible.
+mutacion_gaussiana <- function(object, parent) {
+  pop <- object@population
+  n <- ncol(pop)
+  v <- if (length(parent) == 1L && n > 1L)
+    as.numeric(pop[as.integer(parent), ]) else as.numeric(parent)
+  if (length(v) != n) stop("La mutación gaussiana recibió un padre inválido")
+  mask <- stats::runif(n) < 0.5
+  if (!any(mask)) mask[sample.int(n, 1L)] <- TRUE
+  rangos <- as.numeric(object@upper) - as.numeric(object@lower)
+  v[mask] <- v[mask] + stats::rnorm(sum(mask), sd = 0.10 * rangos[mask])
+  pmax(as.numeric(object@lower), pmin(as.numeric(object@upper), v))
+}
+
+operadores_para_configuracion <- function(cfg) {
+  cr <- cfg$cruce_operador
+  mu <- cfg$mutacion_operador
+  if (!cr %in% c("sbx", "unpunto", "blx") ||
+      !mu %in% c("polinomial", "reinicio", "gaussiana"))
+    stop("Operadores desconocidos: ", cr, " + ", mu)
+  ## La combinación original utiliza EXACTAMENTE los defaults de rmoo.
+  if (identical(cr, "sbx") && identical(mu, "polinomial")) return(list())
+  cru <- switch(cr,
+                sbx = resolver_operador_real("sbxCrossover"),
+                unpunto = resolver_operador_real("spCrossover"),
+                blx = cruce_blx)
+  mut <- switch(mu,
+                polinomial = resolver_operador_real("polMutation"),
+                reinicio = resolver_operador_real("raMutation"),
+                gaussiana = mutacion_gaussiana)
+  list(crossover = cru, mutation = mut)
+}
+
+## Verificación de interfaz de las 9 parejas antes de lanzar 2916 corridas.
+## Usa una función de prueba, no datos del experimento ni presupuestos principales.
+preflight_operadores <- function(cfg) {
+  ## rmoo::nsga3 añade internamente reference_dirs a los argumentos de fitness.
+  ## El test también debe aceptar ...; el fitness real ya lo hace.
+  f_prueba <- function(x, ...) c(sum(x^2), sum((x - 1)^2), x[1], 1 - x[2])
+  cruces <- cfg$validacion$parametrizacion$cruces
+  mutaciones <- cfg$validacion$parametrizacion$mutaciones
+  cat("Verificando operadores de rmoo (9 combinaciones, coste despreciable)...\n")
+  for (cr in cruces) for (mu in mutaciones) {
+    par <- cfg
+    par$cruce_operador <- cr
+    par$mutacion_operador <- mu
+    argumentos <- list(type = "real-valued", fitness = f_prueba,
+                       lower = c(0, 0, 0), upper = c(1, 1, 1),
+                       popSize = 36L, nObj = 4L, n_partitions = 4L,
+                       pcrossover = 0.8, pmutation = 0.5, maxiter = 2L,
+                       monitor = FALSE, seed = 20261023L, parallel = FALSE)
+    test <- tryCatch(do.call(nsga3, c(argumentos, operadores_para_configuracion(par))),
+                     error = function(e) stop(sprintf("Error en operadores %s + %s: %s",
+                                                    cr, mu, conditionMessage(e))))
+    if (!is.matrix(test@population) || nrow(test@population) != 36L ||
+        !is.matrix(test@fitness) || ncol(test@fitness) != 4L ||
+        any(!is.finite(test@fitness)))
+      stop("Preflight con dimensiones o fitness inválidos: ", cr, " + ", mu)
+    cat("[OK] ", cr, " + ", mu, "\n", sep = "")
+  }
+}
+
+## Presupuesto NOMINAL exacto con generaciones enteras para NSGA-III.
+## Si alguna población no permite ese presupuesto, detener ANTES de ejecutar.
+generaciones_con_presupuesto <- function(poblacion, presupuesto) {
+  N <- as.integer(poblacion); B <- as.integer(presupuesto)
+  if (!is.finite(N) || !is.finite(B) || N <= 0L || B <= N || B %% N != 0L)
+    stop("Presupuesto ", B, " incompatible con población ", N,
+         ". Cada candidato DEBE usar exactamente el mismo presupuesto nominal.")
+  G <- as.integer(B / N - 1L)
+  stopifnot(N * (G + 1L) == B)
+  G
+}
+
+## El script original escribía en "salida" y podía sobrescribir resultados.
+## Aquí cada ejecución usa un directorio nuevo sin tocar "salida" ni otros trabajos.
+SALIDA_SOLICITADA <- Sys.getenv("CONSCIENCIA_SALIDA", "")
+if (!nzchar(SALIDA_SOLICITADA)) {
+  SALIDA_SOLICITADA <- paste0("salida_consciencia_NSGAIII_",
+                             format(Sys.time(), "%Y%m%d_%H%M%S"),
+                             "_", Sys.getpid())
+}
+CFG$carpeta <- SALIDA_SOLICITADA
+if (file.exists(CFG$carpeta)) {
+  stop("PROTECCIÓN: la carpeta de salida ya existe; no se escribirá nada: ",
+       normalizePath(CFG$carpeta, winslash = "/", mustWork = TRUE))
+}
+if (!dir.create(CFG$carpeta, recursive = FALSE, showWarnings = FALSE))
+  stop("No se pudo crear una carpeta NUEVA de resultados: ", CFG$carpeta)
+cat("CARPETA NUEVA DE RESULTADOS: ",
+    normalizePath(CFG$carpeta, winslash = "/"), "\n", sep = "")
 
 if (MODO_RAPIDO) {
   CFG$regimenes <- CFG$regimenes["limpio"]
@@ -269,7 +400,7 @@ if (.Platform$OS.type == "windows" && CFG$n_cores > 1) {
   message("Windows no soporta el paralelismo multicore de este script; se usa un núcleo.")
   CFG$n_cores <- 1L
 }
-dir.create(CFG$carpeta, showWarnings = FALSE)
+## La carpeta NUEVA se ha creado y verificado antes del modo rápido.
 RNGkind("L'Ecuyer-CMRG")
 
 ## ============================================================================
@@ -559,6 +690,17 @@ no_dominados <- function(F) {
   keep
 }
 
+## Archivo justo: conservar únicamente una copia de cada vector de objetivos
+## del banco de entrenamiento y luego filtrar dominancia. El índice se aplica
+## simultáneamente a los parámetros evaluados. No utiliza el banco de validación.
+indices_frente_train <- function(F) {
+  F <- as.matrix(F)
+  if (nrow(F) == 0L) return(integer(0))
+  if (any(!is.finite(F))) stop("Objetivos no finitos en archivo de entrenamiento")
+  unicos <- which(!duplicated(as.data.frame(F)))
+  unicos[no_dominados(F[unicos, , drop = FALSE])]
+}
+
 ## Una corrida de NSGA-III. La semilla fija tanto el optimizador como el banco
 ## de entrenamiento (la instancia del problema), así que corridas con semillas
 ## distintas difieren en las dos cosas: eso es lo que se quiere al medir
@@ -569,11 +711,41 @@ no_dominados <- function(F) {
 ## Con registrar = TRUE se guarda, en cada generación, el hipervolumen exacto
 ## del primer frente (punto de referencia fijo) usando el gancho "monitor" de
 ## rmoo. El monitor no toca el generador aleatorio.
-correr_nsga <- function(arq, regimen, semilla, cfg, banco_fijo = FALSE, registrar = FALSE) {
+correr_nsga <- function(arq, regimen, semilla, cfg, banco_fijo = FALSE,
+                        registrar = FALSE, registrar_archivo = FALSE) {
   banco_train <- crear_banco(cfg$n_un_pulso_train, cfg$n_por_isi_train, cfg, regimen,
                              semilla = if (banco_fijo) 1000 + cfg$semillas[1] else 1000 + semilla)
   co <- cotas_arq(arq, cfg)
   traza <- new.env(); traza$hv <- numeric(0)
+  ## Registro de evaluaciones REALES. rmoo puede reutilizar fitness si el
+  ## individuo no cambia. No equivale a popSize * (maxiter + 1).
+  auditor <- new.env(parent = emptyenv())
+  auditor$n <- 0L
+  if (registrar_archivo) {
+    capacidad <- as.integer(cfg$popSize * (cfg$maxiter + 1L))
+    if (is.na(capacidad) || capacidad < 1L)
+      stop("Capacidad inicial inválida para el registro NSGA-III")
+    auditor$P <- matrix(NA_real_, capacidad, length(co$lower))
+    auditor$F <- matrix(NA_real_, capacidad, cfg$nObj)
+    fitness_auditado <- function(x, ...) {
+      f <- fitness_nsga(x, ...)
+      siguiente <- auditor$n + 1L
+      if (length(x) != ncol(auditor$P) || length(f) != ncol(auditor$F))
+        stop("Dimensiones inesperadas en la evaluación de NSGA-III")
+      if (any(!is.finite(f))) stop("Fitness no finito en NSGA-III")
+      if (siguiente > nrow(auditor$P)) {
+        nuevo <- max(siguiente, as.integer(ceiling(nrow(auditor$P) * 1.5)))
+        auditor$P <- rbind(auditor$P, matrix(NA_real_, nuevo - nrow(auditor$P), ncol(auditor$P)))
+        auditor$F <- rbind(auditor$F, matrix(NA_real_, nuevo - nrow(auditor$F), ncol(auditor$F)))
+      }
+      auditor$n <- siguiente
+      auditor$P[siguiente, ] <- as.numeric(x)
+      auditor$F[siguiente, ] <- as.numeric(f)
+      f
+    }
+  } else {
+    fitness_auditado <- fitness_nsga
+  }
   monitor <- if (registrar) {
     function(object, ...) {
       Fg <- object@fitness[object@f[[1]], , drop = FALSE]
@@ -582,19 +754,31 @@ correr_nsga <- function(arq, regimen, semilla, cfg, banco_fijo = FALSE, registra
     }
   } else FALSE
   t0 <- Sys.time()
-  res <- nsga3(type = "real-valued", fitness = fitness_nsga,
+  ## La única modificación de NSGA-III es la pareja de operadores.
+  ## Objetivos, bancos de ensayos, semillas, población y generaciones intactos.
+  argumentos_nsga <- list(type = "real-valued", fitness = fitness_auditado,
                arq = arq, banco = banco_train, cfg = cfg,
                lower = co$lower, upper = co$upper,
                popSize = cfg$popSize, nObj = cfg$nObj, n_partitions = cfg$n_partitions,
                pcrossover = cfg$pcrossover, pmutation = cfg$pmutation,
                maxiter = cfg$maxiter, monitor = monitor, seed = semilla,
-               parallel = if (cfg$n_cores > 1) cfg$n_cores else FALSE)
+               parallel = if (registrar_archivo) FALSE else if (cfg$n_cores > 1) cfg$n_cores else FALSE)
+  res <- do.call(nsga3, c(argumentos_nsga, operadores_para_configuracion(cfg)))
   dur <- as.numeric(difftime(Sys.time(), t0, units = "mins"))
-  list(res = res, arq = arq, regimen = regimen, semilla = semilla, minutos = dur, hv_por_generacion = traza$hv)
+  archivo <- if (registrar_archivo) {
+    if (auditor$n < 1L) stop("No se registró ninguna evaluación de NSGA-III")
+    P <- auditor$P[seq_len(auditor$n), , drop = FALSE]
+    F <- auditor$F[seq_len(auditor$n), , drop = FALSE]
+    idx <- indices_frente_train(F)
+    list(population = P[idx, , drop = FALSE], fitness = F[idx, , drop = FALSE])
+  } else NULL
+  list(res = res, archivo = archivo, n_evaluaciones = if (registrar_archivo) auditor$n else NA_integer_,
+       arq = arq, regimen = regimen, semilla = semilla, minutos = dur, hv_por_generacion = traza$hv)
 }
 
-## Búsqueda aleatoria con el mismo presupuesto de evaluaciones que una corrida
-## de NSGA-III (popSize x (maxiter + 1)): muestreo uniforme en el espacio de
+## Búsqueda aleatoria con el presupuesto NOMINAL ORIGINAL por corrida,
+## popSize * (maxiter + 1). NO se ajusta según las llamadas registradas a fitness.
+## Muestreo uniforme en el espacio de
 ## búsqueda (escala log para los parámetros temporales, como NSGA-III), se
 ## evalúa todo y se devuelve el frente no dominado. Es la línea base que
 ## responde si NSGA-III aporta algo sobre muestrear al azar.
@@ -609,11 +793,13 @@ correr_random <- function(arq, regimen, semilla, cfg, n_eval = cfg$popSize * (cf
   Fm <- if (cfg$n_cores > 1 && .Platform$OS.type != "windows") {
     do.call(rbind, parallel::mclapply(seq_len(n_eval), evaluar_fila, mc.cores = cfg$n_cores))
   } else t(sapply(seq_len(n_eval), evaluar_fila))
-  nd <- no_dominados(Fm)
+  idx <- indices_frente_train(Fm)
   dur <- as.numeric(difftime(Sys.time(), t0, units = "mins"))
-  ## objeto mínimo con la misma forma que usa validar_corrida
-  res <- list(population = P[nd, , drop = FALSE], f = list(seq_len(sum(nd))))
-  list(res = res, arq = arq, regimen = regimen, semilla = semilla, minutos = dur, random = TRUE)
+  ## El baseline conserva un archivo no dominado de todas las evaluaciones,
+  ## exactamente como el NSGA-III auditado (sin repetidos por objetivo).
+  res <- list(population = P[idx, , drop = FALSE], f = list(seq_along(idx)))
+  list(res = res, n_evaluaciones = as.integer(n_eval), arq = arq, regimen = regimen,
+       semilla = semilla, minutos = dur, random = TRUE)
 }
 
 ## Reevalúa el frente 1 de una corrida en el banco de validación y devuelve
@@ -621,8 +807,13 @@ correr_random <- function(arq, regimen, semilla, cfg, n_eval = cfg$popSize * (cf
 validar_corrida <- function(corrida, banco_val, cfg) {
   res <- corrida$res; arq <- corrida$arq
   es_random <- isTRUE(corrida$random)
-  idx <- if (es_random) res$f[[1]] else res@f[[1]]
-  pop <- if (es_random) res$population else res@population
+  if (!es_random && !is.null(corrida$archivo)) {
+    pop <- corrida$archivo$population
+    idx <- seq_len(nrow(pop))
+  } else {
+    idx <- if (es_random) res$f[[1]] else res@f[[1]]
+    pop <- if (es_random) res$population else res@population
+  }
   P <- t(apply(pop[idx, , drop = FALSE], 1, a_natural, arq = arq))
   Fv <- t(apply(P, 1, function(x) evaluar(x, arq, banco_val, cfg)))
   colnames(P) <- nombres_theta(arq)
@@ -635,7 +826,7 @@ validar_corrida <- function(corrida, banco_val, cfg) {
   tab <- data.frame(arquitectura = arq, regimen = corrida$regimen,
                     semilla = corrida$semilla, metodo = if (es_random) "random" else "NSGA-III",
                     Pfull, Fv, check.names = FALSE)
-  tab[no_dominados(Fv), ]
+  tab[indices_frente_train(Fv), , drop = FALSE]
 }
 
 ## Hipervolumen de un frente en el espacio de objetivos crudo, con un punto de
@@ -727,14 +918,21 @@ una_corrida <- function(e, cfg_base) {
   cfg_e <- e$cfg; cfg_e$n_cores <- 1L
   banco_val <- crear_banco(cfg_e$n_un_pulso_val, cfg_e$n_por_isi_val, cfg_e, e$regimen, semilla = 999)
   es_random <- identical(e$metodo, "random")
-  cr <- if (es_random) correr_random(e$arq, e$regimen, e$semilla, cfg_e)
-        else correr_nsga(e$arq, e$regimen, e$semilla, cfg_e, registrar = isTRUE(e$registrar))
+  cr <- if (es_random) {
+    correr_random(e$arq, e$regimen, e$semilla, cfg_e,
+                  n_eval = if (is.null(e$n_eval)) cfg_e$popSize * (cfg_e$maxiter + 1L) else e$n_eval)
+  } else {
+    correr_nsga(e$arq, e$regimen, e$semilla, cfg_e,
+                registrar = isTRUE(e$registrar),
+                registrar_archivo = isTRUE(e$registrar_archivo))
+  }
   fr <- validar_corrida(cr, banco_val, cfg_e)
   fr$condicion <- e$etiqueta
   hv <- hv_fijo(fr[, OBJ], cfg_e)
   registrar_progreso(cfg_base, sprintf("[%s] %-8s %-18s %-8s semilla %3d: %6.1f min, frente %3d, HV %.4f",
                                        e$bloque, e$metodo, e$arq, e$regimen, e$semilla, cr$minutos, nrow(fr), hv))
-  list(frente = fr, hv = hv, minutos = cr$minutos, hv_por_generacion = cr$hv_por_generacion,
+  list(frente = fr, hv = hv, minutos = cr$minutos, n_evaluaciones = cr$n_evaluaciones,
+       hv_por_generacion = cr$hv_por_generacion,
        objeto = if (isTRUE(e$guardar_objeto)) cr else NULL)
 }
 correr_corridas <- function(especs, cfg, bloque) {
@@ -761,40 +959,116 @@ validacion_optimizador <- function(cfg) {
   reg <- names(cfg$regimenes)[1]
   v <- cfg$validacion
 
-  ## --- 0a. Parametrización ---------------------------------------------------
-  cat("\n-- 0a. Parametrización (rejilla de población, cruce y mutación) --\n")
+  ## --- 0a. Parametrización factorial (igual presupuesto por corrida) ---
+  cat("\n-- 0a. Parametrización (población, probabilidades, 3 cruces x 3 mutaciones) --\n")
   pz <- v$parametrizacion
-  rejilla <- expand.grid(i_pop = seq_along(pz$popSize), pcrossover = pz$pcrossover, pmutation = pz$pmutation)
-  especs <- list()
+  if (!MODO_RAPIDO) {
+    B_corto <- as.integer(pz$presupuesto_nominal)
+    poblaciones <- pz$popSize
+    particiones <- pz$n_partitions
+    cruces <- pz$cruces
+    mutaciones <- pz$mutaciones
+  } else {
+    ## Smoke test acotado, nunca para inferencia estadística.
+    B_corto <- 468L
+    poblaciones <- c(36L, 52L)
+    particiones <- c(4L, 5L)
+    cruces <- pz$cruces
+    mutaciones <- pz$mutaciones
+  }
+  if (length(poblaciones) != length(particiones))
+    stop("Poblaciones y particiones de referencia deben estar emparejadas")
+  G_cortos <- vapply(poblaciones, generaciones_con_presupuesto, integer(1),
+                      presupuesto = B_corto)
+  stopifnot(all(as.integer(poblaciones * (G_cortos + 1L)) == B_corto))
+  cat("Presupuesto corto IDÉNTICO para todas las configuraciones: ", B_corto,
+      " evaluaciones nominales.\n", sep = "")
+  print(data.frame(popSize = poblaciones, n_partitions = particiones,
+                   generaciones = G_cortos, evaluaciones = B_corto), row.names = FALSE)
+  rejilla <- expand.grid(i_pop = seq_along(poblaciones),
+                         pcrossover = pz$pcrossover, pmutation = pz$pmutation,
+                         cruce_operador = cruces, mutacion_operador = mutaciones,
+                         stringsAsFactors = FALSE)
+  especs <- vector("list", 0L)
   for (k in seq_len(nrow(rejilla))) {
     cfg_k <- cfg
-    cfg_k$popSize <- pz$popSize[rejilla$i_pop[k]]; cfg_k$n_partitions <- pz$n_partitions[rejilla$i_pop[k]]
-    cfg_k$pcrossover <- rejilla$pcrossover[k]; cfg_k$pmutation <- rejilla$pmutation[k]
-    ## presupuesto igual para todas las configuraciones: mismas evaluaciones
-    cfg_k$maxiter <- round(pz$maxiter * cfg$popSize / cfg_k$popSize)
+    idx <- rejilla$i_pop[k]
+    cfg_k$popSize <- poblaciones[idx]
+    cfg_k$n_partitions <- particiones[idx]
+    cfg_k$pcrossover <- rejilla$pcrossover[k]
+    cfg_k$pmutation <- rejilla$pmutation[k]
+    cfg_k$cruce_operador <- rejilla$cruce_operador[k]
+    cfg_k$mutacion_operador <- rejilla$mutacion_operador[k]
+    cfg_k$maxiter <- G_cortos[idx]
+    stopifnot(cfg_k$popSize * (cfg_k$maxiter + 1L) == B_corto)
     especs <- c(especs, especificar(cfg_k, cfg$arquitecturas, pz$semillas, reg))
   }
-  res <- correr_corridas(especs, cfg, "0a parametrizacion")
-  param <- do.call(rbind, lapply(seq_along(especs), function(i) {
-    e <- especs[[i]]
-    data.frame(popSize = e$cfg$popSize, n_partitions = e$cfg$n_partitions, pcrossover = e$cfg$pcrossover,
-               pmutation = e$cfg$pmutation, maxiter = e$cfg$maxiter, arquitectura = e$arq, semilla = e$semilla,
-               hv_validacion = res[[i]]$hv, n_frente = nrow(res[[i]]$frente), minutos = res[[i]]$minutos)
-  }))
+  cat(sprintf("Parametrización: %d configuraciones, %d corridas (%d arquitecturas x %d semillas).\n",
+              nrow(rejilla), length(especs), length(cfg$arquitecturas), length(pz$semillas)))
+  ## Guardar checkpoints POR PAREJA de operadores. Cada lote tiene como máximo
+  ## 324 corridas y queda escrito en la carpeta nueva al finalizar el lote.
+  ## Si falla un lote posterior, los resultados anteriores siguen disponibles.
+  grupos <- interaction(rejilla$cruce_operador, rejilla$mutacion_operador,
+                        drop = TRUE, lex.order = TRUE)
+  filas_param <- list()
+  for (g in levels(grupos)) {
+    ids <- which(grupos == g)
+    especificaciones_lote <- unlist(lapply(ids, function(k) {
+      ini <- (k - 1L) * length(cfg$arquitecturas) * length(pz$semillas) + 1L
+      fin <- k * length(cfg$arquitecturas) * length(pz$semillas)
+      especs[ini:fin]
+    }), recursive = FALSE)
+    tag <- gsub("[^A-Za-z0-9_-]", "_", g)
+    res_lote <- correr_corridas(especificaciones_lote, cfg,
+                                paste0("0a_parametrizacion_", tag))
+    datos_lote <- do.call(rbind, lapply(seq_along(especificaciones_lote), function(i) {
+      e <- especificaciones_lote[[i]]
+      data.frame(popSize = e$cfg$popSize, n_partitions = e$cfg$n_partitions,
+                 pcrossover = e$cfg$pcrossover, pmutation = e$cfg$pmutation,
+                 cruce_operador = e$cfg$cruce_operador,
+                 mutacion_operador = e$cfg$mutacion_operador,
+                 maxiter = e$cfg$maxiter, presupuesto_nominal = B_corto,
+                 arquitectura = e$arq, semilla = e$semilla,
+                 hv_validacion = res_lote[[i]]$hv,
+                 n_frente = nrow(res_lote[[i]]$frente),
+                 minutos = res_lote[[i]]$minutos)
+    }))
+    filas_param[[length(filas_param) + 1L]] <- datos_lote
+    write.csv(datos_lote,
+              file.path(cfg$carpeta, paste0("checkpoint_0a_", tag, ".csv")),
+              row.names = FALSE)
+    write.csv(do.call(rbind, filas_param),
+              file.path(cfg$carpeta, "validation_parametrisation_partial.csv"),
+              row.names = FALSE)
+    rm(res_lote)
+  }
+  param <- do.call(rbind, filas_param)
+  if (any(param$popSize * (param$maxiter + 1L) != B_corto))
+    stop("ERROR: algún candidato tiene un presupuesto distinto")
   write.csv(param, file.path(cfg$carpeta, "validation_parametrisation_runs.csv"), row.names = FALSE)
-  ## resumen: mediana del hipervolumen por configuración (sobre arquitecturas y semillas)
-  resumen <- aggregate(hv_validacion ~ popSize + n_partitions + pcrossover + pmutation + maxiter, data = param, FUN = median)
-  names(resumen)[6] <- "median_hv"
-  resumen$mean_hv <- aggregate(hv_validacion ~ popSize + n_partitions + pcrossover + pmutation + maxiter, data = param, FUN = mean)$hv_validacion
-  resumen <- resumen[order(-resumen$median_hv), ]
+  ## Criterio original: mayor MEDIANA del HV de validación sobre arquitecturas y semillas.
+  claves <- c("popSize", "n_partitions", "pcrossover", "pmutation",
+              "cruce_operador", "mutacion_operador", "maxiter", "presupuesto_nominal")
+  formula_hv <- as.formula(paste("hv_validacion ~", paste(claves, collapse = "+")))
+  resumen <- aggregate(formula_hv, data = param, FUN = median)
+  names(resumen)[ncol(resumen)] <- "median_hv"
+  resumen$mean_hv <- aggregate(formula_hv, data = param, FUN = mean)$hv_validacion
+  resumen <- resumen[order(-resumen$median_hv, -resumen$mean_hv), ]
   write.csv(resumen, file.path(cfg$carpeta, "validation_parametrisation_summary.csv"), row.names = FALSE)
-  cat("\nConfiguraciones ordenadas por hipervolumen mediano de validación:\n"); print(head(resumen, 10), row.names = FALSE, digits = 4)
+  cat("\nMejores configuraciones ordenadas por HV mediano de validación:\n")
+  print(head(resumen, 10), row.names = FALSE, digits = 5)
   elegida <- resumen[1, ]
   cfg_sel <- cfg
-  cfg_sel$popSize <- elegida$popSize; cfg_sel$n_partitions <- elegida$n_partitions
-  cfg_sel$pcrossover <- elegida$pcrossover; cfg_sel$pmutation <- elegida$pmutation
-  cat(sprintf("\nElegida: popSize %d (n_partitions %d), pcrossover %.2f, pmutation %.2f\n",
-              cfg_sel$popSize, cfg_sel$n_partitions, cfg_sel$pcrossover, cfg_sel$pmutation))
+  cfg_sel$popSize <- as.integer(elegida$popSize)
+  cfg_sel$n_partitions <- as.integer(elegida$n_partitions)
+  cfg_sel$pcrossover <- as.numeric(elegida$pcrossover)
+  cfg_sel$pmutation <- as.numeric(elegida$pmutation)
+  cfg_sel$cruce_operador <- as.character(elegida$cruce_operador)
+  cfg_sel$mutacion_operador <- as.character(elegida$mutacion_operador)
+  cat(sprintf("\nGANADORA: población %d, particiones %d, cruce %s (%.2f), mutación %s (%.2f).\n",
+              cfg_sel$popSize, cfg_sel$n_partitions, cfg_sel$cruce_operador,
+              cfg_sel$pcrossover, cfg_sel$mutacion_operador, cfg_sel$pmutation))
+  write.csv(elegida, file.path(cfg$carpeta, "validation_parametrisation_winner.csv"), row.names = FALSE)
 
   ## --- 0b. Convergencia ------------------------------------------------------
   cat("\n-- 0b. Convergencia (hipervolumen del primer frente por generación) --\n")
@@ -829,9 +1103,24 @@ validacion_optimizador <- function(cfg) {
   corte_elegido <- min(corte_elegido, v$convergencia$maxiter)
   cat(sprintf("\nMediana de la generación del 99 %%: %d; corte elegido para las corridas principales: %d generaciones (margen %.1f, mínimo %d)\n",
               as.integer(g99_med), corte_elegido, v$convergencia$margen, v$convergencia$maxiter_minimo))
-  cfg_sel$maxiter <- corte_elegido
+  ## La curva de 1500 generaciones determina el corte recomendado, pero no
+  ## modifica el presupuesto NOMINAL de las comparaciones posteriores.
+  ## Se ajusta el número de generaciones a la población ganadora.
+  B_principal <- if (MODO_RAPIDO) {
+    as.integer(cfg_sel$popSize * (corte_elegido + 1L))
+  } else {
+    as.integer(v$presupuesto_principal)
+  }
+  cfg_sel$maxiter <- generaciones_con_presupuesto(cfg_sel$popSize, B_principal)
+  stopifnot(cfg_sel$popSize * (cfg_sel$maxiter + 1L) == B_principal)
+  cat(sprintf("PRESUPUESTO PRINCIPAL FIJO: %d individuos x (%d+1) = %d evaluaciones nominales.\n",
+              cfg_sel$popSize, cfg_sel$maxiter, B_principal))
   write.csv(data.frame(median_generation_99pct = g99_med, safety_margin = v$convergencia$margen,
-                       minimum = v$convergencia$maxiter_minimo, generations_main_runs = corte_elegido),
+                       minimum = v$convergencia$maxiter_minimo,
+                       generations_recommended = corte_elegido,
+                       generations_main_runs = cfg_sel$maxiter,
+                       population_main = cfg_sel$popSize,
+                       nominal_evaluations_main = B_principal),
             file.path(cfg$carpeta, "validation_convergence_chosen_cutoff.csv"), row.names = FALSE)
   conv$architecture <- arq_en(conv$arquitectura)
   g10 <- ggplot(conv, aes(generation, hv_running_max, colour = architecture, group = interaction(architecture, semilla))) +
@@ -840,18 +1129,42 @@ validacion_optimizador <- function(cfg) {
     escala_arq("colour") +
     labs(x = "generation", y = "hypervolume of the first front",
          title = sprintf("Convergence of NSGA-III per architecture (%d seeds each)", length(v$convergencia$semillas)),
-         subtitle = sprintf("Running maximum on the training bank, fixed reference point. Dashed line: cutoff for the main runs (%d generations)", corte_elegido)) +
+         subtitle = sprintf("Running maximum on training data. Dashed: convergence recommendation (%d); main runs: %d generations, %d evaluations", corte_elegido, cfg_sel$maxiter, B_principal)) +
     tema_fig()
   ggsave(file.path(cfg$carpeta, "fig10_convergence.png"), g10, width = 9, height = 5, dpi = 150, bg = "white")
 
   ## --- 0c. Consistencia sobre semillas y 0d. búsqueda aleatoria ---------------
   cat("\n-- 0c. Consistencia (11 semillas) y 0d. búsqueda aleatoria con el mismo presupuesto --\n")
-  especs <- c(especificar(cfg_sel, cfg$arquitecturas, v$consistencia$semillas, reg, metodo = "NSGA-III"),
-              especificar(cfg_sel, cfg$arquitecturas, v$random$semillas, reg, metodo = "random"))
-  res <- correr_corridas(especs, cfg, "0c-0d semillas y random search")
+  ## NSGA-III registra el archivo de TODOS sus candidatos evaluados.
+  ## Random conserva el presupuesto original: popSize * (maxiter + 1).
+  ## El conteo real de fitness de rmoo es SOLO una auditoría; no cambia
+  ## ni la parametrización ni el número de individuos de Random search.
+  presupuesto_nominal <- as.integer(cfg_sel$popSize * (cfg_sel$maxiter + 1L))
+  if (is.na(presupuesto_nominal) || presupuesto_nominal < 1L)
+    stop("Presupuesto nominal inválido")
+  if (!MODO_RAPIDO && presupuesto_nominal != v$presupuesto_principal)
+    stop("Presupuesto principal cambiado de forma inadvertida")
+  cat(sprintf("\nPresupuesto original por corrida: %d x (%d + 1) = %d (nominal)\n",
+              cfg_sel$popSize, cfg_sel$maxiter, presupuesto_nominal))
+  especs_nsga <- especificar(cfg_sel, cfg$arquitecturas, v$consistencia$semillas, reg,
+                             metodo = "NSGA-III", registrar_archivo = TRUE)
+  res_nsga <- correr_corridas(especs_nsga, cfg, "0c NSGA-III archivado")
+  if (any(vapply(res_nsga, function(r)
+      is.na(r$n_evaluaciones) || r$n_evaluaciones < 1L, logical(1))))
+    stop("La auditoría NSGA-III devolvió conteos de fitness inválidos")
+  especs_random <- especificar(cfg_sel, cfg$arquitecturas, v$random$semillas, reg, metodo = "random")
+  ## No se ajusta n_eval por las evaluaciones efectivas de NSGA-III.
+  ## correr_random() mantiene su parámetro original por defecto.
+  res_random <- correr_corridas(especs_random, cfg, "0d Random search - presupuesto original")
+  especs <- c(especs_nsga, especs_random)
+  res <- c(res_nsga, res_random)
   runs <- do.call(rbind, lapply(seq_along(especs), function(i) data.frame(
     method = especs[[i]]$metodo, arquitectura = especs[[i]]$arq, semilla = especs[[i]]$semilla,
+    presupuesto_nominal = presupuesto_nominal,
+    llamadas_fitness = as.integer(res[[i]]$n_evaluaciones),
     hv_validation = res[[i]]$hv, n_front = nrow(res[[i]]$frente), minutes = res[[i]]$minutos)))
+  if (any(runs$llamadas_fitness[runs$method == "random"] != presupuesto_nominal))
+    stop("Random search no respetó el presupuesto nominal original")
   frentes <- do.call(rbind, lapply(res, `[[`, "frente"))
   write.csv(runs, file.path(cfg$carpeta, "validation_seed_runs.csv"), row.names = FALSE)
   write.csv(frentes, file.path(cfg$carpeta, "validation_seed_fronts.csv"), row.names = FALSE)
@@ -875,13 +1188,19 @@ validacion_optimizador <- function(cfg) {
     comun <- intersect(a$semilla, b$semilla)
     if (length(comun) >= 3) {
       w <- wilcox.test(a$hv_validation[match(comun, a$semilla)], b$hv_validation[match(comun, b$semilla)], paired = TRUE, exact = FALSE)
-      fa <- frentes[frentes$arquitectura == arq & frentes$metodo == "NSGA-III", c("error", "umbral", "latencia", "costo")]
-      fb <- frentes[frentes$arquitectura == arq & frentes$metodo == "random", c("error", "umbral", "latencia", "costo")]
+      cubrir <- lapply(comun, function(sem) {
+        fa <- frentes[frentes$arquitectura == arq & frentes$metodo == "NSGA-III" & frentes$semilla == sem,
+                      c("error", "umbral", "latencia", "costo")]
+        fb <- frentes[frentes$arquitectura == arq & frentes$metodo == "random" & frentes$semilla == sem,
+                      c("error", "umbral", "latencia", "costo")]
+        c(cobertura(as.matrix(fa), as.matrix(fb)), cobertura(as.matrix(fb), as.matrix(fa)))
+      })
+      cob_pareada <- do.call(rbind, cubrir)
       pruebas[[length(pruebas) + 1]] <- data.frame(
         comparison = "NSGA-III vs random search", arquitectura = arq, n_pairs = length(comun),
         hv_gain_mean = mean(a$hv_validation[match(comun, a$semilla)] - b$hv_validation[match(comun, b$semilla)]),
-        p_wilcoxon = w$p.value, coverage_nsga_over_random = cobertura(as.matrix(fa), as.matrix(fb)),
-        coverage_random_over_nsga = cobertura(as.matrix(fb), as.matrix(fa)))
+        p_wilcoxon = w$p.value, coverage_nsga_over_random = mean(cob_pareada[, 1]),
+        coverage_random_over_nsga = mean(cob_pareada[, 2]))
     }
   }
   pares <- combn(cfg$arquitecturas, 2)
@@ -1672,6 +1991,7 @@ datos_reales_haarlem <- function(cfg, carpeta_datos = file.path("datos_reales", 
 ## ============================================================================
 ## 10. Ejecución
 ## ============================================================================
+cat("ESTUDIO 3x3: parametrización variable de población, cruce y mutación; presupuestos fijos.\n")
 cat(sprintf("Modo %s. Núcleos: %d. Salida en ./%s\n",
             if (MODO_RAPIDO) "rápido" else "completo", CFG$n_cores, CFG$carpeta))
 t_inicio <- Sys.time()
@@ -1679,9 +1999,10 @@ cat(sprintf("%s  corrida iniciada: modo %s, %d núcleos, hipervolumen %s\n",
             format(t_inicio, "%Y-%m-%d %H:%M:%S"), if (MODO_RAPIDO) "rápido" else "completo",
             CFG$n_cores, HV_EXACTO$nombre),
     file = file.path(CFG$carpeta, "progreso.log"))
+preflight_operadores(CFG)
 r0 <- validacion_optimizador(CFG)
 CFG <- r0$cfg                       # la parametrización y el corte elegidos gobiernan el resto
-cat(sprintf("\nPresupuesto de las corridas principales: popSize %d x %d generaciones = %d evaluaciones por corrida\n",
+cat(sprintf("\nPresupuesto ORIGINAL nominal de la comparación: %d x (%d + 1) = %d. Random search conserva este valor.\n",
             CFG$popSize, CFG$maxiter, CFG$popSize * (CFG$maxiter + 1)))
 r1 <- pregunta_1(CFG)
 r1b <- sensibilidad(CFG, r1$frentes)

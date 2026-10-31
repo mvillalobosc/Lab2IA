@@ -1,137 +1,584 @@
 =====================================================================
 A. Parametrización: Friedman con bloques = arquitectura x semilla
 =====================================================================
-bloques: 12  configuraciones: 27 
+bloques: 12  configuraciones: 243 
 
 	Friedman rank sum test
 
 data:  M
-Friedman chi-squared = 44.111, df = 26, p-value = 0.01471
+Friedman chi-squared = 546.93, df = 242, p-value < 2.2e-16
 
-               config rango_medio p_wilcoxon_vs_mejor p_holm
- N=132 pc=0.9 pm=0.20        8.92                  NA     NA
-  N=88 pc=0.7 pm=0.20       10.08             0.61012 1.0000
- N=132 pc=0.8 pm=0.20       10.42             0.61012 1.0000
- N=132 pc=0.8 pm=0.05       11.08             0.45613 1.0000
- N=132 pc=0.9 pm=0.05       11.50             0.36699 1.0000
- N=132 pc=0.9 pm=0.10       11.50             0.28959 1.0000
- N=132 pc=0.7 pm=0.20       12.00             0.25534 1.0000
-  N=88 pc=0.9 pm=0.10       12.08             0.05461 0.9284
- N=132 pc=0.7 pm=0.10       12.33             0.45613 1.0000
-  N=88 pc=0.9 pm=0.05       12.33             0.36699 1.0000
- N=132 pc=0.7 pm=0.05       12.42             0.12609 1.0000
-  N=52 pc=0.9 pm=0.10       12.83             0.05461 0.9284
- N=132 pc=0.8 pm=0.10       12.92             0.10780 1.0000
-  N=88 pc=0.9 pm=0.20       13.25             0.19554 1.0000
-  N=88 pc=0.7 pm=0.05       13.50             0.19554 1.0000
-  N=88 pc=0.7 pm=0.10       13.58             0.41012 1.0000
-  N=88 pc=0.8 pm=0.20       14.42             0.07756 1.0000
-  N=88 pc=0.8 pm=0.10       15.00             0.03098 0.6197
-  N=88 pc=0.8 pm=0.05       15.50             0.03098 0.6197
-  N=52 pc=0.7 pm=0.20       15.83             0.02537 0.5328
-  N=52 pc=0.8 pm=0.05       15.83             0.03763 0.6774
-  N=52 pc=0.8 pm=0.20       15.92             0.05461 0.9284
-  N=52 pc=0.9 pm=0.20       18.25             0.02066 0.4545
-  N=52 pc=0.8 pm=0.10       18.75             0.00859 0.2062
-  N=52 pc=0.7 pm=0.05       18.92             0.00536 0.1339
-  N=52 pc=0.7 pm=0.10       19.42             0.00326 0.0849
-  N=52 pc=0.9 pm=0.05       19.42             0.01347 0.3098
+                                  config rango_medio p_wilcoxon_vs_mejor p_holm
+     N=132 pc=0.8 pm=0.05 blx+polinomial        57.0                  NA     NA
+        N=84 pc=0.9 pm=0.05 blx+reinicio        58.3             0.84452  1.000
+      N=132 pc=0.8 pm=0.20 blx+gaussiana        58.6             0.61012  1.000
+      N=132 pc=0.8 pm=0.05 blx+gaussiana        59.0             0.72408  1.000
+      N=132 pc=0.9 pm=0.05 blx+gaussiana        59.4             0.78365  1.000
+       N=84 pc=0.8 pm=0.20 blx+gaussiana        60.5             0.14671  1.000
+      N=84 pc=0.9 pm=0.10 blx+polinomial        63.8             0.96871  1.000
+        N=84 pc=0.8 pm=0.10 blx+reinicio        67.2             0.22402  1.000
+       N=132 pc=0.8 pm=0.10 blx+reinicio        67.2             0.72408  1.000
+      N=84 pc=0.8 pm=0.10 blx+polinomial        67.3             0.14671  1.000
+       N=132 pc=0.8 pm=0.20 sbx+reinicio        69.2             0.45613  1.000
+     N=132 pc=0.9 pm=0.20 blx+polinomial        69.3             0.45613  1.000
+      N=132 pc=0.9 pm=0.10 blx+gaussiana        69.7             0.41012  1.000
+       N=132 pc=0.7 pm=0.05 blx+reinicio        71.9             0.45613  1.000
+     N=132 pc=0.9 pm=0.10 blx+polinomial        71.9             0.50490  1.000
+      N=132 pc=0.7 pm=0.20 sbx+gaussiana        72.8             0.66614  1.000
+       N=132 pc=0.9 pm=0.20 sbx+reinicio        73.3             0.16981  1.000
+     N=132 pc=0.7 pm=0.20 blx+polinomial        74.9             1.00000  1.000
+     N=132 pc=0.7 pm=0.05 blx+polinomial        75.5             0.22402  1.000
+       N=132 pc=0.9 pm=0.20 blx+reinicio        75.6             0.07756  1.000
+      N=132 pc=0.7 pm=0.10 blx+gaussiana        76.8             0.36699  1.000
+     N=132 pc=0.9 pm=0.05 blx+polinomial        77.4             0.45613  1.000
+       N=132 pc=0.7 pm=0.20 blx+reinicio        77.5             0.32680  1.000
+      N=132 pc=0.8 pm=0.05 sbx+gaussiana        78.8             0.14671  1.000
+      N=132 pc=0.7 pm=0.20 blx+gaussiana        79.1             0.36699  1.000
+       N=84 pc=0.7 pm=0.20 sbx+gaussiana        81.6             0.09168  1.000
+      N=132 pc=0.8 pm=0.20 sbx+gaussiana        82.4             0.32680  1.000
+       N=84 pc=0.8 pm=0.05 blx+gaussiana        82.7             0.32680  1.000
+     N=132 pc=0.8 pm=0.10 blx+polinomial        82.8             0.16981  1.000
+      N=132 pc=0.7 pm=0.05 blx+gaussiana        83.7             0.14671  1.000
+       N=132 pc=0.9 pm=0.05 blx+reinicio        83.8             0.04546  1.000
+  N=132 pc=0.7 pm=0.10 unpunto+gaussiana        85.2             0.32680  1.000
+       N=84 pc=0.9 pm=0.20 blx+gaussiana        86.9             0.06526  1.000
+       N=84 pc=0.9 pm=0.10 blx+gaussiana        87.3             0.19554  1.000
+  N=132 pc=0.8 pm=0.10 unpunto+gaussiana        87.8             0.03763  1.000
+       N=84 pc=0.8 pm=0.10 blx+gaussiana        88.0             0.12609  1.000
+     N=132 pc=0.7 pm=0.10 blx+polinomial        88.2             0.19554  1.000
+       N=132 pc=0.7 pm=0.10 blx+reinicio        88.9             0.00859  1.000
+       N=132 pc=0.8 pm=0.05 blx+reinicio        89.5             0.12609  1.000
+  N=132 pc=0.7 pm=0.05 unpunto+gaussiana        89.8             0.03098  1.000
+     N=132 pc=0.8 pm=0.20 sbx+polinomial        90.0             0.14671  1.000
+      N=132 pc=0.9 pm=0.20 blx+gaussiana        90.8             0.01673  1.000
+      N=84 pc=0.8 pm=0.05 blx+polinomial        91.8             0.03763  1.000
+      N=84 pc=0.7 pm=0.05 blx+polinomial        91.8             0.06526  1.000
+       N=132 pc=0.9 pm=0.10 blx+reinicio        92.8             0.01347  1.000
+      N=132 pc=0.7 pm=0.10 sbx+gaussiana        93.2             0.04546  1.000
+        N=84 pc=0.9 pm=0.10 blx+reinicio        93.2             0.03098  1.000
+  N=132 pc=0.9 pm=0.20 unpunto+gaussiana        93.3             0.19554  1.000
+        N=84 pc=0.9 pm=0.20 blx+reinicio        93.3             0.25534  1.000
+       N=84 pc=0.9 pm=0.05 blx+gaussiana        93.8             0.14671  1.000
+     N=132 pc=0.8 pm=0.20 blx+polinomial        94.2             0.22402  1.000
+     N=132 pc=0.9 pm=0.20 sbx+polinomial        94.8             0.25534  1.000
+  N=132 pc=0.8 pm=0.20 unpunto+gaussiana        95.3             0.03098  1.000
+        N=66 pc=0.8 pm=0.05 blx+reinicio        95.6             0.04546  1.000
+       N=132 pc=0.8 pm=0.20 blx+reinicio        95.7             0.06526  1.000
+       N=132 pc=0.9 pm=0.10 sbx+reinicio        96.7             0.01673  1.000
+        N=84 pc=0.8 pm=0.20 blx+reinicio        96.8             0.06526  1.000
+   N=132 pc=0.9 pm=0.20 unpunto+reinicio        96.9             0.02537  1.000
+       N=132 pc=0.9 pm=0.05 sbx+reinicio        97.3             0.05461  1.000
+        N=84 pc=0.8 pm=0.05 blx+reinicio        97.6             0.10780  1.000
+      N=132 pc=0.8 pm=0.10 sbx+gaussiana        98.4             0.03763  1.000
+       N=132 pc=0.8 pm=0.10 sbx+reinicio        99.1             0.10780  1.000
+       N=132 pc=0.7 pm=0.10 sbx+reinicio        99.6             0.09168  1.000
+      N=132 pc=0.8 pm=0.10 blx+gaussiana       100.4             0.05461  1.000
+   N=84 pc=0.9 pm=0.20 unpunto+gaussiana       101.1             0.10780  1.000
+   N=132 pc=0.7 pm=0.20 unpunto+reinicio       101.5             0.16981  1.000
+      N=84 pc=0.7 pm=0.20 blx+polinomial       102.1             0.07756  1.000
+       N=66 pc=0.7 pm=0.05 blx+gaussiana       103.2             0.06526  1.000
+      N=132 pc=0.9 pm=0.10 sbx+gaussiana       103.4             0.05461  1.000
+  N=132 pc=0.8 pm=0.05 unpunto+gaussiana       105.3             0.02537  1.000
+  N=132 pc=0.7 pm=0.20 unpunto+gaussiana       105.7             0.05461  1.000
+      N=84 pc=0.9 pm=0.05 blx+polinomial       105.7             0.09168  1.000
+        N=84 pc=0.7 pm=0.05 blx+reinicio       105.8             0.04546  1.000
+      N=84 pc=0.9 pm=0.20 blx+polinomial       106.2             0.02537  1.000
+  N=132 pc=0.9 pm=0.10 unpunto+gaussiana       107.2             0.01347  1.000
+       N=84 pc=0.7 pm=0.20 blx+gaussiana       107.3             0.00680  1.000
+       N=132 pc=0.7 pm=0.05 sbx+reinicio       108.6             0.07756  1.000
+     N=132 pc=0.8 pm=0.05 sbx+polinomial       109.3             0.04546  1.000
+        N=66 pc=0.9 pm=0.20 blx+reinicio       109.5             0.01673  1.000
+      N=132 pc=0.9 pm=0.05 sbx+gaussiana       110.4             0.03098  1.000
+  N=132 pc=0.9 pm=0.05 unpunto+gaussiana       110.7             0.03098  1.000
+       N=66 pc=0.9 pm=0.20 blx+gaussiana       110.7             0.07756  1.000
+       N=66 pc=0.7 pm=0.20 sbx+gaussiana       111.0             0.02066  1.000
+       N=84 pc=0.8 pm=0.20 sbx+gaussiana       111.8             0.03098  1.000
+        N=84 pc=0.7 pm=0.10 blx+reinicio       112.2             0.03763  1.000
+ N=132 pc=0.7 pm=0.10 unpunto+polinomial       112.2             0.03098  1.000
+        N=66 pc=0.9 pm=0.10 blx+reinicio       112.2             0.05461  1.000
+        N=66 pc=0.7 pm=0.20 blx+reinicio       112.4             0.14671  1.000
+       N=132 pc=0.8 pm=0.05 sbx+reinicio       113.8             0.01347  1.000
+      N=132 pc=0.9 pm=0.20 sbx+gaussiana       113.8             0.07756  1.000
+       N=84 pc=0.9 pm=0.10 sbx+gaussiana       113.9             0.03098  1.000
+      N=66 pc=0.7 pm=0.20 blx+polinomial       114.8             0.04546  1.000
+   N=84 pc=0.7 pm=0.20 unpunto+gaussiana       115.8             0.07756  1.000
+      N=66 pc=0.9 pm=0.05 blx+polinomial       116.1             0.00859  1.000
+      N=84 pc=0.8 pm=0.05 sbx+polinomial       116.4             0.01673  1.000
+    N=84 pc=0.7 pm=0.05 unpunto+reinicio       116.5             0.02066  1.000
+        N=84 pc=0.8 pm=0.20 sbx+reinicio       116.5             0.01673  1.000
+     N=132 pc=0.7 pm=0.10 sbx+polinomial       117.2             0.06526  1.000
+        N=66 pc=0.9 pm=0.05 blx+reinicio       117.3             0.02537  1.000
+      N=66 pc=0.8 pm=0.10 blx+polinomial       117.4             0.02537  1.000
+      N=66 pc=0.9 pm=0.10 blx+polinomial       117.4             0.00859  1.000
+        N=66 pc=0.7 pm=0.10 blx+reinicio       117.9             0.04546  1.000
+  N=84 pc=0.8 pm=0.20 unpunto+polinomial       118.2             0.02537  1.000
+      N=66 pc=0.7 pm=0.20 sbx+polinomial       118.4             0.02066  1.000
+      N=84 pc=0.7 pm=0.10 sbx+polinomial       118.5             0.02537  1.000
+       N=84 pc=0.9 pm=0.20 sbx+gaussiana       118.8             0.00536  1.000
+     N=132 pc=0.9 pm=0.10 sbx+polinomial       119.0             0.05461  1.000
+        N=66 pc=0.8 pm=0.05 sbx+reinicio       119.1             0.03098  1.000
+        N=66 pc=0.8 pm=0.10 blx+reinicio       119.2             0.02537  1.000
+ N=132 pc=0.9 pm=0.10 unpunto+polinomial       119.6             0.03098  1.000
+   N=84 pc=0.8 pm=0.10 unpunto+gaussiana       120.1             0.00680  1.000
+       N=66 pc=0.8 pm=0.05 blx+gaussiana       120.2             0.00859  1.000
+   N=132 pc=0.8 pm=0.10 unpunto+reinicio       120.6             0.00419  0.931
+      N=84 pc=0.9 pm=0.10 sbx+polinomial       120.8             0.01673  1.000
+    N=84 pc=0.8 pm=0.20 unpunto+reinicio       120.8             0.00680  1.000
+        N=84 pc=0.9 pm=0.20 sbx+reinicio       121.1             0.05461  1.000
+       N=66 pc=0.9 pm=0.20 sbx+gaussiana       121.8             0.01347  1.000
+     N=132 pc=0.9 pm=0.05 sbx+polinomial       122.1             0.01079  1.000
+       N=84 pc=0.8 pm=0.10 sbx+gaussiana       122.5             0.03098  1.000
+        N=84 pc=0.9 pm=0.10 sbx+reinicio       122.6             0.01673  1.000
+        N=84 pc=0.7 pm=0.20 blx+reinicio       122.7             0.00680  1.000
+       N=84 pc=0.7 pm=0.10 blx+gaussiana       123.2             0.01079  1.000
+    N=66 pc=0.7 pm=0.20 unpunto+reinicio       123.7             0.03763  1.000
+        N=84 pc=0.8 pm=0.05 sbx+reinicio       124.4             0.05461  1.000
+       N=66 pc=0.7 pm=0.10 blx+gaussiana       124.6             0.00680  1.000
+       N=66 pc=0.8 pm=0.20 sbx+gaussiana       124.8             0.00419  0.931
+   N=66 pc=0.8 pm=0.20 unpunto+gaussiana       125.2             0.07756  1.000
+     N=132 pc=0.7 pm=0.20 sbx+polinomial       125.4             0.00859  1.000
+      N=66 pc=0.7 pm=0.05 blx+polinomial       125.6             0.01347  1.000
+      N=84 pc=0.8 pm=0.20 sbx+polinomial       125.9             0.01673  1.000
+     N=132 pc=0.7 pm=0.05 sbx+polinomial       126.1             0.00680  1.000
+    N=84 pc=0.7 pm=0.10 unpunto+reinicio       126.5             0.02066  1.000
+        N=84 pc=0.7 pm=0.20 sbx+reinicio       126.5             0.03763  1.000
+      N=84 pc=0.9 pm=0.20 sbx+polinomial       127.1             0.00859  1.000
+        N=66 pc=0.7 pm=0.05 blx+reinicio       127.2             0.01347  1.000
+      N=66 pc=0.7 pm=0.10 blx+polinomial       127.8             0.00680  1.000
+       N=84 pc=0.7 pm=0.05 blx+gaussiana       128.2             0.00419  0.931
+  N=84 pc=0.9 pm=0.05 unpunto+polinomial       128.3             0.02066  1.000
+   N=84 pc=0.8 pm=0.20 unpunto+gaussiana       129.1             0.04546  1.000
+   N=84 pc=0.9 pm=0.10 unpunto+gaussiana       129.2             0.01347  1.000
+      N=84 pc=0.7 pm=0.10 blx+polinomial       129.2             0.01347  1.000
+    N=66 pc=0.9 pm=0.20 unpunto+reinicio       129.3             0.02537  1.000
+   N=66 pc=0.9 pm=0.20 unpunto+gaussiana       129.6             0.00326  0.764
+ N=132 pc=0.9 pm=0.05 unpunto+polinomial       129.7             0.01673  1.000
+   N=132 pc=0.8 pm=0.05 unpunto+reinicio       129.8             0.02066  1.000
+    N=84 pc=0.8 pm=0.10 unpunto+reinicio       129.8             0.01347  1.000
+      N=84 pc=0.8 pm=0.20 blx+polinomial       130.1             0.02537  1.000
+       N=66 pc=0.8 pm=0.10 blx+gaussiana       130.2             0.01079  1.000
+        N=84 pc=0.7 pm=0.10 sbx+reinicio       131.7             0.03098  1.000
+    N=84 pc=0.9 pm=0.10 unpunto+reinicio       132.4             0.02066  1.000
+ N=132 pc=0.8 pm=0.10 unpunto+polinomial       132.5             0.01079  1.000
+       N=66 pc=0.8 pm=0.05 sbx+gaussiana       132.6             0.00536  1.000
+      N=66 pc=0.8 pm=0.20 blx+polinomial       132.8             0.00680  1.000
+        N=66 pc=0.8 pm=0.20 blx+reinicio       133.1             0.01673  1.000
+   N=84 pc=0.9 pm=0.05 unpunto+gaussiana       133.9             0.01347  1.000
+    N=84 pc=0.9 pm=0.20 unpunto+reinicio       134.0             0.05461  1.000
+       N=66 pc=0.8 pm=0.10 sbx+gaussiana       134.1             0.00859  1.000
+       N=84 pc=0.8 pm=0.05 sbx+gaussiana       134.2             0.02066  1.000
+   N=132 pc=0.9 pm=0.10 unpunto+reinicio       135.0             0.00680  1.000
+   N=66 pc=0.8 pm=0.10 unpunto+gaussiana       135.2             0.01673  1.000
+      N=66 pc=0.9 pm=0.20 blx+polinomial       135.2             0.00536  1.000
+   N=132 pc=0.8 pm=0.20 unpunto+reinicio       135.8             0.03763  1.000
+    N=66 pc=0.8 pm=0.20 unpunto+reinicio       135.8             0.00680  1.000
+      N=66 pc=0.9 pm=0.20 sbx+polinomial       135.8             0.02537  1.000
+   N=66 pc=0.8 pm=0.05 unpunto+gaussiana       136.6             0.02537  1.000
+        N=66 pc=0.9 pm=0.20 sbx+reinicio       136.7             0.01079  1.000
+ N=132 pc=0.8 pm=0.20 unpunto+polinomial       137.4             0.00859  1.000
+  N=84 pc=0.9 pm=0.10 unpunto+polinomial       137.4             0.03763  1.000
+      N=84 pc=0.7 pm=0.20 sbx+polinomial       137.6             0.07756  1.000
+     N=132 pc=0.8 pm=0.10 sbx+polinomial       137.8             0.00536  1.000
+    N=84 pc=0.9 pm=0.05 unpunto+reinicio       138.0             0.05461  1.000
+       N=84 pc=0.7 pm=0.10 sbx+gaussiana       138.2             0.00680  1.000
+   N=132 pc=0.7 pm=0.05 unpunto+reinicio       138.8             0.00859  1.000
+      N=66 pc=0.7 pm=0.10 sbx+polinomial       139.0             0.02066  1.000
+       N=66 pc=0.7 pm=0.05 sbx+gaussiana       140.2             0.02537  1.000
+   N=84 pc=0.7 pm=0.10 unpunto+gaussiana       140.5             0.03098  1.000
+      N=132 pc=0.7 pm=0.05 sbx+gaussiana       140.8             0.02537  1.000
+ N=132 pc=0.9 pm=0.20 unpunto+polinomial       141.1             0.00680  1.000
+       N=84 pc=0.9 pm=0.05 sbx+gaussiana       141.1             0.00859  1.000
+   N=66 pc=0.7 pm=0.20 unpunto+gaussiana       141.2             0.01347  1.000
+       N=66 pc=0.9 pm=0.10 blx+gaussiana       141.2             0.00419  0.931
+   N=132 pc=0.9 pm=0.05 unpunto+reinicio       141.8             0.00536  1.000
+ N=132 pc=0.7 pm=0.20 unpunto+polinomial       142.2             0.00419  0.931
+       N=66 pc=0.9 pm=0.10 sbx+gaussiana       142.3             0.03098  1.000
+   N=84 pc=0.7 pm=0.05 unpunto+gaussiana       142.5             0.01079  1.000
+      N=66 pc=0.9 pm=0.10 sbx+polinomial       142.8             0.00680  1.000
+ N=132 pc=0.8 pm=0.05 unpunto+polinomial       143.2             0.00536  1.000
+       N=66 pc=0.9 pm=0.05 blx+gaussiana       143.2             0.00419  0.931
+        N=84 pc=0.9 pm=0.05 sbx+reinicio       144.4             0.01079  1.000
+  N=66 pc=0.7 pm=0.10 unpunto+polinomial       144.5             0.00326  0.764
+    N=66 pc=0.9 pm=0.10 unpunto+reinicio       144.8             0.00680  1.000
+       N=66 pc=0.9 pm=0.05 sbx+gaussiana       145.3             0.00536  1.000
+  N=66 pc=0.8 pm=0.20 unpunto+polinomial       145.8             0.03098  1.000
+        N=84 pc=0.8 pm=0.10 sbx+reinicio       145.8             0.01347  1.000
+  N=66 pc=0.9 pm=0.20 unpunto+polinomial       146.9             0.02066  1.000
+ N=132 pc=0.7 pm=0.05 unpunto+polinomial       147.2             0.00680  1.000
+       N=84 pc=0.7 pm=0.05 sbx+gaussiana       147.4             0.00680  1.000
+    N=84 pc=0.7 pm=0.20 unpunto+reinicio       147.4             0.01079  1.000
+       N=66 pc=0.7 pm=0.20 blx+gaussiana       148.4             0.01347  1.000
+  N=84 pc=0.7 pm=0.20 unpunto+polinomial       148.6             0.00419  0.931
+  N=84 pc=0.8 pm=0.10 unpunto+polinomial       149.0             0.01347  1.000
+       N=132 pc=0.7 pm=0.20 sbx+reinicio       150.8             0.00253  0.611
+  N=84 pc=0.9 pm=0.20 unpunto+polinomial       150.9             0.01079  1.000
+    N=66 pc=0.7 pm=0.10 unpunto+reinicio       151.6             0.00536  1.000
+        N=66 pc=0.9 pm=0.05 sbx+reinicio       152.2             0.00326  0.764
+   N=84 pc=0.8 pm=0.05 unpunto+gaussiana       152.2             0.00680  1.000
+      N=84 pc=0.9 pm=0.05 sbx+polinomial       153.0             0.00536  1.000
+   N=66 pc=0.7 pm=0.10 unpunto+gaussiana       153.4             0.00859  1.000
+        N=66 pc=0.7 pm=0.20 sbx+reinicio       154.5             0.00326  0.764
+   N=66 pc=0.9 pm=0.10 unpunto+gaussiana       154.5             0.00253  0.611
+        N=66 pc=0.8 pm=0.20 sbx+reinicio       154.6             0.00419  0.931
+  N=66 pc=0.9 pm=0.10 unpunto+polinomial       155.1             0.00536  1.000
+   N=132 pc=0.7 pm=0.10 unpunto+reinicio       155.7             0.00326  0.764
+      N=84 pc=0.8 pm=0.10 sbx+polinomial       156.5             0.00680  1.000
+    N=66 pc=0.8 pm=0.05 unpunto+reinicio       157.0             0.01347  1.000
+      N=66 pc=0.8 pm=0.05 blx+polinomial       157.1             0.00680  1.000
+   N=66 pc=0.9 pm=0.05 unpunto+gaussiana       157.2             0.01079  1.000
+       N=66 pc=0.8 pm=0.20 blx+gaussiana       157.9             0.01673  1.000
+        N=66 pc=0.9 pm=0.10 sbx+reinicio       159.2             0.02537  1.000
+       N=66 pc=0.7 pm=0.10 sbx+gaussiana       160.5             0.00536  1.000
+   N=66 pc=0.7 pm=0.05 unpunto+gaussiana       160.9             0.00859  1.000
+  N=84 pc=0.7 pm=0.10 unpunto+polinomial       161.3             0.00419  0.931
+      N=66 pc=0.9 pm=0.05 sbx+polinomial       161.8             0.02066  1.000
+    N=66 pc=0.8 pm=0.10 unpunto+reinicio       163.9             0.00536  1.000
+  N=84 pc=0.8 pm=0.05 unpunto+polinomial       164.2             0.00326  0.764
+        N=66 pc=0.8 pm=0.10 sbx+reinicio       164.8             0.01079  1.000
+      N=66 pc=0.7 pm=0.05 sbx+polinomial       166.9             0.00326  0.764
+      N=66 pc=0.8 pm=0.05 sbx+polinomial       167.9             0.01079  1.000
+    N=84 pc=0.8 pm=0.05 unpunto+reinicio       169.0             0.00326  0.764
+    N=66 pc=0.7 pm=0.05 unpunto+reinicio       170.8             0.00536  1.000
+  N=66 pc=0.7 pm=0.05 unpunto+polinomial       172.2             0.00680  1.000
+        N=66 pc=0.7 pm=0.10 sbx+reinicio       172.4             0.00536  1.000
+  N=84 pc=0.7 pm=0.05 unpunto+polinomial       172.8             0.00326  0.764
+      N=84 pc=0.7 pm=0.05 sbx+polinomial       176.5             0.00253  0.611
+      N=66 pc=0.8 pm=0.20 sbx+polinomial       179.8             0.00536  1.000
+        N=84 pc=0.7 pm=0.05 sbx+reinicio       180.2             0.00326  0.764
+  N=66 pc=0.8 pm=0.10 unpunto+polinomial       183.8             0.00326  0.764
+      N=66 pc=0.8 pm=0.10 sbx+polinomial       184.0             0.00253  0.611
+    N=66 pc=0.9 pm=0.05 unpunto+reinicio       186.2             0.00326  0.764
+        N=66 pc=0.7 pm=0.05 sbx+reinicio       191.2             0.00253  0.611
+  N=66 pc=0.9 pm=0.05 unpunto+polinomial       199.1             0.00253  0.611
+  N=66 pc=0.7 pm=0.20 unpunto+polinomial       199.7             0.00253  0.611
+  N=66 pc=0.8 pm=0.05 unpunto+polinomial       205.9             0.00253  0.611
  a12_mejor_vs_config popSize
                0.500     132
-               0.500      88
+               0.458      84
+               0.500     132
+               0.500     132
+               0.486     132
+               0.528      84
+               0.479      84
+               0.514      84
+               0.514     132
+               0.521      84
+               0.528     132
+               0.500     132
                0.521     132
+               0.514     132
                0.507     132
-               0.562     132
-               0.535     132
+               0.472     132
+               0.521     132
+               0.514     132
+               0.500     132
+               0.507     132
                0.549     132
-               0.556      88
-               0.535     132
-               0.521      88
+               0.542     132
+               0.528     132
+               0.528     132
+               0.569     132
+               0.521      84
+               0.521     132
+               0.556      84
+               0.549     132
                0.576     132
-               0.556      52
+               0.556     132
+               0.507     132
+               0.562      84
+               0.556      84
+               0.556     132
+               0.549      84
+               0.556     132
                0.583     132
-               0.549      88
-               0.569      88
-               0.514      88
-               0.549      88
-               0.583      88
-               0.597      88
-               0.562      52
-               0.549      52
-               0.521      52
-               0.569      52
-               0.611      52
-               0.604      52
-               0.639      52
-               0.583      52
+               0.597     132
+               0.542     132
+               0.556     132
+               0.576     132
+               0.528      84
+               0.562      84
+               0.604     132
+               0.569     132
+               0.535      84
+               0.562     132
+               0.542      84
+               0.549      84
+               0.562     132
+               0.562     132
+               0.542     132
+               0.549      66
+               0.556     132
+               0.542     132
+               0.562      84
+               0.583     132
+               0.535     132
+               0.590      84
+               0.604     132
+               0.542     132
+               0.556     132
+               0.583     132
+               0.521      84
+               0.562     132
+               0.542      84
+               0.521      66
+               0.632     132
+               0.556     132
+               0.583     132
+               0.556      84
+               0.569      84
+               0.604      84
+               0.576     132
+               0.569      84
+               0.583     132
+               0.569     132
+               0.569      66
+               0.521     132
+               0.549     132
+               0.562      66
+               0.583      66
+               0.542      84
+               0.542      84
+               0.569     132
+               0.583      66
+               0.549      66
+               0.604     132
+               0.611     132
+               0.604      84
+               0.549      66
+               0.562      84
+               0.576      66
+               0.562      84
+               0.576      84
+               0.569      84
+               0.562     132
+               0.590      66
+               0.583      66
+               0.590      66
+               0.583      66
+               0.549      84
+               0.583      66
+               0.562      84
+               0.625      84
+               0.597     132
+               0.542      66
+               0.590      66
+               0.618     132
+               0.611      84
+               0.583      66
+               0.611     132
+               0.576      84
+               0.590      84
+               0.576      84
+               0.569      66
+               0.611     132
+               0.562      84
+               0.542      84
+               0.583      84
+               0.583      84
+               0.569      66
+               0.562      84
+               0.590      66
+               0.597      66
+               0.507      66
+               0.604     132
+               0.562      66
+               0.576      84
+               0.632     132
+               0.562      84
+               0.597      84
+               0.590      84
+               0.590      66
+               0.604      66
+               0.639      84
+               0.569      84
+               0.590      84
+               0.569      84
+               0.576      84
+               0.556      66
+               0.625      66
+               0.618     132
+               0.562     132
+               0.590      84
+               0.611      84
+               0.597      66
+               0.583      84
+               0.583      84
+               0.597     132
+               0.604      66
+               0.618      66
+               0.576      66
+               0.590      84
+               0.576      84
+               0.611      66
+               0.569      84
+               0.639     132
+               0.597      66
+               0.597      66
+               0.625     132
+               0.604      66
+               0.583      66
+               0.576      66
+               0.611      66
+               0.604     132
+               0.562      84
+               0.535      84
+               0.625     132
+               0.528      84
+               0.590      84
+               0.611     132
+               0.556      66
+               0.556      66
+               0.549      84
+               0.569     132
+               0.639     132
+               0.597      84
+               0.590      66
+               0.632      66
+               0.625     132
+               0.618     132
+               0.549      66
+               0.590      84
+               0.583      66
+               0.583     132
+               0.632      66
+               0.590      84
+               0.667      66
+               0.618      66
+               0.625      66
+               0.590      66
+               0.618      84
+               0.625      66
+               0.597     132
+               0.590      84
+               0.611      84
+               0.590      66
+               0.618      84
+               0.583      84
+               0.653     132
+               0.576      84
+               0.639      66
+               0.618      66
+               0.569      84
+               0.625      84
+               0.625      66
+               0.632      66
+               0.653      66
+               0.646      66
+               0.618      66
+               0.632     132
+               0.590      84
+               0.611      66
+               0.576      66
+               0.625      66
+               0.604      66
+               0.611      66
+               0.604      66
+               0.646      66
+               0.611      84
+               0.590      66
+               0.632      66
+               0.639      84
+               0.590      66
+               0.646      66
+               0.576      66
+               0.660      84
+               0.639      66
+               0.611      66
+               0.611      66
+               0.632      84
+               0.646      84
+               0.639      66
+               0.632      84
+               0.667      66
+               0.632      66
+               0.660      66
+               0.660      66
+               0.667      66
+               0.667      66
+               0.667      66
 
-Elegida en el servidor (mediana): N=132 pc=0.8 pm=0.20  rango medio: 10.42  posición: 3  p Holm vs mejor: 1 
-Configuraciones distinguibles de la mejor (Holm < 0.05): 0 de 26 
+Elegida en el servidor (mediana): N=132 pc=0.9 pm=0.05 blx+gaussiana  rango medio: 59.42  posición: 5  p Holm vs mejor: 1 
+Configuraciones distinguibles de la mejor (Holm < 0.05): 0 de 242 
 
 Rango medio por tamaño de población:
-      52       88      132 
-17.24074 13.30556 11.45370 
-Kendall W = 0.141 
+      66       84      132 
+143.1080 121.6965 101.1955 
+Kendall W = 0.188 
+
+Friedman sobre los 9 pares de operadores (media de sus 27 configuraciones):
+
+	Friedman rank sum test
+
+data:  Mo
+Friedman chi-squared = 38.156, df = 8, p-value = 7.046e-06
+
+rango medio por par de operadores (bloques):
+      blx+reinicio     blx+polinomial      blx+gaussiana      sbx+gaussiana 
+          2.333333           3.333333           3.500000           4.250000 
+ unpunto+gaussiana       sbx+reinicio     sbx+polinomial   unpunto+reinicio 
+          5.500000           5.833333           6.000000           6.833333 
+unpunto+polinomial 
+          7.416667 
 
 	Friedman rank sum test
 
 data:  Mp
-Friedman chi-squared = 4.6667, df = 2, p-value = 0.09697
+Friedman chi-squared = 12.667, df = 2, p-value = 0.001776
 
 rango medio por tamaño (bloques):
-   N=132     N=52     N=88 
-1.666667 2.500000 1.833333 
+   N=132     N=66     N=84 
+1.500000 2.833333 1.666667 
 
-Minutos por corrida (media) en la parametrización: 5.73 
+Minutos por corrida (media) en la parametrización: 7.51 
 
 =====================================================================
 B. Convergencia
 =====================================================================
        arquitectura generation_95pct generation_99pct generation_999pct
-1          continua                3               18                93
-2 continua_modulada                6               41               218
-3           eventos                4               30               264
-4         periodica               31              336               756
+1          continua                2               14                88
+2 continua_modulada                7               72               324
+3           eventos                4               22               231
+4         periodica               23              251               892
        arquitectura generation_95pct generation_99pct generation_999pct
-1          continua              1-7             3-47           18-1158
-2 continua_modulada             4-15           10-158           44-1267
-3           eventos              1-7             7-50           52-1378
-4         periodica            19-98          36-1142           77-1436
-mediana global g99: 38.5 
+1          continua              1-4            4-759           13-1028
+2 continua_modulada             2-20           24-617           39-1062
+3           eventos              1-6            7-347            21-842
+4         periodica            11-39           97-466          450-1473
+mediana global g99: 66 
 corte de las corridas principales: 1000 generaciones
 
 Fracción del HV final alcanzada en la generación 1000 (min, mediana, max):
        arquitectura frac.min frac.med frac.max
-1          continua   0.9926   0.9999   1.0000
-2 continua_modulada   0.9927   0.9999   1.0000
-3           eventos   0.9986   0.9997   1.0000
-4         periodica   0.9856   1.0000   1.0000
-Eventos en el corte (min): 1.1718  Periódica al final (max): 1.0304 
+1          continua   0.9929   1.0000   1.0000
+2 continua_modulada   0.9927   1.0000   1.0000
+3           eventos   0.9996   1.0000   1.0000
+4         periodica   0.9964   0.9995   1.0000
+Eventos en el corte (min): 1.1716  Periódica al final (max): 1.032 
 
 =====================================================================
 C. Consistencia entre semillas (NSGA-III) y comparación con random
 =====================================================================
-NSGA-III  continua           n=11 media=0.1130 sd=0.0010 CV=0.93%  Shapiro W=0.893 p=0.150
-NSGA-III  continua_modulada  n=11 media=0.1112 sd=0.0017 CV=1.50%  Shapiro W=0.967 p=0.855
-NSGA-III  periodica          n=11 media=0.8789 sd=0.0345 CV=3.93%  Shapiro W=0.877 p=0.096
-NSGA-III  eventos            n=11 media=1.1587 sd=0.0120 CV=1.03%  Shapiro W=0.918 p=0.306
-random    continua           n=11 media=0.1131 sd=0.0016 CV=1.45%  Shapiro W=0.970 p=0.887
+NSGA-III  continua           n=11 media=0.1133 sd=0.0010 CV=0.89%  Shapiro W=0.948 p=0.616
+NSGA-III  continua_modulada  n=11 media=0.1119 sd=0.0022 CV=1.92%  Shapiro W=0.827 p=0.021
+NSGA-III  periodica          n=11 media=0.9474 sd=0.0105 CV=1.11%  Shapiro W=0.954 p=0.701
+NSGA-III  eventos            n=11 media=1.1770 sd=0.0046 CV=0.39%  Shapiro W=0.887 p=0.129
+random    continua           n=11 media=0.1131 sd=0.0016 CV=1.45%  Shapiro W=0.970 p=0.886
 random    continua_modulada  n=11 media=0.1124 sd=0.0017 CV=1.55%  Shapiro W=0.903 p=0.203
-random    periodica          n=11 media=0.9481 sd=0.0101 CV=1.06%  Shapiro W=0.919 p=0.310
-random    eventos            n=11 media=1.1780 sd=0.0049 CV=0.41%  Shapiro W=0.914 p=0.269
+random    periodica          n=11 media=0.9481 sd=0.0101 CV=1.06%  Shapiro W=0.919 p=0.313
+random    eventos            n=11 media=1.1780 sd=0.0049 CV=0.41%  Shapiro W=0.914 p=0.271
 
 Friedman entre arquitecturas (bloques = semillas), HV de validación:
 
 	Friedman rank sum test
 
 data:  Mn
-Friedman chi-squared = 31.909, df = 3, p-value = 5.47e-07
+Friedman chi-squared = 30.382, df = 3, p-value = 1.147e-06
 
 rango medio:
          continua continua_modulada         periodica           eventos 
-         3.090909          3.909091          2.000000          1.000000 
+         3.272727          3.727273          2.000000          1.000000 
                  A                 B        p   a12  p_holm
-          continua continua_modulada 0.002930 0.826 0.00586
+          continua continua_modulada 0.018555 0.727 0.01855
           continua         periodica 0.000977 0.000 0.00586
           continua           eventos 0.000977 0.000 0.00586
  continua_modulada         periodica 0.000977 0.000 0.00586
@@ -140,78 +587,78 @@ rango medio:
 
 Fracción del frente combinado por semilla: media (min-max)
              continua     continua_modulada             periodica 
-"0.189 (0.065-0.304)" "0.194 (0.093-0.298)" "0.143 (0.073-0.254)" 
+"0.030 (0.010-0.051)" "0.027 (0.007-0.055)" "0.142 (0.065-0.194)" 
               eventos 
-"0.475 (0.299-0.531)" 
+"0.801 (0.731-0.885)" 
 Friedman sobre la fracción del frente combinado:
 
 	Friedman rank sum test
 
 data:  Mc
-Friedman chi-squared = 18.468, df = 3, p-value = 0.0003522
+Friedman chi-squared = 29.727, df = 3, p-value = 1.575e-06
 
 rango medio:
          continua continua_modulada         periodica           eventos 
-         2.727273          2.954545          3.227273          1.090909 
-semillas en que eventos tiene la mayor fracción: 10 de 11 
-                 A                 B       p     a12 p_holm
-          continua continua_modulada 0.89390 0.46281 0.8939
-          continua         periodica 0.19733 0.66116 0.3947
-          continua           eventos 0.00510 0.00826 0.0231
- continua_modulada         periodica 0.12628 0.71488 0.3788
- continua_modulada           eventos 0.00386 0.00000 0.0231
-         periodica           eventos 0.00386 0.00000 0.0231
+         3.454545          3.545455          2.000000          1.000000 
+semillas en que eventos tiene la mayor fracción: 11 de 11 
+                 A                 B       p   a12 p_holm
+          continua continua_modulada 0.75566 0.504 0.7557
+          continua         periodica 0.00386 0.000 0.0231
+          continua           eventos 0.00386 0.000 0.0231
+ continua_modulada         periodica 0.00386 0.000 0.0231
+ continua_modulada           eventos 0.00386 0.000 0.0231
+         periodica           eventos 0.00386 0.000 0.0231
 
 --- NSGA-III frente a búsqueda aleatoria (mismo presupuesto) ---
-      arquitectura hv_nsga  sd_nsga hv_random sd_random         p
-          continua  0.1130 0.001047    0.1131  0.001643 0.5771484
- continua_modulada  0.1112 0.001673    0.1124  0.001737 0.1015625
-         periodica  0.8789 0.034507    0.9481  0.010060 0.0009766
-           eventos  1.1587 0.011965    1.1780  0.004870 0.0009766
- a12_nsga_vs_random frente_nsga frente_random   p_holm
-            0.45455       71.73         31.91 0.577148
-            0.28926       59.82         16.18 0.203125
-            0.00000       97.91        887.82 0.003906
-            0.02479       94.27      32125.00 0.003906
- coverage_nsga_over_random coverage_random_over_nsga
-                    0.7407                    0.6692
-                    0.8933                    0.6444
-                    0.1824                    0.7669
-                    0.9850                    0.8149
+      arquitectura hv_nsga  sd_nsga hv_random sd_random      p
+          continua  0.1133 0.001009    0.1131  0.001644 0.8984
+ continua_modulada  0.1119 0.002152    0.1124  0.001738 0.2783
+         periodica  0.9474 0.010527    0.9481  0.010054 0.8984
+           eventos  1.1770 0.004648    1.1780  0.004870 0.8311
+ a12_nsga_vs_random frente_nsga frente_random p_holm coverage_nsga_over_random
+             0.5455       41.91         30.91      1                    0.3674
+             0.4545       27.36         16.00      1                    0.4695
+             0.4628      411.18        253.00      1                    0.4718
+             0.4298      437.82        388.09      1                    0.2238
+ coverage_random_over_nsga
+                    0.2483
+                    0.2399
+                    0.1645
+                    0.2799
 
 Recorte por nichado del frente aleatorio al tamaño del frente NSGA-III:
       arquitectura hv_nsga hv_random hv_random_recortado p_completo p_recortado
-          continua  0.1130    0.1131              0.1131  0.5771484   0.5771484
- continua_modulada  0.1112    0.1124              0.1124  0.1015625   0.1015625
-         periodica  0.8789    0.9481              0.9420  0.0009766   0.0009766
-           eventos  1.1587    1.1780              1.1724  0.0009766   0.0009766
+          continua  0.1133    0.1131              0.1131     0.8984      0.8984
+ continua_modulada  0.1119    0.1124              0.1124     0.2783      0.2783
+         periodica  0.9474    0.9481              0.9481     0.8984      0.8984
+           eventos  1.1770    1.1780              1.1780     0.8311      0.8311
  a12_vs_completo a12_vs_recortado p_holm_completo p_holm_recortado
-         0.45455          0.45455        0.577148         0.577148
-         0.28926          0.28926        0.203125         0.203125
-         0.00000          0.00000        0.003906         0.003906
-         0.02479          0.09091        0.003906         0.003906
-máx |HV recalculado - HV del servidor| (NSGA-III): 4e-15 
+          0.5455           0.5455               1                1
+          0.4545           0.4545               1                1
+          0.4628           0.4628               1                1
+          0.4298           0.4298               1                1
+máx |HV recalculado - HV del servidor| (NSGA-III): 4.66e-15 
 
 Fracción del frente conjunto (NSGA-III + random, misma semilla) que aporta cada método:
-       arquitectura   frac_nsga  n_conjunto
-1          continua 0.663619145    73.27273
-2 continua_modulada 0.810489895    55.45455
-3           eventos 0.001862089 32171.81818
-4         periodica 0.060321092   928.09091
+       arquitectura frac_nsga n_conjunto
+1          continua 0.6132673   51.18182
+2 continua_modulada 0.7021005   29.72727
+3           eventos 0.5101324  620.18182
+4         periodica 0.7063045  506.18182
 
 =====================================================================
 F. Diseño (pregunta 1): mejores valores por objetivo y error con presupuesto de costo
 =====================================================================
 Mínimos por objetivo, frente funcional:
        arquitectura regimen  error umbral latencia     costo
-1          continua  limpio 0.1000     15    4.285 1000.0000
-2 continua_modulada  limpio 0.1050     15    2.555 1000.0000
-3           eventos  limpio 0.0950     15    4.960    0.0375
-4         periodica  limpio 0.1075     15    3.890    3.3333
-5          continua rafagas 0.1700     15    3.090 1000.0000
-6 continua_modulada rafagas 0.1675     15    9.050 1000.0000
-7           eventos rafagas 0.1650     15   10.090    0.2292
-8         periodica rafagas 0.1675     15    4.242    3.3333
+1          continua  limpio 0.0975     15    1.425 1.000e+03
+2 continua_modulada  limpio 0.1075     15    2.533 1.000e+03
+3           eventos  limpio 0.1000     15    4.095 3.333e-02
+4         periodica  limpio 0.1200     15    1.867 3.333e+00
+5          continua rafagas 0.1650     15    4.452 1.000e+03
+6 continua_modulada rafagas 0.1800     15    8.215 1.000e+03
+7           eventos rafagas 0.1550     15   12.445 4.583e-01
+8         periodica rafagas 0.1725     15   10.252 3.333e+00
       arquitectura regimen presupuesto error_min umbral_min latencia_min
           continua  limpio           2        NA         NA           NA
           continua  limpio           5        NA         NA           NA
@@ -221,7 +668,7 @@ Mínimos por objetivo, frente funcional:
           continua  limpio         100        NA         NA           NA
           continua  limpio         200        NA         NA           NA
           continua  limpio         500        NA         NA           NA
-          continua  limpio        1000    0.1000      15.00        4.285
+          continua  limpio        1000    0.0975      15.00        1.425
  continua_modulada  limpio           2        NA         NA           NA
  continua_modulada  limpio           5        NA         NA           NA
  continua_modulada  limpio          10        NA         NA           NA
@@ -230,61 +677,61 @@ Mínimos por objetivo, frente funcional:
  continua_modulada  limpio         100        NA         NA           NA
  continua_modulada  limpio         200        NA         NA           NA
  continua_modulada  limpio         500        NA         NA           NA
- continua_modulada  limpio        1000    0.1050      15.00        2.555
-           eventos  limpio           2    0.2525      15.00      154.787
-           eventos  limpio           5    0.0950      15.00        9.648
-           eventos  limpio          10    0.0950      15.00        4.960
-           eventos  limpio          20    0.0950      15.00        4.960
-           eventos  limpio          50    0.0950      15.00        4.960
-           eventos  limpio         100    0.0950      15.00        4.960
-           eventos  limpio         200    0.0950      15.00        4.960
-           eventos  limpio         500    0.0950      15.00        4.960
-           eventos  limpio        1000    0.0950      15.00        4.960
+ continua_modulada  limpio        1000    0.1075      15.00        2.533
+           eventos  limpio           2    0.2925      15.00      158.887
+           eventos  limpio           5    0.1000      15.00        9.637
+           eventos  limpio          10    0.1000      15.00        4.095
+           eventos  limpio          20    0.1000      15.00        4.095
+           eventos  limpio          50    0.1000      15.00        4.095
+           eventos  limpio         100    0.1000      15.00        4.095
+           eventos  limpio         200    0.1000      15.00        4.095
+           eventos  limpio         500    0.1000      15.00        4.095
+           eventos  limpio        1000    0.1000      15.00        4.095
          periodica  limpio           2        NA         NA           NA
-         periodica  limpio           5    0.3075      58.92       79.660
-         periodica  limpio          10    0.2325      43.38       49.315
-         periodica  limpio          20    0.1600      24.56       30.332
-         periodica  limpio          50    0.1425      15.00       15.877
-         periodica  limpio         100    0.1325      15.00        8.270
-         periodica  limpio         200    0.1075      15.00        6.500
-         periodica  limpio         500    0.1075      15.00        3.890
-         periodica  limpio        1000    0.1075      15.00        3.890
+         periodica  limpio           5    0.3050      44.01       82.380
+         periodica  limpio          10    0.2275      42.72       50.770
+         periodica  limpio          20    0.2125      15.00       32.145
+         periodica  limpio          50    0.1450      15.00       17.890
+         periodica  limpio         100    0.1400      15.00        7.753
+         periodica  limpio         200    0.1200      15.00        6.375
+         periodica  limpio         500    0.1200      15.00        1.867
+         periodica  limpio        1000    0.1200      15.00        1.867
 
 Costo mínimo entre soluciones funcionales con umbral 15 ms y error <= 0.25:
        arquitectura regimen       costo
 1          continua  limpio 1000.000000
 2 continua_modulada  limpio 1000.000000
-3           eventos  limpio    2.066667
-4         periodica  limpio   25.000000
+3           eventos  limpio    2.079167
+4         periodica  limpio   28.333333
 5          continua rafagas 1000.000000
 6 continua_modulada rafagas 1000.000000
-7           eventos rafagas    2.125000
-8         periodica rafagas   30.000000
+7           eventos rafagas    2.195833
+8         periodica rafagas   28.333333
 
 Intervalos entre lecturas en el frente funcional:
-      arquitectura regimen   n mediana    q25    q75 en_alfa_80_125 sobre_125
- continua_modulada  limpio  52  236.36 132.00 249.68         0.0000    0.9231
-           eventos  limpio 184    9.38   7.68  10.59         0.0109    0.0000
-         periodica  limpio 170   17.36   5.67  42.45         0.0941    0.0647
- continua_modulada rafagas  82  111.14  24.75 181.61         0.1707    0.3780
-           eventos rafagas 178    8.02   7.39   9.32         0.0000    0.0000
-         periodica rafagas 173   19.59   5.66  40.91         0.0405    0.0520
+      arquitectura regimen   n mediana   q25   q75 en_alfa_80_125 sobre_125
+ continua_modulada  limpio  19  216.68 94.39 240.3         0.1053    0.6842
+           eventos  limpio 132    8.97  6.88  10.5         0.0000    0.0000
+         periodica  limpio 132   23.36  7.64  47.7         0.0455    0.0530
+ continua_modulada rafagas  20  105.37 47.41 220.2         0.1000    0.4500
+           eventos rafagas 132    9.00  7.98  10.3         0.0000    0.0000
+         periodica rafagas 112   22.63  7.17  51.3         0.0536    0.0625
  bajo_80
-  0.0769
-  0.9891
-  0.8412
-  0.4512
-  1.0000
-  0.9075
+   0.211
+   1.000
+   0.902
+   0.450
+   1.000
+   0.884
 
 Costo (lecturas/s) de los lectores por eventos en el frente funcional, cuantiles:
 $limpio
-      0%      25%      50%      75%     100% 
-0.037500 1.109375 2.045833 2.590625 5.708333 
+        0%        25%        50%        75%       100% 
+0.03333333 1.63958333 2.23125000 2.76770833 6.05833333 
 
 $rafagas
        0%       25%       50%       75%      100% 
-0.2291667 1.6625000 2.3187500 3.3416667 6.7708333 
+0.4583333 1.7906250 2.2875000 2.9677083 6.1833333 
 
 
 =====================================================================
@@ -293,74 +740,74 @@ G. Sensibilidad
 
  completo : fracción del frente combinado
  condicion fraccion_frente_combinado.continua
-      base                             0.0983
-   pulso_5                             0.1585
-  pulso_20                             0.2372
- ruido_0.4                             0.2188
- ruido_0.9                             0.2406
- isi_corto                             0.2603
+      base                             0.1050
+   pulso_5                             0.0917
+  pulso_20                             0.1512
+ ruido_0.4                             0.2230
+ ruido_0.9                             0.0985
+ isi_corto                             0.1333
  fraccion_frente_combinado.continua_modulada
-                                      0.2107
-                                      0.1829
-                                      0.1186
-                                      0.2812
-                                      0.0856
-                                      0.1860
+                                      0.0630
+                                      0.0667
+                                      0.1337
+                                      0.1892
+                                      0.0152
+                                      0.0667
  fraccion_frente_combinado.periodica fraccion_frente_combinado.eventos
-                              0.0871                             0.604
-                              0.0732                             0.585
-                              0.2134                             0.431
-                              0.0365                             0.464
-                              0.1604                             0.513
-                              0.2107                             0.343
+                              0.1303                             0.702
+                              0.1667                             0.675
+                              0.2733                             0.442
+                              0.0608                             0.527
+                              0.2803                             0.606
+                              0.2741                             0.526
 
  funcional : fracción del frente combinado
  condicion fraccion_frente_combinado.continua
-      base                             0.1021
-   pulso_5                             0.0517
-  pulso_20                             0.2474
- ruido_0.4                             0.2577
- ruido_0.9                             0.2794
- isi_corto                             0.2903
+      base                             0.1081
+   pulso_5                             0.0769
+  pulso_20                             0.1736
+ ruido_0.4                             0.2500
+ ruido_0.9                             0.0909
+ isi_corto                             0.1444
  fraccion_frente_combinado.continua_modulada
-                                       0.169
-                                       0.310
-                                       0.067
-                                       0.264
-                                       0.118
-                                       0.204
+                                      0.0595
+                                      0.1154
+                                      0.1528
+                                      0.2097
+                                      0.0114
+                                      0.0778
  fraccion_frente_combinado.periodica fraccion_frente_combinado.eventos
-                              0.0810                             0.648
-                              0.0172                             0.621
-                              0.1804                             0.505
-                              0.0245                             0.454
-                              0.1029                             0.500
-                              0.1989                             0.306
+                              0.1189                             0.714
+                              0.1731                             0.635
+                              0.2153                             0.458
+                              0.0484                             0.492
+                              0.2614                             0.636
+                              0.2444                             0.533
 
 C(eventos, periódica) y C(periódica, eventos) por condición (funcional):
  condicion cobertura_A_sobre_B.periodica cobertura_A_sobre_B.eventos
-      base                             0                       0.865
-   pulso_5                             0                       0.500
-  pulso_20                             0                       0.521
- ruido_0.4                             0                       0.945
- ruido_0.9                             0                       0.440
- isi_corto                             0                       0.260
+      base                             0                       0.833
+   pulso_5                             0                       0.250
+  pulso_20                             0                       0.426
+ ruido_0.4                             0                       0.915
+ ruido_0.9                             0                       0.452
+ isi_corto                             0                       0.405
 
 n funcional por condición y arquitectura:
  condicion n_frente.continua n_frente.continua_modulada n_frente.periodica
-      base               137                         52                170
-   pulso_5                11                         19                  2
-  pulso_20                51                         41                 73
- ruido_0.4                63                         59                 73
- ruido_0.9                38                         42                 25
- isi_corto                81                         66                 50
+      base                49                         19                132
+   pulso_5                 5                          7                 12
+  pulso_20                26                         31                 54
+ ruido_0.4                37                         34                 71
+ ruido_0.9                10                         11                 42
+ isi_corto                15                         11                 37
  n_frente.eventos
-              184
-               36
-               98
-               74
-               68
-               57
+              132
+               33
+               66
+               61
+               56
+               48
 
 =====================================================================
 H. Recuperación de modelos y ajuste
@@ -438,29 +885,29 @@ distancias de Cook > 4/n: D2
 K. Cobertura cruzada entre eventos y periódica con ambos optimizadores
 =====================================================================
    semilla ev_nsga_sobre_per_nsga ev_nsga_sobre_per_rand ev_rand_sobre_per_rand
-1       11                  0.838                  0.886                  0.870
-2       22                  0.721                  0.728                  0.850
-3       33                  0.705                  0.712                  0.864
-4       44                  0.718                  0.746                  0.882
-5       55                  0.820                  0.696                  0.713
-6       66                  0.696                  0.709                  0.841
-7       77                  0.358                  0.484                  0.773
-8       88                  0.800                  0.678                  0.743
-9       99                  0.632                  0.731                  0.719
-10     111                  0.671                  0.748                  0.793
-11     122                  0.688                  0.757                  0.770
+1       11                  0.791                  0.891                  0.870
+2       22                  0.761                  0.810                  0.850
+3       33                  0.715                  0.735                  0.864
+4       44                  0.829                  0.870                  0.882
+5       55                  0.809                  0.778                  0.713
+6       66                  0.770                  0.790                  0.840
+7       77                  0.739                  0.748                  0.780
+8       88                  0.739                  0.776                  0.743
+9       99                  0.738                  0.786                  0.723
+10     111                  0.864                  0.770                  0.793
+11     122                  0.892                  0.862                  0.770
    ev_rand_sobre_per_nsga per_rand_sobre_ev_nsga per_nsga_sobre_ev_nsga
-1                   0.770                      0                      0
-2                   0.868                      0                      0
-3                   0.808                      0                      0
-4                   0.833                      0                      0
-5                   0.754                      0                      0
-6                   0.785                      0                      0
-7                   0.868                      0                      0
-8                   0.767                      0                      0
-9                   0.603                      0                      0
-10                  0.908                      0                      0
-11                  0.781                      0                      0
+1                   0.760                      0                      0
+2                   0.796                      0                      0
+3                   0.871                      0                      0
+4                   0.863                      0                      0
+5                   0.761                      0                      0
+6                   0.816                      0                      0
+7                   0.808                      0                      0
+8                   0.651                      0                      0
+9                   0.735                      0                      0
+10                  0.868                      0                      0
+11                  0.857                      0                      0
    per_rand_sobre_ev_rand per_nsga_sobre_ev_rand
 1                       0                      0
 2                       0                      0
@@ -476,22 +923,22 @@ K. Cobertura cruzada entre eventos y periódica con ambos optimizadores
 
 media por columna:
 ev_nsga_sobre_per_nsga ev_nsga_sobre_per_rand ev_rand_sobre_per_rand 
-                 0.695                  0.716                  0.802 
+                 0.786                  0.801                  0.802 
 ev_rand_sobre_per_nsga per_rand_sobre_ev_nsga per_nsga_sobre_ev_nsga 
-                 0.795                  0.000                  0.000 
+                 0.799                  0.000                  0.000 
 per_rand_sobre_ev_rand per_nsga_sobre_ev_rand 
                  0.000                  0.000 
 min por columna:
 ev_nsga_sobre_per_nsga ev_nsga_sobre_per_rand ev_rand_sobre_per_rand 
-                 0.358                  0.484                  0.713 
+                 0.715                  0.735                  0.713 
 ev_rand_sobre_per_nsga per_rand_sobre_ev_nsga per_nsga_sobre_ev_nsga 
-                 0.603                  0.000                  0.000 
+                 0.651                  0.000                  0.000 
 per_rand_sobre_ev_rand per_nsga_sobre_ev_rand 
                  0.000                  0.000 
 max por columna:
 ev_nsga_sobre_per_nsga ev_nsga_sobre_per_rand ev_rand_sobre_per_rand 
-                 0.838                  0.886                  0.882 
+                 0.892                  0.891                  0.882 
 ev_rand_sobre_per_nsga per_rand_sobre_ev_nsga per_nsga_sobre_ev_nsga 
-                 0.908                  0.000                  0.000 
+                 0.871                  0.000                  0.000 
 per_rand_sobre_ev_rand per_nsga_sobre_ev_rand 
                  0.000                  0.000 

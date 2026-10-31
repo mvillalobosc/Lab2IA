@@ -1,0 +1,2 @@
+"popSize","n_partitions","pcrossover","pmutation","cruce_operador","mutacion_operador","maxiter","presupuesto_nominal","median_hv","mean_hv"
+132,7,0.9,0.05,"blx","gaussiana",76,10164,0.50767944873638,0.574338616655349

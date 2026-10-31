@@ -1,9 +1,9 @@
 "architecture","period","T_ms","p_access","p_value"
-"continuous","own",NA,0.847666666666667,NA
-"continuous","control",100,0.847666666666667,0.730117809973536
-"modulated continuous","own",187.4,0.815,2.97471197062309e-27
-"modulated continuous","control",100,0.815,0.00238182745600211
-"periodic","own",46.5,0.423666666666667,0
-"periodic","control",100,0.423666666666667,0.413145195477289
-"event","own",NA,0.740333333333333,NA
-"event","control",100,0.740333333333333,0.412303228522739
+"continuous","own",NA,0.853333333333333,NA
+"continuous","control",100,0.853333333333333,0.890262870415626
+"modulated continuous","own",141.4,0.852,2.36973520299257e-06
+"modulated continuous","control",100,0.852,0.589578418392269
+"periodic","own",97.5,0.186333333333333,0
+"periodic","control",100,0.186333333333333,0
+"event","own",NA,0.832333333333333,NA
+"event","control",100,0.832333333333333,0.850980816781543

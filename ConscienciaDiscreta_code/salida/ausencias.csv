@@ -1,9 +1,9 @@
 "arquitectura","cambio_sensorial","fraccion_huecos_detectados","error_reloj_medio_ms","lecturas_medias"
 "continua",FALSE,0.005,-300,1200
-"continua",TRUE,0.425,-300,1200
+"continua",TRUE,0.28,-300,1200
 "continua_modulada",FALSE,0.005,-300,1200
-"continua_modulada",TRUE,0.43,-300,1200
+"continua_modulada",TRUE,0.305,-300,1200
 "periodica",FALSE,0,-384.915,4.705
 "periodica",TRUE,0,-374.25,4.75
 "eventos",FALSE,0,NA,0
-"eventos",TRUE,0,NA,19.33
+"eventos",TRUE,0,NA,23.265

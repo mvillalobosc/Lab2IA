@@ -17,7 +17,7 @@ Figuras del artículo en PDF vectorial, con la numeración del manuscrito reestr
 | `Fig7.pdf` | Cota del lector periódico y umbrales de Haarlem et al. |
 | `Fig8.pdf` | Paradigma discriminante: acceso a la sonda contra el SOA inductor-sonda (onset aleatorio y fijo) y contra la fase del onset. |
 | `Fig9.pdf` | Fracción de huecos forzados de lectura detectados por la rodilla de cada arquitectura. |
-| `Fig10.pdf` | Rango medio de Friedman de las 27 configuraciones de la parametrización. |
+| `Fig10.pdf` | Rango medio de Friedman de los 9 pares de operadores y de las 27 configuraciones numéricas del par elegido en la parametrización. |
 | `Fig11.pdf` | Validación de NSGA-III en el régimen limpio: convergencia e hipervolumen de validación de NSGA-III y de la búsqueda aleatoria en 11 semillas. |
 | `Fig12.pdf` | Fracción del frente combinado de cada arquitectura en cada semilla. |
 | `Fig13.pdf` | Fronteras de Pareto en dos dimensiones de NSGA-III y de la búsqueda aleatoria. |
@@ -41,7 +41,7 @@ Figures of the paper as vector PDF, with the numbering of the restructured manus
 | `Fig7.pdf` | Bound of the periodic reader and thresholds of Haarlem et al. |
 | `Fig8.pdf` | Discriminating paradigm: probe access against the inducer-probe SOA (jittered and fixed onsets) and against the onset phase. |
 | `Fig9.pdf` | Fraction of forced reading gaps detected by the knee of each architecture. |
-| `Fig10.pdf` | Mean Friedman rank of the 27 configurations of the parametrisation. |
+| `Fig10.pdf` | Mean Friedman rank of the 9 operator pairs and of the 27 numerical configurations of the selected pair in the parametrisation. |
 | `Fig11.pdf` | Validation of NSGA-III on the clean regime: convergence and validation hypervolume of NSGA-III and of random search over 11 seeds. |
 | `Fig12.pdf` | Share of the combined front of each architecture in each seed. |
 | `Fig13.pdf` | Two-dimensional Pareto frontiers of NSGA-III and of random search. |

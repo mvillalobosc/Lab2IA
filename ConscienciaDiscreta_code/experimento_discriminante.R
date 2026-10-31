@@ -8,9 +8,11 @@
 ##
 ## AUTOCONTENIDO: no necesita ningún otro archivo. Trae embebidos el agente
 ## del paper (integrador con fuga, cuatro compuertas de lectura) y las
-## soluciones rodilla del régimen limpio (post_hoc/resultados/
-## rodillas_corregidas.csv del repo, las del artículo). Si quieres usar otras
-## rodillas, pásale un CSV con las mismas columnas como argumento.
+## soluciones rodilla del régimen limpio de la corrida del artículo (la del
+## 24 de octubre de 2026; post_hoc/resultados/rodillas_corregidas.csv del
+## repo, recalculadas de salida/frentes_validados.csv con la regla de la
+## Sect. 3.5). Si quieres usar otras rodillas, pásale un CSV con las mismas
+## columnas como argumento.
 ##
 ##   Paradigma A (historia del estímulo): un inductor fuerte y una sonda igual
 ##   de fuerte con SOA fino (12 a 90 ms). La pregunta no es la respuesta del
@@ -72,15 +74,15 @@ CFG <- list(dt = 1, T_ensayo = 600, pulso_dur = 10, pulso_amp = 1,
             arquitecturas = c("continua", "continua_modulada", "periodica", "eventos"))
 RODILLAS <- data.frame(
   arquitectura = c("continua", "continua_modulada", "periodica", "eventos"),
-  tau     = c(6.48506, 6.85579, 6.09598, 6.11532),
-  theta_p = c(0.589177, 0.576683, 0.624649, 0.0955907),
-  m       = c(1.97371, 1.78132, 40.9704, 9.80227),
-  w       = c(4.28618, 5.12652, 46.6538, 2.71776),
-  T       = c(NA, NA, 46.5028, NA),
-  theta_g = c(NA, NA, NA, 0.664613),
-  r       = c(NA, NA, NA, 9.09809),
-  A_mod   = c(NA, 0.0888602, NA, NA),
-  T_mod   = c(NA, 187.405, NA, NA))
+  tau     = c(5.08223, 5.34522, 5.73625, 5.28717),
+  theta_p = c(0.667389, 0.646704, 0.684279, 0.217113),
+  m       = c(1.72509, 1.2594, 53.4429, 2.46885),
+  w       = c(3.31114, 3.15426, 122.956, 13.4007),
+  T       = c(NA, NA, 97.4934, NA),
+  theta_g = c(NA, NA, NA, 0.665408),
+  r       = c(NA, NA, NA, 8.04657),
+  A_mod   = c(NA, 0.0773749, NA, NA),
+  T_mod   = c(NA, 141.414, NA, NA))
 if (!is.na(CSV_RODILLAS)) {
   rc <- read.csv(CSV_RODILLAS, stringsAsFactors = FALSE)
   if ("regimen" %in% names(rc)) rc <- rc[rc$regimen == "limpio", ]

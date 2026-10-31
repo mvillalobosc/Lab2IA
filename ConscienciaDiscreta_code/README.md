@@ -6,7 +6,7 @@
 
 Este proyecto contiene el código en R, los datos y los resultados del manuscrito *Continuous or discrete access to sensory information? A many-objective design study* (Villalobos-Cid y Baladrón). El trabajo pregunta qué esquema de acceso a un sustrato neural continuo debería preferir un sistema perceptivo cuando la exactitud, la resolución temporal, la latencia y el costo del acceso están en conflicto.
 
-Un integrador con fuga modela el sustrato continuo y cuatro compuertas de lectura modelan el acceso a él: lectura continua, lectura continua con un umbral que oscila (continua modulada), lectura periódica y lectura por eventos. En una tarea simulada de fusión de dos pulsos, NSGA-III busca los parámetros de cada arquitectura minimizando cuatro objetivos: la tasa de error, el umbral de fusión, la latencia de acceso y el costo en lecturas por segundo. El código valida el optimizador (parametrización, prueba de convergencia de 1500 generaciones, 11 semillas y una búsqueda aleatoria con el mismo número de evaluaciones), compara las arquitecturas, ajusta los modelos a datos conductuales (observadores sintéticos y dos experimentos públicos de fusión de dos destellos) y simula huecos de acceso para ver si el agente los nota desde dentro.
+Un integrador con fuga modela el sustrato continuo y cuatro compuertas de lectura modelan el acceso a él: lectura continua, lectura continua con un umbral que oscila (continua modulada), lectura periódica y lectura por eventos. En una tarea simulada de fusión de dos pulsos, NSGA-III busca los parámetros de cada arquitectura minimizando cuatro objetivos: la tasa de error, el umbral de fusión, la latencia de acceso y el costo en lecturas por segundo. El código valida el optimizador (parametrización de 243 configuraciones que cruzan tamaños de población, probabilidades y nueve pares de operadores de cruce y mutación, prueba de convergencia de 1500 generaciones, 11 semillas y una búsqueda aleatoria con el mismo número de evaluaciones), compara las arquitecturas, ajusta los modelos a datos conductuales (observadores sintéticos y dos experimentos públicos de fusión de dos destellos) y simula huecos de acceso para ver si el agente los nota desde dentro.
 
 El proyecto trae los datos de entrada y todos los resultados de la corrida del artículo, así que cada cifra y cada figura se pueden revisar sin volver a correr nada.
 
@@ -19,6 +19,9 @@ ConscienciaDiscreta_code/
 ├── consciencia_discreta.R   script principal: agente, NSGA-III, validación, diseño,
 │                            sensibilidad, ajuste a datos, ausencias y figuras de control
 ├── correr_todo.R            fija el número de núcleos y corre consciencia_discreta.R
+├── consciencia_discreta_reanudar.R  variante que reanuda una corrida interrumpida:
+│                            importa la parametrización y la convergencia ya calculadas
+│                            (carpeta RECUPERACION_0A_0B) y sigue con el resto
 ├── experimento_discriminante.R  experimento del paradigma discriminante (Sect. 3.7 y
 │                            4.6 del manuscrito); autocontenido, no necesita el resto
 ├── salida_discriminante/    resultados del paradigma discriminante y Fig. 8,
@@ -52,7 +55,7 @@ Los datos humanos conservan los términos de sus autores y se deben citar las fu
    Rscript correr_todo.R
    ```
 
-   `correr_todo.R` usa todos los núcleos menos uno; también se puede correr `N_CORES=60 Rscript consciencia_discreta.R`. Con 63 núcleos, la corrida del artículo tomó 6 horas y 21 minutos (ver `salida/progreso.log` y `salida/sesion.txt`). Para probar que todo corre en pocos minutos, sin resultados útiles, está el modo rápido: `MODO=rapido Rscript consciencia_discreta.R`. Todo queda en `salida/`.
+   `correr_todo.R` usa todos los núcleos menos uno; también se puede correr `N_CORES=60 Rscript consciencia_discreta.R`. Cada corrida crea una carpeta nueva `salida_consciencia_NSGAIII_FECHA_PID` para no sobrescribir nada; `salida/` guarda el contenido de la carpeta de la corrida del artículo. Esa corrida se hizo en dos partes con 63 núcleos: la parametrización y la prueba de convergencia corrieron el 23 de octubre de 2026 (`salida/progreso_0a_0b_2026-10-23.log`), la corrida se interrumpió, y `consciencia_discreta_reanudar.R` importó esos resultados y corrió el resto el 24 de octubre en 4 horas y 46 minutos (`salida/progreso.log` y `salida/sesion.txt`). Para probar que todo corre en pocos minutos, sin resultados útiles, está el modo rápido: `MODO=rapido Rscript consciencia_discreta.R`.
 
 2. Paradigma discriminante (Sect. 4.6 del manuscrito y Fig. 8), desde esta carpeta; es autocontenido (trae embebidos el agente y las rodillas del artículo), corre en segundos y deja todo en `salida_discriminante/`; con el argumento `recovery` repite además la recuperación de modelos sobre este paradigma (horas en un núcleo):
 
@@ -76,13 +79,14 @@ Los datos humanos conservan los términos de sus autores y se deben citar las fu
 | Elemento del artículo | Dónde está |
 | --- | --- |
 | Fig. 1 (agente y arquitecturas) | `post_hoc/Fig1.tex` y `post_hoc/figuras/Fig1.pdf` |
-| Fig. 2 a 16 (las Fig. 11 a 16 están en el apéndice) | `post_hoc/figuras/`, generadas por `post_hoc/figuras.R` |
-| Validación del optimizador (Sect. 4.1, Tablas 5 y 6) | `salida/validation_*.csv`, secciones A, B, C y K de `post_hoc/estadistica/resumen.txt` (tablas A a E, J y K) y secciones 6, 8 y 9 de `resumen_complementario.txt` (tablas L) |
-| Diseño del acceso (Sect. 4.2, Tablas 7 a 9) | `salida/frentes_validados.csv`, `salida/metricas_frentes.csv`, `salida/cobertura_frentes.csv`, `post_hoc/resultados/rodillas_corregidas.csv`, sección F de `resumen.txt` (tabla F) y secciones 1 a 3 y 7 de `resumen_complementario.txt` |
+| Fig. 2 a 17 (las Fig. 10 a 17 están en el apéndice) | `post_hoc/figuras/`; la Fig. 8 la genera `experimento_discriminante.R` y las demás `post_hoc/figuras.R` |
+| Validación del optimizador (Sect. 4.1 y apéndice, Tabla 8) | `salida/validation_*.csv`, secciones A, B, C y K de `post_hoc/estadistica/resumen.txt` (tablas A a E, J y K) y secciones 6, 8 y 9 de `resumen_complementario.txt` (tablas L) |
+| Diseño del acceso (Sect. 4.2, Tablas 4 a 6) | `salida/frentes_validados.csv`, `salida/metricas_frentes.csv`, `salida/cobertura_frentes.csv`, `post_hoc/resultados/rodillas_corregidas.csv`, sección F de `resumen.txt` (tabla F) y secciones 1 a 3 y 7 de `resumen_complementario.txt` |
 | Intervalos entre lecturas (Sect. 4.3) | sección F de `resumen.txt` y sección 4 de `resumen_complementario.txt` |
 | Sensibilidad (Sect. 4.4) | `salida/sensibilidad_*.csv`, sección G de `resumen.txt` y sección 5 de `resumen_complementario.txt` |
 | Identificabilidad y datos humanos (Sect. 4.5) | `salida/ajuste_participantes.csv`, `salida/recuperacion_modelos*.csv`, `salida/haarlem_*.csv`, `post_hoc/resultados/` (mimetismo, reajuste de Deodato y Melcher y cota de Haarlem et al.) y secciones H e I de `resumen.txt` |
-| Ausencias (Sect. 4.6) | `post_hoc/resultados/ausencias_corregidas/ausencias.csv` |
+| Paradigma discriminante (Sect. 4.6, Fig. 8) | `salida_discriminante/` |
+| Ausencias (Sect. 4.7, Fig. 9) | `post_hoc/resultados/ausencias_corregidas/ausencias.csv` |
 
 Las rodillas y las ausencias del artículo son las de `post_hoc/resultados/`. Ahí el costo entra en escala log10 también en la distancia al punto ideal, como describe el artículo; en el script principal, `rodilla()` recibe el costo en lecturas por segundo, así que `salida/rodillas.csv` y `salida/ausencias.csv` no son las del artículo.
 
@@ -106,7 +110,7 @@ El código tiene licencia MIT (ver `LICENSE`). Los datos de `datos_reales/` cons
 
 This project contains the R code, data and results of the manuscript *Continuous or discrete access to sensory information? A many-objective design study* (Villalobos-Cid and Baladrón). The work asks which scheme of access to a continuous neural substrate a perceptual system should prefer when accuracy, temporal resolution, latency and the cost of access are in conflict.
 
-A leaky integrator models the continuous substrate, and four reading gates model the access to it: continuous reading, continuous reading against an oscillating threshold (modulated continuous), periodic reading and event reading. In a simulated two-pulse fusion task, NSGA-III searches the parameters of each architecture by minimising four objectives: the error rate, the fusion threshold, the access latency and the cost in reads per second. The code validates the optimiser (parametrisation, a 1500-generation convergence test, 11 seeds and a random search with the same number of evaluations), compares the architectures, fits the models to behavioural data (synthetic observers and two public two-flash fusion experiments) and simulates access gaps to check if the agent notices them from the inside.
+A leaky integrator models the continuous substrate, and four reading gates model the access to it: continuous reading, continuous reading against an oscillating threshold (modulated continuous), periodic reading and event reading. In a simulated two-pulse fusion task, NSGA-III searches the parameters of each architecture by minimising four objectives: the error rate, the fusion threshold, the access latency and the cost in reads per second. The code validates the optimiser (a parametrisation of 243 configurations crossing population sizes, probabilities and nine pairs of crossover and mutation operators, a 1500-generation convergence test, 11 seeds and a random search with the same number of evaluations), compares the architectures, fits the models to behavioural data (synthetic observers and two public two-flash fusion experiments) and simulates access gaps to check if the agent notices them from the inside.
 
 The project includes the input data and all the results of the run of the paper, so every number and figure can be checked without running anything again.
 
@@ -119,6 +123,9 @@ ConscienciaDiscreta_code/
 ├── consciencia_discreta.R   main script: agent, NSGA-III, validation, design,
 │                            sensitivity, fits to data, absences and check figures
 ├── correr_todo.R            sets the number of cores and runs consciencia_discreta.R
+├── consciencia_discreta_reanudar.R  variant that resumes an interrupted run: it imports
+│                            the parametrisation and convergence already computed
+│                            (folder RECUPERACION_0A_0B) and continues with the rest
 ├── experimento_discriminante.R  discriminating-paradigm experiment (Sects. 3.7 and
 │                            4.6 of the manuscript); self-contained, needs nothing else
 ├── salida_discriminante/    results of the discriminating paradigm and Fig. 8,
@@ -152,7 +159,7 @@ The human data keep the terms of their authors, and the original sources, listed
    Rscript correr_todo.R
    ```
 
-   `correr_todo.R` uses all cores but one; `N_CORES=60 Rscript consciencia_discreta.R` also works. With 63 cores, the run of the paper took 6 hours and 21 minutes (see `salida/progreso.log` and `salida/sesion.txt`). To check that everything runs in a few minutes, without useful results, there is a quick mode: `MODO=rapido Rscript consciencia_discreta.R`. Everything goes to `salida/`.
+   `correr_todo.R` uses all cores but one; `N_CORES=60 Rscript consciencia_discreta.R` also works. Each run creates a new folder `salida_consciencia_NSGAIII_DATE_PID` so that nothing is overwritten; `salida/` holds the contents of the folder of the run of the paper. That run was made in two parts with 63 cores: the parametrisation and the convergence test ran on 23 October 2026 (`salida/progreso_0a_0b_2026-10-23.log`), the run was interrupted, and `consciencia_discreta_reanudar.R` imported those results and ran the rest on 24 October in 4 hours and 46 minutes (`salida/progreso.log` and `salida/sesion.txt`). To check that everything runs in a few minutes, without useful results, there is a quick mode: `MODO=rapido Rscript consciencia_discreta.R`.
 
 2. Discriminating paradigm (Sect. 4.6 of the manuscript and Fig. 8), from this folder; it is self-contained (the agent and the knee solutions of the paper are embedded), runs in seconds and writes everything to `salida_discriminante/`; with the `recovery` argument it also repeats the model recovery study on this paradigm (hours on one core):
 
@@ -176,13 +183,14 @@ The human data keep the terms of their authors, and the original sources, listed
 | Element of the paper | Where it is |
 | --- | --- |
 | Fig. 1 (agent and architectures) | `post_hoc/Fig1.tex` and `post_hoc/figuras/Fig1.pdf` |
-| Figs. 2 to 16 (Figs. 11 to 16 are in the appendix) | `post_hoc/figuras/`, produced by `post_hoc/figuras.R` |
-| Validation of the optimiser (Sect. 4.1, Tables 5 and 6) | `salida/validation_*.csv`, sections A, B, C and K of `post_hoc/estadistica/resumen.txt` (tables A to E, J and K) and sections 6, 8 and 9 of `resumen_complementario.txt` (tables L) |
-| Design of access (Sect. 4.2, Tables 7 to 9) | `salida/frentes_validados.csv`, `salida/metricas_frentes.csv`, `salida/cobertura_frentes.csv`, `post_hoc/resultados/rodillas_corregidas.csv`, section F of `resumen.txt` (table F) and sections 1 to 3 and 7 of `resumen_complementario.txt` |
+| Figs. 2 to 17 (Figs. 10 to 17 are in the appendix) | `post_hoc/figuras/`; Fig. 8 is produced by `experimento_discriminante.R` and the rest by `post_hoc/figuras.R` |
+| Validation of the optimiser (Sect. 4.1 and appendix, Table 8) | `salida/validation_*.csv`, sections A, B, C and K of `post_hoc/estadistica/resumen.txt` (tables A to E, J and K) and sections 6, 8 and 9 of `resumen_complementario.txt` (tables L) |
+| Design of access (Sect. 4.2, Tables 4 to 6) | `salida/frentes_validados.csv`, `salida/metricas_frentes.csv`, `salida/cobertura_frentes.csv`, `post_hoc/resultados/rodillas_corregidas.csv`, section F of `resumen.txt` (table F) and sections 1 to 3 and 7 of `resumen_complementario.txt` |
 | Intervals between reads (Sect. 4.3) | section F of `resumen.txt` and section 4 of `resumen_complementario.txt` |
 | Sensitivity (Sect. 4.4) | `salida/sensibilidad_*.csv`, section G of `resumen.txt` and section 5 of `resumen_complementario.txt` |
 | Identifiability and human data (Sect. 4.5) | `salida/ajuste_participantes.csv`, `salida/recuperacion_modelos*.csv`, `salida/haarlem_*.csv`, `post_hoc/resultados/` (mimicry, refit of Deodato and Melcher and bound of Haarlem et al.) and sections H and I of `resumen.txt` |
-| Absences (Sect. 4.6) | `post_hoc/resultados/ausencias_corregidas/ausencias.csv` |
+| Discriminating paradigm (Sect. 4.6, Fig. 8) | `salida_discriminante/` |
+| Absences (Sect. 4.7, Fig. 9) | `post_hoc/resultados/ausencias_corregidas/ausencias.csv` |
 
 The knees and absences of the paper are the ones in `post_hoc/resultados/`. There, the cost enters in log10 scale also in the distance to the ideal point, as the paper describes; in the main script, `rodilla()` receives the cost in reads per second, so `salida/rodillas.csv` and `salida/ausencias.csv` are not the ones of the paper.
 
