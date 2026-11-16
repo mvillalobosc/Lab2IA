@@ -1,32 +1,51 @@
 /* =============================================================================
    js/app.js
-   Estado, navegación y armado de cada sección del dashboard.
+   Estado, navegación, ayudas y armado de cada vista del dashboard.
 
    El dashboard no calcula nada: lee los conteos y porcentajes de
    data/bd_encuesta.js (window.BD_ENCUESTA) y el contorno de las regiones de
    data/bd_regiones.js (window.BD_REGIONES), y los muestra con los textos de
    js/textos.js en el idioma elegido.
 
+   La página tiene dos vistas, que se eligen en la barra superior:
+     por enfermedad  a la izquierda se elige la enfermedad y a la derecha se
+                     ve su ficha con cinco pestañas (SECCIONES)
+     por región      a la izquierda se elige la región en el mapa o en la
+                     lista y a la derecha se ve quiénes respondieron ahí
+
    Estado (se guarda en la dirección de la página, después de #):
-     seccion  una de SECCIONES
-     enf      enfermedad elegida (rige Resumen, Enfermedades combinadas,
-              Perfil, Tratamientos y Brechas de acceso)
-     reg      región elegida (rige Territorio)
+     modo     "enfermedad" o "region"
+     seccion  pestaña de la vista por enfermedad
+     enf      enfermedad elegida
+     reg      región elegida
      lang     idioma
+
+   Ayudas: bienvenida la primera vez, botón "?" junto a cada cifra y a cada
+   gráfico, y la guía de uso (botón Ayuda) con su glosario.
    ============================================================================= */
 (function () {
   "use strict";
 
   var BD = window.BD_ENCUESTA, GEO = window.BD_REGIONES;
   var TEXTOS = window.RCL_TEXTOS, NOMBRE_REGION = window.RCL_REGIONES, G = window.RCL_GRAFICOS;
-  var el = G.el, COLOR = G.COLOR;
+
+  var raiz = document.getElementById("contenido");
+  if (!BD || !GEO || !TEXTOS || !G) {
+    raiz.textContent = "No se pudieron cargar los datos del dashboard. Revise que existan data/bd_encuesta.js y " +
+      "data/bd_regiones.js junto a index.html; se generan con tools/preparar_datos.R.";
+    return;
+  }
+  var el = G.el, icono = G.icono, COLOR = G.COLOR;
 
   var IDIOMAS = ["es", "en", "pt"];
-  var SECCIONES = ["resumen", "combinadas", "perfil", "territorio", "tratamientos", "acceso", "datos"];
-  var SECCIONES_POR_REGION = ["territorio"];
-  var SECCIONES_SIN_FILTRO = ["datos"];
-  var GRUPO_CHICO = 30;                       // bajo este tamaño se avisa que el grupo es pequeño
-  var CLASES_MAPA = [1, 10, 25, 50, 100, 200]; // límite inferior de cada clase de encuestados
+  var MODOS = ["enfermedad", "region"];
+  var SECCIONES = ["resumen", "combinadas", "perfil", "tratamientos", "acceso"];
+  var ICONO_SECCION = { resumen: "rejilla", combinadas: "red", perfil: "persona", tratamientos: "capsula", acceso: "balanza" };
+  var PESTANAS_GUIA = ["uso", "leer", "secciones", "glosario", "datos"];
+  var GRUPO_CHICO = 30;                        // bajo este tamaño se avisa que el grupo es pequeño
+  var CLASES_MAPA = [1, 10, 25, 50, 100, 200];  // límite inferior de cada clase de encuestados
+  var GUARDA_IDIOMA = "rheumacl_idioma";        // claves del almacenamiento del navegador
+  var GUARDA_BIENVENIDA = "rheumacl_sin_bienvenida";
 
   /* Referencia del sistema de salud chileno (no viene de la encuesta). Sale
      del dashboard original, salvo la artrosis: el problema GES n.º 41 cubre el
@@ -55,20 +74,16 @@
   };
   var COLOR_CATEGORIA = { antiinflamatorio: COLOR.categorias[1], modificador: COLOR.categorias[0], otro: COLOR.neutro };
 
-  var raiz = document.getElementById("contenido");
-  if (!BD || !GEO || !TEXTOS || !G) {
-    raiz.textContent = "No se pudieron cargar los datos del dashboard. Revise que existan data/bd_encuesta.js y " +
-      "data/bd_regiones.js junto a index.html; se generan con tools/preparar_datos.R.";
-    return;
-  }
-
-  var estado = { seccion: "resumen", enf: null, reg: null, lang: "es" };
-  var PANTALLA_ANGOSTA = window.matchMedia("(max-width: 680px)");   // mismo corte que css/estilos.css
+  var estado = { modo: "enfermedad", seccion: "resumen", enf: null, reg: null, lang: "es" };
   var T = TEXTOS.es;
-  var vistaTabla = {};     // tarjetas que el usuario dejó en vista de tabla
+  var PANTALLA_ANGOSTA = window.matchMedia("(max-width: 680px)");   // mismo corte que css/estilos.css
+  var vistaTabla = {};      // tarjetas que el usuario dejó en vista de tabla
+  var grupoAbierto = {};    // grupos que el usuario abrió (true) o cerró (false)
+  var guia = { abierta: false, pestana: "uso", vuelveA: null };
+  var bienvenida = { abierta: false, vuelveA: null };
 
   /* --------------------------------------------------------------------------
-     Textos y números
+     Textos, números y almacenamiento
      -------------------------------------------------------------------------- */
   function t(ruta, valores) {
     var texto = ruta.split(".").reduce(function (o, k) { return o ? o[k] : undefined; }, T);
@@ -84,6 +99,7 @@
     return partes.join(T.numero.decimal);
   }
   function pct(x) { return x === null || x === undefined ? "-" : num(x, 1) + T.numero.pct; }
+  function personas(n) { return n === 1 ? t("ficha.persona") : t("ficha.personas", { n: num(n) }); }
   // "2026-11-16" como fecha escrita en el idioma elegido
   function fecha(iso) {
     var p = iso.split("-").map(Number);
@@ -101,6 +117,16 @@
     if (tabla.sin_respuesta) texto += ", " + t("comun.sin_respuesta", { n: num(tabla.sin_respuesta) });
     return texto;
   }
+  function porNombre(a, b) { return enf(a).localeCompare(enf(b), estado.lang); }
+  function mayor(ids, tamano) {
+    return ids.slice().sort(function (a, b) { return tamano(b) - tamano(a); })[0];
+  }
+  function leerGuardado(clave) {
+    try { return window.localStorage.getItem(clave); } catch (e) { return null; }
+  }
+  function guardar(clave, valor) {
+    try { window.localStorage.setItem(clave, valor); } catch (e) { /* sin almacenamiento: no se recuerda */ }
+  }
 
   /* --------------------------------------------------------------------------
      Estado en la dirección de la página
@@ -111,13 +137,15 @@
       var kv = par.split("=");
       if (kv.length === 2) datos[kv[0]] = decodeURIComponent(kv[1]);
     });
+    if (MODOS.indexOf(datos.modo) >= 0) estado.modo = datos.modo;
     if (SECCIONES.indexOf(datos.seccion) >= 0) estado.seccion = datos.seccion;
     if (BD.porEnfermedad[datos.enf]) estado.enf = datos.enf;
     if (BD.porRegion[datos.reg]) estado.reg = Number(datos.reg);
     if (IDIOMAS.indexOf(datos.lang) >= 0) estado.lang = datos.lang;
   }
   function escribirDireccion(nuevaEntrada) {
-    var direccion = "#seccion=" + estado.seccion + "&enf=" + estado.enf + "&reg=" + estado.reg + "&lang=" + estado.lang;
+    var direccion = "#modo=" + estado.modo + "&seccion=" + estado.seccion + "&enf=" + estado.enf +
+      "&reg=" + estado.reg + "&lang=" + estado.lang;
     if (window.location.hash === direccion) return;
     try {
       if (nuevaEntrada) window.history.pushState(null, "", direccion);
@@ -125,82 +153,74 @@
     } catch (e) { window.location.hash = direccion; }
   }
   function idiomaInicial() {
-    try {
-      var guardado = window.localStorage.getItem("rheumacl_idioma");
-      if (IDIOMAS.indexOf(guardado) >= 0) return guardado;
-    } catch (e) { /* sin almacenamiento: se sigue con el idioma del navegador */ }
+    var guardado = leerGuardado(GUARDA_IDIOMA);
+    if (IDIOMAS.indexOf(guardado) >= 0) return guardado;
     var navegador = (window.navigator.language || "es").slice(0, 2).toLowerCase();
     return IDIOMAS.indexOf(navegador) >= 0 ? navegador : "es";
   }
-  function mayor(ids, tamano) {
-    return ids.slice().sort(function (a, b) { return tamano(b) - tamano(a); })[0];
-  }
 
   /* --------------------------------------------------------------------------
-     Acciones
+     Acciones. Cada una cambia el estado y vuelve a pintar; "enfocar" es el id
+     del elemento que recibe el foco después, para que quien usa el teclado no
+     pierda su lugar.
      -------------------------------------------------------------------------- */
+  function cambiar(cambios, nuevaEntrada, enfocar) {
+    var hubo = false;
+    Object.keys(cambios).forEach(function (k) {
+      if (estado[k] !== cambios[k]) { estado[k] = cambios[k]; hubo = true; }
+    });
+    if (!hubo) return false;
+    if (cambios.lang) guardar(GUARDA_IDIOMA, estado.lang);
+    escribirDireccion(nuevaEntrada);
+    pintar();
+    var nodo = enfocar ? document.getElementById(enfocar) : null;
+    if (nodo) nodo.focus({ preventScroll: true });
+    return true;
+  }
+  function elegirModo(modo) {
+    if (cambiar({ modo: modo }, true, "modo-" + modo)) window.scrollTo(0, 0);
+  }
   function irA(seccion) {
-    if (seccion === estado.seccion) return;
-    estado.seccion = seccion;
-    escribirDireccion(true);
-    pintar();
-    window.scrollTo(0, 0);
-    var titulo = document.getElementById("titulo-seccion");
-    if (titulo) titulo.focus({ preventScroll: true });
+    if (cambiar({ seccion: seccion }, true, "pestana-" + seccion)) mostrarPanel();
   }
-  function elegirEnfermedad(id) {
-    if (id === estado.enf) return;
-    estado.enf = id;
-    escribirDireccion(false);
-    pintar();
-  }
-  function elegirRegion(codigo) {
-    codigo = Number(codigo);
-    if (codigo === estado.reg) return;
-    estado.reg = codigo;
-    escribirDireccion(false);
-    pintar();
-  }
-  function elegirIdioma(codigo) {
-    if (codigo === estado.lang) return;
-    estado.lang = codigo;
-    try { window.localStorage.setItem("rheumacl_idioma", codigo); } catch (e) { /* no se recuerda */ }
-    escribirDireccion(false);
-    pintar();
+  function elegirEnfermedad(id, enfocar) { cambiar({ enf: id }, false, enfocar); }
+  function elegirRegion(codigo, enfocar) { cambiar({ reg: Number(codigo) }, false, enfocar); }
+  function elegirIdioma(codigo) { cambiar({ lang: codigo }, false); }
+
+  // Si el comienzo del panel quedó escondido bajo la barra de pestañas, lo trae a la vista
+  function mostrarPanel() {
+    var panel = document.getElementById("panel"), barra = document.getElementById("barra-pestanas");
+    if (!panel || !barra) return;
+    var tope = barra.getBoundingClientRect().bottom, inicio = panel.getBoundingClientRect().top;
+    if (inicio < tope) window.scrollBy(0, inicio - tope - 8);
   }
 
   /* --------------------------------------------------------------------------
      Piezas comunes
      -------------------------------------------------------------------------- */
-  // Tarjeta con un gráfico y su tabla equivalente; el botón alterna entre ambos.
-  function tarjeta(id, titulo, partes) {
-    var enTabla = !!vistaTabla[id];
-    var cuerpoGrafico = el("div", { "class": "tarjeta-grafico", hidden: enTabla }, partes.grafico);
-    var cuerpoTabla = partes.tabla ? el("div", { "class": "tarjeta-tabla", hidden: !enTabla }, partes.tabla) : null;
-    var boton = null;
-    if (cuerpoTabla) {
-      boton = el("button", { type: "button", "class": "boton-tabla", "aria-pressed": enTabla ? "true" : "false" },
-        t(enTabla ? "comun.ver_grafico" : "comun.ver_tabla"));
-      boton.addEventListener("click", function () {
-        enTabla = !enTabla;
-        vistaTabla[id] = enTabla;
-        cuerpoGrafico.hidden = enTabla;
-        cuerpoTabla.hidden = !enTabla;
-        boton.textContent = t(enTabla ? "comun.ver_grafico" : "comun.ver_tabla");
-        boton.setAttribute("aria-pressed", enTabla ? "true" : "false");
-      });
-    }
-    return el("article", { "class": "tarjeta" + (partes.ancha ? " tarjeta-ancha" : "") }, [
-      el("header", { "class": "tarjeta-cab" }, [
-        el("div", null, [
-          el("h3", null, titulo),
-          partes.base ? el("p", { "class": "tarjeta-base" }, partes.base) : null
-        ]),
-        boton
+  // Cifra destacada: rótulo con su "?", valor y una línea que dice qué se cuenta.
+  // texto: el valor es una categoría (un grupo de edad, por ejemplo) y va más chico.
+  function cifra(o) {
+    return el("div", { "class": "cifra" }, [
+      el("div", { "class": "cifra-cab" }, [
+        el("p", { "class": "cifra-rotulo" }, o.rotulo),
+        o.ayuda ? G.botonAyuda(o.rotulo, o.ayuda) : null
       ]),
-      cuerpoGrafico,
-      cuerpoTabla,
-      partes.nota ? el("p", { "class": "tarjeta-nota" }, partes.nota) : null
+      el("p", { "class": "cifra-valor" + (o.texto ? " cifra-texto" : "") }, o.valor),
+      o.desc ? el("p", { "class": "cifra-desc" }, o.desc) : null
+    ]);
+  }
+  function cifras(lista, clase) {
+    return el("div", { "class": clase || "rejilla-cifras" }, lista.map(cifra));
+  }
+  function rejilla(hijos, columnas) {
+    return el("div", { "class": "rejilla rejilla-" + (columnas || 2) }, hijos);
+  }
+  // Cifras en una columna angosta al lado de uno o dos gráficos
+  function lado(listaCifras, graficos) {
+    return el("div", { "class": "rejilla-lado" }, [
+      cifras(listaCifras, "columna"),
+      graficos.length > 1 ? rejilla(graficos) : graficos[0]
     ]);
   }
 
@@ -220,13 +240,72 @@
       .sort(function (a, b) { return (b.f.n - a.f.n) || (a.i - b.i); })
       .map(function (x) { return x.f; });
   }
-  function tablaDe(filas, titulo) {
-    return G.tabla([t("comun.col_respuesta"), t("comun.col_personas"), t("comun.col_pct")],
-      filas.map(function (f) { return [f.etq, num(f.n), f.valor]; }), titulo);
+  // Tabla equivalente a un gráfico de barras: texto para mostrar y números para el CSV
+  function datosDe(filas) {
+    return {
+      columnas: [t("comun.col_respuesta"), t("comun.col_personas"), t("comun.col_pct")],
+      filas: filas.map(function (f) { return [f.etq, num(f.n), f.valor]; }),
+      crudas: filas.map(function (f) { return [f.etq, f.n, f.pct === null || f.pct === undefined ? "" : f.pct]; })
+    };
+  }
+
+  /* Tarjeta de gráfico.
+       partes.ayuda    texto del botón "?"
+       partes.base     sobre cuántas personas se calcula
+       partes.grafico  nodo o lista de nodos
+       partes.datos    { columnas, filas, crudas, desliza }: tabla equivalente,
+                       que también se descarga en CSV
+       partes.nota     nota al pie
+       partes.ancha    ocupa todo el ancho de la rejilla */
+  function tarjeta(id, titulo, partes) {
+    var enTabla = !!vistaTabla[id] && !!partes.datos;
+    var cuerpoGrafico = el("div", { "class": "tarjeta-grafico", hidden: enTabla }, partes.grafico);
+    var cuerpoTabla = null, acciones = null;
+    if (partes.datos) {
+      cuerpoTabla = el("div", { "class": "tarjeta-tabla" + (partes.datos.desliza ? " tabla-desliza" : ""), hidden: !enTabla },
+        G.tabla(partes.datos.columnas, partes.datos.filas, titulo));
+      var botonTabla = el("button", { type: "button", "class": "boton-icono-chico" });
+      var rotular = function () {
+        var rotulo = t(enTabla ? "comun.ver_grafico" : "comun.ver_tabla");
+        botonTabla.textContent = "";
+        botonTabla.appendChild(icono(enTabla ? "barras" : "tabla"));
+        botonTabla.setAttribute("aria-label", rotulo + ": " + titulo);
+        botonTabla.setAttribute("title", rotulo);
+        botonTabla.setAttribute("aria-pressed", enTabla ? "true" : "false");
+      };
+      rotular();
+      botonTabla.addEventListener("click", function () {
+        enTabla = !enTabla;
+        vistaTabla[id] = enTabla;
+        cuerpoGrafico.hidden = enTabla;
+        cuerpoTabla.hidden = !enTabla;
+        rotular();
+      });
+      var botonCsv = el("button", {
+        type: "button", "class": "boton-icono-chico",
+        "aria-label": t("comun.descargar") + ": " + titulo, title: t("comun.descargar")
+      }, icono("descargar"));
+      botonCsv.addEventListener("click", function () { descargarCsv(id, partes.datos); });
+      acciones = el("div", { "class": "tarjeta-acciones" }, [botonTabla, botonCsv]);
+    }
+    return el("article", { "class": "tarjeta" + (partes.ancha ? " tarjeta-ancha" : "") }, [
+      el("header", { "class": "tarjeta-cab" }, [
+        el("div", { "class": "tarjeta-titulo" }, [
+          el("h4", null, titulo),
+          partes.ayuda ? G.botonAyuda(titulo, partes.ayuda) : null
+        ]),
+        acciones
+      ]),
+      partes.base ? el("p", { "class": "tarjeta-base" }, partes.base) : null,
+      cuerpoGrafico,
+      cuerpoTabla,
+      partes.nota ? el("p", { "class": "tarjeta-nota" }, partes.nota) : null
+    ]);
   }
 
   /* Tarjeta de barras para una tabla de la base.
        opciones.variable  nombre en T.cat para traducir los códigos
+       opciones.ayuda     texto del "?"
        opciones.ranking   ordena de mayor a menor (categorías sin orden natural)
        opciones.fijas     con ranking, dos códigos que van primero y último
        opciones.multiple  pregunta de respuesta múltiple: agrega la nota
@@ -234,77 +313,192 @@
        opciones.leyenda   nodo de leyenda, si hay series distintas */
   function tarjetaBarras(id, titulo, tablaBD, opciones) {
     if (!tablaBD.base) {
-      return tarjeta(id, titulo, { grafico: el("p", { "class": "vacio" }, t("comun.sin_datos")) });
+      return tarjeta(id, titulo, { ayuda: opciones.ayuda, grafico: el("p", { "class": "vacio" }, t("comun.sin_datos")) });
     }
     var filas = filasDe(tablaBD, opciones.etiqueta || function (c) { return T.cat[opciones.variable][c]; }, opciones.color);
     if (opciones.ranking) filas = ordenar(filas);
-    if (opciones.fijas) {     // códigos que conservan su lugar: [primero, último]
+    if (opciones.fijas) {
       filas = filas.filter(function (f) { return f.cod === opciones.fijas[0]; })
         .concat(filas.filter(function (f) { return opciones.fijas.indexOf(f.cod) < 0; }))
         .concat(filas.filter(function (f) { return f.cod === opciones.fijas[1]; }));
     }
     return tarjeta(id, titulo, {
+      ayuda: opciones.ayuda,
       base: opciones.base || textoBase(tablaBD),
       grafico: [opciones.leyenda || null, G.barras(filas, { escala: opciones.escala })],
-      tabla: tablaDe(filas, titulo),
+      datos: datosDe(filas),
       nota: opciones.nota || (opciones.multiple ? t("comun.multiple") : null),
       ancha: opciones.ancha
     });
   }
 
-  // Cifra destacada: rótulo, valor y una línea que dice qué se cuenta.
-  // esTexto: el valor es una categoría (por ejemplo, un grupo de edad) y va
-  // en un tamaño menor que los números.
-  function cifra(rotulo, valor, descripcion, esTexto) {
-    return el("div", { "class": "cifra" }, [
-      el("p", { "class": "cifra-rotulo" }, rotulo),
-      el("p", { "class": "cifra-valor" + (esTexto ? " cifra-texto" : "") }, valor),
-      descripcion ? el("p", { "class": "cifra-desc" }, descripcion) : null
+  /* Bloque con título que no se cierra (Resumen) y grupo que se abre y se
+     cierra (las demás pestañas). Por omisión solo el primer grupo de cada
+     pestaña queda abierto: la pestaña muestra de entrada su índice y no un
+     muro de gráficos. Cerrado, el grupo dice qué gráficos trae. */
+  function bloque(titulo, nombreIcono, hijos) {
+    return el("section", { "class": "bloque" }, [
+      el("header", { "class": "bloque-cab" }, [
+        el("span", { "class": "grupo-icono" }, icono(nombreIcono)),
+        el("h3", { "class": "grupo-titulo" }, titulo)
+      ]),
+      el("div", { "class": "bloque-cuerpo" }, hijos)
     ]);
   }
-  function cabecera(titulo, intro) {
-    return el("header", { "class": "seccion-cab" }, [
-      el("h2", { id: "titulo-seccion", tabindex: "-1" }, titulo),
-      intro ? el("p", null, intro) : null
+  function grupo(id, titulo, nombreIcono, hijos, abiertoPorOmision) {
+    var cuerpo = el("div", { "class": "bloque-cuerpo" }, hijos);
+    var contenido = Array.prototype.map.call(cuerpo.querySelectorAll(".tarjeta h4"), function (h) { return h.textContent; });
+    var abierto = grupoAbierto.hasOwnProperty(id) ? grupoAbierto[id] : !!abiertoPorOmision;
+    var detalle = el("details", { "class": "grupo", id: "grupo-" + id, open: abierto }, [
+      el("summary", null, [
+        el("span", { "class": "grupo-icono" }, icono(nombreIcono)),
+        el("span", { "class": "grupo-textos" }, [
+          el("h3", { "class": "grupo-titulo" }, titulo),
+          contenido.length ? el("span", { "class": "grupo-pista" }, contenido.join(", ")) : null
+        ]),
+        icono("flecha", "grupo-flecha")
+      ]),
+      cuerpo
     ]);
+    detalle.addEventListener("toggle", function () {
+      grupoAbierto[id] = detalle.open;
+      actualizarAbrirTodo();
+    });
+    return detalle;
   }
-  // Grupo de tarjetas bajo un subtítulo. Sin clase propia, las tarjetas se
-  // reparten en dos columnas (2 o 4 tarjetas) o en tres (3 tarjetas), para
-  // que ninguna quede sola en una fila.
-  function grupo(titulo, hijos, clase) {
-    return el("section", { "class": "grupo" }, [
-      el("h3", { "class": "grupo-titulo" }, titulo),
-      el("div", { "class": clase || ("rejilla rejilla-" + (hijos.length === 3 ? 3 : 2)) }, hijos)
-    ]);
+  function actualizarAbrirTodo() {
+    var boton = document.getElementById("abrir-todo");
+    if (!boton) return;
+    var todos = Array.prototype.every.call(raiz.querySelectorAll("details.grupo"), function (d) { return d.open; });
+    boton.textContent = t(todos ? "ficha.cerrar_todo" : "ficha.abrir_todo");
+    boton.setAttribute("data-abrir", todos ? "0" : "1");
   }
 
   /* --------------------------------------------------------------------------
-     Secciones
+     Descargas, enlace y avisos
+     -------------------------------------------------------------------------- */
+  // CSV en UTF-8 con BOM, separado por comas y con los números sin formato
+  function descargarCsv(id, datos) {
+    var celda = function (v) {
+      var s = String(v);
+      return /[",;\r\n]/.test(s) ? "\"" + s.replace(/"/g, "\"\"") + "\"" : s;
+    };
+    var lineas = [datos.columnas].concat(datos.crudas).map(function (fila) { return fila.map(celda).join(","); });
+    var grupoActual = estado.modo === "enfermedad" ? estado.enf : "region" + estado.reg;
+    var blob = new Blob(["﻿" + lineas.join("\r\n") + "\r\n"], { type: "text/csv;charset=utf-8" });
+    var url = URL.createObjectURL(blob);
+    var enlace = el("a", { href: url, download: "rheumacl_" + grupoActual + "_" + id + ".csv", "class": "oculto" });
+    document.body.appendChild(enlace);
+    enlace.click();
+    enlace.remove();
+    setTimeout(function () { URL.revokeObjectURL(url); }, 2000);
+  }
+
+  function copiarEnlace(boton) {
+    var texto = window.location.href;
+    var respaldo = function () {
+      var area = el("textarea", { readonly: true, "class": "oculto" });
+      area.value = texto;
+      document.body.appendChild(area);
+      area.select();
+      var copiado = false;
+      try { copiado = document.execCommand("copy"); } catch (e) { copiado = false; }
+      area.remove();
+      boton.focus({ preventScroll: true });
+      avisar(t(copiado ? "ficha.copiado" : "ficha.no_copiado"));
+    };
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(texto).then(function () { avisar(t("ficha.copiado")); }, respaldo);
+    } else {
+      respaldo();
+    }
+  }
+
+  var relojAviso = null;
+  function avisar(texto) {
+    var nodo = document.getElementById("tostada");
+    nodo.textContent = texto;
+    nodo.classList.add("tostada-visible");
+    clearTimeout(relojAviso);
+    relojAviso = setTimeout(function () { nodo.classList.remove("tostada-visible"); }, 2600);
+  }
+
+  /* --------------------------------------------------------------------------
+     Ficha del grupo elegido y pestañas
+     -------------------------------------------------------------------------- */
+  function ficha(o) {
+    var copiar = el("button", { type: "button", "class": "boton boton-ficha" }, [icono("enlace"), el("span", null, t("ficha.copiar"))]);
+    copiar.addEventListener("click", function () { copiarEnlace(copiar); });
+    return el("section", { "class": "ficha", "aria-labelledby": "titulo-vista" }, [
+      el("div", { "class": "ficha-icono" }, icono(o.icono)),
+      el("div", { "class": "ficha-texto" }, [
+        el("h2", { id: "titulo-vista", tabindex: "-1" }, o.titulo),
+        el("p", { "class": "ficha-cifras" }, [el("b", null, personas(o.n)), ", " + t("ficha.de_muestra", { pct: pct(o.pct) })]),
+        o.desc ? el("p", { "class": "ficha-desc" }, o.desc) : null,
+        o.n < GRUPO_CHICO ? el("p", { "class": "ficha-aviso" }, [
+          icono("alerta"), el("span", null, [el("b", null, t("ficha.chico") + ". "), t("ficha.chico_ayuda")])
+        ]) : null
+      ]),
+      copiar
+    ]);
+  }
+
+  function pestanas() {
+    var lista = el("div", { role: "tablist", "class": "pestanas", "aria-label": enf(estado.enf) });
+    SECCIONES.forEach(function (s, i) {
+      var activa = s === estado.seccion;
+      var boton = el("button", {
+        type: "button", role: "tab", id: "pestana-" + s, "aria-selected": activa ? "true" : "false",
+        "aria-controls": "panel", tabindex: activa ? "0" : "-1"
+      }, [icono(ICONO_SECCION[s]), el("span", null, t("nav." + s))]);
+      boton.addEventListener("click", function () { irA(s); });
+      boton.addEventListener("keydown", function (e) {
+        var j = { ArrowRight: i + 1, ArrowLeft: i - 1, Home: 0, End: SECCIONES.length - 1 }[e.key];
+        if (j === undefined) return;
+        e.preventDefault();
+        irA(SECCIONES[(j + SECCIONES.length) % SECCIONES.length]);
+      });
+      lista.appendChild(boton);
+    });
+    var barra = el("div", { "class": "barra-pestanas", id: "barra-pestanas" }, lista);
+    if (estado.seccion !== "resumen" && estado.seccion !== "combinadas") {
+      var abrirTodo = el("button", { type: "button", "class": "boton-texto", id: "abrir-todo" });
+      abrirTodo.addEventListener("click", function () {
+        var abrir = abrirTodo.getAttribute("data-abrir") === "1";
+        Array.prototype.forEach.call(raiz.querySelectorAll("details.grupo"), function (d) { d.open = abrir; });
+        actualizarAbrirTodo();
+      });
+      barra.appendChild(abrirTodo);
+    }
+    return barra;
+  }
+
+  /* --------------------------------------------------------------------------
+     Pestañas de la vista por enfermedad
      -------------------------------------------------------------------------- */
   function seccionResumen(P) {
     var r = P.resumen;
     return [
-      cabecera(t("resumen.titulo", { enf: enf(estado.enf) }), t("resumen.intro")),
-      grupo(t("resumen.b_epi"), [
-        cifra(t("resumen.k_prev"), pct(P.prev), t("resumen.d_prev")),
-        cifra(t("resumen.k_disc"), pct(r.discapacidad), t("resumen.d_disc")),
-        cifra(t("resumen.k_dolor"), pct(r.dolor), t("resumen.d_dolor"))
-      ], "rejilla-cifras"),
-      grupo(t("resumen.b_perfil"), [
-        cifra(t("resumen.k_sexo"), cat("sexo", r.sexo), t("resumen.d_sexo", { pct: pct(r.sexo_pct) }), true),
-        cifra(t("resumen.k_edad"), cat("edad", r.edad), t("resumen.d_edad"), true),
-        cifra(t("resumen.k_comorb"), pct(r.comorbilidad), t("resumen.d_comorb"))
-      ], "rejilla-cifras"),
-      grupo(t("resumen.b_trat"), [
-        cifra(t("resumen.k_farm"), num(r.farmacos_media, 1), t("resumen.d_farm")),
-        cifra(t("resumen.k_adh"), pct(r.adherencia), t("resumen.d_adh")),
-        cifra(t("resumen.k_alt"), pct(r.alternativos), t("resumen.d_alt"))
-      ], "rejilla-cifras"),
-      grupo(t("resumen.b_acceso"), [
-        cifra(t("resumen.k_gasto"), cat("gasto", r.gasto), t("resumen.d_gasto"), true),
-        cifra(t("resumen.k_fin"), pct(r.financiamiento), t("resumen.d_fin")),
-        cifra(t("resumen.k_cont"), pct(r.continuidad), t("resumen.d_cont"))
-      ], "rejilla-cifras")
+      bloque(t("resumen.b_epi"), "pulso", cifras([
+        { rotulo: t("resumen.k_prev"), valor: pct(P.prev), desc: t("resumen.d_prev"), ayuda: t("ayuda.prev", { total: num(BD.meta.encuestados) }) },
+        { rotulo: t("resumen.k_disc"), valor: pct(r.discapacidad), desc: t("resumen.d_disc"), ayuda: t("ayuda.disc") },
+        { rotulo: t("resumen.k_dolor"), valor: pct(r.dolor), desc: t("resumen.d_dolor"), ayuda: t("ayuda.dolor") }
+      ])),
+      bloque(t("resumen.b_perfil"), "persona", cifras([
+        { rotulo: t("resumen.k_sexo"), valor: cat("sexo", r.sexo), desc: t("resumen.d_sexo", { pct: pct(r.sexo_pct) }), ayuda: t("ayuda.sexo_moda"), texto: true },
+        { rotulo: t("resumen.k_edad"), valor: cat("edad", r.edad), desc: t("resumen.d_edad"), ayuda: t("ayuda.edad_moda"), texto: true },
+        { rotulo: t("resumen.k_comorb"), valor: pct(r.comorbilidad), desc: t("resumen.d_comorb"), ayuda: t("ayuda.comorb") }
+      ])),
+      bloque(t("resumen.b_trat"), "capsula", cifras([
+        { rotulo: t("resumen.k_farm"), valor: num(r.farmacos_media, 1), desc: t("resumen.d_farm"), ayuda: t("ayuda.farm") },
+        { rotulo: t("resumen.k_adh"), valor: pct(r.adherencia), desc: t("resumen.d_adh"), ayuda: t("ayuda.adh") },
+        { rotulo: t("resumen.k_alt"), valor: pct(r.alternativos), desc: t("resumen.d_alt"), ayuda: t("ayuda.alt") }
+      ])),
+      bloque(t("resumen.b_acceso"), "balanza", cifras([
+        { rotulo: t("resumen.k_gasto"), valor: cat("gasto", r.gasto), desc: t("resumen.d_gasto"), ayuda: t("ayuda.gasto_moda"), texto: true },
+        { rotulo: t("resumen.k_fin"), valor: pct(r.financiamiento), desc: t("resumen.d_fin"), ayuda: t("ayuda.fin") },
+        { rotulo: t("resumen.k_cont"), valor: pct(r.continuidad), desc: t("resumen.d_cont"), ayuda: t("ayuda.cont") }
+      ]))
     ];
   }
 
@@ -335,11 +529,13 @@
     // Tabla equivalente a la red: personas que declaran cada par
     var ids = BD.enfermedades, pares = {};
     BD.red.aristas.forEach(function (a) { pares[a[0] + "|" + a[1]] = a[2]; pares[a[1] + "|" + a[0]] = a[2]; });
-    var matriz = G.tabla([""].concat(ids.map(enf)), ids.map(function (fila) {
-      return [enf(fila)].concat(ids.map(function (col) {
-        return fila === col ? num(nodoDe[fila].n) : num(pares[fila + "|" + col] || 0);
-      }));
-    }), t("combinadas.matriz"));
+    var celda = function (fila, col) { return fila === col ? nodoDe[fila].n : (pares[fila + "|" + col] || 0); };
+    var matriz = {
+      columnas: [""].concat(ids.map(enf)),
+      filas: ids.map(function (fila) { return [enf(fila)].concat(ids.map(function (col) { return num(celda(fila, col)); })); }),
+      crudas: ids.map(function (fila) { return [enf(fila)].concat(ids.map(function (col) { return celda(fila, col); })); }),
+      desliza: true
+    };
 
     var otras = P.combinada.otras.map(function (f) {
       return {
@@ -349,177 +545,62 @@
     });
 
     return [
-      cabecera(t("combinadas.titulo", { enf: enf(id) }), t("combinadas.intro")),
+      cifras([
+        { rotulo: t("combinadas.k_grado"), valor: t("combinadas.v_grado", { g: nodoDe[id].grado }), ayuda: t("ayuda.grado") },
+        { rotulo: t("combinadas.k_cred"), valor: num(P.combinada.credencial_n), desc: t("combinadas.d_de", { n: num(P.n) }), ayuda: t("ayuda.cred_n") },
+        { rotulo: t("combinadas.k_pension"), valor: num(P.combinada.pension_n), desc: t("combinadas.d_de", { n: num(P.n) }), ayuda: t("ayuda.pension") }
+      ]),
       el("div", { "class": "dos-columnas" }, [
         tarjeta("red", t("combinadas.red"), {
+          ayuda: t("ayuda.red"),
           grafico: [
-            G.red(nodos, aristas, id, elegirEnfermedad, t("combinadas.red"), PANTALLA_ANGOSTA.matches),
+            G.red(nodos, aristas, id, function (otra, conTeclado) {
+              elegirEnfermedad(otra, conTeclado ? "nodo-" + otra : null);
+            }, t("combinadas.red"), PANTALLA_ANGOSTA.matches),
             el("div", { "class": "leyenda-bloque" }, [
               el("span", { "class": "leyenda-titulo" }, t("combinadas.leyenda")),
               G.leyenda(itemsLeyenda, t("combinadas.leyenda"))
             ])
           ],
-          tabla: el("div", { "class": "tabla-desliza" }, matriz)
+          datos: matriz
         }),
-        el("div", { "class": "columna" }, [
-          el("article", { "class": "tarjeta" }, [
-            el("header", { "class": "tarjeta-cab" }, el("h3", null, enf(id))),
-            el("dl", { "class": "datos-lista" }, [
-              [t("combinadas.k_n"), num(P.n)],
-              [t("combinadas.k_prev"), pct(P.prev)],
-              [t("combinadas.k_grado"), t("combinadas.v_grado", { g: nodoDe[id].grado })],
-              [t("combinadas.k_disc"), pct(P.resumen.discapacidad)],
-              [t("combinadas.k_cred"), num(P.combinada.credencial_n)],
-              [t("combinadas.k_pension"), num(P.combinada.pension_n)],
-              [t("combinadas.k_comorb"), pct(P.resumen.comorbilidad)]
-            ].map(function (par) { return el("div", null, [el("dt", null, par[0]), el("dd", null, par[1])]); }))
-          ]),
-          tarjeta("otras", t("combinadas.otras"), {
-            base: textoBase({ base: P.n, sin_respuesta: 0 }),
-            grafico: G.barras(otras),
-            tabla: tablaDe(otras, t("combinadas.otras")),
-            nota: t("combinadas.otras_nota", { enf: enf(id) })
-          })
-        ])
+        tarjeta("otras", t("combinadas.otras"), {
+          ayuda: t("ayuda.otras"),
+          base: textoBase({ base: P.n, sin_respuesta: 0 }),
+          grafico: G.barras(otras),
+          datos: datosDe(otras),
+          nota: t("combinadas.otras_nota", { enf: enf(id) })
+        })
       ])
     ];
   }
 
   function seccionPerfil(P) {
     var p = P.perfil;
-    function b(clave, variable, opciones) {
+    function b(clave, variable, ayuda, opciones) {
       opciones = opciones || {};
       opciones.variable = variable;
+      opciones.ayuda = t("ayuda." + ayuda);
       return tarjetaBarras("perfil-" + clave, t("perfil.c_" + clave), p[clave === "anios" ? "anios_dx" : clave], opciones);
     }
     return [
-      cabecera(t("perfil.titulo", { enf: enf(estado.enf) }), t("perfil.intro")),
-      grupo(t("perfil.g_socio"), [b("sexo", "sexo"), b("edad", "edad")]),
-      grupo(t("perfil.g_vida"), [b("actividad", "actividad"), b("dieta", "dieta", { ranking: true }),
-                                 b("tabaco", "tabaco"), b("alcohol", "alcohol")]),
-      grupo(t("perfil.g_salud"), [b("salud", "salud"), b("dolor", "dolor")]),
-      grupo(t("perfil.g_diag"), [b("anios", "anios_dx"),
-                                 b("especialista", "especialista", { ranking: true, multiple: true })]),
-      grupo(t("perfil.g_vinculo"), [b("relacion", "relacion"), b("preguntas", "preguntas"), b("decision", "decision")])
-    ];
-  }
-
-  function seccionTerritorio() {
-    var cod = estado.reg, R = BD.porRegion[cod];
-    var maxN = Math.max.apply(null, BD.regiones.map(function (c) { return BD.porRegion[c].n; }));
-    function clase(n) {
-      var k = -1;
-      CLASES_MAPA.forEach(function (limite, i) { if (n >= limite) k = i; });
-      return k;
-    }
-    var regiones = BD.regiones.map(function (c) {
-      var n = BD.porRegion[c].n, k = clase(n);
-      return {
-        cod: c, n: n, color: k < 0 ? COLOR.sinDato : COLOR.rampa6[k],
-        detalle: t("territorio.region", { reg: NOMBRE_REGION[c].corto, n: num(n) })
-      };
-    });
-    var itemsLeyenda = CLASES_MAPA.map(function (limite, i) {
-      var siguiente = CLASES_MAPA[i + 1];
-      return {
-        color: COLOR.rampa6[i],
-        etq: siguiente ? t("territorio.clase", { a: limite, b: siguiente - 1 }) : t("territorio.clase_mas", { a: limite })
-      };
-    });
-
-    var lista = el("ul", { "class": "regiones" }, regiones.map(function (r) {
-      var barra = el("span", { "class": "barra" });
-      barra.style.width = Math.max(r.n / maxN * 100, 1) + "%";
-      barra.style.background = r.color;
-      var boton = el("button", { type: "button", "aria-pressed": r.cod === cod ? "true" : "false" }, [
-        el("span", { "class": "regiones-nombre" }, NOMBRE_REGION[r.cod].corto),
-        el("span", { "class": "fila-pista" }, barra),
-        el("span", { "class": "regiones-n" }, num(r.n))
-      ]);
-      boton.addEventListener("click", function () { elegirRegion(r.cod); });
-      return el("li", null, boton);
-    }));
-
-    var prevalencias = R.enfermedades.map(function (f) {
-      return {
-        etq: enf(f[0]), n: f[1], pct: f[2], valor: pct(f[2]),
-        detalle: t("comun.tip", { etq: enf(f[0]), n: num(f[1]), base: num(R.n), pct: pct(f[2]) })
-      };
-    });
-
-    function indicador(clave) {
-      var tablaBD = R[clave];
-      var titulo = t("territorio.i_" + clave);
-      if (!tablaBD.base) return el("div", { "class": "indicador" }, [el("h4", null, titulo), el("p", { "class": "vacio" }, t("comun.sin_datos"))]);
-      var filas = filasDe(tablaBD, function (c) { return T.cat.nivel3[c]; });
-      return el("div", { "class": "indicador" }, [
-        el("h4", null, titulo),
-        el("p", { "class": "tarjeta-base" }, textoBase(tablaBD)),
-        G.segmentada(filas, COLOR.rampa3, titulo)
-      ]);
-    }
-    function tablaIndicadores() {
-      var filas = [];
-      ["educacion", "envejecimiento", "pobreza"].forEach(function (clave) {
-        filasDe(R[clave], function (c) { return T.cat.nivel3[c]; }).forEach(function (f) {
-          filas.push([t("territorio.i_" + clave) + ": " + f.etq, num(f.n), f.valor]);
-        });
-      });
-      return G.tabla([t("comun.col_respuesta"), t("comun.col_personas"), t("comun.col_pct")], filas, t("territorio.c_comuna"));
-    }
-
-    var mapaSvg = G.mapa(GEO, regiones, cod, elegirRegion);
-
-    return [
-      cabecera(t("territorio.titulo", { reg: NOMBRE_REGION[cod].largo }), t("territorio.intro")),
-      el("div", { "class": "territorio" }, [
-        el("article", { "class": "tarjeta territorio-mapa" }, [
-          el("header", { "class": "tarjeta-cab" }, el("h3", null, t("territorio.mapa"))),
-          el("div", { "class": "mapa-caja" }, [
-            mapaSvg,
-            el("div", { "class": "leyenda-bloque leyenda-vertical" }, [
-              el("span", { "class": "leyenda-titulo" }, t("territorio.leyenda")),
-              G.leyenda(itemsLeyenda, t("territorio.leyenda"))
-            ])
-          ]),
-          el("p", { "class": "tarjeta-nota" }, t("territorio.islas"))
-        ]),
-        el("article", { "class": "tarjeta territorio-lista" }, [
-          el("header", { "class": "tarjeta-cab" }, el("h3", null, t("territorio.lista"))),
-          lista
-        ]),
-        el("div", { "class": "territorio-panel" }, [
-          el("div", { "class": "rejilla-cifras" }, [
-            cifra(t("territorio.k_n"), num(R.n), t("territorio.k_pct") + ": " + pct(R.pct_muestra)),
-            cifra(t("territorio.k_traslado"), pct(R.traslado)),
-            cifra(t("territorio.k_disc"), pct(R.discapacidad)),
-            cifra(t("territorio.k_cred"), pct(R.credencial))
-          ]),
-          el("div", { "class": "rejilla" }, [
-            tarjeta("reg-enf", t("territorio.c_enf"), {
-              base: textoBase({ base: R.n, sin_respuesta: 0 }),
-              grafico: G.barras(prevalencias),
-              tabla: tablaDe(prevalencias, t("territorio.c_enf")),
-              nota: t("comun.multiple")
-            }),
-            el("div", { "class": "columna" }, [
-              tarjetaBarras("reg-sexo", t("territorio.c_sexo"), R.sexo, { variable: "sexo" }),
-              tarjetaBarras("reg-edad", t("territorio.c_edad"), R.edad, { variable: "edad" })
-            ]),
-            tarjeta("reg-comuna", t("territorio.c_comuna"), {
-              grafico: el("div", { "class": "indicadores" }, ["educacion", "envejecimiento", "pobreza"].map(indicador)),
-              tabla: tablaIndicadores(),
-              nota: t("territorio.comuna_nota"),
-              ancha: true
-            })
-          ])
-        ])
-      ])
+      grupo("perfil-socio", t("perfil.g_socio"), "personas", rejilla([b("sexo", "sexo", "sexo"), b("edad", "edad", "edad")]), true),
+      grupo("perfil-vida", t("perfil.g_vida"), "hoja", rejilla([
+        b("actividad", "actividad", "actividad"), b("dieta", "dieta", "dieta", { ranking: true }),
+        b("tabaco", "tabaco", "tabaco"), b("alcohol", "alcohol", "alcohol")
+      ])),
+      grupo("perfil-salud", t("perfil.g_salud"), "corazon", rejilla([b("salud", "salud", "salud"), b("dolor", "dolor", "dolor_c")])),
+      grupo("perfil-diag", t("perfil.g_diag"), "reloj", rejilla([
+        b("anios", "anios_dx", "anios"), b("especialista", "especialista", "especialista", { ranking: true, multiple: true })
+      ])),
+      grupo("perfil-vinculo", t("perfil.g_vinculo"), "dialogo", rejilla([
+        b("relacion", "relacion", "relacion"), b("preguntas", "preguntas", "preguntas"), b("decision", "decision", "decision")
+      ], 3))
     ];
   }
 
   function seccionTratamientos(P) {
-    var tr = P.tratamientos, id = estado.enf, cob = COBERTURA[id];
+    var tr = P.tratamientos, cob = COBERTURA[estado.enf];
     var textoCob = { si: t("comun.si"), no: t("comun.no"), parcial: t("comun.parcial") };
 
     var filasComplejidad = filasDe(tr.complejidad, function (c) { return T.cat.complejidad[c]; });
@@ -534,49 +615,51 @@
       return { color: COLOR_CATEGORIA[c], etq: T.cat.categoria[c] };
     }), t("tratamientos.leyenda_cat"));
 
+    var cobertura = tarjeta("trat-cobertura", t("tratamientos.c_cobertura"), {
+      ayuda: t("ayuda.cobertura"),
+      grafico: el("dl", { "class": "datos-lista" }, [["cob_ges", cob.ges], ["cob_guia", cob.guia], ["cob_lrs", cob.lrs]].map(function (par) {
+        return el("div", null, [el("dt", null, t("tratamientos." + par[0])), el("dd", { "class": "cob-" + par[1] }, textoCob[par[1]])]);
+      })),
+      nota: (cob.nota ? t("tratamientos." + cob.nota) + " " : "") + t("tratamientos.cob_nota")
+    });
+
     return [
-      cabecera(t("tratamientos.titulo", { enf: enf(id) }), t("tratamientos.intro")),
-      el("div", { "class": "rejilla-cifras" }, [
-        cifra(t("tratamientos.k_poli"), pct(tr.politerapia)),
-        cifra(t("tratamientos.k_aines"), pct(tr.aines)),
-        cifra(t("tratamientos.k_bio"), pct(tr.biologicos))
+      cifras([
+        { rotulo: t("tratamientos.k_poli"), valor: pct(tr.politerapia), ayuda: t("ayuda.poli") },
+        { rotulo: t("tratamientos.k_aines"), valor: pct(tr.aines), ayuda: t("ayuda.aines") },
+        { rotulo: t("tratamientos.k_bio"), valor: pct(tr.biologicos), ayuda: t("ayuda.bio") }
       ]),
-      el("div", { "class": "rejilla rejilla-2" }, [
+      grupo("trat-farmacos", t("tratamientos.g_farmacos"), "capsula", rejilla([
         tarjetaBarras("trat-farmacos", t("tratamientos.c_farmacos"), tr.farmacos, {
-          variable: "farmacos", ranking: true, multiple: true,
+          variable: "farmacos", ranking: true, multiple: true, ayuda: t("ayuda.farmacos"),
           color: function (c) { return COLOR_CATEGORIA[CATEGORIA_FARMACO[c]]; },
           leyenda: leyendaCategorias
         }),
-        el("div", { "class": "columna" }, [
-          tarjeta("trat-complejidad", t("tratamientos.c_complejidad"), {
-            base: textoBase(tr.complejidad),
-            grafico: G.segmentada(filasComplejidad, COLOR.rampa4, t("tratamientos.c_complejidad")),
-            tabla: tablaDe(filasComplejidad, t("tratamientos.c_complejidad"))
-          }),
-          tarjetaBarras("trat-complementarias", t("tratamientos.c_complementarias"), tr.complementarias,
-            { variable: "complementarias", multiple: true }),
-          el("article", { "class": "tarjeta" }, [
-            el("header", { "class": "tarjeta-cab" }, el("h3", null, t("tratamientos.c_cobertura"))),
-            el("dl", { "class": "datos-lista" }, [["cob_ges", cob.ges], ["cob_guia", cob.guia], ["cob_lrs", cob.lrs]].map(function (par) {
-              return el("div", null, [el("dt", null, t("tratamientos." + par[0])), el("dd", null, textoCob[par[1]])]);
-            })),
-            cob.nota ? el("p", { "class": "tarjeta-nota" }, t("tratamientos." + cob.nota)) : null,
-            el("p", { "class": "tarjeta-nota" }, t("tratamientos.cob_nota"))
-          ])
-        ]),
-        combinaciones.length ? tarjeta("trat-combinaciones", t("tratamientos.c_combinaciones"), {
+        tarjeta("trat-complejidad", t("tratamientos.c_complejidad"), {
+          ayuda: t("ayuda.complejidad"),
+          base: textoBase(tr.complejidad),
+          grafico: G.segmentada(filasComplejidad, COLOR.rampa4, t("tratamientos.c_complejidad")),
+          datos: datosDe(filasComplejidad)
+        })
+      ]), true),
+      combinaciones.length ? grupo("trat-comb", t("tratamientos.g_comb"), "capas",
+        tarjeta("trat-combinaciones", t("tratamientos.c_combinaciones"), {
+          ayuda: t("ayuda.combinaciones"),
           base: t("tratamientos.comb_base", { n: num(tr.con_farmaco) }),
           grafico: G.barras(combinaciones, { escala: "max" }),
-          tabla: tablaDe(combinaciones, t("tratamientos.c_combinaciones")),
-          nota: t("tratamientos.comb_nota", { n: num(tr.con_farmaco) }),
-          ancha: true
-        }) : null
-      ])
+          datos: datosDe(combinaciones),
+          nota: t("tratamientos.comb_nota", { n: num(tr.con_farmaco) })
+        })) : null,
+      grupo("trat-otros", t("tratamientos.g_otros"), "escudo", rejilla([
+        tarjetaBarras("trat-complementarias", t("tratamientos.c_complementarias"), tr.complementarias,
+          { variable: "complementarias", multiple: true, ayuda: t("ayuda.complementarias") }),
+        cobertura
+      ]))
     ];
   }
 
   function seccionAcceso(P) {
-    var a = P.acceso, id = estado.enf;
+    var a = P.acceso;
     function colorAdherencia(c) {
       return c === "adherente" ? COLOR.categorias[0] : c === "sin_razon" ? COLOR.neutro : COLOR.categorias[1];
     }
@@ -585,159 +668,403 @@
       { color: COLOR.categorias[1], etq: t("acceso.l_razon") },
       { color: COLOR.neutro, etq: t("acceso.l_sin_razon") }
     ]);
+    function b(id, clave, tablaBD, variable, opciones) {
+      opciones = opciones || {};
+      opciones.variable = variable;
+      opciones.ayuda = t("ayuda." + clave);
+      return tarjetaBarras(id, t("acceso.c_" + clave), tablaBD, opciones);
+    }
     return [
-      cabecera(t("acceso.titulo", { enf: enf(id) }), t("acceso.intro")),
-      el("div", { "class": "rejilla-cifras rejilla-cifras-4" }, [
-        cifra(t("acceso.k_adh"), pct(a.adherencia_pct)),
-        cifra(t("acceso.k_cont"), pct(a.continuidad)),
-        cifra(t("acceso.k_ges"), pct(a.ges_pct)),
-        cifra(t("acceso.k_seguro"), pct(a.seguro)),
-        cifra(t("acceso.k_particular"), pct(a.particular)),
-        cifra(t("acceso.k_gasto"), pct(a.gasto_alto)),
-        cifra(t("acceso.k_fin"), pct(a.financiamiento)),
-        cifra(t("acceso.k_cred"), pct(a.credito_pct))
-      ]),
-      el("div", { "class": "rejilla" }, [
-        tarjetaBarras("acc-adherencia", t("acceso.c_adherencia"), a.adherencia, {
-          variable: "adherencia", ranking: true, fijas: ["adherente", "sin_razon"],
-          color: colorAdherencia, leyenda: leyendaAdherencia,
-          nota: t("acceso.adh_nota")
-        }),
-        tarjetaBarras("acc-ges", t("acceso.c_ges"), a.ges, { variable: "ges", ranking: true }),
-        tarjetaBarras("acc-gasto", t("acceso.c_gasto"), a.gasto, { variable: "gasto" }),
-        tarjetaBarras("acc-fuentes", t("acceso.c_fuentes"), a.financiamiento_fuentes,
-          { variable: "fuentes", ranking: true, multiple: true }),
-        tarjetaBarras("acc-credito", t("acceso.c_credito"), a.credito, { variable: "credito", ranking: true }),
-        tarjetaBarras("acc-judicial", t("acceso.c_judicial"), a.judicial, { variable: "judicial", ranking: true })
-      ])
+      grupo("acc-adh", t("acceso.g_adh"), "visto", lado([
+        { rotulo: t("acceso.k_adh"), valor: pct(a.adherencia_pct), ayuda: t("ayuda.adh") },
+        { rotulo: t("acceso.k_cont"), valor: pct(a.continuidad), ayuda: t("ayuda.cont") }
+      ], [b("acc-adherencia", "adherencia", a.adherencia, "adherencia", {
+        ranking: true, fijas: ["adherente", "sin_razon"], color: colorAdherencia, leyenda: leyendaAdherencia,
+        nota: t("acceso.adh_nota")
+      })]), true),
+      grupo("acc-ges", t("acceso.g_ges"), "escudo", lado([
+        { rotulo: t("acceso.k_ges"), valor: pct(a.ges_pct), ayuda: t("ayuda.ges_k") },
+        { rotulo: t("acceso.k_seguro"), valor: pct(a.seguro), ayuda: t("ayuda.seguro") },
+        { rotulo: t("acceso.k_particular"), valor: pct(a.particular), ayuda: t("ayuda.particular") }
+      ], [b("acc-ges", "ges", a.ges, "ges", { ranking: true })])),
+      grupo("acc-gasto", t("acceso.g_gasto"), "billete", lado([
+        { rotulo: t("acceso.k_gasto"), valor: pct(a.gasto_alto), ayuda: t("ayuda.gasto_alto") },
+        { rotulo: t("acceso.k_fin"), valor: pct(a.financiamiento), ayuda: t("ayuda.fin") }
+      ], [b("acc-gasto", "gasto", a.gasto, "gasto"),
+          b("acc-fuentes", "fuentes", a.financiamiento_fuentes, "fuentes", { ranking: true, multiple: true })])),
+      grupo("acc-legal", t("acceso.g_legal"), "credito", lado([
+        { rotulo: t("acceso.k_cred"), valor: pct(a.credito_pct), ayuda: t("ayuda.credito_k") }
+      ], [b("acc-credito", "credito", a.credito, "credito", { ranking: true }),
+          b("acc-judicial", "judicial", a.judicial, "judicial", { ranking: true })]))
     ];
   }
 
-  function seccionDatos() {
-    var regMayor = mayor(BD.regiones, function (c) { return BD.porRegion[c].n; });
+  function vistaEnfermedad() {
+    var P = BD.porEnfermedad[estado.enf];
+    var armar = { resumen: seccionResumen, combinadas: seccionCombinadas, perfil: seccionPerfil,
+                  tratamientos: seccionTratamientos, acceso: seccionAcceso }[estado.seccion];
     return [
-      cabecera(t("datos.titulo")),
-      el("div", { "class": "texto" }, [
-        el("h3", null, t("datos.h_que")),
-        el("p", null, t("datos.p_que", { n: num(BD.meta.encuestados), regiones: BD.meta.regiones, enfermedades: BD.meta.enfermedades })),
-        el("h3", null, t("datos.h_leer")),
-        el("ul", null, [
-          el("li", null, t("datos.l_base")),
-          el("li", null, t("datos.l_multiple")),
-          el("li", null, t("datos.l_muestra", { pct: pct(BD.porRegion[regMayor].pct_muestra), reg: NOMBRE_REGION[regMayor].largo })),
-          el("li", null, t("datos.l_chico")),
-          el("li", null, t("datos.l_tabla"))
-        ]),
-        el("h3", null, t("datos.h_enf")),
-        el("dl", { "class": "glosario" }, BD.enfermedades.slice().sort(porNombre).map(function (id) {
-          return el("div", null, [
-            el("dt", null, [enf(id), el("span", null, t("datos.enf_n", { n: num(BD.porEnfermedad[id].n) }))]),
-            el("dd", null, T.enf[id].desc)
-          ]);
-        })),
-        el("h3", null, t("datos.h_origen")),
-        el("p", null, t("datos.p_origen")),
-        el("h3", null, t("datos.h_creditos")),
-        el("p", null, t("datos.p_creditos"))
-      ])
+      ficha({ icono: "pulso", titulo: enf(estado.enf), n: P.n, pct: P.prev, desc: T.enf[estado.enf].desc }),
+      pestanas(),
+      el("div", { id: "panel", "class": "panel", role: "tabpanel", "aria-labelledby": "pestana-" + estado.seccion }, armar(P))
     ];
   }
-  function porNombre(a, b) { return enf(a).localeCompare(enf(b), estado.lang); }
 
   /* --------------------------------------------------------------------------
-     Barra de filtro: un solo selector, que rige todo lo que hay debajo
+     Vista por región
      -------------------------------------------------------------------------- */
-  function filtro() {
-    if (SECCIONES_SIN_FILTRO.indexOf(estado.seccion) >= 0) return null;
-    var porRegion = SECCIONES_POR_REGION.indexOf(estado.seccion) >= 0;
-    var total = BD.meta.encuestados;
-    var selector = el("select", { id: "selector" });
-    var n, resumen, descripcion = null;
-
-    if (porRegion) {
-      BD.regiones.forEach(function (c) {
-        selector.appendChild(el("option", { value: c, selected: c === estado.reg },
-          t("filtro.opcion", { nombre: NOMBRE_REGION[c].corto, n: num(BD.porRegion[c].n) })));
-      });
-      selector.addEventListener("change", function () { elegirRegion(selector.value); });
-      n = BD.porRegion[estado.reg].n;
-      resumen = t("filtro.grupo_reg", { n: num(n), total: num(total), pct: pct(BD.porRegion[estado.reg].pct_muestra) });
-    } else {
-      BD.enfermedades.slice().sort(porNombre).forEach(function (id) {
-        selector.appendChild(el("option", { value: id, selected: id === estado.enf },
-          t("filtro.opcion", { nombre: enf(id), n: num(BD.porEnfermedad[id].n) })));
-      });
-      selector.addEventListener("change", function () { elegirEnfermedad(selector.value); });
-      n = BD.porEnfermedad[estado.enf].n;
-      resumen = t("filtro.grupo_enf", { n: num(n), total: num(total), pct: pct(BD.porEnfermedad[estado.enf].prev) });
-      descripcion = T.enf[estado.enf].desc;
+  function vistaRegion() {
+    var R = BD.porRegion[estado.reg];
+    var enfermedades = R.enfermedades.map(function (f) {
+      return {
+        etq: enf(f[0]), n: f[1], pct: f[2], valor: pct(f[2]),
+        detalle: t("comun.tip", { etq: enf(f[0]), n: num(f[1]), base: num(R.n), pct: pct(f[2]) })
+      };
+    });
+    var claves = ["educacion", "envejecimiento", "pobreza"];
+    function indicador(clave) {
+      var tablaBD = R[clave], titulo = t("territorio.i_" + clave);
+      if (!tablaBD.base) return el("div", { "class": "indicador" }, [el("h5", null, titulo), el("p", { "class": "vacio" }, t("comun.sin_datos"))]);
+      return el("div", { "class": "indicador" }, [
+        el("h5", null, titulo),
+        el("p", { "class": "tarjeta-base" }, textoBase(tablaBD)),
+        G.segmentada(filasDe(tablaBD, function (c) { return T.cat.nivel3[c]; }), COLOR.rampa3, titulo)
+      ]);
     }
+    var filasComuna = [];
+    claves.forEach(function (clave) {
+      filasDe(R[clave], function (c) { return T.cat.nivel3[c]; }).forEach(function (f) {
+        filasComuna.push({ etq: t("territorio.i_" + clave) + ": " + f.etq, n: f.n, pct: f.pct, valor: f.valor });
+      });
+    });
 
-    return el("div", { "class": "filtro" }, el("div", { "class": "ancho filtro-caja" }, [
-      el("div", { "class": "filtro-control" }, [
-        el("label", { "for": "selector" }, t(porRegion ? "filtro.region" : "filtro.enfermedad")),
-        selector
-      ]),
-      el("div", { "class": "filtro-texto" }, [
-        el("p", { "class": "filtro-grupo" }, resumen),
-        descripcion ? el("p", { "class": "filtro-desc" }, descripcion) : null,
-        n < GRUPO_CHICO ? el("p", { "class": "aviso" }, t("filtro.chico")) : null
+    return [
+      ficha({ icono: "mapa", titulo: NOMBRE_REGION[estado.reg].largo, n: R.n, pct: R.pct_muestra, desc: t("ficha.region_desc") }),
+      el("div", { id: "panel", "class": "panel panel-region" }, [
+        cifras([
+          { rotulo: t("territorio.k_traslado"), valor: pct(R.traslado), ayuda: t("ayuda.traslado") },
+          { rotulo: t("territorio.k_disc"), valor: pct(R.discapacidad), ayuda: t("ayuda.disc") },
+          { rotulo: t("territorio.k_cred"), valor: pct(R.credencial), ayuda: t("ayuda.cred_pct") }
+        ]),
+        rejilla([
+          tarjeta("reg-enf", t("territorio.c_enf"), {
+            ayuda: t("ayuda.reg_enf"),
+            base: textoBase({ base: R.n, sin_respuesta: 0 }),
+            grafico: G.barras(enfermedades),
+            datos: datosDe(enfermedades),
+            nota: t("comun.multiple")
+          }),
+          el("div", { "class": "columna" }, [
+            tarjetaBarras("reg-sexo", t("territorio.c_sexo"), R.sexo, { variable: "sexo", ayuda: t("ayuda.sexo") }),
+            tarjetaBarras("reg-edad", t("territorio.c_edad"), R.edad, { variable: "edad", ayuda: t("ayuda.edad") })
+          ]),
+          tarjeta("reg-comuna", t("territorio.c_comuna"), {
+            ayuda: t("ayuda.comuna"),
+            grafico: el("div", { "class": "indicadores" }, claves.map(indicador)),
+            datos: datosDe(filasComuna),
+            nota: t("territorio.comuna_nota"),
+            ancha: true
+          })
+        ])
       ])
+    ];
+  }
+
+  /* --------------------------------------------------------------------------
+     Panel de selección (a la izquierda). En pantallas angostas se reemplaza
+     por una lista desplegable: es el mismo control, no un acceso repetido.
+     -------------------------------------------------------------------------- */
+  function cabeceraSelector(titulo, ayuda) {
+    return el("div", { "class": "selector-cab" }, [el("h2", null, titulo), G.botonAyuda(titulo, ayuda)]);
+  }
+  function selectorMovil(rotulo, opciones, valor, alCambiar) {
+    var lista = el("select", { id: "selector-movil" }, opciones.map(function (o) {
+      return el("option", { value: o.valor, selected: String(o.valor) === String(valor) }, o.texto);
+    }));
+    lista.addEventListener("change", function () { alCambiar(lista.value); });
+    return el("div", { "class": "selector-movil" }, [el("label", { "for": "selector-movil" }, rotulo), lista]);
+  }
+  function opcion(idBoton, nombre, n, ancho, color, elegida, alElegir) {
+    var barra = el("span", { "class": "opcion-barra" });
+    barra.style.width = Math.max(ancho, 1.5) + "%";
+    if (color) barra.style.background = color;
+    var boton = el("button", { type: "button", id: idBoton, "class": "opcion", "aria-pressed": elegida ? "true" : "false" }, [
+      el("span", { "class": "opcion-nombre" }, nombre),
+      el("span", { "class": "opcion-n" }, num(n)),
+      el("span", { "class": "opcion-pista", "aria-hidden": "true" }, barra)
+    ]);
+    boton.addEventListener("click", alElegir);
+    return el("li", null, boton);
+  }
+
+  function selectorEnfermedad(caja) {
+    var ids = BD.enfermedades.slice().sort(porNombre);
+    var maxN = Math.max.apply(null, ids.map(function (id) { return BD.porEnfermedad[id].n; }));
+    caja.appendChild(cabeceraSelector(t("selector.lista_enf"), t("selector.ayuda_enf")));
+    caja.appendChild(selectorMovil(t("selector.enfermedad"), ids.map(function (id) {
+      return { valor: id, texto: t("selector.opcion", { nombre: enf(id), n: num(BD.porEnfermedad[id].n) }) };
+    }), estado.enf, function (valor) { elegirEnfermedad(valor, "selector-movil"); }));
+    caja.appendChild(el("ul", { "class": "opciones" }, ids.map(function (id) {
+      var n = BD.porEnfermedad[id].n;
+      return opcion("op-" + id, enf(id), n, n / maxN * 100, null, id === estado.enf,
+        function () { elegirEnfermedad(id, "op-" + id); });
+    })));
+    caja.appendChild(el("p", { "class": "selector-nota" }, t("selector.nota_enf")));
+  }
+
+  function selectorRegion(caja) {
+    var maxN = Math.max.apply(null, BD.regiones.map(function (c) { return BD.porRegion[c].n; }));
+    var regiones = BD.regiones.map(function (c) {
+      var n = BD.porRegion[c].n, k = -1;
+      CLASES_MAPA.forEach(function (limite, i) { if (n >= limite) k = i; });
+      return {
+        cod: c, n: n, color: k < 0 ? COLOR.sinDato : COLOR.rampa6[k],
+        detalle: t("selector.globo_region", { reg: NOMBRE_REGION[c].corto, n: num(n) })
+      };
+    });
+    var itemsLeyenda = CLASES_MAPA.map(function (limite, i) {
+      var siguiente = CLASES_MAPA[i + 1];
+      return {
+        color: COLOR.rampa6[i],
+        etq: siguiente ? t("territorio.clase", { a: limite, b: siguiente - 1 }) : t("territorio.clase_mas", { a: limite })
+      };
+    });
+    caja.appendChild(cabeceraSelector(t("selector.lista_reg"), t("selector.ayuda_reg")));
+    caja.appendChild(selectorMovil(t("selector.region"), BD.regiones.map(function (c) {
+      return { valor: c, texto: t("selector.opcion", { nombre: NOMBRE_REGION[c].corto, n: num(BD.porRegion[c].n) }) };
+    }), estado.reg, function (valor) { elegirRegion(valor, "selector-movil"); }));
+    caja.appendChild(el("div", { "class": "leyenda-bloque" }, [
+      el("span", { "class": "leyenda-titulo" }, t("selector.leyenda")),
+      G.leyenda(itemsLeyenda, t("selector.leyenda"))
     ]));
+    caja.appendChild(el("div", { "class": "mapa-y-lista" }, [
+      el("div", { "class": "mapa-caja" }, G.mapa(GEO, regiones, estado.reg, function (cod) { elegirRegion(cod); })),
+      el("ul", { "class": "opciones opciones-region" }, regiones.map(function (r) {
+        return opcion("op-r" + r.cod, NOMBRE_REGION[r.cod].corto, r.n, r.n / maxN * 100, r.color, r.cod === estado.reg,
+          function () { elegirRegion(r.cod, "op-r" + r.cod); });
+      }))
+    ]));
+    caja.appendChild(el("p", { "class": "selector-nota" }, t("selector.islas")));
+  }
+
+  /* --------------------------------------------------------------------------
+     Guía de uso (panel lateral) y bienvenida
+     -------------------------------------------------------------------------- */
+  function contenidoGuia(pestana) {
+    if (pestana === "uso") {
+      return el("ol", { "class": "guia-pasos" }, T.guia.uso.map(function (paso) {
+        return el("li", null, el("div", null, [el("b", null, paso[0]), el("p", null, paso[1])]));
+      }));
+    }
+    if (pestana === "leer") {
+      var regMayor = mayor(BD.regiones, function (c) { return BD.porRegion[c].n; });
+      return el("ul", { "class": "guia-lista" }, [
+        t("guia.leer_base"), t("guia.leer_multiple"),
+        t("guia.leer_muestra", { pct: pct(BD.porRegion[regMayor].pct_muestra), reg: NOMBRE_REGION[regMayor].largo }),
+        t("guia.leer_chico"), t("guia.leer_tabla")
+      ].map(function (texto) { return el("li", null, texto); }));
+    }
+    if (pestana === "secciones") {
+      return el("dl", { "class": "guia-definiciones" }, SECCIONES.map(function (s) {
+        return el("div", null, [el("dt", null, [icono(ICONO_SECCION[s]), t("nav." + s)]), el("dd", null, t("guia.sec_" + s))]);
+      }).concat([el("div", null, [el("dt", null, [icono("mapa"), t("modo.region")]), el("dd", null, t("guia.sec_region"))])]));
+    }
+    if (pestana === "glosario") {
+      return el("dl", { "class": "guia-definiciones" }, T.guia.glosario.slice().sort(function (a, b) {
+        return a[0].localeCompare(b[0], estado.lang);
+      }).map(function (par) { return el("div", null, [el("dt", null, par[0]), el("dd", null, par[1])]); }));
+    }
+    return el("div", null, [
+      el("h3", null, t("guia.h_que")),
+      el("p", null, t("guia.p_que", { n: num(BD.meta.encuestados), regiones: BD.meta.regiones, enfermedades: BD.meta.enfermedades })),
+      el("h3", null, t("guia.h_enf")),
+      el("dl", { "class": "guia-definiciones" }, BD.enfermedades.slice().sort(porNombre).map(function (id) {
+        return el("div", null, [
+          el("dt", null, [enf(id), el("span", { "class": "guia-n" }, t("guia.enf_n", { n: num(BD.porEnfermedad[id].n) }))]),
+          el("dd", null, T.enf[id].desc)
+        ]);
+      })),
+      el("h3", null, t("guia.h_origen")),
+      el("p", null, t("guia.p_origen")),
+      el("h3", null, t("guia.h_creditos")),
+      el("p", null, t("guia.p_creditos"))
+    ]);
+  }
+
+  function pintarGuia() {
+    var caja = document.getElementById("guia");
+    caja.textContent = "";
+    var cerrar = el("button", { type: "button", id: "guia-cerrar", "class": "boton-icono", "aria-label": t("comun.cerrar"), title: t("comun.cerrar") }, icono("cerrar"));
+    cerrar.addEventListener("click", cerrarGuia);
+    var lista = el("div", { role: "tablist", "class": "guia-pestanas", "aria-label": t("guia.titulo") });
+    PESTANAS_GUIA.forEach(function (p, i) {
+      var activa = p === guia.pestana;
+      var boton = el("button", {
+        type: "button", role: "tab", id: "guia-pestana-" + p, "aria-selected": activa ? "true" : "false",
+        "aria-controls": "guia-cuerpo", tabindex: activa ? "0" : "-1"
+      }, t("guia.t_" + p));
+      var elegir = function (q) {
+        guia.pestana = q;
+        pintarGuia();
+        document.getElementById("guia-pestana-" + q).focus();
+      };
+      boton.addEventListener("click", function () { elegir(p); });
+      boton.addEventListener("keydown", function (e) {
+        var j = { ArrowRight: i + 1, ArrowLeft: i - 1, Home: 0, End: PESTANAS_GUIA.length - 1 }[e.key];
+        if (j === undefined) return;
+        e.preventDefault();
+        elegir(PESTANAS_GUIA[(j + PESTANAS_GUIA.length) % PESTANAS_GUIA.length]);
+      });
+      lista.appendChild(boton);
+    });
+    caja.appendChild(el("header", { "class": "guia-cab" }, [
+      el("span", { "class": "grupo-icono" }, icono("ayuda")),
+      el("h2", { id: "guia-titulo" }, t("guia.titulo")),
+      cerrar
+    ]));
+    caja.appendChild(lista);
+    caja.appendChild(el("div", {
+      "class": "guia-cuerpo", id: "guia-cuerpo", role: "tabpanel", tabindex: "0",
+      "aria-labelledby": "guia-pestana-" + guia.pestana
+    }, contenidoGuia(guia.pestana)));
+    // En pantallas angostas las pestañas se desplazan: la elegida queda a la vista
+    var activa = document.getElementById("guia-pestana-" + guia.pestana);
+    lista.scrollLeft = Math.max(0, activa.offsetLeft - (lista.clientWidth - activa.offsetWidth) / 2);
+  }
+  function abrirGuia() {
+    guia.abierta = true;
+    guia.vuelveA = document.activeElement;
+    G.ocultarGlobo();
+    pintarGuia();
+    var caja = document.getElementById("guia");
+    document.getElementById("velo").hidden = false;
+    caja.hidden = false;
+    document.body.classList.add("sin-desplazar");
+    window.requestAnimationFrame(function () { caja.classList.add("guia-abierta"); });
+    document.getElementById("guia-cerrar").focus();
+  }
+  function cerrarGuia() {
+    guia.abierta = false;
+    var caja = document.getElementById("guia");
+    caja.classList.remove("guia-abierta");
+    caja.hidden = true;
+    document.getElementById("velo").hidden = true;
+    document.body.classList.remove("sin-desplazar");
+    if (guia.vuelveA && document.contains(guia.vuelveA)) guia.vuelveA.focus();
+    else document.getElementById("abrir-ayuda").focus();
+  }
+
+  function pintarBienvenida() {
+    var caja = document.getElementById("bienvenida");
+    caja.textContent = "";
+    var marcar = el("input", { type: "checkbox", id: "bienvenida-marcar" });
+    var entrar = el("button", { type: "button", "class": "boton boton-primario", id: "bienvenida-entrar" }, t("bienvenida.entrar"));
+    var cerrar = el("button", { type: "button", "class": "boton-icono bienvenida-cerrar", "aria-label": t("comun.cerrar"), title: t("comun.cerrar") }, icono("cerrar"));
+    entrar.addEventListener("click", cerrarBienvenida);
+    cerrar.addEventListener("click", cerrarBienvenida);
+    var iconos = ["pulso", "rejilla", "ayuda"];
+    caja.appendChild(el("div", { "class": "bienvenida-caja" }, [
+      cerrar,
+      el("img", { "class": "bienvenida-logo", src: "assets/usach.png", alt: t("app.logo"), width: "113", height: "36" }),
+      el("h2", { id: "bienvenida-titulo" }, t("bienvenida.titulo")),
+      el("p", { "class": "bienvenida-texto" }, t("bienvenida.texto", { n: num(BD.meta.encuestados) })),
+      el("ol", { "class": "pasos" }, [1, 2, 3].map(function (i) {
+        return el("li", null, [
+          el("span", { "class": "paso-icono" }, icono(iconos[i - 1])),
+          el("h3", null, t("bienvenida.p" + i + "_t")),
+          el("p", null, t("bienvenida.p" + i, { k: BD.meta.enfermedades }))
+        ]);
+      })),
+      el("p", { "class": "bienvenida-nota" }, [icono("info"), el("span", null, t("bienvenida.nota"))]),
+      entrar,
+      el("label", { "class": "bienvenida-marcar", "for": "bienvenida-marcar" }, [marcar, el("span", null, t("bienvenida.no_mostrar"))])
+    ]));
+  }
+  function abrirBienvenida() {
+    bienvenida.abierta = true;
+    bienvenida.vuelveA = document.activeElement;
+    pintarBienvenida();
+    document.getElementById("bienvenida").hidden = false;
+    document.body.classList.add("sin-desplazar");
+    document.getElementById("bienvenida-entrar").focus({ preventScroll: true });
+  }
+  function cerrarBienvenida() {
+    var marcar = document.getElementById("bienvenida-marcar");
+    if (marcar && marcar.checked) guardar(GUARDA_BIENVENIDA, "1");
+    bienvenida.abierta = false;
+    document.getElementById("bienvenida").hidden = true;
+    document.body.classList.remove("sin-desplazar");
+    var titulo = document.getElementById("titulo-vista");
+    if (titulo) titulo.focus({ preventScroll: true });
+  }
+
+  // Mientras la guía o la bienvenida están abiertas, el tabulador no sale de ellas
+  function atraparFoco(e, caja) {
+    var enfocables = Array.prototype.filter.call(
+      caja.querySelectorAll("button, [href], input, select, [tabindex]:not([tabindex='-1'])"),
+      function (n) { return !n.disabled && n.offsetParent !== null; });
+    if (!enfocables.length) return;
+    var primero = enfocables[0], ultimo = enfocables[enfocables.length - 1];
+    if (e.shiftKey && document.activeElement === primero) { e.preventDefault(); ultimo.focus(); }
+    else if (!e.shiftKey && document.activeElement === ultimo) { e.preventDefault(); primero.focus(); }
+    else if (!caja.contains(document.activeElement)) { e.preventDefault(); primero.focus(); }
   }
 
   /* --------------------------------------------------------------------------
      Pintado
      -------------------------------------------------------------------------- */
+  function pintarBarra() {
+    document.getElementById("saltar").textContent = t("app.saltar");
+    document.getElementById("titulo-1").textContent = t("app.titulo_1");
+    document.getElementById("titulo-2").textContent = t("app.titulo_2");
+    document.getElementById("logo").alt = t("app.logo");
+    document.getElementById("texto-ayuda").textContent = t("comun.ayuda");
+    var idiomas = document.getElementById("idiomas");
+    idiomas.setAttribute("aria-label", t("app.idioma"));
+    Array.prototype.forEach.call(idiomas.querySelectorAll("button"), function (boton) {
+      boton.setAttribute("aria-pressed", boton.getAttribute("data-idioma") === estado.lang ? "true" : "false");
+    });
+    var modos = document.getElementById("modos");
+    modos.setAttribute("aria-label", t("app.vistas"));
+    modos.textContent = "";
+    MODOS.forEach(function (m) {
+      var boton = el("button", { type: "button", id: "modo-" + m, "aria-pressed": m === estado.modo ? "true" : "false" },
+        [icono(m === "enfermedad" ? "pulso" : "mapa"), el("span", null, t("modo." + m))]);
+      boton.addEventListener("click", function () { elegirModo(m); });
+      modos.appendChild(boton);
+    });
+  }
+
   function pintar() {
     T = TEXTOS[estado.lang];
     G.ocultarGlobo();
     document.documentElement.lang = estado.lang === "pt" ? "pt-BR" : estado.lang;
     document.title = T.app.titulo;
+    pintarBarra();
 
-    // Textos fijos de la página
-    document.getElementById("saltar").textContent = t("app.saltar");
-    document.getElementById("titulo-app").textContent = t("app.titulo");
-    document.getElementById("logo").alt = t("app.logo");
-    document.getElementById("idiomas").setAttribute("aria-label", t("app.idioma"));
-    Array.prototype.forEach.call(document.querySelectorAll("#idiomas button"), function (boton) {
-      boton.setAttribute("aria-pressed", boton.getAttribute("data-idioma") === estado.lang ? "true" : "false");
+    var selector = document.getElementById("selector");
+    selector.textContent = "";
+    selector.setAttribute("aria-label", t(estado.modo === "enfermedad" ? "selector.lista_enf" : "selector.lista_reg"));
+    if (estado.modo === "enfermedad") selectorEnfermedad(selector); else selectorRegion(selector);
+
+    raiz.textContent = "";
+    (estado.modo === "enfermedad" ? vistaEnfermedad() : vistaRegion()).forEach(function (nodo) {
+      if (nodo) raiz.appendChild(nodo);
     });
-
-    // Navegación
-    var nav = document.getElementById("nav");
-    nav.setAttribute("aria-label", t("app.secciones"));
-    nav.textContent = "";
-    SECCIONES.forEach(function (s) {
-      var boton = el("button", { type: "button", "aria-current": s === estado.seccion ? "page" : null }, t("nav." + s));
-      boton.addEventListener("click", function () { irA(s); });
-      nav.appendChild(boton);
-    });
-    var actual = nav.querySelector("[aria-current]");
-    if (actual && actual.scrollIntoView && nav.scrollWidth > nav.clientWidth) {
-      nav.scrollLeft = actual.offsetLeft - nav.clientWidth / 2 + actual.offsetWidth / 2;
-    }
-
-    // Filtro y contenido
-    var cajaFiltro = document.getElementById("filtro");
-    var teniaFoco = document.activeElement && document.activeElement.id === "selector";
-    cajaFiltro.textContent = "";
-    var nodoFiltro = filtro();
-    if (nodoFiltro) cajaFiltro.appendChild(nodoFiltro);
-    if (teniaFoco && document.getElementById("selector")) document.getElementById("selector").focus();
-
-    var P = BD.porEnfermedad[estado.enf];
-    var contenido = {
-      resumen: seccionResumen, combinadas: seccionCombinadas, perfil: seccionPerfil,
-      territorio: seccionTerritorio, tratamientos: seccionTratamientos, acceso: seccionAcceso, datos: seccionDatos
-    }[estado.seccion](P);
-    var principal = document.getElementById("contenido");
-    principal.textContent = "";
-    principal.className = "ancho seccion seccion-" + estado.seccion;
-    contenido.forEach(function (nodo) { if (nodo) principal.appendChild(nodo); });
+    actualizarAbrirTodo();
 
     document.getElementById("pie").textContent = t("app.pie") + " " +
       t("app.pie_base", { fecha: fecha(BD.meta.generado), n: num(BD.meta.encuestados) });
+    if (guia.abierta) pintarGuia();
+    medirBarra();
+  }
+
+  // Alto real de la barra superior, para que la barra de pestañas y el panel
+  // de selección queden pegados justo debajo de ella
+  function medirBarra() {
+    var barra = document.querySelector(".cabecera");
+    var pegada = window.getComputedStyle(barra).position === "sticky";
+    document.documentElement.style.setProperty("--alto-barra", (pegada ? barra.offsetHeight : 0) + "px");
   }
 
   /* --------------------------------------------------------------------------
@@ -751,13 +1078,28 @@
   Array.prototype.forEach.call(document.querySelectorAll("#idiomas button"), function (boton) {
     boton.addEventListener("click", function () { elegirIdioma(boton.getAttribute("data-idioma")); });
   });
+  document.getElementById("abrir-ayuda").addEventListener("click", abrirGuia);
+  document.getElementById("velo").addEventListener("click", cerrarGuia);
+  document.addEventListener("click", function () { G.ocultarGlobo(); });
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") {
+      if (guia.abierta) cerrarGuia();
+      else if (bienvenida.abierta) cerrarBienvenida();
+      else G.ocultarGlobo();
+    } else if (e.key === "Tab") {
+      if (guia.abierta) atraparFoco(e, document.getElementById("guia"));
+      else if (bienvenida.abierta) atraparFoco(e, document.getElementById("bienvenida"));
+    }
+  });
   window.addEventListener("hashchange", function () { leerDireccion(); pintar(); });
   window.addEventListener("popstate", function () { leerDireccion(); pintar(); });
+  window.addEventListener("resize", medirBarra);
   // La red se dibuja distinto en pantallas angostas: se repinta al cruzar el corte
-  var alCambiarAncho = function () { if (estado.seccion === "combinadas") pintar(); };
+  var alCambiarAncho = function () { if (estado.modo === "enfermedad" && estado.seccion === "combinadas") pintar(); };
   if (PANTALLA_ANGOSTA.addEventListener) PANTALLA_ANGOSTA.addEventListener("change", alCambiarAncho);
   else if (PANTALLA_ANGOSTA.addListener) PANTALLA_ANGOSTA.addListener(alCambiarAncho);
 
   pintar();
   escribirDireccion(false);
+  if (leerGuardado(GUARDA_BIENVENIDA) !== "1") abrirBienvenida();
 })();

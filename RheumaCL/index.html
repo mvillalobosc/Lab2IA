@@ -12,10 +12,15 @@
 
 <a class="saltar" id="saltar" href="#contenido">Saltar al contenido</a>
 
+<!-- Barra superior: marca, vistas, idiomas y ayuda. Cada acceso está una sola vez. -->
 <header class="cabecera">
-  <div class="ancho cabecera-caja">
-    <img class="cabecera-logo" id="logo" src="assets/usach.png" alt="Universidad de Santiago de Chile" width="126" height="40">
-    <h1 id="titulo-app">Análisis clínico de la 1.ª Encuesta de la Red de Pacientes Reumáticos de Chile</h1>
+  <div class="cabecera-caja">
+    <div class="marca">
+      <img class="marca-logo" id="logo" src="assets/usach.png" alt="Universidad de Santiago de Chile" width="113" height="36">
+      <span class="marca-raya" aria-hidden="true"></span>
+      <h1 class="marca-nombre"><span id="titulo-1">Análisis clínico de la 1.ª Encuesta de la</span> <b id="titulo-2">Red de Pacientes Reumáticos de Chile</b></h1>
+    </div>
+    <nav class="modos" id="modos" aria-label="Vistas"></nav>
     <div class="idiomas" id="idiomas" role="group" aria-label="Idioma">
       <button type="button" data-idioma="es" lang="es" title="Español" aria-pressed="true">
         <svg viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="10" fill="#fff"/><rect y="10" width="30" height="10" fill="#D52B1E"/><rect width="10" height="10" fill="#0039A6"/><path d="M5 2.2 5.79 4.6 8.2 4.6 6.25 6.1 7 8.5 5 7 3 8.5 3.75 6.1 1.8 4.6 4.21 4.6Z" fill="#fff"/></svg>
@@ -30,19 +35,28 @@
         <span>PT</span><span class="oculto">Português</span>
       </button>
     </div>
+    <button type="button" class="boton boton-ayuda" id="abrir-ayuda" aria-haspopup="dialog">
+      <svg class="icono" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21a9 9 0 100-18 9 9 0 000 18zM9.5 9.2a2.5 2.5 0 014.8.9c0 1.7-2.5 2-2.5 3.4M12 17h.01"/></svg>
+      <span id="texto-ayuda">Ayuda</span>
+    </button>
   </div>
 </header>
 
-<div class="pegado">
-  <div class="navegacion"><nav class="ancho nav" id="nav" aria-label="Secciones"></nav></div>
-  <div id="filtro"></div>
+<!-- Página: a un lado se elige el grupo (enfermedad o región) y al otro se ve su detalle -->
+<div class="pagina" id="pagina">
+  <aside class="panel-selector" id="selector"></aside>
+  <main id="contenido" tabindex="-1">
+    <noscript>Este dashboard necesita JavaScript para mostrar los datos.</noscript>
+  </main>
 </div>
 
-<main id="contenido" class="ancho seccion" tabindex="-1">
-  <noscript>Este dashboard necesita JavaScript para mostrar los datos.</noscript>
-</main>
+<footer class="pie"><p id="pie"></p></footer>
 
-<footer class="pie"><p class="ancho" id="pie"></p></footer>
+<!-- Guía de uso, bienvenida y avisos: los arma js/app.js -->
+<div class="velo" id="velo" hidden></div>
+<aside class="guia" id="guia" role="dialog" aria-modal="true" aria-labelledby="guia-titulo" hidden></aside>
+<div class="bienvenida" id="bienvenida" role="dialog" aria-modal="true" aria-labelledby="bienvenida-titulo" hidden></div>
+<div class="tostada" id="tostada" role="status" aria-live="polite"></div>
 
 <!-- Bases de datos (las genera tools/preparar_datos.R) -->
 <script src="data/bd_encuesta.js"></script>

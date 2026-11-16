@@ -28,34 +28,42 @@ RheumaCL/
 │   └── bd_regiones.js
 ├── js/                  ver js/README.md
 │   ├── textos.js        los textos en los tres idiomas
-│   ├── graficos.js      barras, red, mapa y tablas
-│   └── app.js           estado, secciones y filtro
+│   ├── graficos.js      íconos, ayudas, barras, red, mapa y tablas
+│   └── app.js           estado, vistas, pestañas, guía y bienvenida
 └── tools/               ver tools/README.md
     ├── preparar_datos.R genera las dos bases de datos
     └── regiones.json    límites regionales en GeoJSON
 ```
 
-### Secciones
+### Vistas
 
-| Sección | Qué muestra | Filtro |
-|---|---|---|
-| Resumen | Doce indicadores de quienes declaran la enfermedad: prevalencia en la muestra, discapacidad, dolor, sexo y edad más frecuentes, fármacos, adherencia, gasto y continuidad. | Enfermedad |
-| Enfermedades combinadas | Una red en que cada círculo es una enfermedad y cada línea une dos que declara una misma persona, con las combinaciones más frecuentes de la enfermedad elegida. | Enfermedad |
-| Perfil del paciente | Sexo, edad, actividad física, dieta, tabaco, alcohol, manejo del dolor, salud percibida, años con diagnóstico, especialista tratante y relación con el médico. | Enfermedad |
-| Territorio | Un mapa con los encuestados de cada región y el perfil de la región elegida: enfermedades declaradas, sexo, edad e indicadores de la comuna de residencia. | Región |
-| Tratamientos | Uso de cada tipo de fármaco, cuántos tipos usa cada persona, combinaciones más frecuentes, terapias complementarias y cobertura institucional de la enfermedad (GES, guía clínica y Ley Ricarte Soto). | Enfermedad |
-| Brechas de acceso | Adherencia y razones para no seguir el tratamiento, situación frente al GES, gasto mensual, financiamiento alternativo, créditos y judicialización. | Enfermedad |
-| Sobre los datos | Qué es la encuesta, cómo leer las cifras, las 12 enfermedades y los créditos. | Ninguno |
+La barra superior tiene dos vistas. A la izquierda se elige el grupo y a la derecha se ve su ficha.
 
-### Decisiones de uso
+**Por enfermedad.** El panel de la izquierda lista las 12 enfermedades con el número de personas que declara cada una. La ficha muestra la enfermedad elegida en cinco pestañas:
 
-- Hay un solo filtro por pantalla, enfermedad o región, siempre en el mismo lugar. Al abrir, el dashboard muestra la enfermedad y la región con más encuestados.
-- La sección, la enfermedad, la región y el idioma quedan en la dirección de la página (`#seccion=perfil&enf=V15&reg=13&lang=es`), así que una vista se puede compartir con un enlace y el botón Atrás del navegador funciona.
-- Cada gráfico dice sobre cuántas personas se calcula, tiene un botón para ver sus cifras en una tabla y avisa cuando el grupo tiene menos de 30 personas.
-- Los porcentajes se calculan sobre quienes respondieron cada pregunta. Las preguntas de respuesta múltiple lo dicen en una nota, porque sus porcentajes no suman 100.
-- Los colores son los corporativos de la USACH. Ningún dato depende solo del color: las barras llevan su cifra y las categorías llevan su nombre.
-- El mapa se maneja con el puntero; la lista de regiones del filtro hace lo mismo con el teclado y con lectores de pantalla.
-- La página se adapta a pantallas de teléfono y de tableta, y el idioma elegido se recuerda en el navegador.
+| Pestaña | Qué muestra |
+|---|---|
+| Resumen | Doce indicadores en cuatro bloques: epidemiología, perfil del paciente, tratamiento y brechas de acceso. |
+| Enfermedades combinadas | Una red en que cada círculo es una enfermedad y cada línea une dos que declara una misma persona, con las combinaciones más frecuentes de la enfermedad elegida. Un clic en un círculo cambia de enfermedad. |
+| Perfil del paciente | Sexo, edad, actividad física, dieta, tabaco, alcohol, salud percibida, manejo del dolor, años con diagnóstico, especialista tratante y relación con el médico. |
+| Tratamientos | Uso de cada tipo de fármaco, cuántos tipos usa cada persona, combinaciones más frecuentes, terapias complementarias y cobertura institucional de la enfermedad (GES, guía clínica y Ley Ricarte Soto). |
+| Brechas de acceso | Adherencia y razones para no seguir el tratamiento, GES y seguros, gasto mensual, financiamiento alternativo, créditos y judicialización. |
+
+**Por región.** El panel de la izquierda trae el mapa de Chile y la lista de regiones de norte a sur, coloreados según cuántas personas respondieron. La ficha muestra a quienes viven en la región elegida: atención fuera de la región, discapacidad, enfermedades declaradas, sexo, edad e indicadores de la comuna de residencia.
+
+### Ayudas y decisiones de uso
+
+- **Bienvenida.** La primera visita abre una presentación de tres pasos (elegir una enfermedad, recorrer las pestañas y abrir las ayudas). Tiene una casilla para no volver a mostrarla.
+- **Botón "?".** Cada cifra y cada gráfico tiene un "?" que explica qué muestra y sobre quiénes se calcula. Se abre con el puntero, con el teclado o al tocarlo.
+- **Guía de uso.** El botón Ayuda abre un panel con cinco pestañas: cómo usar, cómo leer las cifras, qué trae cada sección, un glosario de 19 términos (GES, Ley Ricarte Soto, biológicos, adherencia y otros) y el origen de los datos.
+- **Menos ruido.** En Perfil, Tratamientos y Brechas de acceso los gráficos van en grupos que se abren y se cierran. Al entrar solo el primero está abierto y los demás dicen qué gráficos traen; "Abrir todo" los muestra todos.
+- **Cada acceso una sola vez.** El grupo se elige en el panel de la izquierda, la vista en la barra superior y el tema en las pestañas. Ningún botón se repite en otro lugar.
+- **Tabla y descarga.** Cada gráfico tiene un botón para ver sus cifras en una tabla y otro para descargarlas en CSV.
+- **Enlace.** La vista, la enfermedad, la región, la pestaña y el idioma quedan en la dirección de la página (`#modo=enfermedad&seccion=perfil&enf=V15&reg=13&lang=es`). "Copiar enlace" la copia, y el botón Atrás del navegador funciona.
+- **Grupos pequeños.** Cuando un grupo tiene menos de 30 personas, la ficha lo avisa.
+- **Lectura.** Cada gráfico dice sobre cuántas personas se calcula; las preguntas de respuesta múltiple lo advierten, porque sus porcentajes no suman 100. Ningún dato depende solo del color: las barras llevan su cifra y las categorías su nombre.
+- **Teclado y pantallas.** Las pestañas se recorren con las flechas, el foco vuelve a la opción elegida tras cada cambio y la guía y la bienvenida retienen el foco mientras están abiertas. En teléfonos y tabletas el panel de la izquierda se convierte en una lista desplegable. El idioma elegido se recuerda en el navegador.
+- **Colores.** Son los corporativos de la USACH: azul verdoso, naranja y grafito.
 
 ### Datos
 
@@ -69,7 +77,7 @@ Las cifras son las del dashboard Shiny, con tres diferencias:
 
 ### Idiomas
 
-Todos los textos están en `js/textos.js`, con las mismas 341 claves en castellano, inglés y portugués. Para cambiar un texto hay que cambiarlo en los tres idiomas. Los detalles, y cómo agregar un idioma, están en [`js/README.md`](js/README.md).
+Todos los textos están en `js/textos.js`, con los mismos 471 textos en castellano, inglés y portugués. Para cambiar un texto hay que cambiarlo en los tres idiomas. Los detalles, y cómo agregar un idioma, están en [`js/README.md`](js/README.md).
 
 ### Licencia y créditos
 
@@ -103,34 +111,42 @@ RheumaCL/
 │   └── bd_regiones.js
 ├── js/                  see js/README.md
 │   ├── textos.js        the texts in the three languages
-│   ├── graficos.js      bars, network, map and tables
-│   └── app.js           state, sections and filter
+│   ├── graficos.js      icons, help, bars, network, map and tables
+│   └── app.js           state, views, tabs, guide and welcome
 └── tools/               see tools/README.md
     ├── preparar_datos.R builds the two databases
     └── regiones.json    regional boundaries as GeoJSON
 ```
 
-### Sections
+### Views
 
-| Section | What it shows | Filter |
-|---|---|---|
-| Summary | Twelve indicators of the people who report the disease: prevalence in the sample, disability, pain, most frequent sex and age, drugs, adherence, spending and continuity. | Disease |
-| Combined diseases | A network where each circle is a disease and each line joins two reported by the same person, with the most frequent combinations of the selected disease. | Disease |
-| Patient profile | Sex, age, physical activity, diet, tobacco, alcohol, pain management, self-rated health, years since diagnosis, treating specialist and relationship with the physician. | Disease |
-| Regions | A map with the respondents of each region and the profile of the selected region: reported diseases, sex, age and indicators of the commune of residence. | Region |
-| Treatments | Use of each drug type, number of drug types per person, most frequent combinations, complementary therapies and institutional coverage of the disease (GES, clinical guideline and the Ricarte Soto Law). | Disease |
-| Access gaps | Adherence and reasons for not following the treatment, GES status, monthly spending, alternative funding, loans and litigation. | Disease |
-| About the data | What the survey is, how to read the figures, the 12 diseases and the credits. | None |
+The top bar offers two views. The group is chosen on the left and its profile is shown on the right.
 
-### Usability decisions
+**By disease.** The left panel lists the 12 diseases with the number of people who report each one. The profile shows the chosen disease in five tabs:
 
-- Each screen has a single filter, disease or region, always in the same place. On opening, the dashboard shows the disease and the region with the most respondents.
-- The section, disease, region and language are kept in the page address (`#seccion=perfil&enf=V15&reg=13&lang=es`), so a view can be shared with a link and the browser Back button works.
-- Every chart states how many people it is computed on, has a button to see its figures as a table and warns when the group has fewer than 30 people.
-- Percentages are computed over the people who answered each question. Multiple-answer questions say so in a note, because their percentages do not add up to 100.
-- The colours are the corporate colours of USACH. No value depends on colour alone: bars carry their figure and categories carry their name.
-- The map is operated with the pointer; the list of regions in the filter does the same with the keyboard and with screen readers.
-- The page adapts to phone and tablet screens, and the selected language is remembered in the browser.
+| Tab | What it shows |
+|---|---|
+| Summary | Twelve indicators in four blocks: epidemiology, patient profile, treatment and access gaps. |
+| Combined diseases | A network where each circle is a disease and each line joins two reported by the same person, with the most frequent combinations of the chosen disease. A click on a circle changes the disease. |
+| Patient profile | Sex, age, physical activity, diet, tobacco, alcohol, self-rated health, pain management, years since diagnosis, treating specialist and relationship with the physician. |
+| Treatments | Use of each drug type, number of drug types per person, most frequent combinations, complementary therapies and institutional coverage of the disease (GES, clinical guideline and the Ricarte Soto Law). |
+| Access gaps | Adherence and reasons for not following the treatment, GES and insurance, monthly spending, alternative funding, loans and court action. |
+
+**By region.** The left panel holds the map of Chile and the list of regions from north to south, coloured by the number of people who answered. The profile shows the people who live in the chosen region: care outside the region, disability, reported diseases, sex, age and indicators of the commune of residence.
+
+### Help and usability decisions
+
+- **Welcome.** The first visit opens a three-step introduction (choose a disease, go through the tabs and open the help). A checkbox stops it from showing again.
+- **"?" button.** Every figure and chart has a "?" that explains what it shows and over whom it is computed. It opens with the pointer, with the keyboard or with a tap.
+- **User guide.** The Help button opens a panel with five tabs: how to use, how to read the figures, what each section holds, a glossary of 19 terms (GES, Ricarte Soto Law, biologics, adherence and others) and the origin of the data.
+- **Less clutter.** In Patient profile, Treatments and Access gaps the charts sit in groups that open and close. On entry only the first group is open and the others list the charts they hold; "Open all" shows them all.
+- **Each access only once.** The group is chosen in the left panel, the view in the top bar and the topic in the tabs. No button is repeated elsewhere.
+- **Table and download.** Every chart has a button to see its figures as a table and another to download them as CSV.
+- **Link.** The view, disease, region, tab and language are kept in the page address (`#modo=enfermedad&seccion=perfil&enf=V15&reg=13&lang=es`). "Copy link" copies it, and the browser Back button works.
+- **Small groups.** When a group has fewer than 30 people, the profile says so.
+- **Reading.** Every chart states how many people it is computed on; multiple-answer questions warn that their percentages do not add up to 100. No value depends on colour alone: bars carry their figure and categories carry their name.
+- **Keyboard and screens.** The tabs are browsed with the arrow keys, focus returns to the chosen option after each change, and the guide and the welcome keep the focus while open. On phones and tablets the left panel becomes a drop-down list. The chosen language is remembered in the browser.
+- **Colours.** They are the corporate colours of USACH: teal, orange and graphite.
 
 ### Data
 
@@ -144,7 +160,7 @@ The figures are those of the Shiny dashboard, with three differences:
 
 ### Languages
 
-All the texts are in `js/textos.js`, with the same 341 keys in Spanish, English and Portuguese. A text change must be made in the three languages. The details, and how to add a language, are in [`js/README.md`](js/README.md).
+All the texts are in `js/textos.js`, with the same 471 texts in Spanish, English and Portuguese. A text change must be made in the three languages. The details, and how to add a language, are in [`js/README.md`](js/README.md).
 
 ### Licence and credits
 
