@@ -63,7 +63,7 @@ La barra superior tiene dos vistas. A la izquierda se elige el grupo y a la dere
 - **Grupos pequeños.** Cuando un grupo tiene menos de 30 personas, la ficha lo avisa.
 - **Lectura.** Cada gráfico dice sobre cuántas personas se calcula; las preguntas de respuesta múltiple lo advierten, porque sus porcentajes no suman 100. Ningún dato depende solo del color: las barras llevan su cifra y las categorías su nombre.
 - **Teclado y pantallas.** Las pestañas se recorren con las flechas, el foco vuelve a la opción elegida tras cada cambio y la guía y la bienvenida retienen el foco mientras están abiertas. En teléfonos y tabletas el panel de la izquierda se convierte en una lista desplegable. El idioma elegido se recuerda en el navegador.
-- **Colores.** Son los corporativos de la USACH: azul verdoso, naranja y grafito.
+- **Colores.** Son los corporativos de la USACH (azul verdoso, naranja y grafito) en tonos pastel. Como un pastel se distingue poco sobre blanco, cada barra lleva su cifra y los fármacos van agrupados por categoría con su subtítulo.
 
 ### Datos
 
@@ -77,7 +77,7 @@ Las cifras son las del dashboard Shiny, con tres diferencias:
 
 ### Idiomas
 
-Todos los textos están en `js/textos.js`, con los mismos 471 textos en castellano, inglés y portugués. Para cambiar un texto hay que cambiarlo en los tres idiomas. Los detalles, y cómo agregar un idioma, están en [`js/README.md`](js/README.md).
+Todos los textos están en `js/textos.js`, con los mismos 470 textos en castellano, inglés y portugués. Para cambiar un texto hay que cambiarlo en los tres idiomas. Los detalles, y cómo agregar un idioma, están en [`js/README.md`](js/README.md).
 
 ### Licencia y créditos
 
@@ -146,7 +146,7 @@ The top bar offers two views. The group is chosen on the left and its profile is
 - **Small groups.** When a group has fewer than 30 people, the profile says so.
 - **Reading.** Every chart states how many people it is computed on; multiple-answer questions warn that their percentages do not add up to 100. No value depends on colour alone: bars carry their figure and categories carry their name.
 - **Keyboard and screens.** The tabs are browsed with the arrow keys, focus returns to the chosen option after each change, and the guide and the welcome keep the focus while open. On phones and tablets the left panel becomes a drop-down list. The chosen language is remembered in the browser.
-- **Colours.** They are the corporate colours of USACH: teal, orange and graphite.
+- **Colours.** They are the corporate colours of USACH (teal, orange and graphite) in pastel shades. Since a pastel shade stands out little on white, every bar carries its figure and the drugs are grouped by category under a subtitle.
 
 ### Data
 
@@ -160,7 +160,7 @@ The figures are those of the Shiny dashboard, with three differences:
 
 ### Languages
 
-All the texts are in `js/textos.js`, with the same 471 texts in Spanish, English and Portuguese. A text change must be made in the three languages. The details, and how to add a language, are in [`js/README.md`](js/README.md).
+All the texts are in `js/textos.js`, with the same 470 texts in Spanish, English and Portuguese. A text change must be made in the three languages. The details, and how to add a language, are in [`js/README.md`](js/README.md).
 
 ### Licence and credits
 

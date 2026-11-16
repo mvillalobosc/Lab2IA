@@ -310,7 +310,10 @@
        opciones.fijas     con ranking, dos códigos que van primero y último
        opciones.multiple  pregunta de respuesta múltiple: agrega la nota
        opciones.color     función código -> color (series distintas)
-       opciones.leyenda   nodo de leyenda, si hay series distintas */
+       opciones.leyenda   nodo de leyenda, si hay series distintas
+       opciones.grupos    { de, orden, nombre }: presenta las barras bajo un
+                          subtítulo por grupo, en el orden dado, conservando
+                          el orden de las barras dentro de cada grupo */
   function tarjetaBarras(id, titulo, tablaBD, opciones) {
     if (!tablaBD.base) {
       return tarjeta(id, titulo, { ayuda: opciones.ayuda, grafico: el("p", { "class": "vacio" }, t("comun.sin_datos")) });
@@ -321,6 +324,12 @@
       filas = filas.filter(function (f) { return f.cod === opciones.fijas[0]; })
         .concat(filas.filter(function (f) { return opciones.fijas.indexOf(f.cod) < 0; }))
         .concat(filas.filter(function (f) { return f.cod === opciones.fijas[1]; }));
+    }
+    if (opciones.grupos) {
+      filas = opciones.grupos.orden.reduce(function (todas, g) {
+        return todas.concat(filas.filter(function (f) { return opciones.grupos.de(f.cod) === g; })
+          .map(function (f) { f.grupo = opciones.grupos.nombre(g); return f; }));
+      }, []);
     }
     return tarjeta(id, titulo, {
       ayuda: opciones.ayuda,
@@ -611,9 +620,6 @@
         detalle: t("comun.tip", { etq: etq, n: num(c[1]), base: num(tr.con_farmaco), pct: pct(c[2]) })
       };
     });
-    var leyendaCategorias = G.leyenda(["modificador", "antiinflamatorio", "otro"].map(function (c) {
-      return { color: COLOR_CATEGORIA[c], etq: T.cat.categoria[c] };
-    }), t("tratamientos.leyenda_cat"));
 
     var cobertura = tarjeta("trat-cobertura", t("tratamientos.c_cobertura"), {
       ayuda: t("ayuda.cobertura"),
@@ -633,7 +639,11 @@
         tarjetaBarras("trat-farmacos", t("tratamientos.c_farmacos"), tr.farmacos, {
           variable: "farmacos", ranking: true, multiple: true, ayuda: t("ayuda.farmacos"),
           color: function (c) { return COLOR_CATEGORIA[CATEGORIA_FARMACO[c]]; },
-          leyenda: leyendaCategorias
+          grupos: {
+            de: function (c) { return CATEGORIA_FARMACO[c]; },
+            orden: ["modificador", "antiinflamatorio", "otro"],
+            nombre: function (g) { return T.cat.categoria[g]; }
+          }
         }),
         tarjeta("trat-complejidad", t("tratamientos.c_complejidad"), {
           ayuda: t("ayuda.complejidad"),

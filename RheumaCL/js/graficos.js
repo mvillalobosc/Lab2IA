@@ -5,12 +5,15 @@
    globo de ayuda. Todo es HTML y SVG propios; no se usa ninguna librería
    externa.
 
-   Reglas de color (se validaron con una herramienta de contraste y
+   Reglas de color (se revisaron con una herramienta de contraste y
    daltonismo; no se cambian a ojo):
+     - colores pastel de la paleta USACH. Un tono pastel no alcanza 3:1 sobre
+       blanco, así que cada barra lleva su cifra escrita y cada gráfico tiene
+       su tabla;
      - una sola serie: un solo color (COLOR.serie);
      - categorías de una misma escala ordenada: rampa de un solo tono;
      - series distintas en un mismo gráfico: COLOR.categorias, siempre con
-       leyenda y con el valor escrito.
+       rótulos o subtítulos que digan a qué serie pertenece cada barra.
    ============================================================================= */
 (function () {
   "use strict";
@@ -18,14 +21,14 @@
   var SVG = "http://www.w3.org/2000/svg";
 
   var COLOR = {
-    serie: "#00A499",                                   // teal USACH
-    acento: "#EA7600",                                  // naranja USACH: selección
-    categorias: ["#00A499", "#EA7600", "#8C4799"],      // teal, naranja, morado
-    neutro: "#98A2A9",
-    rampa3: ["#5DC1B8", "#00958B", "#00554F"],
-    rampa4: ["#5DC1B8", "#1BA298", "#007D75", "#00514C"],
-    rampa6: ["#5DC1B8", "#36AEA5", "#0F9A91", "#00847C", "#006A64", "#004A45"],
-    sinDato: "#E3E8EA"
+    serie: "#7FCCC5",                                   // azul verdoso USACH en pastel
+    acento: "#F2AE6B",                                  // naranja USACH en pastel: selección
+    categorias: ["#7FCCC5", "#F2AE6B"],                 // azul verdoso y naranja en pastel
+    neutro: "#BCC6CF",
+    rampa3: ["#A9DDD7", "#6FC0B8", "#46958E"],
+    rampa4: ["#C9EBE7", "#97D3CC", "#67B6AE", "#468F89"],
+    rampa6: ["#E2F4F1", "#BAE3DE", "#93D1CA", "#6FBDB5", "#529F98", "#3E837D"],
+    sinDato: "#EEF1F3"
   };
 
   /* --------------------------------------------------------------------------
@@ -184,10 +187,12 @@
 
   /* --------------------------------------------------------------------------
      Barras horizontales.
-       filas:  [{ etq, pct, valor, detalle, color }]
+       filas:  [{ etq, pct, valor, detalle, color, grupo }]
                pct     número de 0 a 100 (null si no hay dato)
                valor   texto que se escribe en la punta de la barra
                detalle texto del globo
+               grupo   si se indica, las barras se presentan bajo un
+                       subtítulo por grupo (las filas deben venir ordenadas)
        escala: 100 para porcentajes de un mismo grupo (por defecto) o "max"
                para estirar hasta la barra más larga. Con "max" no se dibuja
                la pista de fondo, porque una barra llena no significa 100 %.
@@ -205,7 +210,14 @@
     var apiladas = filas.some(function (f) { return f.etq.length > ROTULO_LARGO; });
     var lista = el("ul", { "class": "barras" + (apiladas ? " barras-apiladas" : "") +
                                     (opciones.escala === "max" ? " barras-relativas" : "") });
+    var grupoAnterior = null;
     filas.forEach(function (f) {
+      if (f.grupo && f.grupo !== grupoAnterior) {
+        var marca = el("span", { "class": "muestra" });
+        marca.style.background = f.color || COLOR.serie;
+        lista.appendChild(el("li", { "class": "barras-subtitulo" }, [marca, f.grupo]));
+        grupoAnterior = f.grupo;
+      }
       var barra = el("span", { "class": "barra" });
       barra.style.width = (f.pct ? Math.max(f.pct / tope * 100, 0.8) : 0) + "%";
       barra.style.background = f.color || COLOR.serie;

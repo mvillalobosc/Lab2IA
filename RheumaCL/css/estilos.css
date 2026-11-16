@@ -1,9 +1,9 @@
 /* =============================================================================
    css/estilos.css
-   Estilos del dashboard. Paleta corporativa USACH: azul verdoso #00A499,
-   naranja #EA7600 y grafito #394049, con sus tonos. El naranja se usa en
-   marcas, bordes y avisos, nunca en texto, porque sobre blanco no alcanza el
-   contraste mínimo de lectura.
+   Estilos del dashboard. Paleta corporativa USACH (azul verdoso #00A499,
+   naranja #EA7600 y grafito #394049) en tonos pastel. Los textos van siempre
+   en tonos oscuros, porque un pastel sobre blanco no alcanza el contraste
+   mínimo de lectura.
 
    Orden: variables, base, botones, barra superior, página y panel de
    selección, ficha y pestañas, bloques y tarjetas, gráficos, guía, bienvenida
@@ -19,14 +19,14 @@
   --linea: #DFE4E8;
   --linea-2: #ECEFF1;
   --pista: #E9EEF1;          /* fondo de las barras */
-  --teal: #00A499;
-  --teal-d: #00857C;
-  --teal-dd: #00655E;        /* azul verdoso para texto */
+  --teal: #6FC4BC;           /* azul verdoso pastel: marcas, bordes y barras */
+  --teal-p: #8FD3CC;         /* fondo del botón principal */
+  --teal-dd: #00655E;        /* azul verdoso oscuro, para texto e íconos */
   --teal-ddd: #00514C;
   --teal-l: #E6F6F5;
   --teal-l2: #CDECEA;
-  --naranja: #EA7600;
-  --naranja-l: #FFF1E2;
+  --naranja: #F2AE6B;        /* naranja pastel: selección y avisos */
+  --naranja-l: #FFF4E8;
   --grafito: #394049;
   --foco: #00554F;
   --sombra-xs: 0 1px 2px rgba(41, 48, 58, .06);
@@ -85,8 +85,8 @@ main:focus, [tabindex="-1"]:focus { outline: none; }
   background: #fff; color: var(--tinta-2); font-size: 14px; font-weight: 600; line-height: 1.2; white-space: nowrap;
 }
 .boton:hover { border-color: var(--teal); color: var(--teal-dd); background: var(--teal-l); }
-.boton-primario { background: var(--teal-d); border-color: var(--teal-d); color: #fff; padding: 12px 22px; font-size: 15px; }
-.boton-primario:hover { background: var(--teal-dd); border-color: var(--teal-dd); color: #fff; }
+.boton-primario { background: var(--teal-p); border-color: var(--teal-p); color: var(--tinta); padding: 12px 22px; font-size: 15px; }
+.boton-primario:hover { background: var(--teal); border-color: var(--teal); color: var(--tinta); }
 .boton-texto {
   padding: 7px 10px; border: 0; border-radius: 8px; background: none;
   color: var(--teal-dd); font-size: 14px; font-weight: 600; white-space: nowrap;
@@ -194,7 +194,7 @@ main:focus, [tabindex="-1"]:focus { outline: none; }
 
 .mapa-y-lista { display: grid; grid-template-columns: 92px minmax(0, 1fr); gap: 8px; align-items: start; }
 .mapa { display: block; width: 100%; height: auto; }
-.region { stroke: #fff; stroke-width: .7; vector-effect: non-scaling-stroke; cursor: pointer; }
+.region { stroke: #9DB3B0; stroke-width: .6; vector-effect: non-scaling-stroke; cursor: pointer; }
 .region:hover { stroke: var(--tinta); stroke-width: 1.6; }
 .region-elegida, .region-elegida:hover { stroke: var(--naranja); stroke-width: 3; }
 .opciones-region .opcion { padding: 4px 8px 6px 11px; row-gap: 3px; }
@@ -207,25 +207,23 @@ main:focus, [tabindex="-1"]:focus { outline: none; }
    ---------------------------------------------------------------------------- */
 .ficha {
   display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 18px; align-items: start;
-  padding: 20px 22px; border-radius: var(--r); color: #fff;
-  background: linear-gradient(115deg, var(--teal-ddd), #00756D);
-  box-shadow: var(--sombra);
+  padding: 20px 22px; border-radius: var(--r); color: var(--tinta);
+  background: linear-gradient(115deg, #DDF2EF, #F0F9F7);
+  border: 1px solid var(--teal-l2); box-shadow: var(--sombra-xs);
 }
 .ficha-icono {
   display: grid; place-items: center; width: 48px; height: 48px; border-radius: 12px;
-  background: rgba(255, 255, 255, .14);
+  background: #fff; color: var(--teal-dd); box-shadow: var(--sombra-xs);
 }
 .ficha-icono .icono { width: 26px; height: 26px; stroke-width: 1.7; }
 .ficha h2 { font-size: 26px; line-height: 1.2; font-weight: 700; }
 .ficha-cifras { margin-top: 5px; font-size: 15.5px; }
-.ficha-desc { margin-top: 6px; max-width: 82ch; font-size: 14.5px; color: rgba(255, 255, 255, .92); }
+.ficha-desc { margin-top: 6px; max-width: 82ch; font-size: 14.5px; color: var(--tinta-2); }
 .ficha-aviso {
   display: inline-flex; align-items: flex-start; gap: 8px; margin-top: 12px; padding: 8px 12px;
-  border-radius: var(--r-sm); background: #fff; color: var(--tinta); font-size: 13.5px;
+  border: 1px solid #F5D9B8; border-radius: var(--r-sm); background: var(--naranja-l); color: var(--tinta); font-size: 13.5px;
 }
-.ficha-aviso .icono { color: var(--naranja); margin-top: 1px; }
-.boton-ficha { background: rgba(255, 255, 255, .1); border-color: rgba(255, 255, 255, .45); color: #fff; }
-.boton-ficha:hover { background: #fff; border-color: #fff; color: var(--teal-dd); }
+.ficha-aviso .icono { color: #C46A12; margin-top: 1px; }
 
 .barra-pestanas {
   position: sticky; top: var(--alto-barra); z-index: 30;
@@ -322,6 +320,9 @@ main:focus, [tabindex="-1"]:focus { outline: none; }
 .barra { display: block; height: 100%; border-radius: 0 4px 4px 0; }
 .fila-val { text-align: right; font-size: 14.5px; font-weight: 700; font-variant-numeric: tabular-nums; white-space: nowrap; }
 .fila-cero .fila-etq, .fila-cero .fila-val, .fila-cero .seg-etq, .fila-cero .seg-val { color: var(--tinta-3); font-weight: 400; }
+/* Subtítulo de un grupo de barras (por ejemplo, la categoría de cada fármaco) */
+.barras-subtitulo { display: flex; align-items: center; gap: 7px; margin-top: 8px; font-size: 13px; font-weight: 700; color: var(--tinta-2); }
+.barras-subtitulo:first-child { margin-top: 0; }
 .fila:hover .fila-pista, .seg-lista li:hover { background-color: #DFE6EA; }
 .barras-relativas .fila:hover .fila-pista { background: none; }
 .barras-relativas .fila:hover .fila-etq { text-decoration: underline; }
@@ -362,7 +363,7 @@ main:focus, [tabindex="-1"]:focus { outline: none; }
 .red { display: block; width: 100%; max-width: 720px; height: auto; margin: 0 auto; }
 .arista-linea { fill: none; stroke: #8E9AA2; stroke-opacity: .36; stroke-linecap: round; }
 .arista-zona { fill: none; stroke: transparent; stroke-width: 14; }
-.arista-elegida .arista-linea { stroke: var(--naranja); stroke-opacity: .85; }
+.arista-elegida .arista-linea { stroke: var(--naranja); stroke-opacity: 1; }
 .arista:hover .arista-linea { stroke: var(--tinta); stroke-opacity: .9; }
 .nodo { cursor: pointer; }
 .nodo-disco { stroke: #fff; stroke-width: 2; }
@@ -409,7 +410,7 @@ main:focus, [tabindex="-1"]:focus { outline: none; }
 .guia-pasos li::before {
   counter-increment: paso; content: counter(paso);
   display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%;
-  background: var(--teal-d); color: #fff; font-size: 14px; font-weight: 700;
+  background: var(--teal-l2); color: var(--teal-ddd); font-size: 14px; font-weight: 700;
 }
 .guia-pasos b { display: block; margin-bottom: 2px; }
 .guia-lista { display: grid; gap: 10px; padding-left: 1.2em; list-style: disc; color: var(--tinta-2); }
@@ -438,7 +439,7 @@ main:focus, [tabindex="-1"]:focus { outline: none; }
 .pasos li { padding: 16px; background: var(--papel-2); border: 1px solid var(--linea-2); border-radius: var(--r); }
 .paso-icono {
   display: grid; place-items: center; width: 38px; height: 38px; border-radius: var(--r-sm);
-  background: var(--grafito); color: #fff;
+  background: var(--teal-l); color: var(--teal-dd);
 }
 .pasos h3 { margin-top: 10px; font-size: 15px; }
 .pasos p { margin-top: 4px; font-size: 13.5px; color: var(--tinta-2); }
@@ -446,7 +447,7 @@ main:focus, [tabindex="-1"]:focus { outline: none; }
 .bienvenida-nota .icono { color: var(--teal-dd); }
 .bienvenida .boton-primario { width: 100%; margin-top: 18px; }
 .bienvenida-marcar { display: flex; justify-content: center; align-items: center; gap: 8px; margin-top: 12px; font-size: 13.5px; color: var(--tinta-2); cursor: pointer; }
-.bienvenida-marcar input { width: 16px; height: 16px; accent-color: var(--teal-d); }
+.bienvenida-marcar input { width: 16px; height: 16px; accent-color: var(--teal-dd); }
 
 .globo {
   position: fixed; z-index: 150; max-width: 300px; padding: 7px 10px; border-radius: 8px;

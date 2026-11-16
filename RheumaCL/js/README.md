@@ -8,7 +8,7 @@ Esta carpeta tiene el código que corre en el navegador. Son tres scripts clási
 
 | Archivo | Variable global | Qué hace |
 |---|---|---|
-| `textos.js` | `window.RCL_TEXTOS`, `window.RCL_REGIONES` | Trae todos los textos de la interfaz en castellano (`es`), inglés (`en`) y portugués (`pt`), con los mismos 471 textos en cada idioma, y el nombre corto y largo de cada región. |
+| `textos.js` | `window.RCL_TEXTOS`, `window.RCL_REGIONES` | Trae todos los textos de la interfaz en castellano (`es`), inglés (`en`) y portugués (`pt`), con los mismos 470 textos en cada idioma, y el nombre corto y largo de cada región. |
 | `graficos.js` | `window.RCL_GRAFICOS` | Dibuja las piezas: `icono()`, `botonAyuda()` (el "?" con su explicación), `barras()`, `segmentada()`, `leyenda()`, `tabla()`, `red()` (enfermedades combinadas, en SVG) y `mapa()` (regiones, en SVG). No conoce los datos ni los textos: recibe filas ya armadas. |
 | `app.js` | ninguna | Guarda el estado, lo lee y lo escribe en la dirección de la página, arma el panel de selección, la ficha y sus pestañas con los datos de `window.BD_ENCUESTA`, y maneja la bienvenida, la guía de uso y los avisos. |
 
@@ -55,7 +55,7 @@ This folder holds the code that runs in the browser. It consists of three classi
 
 | File | Global variable | What it does |
 |---|---|---|
-| `textos.js` | `window.RCL_TEXTOS`, `window.RCL_REGIONES` | Holds every interface text in Spanish (`es`), English (`en`) and Portuguese (`pt`), with the same 471 texts per language, and the short and long name of each region. |
+| `textos.js` | `window.RCL_TEXTOS`, `window.RCL_REGIONES` | Holds every interface text in Spanish (`es`), English (`en`) and Portuguese (`pt`), with the same 470 texts per language, and the short and long name of each region. |
 | `graficos.js` | `window.RCL_GRAFICOS` | Draws the building blocks: `icono()` (icons), `botonAyuda()` (the "?" with its explanation), `barras()` (bars), `segmentada()` (segmented bar), `leyenda()` (legend), `tabla()` (table), `red()` (network of combined diseases, SVG) and `mapa()` (regions, SVG). It knows nothing about the data or the texts: it receives rows that are ready to draw. |
 | `app.js` | none | Keeps the state, reads it from and writes it to the page address, builds the selection panel, the profile and its tabs with the data in `window.BD_ENCUESTA`, and handles the welcome, the user guide and the notices. |
 
