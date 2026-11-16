@@ -29,6 +29,8 @@ Lab2IA reúne aplicaciones web, pipelines de análisis y el código de artículo
 | [StrokeGRDCL](StrokeGRDCL/) | Caracteriza el ACV en Chile con los egresos GRD de Fonasa de 2019 a 2024, seleccionando variables con un consenso de tres modelos de aprendizaje automático. | Pipeline R |
 | [Zodiaco_grd_Code](Zodiaco_grd_Code/) | Repite un análisis ingenuo del signo zodiacal frente a los registros GRD de Fonasa y prueba si las variables que retiene predicen el signo en datos que no usó. | Pipeline R |
 | [TE_worldwide_code](TE_worldwide_code/) | Estima con DEA la eficiencia técnica de los sistemas de salud de 120 países entre 2015 y 2020 y compara cómo cambia según el conjunto de referencia. | Pipeline R |
+| [RheumaCL](RheumaCL/) | Muestra los resultados de la 1.ª Encuesta de la Red de Pacientes Reumáticos de Chile por enfermedad y por región: perfil de los pacientes, enfermedades combinadas, tratamientos y brechas de acceso. | App web |
+| [RheumaCL_code](RheumaCL_code/) | Caracteriza 12 enfermedades reumáticas con esa encuesta: selecciona variables con chi-cuadrado, compara tres modelos de aprendizaje automático con validación cruzada repetida y explica el mejor con valores SHAP. | Código R de un artículo |
 
 **Texto y lenguaje natural**
 
@@ -70,10 +72,10 @@ Las apps web se abren desde su `index.html`. Casi todas funcionan con doble clic
 
 | Proyecto | Punto de entrada |
 | --- | --- |
-| BACPPlanner, PaleoForest, Phyli, PhyloGEOYeast, ResearchAnalyser, StrokeAccessCL, StrokeAccessRM, YeastForest | `index.html` |
+| BACPPlanner, PaleoForest, Phyli, PhyloGEOYeast, ResearchAnalyser, RheumaCL, StrokeAccessCL, StrokeAccessRM, YeastForest | `index.html` |
 | PaleoColorCL | `python -m http.server 8000` dentro de la carpeta y luego `http://localhost:8000` |
 | PDF2JATS | `pip install -r requirements.txt` y `python3 app.py`, luego `http://127.0.0.1:5000` |
-| BookAnalyses, Papelucho, PichintunNLP, StrokeGRDCL, TE_worldwide_code | `Rscript run_all.R` |
+| BookAnalyses, Papelucho, PichintunNLP, RheumaCL_code, StrokeGRDCL, TE_worldwide_code | `Rscript run_all.R` |
 | MOPhyloKmer | `Rscript main.R` (un conjunto) o `Rscript run_experiments.R` (experimento completo) |
 | SNN_ANN_code | `Rscript scripts/00_run_all.R` |
 | PhyloOptReview_code | `Rscript R/00_run_all.R` |
@@ -82,7 +84,7 @@ Las apps web se abren desde su `index.html`. Casi todas funcionan con doble clic
 | YeastForest_code | Los scripts de `Bosque_cerevisiae/` y `Bosque_eubayanus/`, y después `preparar_app.R` y `figuras_MER.R` |
 | PhyloGEOYeast (pipeline) | `Rscript 99_correr_todo.R` dentro de `EvolutiveEubayanus_CODE/` o `EvolutiveSCerevisiae_CODE/` |
 
-Varios pipelines necesitan datos que no vienen en el repositorio, como los archivos GRD de Fonasa, los VCF de las levaduras, las exportaciones de Scopus y Web of Science o los textos de los libros. El README de cada proyecto dice qué datos trae, cuáles hay que conseguir y dónde dejarlos.
+Varios pipelines necesitan datos que no vienen en el repositorio, como los archivos GRD de Fonasa, la encuesta de pacientes reumáticos, los VCF de las levaduras, las exportaciones de Scopus y Web of Science o los textos de los libros. El README de cada proyecto dice qué datos trae, cuáles hay que conseguir y dónde dejarlos.
 
 ### Organización del repositorio
 
@@ -112,7 +114,7 @@ No hay una licencia común: cada proyecto trae la suya.
 
 | Licencia | Proyectos |
 | --- | --- |
-| MIT | BACPPlanner, BookAnalyses, ConscienciaDiscreta_code, MOPhyloKmer, PDF2JATS, PaleoColorCL, PaleoForest, Papelucho, PhyloGEOYeast, PichintunNLP, StrokeAccessRM, StrokeGRDCL, TE_worldwide_code, YeastForest, YeastForest_code, Zodiaco_grd_Code |
+| MIT | BACPPlanner, BookAnalyses, ConscienciaDiscreta_code, MOPhyloKmer, PDF2JATS, PaleoColorCL, PaleoForest, Papelucho, PhyloGEOYeast, PichintunNLP, RheumaCL, RheumaCL_code, StrokeAccessRM, StrokeGRDCL, TE_worldwide_code, YeastForest, YeastForest_code, Zodiaco_grd_Code |
 | MIT para el código y CC BY 4.0 para los datos y protocolos | PhyloOptReview_code, SNN_ANN_code |
 | CC BY-SA 4.0 | Phyli |
 | Licencia académica propia: permite revisión académica, docencia y reproducibilidad con atribución, y pide permiso para reutilizar o redistribuir | StrokeAccessCL |
@@ -161,6 +163,8 @@ Lab2IA gathers web applications, analysis pipelines and the code of papers devel
 | [StrokeGRDCL](StrokeGRDCL/) | Characterises stroke in Chile with the FONASA DRG discharge records from 2019 to 2024, selecting variables through a consensus of three machine learning models. | R pipeline |
 | [Zodiaco_grd_Code](Zodiaco_grd_Code/) | Repeats a naive analysis of zodiac sign against the FONASA DRG records and tests whether the variables it keeps predict the sign on data it did not use. | R pipeline |
 | [TE_worldwide_code](TE_worldwide_code/) | Estimates with DEA the technical efficiency of the health systems of 120 countries from 2015 to 2020 and compares how it changes with the reference set. | R pipeline |
+| [RheumaCL](RheumaCL/) | Shows the results of the 1st Survey of the Chilean Network of Rheumatic Patients by disease and by region: patient profile, combined diseases, treatments and access gaps. | Web app |
+| [RheumaCL_code](RheumaCL_code/) | Characterises 12 rheumatic diseases with that survey: it selects variables with a chi-square test, compares three machine learning models with repeated cross-validation and explains the best one with SHAP values. | R code of a paper |
 
 **Text and natural language**
 
@@ -202,10 +206,10 @@ The web apps open from their `index.html`. Almost all of them work with a double
 
 | Project | Entry point |
 | --- | --- |
-| BACPPlanner, PaleoForest, Phyli, PhyloGEOYeast, ResearchAnalyser, StrokeAccessCL, StrokeAccessRM, YeastForest | `index.html` |
+| BACPPlanner, PaleoForest, Phyli, PhyloGEOYeast, ResearchAnalyser, RheumaCL, StrokeAccessCL, StrokeAccessRM, YeastForest | `index.html` |
 | PaleoColorCL | `python -m http.server 8000` inside the folder, then `http://localhost:8000` |
 | PDF2JATS | `pip install -r requirements.txt` and `python3 app.py`, then `http://127.0.0.1:5000` |
-| BookAnalyses, Papelucho, PichintunNLP, StrokeGRDCL, TE_worldwide_code | `Rscript run_all.R` |
+| BookAnalyses, Papelucho, PichintunNLP, RheumaCL_code, StrokeGRDCL, TE_worldwide_code | `Rscript run_all.R` |
 | MOPhyloKmer | `Rscript main.R` (one dataset) or `Rscript run_experiments.R` (full experiment) |
 | SNN_ANN_code | `Rscript scripts/00_run_all.R` |
 | PhyloOptReview_code | `Rscript R/00_run_all.R` |
@@ -214,7 +218,7 @@ The web apps open from their `index.html`. Almost all of them work with a double
 | YeastForest_code | The scripts in `Bosque_cerevisiae/` and `Bosque_eubayanus/`, then `preparar_app.R` and `figuras_MER.R` |
 | PhyloGEOYeast (pipeline) | `Rscript 99_correr_todo.R` inside `EvolutiveEubayanus_CODE/` or `EvolutiveSCerevisiae_CODE/` |
 
-Several pipelines need data that are not in the repository, such as the FONASA DRG files, the yeast VCF files, the Scopus and Web of Science exports or the book texts. Each project README says which data it includes, which ones have to be obtained and where to put them.
+Several pipelines need data that are not in the repository, such as the FONASA DRG files, the survey of rheumatic patients, the yeast VCF files, the Scopus and Web of Science exports or the book texts. Each project README says which data it includes, which ones have to be obtained and where to put them.
 
 ### Repository layout
 
@@ -244,7 +248,7 @@ There is no common licence: each project carries its own.
 
 | Licence | Projects |
 | --- | --- |
-| MIT | BACPPlanner, BookAnalyses, ConscienciaDiscreta_code, MOPhyloKmer, PDF2JATS, PaleoColorCL, PaleoForest, Papelucho, PhyloGEOYeast, PichintunNLP, StrokeAccessRM, StrokeGRDCL, TE_worldwide_code, YeastForest, YeastForest_code, Zodiaco_grd_Code |
+| MIT | BACPPlanner, BookAnalyses, ConscienciaDiscreta_code, MOPhyloKmer, PDF2JATS, PaleoColorCL, PaleoForest, Papelucho, PhyloGEOYeast, PichintunNLP, RheumaCL, RheumaCL_code, StrokeAccessRM, StrokeGRDCL, TE_worldwide_code, YeastForest, YeastForest_code, Zodiaco_grd_Code |
 | MIT for the code and CC BY 4.0 for the data and protocols | PhyloOptReview_code, SNN_ANN_code |
 | CC BY-SA 4.0 | Phyli |
 | Own academic licence: it allows academic review, teaching and reproducibility with attribution, and asks for permission to reuse or redistribute | StrokeAccessCL |
