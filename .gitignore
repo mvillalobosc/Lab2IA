@@ -78,6 +78,16 @@ PichintunNLP/data/raw/dialogues_en.csv
 PichintunNLP/outputs/figures/
 PichintunNLP/outputs/tables/
 
+# RheumaCL: la encuesta que lee tools/preparar_datos.R (una fila por persona, no se distribuye)
+RheumaCL/tools/*.xlsx
+
+# RheumaCL_code: la encuesta, la base preparada y los resultados, también los del modo de prueba
+RheumaCL_code/data/raw/
+RheumaCL_code/data/processed/
+RheumaCL_code/data/processed_prueba/
+RheumaCL_code/results/
+RheumaCL_code/results_prueba/
+
 # StrokeAccessCL: progreso temporal del generador de isócronas
 StrokeAccessCL/isocronas_progreso.json
 

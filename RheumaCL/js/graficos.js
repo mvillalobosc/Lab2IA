@@ -1,0 +1,428 @@
+/* =============================================================================
+   js/graficos.js
+   Piezas con que se arma la interfaz: íconos, barras, barra segmentada, red
+   de enfermedades, mapa de regiones, tabla equivalente, globo de detalle y
+   globo de ayuda. Todo es HTML y SVG propios; no se usa ninguna librería
+   externa.
+
+   Reglas de color (se revisaron con una herramienta de contraste y
+   daltonismo; no se cambian a ojo):
+     - colores pastel de la paleta USACH. Un tono pastel no alcanza 3:1 sobre
+       blanco, así que cada barra lleva su cifra escrita y cada gráfico tiene
+       su tabla;
+     - una sola serie: un solo color (COLOR.serie);
+     - categorías de una misma escala ordenada: rampa de un solo tono;
+     - series distintas en un mismo gráfico: COLOR.categorias, siempre con
+       rótulos o subtítulos que digan a qué serie pertenece cada barra.
+   ============================================================================= */
+(function () {
+  "use strict";
+
+  var SVG = "http://www.w3.org/2000/svg";
+
+  var COLOR = {
+    serie: "#7FCCC5",                                   // azul verdoso USACH en pastel
+    acento: "#F2AE6B",                                  // naranja USACH en pastel: selección
+    categorias: ["#7FCCC5", "#F2AE6B"],                 // azul verdoso y naranja en pastel
+    neutro: "#BCC6CF",
+    rampa3: ["#A9DDD7", "#6FC0B8", "#46958E"],
+    rampa4: ["#C9EBE7", "#97D3CC", "#67B6AE", "#468F89"],
+    rampa6: ["#E2F4F1", "#BAE3DE", "#93D1CA", "#6FBDB5", "#529F98", "#3E837D"],
+    sinDato: "#EEF1F3"
+  };
+
+  /* --------------------------------------------------------------------------
+     Creación de elementos. El texto siempre entra como nodo de texto, nunca
+     como HTML.
+     -------------------------------------------------------------------------- */
+  function el(etiqueta, atributos, hijos) {
+    var nodo = document.createElement(etiqueta);
+    return completar(nodo, atributos, hijos);
+  }
+  function svg(etiqueta, atributos, hijos) {
+    var nodo = document.createElementNS(SVG, etiqueta);
+    return completar(nodo, atributos, hijos);
+  }
+  function completar(nodo, atributos, hijos) {
+    var clave;
+    if (atributos) {
+      for (clave in atributos) {
+        if (atributos[clave] !== null && atributos[clave] !== undefined && atributos[clave] !== false) {
+          nodo.setAttribute(clave, atributos[clave] === true ? "" : atributos[clave]);
+        }
+      }
+    }
+    agregar(nodo, hijos);
+    return nodo;
+  }
+  function agregar(nodo, hijos) {
+    if (hijos === null || hijos === undefined || hijos === false) return;
+    if (Array.isArray(hijos)) { hijos.forEach(function (hijo) { agregar(nodo, hijo); }); return; }
+    nodo.appendChild(typeof hijos === "object" ? hijos : document.createTextNode(String(hijos)));
+  }
+
+  /* --------------------------------------------------------------------------
+     Íconos de línea, dibujados en una caja de 24 x 24. Son decorativos: el
+     texto que los acompaña es el que nombra cada cosa.
+     -------------------------------------------------------------------------- */
+  var ICONOS = {
+    pulso:    "M3 12h4l2.5-6 4 12 2.5-6H21",
+    mapa:     "M12 21s-6.5-5.7-6.5-10.6a6.5 6.5 0 0113 0C18.5 15.3 12 21 12 21zM12 12.6a2.3 2.3 0 100-4.6 2.3 2.3 0 000 4.6z",
+    rejilla:  "M4.5 4.5h6v6h-6zM13.5 4.5h6v6h-6zM4.5 13.5h6v6h-6zM13.5 13.5h6v6h-6z",
+    red:      "M6 8.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM18 8.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM12 21a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM8.5 6h7M7.1 8.3l3.7 7.9M16.9 8.3l-3.7 7.9",
+    persona:  "M12 11.5a3.5 3.5 0 100-7 3.5 3.5 0 000 7zM5 20c0-3.4 3.1-5.5 7-5.5s7 2.1 7 5.5",
+    personas: "M9 11a3 3 0 100-6 3 3 0 000 6zM3 19c0-2.9 2.7-4.7 6-4.7s6 1.8 6 4.7M16.2 11a2.7 2.7 0 000-5.4M17.3 14.5c2.2.5 3.7 1.9 3.7 4.2",
+    capsula:  "M9.2 20.4a4 4 0 01-5.6-5.6l9.2-9.2a4 4 0 015.6 5.6zM8.2 10.2l5.6 5.6",
+    balanza:  "M12 4v16M8 20h8M5 7h14M5 7l-2.5 6a2.8 2.8 0 005 0zM19 7l-2.5 6a2.8 2.8 0 005 0z",
+    corazon:  "M12 20s-7-4.6-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.4-7 10-7 10z",
+    reloj:    "M12 21a9 9 0 100-18 9 9 0 000 18zM12 7.5V12l3 2",
+    dialogo:  "M4 5.5h16V16H10l-4.5 3.8V16H4z",
+    hoja:     "M5 19c0-8.5 5.5-13.5 14-14 .2 8.8-5 14-13 14M5 19l8-8",
+    capas:    "M12 4l8 4-8 4-8-4zM4 12l8 4 8-4M4 16l8 4 8-4",
+    escudo:   "M12 3.5l7 2.8v5.2c0 4.4-2.9 8-7 9.6-4.1-1.6-7-5.2-7-9.6V6.3zM9 12l2.2 2.2 4-4.2",
+    visto:    "M12 21a9 9 0 100-18 9 9 0 000 18zM8.2 12.3l2.6 2.6 5-5.3",
+    billete:  "M3 7h18v10H3zM12 14.3a2.3 2.3 0 100-4.6 2.3 2.3 0 000 4.6zM6 10.5v3M18 10.5v3",
+    credito:  "M3 6.5h18v11H3zM3 10.5h18M6.5 14.5h4",
+    casa:     "M4 11l8-7 8 7M6 9.5V20h12V9.5M10 20v-5.5h4V20",
+    ayuda:    "M12 21a9 9 0 100-18 9 9 0 000 18zM9.5 9.2a2.5 2.5 0 014.8.9c0 1.7-2.5 2-2.5 3.4M12 17h.01",
+    tabla:    "M3.5 5h17v14h-17zM3.5 10h17M9.5 5v14",
+    barras:   "M4 20v-3M9 20V10M14 20V6M19 20v-7",
+    descargar: "M12 4v11M7.5 10.8L12 15l4.5-4.2M5 20h14",
+    enlace:   "M10 14a4 4 0 005.7 0l3-3a4 4 0 00-5.7-5.7l-1 1M14 10a4 4 0 00-5.7 0l-3 3a4 4 0 005.7 5.7l1-1",
+    cerrar:   "M6 6l12 12M18 6L6 18",
+    flecha:   "M6 9l6 6 6-6",
+    info:     "M12 21a9 9 0 100-18 9 9 0 000 18zM12 11v5.5M12 7.8h.01",
+    alerta:   "M12 4.5l8.5 15h-17zM12 10v4.5M12 17.2h.01"
+  };
+  function icono(nombre, clase) {
+    return svg("svg", { viewBox: "0 0 24 24", "class": "icono" + (clase ? " " + clase : ""), "aria-hidden": "true", focusable: "false" },
+      svg("path", { d: ICONOS[nombre] || ICONOS.info }));
+  }
+
+  /* --------------------------------------------------------------------------
+     Globo. Hay uno solo en la página y tiene dos usos:
+       detalle  acompaña al puntero sobre una barra, un círculo o una región, o
+                se ancla al elemento con foco. Nunca es la única forma de leer
+                un valor: cada gráfico tiene su tabla.
+       ayuda    se abre bajo el botón "?" y explica qué muestra una cifra o un
+                gráfico. Es más ancho y deja que el texto ocupe varias líneas.
+     -------------------------------------------------------------------------- */
+  var globo = null, duenoGlobo = null, reabrirGlobo = null;
+  function crearGlobo() {
+    if (!globo) {
+      globo = el("div", { "class": "globo", role: "tooltip", hidden: true });
+      document.body.appendChild(globo);
+    }
+    return globo;
+  }
+  function mostrarGlobo(texto, x, y, deAyuda) {
+    var g = crearGlobo();
+    g.className = "globo" + (deAyuda ? " globo-ayuda" : "");
+    g.textContent = texto;
+    g.hidden = false;
+    var ancho = g.offsetWidth, alto = g.offsetHeight;
+    var izq = deAyuda ? x - ancho / 2 : x + 14;
+    izq = Math.min(Math.max(8, izq), window.innerWidth - ancho - 8);
+    var separacion = deAyuda ? 8 : 18;
+    var arriba = y + separacion + alto > window.innerHeight ? y - alto - (deAyuda ? 34 : 12) : y + separacion;
+    g.style.left = izq + "px";
+    g.style.top = Math.max(8, arriba) + "px";
+  }
+  function ocultarGlobo() {
+    if (globo) globo.hidden = true;
+    if (duenoGlobo && duenoGlobo.hasAttribute("aria-expanded")) duenoGlobo.setAttribute("aria-expanded", "false");
+    duenoGlobo = null;
+    reabrirGlobo = null;
+  }
+  // Globo anclado a un elemento con foco: si la página se desplaza (por
+  // ejemplo, al llegar a él con el tabulador), se vuelve a ubicar en vez de
+  // cerrarse.
+  function anclarGlobo(nodo, mostrar) {
+    duenoGlobo = nodo;
+    reabrirGlobo = mostrar;
+  }
+
+  /* Botón "?" con su explicación. Se abre al pasar el puntero, al recibir el
+     foco y al tocarlo; se cierra al salir, con Escape o al desplazar la página.
+     El texto va también dentro del botón, oculto a la vista, para quien usa
+     lector de pantalla. */
+  function botonAyuda(titulo, texto) {
+    var boton = el("button", { type: "button", "class": "ayuda-boton", "aria-expanded": "false" }, [
+      icono("ayuda"),
+      el("span", { "class": "oculto" }, titulo + ". " + texto)
+    ]);
+    function abrir() {
+      var caja = boton.getBoundingClientRect();
+      mostrarGlobo(texto, caja.left + caja.width / 2, caja.bottom, true);
+      boton.setAttribute("aria-expanded", "true");
+      anclarGlobo(boton, abrir);
+    }
+    boton.addEventListener("pointerenter", function (e) { if (e.pointerType === "mouse") abrir(); });
+    boton.addEventListener("pointerleave", function (e) { if (e.pointerType === "mouse") ocultarGlobo(); });
+    boton.addEventListener("focus", abrir);
+    boton.addEventListener("blur", ocultarGlobo);
+    boton.addEventListener("click", function (e) { e.stopPropagation(); abrir(); });
+    boton.addEventListener("keydown", function (e) { if (e.key === "Escape") { e.stopPropagation(); ocultarGlobo(); } });
+    return boton;
+  }
+
+  function conGlobo(nodo, texto) {
+    var dar = typeof texto === "function" ? texto : function () { return texto; };
+    nodo.addEventListener("pointerenter", function (e) { mostrarGlobo(dar(), e.clientX, e.clientY); });
+    nodo.addEventListener("pointermove", function (e) { mostrarGlobo(dar(), e.clientX, e.clientY); });
+    nodo.addEventListener("pointerleave", ocultarGlobo);
+    var alEnfocar = function () {
+      var caja = nodo.getBoundingClientRect();
+      mostrarGlobo(dar(), caja.left + caja.width / 2, caja.bottom - 6);
+      anclarGlobo(nodo, alEnfocar);
+    };
+    nodo.addEventListener("focus", alEnfocar);
+    nodo.addEventListener("blur", ocultarGlobo);
+    return nodo;
+  }
+  window.addEventListener("scroll", function () {
+    if (duenoGlobo && reabrirGlobo && document.activeElement === duenoGlobo) reabrirGlobo();
+    else ocultarGlobo();
+  }, true);
+
+  /* --------------------------------------------------------------------------
+     Barras horizontales.
+       filas:  [{ etq, pct, valor, detalle, color, grupo }]
+               pct     número de 0 a 100 (null si no hay dato)
+               valor   texto que se escribe en la punta de la barra
+               detalle texto del globo
+               grupo   si se indica, las barras se presentan bajo un
+                       subtítulo por grupo (las filas deben venir ordenadas)
+       escala: 100 para porcentajes de un mismo grupo (por defecto) o "max"
+               para estirar hasta la barra más larga. Con "max" no se dibuja
+               la pista de fondo, porque una barra llena no significa 100 %.
+     Si algún rótulo pasa de ROTULO_LARGO caracteres, todos van en su propia
+     línea sobre la barra: se leen completos en vez de partirse en una columna
+     angosta.
+     -------------------------------------------------------------------------- */
+  var ROTULO_LARGO = 30;
+  function barras(filas, opciones) {
+    opciones = opciones || {};
+    var tope = 100;
+    if (opciones.escala === "max") {
+      tope = Math.max.apply(null, filas.map(function (f) { return f.pct || 0; }).concat([1]));
+    }
+    var apiladas = filas.some(function (f) { return f.etq.length > ROTULO_LARGO; });
+    var lista = el("ul", { "class": "barras" + (apiladas ? " barras-apiladas" : "") +
+                                    (opciones.escala === "max" ? " barras-relativas" : "") });
+    var grupoAnterior = null;
+    filas.forEach(function (f) {
+      if (f.grupo && f.grupo !== grupoAnterior) {
+        var marca = el("span", { "class": "muestra" });
+        marca.style.background = f.color || COLOR.serie;
+        lista.appendChild(el("li", { "class": "barras-subtitulo" }, [marca, f.grupo]));
+        grupoAnterior = f.grupo;
+      }
+      var barra = el("span", { "class": "barra" });
+      barra.style.width = (f.pct ? Math.max(f.pct / tope * 100, 0.8) : 0) + "%";
+      barra.style.background = f.color || COLOR.serie;
+      var fila = el("li", { "class": "fila" + (f.pct ? "" : " fila-cero") }, [
+        el("span", { "class": "fila-etq" }, f.etq),
+        el("span", { "class": "fila-pista" }, barra),
+        el("span", { "class": "fila-val" }, f.valor)
+      ]);
+      if (f.detalle) conGlobo(fila, f.detalle);
+      lista.appendChild(fila);
+    });
+    return lista;
+  }
+
+  /* --------------------------------------------------------------------------
+     Barra segmentada delgada con sus cifras al lado: un todo repartido en
+     pocas partes ordenadas. Cada fila de la lista lleva su muestra de color,
+     así que no hace falta otra leyenda.
+       filas: [{ etq, pct, valor, detalle }]   colores: rampa de un tono
+     -------------------------------------------------------------------------- */
+  function segmentada(filas, colores, nombre) {
+    var barra = el("div", { "class": "seg-barra", role: "img", "aria-label": nombre || "" });
+    var lista = el("ul", { "class": "seg-lista" });
+    filas.forEach(function (f, i) {
+      if (f.pct) {
+        var parte = el("span", { "class": "seg-parte" });
+        parte.style.flexGrow = String(f.pct);
+        parte.style.background = colores[i];
+        if (f.detalle) conGlobo(parte, f.detalle);
+        barra.appendChild(parte);
+      }
+      var muestra = el("span", { "class": "muestra" });
+      muestra.style.background = colores[i];
+      var fila = el("li", { "class": f.pct ? "" : "fila-cero" }, [
+        muestra,
+        el("span", { "class": "seg-etq" }, f.etq),
+        el("span", { "class": "seg-val" }, f.valor)
+      ]);
+      if (f.detalle) conGlobo(fila, f.detalle);
+      lista.appendChild(fila);
+    });
+    return el("div", { "class": "seg" }, [barra, lista]);
+  }
+
+  /* --------------------------------------------------------------------------
+     Leyenda de series. items: [{ etq, color }]
+     -------------------------------------------------------------------------- */
+  function leyenda(items, titulo) {
+    return el("ul", { "class": "leyenda", "aria-label": titulo || null }, items.map(function (item) {
+      var muestra = el("span", { "class": "muestra" });
+      muestra.style.background = item.color;
+      return el("li", null, [muestra, item.etq]);
+    }));
+  }
+
+  /* --------------------------------------------------------------------------
+     Tabla equivalente a un gráfico.
+       columnas: [texto, ...]   filas: [[celda, ...], ...]
+       La primera columna es el encabezado de fila; las demás son números.
+     -------------------------------------------------------------------------- */
+  function tabla(columnas, filas, titulo) {
+    return el("table", { "class": "tabla" }, [
+      titulo ? el("caption", null, titulo) : null,
+      el("thead", null, el("tr", null, columnas.map(function (c, i) {
+        return el("th", { scope: "col", "class": i ? "num" : null }, c);
+      }))),
+      el("tbody", null, filas.map(function (fila) {
+        return el("tr", null, fila.map(function (celda, i) {
+          return i === 0 ? el("th", { scope: "row" }, celda) : el("td", { "class": "num" }, celda);
+        }));
+      }))
+    ]);
+  }
+
+  /* --------------------------------------------------------------------------
+     Red de enfermedades combinadas, con los nodos en círculo.
+       nodos:   [{ id, nombre, n, color, detalle }]
+       aristas: [{ a, b, n, detalle }]
+       elegido: id del nodo seleccionado
+       alElegir(id, conTeclado): se llama al hacer clic o al pulsar Enter o
+                 Espacio; conTeclado dice si la elección vino del teclado
+       compacta: dibujo para pantallas angostas (círculo más chico y letra más
+                 grande, para que los rótulos se lean sin ampliar)
+     El tamaño del círculo crece con la raíz del número de personas, para que
+     el área (y no el radio) sea proporcional. El grosor de la línea crece con
+     las personas que declaran ambas enfermedades.
+     -------------------------------------------------------------------------- */
+  function red(nodos, aristas, elegido, alElegir, nombre, compacta) {
+    var M = compacta
+      ? { ancho: 470, alto: 380, cx: 235, cy: 194, radio: 90, rMin: 6, rMas: 14, grosor: 6, letra: 17, corte: 12, aire: 10 }
+      : { ancho: 700, alto: 540, cx: 350, cy: 270, radio: 178, rMin: 9, rMas: 21, grosor: 9, letra: 17, corte: 15, aire: 12 };
+    var ANCHO = M.ancho, ALTO = M.alto, CX = M.cx, CY = M.cy, RADIO = M.radio;
+    var maxN = Math.max.apply(null, nodos.map(function (d) { return d.n; }));
+    var maxA = Math.max.apply(null, aristas.map(function (d) { return d.n; }).concat([1]));
+    var pos = {};
+    nodos.forEach(function (d, i) {
+      var angulo = -Math.PI / 2 + i * 2 * Math.PI / nodos.length;
+      pos[d.id] = {
+        x: CX + RADIO * Math.cos(angulo), y: CY + RADIO * Math.sin(angulo),
+        cos: Math.cos(angulo), sin: Math.sin(angulo),
+        r: M.rMin + M.rMas * Math.sqrt(d.n / maxN)
+      };
+    });
+
+    var raiz = svg("svg", {
+      "class": "red" + (compacta ? " red-compacta" : ""), viewBox: "0 0 " + ANCHO + " " + ALTO,
+      role: "group", "aria-label": nombre
+    });
+    var capaAristas = svg("g", { "class": "red-aristas" });
+    var capaNodos = svg("g", { "class": "red-nodos" });
+
+    // Primero las aristas ajenas al nodo elegido, encima las suyas
+    aristas.slice().sort(function (p, q) {
+      return (toca(p) - toca(q)) || (p.n - q.n);
+    }).forEach(function (a) {
+      var p = pos[a.a], q = pos[a.b];
+      var trazo = "M" + p.x.toFixed(1) + " " + p.y.toFixed(1) + "L" + q.x.toFixed(1) + " " + q.y.toFixed(1);
+      var grupo = svg("g", { "class": "arista" + (toca(a) ? " arista-elegida" : "") }, [
+        svg("path", { d: trazo, "class": "arista-linea", "stroke-width": (1 + M.grosor * a.n / maxA).toFixed(2) }),
+        svg("path", { d: trazo, "class": "arista-zona" })
+      ]);
+      conGlobo(grupo, a.detalle);
+      capaAristas.appendChild(grupo);
+    });
+    function toca(a) { return a.a === elegido || a.b === elegido ? 1 : 0; }
+
+    nodos.forEach(function (d) {
+      var p = pos[d.id];
+      var esElegido = d.id === elegido;
+      var grupo = svg("g", {
+        id: "nodo-" + d.id, "class": "nodo" + (esElegido ? " nodo-elegido" : ""),
+        tabindex: "0", role: "button", "aria-pressed": esElegido ? "true" : "false", "aria-label": d.detalle
+      });
+      if (esElegido) grupo.appendChild(svg("circle", { cx: p.x, cy: p.y, r: p.r + 5, "class": "nodo-aro" }));
+      grupo.appendChild(svg("circle", { cx: p.x, cy: p.y, r: p.r, fill: d.color, "class": "nodo-disco" }));
+
+      // Rótulo hacia afuera del círculo, partido en dos líneas si es largo
+      var lineas = partir(d.nombre, M.corte);
+      var distancia = p.r + M.aire;
+      var tx = p.x + p.cos * distancia, ty = p.y + p.sin * distancia;
+      var ancla = Math.abs(p.cos) < 0.25 ? "middle" : (p.cos > 0 ? "start" : "end");
+      var arriba = p.sin < -0.25, abajo = p.sin > 0.25;
+      var y0 = ty + (arriba ? -(lineas.length - 1) * M.letra - 2 : abajo ? 13 : -(lineas.length - 1) * M.letra / 2 + 5);
+      var texto = svg("text", { x: tx, y: y0, "text-anchor": ancla, "class": "nodo-etq" });
+      lineas.forEach(function (linea, i) {
+        texto.appendChild(svg("tspan", { x: tx, dy: i ? M.letra : 0 }, linea));
+      });
+      grupo.appendChild(texto);
+
+      grupo.addEventListener("click", function () { alElegir(d.id, false); });
+      grupo.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); alElegir(d.id, true); }
+      });
+      conGlobo(grupo, d.detalle);
+      capaNodos.appendChild(grupo);
+    });
+
+    raiz.appendChild(capaAristas);
+    raiz.appendChild(capaNodos);
+    return raiz;
+  }
+
+  // Parte un texto en líneas de hasta `largo` caracteres sin cortar palabras
+  function partir(texto, largo) {
+    var lineas = [], actual = "";
+    texto.split(" ").forEach(function (palabra) {
+      if (actual && (actual + " " + palabra).length > largo) { lineas.push(actual); actual = palabra; }
+      else actual = actual ? actual + " " + palabra : palabra;
+    });
+    if (actual) lineas.push(actual);
+    return lineas;
+  }
+
+  /* --------------------------------------------------------------------------
+     Mapa de regiones (coropleta por clases).
+       geo:      BD_REGIONES
+       regiones: [{ cod, color, detalle }]
+       elegida:  código de la región seleccionada
+     La región elegida se dibuja al final para que su borde quede encima.
+     El mapa se usa con el puntero. Quien navega con teclado o lector de
+     pantalla elige la región en la lista o en el selector, que traen lo mismo.
+     -------------------------------------------------------------------------- */
+  function mapa(geo, regiones, elegida, alElegir) {
+    var porCodigo = {};
+    regiones.forEach(function (r) { porCodigo[r.cod] = r; });
+    var raiz = svg("svg", {
+      "class": "mapa", viewBox: "-6 -6 " + (geo.ancho + 12) + " " + (geo.alto + 12), "aria-hidden": "true"
+    });
+    geo.regiones.slice().sort(function (p, q) {
+      return (p.cod === elegida ? 1 : 0) - (q.cod === elegida ? 1 : 0);
+    }).forEach(function (g) {
+      var r = porCodigo[g.cod];
+      if (!r) return;
+      var esElegida = g.cod === elegida;
+      var trazo = svg("path", { d: g.d, fill: r.color, "class": "region" + (esElegida ? " region-elegida" : "") });
+      trazo.addEventListener("click", function () { alElegir(g.cod); });
+      conGlobo(trazo, r.detalle);
+      raiz.appendChild(trazo);
+    });
+    return raiz;
+  }
+
+  window.RCL_GRAFICOS = {
+    COLOR: COLOR, el: el, svg: svg, icono: icono, botonAyuda: botonAyuda,
+    barras: barras, segmentada: segmentada, leyenda: leyenda, tabla: tabla, red: red, mapa: mapa,
+    conGlobo: conGlobo, ocultarGlobo: ocultarGlobo
+  };
+})();

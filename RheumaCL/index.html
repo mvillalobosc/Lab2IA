@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Análisis clínico de la 1.ª Encuesta de la Red de Pacientes Reumáticos de Chile</title>
+<meta name="description" content="Resultados de la 1.ª Encuesta de la Red de Pacientes Reumáticos de Chile por enfermedad y por región: perfil de los pacientes, enfermedades combinadas, tratamientos y brechas de acceso.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2300A499'/%3E%3Cpath d='M7 22V10M13 22V14M19 22V7M25 22V17' stroke='%23fff' stroke-width='3.4' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+<a class="saltar" id="saltar" href="#contenido">Saltar al contenido</a>
+
+<!-- Barra superior: marca, vistas, idiomas y ayuda. Cada acceso está una sola vez. -->
+<header class="cabecera">
+  <div class="cabecera-caja">
+    <div class="marca">
+      <img class="marca-logo" id="logo" src="assets/usach.png" alt="Universidad de Santiago de Chile" width="113" height="36">
+      <span class="marca-raya" aria-hidden="true"></span>
+      <h1 class="marca-nombre"><span id="titulo-1">Análisis clínico de la 1.ª Encuesta de la</span> <b id="titulo-2">Red de Pacientes Reumáticos de Chile</b></h1>
+    </div>
+    <nav class="modos" id="modos" aria-label="Vistas"></nav>
+    <div class="idiomas" id="idiomas" role="group" aria-label="Idioma">
+      <button type="button" data-idioma="es" lang="es" title="Español" aria-pressed="true">
+        <svg viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="10" fill="#fff"/><rect y="10" width="30" height="10" fill="#D52B1E"/><rect width="10" height="10" fill="#0039A6"/><path d="M5 2.2 5.79 4.6 8.2 4.6 6.25 6.1 7 8.5 5 7 3 8.5 3.75 6.1 1.8 4.6 4.21 4.6Z" fill="#fff"/></svg>
+        <span>ES</span><span class="oculto">Español</span>
+      </button>
+      <button type="button" data-idioma="en" lang="en" title="English" aria-pressed="false">
+        <svg viewBox="0 0 30 20" aria-hidden="true"><clipPath id="marco-bandera"><rect width="30" height="20"/></clipPath><g clip-path="url(#marco-bandera)"><rect width="30" height="20" fill="#012169"/><path d="M0 0 30 20M30 0 0 20" stroke="#fff" stroke-width="4"/><path d="M0 0 30 20M30 0 0 20" stroke="#C8102E" stroke-width="2"/><path d="M15 0V20M0 10H30" stroke="#fff" stroke-width="6"/><path d="M15 0V20M0 10H30" stroke="#C8102E" stroke-width="3.5"/></g></svg>
+        <span>EN</span><span class="oculto">English</span>
+      </button>
+      <button type="button" data-idioma="pt" lang="pt" title="Português" aria-pressed="false">
+        <svg viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" fill="#009B3A"/><path d="M15 2 28 10 15 18 2 10Z" fill="#FEDF00"/><circle cx="15" cy="10" r="4.2" fill="#002776"/></svg>
+        <span>PT</span><span class="oculto">Português</span>
+      </button>
+    </div>
+    <button type="button" class="boton boton-ayuda" id="abrir-ayuda" aria-haspopup="dialog">
+      <svg class="icono" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21a9 9 0 100-18 9 9 0 000 18zM9.5 9.2a2.5 2.5 0 014.8.9c0 1.7-2.5 2-2.5 3.4M12 17h.01"/></svg>
+      <span id="texto-ayuda">Ayuda</span>
+    </button>
+  </div>
+</header>
+
+<!-- Página: a un lado se elige el grupo (enfermedad o región) y al otro se ve su detalle -->
+<div class="pagina" id="pagina">
+  <aside class="panel-selector" id="selector"></aside>
+  <main id="contenido" tabindex="-1">
+    <noscript>Este dashboard necesita JavaScript para mostrar los datos.</noscript>
+  </main>
+</div>
+
+<footer class="pie"><p id="pie"></p></footer>
+
+<!-- Guía de uso, bienvenida y avisos: los arma js/app.js -->
+<div class="velo" id="velo" hidden></div>
+<aside class="guia" id="guia" role="dialog" aria-modal="true" aria-labelledby="guia-titulo" hidden></aside>
+<div class="bienvenida" id="bienvenida" role="dialog" aria-modal="true" aria-labelledby="bienvenida-titulo" hidden></div>
+<div class="tostada" id="tostada" role="status" aria-live="polite"></div>
+
+<!-- Bases de datos (las genera tools/preparar_datos.R) -->
+<script src="data/bd_encuesta.js"></script>
+<script src="data/bd_regiones.js"></script>
+<!-- Textos, gráficos y aplicación -->
+<script src="js/textos.js"></script>
+<script src="js/graficos.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
